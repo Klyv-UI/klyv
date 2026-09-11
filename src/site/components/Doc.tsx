@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { Surface, Text, cn } from 'citrine'
+import { Button, Surface, Text, cn } from 'citrine'
 import { catalog, findComponentByName, isNewComponent, type CatalogEntry } from '../data/catalog'
+import { isComposable } from '../composer/registry'
+import { HealthSummary } from './Health'
 import { NewBadge } from './NewBadge'
+import { SaveControls } from './SaveControls'
 import { sizeOf } from '../data/sizes'
 import { dependenciesOf } from '../data/dependencies'
 import { ariaRoles } from '../data/aria'
@@ -75,15 +78,28 @@ export function DocPage({ name, description, propNotes, apiNote, children }: Doc
       <article ref={articleRef} className="flex min-w-0 flex-1 flex-col gap-8">
         <header className="flex flex-col gap-3">
           {entry && group && <Breadcrumb group={group} section={entry.section} />}
-          <div className="flex flex-wrap items-center gap-2.5">
-            <Text as="h1" size="title">
-              {name}
-            </Text>
-            {isNewComponent(name) && <NewBadge />}
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div className="flex flex-wrap items-center gap-2.5">
+              <Text as="h1" size="title">
+                {name}
+              </Text>
+              {isNewComponent(name) && <NewBadge />}
+            </div>
+            {entry && (
+              <div className="flex flex-wrap items-center gap-1.5">
+                {isComposable(name) && (
+                  <Button as={Link} to={`/composer?add=${encodeURIComponent(name)}`} size="sm" variant="ghost">
+                    Open in Composer
+                  </Button>
+                )}
+                <SaveControls itemId={`component:${entry.slug}`} name={name} />
+              </div>
+            )}
           </div>
           <Text size="body" weight="medium" tone="soft" leading="normal" className="max-w-[68ch]">
             {description}
           </Text>
+          <HealthSummary name={name} />
         </header>
 
         {children}

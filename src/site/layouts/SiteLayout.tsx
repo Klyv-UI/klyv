@@ -1,16 +1,6 @@
-import { Suspense, memo, useEffect, useMemo, useState, type ReactNode } from 'react'
-import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
-import {
-  Bot,
-  Layers,
-  LayoutGrid,
-  LayoutTemplate,
-  Menu as MenuIcon,
-  Palette,
-  Rocket,
-  SlidersHorizontal,
-  Sparkles,
-} from 'lucide-react'
+import { Suspense, memo, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { Link, NavLink, Outlet, useLocation, useMatches } from 'react-router-dom'
+import { Menu as MenuIcon } from 'lucide-react'
 import { Drawer, IconButton, SearchField, Surface, Text, cn } from 'citrine'
 import { AccentPicker } from '../components/AccentPicker'
 import { SearchPalette, SearchTrigger, useSearchPalette } from '../components/SearchPalette'
@@ -20,6 +10,15 @@ import { blocks } from '../data/blocks'
 import { catalog, componentCount, isNewComponent, type CatalogEntry } from '../data/catalog'
 import { NewBadge } from '../components/NewBadge'
 import { groups } from '../data/groups'
+import { SITE_PAGES, SITE_SECTIONS, type SitePage } from '../data/pages'
+import { rememberVisit } from '../lib/history'
+import { useSavedCount } from '../lib/saved'
+
+/** What a route can ask of the shell, through its `handle`. */
+export interface RouteHandle {
+  /** Drop the docs sidebar and give the page the full width. */
+  fullBleed?: boolean
+}
 
 /**
  * The docs shell: a sticky header on every page, plus a component sidebar on
@@ -28,17 +27,30 @@ import { groups } from '../data/groups'
  * The landing page renders inside the same shell but without the sidebar, so
  * the header — and the accent picker in it — never reloads or jumps when
  * someone crosses from the pitch into the documentation.
+ *
+ * Everything this component hands its children is stable across navigation:
+ * the callbacks are memoised and the header and sidebar are memo components,
+ * so changing route re-renders the page and nothing beside it. Active links
+ * still update, because each NavLink reads the router itself.
  */
 export function SiteLayout() {
   const { pathname } = useLocation()
+  const matches = useMatches()
   const [navOpen, setNavOpen] = useState(false)
-  const search = useSearchPalette()
+  const { open: searchOpen, setOpen: setSearchOpen } = useSearchPalette()
 
   const isLanding = pathname === '/'
+  const fullBleed = matches.some((match) => (match.handle as RouteHandle | undefined)?.fullBleed)
 
   useEffect(() => {
     setNavOpen(false)
+    rememberVisit(pathname)
   }, [pathname])
+
+  const openNav = useCallback(() => setNavOpen(true), [])
+  const closeNav = useCallback(() => setNavOpen(false), [])
+  const openSearch = useCallback(() => setSearchOpen(true), [setSearchOpen])
+  const closeSearch = useCallback(() => setSearchOpen(false), [setSearchOpen])
 
   return (
     <div className="min-h-dvh">
@@ -50,14 +62,20 @@ export function SiteLayout() {
       </a>
 
       <SiteHeader
-        onOpenNav={() => setNavOpen(true)}
-        onOpenSearch={() => search.setOpen(true)}
-        showNavButton={!isLanding}
+        onOpenNav={openNav}
+        onOpenSearch={openSearch}
+        navButton={isLanding ? 'none' : fullBleed ? 'always' : 'narrow'}
       />
 
       {isLanding ? (
         <main id="main">
           <Outlet />
+        </main>
+      ) : fullBleed ? (
+        <main id="main" tabIndex={-1} className="mx-auto w-full max-w-[1600px] px-3 py-4 sm:px-5 lg:px-6">
+          <Suspense fallback={<div className="min-h-[70vh]" aria-busy="true" />}>
+            <Outlet />
+          </Suspense>
         </main>
       ) : (
         <div className="mx-auto flex w-full max-w-[1400px] gap-10 px-5 lg:px-8">
@@ -75,13 +93,13 @@ export function SiteLayout() {
         </div>
       )}
 
-      <SiteFooter />
+      {!fullBleed && <SiteFooter />}
 
-      <Drawer open={navOpen} onClose={() => setNavOpen(false)} title="Components" side="left">
+      <Drawer open={navOpen} onClose={closeNav} title="Navigation" side="left">
         <ComponentNav inDrawer />
       </Drawer>
 
-      <SearchPalette open={search.open} onClose={() => search.setOpen(false)} />
+      <SearchPalette open={searchOpen} onClose={closeSearch} />
     </div>
   )
 }
@@ -100,10 +118,10 @@ const TOP_LINKS: { to: string; label: string; from: 'md' | 'lg' | 'xl' }[] = [
   { to: '/getting-started', label: 'Get started', from: 'md' },
   { to: '/components', label: 'Components', from: 'md' },
   { to: '/blocks', label: 'Blocks', from: 'md' },
-  { to: '/foundations', label: 'Foundations', from: 'lg' },
-  { to: '/agents', label: 'AI agents', from: 'lg' },
-  { to: '/tokens', label: 'Tokens', from: 'xl' },
-  { to: '/playground', label: 'Playground', from: 'xl' },
+  { to: '/templates', label: 'Templates', from: 'lg' },
+  { to: '/composer', label: 'Composer', from: 'lg' },
+  { to: '/foundations', label: 'Foundations', from: 'xl' },
+  { to: '/agents', label: 'AI agents', from: 'xl' },
 ]
 
 /** Static strings, so Tailwind can see every class it has to generate. */
@@ -113,25 +131,26 @@ const SHOW_FROM = {
   xl: 'hidden xl:inline-flex',
 } as const
 
-function SiteHeader({
+const SiteHeader = memo(function SiteHeader({
   onOpenNav,
   onOpenSearch,
-  showNavButton,
+  navButton,
 }: {
   onOpenNav: () => void
   onOpenSearch: () => void
-  showNavButton: boolean
+  /** Where the drawer button shows: never, below lg (where the sidebar hides), or always. */
+  navButton: 'none' | 'narrow' | 'always'
 }) {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-[color-mix(in_oklab,var(--color-canvas)_82%,transparent)] backdrop-blur-xl">
       <div className="mx-auto flex h-[72px] w-full max-w-[1400px] items-center gap-3 px-5 lg:px-8">
-        {showNavButton && (
+        {navButton !== 'none' && (
           <IconButton
             label="Open navigation"
             icon={MenuIcon}
             tone="muted"
             onClick={onOpenNav}
-            className="lg:hidden"
+            className={navButton === 'narrow' ? 'lg:hidden' : undefined}
           />
         )}
 
@@ -175,20 +194,9 @@ function SiteHeader({
       </div>
     </header>
   )
-}
+})
 
 /* --------------------------------------------------------------- component nav */
-
-const DOC_LINKS = [
-  { to: '/', label: 'Overview', icon: Sparkles, end: true },
-  { to: '/getting-started', label: 'Get started', icon: Rocket, end: false },
-  { to: '/foundations', label: 'Foundations', icon: Layers, end: false },
-  { to: '/tokens', label: 'Design Tokens', icon: Palette, end: false },
-  { to: '/components', label: 'All components', icon: LayoutGrid, end: true },
-  { to: '/blocks', label: 'Blocks', icon: LayoutTemplate, end: true },
-  { to: '/playground', label: 'Playground', icon: SlidersHorizontal, end: false },
-  { to: '/agents', label: 'AI agents', icon: Bot, end: false },
-]
 
 /**
  * The nav tree, built once at module load.
@@ -213,13 +221,21 @@ const NAV_TREE = groups.map((group) => ({
  *
  * It sits on its own panel rather than loose on the page, because 250-odd links
  * next to a document need an edge to be a column instead of a wall of text.
- * Filtering searches the name, the section and the group, so "chart", "drag"
- * and "Overlays" all find something.
+ * Filtering searches the site's pages too, then the components by name,
+ * section and group, so "chart", "drag", "Overlays" and "composer" all find
+ * something.
+ *
+ * Above the components, the site's own pages are grouped by what someone came
+ * to do — explore, build, the design system, developer, and their own saved
+ * things — so the new sections arrive as five short clusters rather than one
+ * long list.
  *
  * Memoised, because it is a sibling of the page outlet: without this, changing
  * route re-rendered every link to produce identical markup. The active
  * highlight still tracks the URL, since each NavLink subscribes to the router
- * itself and context updates are not blocked by memo.
+ * itself and context updates are not blocked by memo. The one thing in here
+ * that changes with user action — the saved count — is its own small
+ * subscriber, so saving a favourite re-renders a number and not the tree.
  */
 const ComponentNav = memo(function ComponentNav({ inDrawer = false }: { inDrawer?: boolean }) {
   const [query, setQuery] = useState('')
@@ -227,13 +243,22 @@ const ComponentNav = memo(function ComponentNav({ inDrawer = false }: { inDrawer
   const matches = useMemo(() => {
     const needle = query.trim().toLowerCase()
     if (!needle) return null
-    return catalog.filter(
-      (entry) =>
-        entry.name.toLowerCase().includes(needle) ||
-        entry.section.toLowerCase().includes(needle) ||
-        entry.group.toLowerCase().includes(needle),
-    )
+    return {
+      pages: SITE_PAGES.filter(
+        (page) =>
+          page.label.toLowerCase().includes(needle) ||
+          page.keywords?.some((keyword) => keyword.includes(needle)),
+      ),
+      components: catalog.filter(
+        (entry) =>
+          entry.name.toLowerCase().includes(needle) ||
+          entry.section.toLowerCase().includes(needle) ||
+          entry.group.toLowerCase().includes(needle),
+      ),
+    }
   }, [query])
+
+  const matchCount = matches ? matches.pages.length + matches.components.length : 0
 
   const body = (
     <>
@@ -241,33 +266,28 @@ const ComponentNav = memo(function ComponentNav({ inDrawer = false }: { inDrawer
         value={query}
         onValueChange={setQuery}
         inputSize="sm"
-        label="Search components"
-        placeholder="Search components"
+        label="Filter navigation"
+        placeholder="Filter pages and components"
       />
 
-      <div className={cn('flex min-h-0 flex-col gap-5', !inDrawer && 'overflow-y-auto pr-1')}>
-        {!matches && (
-          <div className="flex flex-col gap-0.5">
-            {DOC_LINKS.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                end={link.end}
-                className={({ isActive }) =>
-                  cn(
-                    'flex items-center gap-2.5 rounded-[10px] px-2.5 py-2 text-[12.5px] font-semibold transition-colors',
-                    isActive
-                      ? 'bg-surface-muted text-ink'
-                      : 'text-ink-soft hover:bg-surface-muted hover:text-ink',
-                  )
-                }
+      <div className={cn('flex min-h-0 flex-col gap-4', !inDrawer && 'overflow-y-auto pr-1')}>
+        {!matches &&
+          SITE_SECTIONS.map((section) => (
+            <nav key={section.id} aria-label={section.label} className="flex flex-col">
+              <Text
+                as="span"
+                size="micro"
+                weight="bold"
+                tone="faint"
+                className="px-2.5 pb-1 uppercase tracking-[0.14em]"
               >
-                <link.icon size={15} aria-hidden />
-                {link.label}
-              </NavLink>
-            ))}
-          </div>
-        )}
+                {section.label}
+              </Text>
+              {section.pages.map((page) => (
+                <PageLink key={page.to} page={page} />
+              ))}
+            </nav>
+          ))}
 
         {!matches && (
           <div className="flex flex-col gap-0.5">
@@ -295,15 +315,20 @@ const ComponentNav = memo(function ComponentNav({ inDrawer = false }: { inDrawer
 
         {matches ? (
           <div className="flex flex-col gap-0.5">
-            <GroupHeading count={matches.length}>
-              {matches.length === 1 ? 'Match' : 'Matches'}
-            </GroupHeading>
-            {matches.length === 0 ? (
+            <GroupHeading count={matchCount}>{matchCount === 1 ? 'Match' : 'Matches'}</GroupHeading>
+            {matchCount === 0 ? (
               <Text size="caption" tone="faint" className="px-2.5 py-2">
                 Nothing matches “{query}”.
               </Text>
             ) : (
-              matches.map((entry) => <NavItem key={entry.slug} entry={entry} />)
+              <>
+                {matches.pages.map((page) => (
+                  <PageLink key={page.to} page={page} />
+                ))}
+                {matches.components.map((entry) => (
+                  <NavItem key={entry.slug} entry={entry} />
+                ))}
+              </>
             )}
           </div>
         ) : (
@@ -341,6 +366,37 @@ const ComponentNav = memo(function ComponentNav({ inDrawer = false }: { inDrawer
     </Surface>
   )
 })
+
+const PageLink = memo(function PageLink({ page }: { page: SitePage }) {
+  return (
+    <NavLink
+      to={page.to}
+      end={page.end}
+      className={({ isActive }) =>
+        cn(
+          'flex items-center gap-2.5 rounded-[10px] px-2.5 py-[7px] text-[12.5px] font-semibold transition-colors',
+          isActive ? 'bg-surface-muted text-ink' : 'text-ink-soft hover:bg-surface-muted hover:text-ink',
+        )
+      }
+    >
+      <page.icon size={15} aria-hidden />
+      <span className="min-w-0 flex-1 truncate">{page.label}</span>
+      {page.to === '/saved' && <SavedCount />}
+    </NavLink>
+  )
+})
+
+/** Subscribes to the favourites count alone. */
+function SavedCount() {
+  const count = useSavedCount()
+  if (count === 0) return null
+  return (
+    <Text as="span" size="micro" weight="bold" tone="faint" tabular>
+      {count}
+      <span className="sr-only"> favorites</span>
+    </Text>
+  )
+}
 
 function GroupHeading({
   children,
@@ -403,15 +459,8 @@ const NavItem = memo(function NavItem({ entry }: { entry: CatalogEntry }) {
 
 /* ------------------------------------------------------------------ footer */
 
-const RESOURCES = [
-  { to: '/getting-started', label: 'Get started' },
-  { to: '/components', label: 'All components' },
-  { to: '/blocks', label: 'Blocks' },
-  { to: '/foundations', label: 'Foundations' },
-  { to: '/tokens', label: 'Tokens' },
-  { to: '/playground', label: 'Playground' },
-  { to: '/agents', label: 'For AI agents' },
-]
+/** Every page except the two the logo and the sidebar already make obvious. */
+const RESOURCES = SITE_PAGES.filter((page) => page.to !== '/' && page.to !== '/saved')
 
 function SiteFooter() {
   return (
@@ -444,15 +493,17 @@ function SiteFooter() {
             <Text size="micro" weight="bold" tone="faint" className="uppercase tracking-[0.16em]">
               Documentation
             </Text>
-            {RESOURCES.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className="text-[12.5px] font-semibold text-ink-soft transition-colors hover:text-ink"
-              >
-                {link.label}
-              </Link>
-            ))}
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2.5">
+              {RESOURCES.map((page) => (
+                <Link
+                  key={page.to}
+                  to={page.to}
+                  className="text-[12.5px] font-semibold text-ink-soft transition-colors hover:text-ink"
+                >
+                  {page.label}
+                </Link>
+              ))}
+            </div>
           </nav>
 
           <nav aria-label="Groups" className="flex flex-col gap-2.5">

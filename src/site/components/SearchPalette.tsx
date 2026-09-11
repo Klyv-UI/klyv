@@ -1,27 +1,34 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
-  Bot,
-  Layers,
+  BookOpen,
+  Box,
+  ChefHat,
+  Clock,
+  Compass,
+  History,
   LayoutGrid,
   LayoutTemplate,
   Palette,
-  Rocket,
+  PanelsTopLeft,
+  Plug,
   Search,
-  SlidersHorizontal,
-  Sparkles,
+  X,
 } from 'lucide-react'
-import { CommandPalette, Kbd, Text, type Command } from 'citrine'
-import { blockCount, blocks } from '../data/blocks'
-import { catalog, componentCount } from '../data/catalog'
-import { groups } from '../data/groups'
+import { CommandPalette, Kbd, Text, type Command, type IconComponent } from 'citrine'
+import { useStore } from '../lib/store'
+import { forgetSearches, recentSearches, recentVisits, rememberSearch } from '../lib/history'
+import type { SearchEntry, SearchGroup } from '../lib/search'
 
 /**
  * Search, on the shortcut everyone already tries.
  *
- * It is the library's own CommandPalette rather than a bespoke one — a docs
- * site that reaches for something else to build its search is quietly saying
- * the component is not good enough, and this one is.
+ * Still the library's own CommandPalette — a docs site that reaches for
+ * something else to build its search is quietly saying the component is not
+ * good enough. What changed is the index behind it: every kind of thing on the
+ * site, ranked rather than substring-filtered, with recent searches and recent
+ * pages when the field is empty. The index module loads the first time the
+ * palette opens, so it costs the first page nothing.
  */
 export function useSearchPalette() {
   const [open, setOpen] = useState(false)
@@ -40,92 +47,113 @@ export function useSearchPalette() {
   return { open, setOpen }
 }
 
-const PAGES = [
-  { id: 'page:overview', label: 'Overview', to: '/', icon: Sparkles },
-  { id: 'page:getting-started', label: 'Get started', to: '/getting-started', icon: Rocket },
-  { id: 'page:components', label: 'All components', to: '/components', icon: LayoutGrid },
-  { id: 'page:blocks', label: 'Blocks', to: '/blocks', icon: LayoutTemplate },
-  { id: 'page:foundations', label: 'Foundations', to: '/foundations', icon: Layers },
-  { id: 'page:tokens', label: 'Design Tokens', to: '/tokens', icon: Palette },
-  { id: 'page:playground', label: 'Playground', to: '/playground', icon: SlidersHorizontal },
-  { id: 'page:agents', label: 'AI agents', to: '/agents', icon: Bot },
-]
+const GROUP_ICONS: Record<SearchGroup, IconComponent> = {
+  Pages: Compass,
+  Components: Box,
+  Blocks: LayoutTemplate,
+  Templates: PanelsTopLeft,
+  Recipes: ChefHat,
+  Integrations: Plug,
+  Groups: LayoutGrid,
+  Documentation: BookOpen,
+  Tokens: Palette,
+  Changelog: History,
+}
 
-export function SearchPalette({
-  open,
-  onClose,
-}: {
-  open: boolean
-  onClose: () => void
-}) {
+type Engine = {
+  search: typeof import('../lib/search').search
+  index: import('../lib/search').SearchIndex
+}
+
+let engine: Promise<Engine> | undefined
+const loadEngine = () =>
+  (engine ??= import('../lib/search').then((module) => ({ search: module.search, index: module.buildSearchIndex() })))
+
+/** The commands arrive ranked; the palette's own substring filter must not re-filter them. */
+const asRanked = (commands: Command[]) => commands
+
+export function SearchPalette({ open, onClose }: { open: boolean; onClose: () => void }) {
   const navigate = useNavigate()
+  const [ready, setReady] = useState<Engine | null>(null)
+  const [query, setQuery] = useState('')
+  const searches = useStore(recentSearches)
+  const visits = useStore(recentVisits)
+
+  useEffect(() => {
+    if (!open || ready) return
+    let live = true
+    loadEngine().then((loaded) => {
+      if (live) setReady(loaded)
+    })
+    return () => {
+      live = false
+    }
+  }, [open, ready])
 
   const commands = useMemo<Command[]>(() => {
-    const go = (to: string) => () => {
-      onClose()
-      navigate(to)
+    if (!ready) return []
+    const trimmed = query.trim()
+
+    const toCommand = (entry: SearchEntry, group: string = entry.group): Command => ({
+      id: `${group}:${entry.id}`,
+      label: entry.title,
+      description: entry.description,
+      group,
+      icon: GROUP_ICONS[entry.group],
+      keywords: entry.keywords,
+      onSelect: () => {
+        if (trimmed) rememberSearch(trimmed)
+        navigate(entry.to)
+      },
+    })
+
+    if (trimmed) return ready.search(ready.index, trimmed).map((hit) => toCommand(hit.entry))
+
+    // Nothing typed yet: what they searched for, where they have been, and
+    // the pages — so the palette is useful before the first keystroke.
+    const recent: Command[] = searches.map((text) => ({
+      id: `recent:${text}`,
+      label: text,
+      group: 'Recent searches',
+      icon: Clock,
+      keepOpen: true,
+      onSelect: () => setQuery(text),
+    }))
+    if (recent.length > 0) {
+      recent.push({
+        id: 'recent:clear',
+        label: 'Clear recent searches',
+        group: 'Recent searches',
+        icon: X,
+        keepOpen: true,
+        onSelect: forgetSearches,
+      })
     }
 
-    return [
-      ...PAGES.map((page) => ({
-        id: page.id,
-        label: page.label,
-        group: 'Go to',
-        icon: page.icon,
-        onSelect: go(page.to),
-      })),
-      ...blocks.map((block) => ({
-        id: `block:${block.slug}`,
-        label: block.name,
-        group: 'Blocks',
-        icon: LayoutTemplate,
-        // The words people actually type — "sign in", "2fa", "kpi" — come from
-        // the block's own keywords; the parts it uses find it by component too.
-        keywords: [
-          ...(block.keywords ?? []),
-          block.slug,
-          block.category,
-          'screen',
-          'block',
-          ...block.uses,
-        ],
-        onSelect: go(`/blocks/${block.slug}`),
-      })),
-      ...groups.map((group) => ({
-        id: `group:${group.slug}`,
-        label: group.id,
-        group: 'Groups',
-        // So "charts" finds the group as well as the components in it.
-        keywords: [group.slug, ...group.sections],
-        onSelect: go(`/components?group=${group.slug}`),
-      })),
-      ...catalog.map((entry) => ({
-        id: `component:${entry.slug}`,
-        label: entry.name,
-        group: entry.group,
-        // All three spellings reach DataTable: "data-table" from the slug,
-        // "datatable" and "data table" from these. The section adds the
-        // vocabulary someone uses when they know the job but not the name.
-        keywords: [
-          entry.slug,
-          entry.slug.replace(/-/g, ''),
-          entry.slug.replace(/-/g, ' '),
-          entry.section,
-          entry.group,
-        ],
-        onSelect: go(`/components/${entry.slug}`),
-      })),
-    ]
-  }, [navigate, onClose])
+    const viewed = visits
+      .map((path) => ready.index.byPath.get(path))
+      .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
+      .slice(0, 5)
+      .map((entry) => toCommand(entry, 'Recently viewed'))
+
+    const pages = ready.index.entries.filter((entry) => entry.group === 'Pages').map((entry) => toCommand(entry, 'Go to'))
+
+    return [...recent, ...viewed, ...pages]
+  }, [ready, query, searches, visits, navigate])
 
   return (
     <CommandPalette
       open={open}
       onClose={onClose}
       commands={commands}
+      filter={asRanked}
+      query={query}
+      onQueryChange={setQuery}
+      loading={!ready}
       label="Search the library"
-      placeholder={`Search ${componentCount} components and ${blockCount} blocks…`}
+      placeholder="Search components, blocks, docs…"
       emptyMessage="Nothing matches. Try what it does rather than what it is called."
+      className="max-sm:max-h-[78dvh]"
     />
   )
 }
@@ -144,6 +172,7 @@ export function SearchTrigger({ onOpen }: { onOpen: () => void }) {
       type="button"
       onClick={onOpen}
       aria-label="Search the library"
+      aria-keyshortcuts={isMac ? 'Meta+K' : 'Control+K'}
       // Below sm the label and the shortcut are dropped for a square glyph:
       // the header runs out of room before the reader runs out of patience,
       // and a keyboard hint is not much use on a device without one.

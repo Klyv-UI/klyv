@@ -1,17 +1,12 @@
-import {
-  Suspense,
-  lazy,
-  useEffect,
-  useState,
-  type ComponentType,
-  type LazyExoticComponent,
-} from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Badge, CodeBlock, Surface, Text } from 'citrine'
+import { Badge, Button, CodeBlock, Surface, Text } from 'citrine'
 import { Preview, Section } from '../components/Doc'
+import { SaveControls } from '../components/SaveControls'
 import { brand } from '../brand'
 import { blocks, findBlock } from '../data/blocks'
 import { blockSource } from '../data/source'
+import { blockComponent } from '../lib/blocks'
 
 /**
  * One block: the screen, then the file that produces it.
@@ -20,33 +15,6 @@ import { blockSource } from '../data/source'
  * a frame, source, then previous/next — because a block is not a different kind
  * of documentation, only a larger subject.
  */
-/**
- * Every block is shown inside this page's own main landmark, so each one is
- * told it is embedded. Blocks without a shell of their own simply ignore it.
- */
-interface BlockProps {
-  embedded?: boolean
-}
-
-/**
- * Every block file as its own lazy chunk, keyed by file name — the name each
- * entry in blocks.ts records. Adding a block is one entry and one file; there
- * is no second map here to forget, and the generator fails the build when an
- * entry names a file that does not exist.
- */
-const MODULES = import.meta.glob<{ default: ComponentType<BlockProps> }>('../blocks/*.tsx')
-const loaded = new Map<string, LazyExoticComponent<ComponentType<BlockProps>>>()
-
-function blockComponent(file: string) {
-  const known = loaded.get(file)
-  if (known) return known
-  const load = MODULES[`../blocks/${file}`]
-  if (!load) return undefined
-  const component = lazy(load)
-  loaded.set(file, component)
-  return component
-}
-
 export default function BlockPage() {
   const { slug } = useParams()
   const block = findBlock(slug)
@@ -90,9 +58,17 @@ export default function BlockPage() {
           <span className="text-[11.5px] font-bold text-ink-soft">{block.category}</span>
         </nav>
 
-        <Text as="h1" size="title">
-          {block.name}
-        </Text>
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <Text as="h1" size="title">
+            {block.name}
+          </Text>
+          <div className="flex flex-wrap items-center gap-1.5">
+            <Button as={Link} to={`/composer?block=${block.slug}`} size="sm" variant="ghost">
+              Open in Composer
+            </Button>
+            <SaveControls itemId={`block:${block.slug}`} name={block.name} />
+          </div>
+        </div>
         <Text size="body" weight="medium" tone="soft" leading="normal" className="max-w-[68ch]">
           {block.blurb}
         </Text>

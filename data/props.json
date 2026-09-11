@@ -2603,6 +2603,30 @@
         "required": true
       },
       {
+        "name": "filter",
+        "type": "(commands: Command[], query: string) => Command[]",
+        "required": false,
+        "description": "Replace the built-in matching. Receives every command and the raw query, and returns the ones to show in the order to show them; groups appear in the order their first command does."
+      },
+      {
+        "name": "query",
+        "type": "string",
+        "required": false,
+        "description": "Control the query from outside. Leave unset and the palette keeps its own."
+      },
+      {
+        "name": "onQueryChange",
+        "type": "(query: string) => void",
+        "required": false
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "The commands are still arriving. Shown in place of the empty state."
+      },
+      {
         "name": "placeholder",
         "type": "string",
         "required": false,

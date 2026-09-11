@@ -1,0 +1,226 @@
+/**
+ * The changelog, as data.
+ *
+ * Every released entry below is a commit that exists in this repository's
+ * history — the hash is kept on each change so it can be checked — and the
+ * version is the one package.json carries. Nothing is back-filled: the project
+ * has shipped one version, so there is one release, plus the unreleased work
+ * on the current branch, which is marked as such everywhere it is shown.
+ *
+ * Adding a release is one object at the top of `releases`.
+ */
+export type ChangeCategory = 'feature' | 'improvement' | 'fix' | 'breaking' | 'docs'
+
+export const CHANGE_CATEGORIES: { id: ChangeCategory; label: string }[] = [
+  { id: 'feature', label: 'New' },
+  { id: 'improvement', label: 'Improved' },
+  { id: 'fix', label: 'Fixed' },
+  { id: 'breaking', label: 'Breaking' },
+  { id: 'docs', label: 'Docs' },
+]
+
+export interface ChangeLink {
+  label: string
+  /** A route on this site. */
+  to: string
+}
+
+export interface Change {
+  category: ChangeCategory
+  title: string
+  description?: string
+  /** The commit it shipped in, when there is one. */
+  commit?: string
+  /** What it touched, so a reader can go and look. */
+  links?: ChangeLink[]
+}
+
+export interface Release {
+  /** "1.0.0", or "unreleased". Also the URL segment. */
+  version: string
+  /** ISO date. Absent for unreleased work. */
+  date?: string
+  title: string
+  summary: string
+  status: 'released' | 'unreleased'
+  changes: Change[]
+}
+
+export const releases: Release[] = [
+  {
+    version: 'unreleased',
+    title: 'The platform',
+    summary:
+      'Work on the current branch, not yet in a published version: the library grows from a catalogue into a place to discover, compose, save and integrate.',
+    status: 'unreleased',
+    changes: [
+      {
+        category: 'feature',
+        title: 'Composer',
+        description:
+          'Build a screen from the real components and blocks on a canvas, edit their props, preview it at three widths and copy the code with its dependencies.',
+        links: [{ label: 'Composer', to: '/composer' }],
+      },
+      {
+        category: 'feature',
+        title: 'Smart search',
+        description:
+          'The ⌘K palette now ranks fuzzy matches across components, blocks, templates, recipes, integrations, tokens and releases, and remembers recent searches and pages.',
+      },
+      {
+        category: 'feature',
+        title: 'Favorites and collections',
+        description: 'Save any component, block, template, recipe or integration, and file it into collections.',
+        links: [{ label: 'Saved', to: '/saved' }],
+      },
+      {
+        category: 'feature',
+        title: 'Component health',
+        description:
+          'Every component page shows its status and only the capabilities there is evidence for — measured from the source and the test suites, not typed by hand.',
+      },
+      {
+        category: 'feature',
+        title: 'Find My UI',
+        description: 'Answer two questions and get components, blocks, templates and recipes chosen from the shared tags.',
+        links: [{ label: 'Find My UI', to: '/find' }],
+      },
+      {
+        category: 'feature',
+        title: 'Templates, recipes, integrations and Built With',
+        links: [
+          { label: 'Templates', to: '/templates' },
+          { label: 'Recipes', to: '/recipes' },
+          { label: 'Integrations', to: '/integrations' },
+          { label: 'Built With', to: '/built-with' },
+        ],
+      },
+      {
+        category: 'improvement',
+        title: 'CommandPalette takes a custom filter, a loading state and a description per command',
+        description: 'All optional; existing callers behave exactly as before.',
+        links: [{ label: 'CommandPalette', to: '/components/command-palette' }],
+      },
+      {
+        category: 'improvement',
+        title: 'The sidebar groups its links by what you came to do',
+        description: 'Explore, Build, Design system, Developer and Saved — the component index below is unchanged.',
+      },
+    ],
+  },
+  {
+    version: '1.0.0',
+    date: '2026-09-11',
+    title: 'Citrine 1.0',
+    summary:
+      'The first version: an accent-led component library, the blocks built from it, an MCP server and an Agent Skill, and a docs site built with the library it documents.',
+    status: 'released',
+    changes: [
+      {
+        category: 'feature',
+        title: 'A SaaS group of 42 components, three SaaS blocks, and a New tag',
+        commit: 'e9ccffc',
+        links: [
+          { label: 'SaaS components', to: '/components?group=saas' },
+          { label: 'SaaS landing', to: '/blocks/saas-landing' },
+          { label: 'SaaS dashboard', to: '/blocks/saas-dashboard' },
+          { label: 'SaaS admin', to: '/blocks/saas-admin' },
+        ],
+      },
+      {
+        category: 'feature',
+        title: 'Blocks reach the CLI, the MCP server and search',
+        commit: '57ce183',
+        links: [{ label: 'Blocks', to: '/blocks' }],
+      },
+      {
+        category: 'feature',
+        title: 'Sixteen new components, and a landing page that leads with useful ones',
+        commit: '183b121',
+        links: [{ label: 'Components', to: '/components' }],
+      },
+      {
+        category: 'feature',
+        title: 'Button renders as a link with `as`',
+        commit: '6964bd4',
+        links: [{ label: 'Button', to: '/components/button' }],
+      },
+      {
+        category: 'feature',
+        title: 'Blocks — seven production-ready screens',
+        commit: '150aeb2',
+        links: [{ label: 'Blocks', to: '/blocks' }],
+      },
+      {
+        category: 'feature',
+        title: 'The library, exposed to AI harnesses over MCP and as an Agent Skill',
+        commit: '787f941',
+        links: [{ label: 'AI agents', to: '/agents' }],
+      },
+      {
+        category: 'feature',
+        title: 'Citrine, an accent-led React component library',
+        commit: 'e68c49b',
+        links: [{ label: 'Get started', to: '/getting-started' }],
+      },
+      {
+        category: 'improvement',
+        title: 'Keyboard behaviour the docs promise is now covered by tests',
+        commit: '917d357',
+      },
+      {
+        category: 'improvement',
+        title: 'The landing page, redesigned around components, blocks and screens',
+        commit: 'e0a81ff',
+        links: [{ label: 'Overview', to: '/' }],
+      },
+      {
+        category: 'improvement',
+        title: 'The sidebar stopped re-rendering on navigation, and every example is framed alike',
+        commit: 'afce8ec',
+      },
+      {
+        category: 'improvement',
+        title: 'Sidebar links for the new pages, and both component views reworked',
+        commit: '6a2e821',
+        links: [{ label: 'Components', to: '/components' }],
+      },
+      {
+        category: 'fix',
+        title: 'Colour contrast, measured in a real browser',
+        commit: 'f1d3163',
+        links: [{ label: 'Foundations', to: '/foundations' }],
+      },
+      {
+        category: 'docs',
+        title: 'The README contradicted itself about the dependency count',
+        commit: '785f8b2',
+      },
+      {
+        category: 'docs',
+        title: 'The 21 props the new components left blank are described',
+        commit: '6a35a58',
+      },
+      {
+        category: 'docs',
+        title: 'A Get started page',
+        commit: 'b87f645',
+        links: [{ label: 'Get started', to: '/getting-started' }],
+      },
+      {
+        category: 'docs',
+        title: 'The MCP server and the skill documented on the site',
+        commit: '5a03193',
+        links: [{ label: 'AI agents', to: '/agents' }],
+      },
+    ],
+  },
+]
+
+export function findRelease(version: string | undefined): Release | undefined {
+  return releases.find((release) => release.version === version)
+}
+
+export function releaseLabel(release: Release): string {
+  return release.status === 'unreleased' ? 'Unreleased' : `v${release.version}`
+}

@@ -1,4 +1,4 @@
-import { Component, act, type ReactNode } from 'react'
+import { Component, act, type ComponentType, type ReactNode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import axe from 'axe-core'
@@ -7,6 +7,17 @@ import { writeFileSync } from 'node:fs'
 import ComponentPage from '../src/site/pages/ComponentPage'
 import LandingPage from '../src/site/pages/LandingPage'
 import BlockPage from '../src/site/pages/BlockPage'
+import TemplatesPage from '../src/site/pages/TemplatesPage'
+import TemplatePage from '../src/site/pages/TemplatePage'
+import RecipesPage from '../src/site/pages/RecipesPage'
+import RecipePage from '../src/site/pages/RecipePage'
+import IntegrationsPage from '../src/site/pages/IntegrationsPage'
+import IntegrationPage from '../src/site/pages/IntegrationPage'
+import ChangelogPage from '../src/site/pages/ChangelogPage'
+import ReleasePage from '../src/site/pages/ReleasePage'
+import BuiltWithPage from '../src/site/pages/BuiltWithPage'
+import FindPage from '../src/site/pages/FindPage'
+import SavedPage from '../src/site/pages/SavedPage'
 import { blocks } from '../src/site/data/blocks'
 import { catalog } from '../src/site/data/catalog'
 
@@ -211,6 +222,72 @@ describe('block pages pass axe', () => {
       for (const violation of result.violations) {
         findings.push({
           slug: `block:${slug}`,
+          rule: violation.id,
+          impact: violation.impact,
+          nodes: violation.nodes.length,
+          help: violation.help,
+          target: String(violation.nodes[0]?.target ?? ''),
+          why: (violation.nodes[0]?.failureSummary ?? '').replace(/\s+/g, ' ').slice(0, 240),
+        })
+      }
+
+      act(() => root.unmount())
+      container.remove()
+    },
+    30000,
+  )
+})
+
+/**
+ * The platform pages — templates, recipes, integrations, the changelog, Built
+ * With, Find My UI and Saved — rendered inside a main, as the site renders
+ * them. The Composer is not here: its canvas is an iframe, which jsdom does
+ * not lay out, so it is audited in the browser instead.
+ */
+const PLATFORM_PAGES: { url: string; path: string; Page: ComponentType }[] = [
+  { url: '/templates', path: '/templates', Page: TemplatesPage },
+  { url: '/templates/saas-starter', path: '/templates/:slug', Page: TemplatePage },
+  { url: '/recipes', path: '/recipes', Page: RecipesPage },
+  { url: '/recipes/login-flow', path: '/recipes/:slug', Page: RecipePage },
+  { url: '/integrations', path: '/integrations', Page: IntegrationsPage },
+  { url: '/integrations/stripe', path: '/integrations/:slug', Page: IntegrationPage },
+  { url: '/changelog', path: '/changelog', Page: ChangelogPage },
+  { url: '/changelog/1.0.0', path: '/changelog/:version', Page: ReleasePage },
+  { url: '/built-with', path: '/built-with', Page: BuiltWithPage },
+  { url: '/find', path: '/find', Page: FindPage },
+  { url: '/find?type=saas&needs=billing,authentication&step=results', path: '/find', Page: FindPage },
+  { url: '/saved', path: '/saved', Page: SavedPage },
+]
+
+describe('platform pages pass axe', () => {
+  it.each(PLATFORM_PAGES)(
+    '$url',
+    async ({ url, path, Page }) => {
+      const container = document.createElement('div')
+      document.body.append(container)
+      const root = createRoot(container)
+
+      await act(async () => {
+        root.render(
+          <Boundary slug={url}>
+            <MemoryRouter initialEntries={[url]}>
+              <main>
+                <Routes>
+                  <Route path={path} element={<Page />} />
+                </Routes>
+              </main>
+            </MemoryRouter>
+          </Boundary>,
+        )
+      })
+
+      await waitFor(() => !!container.querySelector('h1'))
+      await waitFor(() => !container.querySelector('[aria-busy="true"]'))
+
+      const result = await axe.run(container, { rules: RULES })
+      for (const violation of result.violations) {
+        findings.push({
+          slug: url,
           rule: violation.id,
           impact: violation.impact,
           nodes: violation.nodes.length,

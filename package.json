@@ -59,7 +59,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "generate": "node scripts/generate-metadata.mjs && node scripts/generate-props.mjs && node scripts/generate-blocks.mjs && node scripts/generate-mcp-docs.mjs && node scripts/client-directives.mjs --check && node scripts/check-rules.mjs",
+    "generate": "node scripts/generate-metadata.mjs && node scripts/generate-props.mjs && node scripts/generate-blocks.mjs && node scripts/generate-mcp-docs.mjs && node scripts/generate-evidence.mjs && node scripts/client-directives.mjs --check && node scripts/check-rules.mjs",
     "predev": "npm run generate",
     "dev": "vite",
     "prebuild": "npm run generate",
@@ -78,7 +78,8 @@
     "mcp": "node mcp/server.mjs",
     "test:mcp": "node --test test/mcp.test.mjs",
     "test:interaction": "vitest run test/interaction --reporter=dot",
-    "test": "npm run test:interaction && npm run test:a11y && npm run test:mcp",
+    "test:platform": "vitest run test/platform --reporter=dot",
+    "test": "npm run test:interaction && npm run test:platform && npm run test:a11y && npm run test:mcp",
     "test:browser": "playwright test",
     "test:browser:update": "playwright test --update-snapshots"
   },

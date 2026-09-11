@@ -8,12 +8,15 @@ import { Text } from '../Text'
 import { EmptyState } from '../EmptyState'
 import { FocusTrap } from '../FocusTrap'
 import { Portal } from '../Portal'
+import { Spinner } from '../Spinner'
 import { SearchIcon } from '../internal/icons'
 import type { IconComponent } from '../../lib/types'
 
 export interface Command {
   id: string
   label: string
+  /** A second line under the label — where it lives, or what it does. */
+  description?: string
   /** Group heading this command appears under. */
   group?: string
   icon?: IconComponent
@@ -21,6 +24,8 @@ export interface Command {
   keywords?: string[]
   /** Shortcut hint, e.g. ['⌘', 'K']. */
   shortcut?: string[]
+  /** Leave the palette open after running — for a command that changes the palette itself, like a recent search. */
+  keepOpen?: boolean
   onSelect: () => void
 }
 
@@ -28,6 +33,17 @@ export interface CommandPaletteProps {
   open: boolean
   onClose: () => void
   commands: Command[]
+  /**
+   * Replace the built-in matching. Receives every command and the raw query,
+   * and returns the ones to show in the order to show them; groups appear in
+   * the order their first command does.
+   */
+  filter?: (commands: Command[], query: string) => Command[]
+  /** Control the query from outside. Leave unset and the palette keeps its own. */
+  query?: string
+  onQueryChange?: (query: string) => void
+  /** The commands are still arriving. Shown in place of the empty state. */
+  loading?: boolean
   /** Placeholder for the search field. */
   placeholder?: string
   /** Accessible name for the dialog. */
@@ -43,7 +59,8 @@ export interface CommandPaletteProps {
  *
  * Matching is a plain case-insensitive substring over the label, group and
  * keywords — predictable enough that a user learns which prefix reaches which
- * command, which is the whole value of a palette.
+ * command, which is the whole value of a palette. A caller with a larger or
+ * messier index can pass its own `filter` to rank instead.
  *
  * Focus stays in the input while arrows move the active row, tracked with
  * aria-activedescendant, so typing never has to stop to navigate.
@@ -52,16 +69,29 @@ export function CommandPalette({
   open,
   onClose,
   commands,
+  filter,
+  query: controlledQuery,
+  onQueryChange,
+  loading = false,
   placeholder = 'Search commands',
   label = 'Command palette',
   emptyMessage = 'No commands match',
   className,
 }: CommandPaletteProps) {
-  const [query, setQuery] = useState('')
+  const [ownQuery, setOwnQuery] = useState('')
+  const query = controlledQuery ?? ownQuery
   const [active, setActive] = useState(0)
   const listRef = useRef<HTMLDivElement>(null)
 
+  const onQueryChangeRef = useRef(onQueryChange)
+  onQueryChangeRef.current = onQueryChange
+  const setQuery = (next: string) => {
+    if (controlledQuery === undefined) setOwnQuery(next)
+    onQueryChangeRef.current?.(next)
+  }
+
   const filtered = useMemo(() => {
+    if (filter) return filter(commands, query)
     const normalised = query.trim().toLowerCase()
     if (!normalised) return commands
     return commands.filter((command) =>
@@ -70,7 +100,7 @@ export function CommandPalette({
         .toLowerCase()
         .includes(normalised),
     )
-  }, [commands, query])
+  }, [commands, query, filter])
 
   const groups = useMemo(() => {
     const map = new Map<string, Command[]>()
@@ -89,7 +119,8 @@ export function CommandPalette({
 
   useEffect(() => {
     if (!open) {
-      setQuery('')
+      setOwnQuery('')
+      onQueryChangeRef.current?.('')
       return
     }
     const onKeyDown = (event: globalThis.KeyboardEvent) => {
@@ -112,7 +143,7 @@ export function CommandPalette({
 
   const run = (command: Command) => {
     command.onSelect()
-    onClose()
+    if (!command.keepOpen) onClose()
   }
 
   const onInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -175,7 +206,14 @@ export function CommandPalette({
               />
             </div>
 
-            <div ref={listRef} id={listId} role="listbox" aria-label={label} className="min-h-0 flex-1 overflow-y-auto p-2">
+            <div
+              ref={listRef}
+              id={listId}
+              role="listbox"
+              aria-label={label}
+              aria-busy={loading || undefined}
+              className="min-h-0 flex-1 overflow-y-auto p-2"
+            >
               {groups.map(([group, entries]) => (
                 <div key={group} className="mb-2 last:mb-0">
                   <Text size="caption" weight="bold" tone="faint" className="px-2 py-1 uppercase tracking-wider">
@@ -202,9 +240,16 @@ export function CommandPalette({
                         {Icon && (
                           <Icon size={16} strokeWidth={2} aria-hidden="true" className="shrink-0 text-ink-soft" />
                         )}
-                        <Text as="span" size="body" weight="semibold" tone={isActive ? 'default' : 'soft'} truncate className="min-w-0 flex-1">
-                          {command.label}
-                        </Text>
+                        <span className="flex min-w-0 flex-1 flex-col">
+                          <Text as="span" size="body" weight="semibold" tone={isActive ? 'default' : 'soft'} truncate>
+                            {command.label}
+                          </Text>
+                          {command.description && (
+                            <Text as="span" size="caption" tone="faint" truncate>
+                              {command.description}
+                            </Text>
+                          )}
+                        </span>
                         {command.shortcut && (
                           <span className="flex shrink-0 gap-1">
                             {command.shortcut.map((key) => (
@@ -218,7 +263,17 @@ export function CommandPalette({
                 </div>
               ))}
 
-              {flat.length === 0 && <EmptyState size="sm" title={emptyMessage} description={`Nothing matches “${query}”.`} />}
+              {flat.length === 0 &&
+                (loading ? (
+                  <div className="flex items-center justify-center gap-2 py-8">
+                    <Spinner size="sm" label="Loading" />
+                    <Text as="span" size="caption" tone="faint" aria-hidden="true">
+                      Loading…
+                    </Text>
+                  </div>
+                ) : (
+                  <EmptyState size="sm" title={emptyMessage} description={`Nothing matches “${query}”.`} />
+                ))}
             </div>
 
             <div className="flex items-center gap-3 border-t border-line px-3 py-2">

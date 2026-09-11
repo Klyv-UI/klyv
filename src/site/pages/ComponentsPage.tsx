@@ -4,6 +4,7 @@ import { LayoutGrid, List, X } from 'lucide-react'
 import { SearchField, Surface, Text, cn } from 'citrine'
 import { NEW_COMPONENTS, catalog, componentCount, isNewComponent, type CatalogEntry } from '../data/catalog'
 import { NewBadge } from '../components/NewBadge'
+import { Count, FilterChip } from '../components/FilterChip'
 import { findGroupBySlug, groups } from '../data/groups'
 import { dependenciesOf } from '../data/dependencies'
 import { sizeOf } from '../data/sizes'
@@ -413,38 +414,3 @@ function Toggle({
   )
 }
 
-function FilterChip({
-  active,
-  onClick,
-  children,
-}: {
-  active: boolean
-  onClick: () => void
-  children: ReactNode
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={active}
-      className={cn(
-        'inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-bold transition-colors',
-        focusRing,
-        active
-          ? 'bg-ink text-ink-inverse'
-          : 'bg-surface-muted text-ink-soft hover:bg-line-strong hover:text-ink',
-      )}
-    >
-      {children}
-    </button>
-  )
-}
-
-function Count({ children }: { children: ReactNode }) {
-  return (
-    // No opacity: it multiplies against whatever colour the row inherits and
-    // throws away the contrast the ink tokens were chosen for. The mono face at
-    // 10px already reads as secondary.
-    <span className="font-mono text-[10px] font-bold tabular-nums">{children}</span>
-  )
-}

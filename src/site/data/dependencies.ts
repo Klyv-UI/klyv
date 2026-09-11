@@ -894,6 +894,7 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "Input",
       "Kbd",
       "Portal",
+      "Spinner",
       "Text"
     ],
     "shared": [
