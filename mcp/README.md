@@ -53,7 +53,7 @@ Already have Citrine installed? Point at the local copy and skip the fetch:
 | `get_component_source` | the real source, optionally with everything it imports |
 | `list_blocks` | whole screens, by category |
 | `get_block` | one screen: its components, its packages and its full source |
-| `list_groups` | the twelve groups and their counts |
+| `list_groups` | the thirteen groups and their counts |
 | `get_design_tokens` | colour, radius, shadow and type, plus dark-mode values |
 | `get_design_rules` | the design system and the five house rules |
 | `how_to_install` | package, stylesheet, peer dependencies, icons |

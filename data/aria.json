@@ -13,12 +13,21 @@
   "AlertDialog": [
     "alertdialog"
   ],
+  "AnnouncementBar": [
+    "region"
+  ],
+  "ApiKeyManager": [
+    "status"
+  ],
   "ApprovalChain": [
     "group",
     "status"
   ],
   "AudioVisualizer": [
     "status"
+  ],
+  "AuthCard": [
+    "separator"
   ],
   "AvatarGroup": [
     "group"
@@ -78,6 +87,9 @@
     "menu",
     "menuitem"
   ],
+  "CookieBanner": [
+    "region"
+  ],
   "CopyButton": [
     "status"
   ],
@@ -132,6 +144,9 @@
   "ErrorState": [
     "alert"
   ],
+  "FeedbackWidget": [
+    "status"
+  ],
   "FileUpload": [
     "alert"
   ],
@@ -139,10 +154,16 @@
     "search",
     "status"
   ],
+  "FilterBuilder": [
+    "group"
+  ],
   "FlipBook": [
     "group"
   ],
   "GooeyLoader": [
+    "status"
+  ],
+  "HelpPanel": [
     "status"
   ],
   "HoldToConfirm": [
@@ -186,6 +207,9 @@
   "LoadingOverlay": [
     "status"
   ],
+  "LogoCloud": [
+    "img"
+  ],
   "MagicTabs": [
     "tab",
     "tablist"
@@ -195,6 +219,9 @@
     "status"
   ],
   "MaskedValue": [
+    "status"
+  ],
+  "MemberList": [
     "status"
   ],
   "MentionInput": [
@@ -261,6 +288,9 @@
     "group",
     "status"
   ],
+  "PricingTable": [
+    "status"
+  ],
   "Progress": [
     "progressbar"
   ],
@@ -306,6 +336,9 @@
   "SankeyFlow": [
     "img"
   ],
+  "SavedViews": [
+    "status"
+  ],
   "SaveIndicator": [
     "status"
   ],
@@ -324,6 +357,9 @@
   "SessionTimeout": [
     "alertdialog",
     "modal"
+  ],
+  "SettingsSection": [
+    "status"
   ],
   "ShortcutRecorder": [
     "status"
@@ -370,6 +406,9 @@
   "TagInput": [
     "status"
   ],
+  "TestimonialCard": [
+    "img"
+  ],
   "Ticker": [
     "status"
   ],
@@ -404,6 +443,13 @@
     "menuitem",
     "status"
   ],
+  "UsageMeter": [
+    "progressbar"
+  ],
+  "UserMenu": [
+    "menu",
+    "menuitem"
+  ],
   "ValidationSummary": [
     "alert"
   ],
@@ -418,6 +464,10 @@
   ],
   "Waveform": [
     "img"
+  ],
+  "WorkspaceSwitcher": [
+    "listbox",
+    "option"
   ],
   "XPBar": [
     "progressbar",

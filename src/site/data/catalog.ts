@@ -321,7 +321,113 @@ export const catalog: CatalogEntry[] = [
   { name: 'PixelCanvas', slug: 'pixel-canvas', group: 'Canvas & Play', section: 'Toys', blurb: 'A grid of buttons with interpolated strokes, storing palette indices rather than colours.' },
   { name: 'ScratchCard', slug: 'scratch-card', group: 'Canvas & Play', section: 'Toys', blurb: 'A cover erased with the pointer to reveal what is under it, with a real button beside it, because a gesture is not an interface.' },
   { name: 'Terminal', slug: 'terminal', group: 'Canvas & Play', section: 'Toys', blurb: 'History that preserves the half-typed draft, and a real input under the caret so IME and paste behave.' },
+  // SaaS / Marketing
+  { name: 'CtaSection', slug: 'cta-section', group: 'SaaS', section: 'Marketing', blurb: 'The closing ask at the foot of a page, on the banner radius. Accent copy uses the derived accent-ink, so a deep brand colour gets white text.' },
+  { name: 'FeatureGrid', slug: 'feature-grid', group: 'SaaS', section: 'Marketing', blurb: 'Benefit-led features with glyph, name, one sentence and a “Learn more” that carries the feature name for assistive tech.' },
+  { name: 'HeroSection', slug: 'hero-section', group: 'SaaS', section: 'Marketing', blurb: 'Announcement, promise, two actions and the product, on the display type scale. PromoBanner is an in-app card; this is the first screen of a site.' },
+  { name: 'LogoCloud', slug: 'logo-cloud', group: 'SaaS', section: 'Marketing', blurb: 'Customer marks flattened to one tone, as a row, a hairline grid or a marquee — each exposed as an image named for the company.' },
+  { name: 'SectionHeading', slug: 'section-heading', group: 'SaaS', section: 'Marketing', blurb: 'Eyebrow, display title and lede — the opening of every landing-page section, held to one measure so eight of them in a row do not drift.' },
+  { name: 'SiteFooter', slug: 'site-footer', group: 'SaaS', section: 'Marketing', blurb: 'The site map: column titles as real headings, legal row, social links named for their network.' },
+  { name: 'SiteHeader', slug: 'site-header', group: 'SaaS', section: 'Marketing', blurb: 'The marketing top bar. Navbar is the signed-in app header; this is links out and a sign-up, transparent over the hero until the page scrolls.' },
+  { name: 'TestimonialCard', slug: 'testimonial-card', group: 'SaaS', section: 'Marketing', blurb: 'A quote with the person attached, as figure, blockquote and figcaption — the only structure that says whose words they are.' },
+  // SaaS / Pricing
+  { name: 'BillingToggle', slug: 'billing-toggle', group: 'SaaS', section: 'Pricing', blurb: 'Monthly or yearly, with the saving pinned beside the control rather than inside it, so the track never jumps.' },
+  { name: 'FeatureComparison', slug: 'feature-comparison', group: 'SaaS', section: 'Pricing', blurb: 'The plan-by-feature matrix as a real table with row and group headers — and one plan at a time on a phone, instead of a sideways scroll.' },
+  { name: 'PricingCard', slug: 'pricing-card', group: 'SaaS', section: 'Pricing', blurb: 'One plan: price, the action directly under it, then the list. Excluded features are announced as excluded.' },
+  { name: 'PricingTable', slug: 'pricing-table', group: 'SaaS', section: 'Pricing', blurb: 'Plans behind a period switch. The yearly saving is computed from the plans, and the annual total that actually leaves the account is shown.' },
+  // SaaS / Auth & onboarding
+  { name: 'AuthCard', slug: 'auth-card', group: 'SaaS', section: 'Auth & onboarding', blurb: 'The frame for sign in, sign up, reset and invite: providers, the rule, the form, the way out — and the error announced at the top.' },
+  { name: 'OnboardingWizard', slug: 'onboarding-wizard', group: 'SaaS', section: 'Auth & onboarding', blurb: 'Multi-step setup that validates each step in place, revisits only completed steps, and moves focus to each new step’s heading.' },
+  { name: 'SetupChecklist', slug: 'setup-checklist', group: 'SaaS', section: 'Auth & onboarding', blurb: 'The “get set up” card. Steps are props, so it advances when work is done elsewhere; optional steps never hold completion hostage.' },
+  // SaaS / Billing
+  { name: 'CheckoutSummary', slug: 'checkout-summary', group: 'SaaS', section: 'Billing', blurb: 'Order lines, promo code, tax and what is due today — plus what is charged after today. Card entry is left to the provider’s hosted field.' },
+  { name: 'InvoiceList', slug: 'invoice-list', group: 'SaaS', section: 'Billing', blurb: 'Billing history with Pay now in the row of any due or failed invoice, and downloads named for their invoice.' },
+  { name: 'PaymentMethodCard', slug: 'payment-method-card', group: 'SaaS', section: 'Billing', blurb: 'A saved card whose expiry is worked out, not displayed — and a default card that cannot be removed out from under a subscription.' },
+  { name: 'PlanSummary', slug: 'plan-summary', group: 'SaaS', section: 'Billing', blurb: 'Current plan, status, and the one date that matters next. A failed payment is a warning with the fix inside it, not a badge.' },
+  { name: 'UpgradePrompt', slug: 'upgrade-prompt', group: 'SaaS', section: 'Billing', blurb: 'An upsell as a card, a top banner or inline where a gated feature would be, with a trial countdown derived from a date.' },
+  { name: 'UsageMeter', slug: 'usage-meter', group: 'SaaS', section: 'Billing', blurb: 'Entitlements over a billing period — seats, storage, MAUs — with unlimited and over-the-limit as their own states. RateLimitMeter is the rolling window.' },
+  // SaaS / Workspace
+  { name: 'InviteMembers', slug: 'invite-members', group: 'SaaS', section: 'Workspace', blurb: 'Paste a column of addresses, pick a role, see what it costs. Bad, duplicate and existing addresses are caught as chips before sending.' },
+  { name: 'MemberList', slug: 'member-list', group: 'SaaS', section: 'Workspace', blurb: 'People, roles and removal, enforcing the rule most team screens forget: a workspace can never lose its last owner.' },
+  { name: 'RolePermissions', slug: 'role-permissions', group: 'SaaS', section: 'Workspace', blurb: 'Roles against permissions as a checkbox matrix, every box named for its intersection, locked roles shown rather than hidden.' },
+  { name: 'UserMenu', slug: 'user-menu', group: 'SaaS', section: 'Workspace', blurb: 'The account menu behind the avatar: identity above the menu rather than in it, settings, and a sign-out that is always last.' },
+  { name: 'WorkspaceSwitcher', slug: 'workspace-switcher', group: 'SaaS', section: 'Workspace', blurb: 'The multi-tenant switcher: a listbox in a popover with arrow keys, a check on the current one, search past six, and Create.' },
+  // SaaS / Settings & developer
+  { name: 'ApiKeyManager', slug: 'api-key-manager', group: 'SaaS', section: 'Settings & developer', blurb: 'Create, list and revoke keys. The secret is shown once in a dialog that cannot be dismissed by accident; the list shows prefix and last use.' },
+  { name: 'ChangelogList', slug: 'changelog-list', group: 'SaaS', section: 'Settings & developer', blurb: 'Product updates as a changelog page or a compact “What’s new”, with anything newer than the last visit marked new.' },
+  { name: 'DangerZone', slug: 'danger-zone', group: 'SaaS', section: 'Settings & developer', blurb: 'Irreversible actions fenced off, confirmed with type-to-confirm, with any failure kept on the row that caused it.' },
+  { name: 'HelpPanel', slug: 'help-panel', group: 'SaaS', section: 'Settings & developer', blurb: 'Search the docs, jump to resources, check system status, and reach a person — offered right at a dead-end search.' },
+  { name: 'IntegrationCard', slug: 'integration-card', group: 'SaaS', section: 'Settings & developer', blurb: 'One marketplace tile with exactly one next step per state — Connect, Configure, Reconnect or Upgrade — and a broken connection shown as broken.' },
+  { name: 'SettingsSection', slug: 'settings-section', group: 'SaaS', section: 'Settings & developer', blurb: 'A settings block with its own save bar that knows when something changed, plus SettingsRow for the label-and-switch lines.' },
+  { name: 'WebhookDeliveries', slug: 'webhook-deliveries', group: 'SaaS', section: 'Settings & developer', blurb: 'The delivery log: every row opens to the exact payload and response, timeouts are their own outcome, and failures retry in place.' },
+  { name: 'WebhookEndpoints', slug: 'webhook-endpoints', group: 'SaaS', section: 'Settings & developer', blurb: 'Webhook endpoints with three states, not two: an enabled endpoint answering 500 is shown as failing, with its last response, on its own row.' },
+  // SaaS / Data & views
+  { name: 'FilterBuilder', slug: 'filter-builder', group: 'SaaS', section: 'Data & views', blurb: 'Field, operator, value rows joined by all or any, with operators by type — plus matchesFilters, so table and builder agree on meaning.' },
+  { name: 'SavedViews', slug: 'saved-views', group: 'SaaS', section: 'Data & views', blurb: 'Named filter sets above a table, with the unsaved state made explicit: save over it, save as new, or put it back.' },
+  // SaaS / Engagement
+  { name: 'AnnouncementBar', slug: 'announcement-bar', group: 'SaaS', section: 'Engagement', blurb: 'The strip across the top for a launch or maintenance, with dismissal remembered per announcement rather than globally.' },
+  { name: 'CookieBanner', slug: 'cookie-banner', group: 'SaaS', section: 'Engagement', blurb: 'The first-visit consent prompt where Reject all is exactly as easy as Accept all. Opens ConsentManager for the detail.' },
+  { name: 'FeedbackWidget', slug: 'feedback-widget', group: 'SaaS', section: 'Engagement', blurb: 'A face, a sentence and send. Either half is enough; the faces are real radios announced by their word.' },
+  // SaaS / Security
+  { name: 'SessionList', slug: 'session-list', group: 'SaaS', section: 'Security', blurb: 'Where the account is signed in, with location and IP, the current device pinned, and sign-out of everything else.' },
+  { name: 'SsoSetup', slug: 'sso-setup', group: 'SaaS', section: 'Security', blurb: 'SAML set up in real order — our values, theirs, test, enforce. Enforcement stays locked until a test passes against exactly the values on screen.' },
+  { name: 'TwoFactorSetup', slug: 'two-factor-setup', group: 'SaaS', section: 'Security', blurb: 'Scan, confirm with a code, keep the recovery codes — Done stays locked until the codes are stored, because a lost phone is a locked account.' },
 ]
+
+/**
+ * Components added in the SaaS release, marked New across the site — the
+ * sidebar, the catalogue, the component page header and the New filter.
+ * Kept beside the catalogue rather than on each row, because the rows are
+ * parsed by the metadata generator in one exact shape.
+ */
+export const NEW_COMPONENTS: ReadonlySet<string> = new Set([
+  'CtaSection',
+  'FeatureGrid',
+  'HeroSection',
+  'LogoCloud',
+  'SectionHeading',
+  'SiteFooter',
+  'SiteHeader',
+  'TestimonialCard',
+  'BillingToggle',
+  'FeatureComparison',
+  'PricingCard',
+  'PricingTable',
+  'AuthCard',
+  'OnboardingWizard',
+  'SetupChecklist',
+  'CheckoutSummary',
+  'InvoiceList',
+  'PaymentMethodCard',
+  'PlanSummary',
+  'UpgradePrompt',
+  'UsageMeter',
+  'InviteMembers',
+  'MemberList',
+  'RolePermissions',
+  'UserMenu',
+  'WorkspaceSwitcher',
+  'ApiKeyManager',
+  'ChangelogList',
+  'DangerZone',
+  'HelpPanel',
+  'IntegrationCard',
+  'SettingsSection',
+  'WebhookDeliveries',
+  'WebhookEndpoints',
+  'FilterBuilder',
+  'SavedViews',
+  'AnnouncementBar',
+  'CookieBanner',
+  'FeedbackWidget',
+  'SessionList',
+  'SsoSetup',
+  'TwoFactorSetup',
+])
+
+export function isNewComponent(name: string): boolean {
+  return NEW_COMPONENTS.has(name)
+}
 
 /** Lookups, built once. */
 const bySlug = new Map(catalog.map((entry) => [entry.slug, entry]))

@@ -97,7 +97,7 @@ export const mcpTools: McpTool[] = [
   },
   {
     "name": "list_groups",
-    "description": "The twelve groups the library is organised by, with what each is for and how many components it holds.",
+    "description": "The thirteen groups the library is organised by, with what each is for and how many components it holds.",
     "args": []
   },
   {
@@ -159,8 +159,8 @@ export const mcpResources: McpResource[] = [
 
 /** What the server can answer questions about, counted from the same data. */
 export const mcpFacts = {
-  "components": 254,
-  "props": 1726,
+  "components": 296,
+  "props": 2090,
   "tokens": 31,
   "darkOverrides": 18
 }

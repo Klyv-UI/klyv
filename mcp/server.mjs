@@ -316,7 +316,7 @@ export const TOOLS = [
   },
   {
     name: 'list_groups',
-    description: 'The twelve groups the library is organised by, with what each is for and how many components it holds.',
+    description: 'The thirteen groups the library is organised by, with what each is for and how many components it holds.',
     inputSchema: { type: 'object', properties: {} },
     run: () => {
       const counts = {}

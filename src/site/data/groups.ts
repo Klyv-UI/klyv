@@ -1,5 +1,5 @@
 /**
- * The twelve groups the library is browsed by.
+ * The thirteen groups the library is browsed by.
  *
  * They describe what a component *is for*, which is the only question a
  * visitor arrives with. An earlier build filed everything by what it depended
@@ -18,6 +18,7 @@ export const GROUP_IDS = [
   'Motion & Effects',
   'Interaction',
   'Canvas & Play',
+  'SaaS',
 ] as const
 
 export type GroupId = (typeof GROUP_IDS)[number]
@@ -104,6 +105,12 @@ export const groups: GroupDefinition[] = [
     slug: 'canvas',
     tagline: 'Generative canvas, Web Audio, physics and toys — the parts that make a product feel made by people.',
     sections: ['Generative', 'Audio', 'Physics', 'Toys'],
+  },
+  {
+    id: 'SaaS',
+    slug: 'saas',
+    tagline: 'The patterns every SaaS product rebuilds: the marketing site, pricing, auth, billing, the team, settings, security and the developer area.',
+    sections: ['Marketing', 'Pricing', 'Auth & onboarding', 'Billing', 'Workspace', 'Settings & developer', 'Data & views', 'Engagement', 'Security'],
   },
 ]
 

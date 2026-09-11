@@ -86,7 +86,7 @@ through them, rather than each keeping a copy that goes stale.
 
 ## What is in it
 
-254 components in twelve groups. The grouping describes what a component is
+296 components in thirteen groups. The grouping describes what a component is
 **for** — the only question anyone browsing a library arrives with.
 
 | Group | Count | |
@@ -103,6 +103,35 @@ through them, rather than each keeping a copy that goes stale.
 | Motion & Effects | 34 | entrances, kinetic type, light and surfaces |
 | Interaction | 20 | touch and drag, presence, trust and workflow |
 | Canvas & Play | 15 | generative, audio, physics, toys |
+| **SaaS** ✦ New | 42 | marketing, pricing, auth, billing, team, settings, developer, data views, engagement, security |
+
+### New: the SaaS group
+
+Forty-two components chosen from a gap audit of the library against what a SaaS
+product needs, every one marked **New** on the site (sidebar, catalogue cards,
+component page header, and a **New** filter on /components). Nothing duplicates
+an existing component — `PasswordStrength` and `CopyButton` were already here and
+are reused, not re-made.
+
+**Marketing** — SectionHeading · SiteHeader · HeroSection (+ HeroHighlight) ·
+LogoCloud · FeatureGrid · TestimonialCard · CtaSection · SiteFooter.
+**Pricing** — BillingToggle · PricingCard · PricingTable (saving computed from
+the plans, annual total shown) · FeatureComparison (one plan at a time on phones).
+**Auth & onboarding** — AuthCard · SetupChecklist · OnboardingWizard.
+**Billing** — PlanSummary · UsageMeter · UpgradePrompt · InvoiceList ·
+PaymentMethodCard · CheckoutSummary (card entry left to the payment provider).
+**Workspace** — WorkspaceSwitcher · UserMenu · MemberList (never loses its last
+owner) · InviteMembers · RolePermissions.
+**Settings & developer** — SettingsSection (+ SettingsRow) · DangerZone ·
+ApiKeyManager (secret shown once) · IntegrationCard · ChangelogList · HelpPanel ·
+WebhookEndpoints · WebhookDeliveries.
+**Data & views** — FilterBuilder (+ `matchesFilters`) · SavedViews.
+**Engagement** — AnnouncementBar · FeedbackWidget · CookieBanner.
+**Security** — TwoFactorSetup · SessionList · SsoSetup (enforcement locked until
+a test passes).
+
+Three blocks assemble them into whole screens: **SaaS landing**, **SaaS
+dashboard** and **SaaS admin**.
 
 ## Dependencies
 

@@ -2,7 +2,8 @@ import { useMemo, useState, type ReactNode } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { LayoutGrid, List, X } from 'lucide-react'
 import { SearchField, Surface, Text, cn } from 'citrine'
-import { catalog, componentCount, type CatalogEntry } from '../data/catalog'
+import { NEW_COMPONENTS, catalog, componentCount, isNewComponent, type CatalogEntry } from '../data/catalog'
+import { NewBadge } from '../components/NewBadge'
 import { findGroupBySlug, groups } from '../data/groups'
 import { dependenciesOf } from '../data/dependencies'
 import { sizeOf } from '../data/sizes'
@@ -32,6 +33,14 @@ export default function ComponentsPage() {
   const [sort, setSort] = useState<Sort>('group')
 
   const active = findGroupBySlug(params.get('group') ?? undefined)
+  // A URL parameter like the group, so "what is new" is a link someone can share.
+  const onlyNew = params.get('new') === '1'
+  const toggleNew = () => {
+    const next = new URLSearchParams(params)
+    if (onlyNew) next.delete('new')
+    else next.set('new', '1')
+    setParams(next, { replace: true })
+  }
 
   /** Measured once for the whole catalogue rather than per card on every render. */
   const facts = useMemo(() => {
@@ -49,6 +58,7 @@ export default function ComponentsPage() {
     const needle = query.trim().toLowerCase()
     const matched = catalog.filter((entry) => {
       if (active && entry.group !== active.id) return false
+      if (onlyNew && !isNewComponent(entry.name)) return false
       if (!needle) return true
       const fields = [entry.name, entry.slug, entry.blurb, entry.section, entry.group]
       if (fields.some((field) => field.toLowerCase().includes(needle))) return true
@@ -71,7 +81,7 @@ export default function ComponentsPage() {
   }, [active, query, sort, facts])
 
   const visibleGroups = groups.filter((group) => results.some((entry) => entry.group === group.id))
-  const filtered = Boolean(active) || query.trim().length > 0
+  const filtered = Boolean(active) || onlyNew || query.trim().length > 0
 
   const setGroup = (slug: string | null) => {
     const next = new URLSearchParams(params)
@@ -137,6 +147,10 @@ export default function ComponentsPage() {
           <FilterChip active={!active} onClick={() => setGroup(null)}>
             All
             <Count>{componentCount}</Count>
+          </FilterChip>
+          <FilterChip active={onlyNew} onClick={toggleNew}>
+            New
+            <Count>{NEW_COMPONENTS.size}</Count>
           </FilterChip>
           {groups.map((group) => (
             <FilterChip
@@ -285,9 +299,12 @@ function ComponentCard({
         className="h-full gap-1.5 bg-surface transition-colors group-hover:border-line-strong group-hover:bg-surface-sunken"
       >
         <div className="flex items-baseline justify-between gap-2">
-          <Text size="body" weight="bold">
-            {entry.name}
-          </Text>
+          <span className="flex min-w-0 items-center gap-1.5">
+            <Text size="body" weight="bold" truncate>
+              {entry.name}
+            </Text>
+            {isNewComponent(entry.name) && <NewBadge />}
+          </span>
           {showGroup && (
             <Text size="micro" weight="semibold" tone="faint" truncate>
               {entry.group}
@@ -321,9 +338,12 @@ function ComponentRow({
         focusRing,
       )}
     >
-      <Text size="caption" weight="bold" className="w-[150px] shrink-0 truncate">
-        {entry.name}
-      </Text>
+      <span className="flex w-[170px] shrink-0 items-center gap-1.5">
+        <Text size="caption" weight="bold" truncate>
+          {entry.name}
+        </Text>
+        {isNewComponent(entry.name) && <NewBadge />}
+      </span>
       <Text size="caption" tone="faint" truncate className="min-w-0 flex-1">
         {entry.blurb}
       </Text>

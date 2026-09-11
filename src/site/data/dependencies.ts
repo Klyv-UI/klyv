@@ -191,6 +191,49 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "AnnouncementBar": {
+    "files": [
+      "components/AnnouncementBar/AnnouncementBar.tsx",
+      "components/AnnouncementBar/index.ts"
+    ],
+    "internal": [],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "ApiKeyManager": {
+    "files": [
+      "components/ApiKeyManager/ApiKeyManager.tsx",
+      "components/ApiKeyManager/index.ts"
+    ],
+    "internal": [
+      "Alert",
+      "Button",
+      "CheckboxGroup",
+      "ConfirmDialog",
+      "EmptyState",
+      "Field",
+      "InlineMessage",
+      "Input",
+      "Modal",
+      "Surface",
+      "Tag",
+      "Text",
+      "VisuallyHidden"
+    ],
+    "shared": [
+      "lib/cn.ts",
+      "lib/format.ts",
+      "lib/time.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "AppShell": {
     "files": [
       "components/AppShell/AppShell.tsx",
@@ -292,6 +335,25 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "components/AuroraSurface/index.ts"
     ],
     "internal": [],
+    "shared": [
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "AuthCard": {
+    "files": [
+      "components/AuthCard/AuthCard.tsx",
+      "components/AuthCard/index.ts"
+    ],
+    "internal": [
+      "Alert",
+      "Button",
+      "Divider",
+      "Surface",
+      "Text"
+    ],
     "shared": [
       "lib/cn.ts"
     ],
@@ -407,6 +469,20 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "external": [
       "react"
     ]
+  },
+  "BillingToggle": {
+    "files": [
+      "components/BillingToggle/BillingToggle.tsx",
+      "components/BillingToggle/index.ts"
+    ],
+    "internal": [
+      "Badge",
+      "SegmentedControl"
+    ],
+    "shared": [
+      "lib/cn.ts"
+    ],
+    "external": []
   },
   "BlobMorph": {
     "files": [
@@ -609,6 +685,24 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "external": []
   },
+  "ChangelogList": {
+    "files": [
+      "components/ChangelogList/ChangelogList.tsx",
+      "components/ChangelogList/index.ts"
+    ],
+    "internal": [
+      "Tag",
+      "Text",
+      "VisuallyHidden"
+    ],
+    "shared": [
+      "lib/cn.ts",
+      "lib/format.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "ChartTooltip": {
     "files": [
       "components/ChartTooltip/ChartTooltip.tsx",
@@ -647,6 +741,26 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "shared": [
       "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "CheckoutSummary": {
+    "files": [
+      "components/CheckoutSummary/CheckoutSummary.tsx",
+      "components/CheckoutSummary/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "InlineMessage",
+      "Input",
+      "Surface",
+      "Text"
+    ],
+    "shared": [
+      "lib/cn.ts",
+      "lib/format.ts"
     ],
     "external": [
       "react"
@@ -872,6 +986,23 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "CookieBanner": {
+    "files": [
+      "components/CookieBanner/CookieBanner.tsx",
+      "components/CookieBanner/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "Surface",
+      "Text"
+    ],
+    "shared": [
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "CopyButton": {
     "files": [
       "components/CopyButton/CopyButton.tsx",
@@ -943,6 +1074,20 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "CtaSection": {
+    "files": [
+      "components/CtaSection/CtaSection.tsx",
+      "components/CtaSection/index.ts"
+    ],
+    "internal": [],
+    "shared": [
+      "components/internal/StatusPill.tsx",
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "CubeCarousel": {
     "files": [
       "components/CubeCarousel/CubeCarousel.tsx",
@@ -962,6 +1107,25 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "components/CursorAura/index.ts"
     ],
     "internal": [],
+    "shared": [
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "DangerZone": {
+    "files": [
+      "components/DangerZone/DangerZone.tsx",
+      "components/DangerZone/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "ConfirmDialog",
+      "InlineMessage",
+      "Surface",
+      "Text"
+    ],
     "shared": [
       "lib/cn.ts"
     ],
@@ -1297,6 +1461,67 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "FeatureComparison": {
+    "files": [
+      "components/FeatureComparison/FeatureComparison.tsx",
+      "components/FeatureComparison/index.ts"
+    ],
+    "internal": [
+      "SegmentedControl",
+      "Surface",
+      "Text",
+      "VisuallyHidden"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "FeatureGrid": {
+    "files": [
+      "components/FeatureGrid/FeatureGrid.tsx",
+      "components/FeatureGrid/index.ts"
+    ],
+    "internal": [
+      "Badge",
+      "IconTile",
+      "Surface",
+      "Text",
+      "VisuallyHidden"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts",
+      "lib/types.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "FeedbackWidget": {
+    "files": [
+      "components/FeedbackWidget/FeedbackWidget.tsx",
+      "components/FeedbackWidget/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "InlineMessage",
+      "Popover",
+      "SegmentedControl",
+      "SuccessMark",
+      "Text",
+      "Textarea"
+    ],
+    "shared": [
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "Field": {
     "files": [
       "components/Field/Field.tsx",
@@ -1364,6 +1589,25 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "external": [
       "react"
     ]
+  },
+  "FilterBuilder": {
+    "files": [
+      "components/FilterBuilder/FilterBuilder.tsx",
+      "components/FilterBuilder/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "IconButton",
+      "Input",
+      "SegmentedControl",
+      "Select",
+      "Text"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts"
+    ],
+    "external": []
   },
   "FlipBook": {
     "files": [
@@ -1483,6 +1727,46 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "VisuallyHidden"
     ],
     "shared": [
+      "lib/cn.ts",
+      "lib/contrast.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "HelpPanel": {
+    "files": [
+      "components/HelpPanel/HelpPanel.tsx",
+      "components/HelpPanel/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "IconTile",
+      "SearchField",
+      "StatusDot",
+      "Surface",
+      "Text"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/types.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "HeroSection": {
+    "files": [
+      "components/HeroSection/HeroSection.tsx",
+      "components/HeroSection/index.ts"
+    ],
+    "internal": [
+      "Badge",
+      "Text"
+    ],
+    "shared": [
+      "components/internal/StatusPill.tsx",
+      "components/internal/icons.tsx",
       "lib/cn.ts"
     ],
     "external": [
@@ -1650,6 +1934,75 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "internal": [],
     "shared": [
       "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "IntegrationCard": {
+    "files": [
+      "components/IntegrationCard/IntegrationCard.tsx",
+      "components/IntegrationCard/index.ts"
+    ],
+    "internal": [
+      "Badge",
+      "Button",
+      "Spinner",
+      "Surface",
+      "Tag",
+      "Text",
+      "VisuallyHidden"
+    ],
+    "shared": [
+      "components/internal/StatusPill.tsx",
+      "components/internal/icons.tsx",
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "InviteMembers": {
+    "files": [
+      "components/InviteMembers/InviteMembers.tsx",
+      "components/InviteMembers/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "Chip",
+      "InlineMessage",
+      "Input",
+      "Label",
+      "MemberList",
+      "Select",
+      "Text",
+      "VisuallyHidden"
+    ],
+    "shared": [
+      "lib/cn.ts",
+      "lib/format.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "InvoiceList": {
+    "files": [
+      "components/InvoiceList/InvoiceList.tsx",
+      "components/InvoiceList/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "EmptyState",
+      "StatusDot",
+      "Table",
+      "Text",
+      "VisuallyHidden"
+    ],
+    "shared": [
+      "components/internal/StatusPill.tsx",
+      "lib/cn.ts",
+      "lib/format.ts"
     ],
     "external": [
       "react"
@@ -1880,6 +2233,22 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "external": []
   },
+  "LogoCloud": {
+    "files": [
+      "components/LogoCloud/LogoCloud.tsx",
+      "components/LogoCloud/index.ts"
+    ],
+    "internal": [
+      "Marquee",
+      "Text"
+    ],
+    "shared": [
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "MagicTabs": {
     "files": [
       "components/MagicTabs/MagicTabs.tsx",
@@ -1963,6 +2332,30 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "shared": [
       "lib/cn.ts",
       "lib/motion.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "MemberList": {
+    "files": [
+      "components/MemberList/MemberList.tsx",
+      "components/MemberList/index.ts"
+    ],
+    "internal": [
+      "Avatar",
+      "Button",
+      "ConfirmDialog",
+      "SearchField",
+      "Select",
+      "StatusDot",
+      "Tag",
+      "Text"
+    ],
+    "shared": [
+      "components/internal/StatusPill.tsx",
+      "lib/cn.ts",
+      "lib/format.ts"
     ],
     "external": [
       "react"
@@ -2214,6 +2607,25 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "external": []
   },
+  "OnboardingWizard": {
+    "files": [
+      "components/OnboardingWizard/OnboardingWizard.tsx",
+      "components/OnboardingWizard/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "InlineMessage",
+      "Stepper",
+      "Surface",
+      "Text"
+    ],
+    "shared": [
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "OrbitRing": {
     "files": [
       "components/OrbitRing/OrbitRing.tsx",
@@ -2344,6 +2756,22 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "external": []
   },
+  "PaymentMethodCard": {
+    "files": [
+      "components/PaymentMethodCard/PaymentMethodCard.tsx",
+      "components/PaymentMethodCard/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "Surface",
+      "Tag",
+      "Text"
+    ],
+    "shared": [
+      "lib/cn.ts"
+    ],
+    "external": []
+  },
   "PermissionGate": {
     "files": [
       "components/PermissionGate/PermissionGate.tsx",
@@ -2403,6 +2831,28 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "shared": [
       "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "PlanSummary": {
+    "files": [
+      "components/PlanSummary/PlanSummary.tsx",
+      "components/PlanSummary/index.ts"
+    ],
+    "internal": [
+      "Alert",
+      "DescriptionList",
+      "Progress",
+      "StatusDot",
+      "Surface",
+      "Text"
+    ],
+    "shared": [
+      "components/internal/StatusPill.tsx",
+      "lib/cn.ts",
+      "lib/format.ts"
     ],
     "external": [
       "react"
@@ -2477,7 +2927,8 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "Text"
     ],
     "shared": [
-      "lib/cn.ts"
+      "lib/cn.ts",
+      "lib/contrast.ts"
     ],
     "external": []
   },
@@ -2489,6 +2940,46 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "internal": [],
     "shared": [
       "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "PricingCard": {
+    "files": [
+      "components/PricingCard/PricingCard.tsx",
+      "components/PricingCard/index.ts"
+    ],
+    "internal": [
+      "Badge",
+      "Surface",
+      "Tag",
+      "Text",
+      "VisuallyHidden"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts",
+      "lib/format.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "PricingTable": {
+    "files": [
+      "components/PricingTable/PricingTable.tsx",
+      "components/PricingTable/index.ts"
+    ],
+    "internal": [
+      "BillingToggle",
+      "Button",
+      "PricingCard",
+      "VisuallyHidden"
+    ],
+    "shared": [
+      "lib/cn.ts",
+      "lib/format.ts"
     ],
     "external": [
       "react"
@@ -2807,6 +3298,23 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "RolePermissions": {
+    "files": [
+      "components/RolePermissions/RolePermissions.tsx",
+      "components/RolePermissions/index.ts"
+    ],
+    "internal": [
+      "Checkbox",
+      "Surface",
+      "Text",
+      "VisuallyHidden"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts"
+    ],
+    "external": []
+  },
   "RopeCursor": {
     "files": [
       "components/RopeCursor/RopeCursor.tsx",
@@ -2865,6 +3373,26 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "lib/time.ts"
     ],
     "external": []
+  },
+  "SavedViews": {
+    "files": [
+      "components/SavedViews/SavedViews.tsx",
+      "components/SavedViews/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "ConfirmDialog",
+      "Input",
+      "Text",
+      "VisuallyHidden"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
   },
   "ScratchCard": {
     "files": [
@@ -2939,6 +3467,22 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "SectionHeading": {
+    "files": [
+      "components/SectionHeading/SectionHeading.tsx",
+      "components/SectionHeading/index.ts"
+    ],
+    "internal": [
+      "Text"
+    ],
+    "shared": [
+      "components/internal/StatusPill.tsx",
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "SegmentedControl": {
     "files": [
       "components/SegmentedControl/SegmentedControl.tsx",
@@ -2972,6 +3516,28 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "SessionList": {
+    "files": [
+      "components/SessionList/SessionList.tsx",
+      "components/SessionList/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "ConfirmDialog",
+      "Surface",
+      "Tag",
+      "Text",
+      "VisuallyHidden"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts",
+      "lib/time.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "SessionTimeout": {
     "files": [
       "components/SessionTimeout/SessionTimeout.tsx",
@@ -2987,6 +3553,46 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "shared": [
       "lib/cn.ts",
       "lib/time.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "SettingsSection": {
+    "files": [
+      "components/SettingsSection/SettingsSection.tsx",
+      "components/SettingsSection/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "Surface",
+      "Text"
+    ],
+    "shared": [
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "SetupChecklist": {
+    "files": [
+      "components/SetupChecklist/SetupChecklist.tsx",
+      "components/SetupChecklist/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "Collapse",
+      "Progress",
+      "SuccessMark",
+      "Surface",
+      "Tag",
+      "Text",
+      "VisuallyHidden"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts"
     ],
     "external": [
       "react"
@@ -3061,6 +3667,37 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "Text"
     ],
     "shared": [
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "SiteFooter": {
+    "files": [
+      "components/SiteFooter/SiteFooter.tsx",
+      "components/SiteFooter/index.ts"
+    ],
+    "internal": [
+      "SiteHeader",
+      "Text"
+    ],
+    "shared": [
+      "lib/cn.ts",
+      "lib/types.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "SiteHeader": {
+    "files": [
+      "components/SiteHeader/SiteHeader.tsx",
+      "components/SiteHeader/index.ts"
+    ],
+    "internal": [],
+    "shared": [
+      "components/internal/icons.tsx",
       "lib/cn.ts"
     ],
     "external": [
@@ -3214,6 +3851,30 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "shared": [
       "lib/cn.ts",
       "lib/motion.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "SsoSetup": {
+    "files": [
+      "components/SsoSetup/SsoSetup.tsx",
+      "components/SsoSetup/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "CopyButton",
+      "Field",
+      "InlineMessage",
+      "Input",
+      "Select",
+      "Surface",
+      "Switch",
+      "Text",
+      "Textarea"
+    ],
+    "shared": [
+      "lib/cn.ts"
     ],
     "external": [
       "react"
@@ -3537,6 +4198,24 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "TestimonialCard": {
+    "files": [
+      "components/TestimonialCard/TestimonialCard.tsx",
+      "components/TestimonialCard/index.ts"
+    ],
+    "internal": [
+      "Avatar",
+      "Surface",
+      "Text"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "Text": {
     "files": [
       "components/Text/Text.tsx",
@@ -3746,6 +4425,29 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "TwoFactorSetup": {
+    "files": [
+      "components/TwoFactorSetup/TwoFactorSetup.tsx",
+      "components/TwoFactorSetup/index.ts"
+    ],
+    "internal": [
+      "Alert",
+      "Button",
+      "Checkbox",
+      "CopyButton",
+      "InlineMessage",
+      "InputOTP",
+      "QRCode",
+      "Surface",
+      "Text"
+    ],
+    "shared": [
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "Typewriter": {
     "files": [
       "components/Typewriter/Typewriter.tsx",
@@ -3790,6 +4492,68 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "shared": [
       "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "UpgradePrompt": {
+    "files": [
+      "components/UpgradePrompt/UpgradePrompt.tsx",
+      "components/UpgradePrompt/index.ts"
+    ],
+    "internal": [
+      "Badge",
+      "IconTile",
+      "Surface",
+      "Text"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts",
+      "lib/format.ts",
+      "lib/types.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "UsageMeter": {
+    "files": [
+      "components/UsageMeter/UsageMeter.tsx",
+      "components/UsageMeter/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "Surface",
+      "Tag",
+      "Text"
+    ],
+    "shared": [
+      "lib/cn.ts",
+      "lib/format.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "UserMenu": {
+    "files": [
+      "components/UserMenu/UserMenu.tsx",
+      "components/UserMenu/index.ts"
+    ],
+    "internal": [
+      "Avatar",
+      "Divider",
+      "Popover",
+      "Tag",
+      "Text"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts",
+      "lib/roving.ts",
+      "lib/types.ts"
     ],
     "external": [
       "react"
@@ -3861,6 +4625,54 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "WebhookDeliveries": {
+    "files": [
+      "components/WebhookDeliveries/WebhookDeliveries.tsx",
+      "components/WebhookDeliveries/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "CodeBlock",
+      "Collapse",
+      "SegmentedControl",
+      "Surface",
+      "Tag",
+      "Text",
+      "VisuallyHidden"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts",
+      "lib/time.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "WebhookEndpoints": {
+    "files": [
+      "components/WebhookEndpoints/WebhookEndpoints.tsx",
+      "components/WebhookEndpoints/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "ConfirmDialog",
+      "EmptyState",
+      "Surface",
+      "Switch",
+      "Tag",
+      "Text",
+      "VisuallyHidden"
+    ],
+    "shared": [
+      "components/internal/StatusPill.tsx",
+      "lib/cn.ts",
+      "lib/time.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "Wordmark": {
     "files": [
       "components/Wordmark/Wordmark.tsx",
@@ -3869,6 +4681,26 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "internal": [],
     "shared": [
       "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "WorkspaceSwitcher": {
+    "files": [
+      "components/WorkspaceSwitcher/WorkspaceSwitcher.tsx",
+      "components/WorkspaceSwitcher/index.ts"
+    ],
+    "internal": [
+      "Divider",
+      "Popover",
+      "SearchField",
+      "Text"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts",
+      "lib/roving.ts"
     ],
     "external": [
       "react"
@@ -3899,9 +4731,13 @@ export const sharedDependencies: Record<string, string[]> = {
   "components/internal/icons.tsx": [
     "lib/types.ts"
   ],
+  "lib/format.ts": [],
   "lib/time.ts": [],
   "lib/motion.ts": [],
-  "lib/chart.ts": []
+  "lib/chart.ts": [],
+  "components/internal/StatusPill.tsx": [],
+  "lib/contrast.ts": [],
+  "lib/roving.ts": []
 }
 
 export interface ResolvedDependencies {

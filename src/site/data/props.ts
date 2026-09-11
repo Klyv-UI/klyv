@@ -589,6 +589,113 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "AnnouncementBar": {
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "One sentence."
+      },
+      {
+        "name": "badge",
+        "type": "string",
+        "required": false,
+        "description": "Short qualifier in front — \"New\"."
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "linkLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Learn more'"
+      },
+      {
+        "name": "tone",
+        "type": "AnnouncementTone",
+        "required": false,
+        "defaultValue": "'ink'"
+      },
+      {
+        "name": "onDismiss",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "storageKey",
+        "type": "string",
+        "required": false,
+        "description": "Remember the dismissal in this browser under this key. Change the key for the next announcement."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  "ApiKeyManager": {
+    "props": [
+      {
+        "name": "keys",
+        "type": "ApiKey[]",
+        "required": true
+      },
+      {
+        "name": "onCreate",
+        "type": "(input: { name: string; scopes: string[] }) => Promise<{ secret: string }>",
+        "required": true,
+        "description": "Create the key server-side and return its secret, once."
+      },
+      {
+        "name": "onRevoke",
+        "type": "(key: ApiKey) => void | Promise<void>",
+        "required": true
+      },
+      {
+        "name": "scopes",
+        "type": "ApiScope[]",
+        "required": false,
+        "description": "Offer scopes when creating. Omit for all-access keys."
+      },
+      {
+        "name": "defaultScopes",
+        "type": "string[]",
+        "required": false
+      },
+      {
+        "name": "limit",
+        "type": "number",
+        "required": false,
+        "description": "Most keys an account may hold."
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'API keys'"
+      },
+      {
+        "name": "description",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "headingLevel",
+        "type": "'h2' | 'h3'",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
   "AppShell": {
     "props": [
       {
@@ -908,6 +1015,82 @@ export const generatedProps: Record<string, GeneratedProps> = {
       "Omit<ComponentPropsWithoutRef<E>, keyof AuroraSurfaceOwnProps | 'as'>"
     ]
   },
+  "AuthCard": {
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": "\"Sign in to Acme\", \"Create your account\"."
+      },
+      {
+        "name": "description",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "brand",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Lockup above the title."
+      },
+      {
+        "name": "providers",
+        "type": "AuthProvider[]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": "Single sign-on buttons, drawn above the form."
+      },
+      {
+        "name": "providerLayout",
+        "type": "'stack' | 'grid'",
+        "required": false,
+        "defaultValue": "'stack'",
+        "description": "stack is one per row; grid puts two side by side from sm."
+      },
+      {
+        "name": "dividerLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'or'",
+        "description": "Word on the rule between providers and form."
+      },
+      {
+        "name": "error",
+        "type": "string",
+        "required": false,
+        "description": "A failed attempt — announced, and kept until the next one."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "The form itself: Fields, a PasswordInput, the submit Button."
+      },
+      {
+        "name": "legal",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Small print under the form — terms, privacy."
+      },
+      {
+        "name": "footer",
+        "type": "ReactNode",
+        "required": false,
+        "description": "The switch to the other flow — \"No account? Sign up\"."
+      },
+      {
+        "name": "headingLevel",
+        "type": "'h1' | 'h2'",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
   "Avatar": {
     "props": [
       {
@@ -1176,6 +1359,56 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "BillingToggle": {
+    "props": [
+      {
+        "name": "value",
+        "type": "BillingPeriod",
+        "required": true
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: BillingPeriod) => void",
+        "required": true
+      },
+      {
+        "name": "savings",
+        "type": "string",
+        "required": false,
+        "description": "The reason to switch — \"Save 20%\". Shown beside the control, never inside it."
+      },
+      {
+        "name": "monthlyLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Monthly'"
+      },
+      {
+        "name": "yearlyLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Yearly'"
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Billing period'",
+        "description": "Accessible name for the control."
+      },
+      {
+        "name": "size",
+        "type": "'sm' | 'md'",
+        "required": false,
+        "defaultValue": "'md'"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
       }
     ]
   },
@@ -1827,6 +2060,44 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "ChangelogList": {
+    "props": [
+      {
+        "name": "entries",
+        "type": "ChangelogEntry[]",
+        "required": true
+      },
+      {
+        "name": "unreadSince",
+        "type": "Date",
+        "required": false,
+        "description": "When the reader last looked. Later entries are marked new."
+      },
+      {
+        "name": "variant",
+        "type": "'timeline' | 'compact'",
+        "required": false,
+        "defaultValue": "'timeline'",
+        "description": "timeline for a changelog page; compact for a \"What's new\" popover."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Changelog'"
+      },
+      {
+        "name": "headingLevel",
+        "type": "'h2' | 'h3'",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
   "ChartTooltip": {
     "props": [
       {
@@ -1927,6 +2198,79 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "CheckoutSummary": {
+    "props": [
+      {
+        "name": "lines",
+        "type": "CheckoutLine[]",
+        "required": true
+      },
+      {
+        "name": "currency",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'$'"
+      },
+      {
+        "name": "taxRate",
+        "type": "number",
+        "required": false,
+        "description": "Fraction applied after discounts — 0.2 for 20% VAT."
+      },
+      {
+        "name": "taxLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Tax'"
+      },
+      {
+        "name": "onApplyPromo",
+        "type": "(code: string) => Promise<AppliedPromo | string>",
+        "required": false,
+        "description": "Validate a code. Resolve with the promo, or with an error message."
+      },
+      {
+        "name": "recurring",
+        "type": "ReactNode",
+        "required": false,
+        "description": "What happens after today — \"Then $468 / month from 1 Oct\"."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "The payment provider's card element goes here."
+      },
+      {
+        "name": "action",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Usually the Pay button."
+      },
+      {
+        "name": "note",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Small print under the action."
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Order summary'"
+      },
+      {
+        "name": "headingLevel",
+        "type": "'h2' | 'h3'",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
       }
     ]
   },
@@ -2543,6 +2887,55 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "CookieBanner": {
+    "props": [
+      {
+        "name": "onAcceptAll",
+        "type": "() => void",
+        "required": true
+      },
+      {
+        "name": "onRejectAll",
+        "type": "() => void",
+        "required": true
+      },
+      {
+        "name": "onCustomize",
+        "type": "() => void",
+        "required": false,
+        "description": "Open the full choice — usually a Modal holding ConsentManager."
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Cookies on this site'"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "defaultValue": "'We use essential cookies to make the site work, and optional ones to understand how it is used. You choose which optional ones to allow.'"
+      },
+      {
+        "name": "policyHref",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "position",
+        "type": "'bottom' | 'bottom-start' | 'inline'",
+        "required": false,
+        "defaultValue": "'bottom'",
+        "description": "bottom centres a bar; bottom-start is a corner card; inline stays in the flow."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
   "CopyButton": {
     "props": [
       {
@@ -2808,6 +3201,54 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "CtaSection": {
+    "props": [
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": true
+      },
+      {
+        "name": "description",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "actions",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Usually a white Button and a quieter secondary one."
+      },
+      {
+        "name": "note",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Reassurance under the actions."
+      },
+      {
+        "name": "aside",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Artwork or a product crop on the right, from lg."
+      },
+      {
+        "name": "tone",
+        "type": "CtaTone",
+        "required": false,
+        "defaultValue": "'accent'"
+      },
+      {
+        "name": "headingLevel",
+        "type": "'h2' | 'h3'",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
   "CubeCarousel": {
     "props": [
       {
@@ -2917,6 +3358,36 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "DangerZone": {
+    "props": [
+      {
+        "name": "actions",
+        "type": "DangerAction[]",
+        "required": true
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Danger zone'"
+      },
+      {
+        "name": "description",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "headingLevel",
+        "type": "'h2' | 'h3'",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
       }
     ]
   },
@@ -3943,6 +4414,107 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "FeatureComparison": {
+    "props": [
+      {
+        "name": "plans",
+        "type": "ComparisonPlan[]",
+        "required": true
+      },
+      {
+        "name": "groups",
+        "type": "ComparisonGroup[]",
+        "required": true
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Caption for the table."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  "FeatureGrid": {
+    "props": [
+      {
+        "name": "features",
+        "type": "FeatureItem[]",
+        "required": true
+      },
+      {
+        "name": "columns",
+        "type": "2 | 3 | 4",
+        "required": false,
+        "defaultValue": "3"
+      },
+      {
+        "name": "variant",
+        "type": "'plain' | 'card'",
+        "required": false,
+        "defaultValue": "'plain'",
+        "description": "plain sits on the page; card gives each feature its own surface."
+      },
+      {
+        "name": "headingLevel",
+        "type": "'h3' | 'h4'",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  "FeedbackWidget": {
+    "props": [
+      {
+        "name": "onSubmit",
+        "type": "(feedback: Feedback) => void | Promise<void>",
+        "required": true
+      },
+      {
+        "name": "categories",
+        "type": "string[]",
+        "required": false,
+        "description": "\"Idea\", \"Bug\", \"Other\". Omit to skip the choice."
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Share feedback'"
+      },
+      {
+        "name": "triggerLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Feedback'"
+      },
+      {
+        "name": "placement",
+        "type": "PopoverPlacement",
+        "required": false,
+        "defaultValue": "'top'"
+      },
+      {
+        "name": "align",
+        "type": "PopoverAlign",
+        "required": false,
+        "defaultValue": "'end'"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
   "Field": {
     "props": [
       {
@@ -4150,6 +4722,47 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "FilterBuilder": {
+    "props": [
+      {
+        "name": "fields",
+        "type": "FilterField[]",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "FilterCondition[]",
+        "required": true
+      },
+      {
+        "name": "onChange",
+        "type": "(value: FilterCondition[]) => void",
+        "required": true
+      },
+      {
+        "name": "match",
+        "type": "FilterMatch",
+        "required": true
+      },
+      {
+        "name": "onMatchChange",
+        "type": "(match: FilterMatch) => void",
+        "required": true
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Filters'",
+        "description": "Accessible name for the group."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
       }
     ]
   },
@@ -4547,6 +5160,135 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "HelpPanel": {
+    "props": [
+      {
+        "name": "articles",
+        "type": "HelpArticle[]",
+        "required": true
+      },
+      {
+        "name": "popular",
+        "type": "string[]",
+        "required": false,
+        "description": "Ids shown before anything is typed. Defaults to the first four."
+      },
+      {
+        "name": "resources",
+        "type": "HelpResource[]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": "Docs, community, shortcuts — the tiles under the search."
+      },
+      {
+        "name": "status",
+        "type": "{ state: SystemStatus; label: string; href?: string }",
+        "required": false
+      },
+      {
+        "name": "onContact",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "contactLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Contact support'"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Help & support'"
+      },
+      {
+        "name": "bare",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Drop the card chrome, for use inside a Drawer or Popover."
+      },
+      {
+        "name": "maxResults",
+        "type": "number",
+        "required": false,
+        "defaultValue": "5"
+      },
+      {
+        "name": "headingLevel",
+        "type": "'h2' | 'h3'",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  "HeroSection": {
+    "props": [
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Headline. Wrap the phrase that carries the promise in `HeroHighlight`."
+      },
+      {
+        "name": "description",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "announcement",
+        "type": "HeroAnnouncement",
+        "required": false,
+        "description": "The pill above the headline that links to the latest launch."
+      },
+      {
+        "name": "actions",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Primary and secondary calls to action."
+      },
+      {
+        "name": "note",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Reassurance under the actions — \"No credit card required\"."
+      },
+      {
+        "name": "media",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Product screenshot or illustration. Application-owned."
+      },
+      {
+        "name": "backdrop",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Decoration behind everything — an AuroraSurface, a grid."
+      },
+      {
+        "name": "layout",
+        "type": "'center' | 'split'",
+        "required": false,
+        "defaultValue": "'center'",
+        "description": "center stacks copy over media; split puts them side by side from lg."
+      },
+      {
+        "name": "headingLevel",
+        "type": "'h1' | 'h2'",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
       }
     ]
   },
@@ -5076,6 +5818,172 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "IntegrationCard": {
+    "props": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "description",
+        "type": "ReactNode",
+        "required": true
+      },
+      {
+        "name": "logo",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The service's mark. Application-owned."
+      },
+      {
+        "name": "category",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "status",
+        "type": "IntegrationStatus",
+        "required": false,
+        "defaultValue": "'available'"
+      },
+      {
+        "name": "meta",
+        "type": "ReactNode",
+        "required": false,
+        "description": "\"Synced 4 minutes ago\", or what went wrong."
+      },
+      {
+        "name": "badge",
+        "type": "string",
+        "required": false,
+        "description": "Qualifier beside the name — \"Popular\", \"Beta\"."
+      },
+      {
+        "name": "requiresPlan",
+        "type": "string",
+        "required": false,
+        "description": "The plan it needs, when the account is not on it. Replaces Connect."
+      },
+      {
+        "name": "onConnect",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "onDisconnect",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "onConfigure",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "onUpgrade",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "headingLevel",
+        "type": "'h2' | 'h3'",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  "InviteMembers": {
+    "props": [
+      {
+        "name": "roles",
+        "type": "RoleOption[]",
+        "required": true
+      },
+      {
+        "name": "defaultRole",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "onInvite",
+        "type": "(invites: Invite[]) => void | Promise<void>",
+        "required": true
+      },
+      {
+        "name": "existingEmails",
+        "type": "string[]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": "Already in the workspace or already invited — caught before sending."
+      },
+      {
+        "name": "seats",
+        "type": "{ used: number; total: number }",
+        "required": false,
+        "description": "Seats on the plan. Inviting past them warns, or blocks without allowOverage."
+      },
+      {
+        "name": "allowOverage",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Extra seats are billed rather than refused."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Email addresses'"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  "InvoiceList": {
+    "props": [
+      {
+        "name": "invoices",
+        "type": "Invoice[]",
+        "required": true
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Invoices'"
+      },
+      {
+        "name": "onDownload",
+        "type": "(invoice: Invoice) => void",
+        "required": false
+      },
+      {
+        "name": "onPay",
+        "type": "(invoice: Invoice) => void",
+        "required": false,
+        "description": "Offered on due and failed invoices."
+      },
+      {
+        "name": "emptyMessage",
+        "type": "ReactNode",
+        "required": false,
+        "defaultValue": "'Invoices appear here after your first payment.'"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
       }
     ]
   },
@@ -5680,6 +6588,33 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "LogoCloud": {
+    "props": [
+      {
+        "name": "logos",
+        "type": "LogoItem[]",
+        "required": true
+      },
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": false,
+        "description": "The claim the logos support — \"Trusted by 4,000 teams\"."
+      },
+      {
+        "name": "variant",
+        "type": "'row' | 'grid' | 'marquee'",
+        "required": false,
+        "defaultValue": "'row'",
+        "description": "row wraps centred; grid draws hairline cells; marquee scrolls."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
   "MagicTabs": {
     "props": [
       {
@@ -5956,6 +6891,72 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "MemberList": {
+    "props": [
+      {
+        "name": "members",
+        "type": "Member[]",
+        "required": true
+      },
+      {
+        "name": "roles",
+        "type": "RoleOption[]",
+        "required": true
+      },
+      {
+        "name": "currentUserId",
+        "type": "string",
+        "required": false,
+        "description": "The signed-in person, marked \"You\"."
+      },
+      {
+        "name": "ownerRole",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'owner'",
+        "description": "The role that must never reach zero holders."
+      },
+      {
+        "name": "canManage",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Whether the viewer may change roles and remove people."
+      },
+      {
+        "name": "onRoleChange",
+        "type": "(memberId: string, role: string) => void",
+        "required": false
+      },
+      {
+        "name": "onRemove",
+        "type": "(member: Member) => void | Promise<void>",
+        "required": false
+      },
+      {
+        "name": "onResendInvite",
+        "type": "(member: Member) => void",
+        "required": false
+      },
+      {
+        "name": "searchable",
+        "type": "boolean",
+        "required": false,
+        "description": "Search by name or email. On by default past eight people."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Members'"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
       }
     ]
   },
@@ -6736,6 +7737,42 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "OnboardingWizard": {
+    "props": [
+      {
+        "name": "steps",
+        "type": "WizardStep[]",
+        "required": true
+      },
+      {
+        "name": "onComplete",
+        "type": "() => void | Promise<void>",
+        "required": true
+      },
+      {
+        "name": "onStepChange",
+        "type": "(index: number) => void",
+        "required": false
+      },
+      {
+        "name": "finishLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Finish'"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "Heading over the whole flow — \"Set up your workspace\"."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
   "OrbitRing": {
     "props": [
       {
@@ -7146,6 +8183,74 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "PaymentMethodCard": {
+    "props": [
+      {
+        "name": "brand",
+        "type": "string",
+        "required": true,
+        "description": "Card network, lower-case — \"visa\", \"mastercard\". Anything else is shown as given."
+      },
+      {
+        "name": "last4",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "expMonth",
+        "type": "number",
+        "required": true
+      },
+      {
+        "name": "expYear",
+        "type": "number",
+        "required": true
+      },
+      {
+        "name": "holder",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "isDefault",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false"
+      },
+      {
+        "name": "onMakeDefault",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "onEdit",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "onRemove",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "warnDays",
+        "type": "number",
+        "required": false,
+        "defaultValue": "60",
+        "description": "Days before expiry to start warning."
+      },
+      {
+        "name": "now",
+        "type": "Date",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
   "PermissionGate": {
     "props": [
       {
@@ -7368,6 +8473,89 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "PlanSummary": {
+    "props": [
+      {
+        "name": "plan",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "price",
+        "type": "string",
+        "required": false,
+        "description": "Already formatted — \"$49\"."
+      },
+      {
+        "name": "period",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'per month'",
+        "description": "\"per month\", \"per seat / month\"."
+      },
+      {
+        "name": "status",
+        "type": "SubscriptionStatus",
+        "required": true
+      },
+      {
+        "name": "renewsAt",
+        "type": "Date",
+        "required": false,
+        "description": "Next charge, for an active plan."
+      },
+      {
+        "name": "trialEndsAt",
+        "type": "Date",
+        "required": false
+      },
+      {
+        "name": "endsAt",
+        "type": "Date",
+        "required": false,
+        "description": "When access stops, for a canceled plan."
+      },
+      {
+        "name": "seats",
+        "type": "{ used: number; total: number }",
+        "required": false
+      },
+      {
+        "name": "details",
+        "type": "DescriptionItem[]",
+        "required": false,
+        "description": "Extra key/value rows — billing email, payment method, tax ID."
+      },
+      {
+        "name": "actions",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Change plan, cancel, manage billing."
+      },
+      {
+        "name": "paymentAction",
+        "type": "ReactNode",
+        "required": false,
+        "description": "The fix for a failed payment, shown inside the warning."
+      },
+      {
+        "name": "now",
+        "type": "Date",
+        "required": false,
+        "description": "Fixed \"now\", for tests and stories."
+      },
+      {
+        "name": "headingLevel",
+        "type": "'h2' | 'h3'",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
   "Popover": {
     "props": [
       {
@@ -7584,6 +8772,167 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "PricingCard": {
+    "props": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "price",
+        "type": "number | null",
+        "required": true,
+        "description": "Price per period. null is a custom plan — \"Let's talk\" pricing."
+      },
+      {
+        "name": "currency",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'$'"
+      },
+      {
+        "name": "period",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'/month'",
+        "description": "\"/month\", \"/seat/month\"."
+      },
+      {
+        "name": "priceCaption",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Line under the price — \"Billed $468 yearly\"."
+      },
+      {
+        "name": "compareAt",
+        "type": "number | null",
+        "required": false,
+        "description": "The price before a discount, struck through beside the real one."
+      },
+      {
+        "name": "customLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Custom'",
+        "description": "Shown in place of the figure when price is null."
+      },
+      {
+        "name": "features",
+        "type": "(string | PricingFeature)[]",
+        "required": false,
+        "defaultValue": "[]"
+      },
+      {
+        "name": "featuresTitle",
+        "type": "string",
+        "required": false,
+        "description": "Heading over the list — \"Everything in Starter, plus\"."
+      },
+      {
+        "name": "action",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Usually a full-width Button."
+      },
+      {
+        "name": "badge",
+        "type": "string",
+        "required": false,
+        "description": "Pill on the top edge — \"Most popular\"."
+      },
+      {
+        "name": "featured",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "The recommended plan: accent border and lift."
+      },
+      {
+        "name": "current",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "The plan this account is on."
+      },
+      {
+        "name": "headingLevel",
+        "type": "'h2' | 'h3'",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  "PricingTable": {
+    "props": [
+      {
+        "name": "plans",
+        "type": "PricingPlan[]",
+        "required": true
+      },
+      {
+        "name": "currency",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'$'"
+      },
+      {
+        "name": "period",
+        "type": "BillingPeriod",
+        "required": false,
+        "description": "Controlled period. Omit to let the table own it."
+      },
+      {
+        "name": "defaultPeriod",
+        "type": "BillingPeriod",
+        "required": false,
+        "defaultValue": "'monthly'"
+      },
+      {
+        "name": "onPeriodChange",
+        "type": "(period: BillingPeriod) => void",
+        "required": false
+      },
+      {
+        "name": "onSelect",
+        "type": "(planId: string, period: BillingPeriod) => void",
+        "required": false
+      },
+      {
+        "name": "currentPlanId",
+        "type": "string",
+        "required": false,
+        "description": "The plan the account is on — its button becomes a disabled \"Current plan\"."
+      },
+      {
+        "name": "unit",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'/month'",
+        "description": "\"/month\", \"/seat/month\"."
+      },
+      {
+        "name": "showToggle",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
       }
     ]
   },
@@ -8560,6 +9909,43 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "RolePermissions": {
+    "props": [
+      {
+        "name": "roles",
+        "type": "PermissionRole[]",
+        "required": true
+      },
+      {
+        "name": "groups",
+        "type": "PermissionGroup[]",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "Record<string, string[]>",
+        "required": true,
+        "description": "role id → the permission ids it holds."
+      },
+      {
+        "name": "onChange",
+        "type": "(value: Record<string, string[]>) => void",
+        "required": false,
+        "description": "Omit for a read-only matrix."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Caption for the table."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
   "RopeCursor": {
     "props": [
       {
@@ -8745,6 +10131,64 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "SavedViews": {
+    "props": [
+      {
+        "name": "views",
+        "type": "SavedView[]",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "onValueChange",
+        "type": "(id: string) => void",
+        "required": true
+      },
+      {
+        "name": "dirty",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "The filters, sort or columns have changed since the view was loaded."
+      },
+      {
+        "name": "onSave",
+        "type": "() => void",
+        "required": false,
+        "description": "Overwrite the current view."
+      },
+      {
+        "name": "onSaveAs",
+        "type": "(name: string) => void",
+        "required": false
+      },
+      {
+        "name": "onDiscard",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "onDelete",
+        "type": "(view: SavedView) => void",
+        "required": false
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Saved views'"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
       }
     ]
   },
@@ -9018,6 +10462,49 @@ export const generatedProps: Record<string, GeneratedProps> = {
       "Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'>"
     ]
   },
+  "SectionHeading": {
+    "props": [
+      {
+        "name": "eyebrow",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Small uppercase line above the title — the section's name."
+      },
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": true
+      },
+      {
+        "name": "description",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "align",
+        "type": "'start' | 'center'",
+        "required": false,
+        "defaultValue": "'center'"
+      },
+      {
+        "name": "as",
+        "type": "'h1' | 'h2' | 'h3'",
+        "required": false,
+        "description": "Heading level. The visual size never changes."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Right-aligned (or, centred, underneath) affordances — a link, a toggle."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
   "SegmentedControl": {
     "props": [
       {
@@ -9161,6 +10648,37 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "SessionList": {
+    "props": [
+      {
+        "name": "sessions",
+        "type": "UserSession[]",
+        "required": true
+      },
+      {
+        "name": "onRevoke",
+        "type": "(session: UserSession) => void | Promise<void>",
+        "required": true
+      },
+      {
+        "name": "onRevokeOthers",
+        "type": "() => void | Promise<void>",
+        "required": false,
+        "description": "Sign out everywhere except here."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Active sessions'"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
   "SessionTimeout": {
     "props": [
       {
@@ -9215,6 +10733,133 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "SettingsSection": {
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "description",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Fields and SettingsRows."
+      },
+      {
+        "name": "layout",
+        "type": "'split' | 'stacked'",
+        "required": false,
+        "defaultValue": "'split'",
+        "description": "split puts the description beside the card from md; stacked puts it above."
+      },
+      {
+        "name": "onSave",
+        "type": "() => void | Promise<void>",
+        "required": false,
+        "description": "Adds a save bar and turns the card into a form."
+      },
+      {
+        "name": "onReset",
+        "type": "() => void",
+        "required": false,
+        "description": "Put the fields back as they were."
+      },
+      {
+        "name": "dirty",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Something has changed. Save and reset stay disabled until it has."
+      },
+      {
+        "name": "saving",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false"
+      },
+      {
+        "name": "saveLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Save changes'"
+      },
+      {
+        "name": "footerNote",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Left side of the save bar while nothing has changed — \"Last saved 2 min ago\"."
+      },
+      {
+        "name": "headingLevel",
+        "type": "'h2' | 'h3'",
+        "required": false
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  "SetupChecklist": {
+    "props": [
+      {
+        "name": "steps",
+        "type": "ChecklistStep[]",
+        "required": true
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Get started'"
+      },
+      {
+        "name": "description",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "onDismiss",
+        "type": "() => void",
+        "required": false,
+        "description": "Hide the checklist for good. Offered at every stage, not only at the end."
+      },
+      {
+        "name": "completeTitle",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'You are all set'"
+      },
+      {
+        "name": "completeDescription",
+        "type": "ReactNode",
+        "required": false,
+        "defaultValue": "'Everything on the list is done. You can hide this card now.'"
+      },
+      {
+        "name": "headingLevel",
+        "type": "'h2' | 'h3'",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
       }
     ]
   },
@@ -9451,6 +11096,109 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "SiteFooter": {
+    "props": [
+      {
+        "name": "brand",
+        "type": "ReactNode",
+        "required": true
+      },
+      {
+        "name": "tagline",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "columns",
+        "type": "FooterColumn[]",
+        "required": true
+      },
+      {
+        "name": "social",
+        "type": "FooterSocial[]",
+        "required": false,
+        "defaultValue": "[]"
+      },
+      {
+        "name": "legal",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Copyright line."
+      },
+      {
+        "name": "bottomLinks",
+        "type": "SiteLink[]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": "Terms, privacy, cookies — the row under the rule."
+      },
+      {
+        "name": "aside",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Newsletter sign-up, a status badge, a region switcher."
+      },
+      {
+        "name": "maxWidth",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1200"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  "SiteHeader": {
+    "props": [
+      {
+        "name": "brand",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The lockup on the left — usually a Wordmark inside a link home."
+      },
+      {
+        "name": "links",
+        "type": "SiteLink[]",
+        "required": false,
+        "defaultValue": "[]"
+      },
+      {
+        "name": "actions",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Right-hand affordances: sign in, and the primary call to action."
+      },
+      {
+        "name": "sticky",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Pin to the top and lift off the page once it has scrolled."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Main'",
+        "description": "Accessible name for the navigation landmark."
+      },
+      {
+        "name": "maxWidth",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1200",
+        "description": "Width of the content column."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
       }
     ]
   },
@@ -9904,6 +11652,54 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "SsoSetup": {
+    "props": [
+      {
+        "name": "value",
+        "type": "SsoConfig",
+        "required": true
+      },
+      {
+        "name": "onChange",
+        "type": "(value: SsoConfig) => void",
+        "required": true
+      },
+      {
+        "name": "serviceProvider",
+        "type": "{ acsUrl: string; entityId: string; metadataUrl?: string }",
+        "required": true,
+        "description": "What the identity provider needs from us."
+      },
+      {
+        "name": "providers",
+        "type": "{ value: string; label: string }[]",
+        "required": false,
+        "defaultValue": "DEFAULT_PROVIDERS"
+      },
+      {
+        "name": "onTest",
+        "type": "(config: SsoConfig) => Promise<{ ok: boolean; message: string }>",
+        "required": true
+      },
+      {
+        "name": "onSave",
+        "type": "(config: SsoConfig) => void | Promise<void>",
+        "required": true
+      },
+      {
+        "name": "domains",
+        "type": "string[]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": "Domains whose members enforcement applies to."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
       }
     ]
   },
@@ -10920,6 +12716,60 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "TestimonialCard": {
+    "props": [
+      {
+        "name": "quote",
+        "type": "ReactNode",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "role",
+        "type": "string",
+        "required": false,
+        "description": "Job title."
+      },
+      {
+        "name": "company",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "avatarSrc",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "logo",
+        "type": "ReactNode",
+        "required": false,
+        "description": "The company's mark, in the corner."
+      },
+      {
+        "name": "rating",
+        "type": "number",
+        "required": false,
+        "description": "Out of five."
+      },
+      {
+        "name": "featured",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Larger quote on the accent-soft ground, for the one that leads the wall."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
   "Text": {
     "props": [
       {
@@ -11454,6 +13304,43 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "TwoFactorSetup": {
+    "props": [
+      {
+        "name": "otpauthUrl",
+        "type": "string",
+        "required": true,
+        "description": "The otpauth:// URI the authenticator app scans."
+      },
+      {
+        "name": "secret",
+        "type": "string",
+        "required": true,
+        "description": "The same secret, for typing in by hand."
+      },
+      {
+        "name": "onVerify",
+        "type": "(code: string) => Promise<string[] | false>",
+        "required": true,
+        "description": "Check a code. Resolve with the recovery codes on success, false otherwise."
+      },
+      {
+        "name": "onComplete",
+        "type": "() => void",
+        "required": true
+      },
+      {
+        "name": "onCancel",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
   "Typewriter": {
     "props": [
       {
@@ -11604,6 +13491,185 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "UpgradePrompt": {
+    "props": [
+      {
+        "name": "variant",
+        "type": "UpgradePromptVariant",
+        "required": false,
+        "defaultValue": "'card'",
+        "description": "card is a panel; banner spans the top of a page; inline sits where a locked feature would be."
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "description",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "benefits",
+        "type": "string[]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": "What the upgrade unlocks. card only."
+      },
+      {
+        "name": "plan",
+        "type": "string",
+        "required": false,
+        "description": "The plan being offered — \"Pro\"."
+      },
+      {
+        "name": "icon",
+        "type": "IconComponent",
+        "required": false
+      },
+      {
+        "name": "action",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Usually an accent Button — \"Upgrade to Pro\"."
+      },
+      {
+        "name": "secondaryAction",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "trialEndsAt",
+        "type": "Date",
+        "required": false,
+        "description": "A running trial. The days left are worked out and shown."
+      },
+      {
+        "name": "onDismiss",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "now",
+        "type": "Date",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  "UsageMeter": {
+    "props": [
+      {
+        "name": "items",
+        "type": "UsageItem[]",
+        "required": true
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Usage'"
+      },
+      {
+        "name": "period",
+        "type": "ReactNode",
+        "required": false,
+        "description": "When the counts reset — \"Resets on 1 Oct\"."
+      },
+      {
+        "name": "warnAt",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.8",
+        "description": "Fraction at which a row starts warning."
+      },
+      {
+        "name": "onUpgrade",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "upgradeLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Upgrade plan'"
+      },
+      {
+        "name": "layout",
+        "type": "'list' | 'grid'",
+        "required": false,
+        "defaultValue": "'list'"
+      },
+      {
+        "name": "headingLevel",
+        "type": "'h2' | 'h3'",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  "UserMenu": {
+    "props": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "email",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "avatarSrc",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "badge",
+        "type": "string",
+        "required": false,
+        "description": "Plan or role shown beside the name — \"Admin\", \"Pro\"."
+      },
+      {
+        "name": "items",
+        "type": "(UserMenuItem | 'separator')[]",
+        "required": true
+      },
+      {
+        "name": "onSignOut",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "signOutLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Sign out'"
+      },
+      {
+        "name": "showName",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Show the name beside the avatar in the trigger."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
       }
     ]
   },
@@ -11819,6 +13885,93 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "WebhookDeliveries": {
+    "props": [
+      {
+        "name": "deliveries",
+        "type": "WebhookDelivery[]",
+        "required": true
+      },
+      {
+        "name": "onRetry",
+        "type": "(delivery: WebhookDelivery) => void",
+        "required": false
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Deliveries'"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  "WebhookEndpoints": {
+    "props": [
+      {
+        "name": "endpoints",
+        "type": "WebhookEndpoint[]",
+        "required": true
+      },
+      {
+        "name": "onAdd",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "onToggle",
+        "type": "(id: string, enabled: boolean) => void",
+        "required": false
+      },
+      {
+        "name": "onDelete",
+        "type": "(endpoint: WebhookEndpoint) => void | Promise<void>",
+        "required": false
+      },
+      {
+        "name": "onTest",
+        "type": "(endpoint: WebhookEndpoint) => void",
+        "required": false
+      },
+      {
+        "name": "onView",
+        "type": "(endpoint: WebhookEndpoint) => void",
+        "required": false,
+        "description": "Open the delivery log for an endpoint."
+      },
+      {
+        "name": "selectedId",
+        "type": "string",
+        "required": false,
+        "description": "The endpoint whose deliveries are shown beside the list."
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Webhooks'"
+      },
+      {
+        "name": "description",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "headingLevel",
+        "type": "'h2' | 'h3'",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
   "Wordmark": {
     "props": [
       {
@@ -11851,6 +14004,62 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "WorkspaceSwitcher": {
+    "props": [
+      {
+        "name": "workspaces",
+        "type": "Workspace[]",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "onValueChange",
+        "type": "(id: string) => void",
+        "required": true
+      },
+      {
+        "name": "onCreate",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "createLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Create workspace'"
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Workspaces'",
+        "description": "Accessible name for the list."
+      },
+      {
+        "name": "searchThreshold",
+        "type": "number",
+        "required": false,
+        "defaultValue": "6",
+        "description": "Show a search field once there are more than this many."
+      },
+      {
+        "name": "fullWidth",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Stretch the trigger to its container — the top of a sidebar."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
       }
     ]
   },

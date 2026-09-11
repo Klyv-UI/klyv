@@ -18,12 +18,21 @@ export const ariaRoles: Record<string, string[]> = {
   "AlertDialog": [
     "alertdialog"
   ],
+  "AnnouncementBar": [
+    "region"
+  ],
+  "ApiKeyManager": [
+    "status"
+  ],
   "ApprovalChain": [
     "group",
     "status"
   ],
   "AudioVisualizer": [
     "status"
+  ],
+  "AuthCard": [
+    "separator"
   ],
   "AvatarGroup": [
     "group"
@@ -83,6 +92,9 @@ export const ariaRoles: Record<string, string[]> = {
     "menu",
     "menuitem"
   ],
+  "CookieBanner": [
+    "region"
+  ],
   "CopyButton": [
     "status"
   ],
@@ -137,6 +149,9 @@ export const ariaRoles: Record<string, string[]> = {
   "ErrorState": [
     "alert"
   ],
+  "FeedbackWidget": [
+    "status"
+  ],
   "FileUpload": [
     "alert"
   ],
@@ -144,10 +159,16 @@ export const ariaRoles: Record<string, string[]> = {
     "search",
     "status"
   ],
+  "FilterBuilder": [
+    "group"
+  ],
   "FlipBook": [
     "group"
   ],
   "GooeyLoader": [
+    "status"
+  ],
+  "HelpPanel": [
     "status"
   ],
   "HoldToConfirm": [
@@ -191,6 +212,9 @@ export const ariaRoles: Record<string, string[]> = {
   "LoadingOverlay": [
     "status"
   ],
+  "LogoCloud": [
+    "img"
+  ],
   "MagicTabs": [
     "tab",
     "tablist"
@@ -200,6 +224,9 @@ export const ariaRoles: Record<string, string[]> = {
     "status"
   ],
   "MaskedValue": [
+    "status"
+  ],
+  "MemberList": [
     "status"
   ],
   "MentionInput": [
@@ -266,6 +293,9 @@ export const ariaRoles: Record<string, string[]> = {
     "group",
     "status"
   ],
+  "PricingTable": [
+    "status"
+  ],
   "Progress": [
     "progressbar"
   ],
@@ -314,6 +344,9 @@ export const ariaRoles: Record<string, string[]> = {
   "SaveIndicator": [
     "status"
   ],
+  "SavedViews": [
+    "status"
+  ],
   "ScrollProgress": [
     "progressbar"
   ],
@@ -329,6 +362,9 @@ export const ariaRoles: Record<string, string[]> = {
   "SessionTimeout": [
     "alertdialog",
     "modal"
+  ],
+  "SettingsSection": [
+    "status"
   ],
   "ShortcutRecorder": [
     "status"
@@ -375,6 +411,9 @@ export const ariaRoles: Record<string, string[]> = {
   "TagInput": [
     "status"
   ],
+  "TestimonialCard": [
+    "img"
+  ],
   "Ticker": [
     "status"
   ],
@@ -409,6 +448,13 @@ export const ariaRoles: Record<string, string[]> = {
     "menuitem",
     "status"
   ],
+  "UsageMeter": [
+    "progressbar"
+  ],
+  "UserMenu": [
+    "menu",
+    "menuitem"
+  ],
   "ValidationSummary": [
     "alert"
   ],
@@ -423,6 +469,10 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "Waveform": [
     "img"
+  ],
+  "WorkspaceSwitcher": [
+    "listbox",
+    "option"
   ],
   "XPBar": [
     "progressbar",

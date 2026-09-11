@@ -17,7 +17,8 @@ import { SearchPalette, SearchTrigger, useSearchPalette } from '../components/Se
 import { ThemeToggle } from '../components/ThemeToggle'
 import { brand } from '../brand'
 import { blocks } from '../data/blocks'
-import { catalog, componentCount, type CatalogEntry } from '../data/catalog'
+import { catalog, componentCount, isNewComponent, type CatalogEntry } from '../data/catalog'
+import { NewBadge } from '../components/NewBadge'
 import { groups } from '../data/groups'
 
 /**
@@ -387,14 +388,15 @@ const NavItem = memo(function NavItem({ entry }: { entry: CatalogEntry }) {
       to={`/components/${entry.slug}`}
       className={({ isActive }) =>
         cn(
-          'truncate rounded-[10px] px-2.5 py-1.5 text-[12.5px] font-semibold transition-colors',
+          'group flex items-center gap-2 rounded-[10px] px-2.5 py-1.5 text-[12.5px] font-semibold transition-colors',
           isActive
             ? 'bg-accent-soft text-ink'
             : 'text-ink-soft hover:bg-surface-muted hover:text-ink',
         )
       }
     >
-      {entry.name}
+      <span className="min-w-0 flex-1 truncate">{entry.name}</span>
+      {isNewComponent(entry.name) && <NewBadge />}
     </NavLink>
   )
 })

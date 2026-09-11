@@ -5,7 +5,7 @@ description: Build UI with the Citrine React component library — 250+ accessib
 
 # Building with Citrine
 
-Citrine is a React component library of more than 250 components in twelve groups. Every
+Citrine is a React component library of more than 290 components in thirteen groups. Every
 emphasis in it — buttons, charts, focus rings, the page behind them — resolves
 to one accent colour and three values derived from it.
 
@@ -32,7 +32,7 @@ If the Citrine MCP server is connected, use its tools for all three:
 | `get_design_rules` | the design system and the five house rules |
 | `list_blocks` | whole screens — sign-in, dashboard, settings and more |
 | `get_block` | one screen: its components, its packages and its full source |
-| `list_groups` | the twelve groups and their counts |
+| `list_groups` | the thirteen groups and their counts |
 | `how_to_install` | package, stylesheet, peer dependencies |
 
 Without the MCP server, the same data is in the package: `data/components.json`,

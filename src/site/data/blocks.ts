@@ -149,6 +149,39 @@ export const blocks: BlockEntry[] = [
       'A landing section — headline, feature grid, measured figures and a closing call to action — themed entirely by the accent.',
     uses: ['Badge', 'Text', 'Button', 'Surface', 'Metric'],
   },
+  {
+    slug: 'saas-landing',
+    file: 'SaasLandingBlock.tsx',
+    keywords: ['saas', 'marketing', 'landing', 'homepage', 'pricing', 'hero', 'footer'],
+    name: 'SaaS landing',
+    category: 'Marketing',
+    blurb:
+      'A whole SaaS homepage: announcement, header, hero with the product, logos, features, pricing with a comparison, testimonials, FAQ, closing ask and footer.',
+    uses: ['AnnouncementBar', 'SiteHeader', 'HeroSection', 'LogoCloud', 'SectionHeading', 'FeatureGrid', 'PricingTable', 'FeatureComparison', 'TestimonialCard', 'Accordion', 'CtaSection', 'SiteFooter'],
+    wide: true,
+  },
+  {
+    slug: 'saas-dashboard',
+    file: 'SaasDashboardBlock.tsx',
+    keywords: ['saas', 'app', 'home', 'onboarding', 'usage', 'workspace'],
+    name: 'SaaS dashboard',
+    category: 'Application',
+    blurb:
+      'The signed-in home of a SaaS app: workspace switcher, account menu, trial banner, KPIs, a setup checklist, plan usage and what is new.',
+    uses: ['WorkspaceSwitcher', 'Sidebar', 'UserMenu', 'FeedbackWidget', 'UpgradePrompt', 'PageHeader', 'StatCard', 'SetupChecklist', 'UsageMeter', 'ChangelogList', 'Card'],
+    wide: true,
+  },
+  {
+    slug: 'saas-admin',
+    file: 'SaasAdminBlock.tsx',
+    keywords: ['saas', 'admin', 'settings', 'team', 'billing', 'security', 'api keys', 'webhooks'],
+    name: 'SaaS admin',
+    category: 'Application',
+    blurb:
+      'A SaaS admin area in five tabs — workspace settings, team and roles, billing, security and developer access — every control working.',
+    uses: ['SegmentedControl', 'SettingsSection', 'DangerZone', 'InviteMembers', 'MemberList', 'RolePermissions', 'PlanSummary', 'InvoiceList', 'PaymentMethodCard', 'SessionList', 'ApiKeyManager', 'WebhookEndpoints'],
+    wide: true,
+  },
 ]
 
 export const blockCount = blocks.length

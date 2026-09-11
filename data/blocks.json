@@ -330,6 +330,162 @@
         "citrine",
         "lucide-react"
       ]
+    },
+    {
+      "slug": "saas-landing",
+      "name": "SaaS landing",
+      "category": "Marketing",
+      "blurb": "A whole SaaS homepage: announcement, header, hero with the product, logos, features, pricing with a comparison, testimonials, FAQ, closing ask and footer.",
+      "uses": [
+        "AnnouncementBar",
+        "SiteHeader",
+        "HeroSection",
+        "LogoCloud",
+        "SectionHeading",
+        "FeatureGrid",
+        "PricingTable",
+        "FeatureComparison",
+        "TestimonialCard",
+        "Accordion",
+        "CtaSection",
+        "SiteFooter"
+      ],
+      "keywords": [
+        "saas",
+        "marketing",
+        "landing",
+        "homepage",
+        "pricing",
+        "hero",
+        "footer"
+      ],
+      "file": "src/site/blocks/SaasLandingBlock.tsx",
+      "components": [
+        "Accordion",
+        "AnnouncementBar",
+        "Button",
+        "CtaSection",
+        "FeatureComparison",
+        "FeatureGrid",
+        "HeroSection",
+        "LogoCloud",
+        "PricingTable",
+        "SectionHeading",
+        "SiteFooter",
+        "SiteHeader",
+        "StatCard",
+        "TestimonialCard",
+        "Wordmark"
+      ],
+      "packages": [
+        "citrine",
+        "lucide-react"
+      ]
+    },
+    {
+      "slug": "saas-dashboard",
+      "name": "SaaS dashboard",
+      "category": "Application",
+      "blurb": "The signed-in home of a SaaS app: workspace switcher, account menu, trial banner, KPIs, a setup checklist, plan usage and what is new.",
+      "uses": [
+        "WorkspaceSwitcher",
+        "Sidebar",
+        "UserMenu",
+        "FeedbackWidget",
+        "UpgradePrompt",
+        "PageHeader",
+        "StatCard",
+        "SetupChecklist",
+        "UsageMeter",
+        "ChangelogList",
+        "Card"
+      ],
+      "keywords": [
+        "saas",
+        "app",
+        "home",
+        "onboarding",
+        "usage",
+        "workspace"
+      ],
+      "file": "src/site/blocks/SaasDashboardBlock.tsx",
+      "components": [
+        "Badge",
+        "Button",
+        "Card",
+        "ChangelogList",
+        "FeedbackWidget",
+        "IconButton",
+        "PageHeader",
+        "SearchField",
+        "SetupChecklist",
+        "Sidebar",
+        "StatCard",
+        "UpgradePrompt",
+        "UsageMeter",
+        "UserMenu",
+        "WorkspaceSwitcher"
+      ],
+      "packages": [
+        "citrine",
+        "lucide-react",
+        "react"
+      ]
+    },
+    {
+      "slug": "saas-admin",
+      "name": "SaaS admin",
+      "category": "Application",
+      "blurb": "A SaaS admin area in five tabs — workspace settings, team and roles, billing, security and developer access — every control working.",
+      "uses": [
+        "SegmentedControl",
+        "SettingsSection",
+        "DangerZone",
+        "InviteMembers",
+        "MemberList",
+        "RolePermissions",
+        "PlanSummary",
+        "InvoiceList",
+        "PaymentMethodCard",
+        "SessionList",
+        "ApiKeyManager",
+        "WebhookEndpoints"
+      ],
+      "keywords": [
+        "saas",
+        "admin",
+        "settings",
+        "team",
+        "billing",
+        "security",
+        "api keys",
+        "webhooks"
+      ],
+      "file": "src/site/blocks/SaasAdminBlock.tsx",
+      "components": [
+        "ApiKeyManager",
+        "Button",
+        "Card",
+        "DangerZone",
+        "Field",
+        "Input",
+        "InviteMembers",
+        "InvoiceList",
+        "MemberList",
+        "PageHeader",
+        "PaymentMethodCard",
+        "PlanSummary",
+        "RolePermissions",
+        "SegmentedControl",
+        "SessionList",
+        "SettingsSection",
+        "Switch",
+        "WebhookEndpoints"
+      ],
+      "packages": [
+        "citrine",
+        "react"
+      ]
     }
   ]
 }

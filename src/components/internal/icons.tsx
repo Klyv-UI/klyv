@@ -64,6 +64,31 @@ export const EyeOffIcon = make(
   </>,
 )
 export const PlusIcon = make(<path d="M8 3.5v9M3.5 8h9" />)
+export const MenuIcon = make(<path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11" />)
+export const ArrowRightIcon = make(<path d="M3 8h10M9 4l4 4-4 4" />)
+/** The up-down chevron pair on a trigger that opens a list of alternatives. */
+export const SelectorIcon = make(<path d="M5 6l3-3 3 3M5 10l3 3 3-3" />)
+export const LockIcon = make(
+  <>
+    <rect x="3.5" y="7" width="9" height="6.5" rx="1.5" />
+    <path d="M5.5 7V5a2.5 2.5 0 015 0v2" />
+  </>,
+)
+export const DesktopIcon = make(
+  <>
+    <rect x="1.5" y="2.5" width="13" height="8.5" rx="1.5" />
+    <path d="M6 13.5h4M8 11v2.5" />
+  </>,
+)
+export const PhoneIcon = make(
+  <>
+    <rect x="4.5" y="1.5" width="7" height="13" rx="1.5" />
+    <path d="M7.5 12h1" />
+  </>,
+)
+export const ExternalIcon = make(
+  <path d="M9.5 2.5h4v4M13.5 2.5L7.5 8.5M12 9.5v3a1 1 0 01-1 1H3.5a1 1 0 01-1-1V5a1 1 0 011-1h3" />,
+)
 export const MinusIcon = make(<path d="M3.5 8h9" />)
 export const AlertIcon = make(
   <>

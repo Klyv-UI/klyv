@@ -21,7 +21,10 @@ export interface TableProps {
  */
 export function Table({ children, label, striped = false, className }: TableProps) {
   return (
-    <div className="w-full overflow-x-auto">
+    // `relative` makes this the containing block for visually-hidden cell text,
+    // which is absolutely positioned — without it that text escapes the scroll
+    // and widens the whole page on a phone.
+    <div className="relative w-full overflow-x-auto">
       <table
         aria-label={label}
         className={cn(
