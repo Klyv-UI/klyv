@@ -1,0 +1,33 @@
+/* Base layer shared by every app that consumes the library. */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-canvas);
+    /* Mixed from the accent rather than hard-coded, so retheming the hue
+       retints the whole page and not just the controls on it. */
+    /* Mixed against the canvas rather than white, so the same declaration
+       works in both themes: on a dark canvas the wash darkens with it. */
+    background-image: radial-gradient(
+      110% 90% at 88% 100%,
+      color-mix(in oklab, var(--color-accent) 12%, var(--color-canvas)) 0%,
+      color-mix(in oklab, var(--color-accent) 4%, var(--color-canvas)) 42%,
+      var(--color-canvas) 100%
+    );
+    background-attachment: fixed;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: 'ss01', 'cv01';
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent-strong);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}

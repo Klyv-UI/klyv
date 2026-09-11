@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+
+/* Design tokens, base layer and utilities. A consumer imports this one file. */
+@import './tokens.css';
+@import './base.css';
+@import './utilities.css';

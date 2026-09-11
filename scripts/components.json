@@ -1,0 +1,5074 @@
+{
+  "components": {
+    "Accordion": {
+      "files": [
+        "components/Accordion/Accordion.tsx",
+        "components/Accordion/index.ts"
+      ],
+      "internal": [
+        "Collapsible"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "AchievementPop": {
+      "files": [
+        "components/AchievementPop/AchievementPop.tsx",
+        "components/AchievementPop/index.ts"
+      ],
+      "internal": [
+        "Portal",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ActionSheet": {
+      "files": [
+        "components/ActionSheet/ActionSheet.tsx",
+        "components/ActionSheet/index.ts"
+      ],
+      "internal": [
+        "Divider",
+        "Drawer",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": []
+    },
+    "ActivityFeed": {
+      "files": [
+        "components/ActivityFeed/ActivityFeed.tsx",
+        "components/ActivityFeed/index.ts"
+      ],
+      "internal": [
+        "Avatar",
+        "Collapse",
+        "DescriptionList",
+        "IconTile",
+        "List",
+        "ListItem",
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ActivityHeatmap": {
+      "files": [
+        "components/ActivityHeatmap/ActivityHeatmap.tsx",
+        "components/ActivityHeatmap/index.ts"
+      ],
+      "internal": [
+        "Text",
+        "Tooltip",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Alert": {
+      "files": [
+        "components/Alert/Alert.tsx",
+        "components/Alert/index.ts"
+      ],
+      "internal": [
+        "IconButton",
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "AlertDialog": {
+      "files": [
+        "components/AlertDialog/AlertDialog.tsx",
+        "components/AlertDialog/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Modal"
+      ],
+      "shared": [],
+      "external": [
+        "react"
+      ]
+    },
+    "AmountField": {
+      "files": [
+        "components/AmountField/AmountField.tsx",
+        "components/AmountField/index.ts"
+      ],
+      "internal": [
+        "Input",
+        "Select",
+        "Surface",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "AnchorNav": {
+      "files": [
+        "components/AnchorNav/AnchorNav.tsx",
+        "components/AnchorNav/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "AnimatedBeam": {
+      "files": [
+        "components/AnimatedBeam/AnimatedBeam.tsx",
+        "components/AnimatedBeam/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "AnimatedNumber": {
+      "files": [
+        "components/AnimatedNumber/AnimatedNumber.tsx",
+        "components/AnimatedNumber/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ApprovalChain": {
+      "files": [
+        "components/ApprovalChain/ApprovalChain.tsx",
+        "components/ApprovalChain/index.ts"
+      ],
+      "internal": [
+        "Avatar",
+        "Button",
+        "Meter",
+        "StatusDot",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/time.ts"
+      ],
+      "external": []
+    },
+    "AppShell": {
+      "files": [
+        "components/AppShell/AppShell.tsx",
+        "components/AppShell/index.ts"
+      ],
+      "internal": [
+        "SkipLink"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "AreaChart": {
+      "files": [
+        "components/AreaChart/AreaChart.tsx",
+        "components/AreaChart/index.ts"
+      ],
+      "internal": [
+        "CartesianChart"
+      ],
+      "shared": [],
+      "external": [
+        "react"
+      ]
+    },
+    "AsciiImage": {
+      "files": [
+        "components/AsciiImage/AsciiImage.tsx",
+        "components/AsciiImage/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "AudioVisualizer": {
+      "files": [
+        "components/AudioVisualizer/AudioVisualizer.tsx",
+        "components/AudioVisualizer/index.ts"
+      ],
+      "internal": [
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "AuditTrail": {
+      "files": [
+        "components/AuditTrail/AuditTrail.tsx",
+        "components/AuditTrail/index.ts"
+      ],
+      "internal": [
+        "Avatar",
+        "Collapse",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/time.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "AuroraSurface": {
+      "files": [
+        "components/AuroraSurface/AuroraSurface.tsx",
+        "components/AuroraSurface/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Avatar": {
+      "files": [
+        "components/Avatar/Avatar.tsx",
+        "components/Avatar/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "AvatarGroup": {
+      "files": [
+        "components/AvatarGroup/AvatarGroup.tsx",
+        "components/AvatarGroup/index.ts"
+      ],
+      "internal": [
+        "Avatar",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "BackButton": {
+      "files": [
+        "components/BackButton/BackButton.tsx",
+        "components/BackButton/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "Badge": {
+      "files": [
+        "components/Badge/Badge.tsx",
+        "components/Badge/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Banner": {
+      "files": [
+        "components/Banner/Banner.tsx",
+        "components/Banner/index.ts"
+      ],
+      "internal": [
+        "IconButton",
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "BarChart": {
+      "files": [
+        "components/BarChart/BarChart.tsx",
+        "components/BarChart/index.ts"
+      ],
+      "internal": [
+        "CartesianChart"
+      ],
+      "shared": [],
+      "external": []
+    },
+    "BentoGrid": {
+      "files": [
+        "components/BentoGrid/BentoGrid.tsx",
+        "components/BentoGrid/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "BlobMorph": {
+      "files": [
+        "components/BlobMorph/BlobMorph.tsx",
+        "components/BlobMorph/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "BoidsFlock": {
+      "files": [
+        "components/BoidsFlock/BoidsFlock.tsx",
+        "components/BoidsFlock/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "BorderBeam": {
+      "files": [
+        "components/BorderBeam/BorderBeam.tsx",
+        "components/BorderBeam/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Breadcrumb": {
+      "files": [
+        "components/Breadcrumb/Breadcrumb.tsx",
+        "components/Breadcrumb/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Button": {
+      "files": [
+        "components/Button/Button.tsx",
+        "components/Button/index.ts"
+      ],
+      "internal": [
+        "Spinner"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ButtonGroup": {
+      "files": [
+        "components/ButtonGroup/ButtonGroup.tsx",
+        "components/ButtonGroup/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Calendar": {
+      "files": [
+        "components/Calendar/Calendar.tsx",
+        "components/Calendar/index.ts"
+      ],
+      "internal": [
+        "IconButton",
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Card": {
+      "files": [
+        "components/Card/Card.tsx",
+        "components/Card/index.ts"
+      ],
+      "internal": [
+        "Surface",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "CardDeck": {
+      "files": [
+        "components/CardDeck/CardDeck.tsx",
+        "components/CardDeck/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Carousel": {
+      "files": [
+        "components/Carousel/Carousel.tsx",
+        "components/Carousel/index.ts",
+        "components/Carousel/useCarousel.ts"
+      ],
+      "internal": [
+        "IconButton"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "CartesianChart": {
+      "files": [
+        "components/CartesianChart/CartesianChart.tsx",
+        "components/CartesianChart/index.ts"
+      ],
+      "internal": [
+        "ChartTooltip",
+        "Legend",
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/chart.ts",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ChartTooltip": {
+      "files": [
+        "components/ChartTooltip/ChartTooltip.tsx",
+        "components/ChartTooltip/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "Checkbox": {
+      "files": [
+        "components/Checkbox/Checkbox.tsx",
+        "components/Checkbox/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "CheckboxGroup": {
+      "files": [
+        "components/CheckboxGroup/CheckboxGroup.tsx",
+        "components/CheckboxGroup/index.ts"
+      ],
+      "internal": [
+        "Checkbox",
+        "InlineMessage",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Chip": {
+      "files": [
+        "components/Chip/Chip.tsx",
+        "components/Chip/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "CoachTour": {
+      "files": [
+        "components/CoachTour/CoachTour.tsx",
+        "components/CoachTour/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "FocusTrap",
+        "Portal",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "CodeBlock": {
+      "files": [
+        "components/CodeBlock/CodeBlock.tsx",
+        "components/CodeBlock/highlight.ts",
+        "components/CodeBlock/index.ts"
+      ],
+      "internal": [
+        "Surface",
+        "Tag",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Collapse": {
+      "files": [
+        "components/Collapse/Collapse.tsx",
+        "components/Collapse/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Collapsible": {
+      "files": [
+        "components/Collapsible/Collapsible.tsx",
+        "components/Collapsible/index.ts"
+      ],
+      "internal": [
+        "Collapse",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ColorPicker": {
+      "files": [
+        "components/ColorPicker/ColorPicker.tsx",
+        "components/ColorPicker/index.ts"
+      ],
+      "internal": [
+        "Input",
+        "Popover",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Combobox": {
+      "files": [
+        "components/Combobox/Combobox.tsx",
+        "components/Combobox/index.ts"
+      ],
+      "internal": [
+        "Input",
+        "Popover",
+        "Portal",
+        "Select",
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "CommandPalette": {
+      "files": [
+        "components/CommandPalette/CommandPalette.tsx",
+        "components/CommandPalette/index.ts"
+      ],
+      "internal": [
+        "EmptyState",
+        "FocusTrap",
+        "Input",
+        "Kbd",
+        "Portal",
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Confetti": {
+      "files": [
+        "components/Confetti/Confetti.tsx",
+        "components/Confetti/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ConfirmDialog": {
+      "files": [
+        "components/ConfirmDialog/ConfirmDialog.tsx",
+        "components/ConfirmDialog/index.ts"
+      ],
+      "internal": [
+        "AlertDialog",
+        "Input",
+        "Text"
+      ],
+      "shared": [],
+      "external": [
+        "react"
+      ]
+    },
+    "ConnectionBanner": {
+      "files": [
+        "components/ConnectionBanner/ConnectionBanner.tsx",
+        "components/ConnectionBanner/index.ts"
+      ],
+      "internal": [
+        "Spinner",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/time.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ConsentManager": {
+      "files": [
+        "components/ConsentManager/ConsentManager.tsx",
+        "components/ConsentManager/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Surface",
+        "Switch",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "ContextMenu": {
+      "files": [
+        "components/ContextMenu/ContextMenu.tsx",
+        "components/ContextMenu/index.ts"
+      ],
+      "internal": [
+        "Divider",
+        "Menu",
+        "Portal",
+        "Surface",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "CountUp": {
+      "files": [
+        "components/CountUp/CountUp.tsx",
+        "components/CountUp/index.ts"
+      ],
+      "internal": [
+        "AnimatedNumber"
+      ],
+      "shared": [],
+      "external": [
+        "react"
+      ]
+    },
+    "CoverFlow": {
+      "files": [
+        "components/CoverFlow/CoverFlow.tsx",
+        "components/CoverFlow/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Cropper": {
+      "files": [
+        "components/Cropper/Cropper.tsx",
+        "components/Cropper/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "CubeCarousel": {
+      "files": [
+        "components/CubeCarousel/CubeCarousel.tsx",
+        "components/CubeCarousel/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "CursorAura": {
+      "files": [
+        "components/CursorAura/CursorAura.tsx",
+        "components/CursorAura/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "DataExplorer": {
+      "files": [
+        "components/DataExplorer/DataExplorer.tsx",
+        "components/DataExplorer/index.ts"
+      ],
+      "internal": [
+        "Card",
+        "DataTable",
+        "FilterBar",
+        "SearchField",
+        "Skeleton",
+        "StateView",
+        "Surface"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "DataFreshness": {
+      "files": [
+        "components/DataFreshness/DataFreshness.tsx",
+        "components/DataFreshness/index.ts"
+      ],
+      "internal": [
+        "Spinner",
+        "StatusDot",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/time.ts"
+      ],
+      "external": []
+    },
+    "DataTable": {
+      "files": [
+        "components/DataTable/DataTable.tsx",
+        "components/DataTable/index.ts"
+      ],
+      "internal": [
+        "Checkbox",
+        "EmptyState",
+        "Pagination",
+        "Table",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "DatePicker": {
+      "files": [
+        "components/DatePicker/DatePicker.tsx",
+        "components/DatePicker/index.ts"
+      ],
+      "internal": [
+        "Calendar",
+        "Input",
+        "Popover",
+        "Surface"
+      ],
+      "shared": [],
+      "external": [
+        "react"
+      ]
+    },
+    "DateRangePicker": {
+      "files": [
+        "components/DateRangePicker/DateRangePicker.tsx",
+        "components/DateRangePicker/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Calendar",
+        "Input",
+        "Popover",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "DaySchedule": {
+      "files": [
+        "components/DaySchedule/DaySchedule.tsx",
+        "components/DaySchedule/index.ts"
+      ],
+      "internal": [
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "DescriptionList": {
+      "files": [
+        "components/DescriptionList/DescriptionList.tsx",
+        "components/DescriptionList/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "DiceRoller": {
+      "files": [
+        "components/DiceRoller/DiceRoller.tsx",
+        "components/DiceRoller/index.ts"
+      ],
+      "internal": [
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "DiffSummary": {
+      "files": [
+        "components/DiffSummary/DiffSummary.tsx",
+        "components/DiffSummary/index.ts"
+      ],
+      "internal": [
+        "Surface",
+        "Tag",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "DiffView": {
+      "files": [
+        "components/DiffView/DiffView.tsx",
+        "components/DiffView/index.ts"
+      ],
+      "internal": [
+        "Surface",
+        "Tag",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "Divider": {
+      "files": [
+        "components/Divider/Divider.tsx",
+        "components/Divider/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "Dock": {
+      "files": [
+        "components/Dock/Dock.tsx",
+        "components/Dock/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "DonutChart": {
+      "files": [
+        "components/DonutChart/DonutChart.tsx",
+        "components/DonutChart/index.ts"
+      ],
+      "internal": [
+        "Legend",
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/chart.ts",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "DotGlobe": {
+      "files": [
+        "components/DotGlobe/DotGlobe.tsx",
+        "components/DotGlobe/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Drawer": {
+      "files": [
+        "components/Drawer/Drawer.tsx",
+        "components/Drawer/index.ts"
+      ],
+      "internal": [
+        "FocusTrap",
+        "IconButton",
+        "Portal",
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "DropdownMenu": {
+      "files": [
+        "components/DropdownMenu/DropdownMenu.tsx",
+        "components/DropdownMenu/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Menu",
+        "Popover"
+      ],
+      "shared": [],
+      "external": [
+        "react"
+      ]
+    },
+    "EmojiSlider": {
+      "files": [
+        "components/EmojiSlider/EmojiSlider.tsx",
+        "components/EmojiSlider/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "EmptyState": {
+      "files": [
+        "components/EmptyState/EmptyState.tsx",
+        "components/EmptyState/index.ts"
+      ],
+      "internal": [
+        "IconTile",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ErrorState": {
+      "files": [
+        "components/ErrorState/ErrorState.tsx",
+        "components/ErrorState/index.ts"
+      ],
+      "internal": [
+        "EmptyState",
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Field": {
+      "files": [
+        "components/Field/Field.tsx",
+        "components/Field/index.ts"
+      ],
+      "internal": [
+        "InlineMessage",
+        "Label"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Figure": {
+      "files": [
+        "components/Figure/Figure.tsx",
+        "components/Figure/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "FileUpload": {
+      "files": [
+        "components/FileUpload/FileUpload.tsx",
+        "components/FileUpload/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "IconButton",
+        "Progress",
+        "Surface",
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "FilterBar": {
+      "files": [
+        "components/FilterBar/FilterBar.tsx",
+        "components/FilterBar/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Chip",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "FlipBook": {
+      "files": [
+        "components/FlipBook/FlipBook.tsx",
+        "components/FlipBook/index.ts"
+      ],
+      "internal": [
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "FlipCard": {
+      "files": [
+        "components/FlipCard/FlipCard.tsx",
+        "components/FlipCard/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "FocusTrap": {
+      "files": [
+        "components/FocusTrap/FocusTrap.tsx",
+        "components/FocusTrap/index.ts"
+      ],
+      "internal": [],
+      "shared": [],
+      "external": [
+        "react"
+      ]
+    },
+    "Form": {
+      "files": [
+        "components/Form/Form.tsx",
+        "components/Form/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "GlitchText": {
+      "files": [
+        "components/GlitchText/GlitchText.tsx",
+        "components/GlitchText/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "GooeyLoader": {
+      "files": [
+        "components/GooeyLoader/GooeyLoader.tsx",
+        "components/GooeyLoader/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "GradientText": {
+      "files": [
+        "components/GradientText/GradientText.tsx",
+        "components/GradientText/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "GravityTags": {
+      "files": [
+        "components/GravityTags/GravityTags.tsx",
+        "components/GravityTags/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "HoldToConfirm": {
+      "files": [
+        "components/HoldToConfirm/HoldToConfirm.tsx",
+        "components/HoldToConfirm/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "HoloCard": {
+      "files": [
+        "components/HoloCard/HoloCard.tsx",
+        "components/HoloCard/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "HoverCard": {
+      "files": [
+        "components/HoverCard/HoverCard.tsx",
+        "components/HoverCard/index.ts"
+      ],
+      "internal": [
+        "Popover",
+        "Portal",
+        "Surface"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "IconButton": {
+      "files": [
+        "components/IconButton/IconButton.tsx",
+        "components/IconButton/index.ts"
+      ],
+      "internal": [
+        "Spinner"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "IconTile": {
+      "files": [
+        "components/IconTile/IconTile.tsx",
+        "components/IconTile/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": []
+    },
+    "ImageCompare": {
+      "files": [
+        "components/ImageCompare/ImageCompare.tsx",
+        "components/ImageCompare/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ImportMapper": {
+      "files": [
+        "components/ImportMapper/ImportMapper.tsx",
+        "components/ImportMapper/index.ts"
+      ],
+      "internal": [
+        "Select",
+        "Surface",
+        "Tag",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "InlineMessage": {
+      "files": [
+        "components/InlineMessage/InlineMessage.tsx",
+        "components/InlineMessage/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Input": {
+      "files": [
+        "components/Input/Input.tsx",
+        "components/Input/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "InputOTP": {
+      "files": [
+        "components/InputOTP/InputOTP.tsx",
+        "components/InputOTP/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "KanbanBoard": {
+      "files": [
+        "components/KanbanBoard/KanbanBoard.tsx",
+        "components/KanbanBoard/index.ts"
+      ],
+      "internal": [
+        "Badge",
+        "Card",
+        "Surface",
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Kbd": {
+      "files": [
+        "components/Kbd/Kbd.tsx",
+        "components/Kbd/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "KineticText": {
+      "files": [
+        "components/KineticText/KineticText.tsx",
+        "components/KineticText/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": []
+    },
+    "Knob": {
+      "files": [
+        "components/Knob/Knob.tsx",
+        "components/Knob/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Label": {
+      "files": [
+        "components/Label/Label.tsx",
+        "components/Label/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "LayerStack": {
+      "files": [
+        "components/LayerStack/LayerStack.tsx",
+        "components/LayerStack/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Legend": {
+      "files": [
+        "components/Legend/Legend.tsx",
+        "components/Legend/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "LineChart": {
+      "files": [
+        "components/LineChart/LineChart.tsx",
+        "components/LineChart/index.ts"
+      ],
+      "internal": [
+        "CartesianChart"
+      ],
+      "shared": [],
+      "external": []
+    },
+    "LiquidGlass": {
+      "files": [
+        "components/LiquidGlass/LiquidGlass.tsx",
+        "components/LiquidGlass/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "List": {
+      "files": [
+        "components/List/List.tsx",
+        "components/List/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ListItem": {
+      "files": [
+        "components/ListItem/ListItem.tsx",
+        "components/ListItem/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "LiveChart": {
+      "files": [
+        "components/LiveChart/LiveChart.tsx",
+        "components/LiveChart/index.ts"
+      ],
+      "internal": [
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "LoadingOverlay": {
+      "files": [
+        "components/LoadingOverlay/LoadingOverlay.tsx",
+        "components/LoadingOverlay/index.ts"
+      ],
+      "internal": [
+        "Spinner",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "MagicTabs": {
+      "files": [
+        "components/MagicTabs/MagicTabs.tsx",
+        "components/MagicTabs/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "MagneticButton": {
+      "files": [
+        "components/MagneticButton/MagneticButton.tsx",
+        "components/MagneticButton/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Marquee": {
+      "files": [
+        "components/Marquee/Marquee.tsx",
+        "components/Marquee/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "MarqueeSelect": {
+      "files": [
+        "components/MarqueeSelect/MarqueeSelect.tsx",
+        "components/MarqueeSelect/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "MaskedValue": {
+      "files": [
+        "components/MaskedValue/MaskedValue.tsx",
+        "components/MaskedValue/index.ts"
+      ],
+      "internal": [
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "MatrixRain": {
+      "files": [
+        "components/MatrixRain/MatrixRain.tsx",
+        "components/MatrixRain/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "MentionInput": {
+      "files": [
+        "components/MentionInput/MentionInput.tsx",
+        "components/MentionInput/index.ts"
+      ],
+      "internal": [
+        "Avatar",
+        "Surface",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Menu": {
+      "files": [
+        "components/Menu/Menu.tsx",
+        "components/Menu/index.ts"
+      ],
+      "internal": [
+        "Divider",
+        "Popover",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Meter": {
+      "files": [
+        "components/Meter/Meter.tsx",
+        "components/Meter/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "Metric": {
+      "files": [
+        "components/Metric/Metric.tsx",
+        "components/Metric/index.ts"
+      ],
+      "internal": [
+        "Badge",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "MetricSpotlight": {
+      "files": [
+        "components/MetricSpotlight/MetricSpotlight.tsx",
+        "components/MetricSpotlight/index.ts"
+      ],
+      "internal": [
+        "CountUp",
+        "Metric",
+        "Presence",
+        "Sparkline",
+        "Surface",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "MiniMap": {
+      "files": [
+        "components/MiniMap/MiniMap.tsx",
+        "components/MiniMap/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Modal": {
+      "files": [
+        "components/Modal/Modal.tsx",
+        "components/Modal/index.ts"
+      ],
+      "internal": [
+        "FocusTrap",
+        "IconButton",
+        "Portal",
+        "Presence",
+        "Surface",
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "MorphDialog": {
+      "files": [
+        "components/MorphDialog/MorphDialog.tsx",
+        "components/MorphDialog/index.ts"
+      ],
+      "internal": [
+        "FocusTrap",
+        "IconButton",
+        "Portal",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "MultiSelect": {
+      "files": [
+        "components/MultiSelect/MultiSelect.tsx",
+        "components/MultiSelect/index.ts"
+      ],
+      "internal": [
+        "Checkbox",
+        "Chip",
+        "Popover",
+        "Select",
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Navbar": {
+      "files": [
+        "components/Navbar/Navbar.tsx",
+        "components/Navbar/index.ts"
+      ],
+      "internal": [
+        "Avatar",
+        "IconButton",
+        "SearchField",
+        "SegmentedControl",
+        "StatusDot",
+        "Toolbar",
+        "Wordmark"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "NeonSign": {
+      "files": [
+        "components/NeonSign/NeonSign.tsx",
+        "components/NeonSign/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "NotificationCenter": {
+      "files": [
+        "components/NotificationCenter/NotificationCenter.tsx",
+        "components/NotificationCenter/index.ts"
+      ],
+      "internal": [
+        "Badge",
+        "Button",
+        "Divider",
+        "Drawer",
+        "EmptyState",
+        "IconTile",
+        "List",
+        "ListItem",
+        "StatusDot",
+        "Tabs",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "NumberInput": {
+      "files": [
+        "components/NumberInput/NumberInput.tsx",
+        "components/NumberInput/index.ts"
+      ],
+      "internal": [
+        "IconButton",
+        "Input"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Odometer": {
+      "files": [
+        "components/Odometer/Odometer.tsx",
+        "components/Odometer/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "OrbitRing": {
+      "files": [
+        "components/OrbitRing/OrbitRing.tsx",
+        "components/OrbitRing/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "PageHeader": {
+      "files": [
+        "components/PageHeader/PageHeader.tsx",
+        "components/PageHeader/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "PageTransition": {
+      "files": [
+        "components/PageTransition/PageTransition.tsx",
+        "components/PageTransition/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Pagination": {
+      "files": [
+        "components/Pagination/Pagination.tsx",
+        "components/Pagination/index.ts"
+      ],
+      "internal": [
+        "IconButton",
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "PanZoom": {
+      "files": [
+        "components/PanZoom/PanZoom.tsx",
+        "components/PanZoom/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Parallax": {
+      "files": [
+        "components/Parallax/Parallax.tsx",
+        "components/Parallax/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ParticleField": {
+      "files": [
+        "components/ParticleField/ParticleField.tsx",
+        "components/ParticleField/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "PasswordInput": {
+      "files": [
+        "components/PasswordInput/PasswordInput.tsx",
+        "components/PasswordInput/index.ts"
+      ],
+      "internal": [
+        "IconButton",
+        "Input"
+      ],
+      "shared": [
+        "components/internal/icons.tsx"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "PermissionGate": {
+      "files": [
+        "components/PermissionGate/PermissionGate.tsx",
+        "components/PermissionGate/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Surface",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "PianoKeys": {
+      "files": [
+        "components/PianoKeys/PianoKeys.tsx",
+        "components/PianoKeys/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "PinPad": {
+      "files": [
+        "components/PinPad/PinPad.tsx",
+        "components/PinPad/index.ts"
+      ],
+      "internal": [
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "PixelCanvas": {
+      "files": [
+        "components/PixelCanvas/PixelCanvas.tsx",
+        "components/PixelCanvas/index.ts"
+      ],
+      "internal": [
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Popover": {
+      "files": [
+        "components/Popover/Popover.tsx",
+        "components/Popover/index.ts",
+        "components/Popover/usePopoverPosition.ts"
+      ],
+      "internal": [
+        "Portal",
+        "Surface"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Portal": {
+      "files": [
+        "components/Portal/Portal.tsx",
+        "components/Portal/index.ts"
+      ],
+      "internal": [],
+      "shared": [],
+      "external": [
+        "react",
+        "react-dom"
+      ]
+    },
+    "Presence": {
+      "files": [
+        "components/Presence/Presence.tsx",
+        "components/Presence/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "PresenceBar": {
+      "files": [
+        "components/PresenceBar/PresenceBar.tsx",
+        "components/PresenceBar/index.ts"
+      ],
+      "internal": [
+        "Avatar",
+        "Text",
+        "Tooltip",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "PresenceCursors": {
+      "files": [
+        "components/PresenceCursors/PresenceCursors.tsx",
+        "components/PresenceCursors/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "PressScale": {
+      "files": [
+        "components/PressScale/PressScale.tsx",
+        "components/PressScale/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Progress": {
+      "files": [
+        "components/Progress/Progress.tsx",
+        "components/Progress/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "ProgressChart": {
+      "files": [
+        "components/ProgressChart/ProgressChart.tsx",
+        "components/ProgressChart/index.ts"
+      ],
+      "internal": [
+        "Legend"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "ProgressRing": {
+      "files": [
+        "components/ProgressRing/ProgressRing.tsx",
+        "components/ProgressRing/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "PromoBanner": {
+      "files": [
+        "components/PromoBanner/PromoBanner.tsx",
+        "components/PromoBanner/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "PullToRefresh": {
+      "files": [
+        "components/PullToRefresh/PullToRefresh.tsx",
+        "components/PullToRefresh/index.ts"
+      ],
+      "internal": [
+        "ProgressRing",
+        "Spinner",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "QRCode": {
+      "files": [
+        "components/QRCode/QRCode.tsx",
+        "components/QRCode/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "QuickActions": {
+      "files": [
+        "components/QuickActions/QuickActions.tsx",
+        "components/QuickActions/index.ts"
+      ],
+      "internal": [
+        "Kbd",
+        "PressScale",
+        "Ripple",
+        "Text",
+        "Tooltip"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "RadarChart": {
+      "files": [
+        "components/RadarChart/RadarChart.tsx",
+        "components/RadarChart/index.ts"
+      ],
+      "internal": [
+        "Legend",
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/chart.ts",
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "RadialGauge": {
+      "files": [
+        "components/RadialGauge/RadialGauge.tsx",
+        "components/RadialGauge/index.ts"
+      ],
+      "internal": [
+        "ProgressRing",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "RadialMenu": {
+      "files": [
+        "components/RadialMenu/RadialMenu.tsx",
+        "components/RadialMenu/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Radio": {
+      "files": [
+        "components/Radio/Radio.tsx",
+        "components/Radio/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "RadioGroup": {
+      "files": [
+        "components/RadioGroup/RadioGroup.tsx",
+        "components/RadioGroup/index.ts"
+      ],
+      "internal": [
+        "InlineMessage",
+        "Radio",
+        "Surface",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "RangeSlider": {
+      "files": [
+        "components/RangeSlider/RangeSlider.tsx",
+        "components/RangeSlider/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "RateLimitMeter": {
+      "files": [
+        "components/RateLimitMeter/RateLimitMeter.tsx",
+        "components/RateLimitMeter/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/time.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Rating": {
+      "files": [
+        "components/Rating/Rating.tsx",
+        "components/Rating/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ReactionBar": {
+      "files": [
+        "components/ReactionBar/ReactionBar.tsx",
+        "components/ReactionBar/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "RetryQueue": {
+      "files": [
+        "components/RetryQueue/RetryQueue.tsx",
+        "components/RetryQueue/index.ts"
+      ],
+      "internal": [
+        "Spinner",
+        "StatusDot",
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/time.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Reveal": {
+      "files": [
+        "components/Reveal/Reveal.tsx",
+        "components/Reveal/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Ripple": {
+      "files": [
+        "components/Ripple/Ripple.tsx",
+        "components/Ripple/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "RippleSurface": {
+      "files": [
+        "components/RippleSurface/RippleSurface.tsx",
+        "components/RippleSurface/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "RopeCursor": {
+      "files": [
+        "components/RopeCursor/RopeCursor.tsx",
+        "components/RopeCursor/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "RotatingWord": {
+      "files": [
+        "components/RotatingWord/RotatingWord.tsx",
+        "components/RotatingWord/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "SankeyFlow": {
+      "files": [
+        "components/SankeyFlow/SankeyFlow.tsx",
+        "components/SankeyFlow/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "SaveIndicator": {
+      "files": [
+        "components/SaveIndicator/SaveIndicator.tsx",
+        "components/SaveIndicator/index.ts"
+      ],
+      "internal": [
+        "Spinner",
+        "StatusDot",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/time.ts"
+      ],
+      "external": []
+    },
+    "ScratchCard": {
+      "files": [
+        "components/ScratchCard/ScratchCard.tsx",
+        "components/ScratchCard/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ScrollList": {
+      "files": [
+        "components/ScrollList/ScrollList.tsx",
+        "components/ScrollList/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ScrollProgress": {
+      "files": [
+        "components/ScrollProgress/ScrollProgress.tsx",
+        "components/ScrollProgress/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ScrollVelocity": {
+      "files": [
+        "components/ScrollVelocity/ScrollVelocity.tsx",
+        "components/ScrollVelocity/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "SearchField": {
+      "files": [
+        "components/SearchField/SearchField.tsx",
+        "components/SearchField/index.ts"
+      ],
+      "internal": [
+        "IconButton",
+        "Input"
+      ],
+      "shared": [
+        "components/internal/icons.tsx"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "SegmentedControl": {
+      "files": [
+        "components/SegmentedControl/SegmentedControl.tsx",
+        "components/SegmentedControl/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Select": {
+      "files": [
+        "components/Select/Select.tsx",
+        "components/Select/index.ts"
+      ],
+      "internal": [
+        "Popover",
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "SessionTimeout": {
+      "files": [
+        "components/SessionTimeout/SessionTimeout.tsx",
+        "components/SessionTimeout/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "FocusTrap",
+        "Portal",
+        "ProgressRing",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/time.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ShimmerButton": {
+      "files": [
+        "components/ShimmerButton/ShimmerButton.tsx",
+        "components/ShimmerButton/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ShortcutRecorder": {
+      "files": [
+        "components/ShortcutRecorder/ShortcutRecorder.tsx",
+        "components/ShortcutRecorder/index.ts"
+      ],
+      "internal": [
+        "Kbd",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Sidebar": {
+      "files": [
+        "components/Sidebar/Sidebar.tsx",
+        "components/Sidebar/index.ts"
+      ],
+      "internal": [
+        "Badge",
+        "Divider",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": []
+    },
+    "SidebarRail": {
+      "files": [
+        "components/SidebarRail/SidebarRail.tsx",
+        "components/SidebarRail/index.ts"
+      ],
+      "internal": [
+        "IconButton",
+        "Tooltip"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": []
+    },
+    "SignaturePad": {
+      "files": [
+        "components/SignaturePad/SignaturePad.tsx",
+        "components/SignaturePad/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Skeleton": {
+      "files": [
+        "components/Skeleton/Skeleton.tsx",
+        "components/Skeleton/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "SkipLink": {
+      "files": [
+        "components/SkipLink/SkipLink.tsx",
+        "components/SkipLink/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Slider": {
+      "files": [
+        "components/Slider/Slider.tsx",
+        "components/Slider/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "SlotReels": {
+      "files": [
+        "components/SlotReels/SlotReels.tsx",
+        "components/SlotReels/index.ts"
+      ],
+      "internal": [
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "SortableList": {
+      "files": [
+        "components/SortableList/SortableList.tsx",
+        "components/SortableList/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Sparkline": {
+      "files": [
+        "components/Sparkline/Sparkline.tsx",
+        "components/Sparkline/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Spinner": {
+      "files": [
+        "components/Spinner/Spinner.tsx",
+        "components/Spinner/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "SplitFlap": {
+      "files": [
+        "components/SplitFlap/SplitFlap.tsx",
+        "components/SplitFlap/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Spotlight": {
+      "files": [
+        "components/Spotlight/Spotlight.tsx",
+        "components/Spotlight/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "StackedCards": {
+      "files": [
+        "components/StackedCards/StackedCards.tsx",
+        "components/StackedCards/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Stagger": {
+      "files": [
+        "components/Stagger/Stagger.tsx",
+        "components/Stagger/index.ts"
+      ],
+      "internal": [
+        "Reveal"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "StarField": {
+      "files": [
+        "components/StarField/StarField.tsx",
+        "components/StarField/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "StatCard": {
+      "files": [
+        "components/StatCard/StatCard.tsx",
+        "components/StatCard/index.ts"
+      ],
+      "internal": [
+        "IconTile",
+        "Meter",
+        "Metric",
+        "Surface",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "StateView": {
+      "files": [
+        "components/StateView/StateView.tsx",
+        "components/StateView/index.ts"
+      ],
+      "internal": [
+        "EmptyState",
+        "ErrorState"
+      ],
+      "shared": [
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "StatusDot": {
+      "files": [
+        "components/StatusDot/StatusDot.tsx",
+        "components/StatusDot/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "StatusStrip": {
+      "files": [
+        "components/StatusStrip/StatusStrip.tsx",
+        "components/StatusStrip/index.ts"
+      ],
+      "internal": [
+        "Text",
+        "Tooltip",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Stepper": {
+      "files": [
+        "components/Stepper/Stepper.tsx",
+        "components/Stepper/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "StickerPeel": {
+      "files": [
+        "components/StickerPeel/StickerPeel.tsx",
+        "components/StickerPeel/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "StoryProgress": {
+      "files": [
+        "components/StoryProgress/StoryProgress.tsx",
+        "components/StoryProgress/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "StreakCounter": {
+      "files": [
+        "components/StreakCounter/StreakCounter.tsx",
+        "components/StreakCounter/index.ts"
+      ],
+      "internal": [
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "SuccessMark": {
+      "files": [
+        "components/SuccessMark/SuccessMark.tsx",
+        "components/SuccessMark/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "Surface": {
+      "files": [
+        "components/Surface/Surface.tsx",
+        "components/Surface/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "SwipeDeck": {
+      "files": [
+        "components/SwipeDeck/SwipeDeck.tsx",
+        "components/SwipeDeck/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "SwipeRow": {
+      "files": [
+        "components/SwipeRow/SwipeRow.tsx",
+        "components/SwipeRow/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Switch": {
+      "files": [
+        "components/Switch/Switch.tsx",
+        "components/Switch/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "TabBar": {
+      "files": [
+        "components/TabBar/TabBar.tsx",
+        "components/TabBar/index.ts"
+      ],
+      "internal": [
+        "StatusDot",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": []
+    },
+    "Table": {
+      "files": [
+        "components/Table/Table.tsx",
+        "components/Table/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Tabs": {
+      "files": [
+        "components/Tabs/Tabs.tsx",
+        "components/Tabs/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Tag": {
+      "files": [
+        "components/Tag/Tag.tsx",
+        "components/Tag/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "TagInput": {
+      "files": [
+        "components/TagInput/TagInput.tsx",
+        "components/TagInput/index.ts"
+      ],
+      "internal": [
+        "Chip",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Terminal": {
+      "files": [
+        "components/Terminal/Terminal.tsx",
+        "components/Terminal/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Text": {
+      "files": [
+        "components/Text/Text.tsx",
+        "components/Text/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Textarea": {
+      "files": [
+        "components/Textarea/Textarea.tsx",
+        "components/Textarea/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "TextReveal": {
+      "files": [
+        "components/TextReveal/TextReveal.tsx",
+        "components/TextReveal/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "TextScramble": {
+      "files": [
+        "components/TextScramble/TextScramble.tsx",
+        "components/TextScramble/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Ticker": {
+      "files": [
+        "components/Ticker/Ticker.tsx",
+        "components/Ticker/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "TiltCard": {
+      "files": [
+        "components/TiltCard/TiltCard.tsx",
+        "components/TiltCard/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Timeline": {
+      "files": [
+        "components/Timeline/Timeline.tsx",
+        "components/Timeline/index.ts"
+      ],
+      "internal": [
+        "StatusDot",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "TimePicker": {
+      "files": [
+        "components/TimePicker/TimePicker.tsx",
+        "components/TimePicker/index.ts"
+      ],
+      "internal": [
+        "Input",
+        "Popover",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Toast": {
+      "files": [
+        "components/Toast/Toast.tsx",
+        "components/Toast/index.ts"
+      ],
+      "internal": [
+        "IconButton",
+        "Portal",
+        "Presence",
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Toolbar": {
+      "files": [
+        "components/Toolbar/Toolbar.tsx",
+        "components/Toolbar/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Tooltip": {
+      "files": [
+        "components/Tooltip/Tooltip.tsx",
+        "components/Tooltip/index.ts"
+      ],
+      "internal": [
+        "Popover",
+        "Portal"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "TreeMap": {
+      "files": [
+        "components/TreeMap/TreeMap.tsx",
+        "components/TreeMap/index.ts"
+      ],
+      "internal": [
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "TreeView": {
+      "files": [
+        "components/TreeView/TreeView.tsx",
+        "components/TreeView/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Typewriter": {
+      "files": [
+        "components/Typewriter/Typewriter.tsx",
+        "components/Typewriter/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "TypingIndicator": {
+      "files": [
+        "components/TypingIndicator/TypingIndicator.tsx",
+        "components/TypingIndicator/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "UndoStack": {
+      "files": [
+        "components/UndoStack/UndoStack.tsx",
+        "components/UndoStack/index.ts"
+      ],
+      "internal": [
+        "Kbd",
+        "Surface",
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ValidationSummary": {
+      "files": [
+        "components/ValidationSummary/ValidationSummary.tsx",
+        "components/ValidationSummary/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "VibePoll": {
+      "files": [
+        "components/VibePoll/VibePoll.tsx",
+        "components/VibePoll/index.ts"
+      ],
+      "internal": [
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
+    "VisuallyHidden": {
+      "files": [
+        "components/VisuallyHidden/VisuallyHidden.tsx",
+        "components/VisuallyHidden/index.ts"
+      ],
+      "internal": [],
+      "shared": [],
+      "external": [
+        "react"
+      ]
+    },
+    "Waveform": {
+      "files": [
+        "components/Waveform/Waveform.tsx",
+        "components/Waveform/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Wordmark": {
+      "files": [
+        "components/Wordmark/Wordmark.tsx",
+        "components/Wordmark/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "XPBar": {
+      "files": [
+        "components/XPBar/XPBar.tsx",
+        "components/XPBar/index.ts"
+      ],
+      "internal": [
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    }
+  },
+  "shared": {
+    "lib/cn.ts": [],
+    "lib/types.ts": [],
+    "components/internal/icons.tsx": [
+      "lib/types.ts"
+    ],
+    "lib/time.ts": [],
+    "lib/motion.ts": [],
+    "lib/chart.ts": []
+  },
+  "catalog": {
+    "Divider": {
+      "slug": "divider",
+      "group": "Foundations",
+      "section": "Primitives",
+      "blurb": "A rule on the line token, so the one place needing it does not hard-code a colour."
+    },
+    "Surface": {
+      "slug": "surface",
+      "group": "Foundations",
+      "section": "Primitives",
+      "blurb": "The five container recipes - card, tile, field, sunken, floating - instead of a drifting radius/border/shadow class string."
+    },
+    "Text": {
+      "slug": "text",
+      "group": "Foundations",
+      "section": "Primitives",
+      "blurb": "The whole type scale as one component. Without it every screen re-types the sizes by hand, which is where drift starts."
+    },
+    "Wordmark": {
+      "slug": "wordmark",
+      "group": "Foundations",
+      "section": "Primitives",
+      "blurb": "Mark plus name lockup; the mark itself is a slot."
+    },
+    "FocusTrap": {
+      "slug": "focus-trap",
+      "group": "Foundations",
+      "section": "Utilities",
+      "blurb": "Focus containment and restore, written once. Every dialog, drawer and menu in the library shares it."
+    },
+    "Portal": {
+      "slug": "portal",
+      "group": "Foundations",
+      "section": "Utilities",
+      "blurb": "Renders into a node outside the current tree. Modal, Drawer, Toast, Popover and ContextMenu all need it."
+    },
+    "Presence": {
+      "slug": "presence",
+      "group": "Foundations",
+      "section": "Utilities",
+      "blurb": "Keeps a node mounted long enough to animate out, and owns the timers so its callers do not have to."
+    },
+    "SkipLink": {
+      "slug": "skip-link",
+      "group": "Foundations",
+      "section": "Utilities",
+      "blurb": "Hidden until focused; depends only on the focus tokens."
+    },
+    "VisuallyHidden": {
+      "slug": "visually-hidden",
+      "group": "Foundations",
+      "section": "Utilities",
+      "blurb": "Text for screen readers only. Every icon-only control needs one."
+    },
+    "AppShell": {
+      "slug": "app-shell",
+      "group": "Layout",
+      "section": "Structure",
+      "blurb": "The floating rounded window on a tinted canvas; full-bleed below xl."
+    },
+    "BentoGrid": {
+      "slug": "bento-grid",
+      "group": "Layout",
+      "section": "Structure",
+      "blurb": "The mixed-span card grid the overview page lays out."
+    },
+    "Card": {
+      "slug": "card",
+      "group": "Layout",
+      "section": "Structure",
+      "blurb": "A titled container with an optional action and a body slot - the shape most content ends up in."
+    },
+    "PageHeader": {
+      "slug": "page-header",
+      "group": "Layout",
+      "section": "Structure",
+      "blurb": "Title block with actions, for secondary routes."
+    },
+    "PromoBanner": {
+      "slug": "promo-banner",
+      "group": "Layout",
+      "section": "Structure",
+      "blurb": "A hero strip: headline, highlighted phrase, supporting link, call to action, and a slot for artwork."
+    },
+    "Accordion": {
+      "slug": "accordion",
+      "group": "Layout",
+      "section": "Disclosure",
+      "blurb": "A set of Collapsibles with single- or multi-open policy."
+    },
+    "Collapse": {
+      "slug": "collapse",
+      "group": "Layout",
+      "section": "Disclosure",
+      "blurb": "Height transition primitive for disclosure."
+    },
+    "Collapsible": {
+      "slug": "collapsible",
+      "group": "Layout",
+      "section": "Disclosure",
+      "blurb": "Collapse + a trigger."
+    },
+    "CardDeck": {
+      "slug": "card-deck",
+      "group": "Layout",
+      "section": "Stacks & scrolling",
+      "blurb": "The equal-height card band."
+    },
+    "Carousel": {
+      "slug": "carousel",
+      "group": "Layout",
+      "section": "Stacks & scrolling",
+      "blurb": "Scroll-snap track + chevrons; the card band below xl."
+    },
+    "CoverFlow": {
+      "slug": "cover-flow",
+      "group": "Layout",
+      "section": "Stacks & scrolling",
+      "blurb": "A carousel with depth. One transform per card from its signed distance, with stacking order taken from the absolute one."
+    },
+    "CubeCarousel": {
+      "slug": "cube-carousel",
+      "group": "Layout",
+      "section": "Stacks & scrolling",
+      "blurb": "Four faces on one cube. The whole cube turns, so the corners never come apart, and the rotation accumulates."
+    },
+    "LayerStack": {
+      "slug": "layer-stack",
+      "group": "Layout",
+      "section": "Stacks & scrolling",
+      "blurb": "An exploded isometric stack. Two rotations on a shared parent, so the plates stay coplanar and every label is real text."
+    },
+    "Marquee": {
+      "slug": "marquee",
+      "group": "Layout",
+      "section": "Stacks & scrolling",
+      "blurb": "Looping horizontal scroller."
+    },
+    "ScrollList": {
+      "slug": "scroll-list",
+      "group": "Layout",
+      "section": "Stacks & scrolling",
+      "blurb": "A scrolling list with masked edges, so a cut-off row fades instead of ending mid-pixel."
+    },
+    "StackedCards": {
+      "slug": "stacked-cards",
+      "group": "Layout",
+      "section": "Stacks & scrolling",
+      "blurb": "Cards that stick and pile up as you scroll. CSS does the stacking; one measurement a frame supplies the depth."
+    },
+    "Dock": {
+      "slug": "dock",
+      "group": "Navigation",
+      "section": "Bars & shells",
+      "blurb": "Tiles that swell towards the pointer as one curve, measured from the wrapper so the growth never feeds back into itself."
+    },
+    "Navbar": {
+      "slug": "navbar",
+      "group": "Navigation",
+      "section": "Bars & shells",
+      "blurb": "The application header: brand, primary navigation, tools and an account control."
+    },
+    "Sidebar": {
+      "slug": "sidebar",
+      "group": "Navigation",
+      "section": "Bars & shells",
+      "blurb": "Full-width navigation column with grouped sections."
+    },
+    "SidebarRail": {
+      "slug": "sidebar-rail",
+      "group": "Navigation",
+      "section": "Bars & shells",
+      "blurb": "The 42px icon rail with a pinned footer group."
+    },
+    "Toolbar": {
+      "slug": "toolbar",
+      "group": "Navigation",
+      "section": "Bars & shells",
+      "blurb": "Surface + IconButton cluster. The header utility group."
+    },
+    "AnchorNav": {
+      "slug": "anchor-nav",
+      "group": "Navigation",
+      "section": "Tabs & steps",
+      "blurb": "In-page link list with scroll-spy."
+    },
+    "BackButton": {
+      "slug": "back-button",
+      "group": "Navigation",
+      "section": "Tabs & steps",
+      "blurb": "IconButton + Text, wired to history."
+    },
+    "Breadcrumb": {
+      "slug": "breadcrumb",
+      "group": "Navigation",
+      "section": "Tabs & steps",
+      "blurb": "Text + Divider trail with an overflow rule."
+    },
+    "MagicTabs": {
+      "slug": "magic-tabs",
+      "group": "Navigation",
+      "section": "Tabs & steps",
+      "blurb": "Tabs whose indicator measures and slides between them. SegmentedControl cross-fades a background; this one travels."
+    },
+    "Pagination": {
+      "slug": "pagination",
+      "group": "Navigation",
+      "section": "Tabs & steps",
+      "blurb": "ButtonGroup + IconButton with a page-window algorithm."
+    },
+    "Stepper": {
+      "slug": "stepper",
+      "group": "Navigation",
+      "section": "Tabs & steps",
+      "blurb": "Numbered progress through a flow; StatusDot + Text + Divider."
+    },
+    "TabBar": {
+      "slug": "tab-bar",
+      "group": "Navigation",
+      "section": "Tabs & steps",
+      "blurb": "Tabs laid out for a bottom bar."
+    },
+    "Tabs": {
+      "slug": "tabs",
+      "group": "Navigation",
+      "section": "Tabs & steps",
+      "blurb": "SegmentedControl + panels with correct tab semantics."
+    },
+    "CommandPalette": {
+      "slug": "command-palette",
+      "group": "Navigation",
+      "section": "Menus & search",
+      "blurb": "Modal + Combobox + Kbd over a command registry."
+    },
+    "ContextMenu": {
+      "slug": "context-menu",
+      "group": "Navigation",
+      "section": "Menus & search",
+      "blurb": "Menu opened at the pointer, via Portal."
+    },
+    "DropdownMenu": {
+      "slug": "dropdown-menu",
+      "group": "Navigation",
+      "section": "Menus & search",
+      "blurb": "Menu with a trigger and keyboard navigation."
+    },
+    "Menu": {
+      "slug": "menu",
+      "group": "Navigation",
+      "section": "Menus & search",
+      "blurb": "Surface(floating) + Button; owns open state, outside-click and Escape."
+    },
+    "RadialMenu": {
+      "slug": "radial-menu",
+      "group": "Navigation",
+      "section": "Menus & search",
+      "blurb": "Actions fanned on an arc, where every item is the same distance from the pointer. A vertical menu always favours its first item."
+    },
+    "Button": {
+      "slug": "button",
+      "group": "Actions",
+      "section": "Buttons",
+      "blurb": "A native button plus token classes."
+    },
+    "ButtonGroup": {
+      "slug": "button-group",
+      "group": "Actions",
+      "section": "Buttons",
+      "blurb": "Segmented Buttons sharing one border and roving focus."
+    },
+    "IconButton": {
+      "slug": "icon-button",
+      "group": "Actions",
+      "section": "Buttons",
+      "blurb": "Glyph-only button; the label is non-visual, so it is required."
+    },
+    "SegmentedControl": {
+      "slug": "segmented-control",
+      "group": "Actions",
+      "section": "Buttons",
+      "blurb": "The nav pill track — a single-select ButtonGroup."
+    },
+    "HoldToConfirm": {
+      "slug": "hold-to-confirm",
+      "group": "Actions",
+      "section": "Composed",
+      "blurb": "A destructive action held rather than clicked. Spread commitment beats a dialog dismissed by reflex."
+    },
+    "MagneticButton": {
+      "slug": "magnetic-button",
+      "group": "Actions",
+      "section": "Composed",
+      "blurb": "Button that tracks the pointer."
+    },
+    "QuickActions": {
+      "slug": "quick-actions",
+      "group": "Actions",
+      "section": "Composed",
+      "blurb": "The icon-over-label action row from the balance card, with optional keyboard shortcuts shown on the controls rather than hidden in a help page."
+    },
+    "ShimmerButton": {
+      "slug": "shimmer-button",
+      "group": "Actions",
+      "section": "Composed",
+      "blurb": "A call to action with a sheen sweeping across it and a light that follows the pointer, written to CSS variables rather than to state."
+    },
+    "Input": {
+      "slug": "input",
+      "group": "Forms & Inputs",
+      "section": "Text fields",
+      "blurb": "Wraps a native input; no label or validation opinions."
+    },
+    "InputOTP": {
+      "slug": "input-otp",
+      "group": "Forms & Inputs",
+      "section": "Text fields",
+      "blurb": "A row of single-character Inputs with paste and focus movement."
+    },
+    "MentionInput": {
+      "slug": "mention-input",
+      "group": "Forms & Inputs",
+      "section": "Text fields",
+      "blurb": "An @-mention list positioned at the caret, measured through a hidden mirror of the textarea."
+    },
+    "PasswordInput": {
+      "slug": "password-input",
+      "group": "Forms & Inputs",
+      "section": "Text fields",
+      "blurb": "Input + reveal IconButton."
+    },
+    "PinPad": {
+      "slug": "pin-pad",
+      "group": "Forms & Inputs",
+      "section": "Text fields",
+      "blurb": "A keypad and the physical keyboard as one control, where rejection is the return value rather than a ref reaching in."
+    },
+    "SearchField": {
+      "slug": "search-field",
+      "group": "Forms & Inputs",
+      "section": "Text fields",
+      "blurb": "Input + icon adornment + clear affordance. The header search."
+    },
+    "TagInput": {
+      "slug": "tag-input",
+      "group": "Forms & Inputs",
+      "section": "Text fields",
+      "blurb": "Input + Chip list."
+    },
+    "Textarea": {
+      "slug": "textarea",
+      "group": "Forms & Inputs",
+      "section": "Text fields",
+      "blurb": "Multi-line sibling of Input, sharing its chrome."
+    },
+    "Checkbox": {
+      "slug": "checkbox",
+      "group": "Forms & Inputs",
+      "section": "Choice",
+      "blurb": "Native input with a drawn box; no layout or label of its own."
+    },
+    "CheckboxGroup": {
+      "slug": "checkbox-group",
+      "group": "Forms & Inputs",
+      "section": "Choice",
+      "blurb": "Checkbox + Label + Field; owns the shared name and value array."
+    },
+    "Combobox": {
+      "slug": "combobox",
+      "group": "Forms & Inputs",
+      "section": "Choice",
+      "blurb": "Select + Input filtering."
+    },
+    "MultiSelect": {
+      "slug": "multi-select",
+      "group": "Forms & Inputs",
+      "section": "Choice",
+      "blurb": "Select + Chip list for the selected values."
+    },
+    "Radio": {
+      "slug": "radio",
+      "group": "Forms & Inputs",
+      "section": "Choice",
+      "blurb": "A native radio with a drawn dot. Grouping and layout belong to RadioGroup."
+    },
+    "RadioGroup": {
+      "slug": "radio-group",
+      "group": "Forms & Inputs",
+      "section": "Choice",
+      "blurb": "Radio + Label + Field; owns roving focus."
+    },
+    "Rating": {
+      "slug": "rating",
+      "group": "Forms & Inputs",
+      "section": "Choice",
+      "blurb": "A radio group drawn as stars."
+    },
+    "Select": {
+      "slug": "select",
+      "group": "Forms & Inputs",
+      "section": "Choice",
+      "blurb": "Menu + Button trigger with listbox semantics. The currency pickers."
+    },
+    "Switch": {
+      "slug": "switch",
+      "group": "Forms & Inputs",
+      "section": "Choice",
+      "blurb": "Native checkbox presented as a track and knob."
+    },
+    "AmountField": {
+      "slug": "amount-field",
+      "group": "Forms & Inputs",
+      "section": "Numeric & range",
+      "blurb": "Currency symbol + bare Input + currency Select, as Exchange Money uses twice. Keeps parsing and formatting in one place."
+    },
+    "EmojiSlider": {
+      "slug": "emoji-slider",
+      "group": "Forms & Inputs",
+      "section": "Numeric & range",
+      "blurb": "A rating where the face is the readout and the word is the aria-valuetext, because the number is an implementation detail."
+    },
+    "Knob": {
+      "slug": "knob",
+      "group": "Forms & Inputs",
+      "section": "Numeric & range",
+      "blurb": "A rotary control dragged vertically, not circularly — an angular drag spikes whenever the pointer crosses the centre."
+    },
+    "NumberInput": {
+      "slug": "number-input",
+      "group": "Forms & Inputs",
+      "section": "Numeric & range",
+      "blurb": "Input + step controls; shares Slider’s clamping."
+    },
+    "RangeSlider": {
+      "slug": "range-slider",
+      "group": "Forms & Inputs",
+      "section": "Numeric & range",
+      "blurb": "Two Slider thumbs sharing one track."
+    },
+    "Slider": {
+      "slug": "slider",
+      "group": "Forms & Inputs",
+      "section": "Numeric & range",
+      "blurb": "Native range input restyled against the track tokens."
+    },
+    "Calendar": {
+      "slug": "calendar",
+      "group": "Forms & Inputs",
+      "section": "Date & time",
+      "blurb": "Month grid with keyboard date navigation."
+    },
+    "DatePicker": {
+      "slug": "date-picker",
+      "group": "Forms & Inputs",
+      "section": "Date & time",
+      "blurb": "Calendar in a Popover, wired to a Field."
+    },
+    "DateRangePicker": {
+      "slug": "date-range-picker",
+      "group": "Forms & Inputs",
+      "section": "Date & time",
+      "blurb": "DatePicker with two linked endpoints."
+    },
+    "TimePicker": {
+      "slug": "time-picker",
+      "group": "Forms & Inputs",
+      "section": "Date & time",
+      "blurb": "Time selection in a Popover."
+    },
+    "ColorPicker": {
+      "slug": "color-picker",
+      "group": "Forms & Inputs",
+      "section": "Rich input",
+      "blurb": "Area, hue and alpha controls in a Popover."
+    },
+    "Cropper": {
+      "slug": "cropper",
+      "group": "Forms & Inputs",
+      "section": "Rich input",
+      "blurb": "A crop frame in fractions, not pixels, so it survives a resize. One box-shadow dims everything outside it."
+    },
+    "FileUpload": {
+      "slug": "file-upload",
+      "group": "Forms & Inputs",
+      "section": "Rich input",
+      "blurb": "Drop zone, file list and progress."
+    },
+    "ShortcutRecorder": {
+      "slug": "shortcut-recorder",
+      "group": "Forms & Inputs",
+      "section": "Rich input",
+      "blurb": "Records the next combination pressed, swallowing every key including the ones the browser wanted."
+    },
+    "SignaturePad": {
+      "slug": "signature-pad",
+      "group": "Forms & Inputs",
+      "section": "Rich input",
+      "blurb": "Freehand with speed-varied width, smoothed through midpoints. Strokes are points, so undo and resize both repaint."
+    },
+    "Field": {
+      "slug": "field",
+      "group": "Forms & Inputs",
+      "section": "Form structure",
+      "blurb": "Label + control + hint + error, with the id wiring in one place."
+    },
+    "FilterBar": {
+      "slug": "filter-bar",
+      "group": "Forms & Inputs",
+      "section": "Form structure",
+      "blurb": "Chip and Select row with a clear-all action."
+    },
+    "Form": {
+      "slug": "form",
+      "group": "Forms & Inputs",
+      "section": "Form structure",
+      "blurb": "Field layout and submission state; no validation library baked in."
+    },
+    "Label": {
+      "slug": "label",
+      "group": "Forms & Inputs",
+      "section": "Form structure",
+      "blurb": "Form label on the type scale; owns the htmlFor association only."
+    },
+    "ValidationSummary": {
+      "slug": "validation-summary",
+      "group": "Forms & Inputs",
+      "section": "Form structure",
+      "blurb": "The digest that takes focus when a submission is rejected — the only pattern that makes an error below the fold perceivable."
+    },
+    "Avatar": {
+      "slug": "avatar",
+      "group": "Data Display",
+      "section": "Identity",
+      "blurb": "Initials, tint and accessible name from one string."
+    },
+    "AvatarGroup": {
+      "slug": "avatar-group",
+      "group": "Data Display",
+      "section": "Identity",
+      "blurb": "Overlapping Avatars with an overflow count."
+    },
+    "Badge": {
+      "slug": "badge",
+      "group": "Data Display",
+      "section": "Identity",
+      "blurb": "Short qualifier attached to something else."
+    },
+    "Chip": {
+      "slug": "chip",
+      "group": "Data Display",
+      "section": "Identity",
+      "blurb": "Selectable or removable pill. Interactive counterpart to Tag."
+    },
+    "IconTile": {
+      "slug": "icon-tile",
+      "group": "Data Display",
+      "section": "Identity",
+      "blurb": "The rounded glyph plate at the start of a list row or a stat tile."
+    },
+    "Kbd": {
+      "slug": "kbd",
+      "group": "Data Display",
+      "section": "Identity",
+      "blurb": "A keyboard key. Pure typography and border tokens."
+    },
+    "Tag": {
+      "slug": "tag",
+      "group": "Data Display",
+      "section": "Identity",
+      "blurb": "Static outlined label. Non-interactive counterpart to Chip."
+    },
+    "ActivityFeed": {
+      "slug": "activity-feed",
+      "group": "Data Display",
+      "section": "Lists & tables",
+      "blurb": "A transaction feed grouped by day with sticky headers and rows that expand in place, so the reader keeps their position."
+    },
+    "DataExplorer": {
+      "slug": "data-explorer",
+      "group": "Data Display",
+      "section": "Lists & tables",
+      "blurb": "A whole list screen — search, filters, sortable table and all four data states — wired together once."
+    },
+    "DataTable": {
+      "slug": "data-table",
+      "group": "Data Display",
+      "section": "Lists & tables",
+      "blurb": "Table + sorting, selection, pagination and column state."
+    },
+    "DescriptionList": {
+      "slug": "description-list",
+      "group": "Data Display",
+      "section": "Lists & tables",
+      "blurb": "Text + Divider term/definition pairs."
+    },
+    "KanbanBoard": {
+      "slug": "kanban-board",
+      "group": "Data Display",
+      "section": "Lists & tables",
+      "blurb": "Column layout with drag and drop."
+    },
+    "List": {
+      "slug": "list",
+      "group": "Data Display",
+      "section": "Lists & tables",
+      "blurb": "Layout wrapper owning row rhythm and separators."
+    },
+    "ListItem": {
+      "slug": "list-item",
+      "group": "Data Display",
+      "section": "Lists & tables",
+      "blurb": "IconTile/Avatar + Text; the subscriptions and transactions row."
+    },
+    "Table": {
+      "slug": "table",
+      "group": "Data Display",
+      "section": "Lists & tables",
+      "blurb": "Semantic table styled on the line and surface tokens."
+    },
+    "Timeline": {
+      "slug": "timeline",
+      "group": "Data Display",
+      "section": "Lists & tables",
+      "blurb": "StatusDot + Divider + Text event sequence."
+    },
+    "TreeView": {
+      "slug": "tree-view",
+      "group": "Data Display",
+      "section": "Lists & tables",
+      "blurb": "Recursive disclosure with full tree keyboard semantics."
+    },
+    "Metric": {
+      "slug": "metric",
+      "group": "Data Display",
+      "section": "Metrics",
+      "blurb": "Text + Badge: a label, a figure and a delta."
+    },
+    "MetricSpotlight": {
+      "slug": "metric-spotlight",
+      "group": "Data Display",
+      "section": "Metrics",
+      "blurb": "A KPI rail where selecting a tile drives a detail chart — the summary-then-detail dance every analytics screen reinvents."
+    },
+    "StatCard": {
+      "slug": "stat-card",
+      "group": "Data Display",
+      "section": "Metrics",
+      "blurb": "Surface(tile) + IconTile + Metric + Meter. The instalment tile."
+    },
+    "AuditTrail": {
+      "slug": "audit-trail",
+      "group": "Data Display",
+      "section": "Records",
+      "blurb": "Who changed what, when, and what it was before — the field every implementation drops first."
+    },
+    "CodeBlock": {
+      "slug": "code-block",
+      "group": "Data Display",
+      "section": "Records",
+      "blurb": "Surface(sunken) + monospace scale + copy action."
+    },
+    "DiffSummary": {
+      "slug": "diff-summary",
+      "group": "Data Display",
+      "section": "Records",
+      "blurb": "What is about to change, per field, before submitting. Cleared and newly set are their own facts."
+    },
+    "DiffView": {
+      "slug": "diff-view",
+      "group": "Data Display",
+      "section": "Records",
+      "blurb": "Two-column CodeBlock with change highlighting."
+    },
+    "MaskedValue": {
+      "slug": "masked-value",
+      "group": "Data Display",
+      "section": "Records",
+      "blurb": "A sensitive value that is not in the DOM until revealed, hides itself again, and separates copy from reveal."
+    },
+    "Figure": {
+      "slug": "figure",
+      "group": "Data Display",
+      "section": "Media",
+      "blurb": "Image + Text caption."
+    },
+    "QRCode": {
+      "slug": "qr-code",
+      "group": "Data Display",
+      "section": "Media",
+      "blurb": "Encoded matrix rendered as SVG. The QR quick action."
+    },
+    "AreaChart": {
+      "slug": "area-chart",
+      "group": "Charts",
+      "section": "Plots",
+      "blurb": "LineChart with a filled band."
+    },
+    "BarChart": {
+      "slug": "bar-chart",
+      "group": "Charts",
+      "section": "Plots",
+      "blurb": "Categorical bars sharing the chart scaffolding."
+    },
+    "LineChart": {
+      "slug": "line-chart",
+      "group": "Charts",
+      "section": "Plots",
+      "blurb": "Axes, scales, Legend and ChartTooltip."
+    },
+    "LiveChart": {
+      "slug": "live-chart",
+      "group": "Charts",
+      "section": "Plots",
+      "blurb": "A line that scrolls as samples land. One CSS transition per sample, and a scale that eases towards its bounds."
+    },
+    "Sparkline": {
+      "slug": "sparkline",
+      "group": "Charts",
+      "section": "Plots",
+      "blurb": "Inline SVG trend line; no axes, no chart runtime."
+    },
+    "ProgressChart": {
+      "slug": "progress-chart",
+      "group": "Charts",
+      "section": "Gauges & rings",
+      "blurb": "Stacked Progress bars for part-to-whole comparison."
+    },
+    "RadialGauge": {
+      "slug": "radial-gauge",
+      "group": "Charts",
+      "section": "Gauges & rings",
+      "blurb": "ProgressRing with a scale and a value readout."
+    },
+    "DonutChart": {
+      "slug": "donut-chart",
+      "group": "Charts",
+      "section": "Distribution",
+      "blurb": "Part-to-whole arcs with a centre readout."
+    },
+    "DotGlobe": {
+      "slug": "dot-globe",
+      "group": "Charts",
+      "section": "Distribution",
+      "blurb": "A turning sphere of dots with places marked on it. A golden-angle spiral, because a lat/long grid bunches at the poles."
+    },
+    "RadarChart": {
+      "slug": "radar-chart",
+      "group": "Charts",
+      "section": "Distribution",
+      "blurb": "Several measures at once as a shape. Per-axis maxima, so measures on different units can share one outline."
+    },
+    "SankeyFlow": {
+      "slug": "sankey-flow",
+      "group": "Charts",
+      "section": "Flow & hierarchy",
+      "blurb": "Where an amount comes from and goes, as ribbons whose thickness is the amount. Columns by longest path, so nothing flows backwards."
+    },
+    "TreeMap": {
+      "slug": "tree-map",
+      "group": "Charts",
+      "section": "Flow & hierarchy",
+      "blurb": "Part-to-whole by area, squarified so no tile becomes a sliver. Shows a long tail a donut cannot."
+    },
+    "ActivityHeatmap": {
+      "slug": "activity-heatmap",
+      "group": "Charts",
+      "section": "Time & activity",
+      "blurb": "A calendar density grid. It answers a question no chart here answers well: when did this happen, across months, at a glance."
+    },
+    "DaySchedule": {
+      "slug": "day-schedule",
+      "group": "Charts",
+      "section": "Time & activity",
+      "blurb": "A day of events with overlaps resolved by cluster and first-fit columns, positioned from minutes."
+    },
+    "StatusStrip": {
+      "slug": "status-strip",
+      "group": "Charts",
+      "section": "Time & activity",
+      "blurb": "The uptime strip, with missing data drawn as its own state rather than as an outage."
+    },
+    "ChartTooltip": {
+      "slug": "chart-tooltip",
+      "group": "Charts",
+      "section": "Chart parts",
+      "blurb": "Tooltip specialised for a data point."
+    },
+    "Legend": {
+      "slug": "legend",
+      "group": "Charts",
+      "section": "Chart parts",
+      "blurb": "StatusDot + Text series key, shared by every chart."
+    },
+    "GooeyLoader": {
+      "slug": "gooey-loader",
+      "group": "Feedback",
+      "section": "Status",
+      "blurb": "Metaballs: blur the group, then push alpha through a steep contrast curve so overlapping edges fuse."
+    },
+    "LoadingOverlay": {
+      "slug": "loading-overlay",
+      "group": "Feedback",
+      "section": "Status",
+      "blurb": "Spinner over a scrim, scoped to a container."
+    },
+    "Meter": {
+      "slug": "meter",
+      "group": "Feedback",
+      "section": "Status",
+      "blurb": "Discrete, counted progress - eight pips of which three are filled, rather than a continuous bar."
+    },
+    "Progress": {
+      "slug": "progress",
+      "group": "Feedback",
+      "section": "Status",
+      "blurb": "Continuous bar, for values that are genuinely fractional."
+    },
+    "ProgressRing": {
+      "slug": "progress-ring",
+      "group": "Feedback",
+      "section": "Status",
+      "blurb": "The same value drawn as an arc, for square slots."
+    },
+    "Skeleton": {
+      "slug": "skeleton",
+      "group": "Feedback",
+      "section": "Status",
+      "blurb": "Geometry plus a shimmer; no knowledge of what it stands in for."
+    },
+    "Spinner": {
+      "slug": "spinner",
+      "group": "Feedback",
+      "section": "Status",
+      "blurb": "Leaf consumed by Button and IconButton."
+    },
+    "StatusDot": {
+      "slug": "status-dot",
+      "group": "Feedback",
+      "section": "Status",
+      "blurb": "A token-coloured circle."
+    },
+    "Alert": {
+      "slug": "alert",
+      "group": "Feedback",
+      "section": "Messages",
+      "blurb": "Surface + IconTile + Text; a persistent message block."
+    },
+    "Banner": {
+      "slug": "banner",
+      "group": "Feedback",
+      "section": "Messages",
+      "blurb": "Full-width Alert with a dismiss action."
+    },
+    "InlineMessage": {
+      "slug": "inline-message",
+      "group": "Feedback",
+      "section": "Messages",
+      "blurb": "The compact form of Alert, for use under a Field."
+    },
+    "NotificationCenter": {
+      "slug": "notification-center",
+      "group": "Feedback",
+      "section": "Messages",
+      "blurb": "The panel behind the bell, with a real unread model announced through a badge rather than by colour."
+    },
+    "Toast": {
+      "slug": "toast",
+      "group": "Feedback",
+      "section": "Messages",
+      "blurb": "Portal-mounted queue with timers and a live region."
+    },
+    "EmptyState": {
+      "slug": "empty-state",
+      "group": "Feedback",
+      "section": "Empty & error",
+      "blurb": "Surface + IconTile + Text + Button."
+    },
+    "ErrorState": {
+      "slug": "error-state",
+      "group": "Feedback",
+      "section": "Empty & error",
+      "blurb": "EmptyState with a retry action and error semantics."
+    },
+    "StateView": {
+      "slug": "state-view",
+      "group": "Feedback",
+      "section": "Empty & error",
+      "blurb": "One component for the four states every data region has. Every list rebuilds this branch, and each rebuild forgets one — usually the empty case."
+    },
+    "ConnectionBanner": {
+      "slug": "connection-banner",
+      "group": "Feedback",
+      "section": "System state",
+      "blurb": "Offline, reconnecting, and what is still queued. navigator.onLine is the default, not the authority — a dead API reads as online."
+    },
+    "RateLimitMeter": {
+      "slug": "rate-limit-meter",
+      "group": "Feedback",
+      "section": "System state",
+      "blurb": "How much of a quota is gone and when it returns — recomputed from a deadline, so a throttled tab cannot drift."
+    },
+    "RetryQueue": {
+      "slug": "retry-queue",
+      "group": "Feedback",
+      "section": "System state",
+      "blurb": "The changes that have not landed, with the backoff shown — a countdown is what stops everyone fighting the retry."
+    },
+    "SaveIndicator": {
+      "slug": "save-indicator",
+      "group": "Feedback",
+      "section": "System state",
+      "blurb": "What autosave is doing, and when it last succeeded — the timestamp is what turns “Saved” into a claim."
+    },
+    "SessionTimeout": {
+      "slug": "session-timeout",
+      "group": "Feedback",
+      "section": "System state",
+      "blurb": "The idle warning, with activity shared between tabs and a deadline held as a timestamp, so a sleeping laptop cannot cheat it."
+    },
+    "AchievementPop": {
+      "slug": "achievement-pop",
+      "group": "Feedback",
+      "section": "Celebration",
+      "blurb": "Overshoot on the landing, and the shine sweeps after it — overlapping them wastes both."
+    },
+    "Confetti": {
+      "slug": "confetti",
+      "group": "Feedback",
+      "section": "Celebration",
+      "blurb": "Canvas celebration burst."
+    },
+    "StreakCounter": {
+      "slug": "streak-counter",
+      "group": "Feedback",
+      "section": "Celebration",
+      "blurb": "A flame that only flickers once today is banked, and keeps its final number when the streak ends."
+    },
+    "SuccessMark": {
+      "slug": "success-mark",
+      "group": "Feedback",
+      "section": "Celebration",
+      "blurb": "Animated confirmation tick."
+    },
+    "XPBar": {
+      "slug": "xp-bar",
+      "group": "Feedback",
+      "section": "Celebration",
+      "blurb": "The overflow is the point: fill to full, snap to zero with the transition off, continue. Otherwise the bar sweeps backwards."
+    },
+    "ActionSheet": {
+      "slug": "action-sheet",
+      "group": "Overlays",
+      "section": "Dialogs",
+      "blurb": "Drawer anchored to the bottom, for touch."
+    },
+    "AlertDialog": {
+      "slug": "alert-dialog",
+      "group": "Overlays",
+      "section": "Dialogs",
+      "blurb": "Modal with alertdialog semantics and a forced choice."
+    },
+    "ConfirmDialog": {
+      "slug": "confirm-dialog",
+      "group": "Overlays",
+      "section": "Dialogs",
+      "blurb": "AlertDialog with a standard confirm/cancel pair."
+    },
+    "Drawer": {
+      "slug": "drawer",
+      "group": "Overlays",
+      "section": "Dialogs",
+      "blurb": "Modal anchored to an edge. The mobile navigation panel."
+    },
+    "Modal": {
+      "slug": "modal",
+      "group": "Overlays",
+      "section": "Dialogs",
+      "blurb": "Portal + FocusTrap in a centred Surface."
+    },
+    "MorphDialog": {
+      "slug": "morph-dialog",
+      "group": "Overlays",
+      "section": "Dialogs",
+      "blurb": "A card that expands into a dialog from exactly where it sits, as a FLIP transform, so nothing relayouts mid-flight."
+    },
+    "HoverCard": {
+      "slug": "hover-card",
+      "group": "Overlays",
+      "section": "Popovers",
+      "blurb": "Popover on hover intent rather than click."
+    },
+    "Popover": {
+      "slug": "popover",
+      "group": "Overlays",
+      "section": "Popovers",
+      "blurb": "Positioned Surface(floating); the shared anchor logic."
+    },
+    "Tooltip": {
+      "slug": "tooltip",
+      "group": "Overlays",
+      "section": "Popovers",
+      "blurb": "Surface(floating) + Text; replaces the native title on icon-only controls."
+    },
+    "CoachTour": {
+      "slug": "coach-tour",
+      "group": "Overlays",
+      "section": "Guidance",
+      "blurb": "A guided tour that cuts a hole in the scrim over each target, scrolls it into view and anchors an explanation to it."
+    },
+    "Spotlight": {
+      "slug": "spotlight",
+      "group": "Overlays",
+      "section": "Guidance",
+      "blurb": "Pointer-following highlight over a surface."
+    },
+    "PageTransition": {
+      "slug": "page-transition",
+      "group": "Motion & Effects",
+      "section": "Entrance & scroll",
+      "blurb": "Route-level enter and exit, built on Presence."
+    },
+    "Parallax": {
+      "slug": "parallax",
+      "group": "Motion & Effects",
+      "section": "Entrance & scroll",
+      "blurb": "Scroll-linked depth for a page region."
+    },
+    "Reveal": {
+      "slug": "reveal",
+      "group": "Motion & Effects",
+      "section": "Entrance & scroll",
+      "blurb": "Scroll-triggered entrance for a page region."
+    },
+    "ScrollProgress": {
+      "slug": "scroll-progress",
+      "group": "Motion & Effects",
+      "section": "Entrance & scroll",
+      "blurb": "How far through a page or a container the reader is, coalesced to one measurement a frame, doubling as back-to-top."
+    },
+    "ScrollVelocity": {
+      "slug": "scroll-velocity",
+      "group": "Motion & Effects",
+      "section": "Entrance & scroll",
+      "blurb": "Skew, drift and squash driven by how fast you are scrolling, eased so a wheel burst reads as weight."
+    },
+    "Stagger": {
+      "slug": "stagger",
+      "group": "Motion & Effects",
+      "section": "Entrance & scroll",
+      "blurb": "Sequences Reveal across a list."
+    },
+    "GlitchText": {
+      "slug": "glitch-text",
+      "group": "Motion & Effects",
+      "section": "Text",
+      "blurb": "RGB channel tear that is clean ninety per cent of the time — and only one of the three copies is readable."
+    },
+    "GradientText": {
+      "slug": "gradient-text",
+      "group": "Motion & Effects",
+      "section": "Text",
+      "blurb": "A gradient sliding across live text. Duplicated end to end so the loop has no seam, and the glyphs stay selectable throughout."
+    },
+    "KineticText": {
+      "slug": "kinetic-text",
+      "group": "Motion & Effects",
+      "section": "Text",
+      "blurb": "Per-character animated headline."
+    },
+    "RotatingWord": {
+      "slug": "rotating-word",
+      "group": "Motion & Effects",
+      "section": "Text",
+      "blurb": "Cycles a word inside a headline."
+    },
+    "TextReveal": {
+      "slug": "text-reveal",
+      "group": "Motion & Effects",
+      "section": "Text",
+      "blurb": "A passage whose words light as it scrolls. Scroll-linked rather than triggered: the reader sets the pace and can scroll back."
+    },
+    "TextScramble": {
+      "slug": "text-scramble",
+      "group": "Motion & Effects",
+      "section": "Text",
+      "blurb": "Character-scramble text reveal."
+    },
+    "Typewriter": {
+      "slug": "typewriter",
+      "group": "Motion & Effects",
+      "section": "Text",
+      "blurb": "Text that types, deletes and moves on. Announced once as static text, with the width of the longest phrase held open."
+    },
+    "AnimatedBeam": {
+      "slug": "animated-beam",
+      "group": "Motion & Effects",
+      "section": "Surfaces & light",
+      "blurb": "A curved connector between two real elements with light pulsing along it. It re-measures, so it survives a reflow."
+    },
+    "AuroraSurface": {
+      "slug": "aurora-surface",
+      "group": "Motion & Effects",
+      "section": "Surfaces & light",
+      "blurb": "Three drifting colour fields behind a container. Only transform animates, so a full-bleed hero holds 60fps where an animated filter would not."
+    },
+    "BlobMorph": {
+      "slug": "blob-morph",
+      "group": "Motion & Effects",
+      "section": "Surfaces & light",
+      "blurb": "An organic outline on two unrelated sine frequencies, joined by Catmull–Rom, so it never repeats and never flattens."
+    },
+    "BorderBeam": {
+      "slug": "border-beam",
+      "group": "Motion & Effects",
+      "section": "Surfaces & light",
+      "blurb": "Light travelling round a border: one spinning conic gradient behind an inset opaque surface, so it holds at any aspect ratio."
+    },
+    "HoloCard": {
+      "slug": "holo-card",
+      "group": "Motion & Effects",
+      "section": "Surfaces & light",
+      "blurb": "Trading-card foil. The rainbow runs against the tilt, because real foil reflects a fixed light."
+    },
+    "LiquidGlass": {
+      "slug": "liquid-glass",
+      "group": "Motion & Effects",
+      "section": "Surfaces & light",
+      "blurb": "Glass that actually refracts: a blur, a specular rim, and an SVG displacement map that bends only the edge."
+    },
+    "NeonSign": {
+      "slug": "neon-sign",
+      "group": "Motion & Effects",
+      "section": "Surfaces & light",
+      "blurb": "Three stacked glows rather than one blur, and a flicker that clusters its dropouts like a real tube."
+    },
+    "OrbitRing": {
+      "slug": "orbit-ring",
+      "group": "Motion & Effects",
+      "section": "Surfaces & light",
+      "blurb": "Items travelling a circle, each counter-rotating so it stays upright — the detail that stops logos arriving upside down."
+    },
+    "ParticleField": {
+      "slug": "particle-field",
+      "group": "Motion & Effects",
+      "section": "Surfaces & light",
+      "blurb": "A drifting constellation on a canvas, linked and pointer-reactive. Canvas, because the link pass is quadratic over positions."
+    },
+    "RippleSurface": {
+      "slug": "ripple-surface",
+      "group": "Motion & Effects",
+      "section": "Surfaces & light",
+      "blurb": "Water. Every drop keeps its own birth timestamp, so six ripples overlap correctly instead of restarting each other."
+    },
+    "StickerPeel": {
+      "slug": "sticker-peel",
+      "group": "Motion & Effects",
+      "section": "Surfaces & light",
+      "blurb": "A corner that lifts, casts a shadow on the sheet below, and comes off if you pull past the threshold."
+    },
+    "AnimatedNumber": {
+      "slug": "animated-number",
+      "group": "Motion & Effects",
+      "section": "Numbers",
+      "blurb": "Tweens between two values. Owns an animation frame loop."
+    },
+    "CountUp": {
+      "slug": "count-up",
+      "group": "Motion & Effects",
+      "section": "Numbers",
+      "blurb": "AnimatedNumber triggered on entering the viewport."
+    },
+    "Odometer": {
+      "slug": "odometer",
+      "group": "Motion & Effects",
+      "section": "Numbers",
+      "blurb": "Digit-roll presentation of AnimatedNumber."
+    },
+    "SplitFlap": {
+      "slug": "split-flap",
+      "group": "Motion & Effects",
+      "section": "Numbers",
+      "blurb": "Split-flap board presentation of a value."
+    },
+    "Ticker": {
+      "slug": "ticker",
+      "group": "Motion & Effects",
+      "section": "Numbers",
+      "blurb": "Continuously updating value strip."
+    },
+    "CursorAura": {
+      "slug": "cursor-aura",
+      "group": "Motion & Effects",
+      "section": "Micro-interaction",
+      "blurb": "A cursor with mass that becomes the rectangle of whatever it hovers, and hides the real pointer while it does."
+    },
+    "FlipCard": {
+      "slug": "flip-card",
+      "group": "Motion & Effects",
+      "section": "Micro-interaction",
+      "blurb": "Two-faced Card with a flip transition."
+    },
+    "PressScale": {
+      "slug": "press-scale",
+      "group": "Motion & Effects",
+      "section": "Micro-interaction",
+      "blurb": "Press-down scale feedback wrapper."
+    },
+    "Ripple": {
+      "slug": "ripple",
+      "group": "Motion & Effects",
+      "section": "Micro-interaction",
+      "blurb": "Pointer-origin ripple wrapper. Owns transient state."
+    },
+    "TiltCard": {
+      "slug": "tilt-card",
+      "group": "Motion & Effects",
+      "section": "Micro-interaction",
+      "blurb": "Pointer-tilted Card."
+    },
+    "ImageCompare": {
+      "slug": "image-compare",
+      "group": "Interaction",
+      "section": "Touch & drag",
+      "blurb": "Two states split by a handle. The top layer is clipped, not resized, so nothing reflows during the drag."
+    },
+    "MarqueeSelect": {
+      "slug": "marquee-select",
+      "group": "Interaction",
+      "section": "Touch & drag",
+      "blurb": "Drag a rectangle to select. Items are found by attribute and measured once, at the start of the drag."
+    },
+    "MiniMap": {
+      "slug": "mini-map",
+      "group": "Interaction",
+      "section": "Touch & drag",
+      "blurb": "A scaled survey with the on-screen part outlined and draggable. Takes content coordinates, so it knows nothing about transforms."
+    },
+    "PanZoom": {
+      "slug": "pan-zoom",
+      "group": "Interaction",
+      "section": "Touch & drag",
+      "blurb": "A viewport you pan and zoom, anchored to the pointer. One affine step, so a minimap or a hit test on top stays tractable."
+    },
+    "PullToRefresh": {
+      "slug": "pull-to-refresh",
+      "group": "Interaction",
+      "section": "Touch & drag",
+      "blurb": "Drag past a threshold to reload, but only from the very top — the rule that stops it stealing an ordinary scroll."
+    },
+    "SortableList": {
+      "slug": "sortable-list",
+      "group": "Interaction",
+      "section": "Touch & drag",
+      "blurb": "Drag to reorder, with rows measured once on grab. Space picks a row up and the arrows move it, announced through a live region."
+    },
+    "StoryProgress": {
+      "slug": "story-progress",
+      "group": "Interaction",
+      "section": "Touch & drag",
+      "blurb": "The segmented bar above a story. Re-keyed on the index, which is what makes a re-entered segment actually restart."
+    },
+    "SwipeDeck": {
+      "slug": "swipe-deck",
+      "group": "Interaction",
+      "section": "Touch & drag",
+      "blurb": "A stack of cards thrown left or right, with pointer capture for the gesture and arrow keys for everyone not holding a pointer."
+    },
+    "SwipeRow": {
+      "slug": "swipe-row",
+      "group": "Interaction",
+      "section": "Touch & drag",
+      "blurb": "A row that slides aside to reveal actions that are always real buttons — focusing one opens the row."
+    },
+    "PresenceBar": {
+      "slug": "presence-bar",
+      "group": "Interaction",
+      "section": "Presence & collaboration",
+      "blurb": "Who is here, in a stable order a join cannot reshuffle, with arrivals announced rather than only drawn."
+    },
+    "PresenceCursors": {
+      "slug": "presence-cursors",
+      "group": "Interaction",
+      "section": "Presence & collaboration",
+      "blurb": "Other people’s pointers, glided between sparse updates by a CSS transition, positioned in fractions so a resize is free."
+    },
+    "ReactionBar": {
+      "slug": "reaction-bar",
+      "group": "Interaction",
+      "section": "Presence & collaboration",
+      "blurb": "Reactions with counts and a burst on pick. A toggle, not an increment, so a double tap cannot leave two likes."
+    },
+    "TypingIndicator": {
+      "slug": "typing-indicator",
+      "group": "Interaction",
+      "section": "Presence & collaboration",
+      "blurb": "Three dots and a sentence that is actually grammatical — one, two and many are three different shapes."
+    },
+    "VibePoll": {
+      "slug": "vibe-poll",
+      "group": "Interaction",
+      "section": "Presence & collaboration",
+      "blurb": "Results hidden until you vote, and each row is its own bar, so the label stays legible as the fill passes it."
+    },
+    "ApprovalChain": {
+      "slug": "approval-chain",
+      "group": "Interaction",
+      "section": "Trust & workflow",
+      "blurb": "Parallel sign-off against a quorum, not a stepper. One rejection ends it however many approvals are in."
+    },
+    "ConsentManager": {
+      "slug": "consent-manager",
+      "group": "Interaction",
+      "section": "Trust & workflow",
+      "blurb": "Granular consent where rejecting is exactly as easy as accepting, and every recipient is named."
+    },
+    "DataFreshness": {
+      "slug": "data-freshness",
+      "group": "Interaction",
+      "section": "Trust & workflow",
+      "blurb": "When this data was last true, and whether that is still good enough. A failed refresh makes it older, not wrong."
+    },
+    "ImportMapper": {
+      "slug": "import-mapper",
+      "group": "Interaction",
+      "section": "Trust & workflow",
+      "blurb": "Column-to-field matching that guesses first, previews real values, and catches clashes while the file is still on screen."
+    },
+    "PermissionGate": {
+      "slug": "permission-gate",
+      "group": "Interaction",
+      "section": "Trust & workflow",
+      "blurb": "Shows a region to those who may see it and explains the refusal to those who may not. Silence is opt-in."
+    },
+    "UndoStack": {
+      "slug": "undo-stack",
+      "group": "Interaction",
+      "section": "Trust & workflow",
+      "blurb": "Undo and redo with the steps named, plus a history to jump back through. Leaves a focused field’s own undo alone."
+    },
+    "AsciiImage": {
+      "slug": "ascii-image",
+      "group": "Canvas & Play",
+      "section": "Generative",
+      "blurb": "An image redrawn as characters, downscaled by the browser and mapped through a ramp ordered by ink."
+    },
+    "BoidsFlock": {
+      "slug": "boids-flock",
+      "group": "Canvas & Play",
+      "section": "Generative",
+      "blurb": "Separation, alignment, cohesion — on a spatial grid, so two hundred boids is hundreds of checks and not forty thousand."
+    },
+    "MatrixRain": {
+      "slug": "matrix-rain",
+      "group": "Canvas & Play",
+      "section": "Generative",
+      "blurb": "Falling glyphs where the trail is accumulated residue, not a list of characters anyone tracks."
+    },
+    "StarField": {
+      "slug": "star-field",
+      "group": "Canvas & Play",
+      "section": "Generative",
+      "blurb": "A perspective divide and nothing else, with streaks drawn between each star now and last frame."
+    },
+    "AudioVisualizer": {
+      "slug": "audio-visualizer",
+      "group": "Canvas & Play",
+      "section": "Audio",
+      "blurb": "A real FFT from a real element or the microphone, trimmed to the part of the spectrum with anything in it."
+    },
+    "PianoKeys": {
+      "slug": "piano-keys",
+      "group": "Canvas & Play",
+      "section": "Audio",
+      "blurb": "One oscillator per note with a ramped envelope, because a gain that jumps to 1 is a click."
+    },
+    "Waveform": {
+      "slug": "waveform",
+      "group": "Canvas & Play",
+      "section": "Audio",
+      "blurb": "The bar visualiser, with a playhead. One scaleY keyframe per bar rather than a frame loop writing heights."
+    },
+    "DiceRoller": {
+      "slug": "dice-roller",
+      "group": "Canvas & Play",
+      "section": "Physics",
+      "blurb": "The result is decided first and the tumble is arranged to arrive at it, not read off wherever it stopped."
+    },
+    "GravityTags": {
+      "slug": "gravity-tags",
+      "group": "Canvas & Play",
+      "section": "Physics",
+      "blurb": "Real elements that fall and stack, separated along the smaller overlap so the pile does not slide apart."
+    },
+    "RopeCursor": {
+      "slug": "rope-cursor",
+      "group": "Canvas & Play",
+      "section": "Physics",
+      "blurb": "Verlet integration: velocity is implied by position, which is what makes the constraint pass so simple."
+    },
+    "SlotReels": {
+      "slug": "slot-reels",
+      "group": "Canvas & Play",
+      "section": "Physics",
+      "blurb": "Reels that land on a chosen result and stop left to right, because the stagger is the whole drama."
+    },
+    "FlipBook": {
+      "slug": "flip-book",
+      "group": "Canvas & Play",
+      "section": "Toys",
+      "blurb": "Leaves with two faces, the back mirrored, and z-index taken from distance to the current spread."
+    },
+    "PixelCanvas": {
+      "slug": "pixel-canvas",
+      "group": "Canvas & Play",
+      "section": "Toys",
+      "blurb": "A grid of buttons with interpolated strokes, storing palette indices rather than colours."
+    },
+    "ScratchCard": {
+      "slug": "scratch-card",
+      "group": "Canvas & Play",
+      "section": "Toys",
+      "blurb": "A cover erased with the pointer to reveal what is under it, with a real button beside it, because a gesture is not an interface."
+    },
+    "Terminal": {
+      "slug": "terminal",
+      "group": "Canvas & Play",
+      "section": "Toys",
+      "blurb": "History that preserves the half-typed draft, and a real input under the caret so IME and paste behave."
+    }
+  }
+}

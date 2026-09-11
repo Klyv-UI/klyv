@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Citrine — an accent-led React component library</title>
+    <meta
+      name="description"
+      content="238 React components that take their entire personality from a single colour. Live previews, real source, copy and go."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Runs before the stylesheet paints, so a reader who chose dark never
+      // sees a white flash first. Deliberately inline and dependency-free:
+      // anything deferred is already too late.
+      try {
+        var mode = localStorage.getItem('citrine:mode')
+        if (mode === 'dark' || mode === 'light') {
+          document.documentElement.dataset.theme = mode
+        }
+      } catch (error) {
+        /* storage denied - fall through to the system preference */
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

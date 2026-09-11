@@ -1,0 +1,103 @@
+{
+  "name": "citrine",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "An accent-led React component library. 238 components that take their entire personality from a single colour.",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "design-system",
+    "tailwind",
+    "accessible",
+    "theming"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": {
+      "types": "./types/css.d.ts",
+      "default": "./dist/citrine.css"
+    },
+    "./preset.css": {
+      "types": "./types/css.d.ts",
+      "default": "./src/styles/preset.css"
+    },
+    "./tokens.css": {
+      "types": "./types/css.d.ts",
+      "default": "./src/styles/tokens.css"
+    },
+    "./package.json": "./package.json",
+    "./tokens.json": "./dist/tokens.json"
+  },
+  "bin": {
+    "citrine": "./cli/citrine.mjs"
+  },
+  "files": [
+    "dist",
+    "src/components",
+    "src/lib",
+    "src/styles",
+    "src/theme",
+    "src/tokens",
+    "src/index.ts",
+    "cli",
+    "scripts/components.json",
+    "types",
+    "dist/tokens.json"
+  ],
+  "scripts": {
+    "generate": "node scripts/generate-metadata.mjs && node scripts/generate-props.mjs && node scripts/client-directives.mjs --check && node scripts/check-rules.mjs",
+    "predev": "npm run generate",
+    "dev": "vite",
+    "prebuild": "npm run generate",
+    "build": "tsc -b && vite build",
+    "build:lib": "npm run generate && npm run build:js && npm run build:types && npm run build:css && node scripts/measure-size.mjs && node scripts/export-tokens.mjs",
+    "build:js": "vite build --config vite.lib.config.ts",
+    "build:types": "tsc -p tsconfig.build.json",
+    "build:css": "vite build --config vite.css.config.ts",
+    "prepack": "npm run build:lib",
+    "preview": "vite preview --outDir dist-site --port 4173",
+    "lint": "tsc -b --noEmit",
+    "citrine": "node cli/citrine.mjs",
+    "directives": "node scripts/client-directives.mjs",
+    "rules": "node scripts/check-rules.mjs",
+    "test:a11y": "vitest run --reporter=dot"
+  },
+  "peerDependencies": {
+    "react": "^18.3.0 || ^19.0.0",
+    "react-dom": "^18.3.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/node": "^26.5.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "axe-core": "^4.13.0",
+    "jsdom": "^25.0.1",
+    "lucide-react": "^0.474.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7",
+    "vitest": "^3.2.7"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

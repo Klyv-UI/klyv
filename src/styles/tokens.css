@@ -1,0 +1,184 @@
+/* ------------------------------------------------------------------ *
+ * Design tokens — the single source of truth for the UI library.
+ *
+ * Nothing here is decorative: every value is used by a component, and no
+ * component may introduce one of its own.
+ * ------------------------------------------------------------------ */
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system,
+    'Segoe UI', Roboto, sans-serif;
+
+  /* Surfaces */
+  --color-canvas: #f4f7f0; /* page behind the app window */
+  --color-shell: #ffffff; /* the app window itself */
+  --color-app: #f6f7f4; /* content area inside the window */
+  --color-surface: #ffffff; /* cards */
+  --color-surface-muted: #f4f5f5; /* inner fields / inactive icon tiles */
+  --color-surface-sunken: #fafafa; /* rate rows, row hover */
+
+  /* Lines */
+  --color-line: #eeefee;
+  --color-line-strong: #e3e5e3;
+  --color-track: #edefea; /* unfilled meter pips */
+
+  /* Text */
+  /* Three steps, each of which clears 4.5:1 on `surface`. The original
+     secondary and tertiary greys were 4.4:1 and 2.61:1 — legible enough to
+     pass a glance and not enough to pass a reader, which is the failure mode
+     this scale exists to prevent. */
+  --color-ink: #17191c; /* primary       — 16.9:1 */
+  --color-ink-inverse: #ffffff; /* text *on* ink — flips with the theme */
+  --color-ink-soft: #5c6165; /* secondary    — 6.2:1 */
+  --color-ink-faint: #6a7075; /* tertiary     — 5.0:1 on surface, 4.6:1 on canvas */
+
+  /* Accent + status */
+  --color-accent: #c8f24e;
+  --color-accent-strong: #b9e93a;
+  --color-accent-soft: #e6fbb0;
+  --color-accent-ink: #16200c;
+  --color-success: #3f9b4a;
+  --color-warning: #f5a524;
+  --color-danger: #e5484d;
+
+  /* Radii */
+  --radius-glyph: 12px; /* icon tiles, rate rows */
+  --radius-tile: 14px; /* inner tiles, menus */
+  --radius-field: 16px; /* exchange fields */
+  --radius-card: 20px; /* cards */
+  --radius-banner: 24px; /* hero banner */
+  --radius-window: 32px; /* app window */
+
+  /* Overlay behind a modal, drawer or palette. Dark in both themes: a scrim
+     that inverted would light the page up instead of pushing it back. */
+  --color-scrim: rgba(20, 24, 18, 0.28);
+
+  /* Elevation */
+  --shadow-card: 0 1px 2px rgba(20, 27, 15, 0.04), 0 8px 24px -12px rgba(20, 27, 15, 0.08);
+  --shadow-tile: 0 1px 2px rgba(20, 27, 15, 0.05);
+  --shadow-float: 0 4px 16px -4px rgba(20, 27, 15, 0.14), 0 1px 3px rgba(20, 27, 15, 0.06);
+  --shadow-window: 0 40px 90px -30px rgba(31, 44, 20, 0.28);
+}
+
+:root {
+  /* Motion — mirrors Tailwind's default colour transition, named so the
+     library never hard-codes a duration. */
+  --duration-fast: 150ms;
+  --duration-slow: 250ms;
+
+  /* Syntax palette for CodeBlock. Deliberately outside @theme: these are not
+     design tokens and nothing but code highlighting may use them. They are
+     hue-fixed rather than accent-derived, because six categories of token have
+     to stay distinguishable from each other whatever the accent is. */
+  --syntax-comment: #98a2a8;
+  --syntax-keyword: #a03595;
+  --syntax-string: #2c7a52;
+  --syntax-number: #b25a09;
+  --syntax-type: #2563c9;
+  --syntax-fn: #6d3fc4;
+  --syntax-punct: #6b7178;
+
+  /* Stacking order, from the back of the page to the front. */
+  --z-raised: 10; /* swap button over the exchange fields */
+  --z-sticky: 20; /* carousel chevrons over the card band */
+  --z-popover: 30; /* dropdown menus */
+  --z-overlay: 50; /* mobile drawer + backdrop */
+}
+
+/* ------------------------------------------------------------------ *
+ * Dark theme.
+ *
+ * Only the values change: every token keeps its name and its job, so no
+ * component needs a dark variant, a `dark:` class, or any knowledge that a
+ * second theme exists. Anything that hard-codes a colour instead of reading a
+ * token is the only thing that can break here — which is the real reason for
+ * the no-new-colours rule.
+ *
+ * Declared twice on purpose. The media query covers the system setting; the
+ * attribute covers an explicit choice and has to win in both directions, so a
+ * reader on a dark system who picks light gets light.
+ * ------------------------------------------------------------------ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+
+    --color-canvas: #0b0d0a;
+    --color-shell: #121511;
+    --color-app: #101310;
+    --color-surface: #161a14;
+    --color-surface-muted: #1e231b;
+    --color-surface-sunken: #12160f;
+
+    --color-line: #262c22;
+    --color-line-strong: #333a2d;
+    --color-track: #232820;
+
+    --color-ink: #edf0e8;
+    --color-ink-soft: #a3aa9b;
+    --color-ink-faint: #868d80;
+    --color-ink-inverse: #0b0d0a;
+
+    --color-scrim: rgba(0, 0, 0, 0.62);
+
+    --color-accent-soft: #1f2a10;
+    --color-success: #56b863;
+    --color-warning: #f7b23f;
+    --color-danger: #f2686c;
+
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.45), 0 8px 24px -12px rgba(0, 0, 0, 0.65);
+    --shadow-tile: 0 1px 2px rgba(0, 0, 0, 0.45);
+    --shadow-float: 0 4px 16px -4px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.45);
+    --shadow-window: 0 40px 90px -30px rgba(0, 0, 0, 0.85);
+
+    --syntax-comment: #7c8877;
+    --syntax-keyword: #e879c8;
+    --syntax-string: #7ddba0;
+    --syntax-number: #f0a868;
+    --syntax-type: #79b8ff;
+    --syntax-fn: #b99bf8;
+    --syntax-punct: #8b9385;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-canvas: #0b0d0a;
+  --color-shell: #121511;
+  --color-app: #101310;
+  --color-surface: #161a14;
+  --color-surface-muted: #1e231b;
+  --color-surface-sunken: #12160f;
+
+  --color-line: #262c22;
+  --color-line-strong: #333a2d;
+  --color-track: #232820;
+
+  --color-ink: #edf0e8;
+  --color-ink-soft: #a3aa9b;
+  --color-ink-faint: #868d80;
+  --color-ink-inverse: #0b0d0a;
+
+  --color-scrim: rgba(0, 0, 0, 0.62);
+
+  --color-accent-soft: #1f2a10;
+  --color-success: #56b863;
+  --color-warning: #f7b23f;
+  --color-danger: #f2686c;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.45), 0 8px 24px -12px rgba(0, 0, 0, 0.65);
+  --shadow-tile: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --shadow-float: 0 4px 16px -4px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.45);
+  --shadow-window: 0 40px 90px -30px rgba(0, 0, 0, 0.85);
+
+  --syntax-comment: #7c8877;
+  --syntax-keyword: #e879c8;
+  --syntax-string: #7ddba0;
+  --syntax-number: #f0a868;
+  --syntax-type: #79b8ff;
+  --syntax-fn: #b99bf8;
+  --syntax-punct: #8b9385;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}

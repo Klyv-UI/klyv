@@ -1,0 +1,16 @@
+/* The stylesheet shipped with the package.
+ *
+ * `source(none)` turns off Tailwind's automatic content detection and the
+ * `@source` lines put it back, pointed only at the library. Without that the
+ * published CSS would carry every utility the documentation site happens to
+ * use, which is most of them.
+ */
+@import 'tailwindcss' source(none);
+
+@source '../components';
+@source '../lib';
+@source '../theme';
+
+@import './tokens.css';
+@import './base.css';
+@import './utilities.css';

@@ -1,0 +1,383 @@
+@layer utilities {
+  /* Lists fade their last row out instead of clipping it. */
+  .list-fade {
+    mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 34px), rgba(0, 0, 0, 0.06) 100%);
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      #000 0,
+      #000 calc(100% - 34px),
+      rgba(0, 0, 0, 0.06) 100%
+    );
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Keyframes used by the motion components. */
+@keyframes ripple {
+  from {
+    opacity: 0.55;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes success-mark {
+  from {
+    stroke-dashoffset: 32;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe-only {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@keyframes confetti-fall {
+  from {
+    opacity: 1;
+    transform: translate(0, -10%) rotate(0deg);
+  }
+  to {
+    opacity: 0;
+    transform: translate(var(--confetti-drift, 0), 420px) rotate(var(--confetti-rotation, 180deg));
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Keyframes for ambient surfaces, kinetic type and beams.
+ *
+ * Each one animates a compositor-friendly property only — transform,
+ * opacity, background-position or stroke-dashoffset — so none of them
+ * force layout while they run. Every element that uses one also carries
+ * `motion-safe-only`, which the reduced-motion rule above switches off.
+ * ------------------------------------------------------------------ */
+
+@keyframes aurora-a {
+  0%,
+  100% {
+    transform: translate3d(-8%, -6%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(12%, 10%, 0) scale(1.18);
+  }
+}
+
+@keyframes aurora-b {
+  0%,
+  100% {
+    transform: translate3d(10%, 8%, 0) scale(1.1);
+  }
+  50% {
+    transform: translate3d(-12%, -10%, 0) scale(0.9);
+  }
+}
+
+@keyframes aurora-c {
+  0%,
+  100% {
+    transform: translate3d(0, 10%, 0) scale(0.95);
+  }
+  50% {
+    transform: translate3d(8%, -12%, 0) scale(1.25);
+  }
+}
+
+@keyframes border-beam-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes shimmer-sweep {
+  from {
+    transform: translateX(-130%) skewX(-18deg);
+  }
+  to {
+    transform: translateX(230%) skewX(-18deg);
+  }
+}
+
+@keyframes gradient-pan {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  95% {
+    opacity: 0;
+  }
+}
+
+@keyframes beam-dash {
+  to {
+    stroke-dashoffset: var(--beam-travel, -600);
+  }
+}
+
+@keyframes waveform-pulse {
+  0%,
+  100% {
+    transform: scaleY(var(--bar-low, 0.25));
+  }
+  50% {
+    transform: scaleY(var(--bar-high, 1));
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Keyframes for orbits, stories and pull-to-refresh.
+ * Same rules as above: transform, opacity or a single sized property,
+ * and every element carrying one also carries `motion-safe-only`.
+ * ------------------------------------------------------------------ */
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* Counter-rotation, so an orbiting item stays upright as the ring turns. */
+@keyframes orbit-counter {
+  to {
+    transform: rotate(-1turn);
+  }
+}
+
+@keyframes story-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes reaction-float {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.6);
+  }
+  35% {
+    opacity: 1;
+    transform: translate(calc(var(--burst-drift, 0px) * 0.5), -22px) scale(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--burst-drift, 0px), -64px) scale(0.7);
+  }
+}
+
+@keyframes pull-hint {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Keyframes for presence, live feeds and input feedback.
+ * ------------------------------------------------------------------ */
+
+@keyframes typing-dot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+/* Error shake. Decays, so it reads as a rejection rather than a wobble. */
+@keyframes input-shake {
+  10%,
+  90% {
+    transform: translateX(-3px);
+  }
+  20%,
+  80% {
+    transform: translateX(5px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-7px);
+  }
+  40%,
+  60% {
+    transform: translateX(7px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes live-pulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Keyframes for neon, glitch, goo and celebration effects.
+ * Louder than the rest of the library on purpose; every element that
+ * uses one still carries `motion-safe-only`.
+ * ------------------------------------------------------------------ */
+
+/* Uneven on purpose: a tube that flickers evenly reads as a blink. */
+@keyframes neon-flicker {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 2px currentColor) drop-shadow(0 0 10px currentColor)
+      drop-shadow(0 0 28px currentColor);
+  }
+  20%,
+  24%,
+  55% {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 1px currentColor);
+  }
+}
+
+@keyframes glitch-a {
+  0%,
+  92%,
+  100% {
+    transform: translate(0);
+    clip-path: inset(0 0 0 0);
+  }
+  93% {
+    transform: translate(-3px, 1px);
+    clip-path: inset(12% 0 58% 0);
+  }
+  95% {
+    transform: translate(2px, -2px);
+    clip-path: inset(64% 0 12% 0);
+  }
+  97% {
+    transform: translate(-2px, 0);
+    clip-path: inset(38% 0 40% 0);
+  }
+}
+
+@keyframes glitch-b {
+  0%,
+  92%,
+  100% {
+    transform: translate(0);
+    clip-path: inset(0 0 0 0);
+  }
+  94% {
+    transform: translate(3px, -1px);
+    clip-path: inset(52% 0 22% 0);
+  }
+  96% {
+    transform: translate(-3px, 2px);
+    clip-path: inset(8% 0 70% 0);
+  }
+  98% {
+    transform: translate(1px, 1px);
+    clip-path: inset(72% 0 6% 0);
+  }
+}
+
+@keyframes goo-drift {
+  0%,
+  100% {
+    transform: translate(var(--goo-x, 0), var(--goo-y, 0)) scale(1);
+  }
+  50% {
+    transform: translate(calc(var(--goo-x, 0) * -1), calc(var(--goo-y, 0) * -1)) scale(0.82);
+  }
+}
+
+@keyframes flame-flicker {
+  0%,
+  100% {
+    transform: scale(1) rotate(-1deg);
+  }
+  35% {
+    transform: scale(1.08, 0.94) rotate(2deg);
+  }
+  70% {
+    transform: scale(0.95, 1.06) rotate(-2deg);
+  }
+}
+
+@keyframes sparkle-twinkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4) rotate(0deg);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1) rotate(45deg);
+  }
+}
+
+@keyframes badge-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.4) rotate(-12deg);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.12) rotate(4deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
