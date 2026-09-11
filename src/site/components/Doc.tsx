@@ -1,11 +1,11 @@
-import type { ReactNode } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { Badge, Surface, Text, cn } from 'citrine'
-import { findComponentByName } from '../data/catalog'
+import { Surface, Text, cn } from 'citrine'
+import { catalog, findComponentByName, type CatalogEntry } from '../data/catalog'
 import { sizeOf } from '../data/sizes'
 import { dependenciesOf } from '../data/dependencies'
 import { ariaRoles } from '../data/aria'
-import { groupOf } from '../data/groups'
+import { groupOf, type GroupDefinition } from '../data/groups'
 import { ComponentApi } from './ComponentApi'
 import { SourceCode } from './SourceCode'
 
@@ -38,44 +38,192 @@ interface DocPageProps {
 export function DocPage({ name, description, propNotes, apiNote, children }: DocPageProps) {
   const entry = findComponentByName(name)
   const group = entry ? groupOf(entry.group) : undefined
+  const articleRef = useRef<HTMLElement>(null)
+  const [outline, setOutline] = useState<OutlineItem[]>([])
+
+  // The sections come from the page's own children — hand-written for the
+  // primitives, data-driven for everything else — so the outline is read off
+  // what actually rendered rather than being declared a second time.
+  useEffect(() => {
+    const root = articleRef.current
+    if (!root) return
+
+    const found: OutlineItem[] = []
+    for (const section of root.querySelectorAll(':scope > section')) {
+      const title = section.querySelector('h2')?.textContent?.trim()
+      if (!title) continue
+      const id = section.id || slugify(title)
+      section.id = id
+      found.push({ id, title })
+    }
+
+    // Only replace when it actually changed, so this can never drive itself.
+    setOutline((previous) =>
+      previous.map((item) => item.id).join('|') === found.map((item) => item.id).join('|')
+        ? previous
+        : found,
+    )
+  })
+
+  const index = entry ? catalog.findIndex((item) => item.slug === entry.slug) : -1
+  const previous = index > 0 ? catalog[index - 1] : undefined
+  const next = index >= 0 && index < catalog.length - 1 ? catalog[index + 1] : undefined
 
   return (
-    <article className="flex flex-col gap-8">
-      <header className="flex flex-col gap-3">
-        {entry && group && (
-          <div className="flex flex-wrap items-center gap-2">
-            <Link to={`/components/${group.slug}`} className="rounded-full">
-              <Badge>{entry.group}</Badge>
-            </Link>
-            <Badge tone="neutral">{entry.section}</Badge>
-          </div>
-        )}
-        <Text as="h1" size="title">
-          {name}
-        </Text>
-        <Text size="body" weight="medium" tone="soft" leading="normal" className="max-w-[68ch]">
-          {description}
-        </Text>
-        <Facts name={name} />
-      </header>
+    <div className="flex gap-10">
+      <article ref={articleRef} className="flex min-w-0 flex-1 flex-col gap-8">
+        <header className="flex flex-col gap-3">
+          {entry && group && <Breadcrumb group={group} section={entry.section} />}
+          <Text as="h1" size="title">
+            {name}
+          </Text>
+          <Text size="body" weight="medium" tone="soft" leading="normal" className="max-w-[68ch]">
+            {description}
+          </Text>
+          <Facts name={name} />
+        </header>
 
-      {children}
+        {children}
 
-      <Section
-        title="API"
-        description="Every prop the component declares, read off its type at build time."
+        <Section
+          title="API"
+          description="Every prop the component declares, read off its type at build time."
+        >
+          <ComponentApi component={name} notes={propNotes} />
+          {apiNote && <Note>{apiNote}</Note>}
+        </Section>
+
+        <Section
+          title="Code"
+          description="The implementation, verbatim. Copy it into your own project, or install the package and import it."
+        >
+          <SourceCode component={name} />
+        </Section>
+
+        <Neighbours previous={previous} next={next} />
+      </article>
+
+      {outline.length > 1 && <Outline items={outline} />}
+    </div>
+  )
+}
+
+interface OutlineItem {
+  id: string
+  title: string
+}
+
+const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+
+/**
+ * Where you are, and how to get back out.
+ *
+ * The group links to the filtered catalogue — the same URL the sidebar and the
+ * landing page use — rather than to a path that looks like a component slug.
+ */
+function Breadcrumb({ group, section }: { group: GroupDefinition; section: string }) {
+  return (
+    // Named for the docs rather than "Breadcrumb": this page may be documenting
+    // the Breadcrumb component itself, and two landmarks sharing a name is a
+    // real failure for anyone navigating by landmark.
+    <nav aria-label="Documentation breadcrumb" className="flex flex-wrap items-center gap-1.5">
+      <Link
+        to="/components"
+        className="rounded-md text-[11.5px] font-bold text-ink-faint transition-colors hover:text-ink"
       >
-        <ComponentApi component={name} notes={propNotes} />
-        {apiNote && <Note>{apiNote}</Note>}
-      </Section>
-
-      <Section
-        title="Code"
-        description="The implementation, verbatim. Copy it into your own project, or install the package and import it."
+        Components
+      </Link>
+      <Separator />
+      <Link
+        to={`/components?group=${group.slug}`}
+        className="rounded-md text-[11.5px] font-bold text-ink-faint transition-colors hover:text-ink"
       >
-        <SourceCode component={name} />
-      </Section>
-    </article>
+        {group.id}
+      </Link>
+      <Separator />
+      <span className="text-[11.5px] font-bold text-ink-soft">{section}</span>
+    </nav>
+  )
+}
+
+function Separator() {
+  return (
+    <span aria-hidden className="text-[11.5px] font-bold text-ink-faint">
+      /
+    </span>
+  )
+}
+
+/** Jump list for a page that is mostly examples, so it is mostly long. */
+function Outline({ items }: { items: OutlineItem[] }) {
+  return (
+    <aside className="hidden w-[186px] shrink-0 xl:block">
+      <div className="sticky top-[88px] flex flex-col gap-2">
+        <Text size="micro" weight="bold" tone="faint" className="px-3 uppercase tracking-[0.14em]">
+          On this page
+        </Text>
+        {/* Not "On this page" — that is AnchorNav's own default label, and its
+            page would then carry two landmarks with the same name. */}
+        <nav aria-label="Documentation page sections" className="flex flex-col">
+          {items.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className="truncate border-l-2 border-line px-3 py-1.5 text-[12px] font-semibold text-ink-soft transition-colors hover:border-l-accent hover:text-ink"
+            >
+              {item.title}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </aside>
+  )
+}
+
+/** The catalogue order, walked one at a time. */
+function Neighbours({ previous, next }: { previous?: CatalogEntry; next?: CatalogEntry }) {
+  if (!previous && !next) return null
+
+  return (
+    <nav
+      aria-label="Nearby components"
+      className="grid grid-cols-1 gap-2.5 border-t border-line pt-6 sm:grid-cols-2"
+    >
+      {previous ? <Neighbour entry={previous} direction="Previous" /> : <span aria-hidden />}
+      {next && <Neighbour entry={next} direction="Next" align="end" />}
+    </nav>
+  )
+}
+
+function Neighbour({
+  entry,
+  direction,
+  align = 'start',
+}: {
+  entry: CatalogEntry
+  direction: string
+  align?: 'start' | 'end'
+}) {
+  return (
+    <Link to={`/components/${entry.slug}`} className="group rounded-[var(--radius-tile)]">
+      <Surface
+        variant="tile"
+        padding="sm"
+        interactive
+        className={cn('h-full gap-0.5', align === 'end' && 'items-end text-right')}
+      >
+        <Text size="micro" weight="bold" tone="faint" className="uppercase tracking-[0.14em]">
+          {direction}
+        </Text>
+        <Text size="caption" weight="bold">
+          {align === 'end' ? `${entry.name} →` : `← ${entry.name}`}
+        </Text>
+      </Surface>
+    </Link>
   )
 }
 

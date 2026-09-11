@@ -1,10 +1,12 @@
 import { Suspense, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import {
+  Bot,
   Layers,
   LayoutGrid,
   Menu as MenuIcon,
   Palette,
+  Rocket,
   SlidersHorizontal,
   Sparkles,
 } from 'lucide-react'
@@ -159,10 +161,12 @@ function SiteHeader({
 
 const DOC_LINKS = [
   { to: '/', label: 'Overview', icon: Sparkles, end: true },
+  { to: '/getting-started', label: 'Get started', icon: Rocket, end: false },
   { to: '/foundations', label: 'Foundations', icon: Layers, end: false },
   { to: '/tokens', label: 'Design Tokens', icon: Palette, end: false },
   { to: '/components', label: 'All components', icon: LayoutGrid, end: true },
   { to: '/playground', label: 'Playground', icon: SlidersHorizontal, end: false },
+  { to: '/agents', label: 'AI agents', icon: Bot, end: false },
 ]
 
 /**
