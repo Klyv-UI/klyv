@@ -11,7 +11,7 @@
 // The stdio transport is newline-delimited JSON-RPC 2.0, which is small enough
 // to implement exactly.
 import { readFileSync, existsSync } from 'node:fs'
-import { join, dirname } from 'node:path'
+import { join, dirname, resolve as resolvePath } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createInterface } from 'node:readline'
 
@@ -185,7 +185,7 @@ carry \`'use client'\`. Nothing to configure.`
 
 /* ------------------------------------------------------------------- tools */
 
-const TOOLS = [
+export const TOOLS = [
   {
     name: 'search_components',
     description:
@@ -280,7 +280,7 @@ const TOOLS = [
   },
 ]
 
-const RESOURCES = [
+export const RESOURCES = [
   { uri: 'citrine://catalog', name: 'Component catalogue', description: 'Every component with its group, section and summary.', mimeType: 'application/json', read: () => JSON.stringify(search(''), null, 2) },
   { uri: 'citrine://tokens', name: 'Design tokens', description: 'Tokens in W3C Design Tokens format, including dark mode.', mimeType: 'application/json', read: () => JSON.stringify(tokens, null, 2) },
   { uri: 'citrine://rules', name: 'Design rules', description: 'The design system and the rules every component obeys.', mimeType: 'text/markdown', read: () => RULES },
@@ -356,18 +356,22 @@ function handle(request) {
   }
 }
 
-createInterface({ input: process.stdin }).on('line', (line) => {
-  const text = line.trim()
-  if (!text) return
-  let request
-  try {
-    request = JSON.parse(text)
-  } catch {
-    return fail(null, -32700, 'Parse error')
-  }
-  try {
-    handle(request)
-  } catch (error) {
-    if (request.id !== undefined) fail(request.id, -32603, error.message)
-  }
-})
+// Listen only when run as a program. The docs generator imports this module to
+// read its own tool definitions, and taking stdin there would hang the build.
+if (process.argv[1] && resolvePath(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  createInterface({ input: process.stdin }).on('line', (line) => {
+    const text = line.trim()
+    if (!text) return
+    let request
+    try {
+      request = JSON.parse(text)
+    } catch {
+      return fail(null, -32700, 'Parse error')
+    }
+    try {
+      handle(request)
+    } catch (error) {
+      if (request.id !== undefined) fail(request.id, -32603, error.message)
+    }
+  })
+}

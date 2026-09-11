@@ -88,6 +88,7 @@ const TOP_LINKS = [
   { to: '/foundations', label: 'Foundations' },
   { to: '/tokens', label: 'Tokens' },
   { to: '/playground', label: 'Playground' },
+  { to: '/agents', label: 'AI agents' },
 ]
 
 function SiteHeader({
@@ -342,6 +343,7 @@ const RESOURCES = [
   { to: '/foundations', label: 'Foundations' },
   { to: '/tokens', label: 'Tokens' },
   { to: '/playground', label: 'Playground' },
+  { to: '/agents', label: 'For AI agents' },
 ]
 
 function SiteFooter() {

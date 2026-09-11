@@ -67,6 +67,7 @@ export default function LandingPage() {
       <AdminSection />
       <OneHue />
       <CopySection />
+      <AgentSection />
       <WeightSection />
       <GroupGrid />
       <Principles />
@@ -864,6 +865,59 @@ function Feature({ title, body }: { title: string; body: string }) {
         {body}
       </Text>
     </Surface>
+  )
+}
+
+/* ------------------------------------------------------------------ agents */
+
+/**
+ * The library is too large to hold in a head — 238 components and 1,615 props —
+ * which is exactly the case for handing it to an agent as data rather than
+ * hoping one guesses right.
+ */
+function AgentSection() {
+  return (
+    <SectionShell
+      eyebrow="For agents"
+      title="Your coding agent can read the whole library"
+      lede="An MCP server ships inside the package: the catalogue, every prop with its real type and default, the ARIA roles, the tokens and the house rules. Connect it and an agent stops guessing prop names and inventing colours."
+    >
+      <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
+        <Surface variant="card" padding="lg" className="gap-4">
+          <Text size="heading">One command to connect</Text>
+          <CodeBlock
+            language="bash"
+            code={`claude mcp add ${brand.pkg} -- npx -y ${brand.pkg}-mcp`}
+            highlight={false}
+          />
+          <Text size="caption" tone="soft" leading="normal">
+            Seven tools and four resources, plus an Agent Skill for harnesses that load those
+            instead. Both read the same generated data this site is built from.
+          </Text>
+          <Link
+            to="/agents"
+            className="text-[13px] font-bold text-ink underline underline-offset-2"
+          >
+            How to connect it
+          </Link>
+        </Surface>
+
+        <div className="flex flex-col gap-3">
+          <Feature
+            title="Types, not guesses"
+            body="get_component returns every prop with the type and default read off the implementation, so an agent writes switchSize rather than size because that is what Switch actually takes."
+          />
+          <Feature
+            title="The tokens, not a palette it made up"
+            body="Colour, radius, shadow and type in W3C Design Tokens format, dark mode included. Nothing in the library names a colour, and neither should anything built on it."
+          />
+          <Feature
+            title="No SDK, no third dependency"
+            body="Plain JSON-RPC over stdio in one file. A library that advertises two runtime dependencies should not quietly add a third to document itself."
+          />
+        </div>
+      </div>
+    </SectionShell>
   )
 }
 

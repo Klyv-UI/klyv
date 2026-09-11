@@ -16,6 +16,7 @@ const ComponentPage = lazy(() => import('./pages/ComponentPage'))
 const FoundationsPage = lazy(() => import('./pages/FoundationsPage'))
 const TokensPage = lazy(() => import('./pages/TokensPage'))
 const PlaygroundPage = lazy(() => import('./pages/PlaygroundPage'))
+const AgentsPage = lazy(() => import('./pages/AgentsPage'))
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
       { path: 'foundations', element: <FoundationsPage /> },
       { path: 'tokens', element: <TokensPage /> },
       { path: 'playground', element: <PlaygroundPage /> },
+      { path: 'agents', element: <AgentsPage /> },
       { path: '*', element: <NotFound /> },
     ],
   },
