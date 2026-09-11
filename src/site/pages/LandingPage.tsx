@@ -140,13 +140,13 @@ function Hero() {
           </Text>
 
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
-            <CtaLink to="/getting-started">
+            <Button as={Link} to="/getting-started">
               Get started
               <ArrowRight size={14} aria-hidden />
-            </CtaLink>
-            <CtaLink to="/components" variant="outline">
+            </Button>
+            <Button as={Link} to="/components" variant="outline">
               Browse {componentCount} components
-            </CtaLink>
+            </Button>
           </div>
 
           <InstallChip />
@@ -974,9 +974,9 @@ function Closing() {
           {blockCount} screens, every one of them copyable.
         </Text>
         <div className="flex flex-wrap items-center justify-center gap-4 pt-1">
-          <CtaLink to="/getting-started" variant="white">
+          <Button as={Link} to="/getting-started" variant="white">
             Get started
-          </CtaLink>
+          </Button>
           <Link
             to="/blocks"
             className="rounded-md text-[13px] font-bold text-accent-ink underline underline-offset-4"
@@ -990,43 +990,6 @@ function Closing() {
 }
 
 /* ------------------------------------------------------------------ shared */
-
-const CTA_VARIANTS = {
-  accent: 'bg-accent text-accent-ink hover:bg-accent-strong active:bg-accent-strong',
-  outline: 'border border-line-strong bg-surface text-ink hover:bg-surface-muted',
-  white: 'bg-shell text-ink shadow-[var(--shadow-float)] hover:bg-surface-muted',
-} as const
-
-/**
- * A link with Button's exact classes.
- *
- * Button renders a <button>, and a button inside a link is invalid nested
- * interactive markup — assistive technology meets two controls for one action.
- * Navigation belongs on a link, so rather than wrapping a Button this copies its
- * base, variant and `md` size classes verbatim from Button.tsx. If Button gains
- * link rendering, this goes.
- */
-function CtaLink({
-  to,
-  variant = 'accent',
-  children,
-}: {
-  to: string
-  variant?: keyof typeof CTA_VARIANTS
-  children: ReactNode
-}) {
-  return (
-    <Link
-      to={to}
-      className={cn(
-        'inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-full px-5 text-[13px] font-semibold leading-none transition-colors',
-        CTA_VARIANTS[variant],
-      )}
-    >
-      {children}
-    </Link>
-  )
-}
 
 /** The quiet "more of this" link used under tiles and beside section titles. */
 function SectionLink({ to, children }: { to: string; children: ReactNode }) {

@@ -115,6 +115,9 @@ where it lands — no rewriting, no codemod.
   `InputHTMLAttributes` — they are native inputs, so they take `checked` /
   `value` and `onChange`. There is no `onCheckedChange` or `onValueChange`.
   `get_component` lists this under `inherits`.
+- Wrapping a `Button` in a link. A button inside an anchor is invalid nested
+  interactive markup. Render the button as the link instead:
+  `<Button as={Link} to="/start">Start</Button>`.
 - Writing `bg-ink text-white`. In dark mode `ink` is near-white, so the label
   disappears. Use `text-ink-inverse`.
 - Using `tone="accent"` for text sitting *on* an accent fill. That tone is the

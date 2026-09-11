@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Button, Surface, Text, type ButtonSize, type ButtonVariant } from 'citrine'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, SelectControl, TextControl, ToggleControl } from '../../components/Playground'
@@ -54,9 +55,9 @@ export default function ButtonPage() {
             },
             {
               name: '…props',
-              type: 'ButtonHTMLAttributes<HTMLButtonElement>',
+              type: 'ComponentPropsWithoutRef<E>',
               description:
-                'Everything a native button takes. type defaults to "button" — set type="submit" explicitly inside a form.',
+                'Everything the rendered element takes — a native button by default, or whatever as names. On a button, type defaults to "button"; set type="submit" explicitly inside a form.',
             },
           ]}
     >
@@ -119,6 +120,34 @@ export default function ButtonPage() {
         <Note>
           <Code>loading</Code> implies <Code>disabled</Code> and sets <Code>aria-busy</Code>, so a
           submit cannot fire twice.
+        </Note>
+      </Section>
+
+      <Section
+        title="As a link"
+        description="When the action goes somewhere, render the button as the link. A button nested inside a link is invalid — assistive technology meets two controls for one action — so as puts the button's look on the element that actually navigates."
+      >
+        <Preview>
+          <Specimen label="as={Link}" hint="A real anchor, router-aware">
+            <Button as={Link} to="/getting-started">
+              Get started
+            </Button>
+          </Specimen>
+          <Specimen label="as={Link}" hint="Any variant carries over">
+            <Button as={Link} to="/components" variant="outline">
+              Browse components
+            </Button>
+          </Specimen>
+          <Specimen label="disabled link" hint="aria-disabled, out of the tab order">
+            <Button as={Link} to="/getting-started" disabled>
+              Get started
+            </Button>
+          </Specimen>
+        </Preview>
+        <Note>
+          A link has no <Code>disabled</Code> attribute, so on anything that is not a button the state
+          becomes <Code>aria-disabled</Code>, the element leaves the tab order and ignores the
+          pointer. It is announced as unavailable rather than silently doing nothing.
         </Note>
       </Section>
 

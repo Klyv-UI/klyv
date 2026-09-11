@@ -1387,10 +1387,33 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "boolean",
         "required": false,
         "defaultValue": "false"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Blocks interaction. On a native button this is the `disabled` attribute; on anything else — a link — there is no such attribute, so the element is marked `aria-disabled`, taken out of the tab order and made inert to the pointer instead."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      },
+      {
+        "name": "as",
+        "type": "E",
+        "required": false,
+        "description": "Render as another element — usually a router link: `as={Link} to=\"/start\"`. Navigation belongs on a link, and a button nested inside one is invalid interactive markup, so this is how a call to action reaches another page."
       }
     ],
     "inherits": [
-      "ButtonHTMLAttributes<HTMLButtonElement>"
+      "Omit<ComponentPropsWithoutRef<E>, keyof ButtonOwnProps | 'as'>"
     ]
   },
   "ButtonGroup": {
