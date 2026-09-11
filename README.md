@@ -106,10 +106,12 @@ through them, rather than each keeping a copy that goes stale.
 
 ## Dependencies
 
-Three at runtime, and none of them do any drawing:
+Two at runtime, and neither does any drawing:
 
-- `react`
 - `clsx` + `tailwind-merge` — merged into the `cn` helper
+
+`react` and `react-dom` are peer dependencies, installed by the app rather than
+by this package.
 
 Icons are a **structural type** (`IconComponent`), not an import, so the
 library is icon-set agnostic — bring Lucide, Phosphor, or your own SVGs. The
