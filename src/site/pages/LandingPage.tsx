@@ -1,6 +1,22 @@
 import { Suspense, lazy, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Keyboard, Package, Wind } from 'lucide-react'
+import {
+  ArrowRight,
+  Blocks,
+  Check,
+  ChefHat,
+  Compass,
+  FolderOpen,
+  Heart,
+  History,
+  Keyboard,
+  Package,
+  PanelsTopLeft,
+  Plug,
+  Search,
+  WandSparkles,
+  Wind,
+} from 'lucide-react'
 import {
   ACCENT_PRESETS,
   AvatarGroup,
@@ -49,15 +65,22 @@ import { catalog, componentCount, componentCountRounded } from '../data/catalog'
 import { groups } from '../data/groups'
 import { mcpTools } from '../data/mcp'
 import { library } from '../data/sizes'
+import { integrations } from '../data/integrations'
+import { recipes } from '../data/recipes'
+import { showcase } from '../data/showcase'
+import { templates } from '../data/templates'
+import { componentEvidence } from '../data/evidence'
+import { useSaved } from '../lib/saved'
 
 /**
  * The front page.
  *
  * It tells the library's story in the order a visitor asks it: what is this,
- * can it build a real screen, what are the parts, can I make it mine, and how
- * do I start. Every specimen on it is a real component, running — not a
- * screenshot and not a mock. That is the entire argument the page is making, so
- * faking any part of it would be self-defeating.
+ * can it build a real screen, what else comes with it, what are the parts, can
+ * I make it mine — the colour and a workspace of my own — and how do I start.
+ * Every specimen on it is a real component, running — not a screenshot and not
+ * a mock. That is the entire argument the page is making, so faking any part of
+ * it would be self-defeating.
  */
 export default function LandingPage() {
   return (
@@ -65,8 +88,10 @@ export default function LandingPage() {
       <Hero />
       <FactsBand />
       <BlocksShowcase />
+      <PlatformTour />
       <ComponentsBento />
       <OneHue />
+      <YourWorkspace />
       <ShipIt />
       <GroupGrid />
       <Principles />
@@ -100,20 +125,20 @@ function Hero() {
 
       <div className="relative mx-auto grid w-full max-w-[1400px] items-center gap-12 px-5 pb-16 pt-14 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:px-8 lg:pb-24 lg:pt-20">
         <div className="flex flex-col items-start gap-6">
-          <Link
-            to="/blocks"
+          <a
+            href="#platform"
             className="group inline-flex items-center gap-2 rounded-full border border-line bg-surface py-1 pl-1 pr-3 transition-colors hover:border-line-strong"
           >
             <Badge>New</Badge>
             <Text as="span" size="micro" weight="bold" tone="soft">
-              {blockCount} production blocks, built from the library
+              Composer, smart search and a personal workspace
             </Text>
             <ArrowRight
               size={12}
               aria-hidden
               className="text-ink-faint transition-transform group-hover:translate-x-0.5"
             />
-          </Link>
+          </a>
 
           <h1 className="max-w-[15ch] text-balance text-[44px] font-extrabold leading-[0.98] tracking-[-0.045em] sm:text-[60px] lg:text-[68px]">
             The library that runs on{' '}
@@ -930,6 +955,252 @@ function ShipIt() {
   )
 }
 
+/* ---------------------------------------------------------------- platform */
+
+const keyboardTested = Object.values(componentEvidence).filter((entry) => entry.keyboardSuite).length
+
+/**
+ * Everything that comes with the components, in one grid.
+ *
+ * Every count is read from the data the feature itself uses, and every tile
+ * links to the working thing — the tour is a table of contents for the
+ * platform, not a list of promises.
+ */
+const FEATURES: {
+  icon: typeof Search
+  title: string
+  body: string
+  to?: string
+  link?: string
+  hint?: ReactNode
+}[] = [
+  {
+    icon: Search,
+    title: 'Smart search',
+    body: 'One palette over components, blocks, templates, recipes, tokens, docs and releases. It ranks, forgives a typo, and knows “login” means authentication.',
+    hint: (
+      <span className="inline-flex items-center gap-1">
+        <Kbd>⌘</Kbd>
+        <Kbd>K</Kbd>
+        <Text as="span" size="caption" tone="faint">
+          anywhere on the site
+        </Text>
+      </span>
+    ),
+  },
+  {
+    icon: Compass,
+    title: 'Find My UI',
+    body: 'Say what you are building and what it needs. Get the components, blocks, templates and recipes that fit — each with the reason it was picked.',
+    to: '/find',
+    link: 'Answer two questions',
+  },
+  {
+    icon: PanelsTopLeft,
+    title: `${templates.length} templates`,
+    body: 'Sets of blocks that make a product together — a SaaS starter, an operations console, an auth kit — each one CLI command away.',
+    to: '/templates',
+    link: 'Browse the templates',
+  },
+  {
+    icon: ChefHat,
+    title: `${recipes.length} recipes`,
+    body: 'How to build a login flow, a billing page or a data view, step by step, with code that uses only the props the components declare.',
+    to: '/recipes',
+    link: 'Read a recipe',
+  },
+  {
+    icon: Plug,
+    title: `${integrations.length} integrations`,
+    body: 'React, Next.js, Vite, Tailwind, tokens, MCP, auth providers and Stripe — each with its setup and an honest status.',
+    to: '/integrations',
+    link: 'See how it fits your stack',
+  },
+  {
+    icon: Check,
+    title: 'Component health',
+    body: `Every page shows a status and only the capabilities there is evidence for — ${keyboardTested} components are keyboard-tested, and a test fails if a claim appears without proof.`,
+    to: '/components/data-table',
+    link: 'See it on a component',
+  },
+  {
+    icon: Blocks,
+    title: 'Built With',
+    body: `${showcase.length} interfaces made from the library, rendered live — with the components each one actually imports.`,
+    to: '/built-with',
+    link: 'See what it builds',
+  },
+  {
+    icon: History,
+    title: 'Changelog',
+    body: 'Every released change is a real commit, with its hash. Unreleased work is marked as unreleased.',
+    to: '/changelog',
+    link: 'What shipped',
+  },
+]
+
+const COMPOSER_SAMPLE = `import { Button, Card, Field, Input } from 'citrine'
+
+export default function Screen() {
+  return (
+    <Card title="Welcome back">
+      <Field label="Email">
+        <Input type="email" />
+      </Field>
+      <Button fullWidth>Continue</Button>
+    </Card>
+  )
+}`
+
+function PlatformTour() {
+  return (
+    <SectionShell
+      id="platform"
+      eyebrow="More than components"
+      title="Discover, compose, save and ship — in one place"
+      lede="The components are the start. Around them sits everything you need to get from an idea to a production screen, built from the same design system and the same data."
+    >
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-4">
+        <Surface variant="card" padding="lg" className="gap-4 md:col-span-2 lg:row-span-2">
+          <IconTile icon={WandSparkles} tone="accent" />
+          <div className="flex flex-col gap-1.5">
+            <Text as="h3" size="subtitle">
+              Composer
+            </Text>
+            <Text size="body" weight="medium" tone="soft" leading="normal" className="max-w-[52ch]">
+              Build a screen from the real components and blocks. Drag, reorder, edit the props that
+              matter, undo anything, preview it at desktop, tablet and phone widths — then take the code,
+              with its imports, install commands and every dependency.
+            </Text>
+          </div>
+          <CodeBlock language="tsx" code={COMPOSER_SAMPLE} copyable={false} />
+          <div className="mt-auto flex flex-wrap items-center gap-3">
+            <Button as={Link} to="/composer" size="sm">
+              Open the Composer
+              <ArrowRight size={14} aria-hidden />
+            </Button>
+            <Text size="caption" tone="faint">
+              The code above is what it writes for a sign-in card.
+            </Text>
+          </div>
+        </Surface>
+
+        {FEATURES.map((feature) => (
+          <Surface key={feature.title} variant="card" padding="lg" className="gap-3">
+            <IconTile icon={feature.icon} tone="muted" />
+            <div className="flex flex-col gap-1.5">
+              <Text as="h3" size="heading">
+                {feature.title}
+              </Text>
+              <Text size="caption" tone="soft" leading="normal">
+                {feature.body}
+              </Text>
+            </div>
+            <div className="mt-auto">
+              {feature.to && feature.link ? <SectionLink to={feature.to}>{feature.link}</SectionLink> : feature.hint}
+            </div>
+          </Surface>
+        ))}
+      </div>
+    </SectionShell>
+  )
+}
+
+/* --------------------------------------------------------------- workspace */
+
+const WORKSPACE_POINTS = [
+  {
+    icon: FolderOpen,
+    title: 'Collections are documents',
+    body: 'File components, blocks, templates, recipes and integrations into named collections — one per project, screen or client. Rename them, move items between them, empty them.',
+  },
+  {
+    icon: WandSparkles,
+    title: 'Compositions are documents',
+    body: 'A Composer draft is a JSON composition. Save it, come back to it, copy it — or copy the code it becomes.',
+  },
+  {
+    icon: Heart,
+    title: 'Yours, and nobody else’s',
+    body: 'No account and nothing sent anywhere: it lives in your browser, and the whole workspace exports as one JSON document from Saved. Syncing between devices is not available yet.',
+  },
+]
+
+/**
+ * The personal side of the library: what you save is a document you own.
+ *
+ * The document on the right is live — it is this visitor's own saved state,
+ * read from the same store the Saved page writes. Only when they have saved
+ * nothing yet does it show an example, and it says which one it is showing.
+ */
+function YourWorkspace() {
+  const state = useSaved()
+  const yours = state.favorites.length > 0 || state.collections.length > 0
+  const document = yours
+    ? {
+        favorites: state.favorites,
+        collections: state.collections.map((collection) => ({ name: collection.name, items: collection.items })),
+      }
+    : {
+        favorites: ['component:data-table', 'block:login'],
+        collections: [
+          { name: 'SaaS dashboard', items: ['component:data-table', 'component:stat-card', 'block:saas-dashboard'] },
+          { name: 'Authentication', items: ['block:login', 'block:signup', 'recipe:login-flow'] },
+        ],
+      }
+
+  return (
+    <SectionShell
+      eyebrow="Your workspace"
+      title="A personal, document-based workspace, included"
+      lede="Keep the parts of the library you use as documents of your own — favourites, collections and Composer drafts. It comes with Citrine: no account, no extra install, nothing to set up."
+    >
+      <div className="grid grid-cols-1 gap-3 lg:grid-cols-[1fr_1.1fr]">
+        <div className="flex flex-col gap-3">
+          {WORKSPACE_POINTS.map((point) => (
+            <Surface key={point.title} variant="card" padding="lg" className="flex-row items-start gap-4">
+              <IconTile icon={point.icon} tone="accent" />
+              <div className="flex flex-col gap-1.5">
+                <Text as="h3" size="heading">
+                  {point.title}
+                </Text>
+                <Text size="caption" tone="soft" leading="normal">
+                  {point.body}
+                </Text>
+              </div>
+            </Surface>
+          ))}
+          <div className="flex flex-wrap items-center gap-3 pt-1">
+            <Button as={Link} to="/saved">
+              Open your workspace
+            </Button>
+            <Button as={Link} to="/composer" variant="outline">
+              Start a composition
+            </Button>
+          </div>
+        </div>
+
+        <Surface variant="card" padding="lg" className="gap-3">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <Text as="h3" size="heading">
+              {yours ? 'Your saved items, as a document' : 'A saved-items document'}
+            </Text>
+            <Tag size="sm" tone={yours ? 'accent' : 'neutral'}>
+              {yours ? 'Live — yours' : 'Example'}
+            </Tag>
+          </div>
+          <JsonViewer label="Saved items document" data={document} defaultExpandDepth={3} className="min-h-[260px]" />
+          <Text size="caption" tone="faint" leading="normal">
+            {yours
+              ? 'Read from your browser as you look at it. Favourite something anywhere on the site and it appears here.'
+              : 'Favourite anything on the site and this becomes your own document.'}
+          </Text>
+        </Surface>
+      </div>
+    </SectionShell>
+  )
+}
+
 /* ------------------------------------------------------------------ groups */
 
 function GroupGrid() {
@@ -1042,6 +1313,12 @@ function Closing() {
             Get started
           </Button>
           <Link
+            to="/composer"
+            className="rounded-md text-[13px] font-bold text-accent-ink underline underline-offset-4"
+          >
+            Open the Composer
+          </Link>
+          <Link
             to="/blocks"
             className="rounded-md text-[13px] font-bold text-accent-ink underline underline-offset-4"
           >
@@ -1073,12 +1350,15 @@ function SectionLink({ to, children }: { to: string; children: ReactNode }) {
 }
 
 function SectionShell({
+  id,
   eyebrow,
   title,
   lede,
   action,
   children,
 }: {
+  /** An anchor, for links that jump to the section. */
+  id?: string
   eyebrow: string
   title: string
   lede?: string
@@ -1087,7 +1367,7 @@ function SectionShell({
   children: ReactNode
 }) {
   return (
-    <section className="mx-auto w-full max-w-[1400px] px-5 py-14 lg:px-8 lg:py-20">
+    <section id={id} className="mx-auto w-full max-w-[1400px] scroll-mt-24 px-5 py-14 lg:px-8 lg:py-20">
       <div className="mb-8 flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
         <div className="flex max-w-[72ch] flex-col gap-2.5">
           <Text size="micro" weight="bold" tone="accent" className="uppercase tracking-[0.18em]">
