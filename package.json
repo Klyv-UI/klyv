@@ -74,9 +74,11 @@
     "citrine": "node cli/citrine.mjs",
     "directives": "node scripts/client-directives.mjs",
     "rules": "node scripts/check-rules.mjs",
-    "test:a11y": "vitest run --reporter=dot",
+    "test:a11y": "vitest run test/a11y.test.tsx --reporter=dot",
     "mcp": "node mcp/server.mjs",
-    "test:mcp": "node --test test/mcp.test.mjs"
+    "test:mcp": "node --test test/mcp.test.mjs",
+    "test:interaction": "vitest run test/interaction --reporter=dot",
+    "test": "npm run test:interaction && npm run test:a11y && npm run test:mcp"
   },
   "peerDependencies": {
     "react": "^18.3.0 || ^19.0.0",
@@ -88,6 +90,8 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
     "@types/node": "^26.5.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",

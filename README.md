@@ -345,6 +345,29 @@ the point:
 
 Now: **0 violations, 0 crashes**, across every page.
 
+## Keyboard behaviour, tested
+
+axe reads markup; it cannot press a key. The claims this library makes about
+using it from a keyboard — Escape closes a dialog and focus returns to whatever
+opened it, arrow keys move a splitter, Enter saves an inline edit and Escape
+restores it — now have a suite of their own.
+
+```bash
+npm run test:interaction
+```
+
+36 tests across seven files, driven with `@testing-library/user-event`, so the
+events are the ones a browser dispatches rather than a synthetic click. They
+cover Modal and Lightbox (focus trap, Escape, scroll lock, focus handed back),
+Tabs and SegmentedControl (roving focus, arrow keys, Home and End), ToggleGroup,
+SplitPane, InlineEdit, CopyButton, PasswordStrength, DataTable sorting and
+selection, VirtualList, BulkActionBar, Countdown and RelativeTime.
+
+The two timed components are tested against a frozen clock, advanced one
+interval at a time. React runs effects when an act block finishes, so moving
+the clock an hour in a single step fires exactly one timer — stepping is what a
+real page does, where every timeout lands on its own task.
+
 ## Rules the build enforces
 
 Two of the house rules below are checkable, so they are checked. Both run in
@@ -449,6 +472,8 @@ Every component in the library obeys these, and the page for each one says how.
 | `npm run build:lib` | build the publishable package (JS, types, CSS, sizes, tokens) |
 | `npm run rules` | check reduced motion and hard-coded colour |
 | `npm run test:a11y` | render every component page, block and the landing page, and audit each with axe |
+| `npm run test:interaction` | drive the keyboard paths with user-event |
+| `npm test` | all three suites: interaction, axe, then the MCP server |
 | `npm run mcp` | run the MCP server on stdio |
 | `npm run test:mcp` | drive the MCP server over real pipes |
 | `npm pack` | build and tarball it |
