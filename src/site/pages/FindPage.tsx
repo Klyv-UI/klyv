@@ -70,7 +70,7 @@ export default function FindPage() {
 
   return (
     <div className="flex flex-col gap-8">
-      <PageIntro title="Find My UI">
+      <PageIntro eyebrow="Build" title="Find My UI">
         Two questions, then the components, blocks, templates and recipes that fit. The picks come from the
         same tags search uses, so every recommendation says why it is here.
       </PageIntro>

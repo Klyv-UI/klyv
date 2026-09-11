@@ -1,13 +1,11 @@
-import { Suspense, useEffect, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { EmptyState, Surface, Text } from 'citrine'
+import { BlockThumbnail } from '../components/BlockThumbnail'
 import { Note } from '../components/Doc'
 import { Count, FilterChip } from '../components/FilterChip'
 import { PageIntro } from '../components/PageIntro'
 import { brand } from '../brand'
-import { findBlock } from '../data/blocks'
 import { SHOWCASE_CATEGORIES, showcase, type ShowcaseCategory, type ShowcaseProject } from '../data/showcase'
-import { blockComponent } from '../lib/blocks'
 
 /**
  * Built With: real interfaces made from the library.
@@ -31,8 +29,8 @@ export default function BuiltWithPage() {
   const projects = active ? showcase.filter((project) => project.category === active) : showcase
 
   return (
-    <div className="flex flex-col gap-8">
-      <PageIntro title="Built With" meta={`${showcase.length} projects`}>
+    <div className="flex flex-col gap-10">
+      <PageIntro eyebrow="Explore" title="Built With" meta={`${showcase.length} projects`}>
         Interfaces made from the library and nothing else. Each one is live on this site, and its component
         count is read from what it actually imports.
       </PageIntro>
@@ -122,56 +120,21 @@ function ProjectCard({ project }: { project: ShowcaseProject }) {
   )
 }
 
-/** The project itself, a quarter size, inert — or a plain tile when there is nothing to render. */
+/** The project itself, live and scaled — or a plain tile when there is nothing to render. */
 function Preview({ project }: { project: ShowcaseProject }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [near, setNear] = useState(false)
-
-  useEffect(() => {
-    const node = ref.current
-    if (!node || project.preview.kind !== 'block') return
-    if (!('IntersectionObserver' in window)) {
-      setNear(true)
-      return
-    }
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          setNear(true)
-          observer.disconnect()
-        }
-      },
-      { rootMargin: '240px' },
-    )
-    observer.observe(node)
-    return () => observer.disconnect()
-  }, [project.preview.kind])
-
   const preview = project.preview
-  const block = preview.kind === 'block' ? findBlock(preview.slug) : undefined
-  const Block = block ? blockComponent(block.file) : undefined
+  if (preview.kind === 'block') return <BlockThumbnail slug={preview.slug} />
 
   return (
-    <div
-      ref={ref}
-      aria-hidden="true"
-      {...({ inert: '' } as object)}
-      className="relative h-[220px] overflow-hidden border-b border-line bg-app"
-    >
-      {preview.kind === 'image' && <img src={preview.src} alt="" className="size-full object-cover object-top" />}
-      {preview.kind === 'none' && (
+    <div aria-hidden="true" className="relative h-[220px] overflow-hidden border-b border-line bg-app">
+      {preview.kind === 'image' ? (
+        <img src={preview.src} alt="" className="size-full object-cover object-top" />
+      ) : (
         <div className="grid size-full place-items-center">
           <span className="flex items-center gap-2.5">
             <span className="grid size-10 place-items-center rounded-[12px] bg-accent text-[18px] font-extrabold text-accent-ink">C</span>
             <span className="text-[22px] font-extrabold tracking-[-0.03em] text-ink">{brand.name}</span>
           </span>
-        </div>
-      )}
-      {Block && near && (
-        <div className="pointer-events-none absolute left-0 top-0 w-[250%] origin-top-left scale-[0.4] p-6">
-          <Suspense fallback={null}>
-            <Block embedded />
-          </Suspense>
         </div>
       )}
     </div>

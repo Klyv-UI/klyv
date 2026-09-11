@@ -75,12 +75,12 @@ export function DocPage({ name, description, propNotes, apiNote, children }: Doc
 
   return (
     <div className="flex gap-10">
-      <article ref={articleRef} className="flex min-w-0 flex-1 flex-col gap-8">
-        <header className="flex flex-col gap-3">
+      <article ref={articleRef} className="flex min-w-0 flex-1 flex-col gap-12">
+        <header className="flex flex-col gap-4 border-b border-line pb-8">
           {entry && group && <Breadcrumb group={group} section={entry.section} />}
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div className="flex flex-wrap items-center gap-2.5">
-              <Text as="h1" size="title">
+              <Text as="h1" size="title" className="leading-[1.05] sm:text-[36px]">
                 {name}
               </Text>
               {isNewComponent(name) && <NewBadge />}
@@ -96,7 +96,7 @@ export function DocPage({ name, description, propNotes, apiNote, children }: Doc
               </div>
             )}
           </div>
-          <Text size="body" weight="medium" tone="soft" leading="normal" className="max-w-[68ch]">
+          <Text size="body" weight="medium" tone="soft" leading="normal" className="max-w-[68ch] sm:text-[15px]">
             {description}
           </Text>
           <HealthSummary name={name} />
@@ -311,18 +311,62 @@ interface SectionProps {
 
 export function Section({ title, description, id, children }: SectionProps) {
   return (
-    <section id={id} className="flex flex-col gap-3">
-      <div className="flex flex-col gap-1">
-        <Text as="h2" size="heading">
+    <section id={id} className="flex scroll-mt-24 flex-col gap-4">
+      <div className="flex flex-col gap-1.5">
+        <Text as="h2" size="subtitle" className="tracking-[-0.02em]">
           {title}
         </Text>
         {description && (
-          <Text size="label" weight="medium" tone="faint" leading="normal" className="max-w-[72ch]">
+          <Text size="body" weight="medium" tone="soft" leading="normal" className="max-w-[72ch]">
             {description}
           </Text>
         )}
       </div>
       {children}
+    </section>
+  )
+}
+
+/**
+ * A numbered section, for pages that are followed in order rather than
+ * browsed: a marker and a rail on the left, the section on the right. The
+ * number is announced as part of the heading, not read out on its own.
+ */
+export function Step({
+  number,
+  title,
+  description,
+  id,
+  children,
+}: {
+  number: number
+  title: string
+  description?: string
+  id?: string
+  children: ReactNode
+}) {
+  return (
+    <section id={id} className="grid scroll-mt-24 gap-4 sm:grid-cols-[36px_minmax(0,1fr)] sm:gap-6">
+      <div aria-hidden className="flex items-center gap-3 sm:flex-col">
+        <span className="grid size-9 shrink-0 place-items-center rounded-full border border-line-strong bg-surface font-mono text-[12px] font-bold text-ink">
+          {number}
+        </span>
+        <span className="hidden w-px flex-1 bg-line sm:block" />
+      </div>
+      <div className="flex min-w-0 flex-col gap-4 sm:pb-4">
+        <div className="flex flex-col gap-1.5 sm:pt-1.5">
+          <Text as="h2" size="subtitle" className="tracking-[-0.02em]">
+            <span className="sr-only">Step {number}: </span>
+            {title}
+          </Text>
+          {description && (
+            <Text size="body" weight="medium" tone="soft" leading="normal" className="max-w-[72ch]">
+              {description}
+            </Text>
+          )}
+        </div>
+        {children}
+      </div>
     </section>
   )
 }

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { Reveal, Text, VisuallyHidden, cn } from 'citrine'
 import { brand } from '../../brand'
+import { Eyebrow } from '../../components/Eyebrow'
 
 /**
  * The landing page's own vocabulary: one section shell, one eyebrow, one quiet
@@ -12,18 +13,6 @@ import { brand } from '../../brand'
  */
 
 export const kb = (bytes: number) => `${(bytes / 1024).toFixed(bytes < 10240 ? 2 : 1)} kB`
-
-/** The small label above a section heading, marked with the accent. */
-export function Eyebrow({ children }: { children: ReactNode }) {
-  return (
-    <span className="inline-flex items-center gap-2">
-      <span aria-hidden className="size-1.5 rounded-full bg-accent-strong" />
-      <Text as="span" size="micro" weight="bold" tone="soft" className="uppercase tracking-[0.18em]">
-        {children}
-      </Text>
-    </span>
-  )
-}
 
 /** The quiet "more of this" link, used under tiles and beside section headings. */
 export function SectionLink({ to, children, className }: { to: string; children: ReactNode; className?: string }) {

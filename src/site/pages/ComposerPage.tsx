@@ -179,9 +179,16 @@ export default function ComposerPage() {
     <div ref={rootRef} className="flex flex-col gap-3">
       {/* ------------------------------------------------------------ toolbar */}
       <Surface variant="card" padding="sm" className="flex-row flex-wrap items-center gap-x-3 gap-y-2">
-        <Text as="h1" size="heading" className="pl-1">
-          Composer
-        </Text>
+        <div className="flex flex-col pl-1 leading-none">
+          <Text as="span" size="micro" weight="bold" tone="faint" className="uppercase tracking-[0.16em]">
+            Build
+          </Text>
+          <Text as="h1" size="heading">
+            Composer
+          </Text>
+        </div>
+
+        <span aria-hidden className="hidden h-6 w-px bg-line sm:block" />
 
         <div role="group" aria-label="History" className="flex items-center gap-0.5">
           <IconButton
@@ -204,6 +211,8 @@ export default function ComposerPage() {
           />
         </div>
 
+        <span aria-hidden className="hidden h-6 w-px bg-line sm:block" />
+
         <SegmentedControl<Viewport>
           label="Preview width"
           size="sm"
@@ -215,6 +224,8 @@ export default function ComposerPage() {
             { value: 'mobile', label: 'Mobile, 390 pixels', icon: Smartphone, iconOnly: true },
           ]}
         />
+
+        <span aria-hidden className="hidden h-6 w-px bg-line sm:block" />
 
         <div role="group" aria-label="View" className="flex items-center gap-1">
           <Button size="sm" variant={mode === 'preview' ? 'accent' : 'outline'} aria-pressed={mode === 'preview'} onClick={() => setMode(mode === 'preview' ? 'edit' : 'preview')}>

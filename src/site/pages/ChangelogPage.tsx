@@ -26,6 +26,7 @@ export default function ChangelogPage() {
   return (
     <div className="flex flex-col gap-8">
       <PageIntro
+        eyebrow="Developer"
         title="Changelog"
         meta={`${releases.filter((release) => release.status === 'released').length} released · ${total} changes`}
       >

@@ -48,6 +48,25 @@ export const localStorageAdapter: StorageAdapter = {
   },
 }
 
+/** sessionStorage: for state that should outlive a navigation but not the tab. */
+export const sessionStorageAdapter: StorageAdapter = {
+  read(key) {
+    try {
+      const raw = window.sessionStorage.getItem(PREFIX + key)
+      return raw === null ? undefined : JSON.parse(raw)
+    } catch {
+      return undefined
+    }
+  },
+  write(key, value) {
+    try {
+      window.sessionStorage.setItem(PREFIX + key, JSON.stringify(value))
+    } catch {
+      // See localStorageAdapter.
+    }
+  },
+}
+
 export interface Store<T> {
   get(): T
   set(next: T | ((previous: T) => T)): void

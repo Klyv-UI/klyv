@@ -18,6 +18,7 @@ import {
   type SurfaceVariant,
 } from 'citrine'
 import { Note, Section } from '../components/Doc'
+import { PageIntro } from '../components/PageIntro'
 import { NumberControl, Playground, SelectControl, TextControl, ToggleControl } from '../components/Playground'
 
 const SURFACES: SurfaceVariant[] = ['card', 'tile', 'field', 'sunken', 'floating']
@@ -50,17 +51,20 @@ export default function PlaygroundPage() {
     .filter((item) => item.name.toLowerCase().includes(query.trim().toLowerCase()))
 
   return (
-    <div className="flex flex-col gap-8">
-      <header className="flex flex-col gap-2.5">
-        <Text as="h1" size="title">
-          Component Playground
-        </Text>
-        <Text size="body" weight="medium" tone="soft" leading="normal" className="max-w-[76ch]">
-          Every component has its own playground on its page. This one is for composition — it
-          assembles nine primitives into a single card so their sizes, inks and radii can be
-          checked against each other, which is where a scale usually breaks first.
-        </Text>
-      </header>
+    <div className="flex flex-col gap-12">
+      <PageIntro
+        eyebrow="Build"
+        title="Playground"
+        actions={
+          <Button as={Link} to="/composer" size="sm" variant="outline">
+            Build a whole screen in the Composer
+          </Button>
+        }
+      >
+        Every component has its own examples on its page. This one is for composition — it assembles nine primitives
+        into a single card so their sizes, inks and radii can be checked against each other, which is where a scale
+        usually breaks first.
+      </PageIntro>
 
       <Section title="Composed card">
         <Playground

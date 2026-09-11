@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react'
 import { Surface, Text, resolveToken, tokenGroups, type TokenEntry, type TokenGroup } from 'citrine'
 import { Code, Note, Section } from '../components/Doc'
 import { AccentPicker } from '../components/AccentPicker'
+import { PageIntro } from '../components/PageIntro'
+import { componentCount } from '../data/catalog'
 
 /**
  * Reads every value live from the document, so the viewer can never disagree
- * with `ui/styles/tokens.css`.
+ * with `src/styles/tokens.css`.
  */
 function useTokenValues(): Record<string, string> {
   const [values, setValues] = useState<Record<string, string>>({})
@@ -29,9 +31,7 @@ function TokenMeta({ token, value }: { token: TokenEntry; value: string }) {
       <Text size="body" weight="bold" truncate>
         {token.name}
       </Text>
-      <span className="truncate font-mono text-[11px] font-medium text-ink-soft">
-        {value || '—'}
-      </span>
+      <span className="truncate font-mono text-[11px] font-medium text-ink-soft">{value || '—'}</span>
       <Text size="caption" weight="medium" tone="faint" leading="normal">
         {token.usage}
       </Text>
@@ -39,14 +39,12 @@ function TokenMeta({ token, value }: { token: TokenEntry; value: string }) {
   )
 }
 
+const card = 'flex flex-col gap-3 bg-surface'
+
 function ColorCard({ token, value }: { token: TokenEntry; value: string }) {
   return (
-    <Surface variant="tile" padding="sm" interactive className="flex flex-col gap-3">
-      <span
-        className="h-14 w-full rounded-[10px] border border-line"
-        style={{ background: `var(${token.cssVar})` }}
-        aria-hidden="true"
-      />
+    <Surface variant="tile" padding="sm" interactive className={card}>
+      <span className="h-14 w-full rounded-[10px] border border-line" style={{ background: `var(${token.cssVar})` }} aria-hidden="true" />
       <TokenMeta token={token} value={value} />
     </Surface>
   )
@@ -54,7 +52,7 @@ function ColorCard({ token, value }: { token: TokenEntry; value: string }) {
 
 function RadiusCard({ token, value }: { token: TokenEntry; value: string }) {
   return (
-    <Surface variant="tile" padding="sm" interactive className="flex flex-col gap-3">
+    <Surface variant="tile" padding="sm" interactive className={card}>
       <span
         className="flex h-14 w-full items-end justify-end border-2 border-dashed border-line-strong bg-accent-soft"
         style={{ borderRadius: `var(${token.cssVar})` }}
@@ -67,12 +65,9 @@ function RadiusCard({ token, value }: { token: TokenEntry; value: string }) {
 
 function ShadowCard({ token, value }: { token: TokenEntry; value: string }) {
   return (
-    <Surface variant="tile" padding="sm" interactive className="flex flex-col gap-3">
+    <Surface variant="tile" padding="sm" interactive className={card}>
       <span className="flex h-20 items-center justify-center rounded-[10px] bg-app" aria-hidden="true">
-        <span
-          className="size-12 rounded-[var(--radius-tile)] bg-white"
-          style={{ boxShadow: `var(${token.cssVar})` }}
-        />
+        <span className="size-12 rounded-[var(--radius-tile)] bg-surface" style={{ boxShadow: `var(${token.cssVar})` }} />
       </span>
       <TokenMeta token={token} value={value} />
     </Surface>
@@ -82,7 +77,7 @@ function ShadowCard({ token, value }: { token: TokenEntry; value: string }) {
 function MotionCard({ token, value }: { token: TokenEntry; value: string }) {
   const [on, setOn] = useState(false)
   return (
-    <Surface variant="tile" padding="sm" interactive className="flex flex-col gap-3">
+    <Surface variant="tile" padding="sm" interactive className={card}>
       <button
         type="button"
         onClick={() => setOn((previous) => !previous)}
@@ -91,10 +86,7 @@ function MotionCard({ token, value }: { token: TokenEntry; value: string }) {
       >
         <span
           className="size-8 rounded-full bg-accent-strong transition-transform"
-          style={{
-            transitionDuration: `var(${token.cssVar})`,
-            transform: on ? 'translateX(calc(100% + 8px))' : 'none',
-          }}
+          style={{ transitionDuration: `var(${token.cssVar})`, transform: on ? 'translateX(calc(100% + 8px))' : 'none' }}
         />
       </button>
       <TokenMeta token={token} value={value} />
@@ -104,7 +96,7 @@ function MotionCard({ token, value }: { token: TokenEntry; value: string }) {
 
 function LayerCard({ token, value }: { token: TokenEntry; value: string }) {
   return (
-    <Surface variant="tile" padding="sm" interactive className="flex flex-col gap-3">
+    <Surface variant="tile" padding="sm" interactive className={card}>
       <span className="flex h-14 items-center justify-center rounded-[10px] bg-app" aria-hidden="true">
         <Text size="title" tone="faint" tabular>
           {value || '—'}
@@ -149,32 +141,56 @@ const TYPE_SPECIMENS = [
   { size: 'micro', sample: '+10%', usage: 'Badges' },
 ] as const
 
+const tokenCount = tokenGroups.reduce((sum, group) => sum + group.tokens.length, 0)
+
+/** The page's own contents, so a reader can jump straight to radius or motion. */
+const JUMPS = [
+  { id: 'typography', label: 'Typography' },
+  { id: 'theme', label: 'Theme' },
+  ...tokenGroups.map((group) => ({ id: group.id, label: group.title })),
+  { id: 'spacing', label: 'Spacing' },
+]
+
 export default function TokensPage() {
   const values = useTokenValues()
 
   return (
-    <div className="flex flex-col gap-8">
-      <header className="flex flex-col gap-2.5">
-        <Text as="h1" size="title">
-          Design Tokens
-        </Text>
-        <Text size="body" weight="medium" tone="soft" leading="normal" className="max-w-[76ch]">
+    <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-6">
+        <PageIntro
+          eyebrow="Design system"
+          title="Design Tokens"
+          stats={[
+            { value: tokenCount, label: 'tokens' },
+            { value: tokenGroups.length, label: 'groups' },
+            { value: TYPE_SPECIMENS.length, label: 'type steps' },
+            { value: 1, label: 'colour you choose' },
+          ]}
+        >
           Every value below is read live from the running document, so this page cannot drift from{' '}
-          <Code>ui/styles/tokens.css</Code>. Each token is annotated with where the design
-          actually uses it.
-        </Text>
-      </header>
+          <Code>src/styles/tokens.css</Code>. Each token is annotated with where the design actually uses it.
+        </PageIntro>
+        <nav aria-label="Token groups" className="flex flex-wrap gap-1.5">
+          {JUMPS.map((jump) => (
+            <a
+              key={jump.id}
+              href={`#${jump.id}`}
+              className="rounded-full bg-surface-muted px-3 py-1.5 text-[12px] font-bold text-ink-soft transition-colors hover:bg-line-strong hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              {jump.label}
+            </a>
+          ))}
+        </nav>
+      </div>
 
       <Section
+        id="typography"
         title="Typography"
         description="Ten steps. Size, tracking and default line-height travel together, because the design tightens tracking as type grows."
       >
         <Surface variant="card" className="divide-y divide-line">
           {TYPE_SPECIMENS.map((specimen) => (
-            <div
-              key={specimen.size}
-              className="flex flex-wrap items-baseline justify-between gap-4 px-5 py-4"
-            >
+            <div key={specimen.size} className="flex flex-wrap items-baseline justify-between gap-4 px-5 py-4">
               <Text size={specimen.size} className="min-w-0">
                 {specimen.sample}
               </Text>
@@ -188,23 +204,22 @@ export default function TokensPage() {
           ))}
         </Surface>
         <Note>
-          Weight is a separate prop. Each size carries the weight the design pairs it with most
-          often, so <Code>&lt;Text size=&quot;caption&quot; /&gt;</Code> already looks right.
+          Weight is a separate prop. Each size carries the weight the design pairs it with most often, so{' '}
+          <Code>&lt;Text size=&quot;caption&quot; /&gt;</Code> already looks right.
         </Note>
       </Section>
 
       <Section
-        title="Theme"
-        description="One hue drives every emphasis in the library. Pick another and watch all 223 components follow — nothing below is hard-coded."
         id="theme"
+        title="Theme"
+        description={`One hue drives every emphasis in the library. Pick another and watch all ${componentCount} components follow — nothing below is hard-coded.`}
       >
         <Surface variant="card" padding="lg">
           <AccentPicker />
         </Surface>
         <Note>
-          Only <Code>--color-accent</Code> is chosen. Strong, soft and ink are derived from it —
-          which is why a deep accent gets white labels and a pale one gets near-black, without
-          anybody configuring the pair.
+          Only <Code>--color-accent</Code> is chosen. Strong, soft and ink are derived from it — which is why a deep
+          accent gets white labels and a pale one gets near-black, without anybody configuring the pair.
         </Note>
       </Section>
 
@@ -215,6 +230,7 @@ export default function TokensPage() {
       ))}
 
       <Section
+        id="spacing"
         title="Spacing & breakpoints"
         description="The library uses Tailwind's default 4px spacing scale unmodified, and its default breakpoints. Only the measurements below are design-specific."
       >

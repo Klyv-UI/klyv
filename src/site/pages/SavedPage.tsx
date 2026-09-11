@@ -33,6 +33,7 @@ export default function SavedPage() {
   return (
     <div className="flex flex-col gap-10">
       <PageIntro
+        eyebrow="Personal"
         title="Saved"
         meta="Kept in this browser. Nothing is sent anywhere."
         actions={

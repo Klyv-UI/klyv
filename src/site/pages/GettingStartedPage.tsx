@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 import { Badge, Button, CodeBlock, Surface, Text } from 'citrine'
-import { Code, Note, Preview, Section, Specimen } from '../components/Doc'
+import { Code, Note, Preview, Section, Specimen, Step } from '../components/Doc'
+import { PageIntro } from '../components/PageIntro'
 import { brand } from '../brand'
 import { componentCount } from '../data/catalog'
 
@@ -8,131 +10,156 @@ import { componentCount } from '../data/catalog'
  * Everything a new project needs before it writes any UI.
  *
  * Ordered as the work actually happens — install, stylesheet, first component,
- * then theme — rather than as a feature list, because the reader is following
- * along rather than browsing.
+ * then theme — and drawn as numbered steps on a rail, because the reader is
+ * following along rather than browsing.
  */
 export default function GettingStartedPage() {
   return (
-    <article className="flex flex-col gap-8">
-      <header className="flex flex-col gap-3">
-        <Text as="h1" size="title">
-          Get started
-        </Text>
-        <Text size="body" weight="medium" tone="soft" leading="normal" className="max-w-[68ch]">
-          Two lines and you are running. {brand.name} ships prebuilt CSS, so there is no Tailwind to
-          configure, no plugin to register and no theme file to copy before the first component
-          renders.
-        </Text>
-      </header>
-
-      <Section title="1 — Install" description="One package. React is a peer dependency, so bring your own.">
-        <CodeBlock language="bash" code={INSTALL} highlight={false} />
-        <Note>
-          <Code>react</Code> and <Code>react-dom</Code> are peer dependencies — React 18.3 or 19,
-          installed by you. The only runtime dependencies {brand.pkg} adds are <Code>clsx</Code> and{' '}
-          <Code>tailwind-merge</Code>.
-        </Note>
-      </Section>
-
-      <Section
-        title="2 — Import the stylesheet"
-        description="Pick one of two, depending on whether the project already runs Tailwind."
+    <article className="flex flex-col gap-12">
+      <PageIntro
+        eyebrow="Start"
+        title="Get started"
+        stats={[
+          { value: 'One', label: 'package to install' },
+          { value: '2', label: 'runtime dependencies' },
+          { value: '14.7 kB', label: 'of CSS, gzipped' },
+          { value: 'React 18.3+', label: 'or 19, as a peer' },
+        ]}
+        actions={
+          <Button as={Link} to="/composer" size="sm" variant="outline">
+            Or start in the Composer
+          </Button>
+        }
       >
-        <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
-          <Surface variant="card" padding="lg" className="gap-3">
-            <div className="flex items-center gap-2">
-              <Text size="heading">No Tailwind</Text>
-              <Badge>Most projects</Badge>
-            </div>
-            <CodeBlock language="tsx" code={`import '${brand.pkg}/styles.css'`} />
-            <Text size="caption" tone="soft" leading="normal">
-              Prebuilt and complete: the tokens, the base layer, the keyframes and exactly the
-              utilities the library uses. About 14.7 kB gzipped. You do not need Tailwind installed.
-            </Text>
-          </Surface>
+        Two lines and you are running. {brand.name} ships prebuilt CSS, so there is no Tailwind to configure, no
+        plugin to register and no theme file to copy before the first component renders.
+      </PageIntro>
 
-          <Surface variant="card" padding="lg" className="gap-3">
-            <Text size="heading">Already using Tailwind</Text>
-            <CodeBlock language="css" code={TAILWIND} />
-            <Text size="caption" tone="soft" leading="normal">
-              Import the preset instead, in your own CSS entry. The utilities are generated into
-              your build rather than shipped a second time alongside it.
-            </Text>
-          </Surface>
-        </div>
+      <div className="flex flex-col gap-10">
+        <Step number={1} title="Install" description="One package. React is a peer dependency, so bring your own.">
+          <CodeBlock language="bash" code={INSTALL} highlight={false} />
+          <Note>
+            <Code>react</Code> and <Code>react-dom</Code> are peer dependencies — React 18.3 or 19, installed by you.
+            The only runtime dependencies {brand.pkg} adds are <Code>clsx</Code> and <Code>tailwind-merge</Code>.
+          </Note>
+        </Step>
 
-        <Surface variant="card" className="mt-1 overflow-x-auto">
-          <table className="w-full min-w-[520px] border-collapse text-left">
-            <thead>
-              <tr className="border-b border-line">
-                {['Export', 'What it is'].map((heading) => (
-                  <th key={heading} className="px-4 py-3">
-                    <Text size="caption" weight="bold" tone="faint" className="uppercase tracking-wider">
-                      {heading}
-                    </Text>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {EXPORTS.map((row) => (
-                <tr key={row.name} className="border-b border-line align-top last:border-0">
-                  <td className="px-4 py-3 whitespace-nowrap">
-                    <Code>{row.name}</Code>
-                  </td>
-                  <td className="px-4 py-3">
-                    <Text size="caption" weight="medium" tone="soft" leading="normal">
-                      {row.what}
-                    </Text>
-                  </td>
+        <Step
+          number={2}
+          title="Import the stylesheet"
+          description="Pick one of two, depending on whether the project already runs Tailwind."
+        >
+          <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
+            <Surface variant="card" padding="lg" className="gap-3">
+              <div className="flex items-center gap-2">
+                <Text as="h3" size="heading">
+                  No Tailwind
+                </Text>
+                <Badge>Most projects</Badge>
+              </div>
+              <CodeBlock language="tsx" code={`import '${brand.pkg}/styles.css'`} />
+              <Text size="caption" tone="soft" leading="normal">
+                Prebuilt and complete: the tokens, the base layer, the keyframes and exactly the utilities the library
+                uses. About 14.7 kB gzipped. You do not need Tailwind installed.
+              </Text>
+            </Surface>
+
+            <Surface variant="card" padding="lg" className="gap-3">
+              <Text as="h3" size="heading">
+                Already using Tailwind
+              </Text>
+              <CodeBlock language="css" code={TAILWIND} />
+              <Text size="caption" tone="soft" leading="normal">
+                Import the preset instead, in your own CSS entry. The utilities are generated into your build rather
+                than shipped a second time alongside it.
+              </Text>
+            </Surface>
+          </div>
+
+          <Surface variant="card" className="overflow-x-auto">
+            <table className="w-full min-w-[520px] border-collapse text-left">
+              <thead>
+                <tr className="border-b border-line">
+                  {['Export', 'What it is'].map((heading) => (
+                    <th key={heading} className="px-4 py-3">
+                      <Text size="caption" weight="bold" tone="faint" className="uppercase tracking-wider">
+                        {heading}
+                      </Text>
+                    </th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </Surface>
-      </Section>
+              </thead>
+              <tbody>
+                {EXPORTS.map((row) => (
+                  <tr key={row.name} className="border-b border-line align-top last:border-0">
+                    <td className="whitespace-nowrap px-4 py-3">
+                      <Code>{row.name}</Code>
+                    </td>
+                    <td className="px-4 py-3">
+                      <Text size="caption" weight="medium" tone="soft" leading="normal">
+                        {row.what}
+                      </Text>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </Surface>
+        </Step>
 
-      <Section title="3 — Render something" description="That is the whole setup. This is a real one.">
-        <Preview>
-          <Specimen label="Button" hint="Takes its colour from the accent">
-            <Button>Send</Button>
-          </Specimen>
-          <Specimen label="Badge" hint="Same accent, quieter role">
-            <Badge>+10%</Badge>
-          </Specimen>
-        </Preview>
-        <CodeBlock language="tsx" code={FIRST} />
-      </Section>
+        <Step number={3} title="Render something" description="That is the whole setup. This is a real one.">
+          <Preview>
+            <Specimen label="Button" hint="Takes its colour from the accent">
+              <Button>Send</Button>
+            </Specimen>
+            <Specimen label="Badge" hint="Same accent, quieter role">
+              <Badge>+10%</Badge>
+            </Specimen>
+          </Preview>
+          <CodeBlock language="tsx" code={FIRST} />
+        </Step>
 
-      <Section
-        title="4 — Pick your accent"
-        description="Four CSS custom properties are derived from one colour and written to the document. Nothing in the library hard-codes a colour, so one call repaints all of it."
-      >
-        <CodeBlock language="ts" code={ACCENT} />
-        <Note>
-          The text colour that sits on the accent is chosen by contrast, not by a lightness
-          threshold, so any hue you pass stays readable. Use <Code>text-accent-ink</Code> for your
-          own labels on an accent fill rather than picking black or white yourself.
-        </Note>
-      </Section>
+        <Step
+          number={4}
+          title="Pick your accent"
+          description="Four CSS custom properties are derived from one colour and written to the document. Nothing in the library hard-codes a colour, so one call repaints all of it."
+        >
+          <CodeBlock language="ts" code={ACCENT} />
+          <Note>
+            The text colour that sits on the accent is chosen by contrast, not by a lightness threshold, so any hue you
+            pass stays readable. Use <Code>text-accent-ink</Code> for your own labels on an accent fill rather than
+            picking black or white yourself.
+          </Note>
+        </Step>
 
-      <Section
-        title="5 — Dark mode"
-        description="Token values change; token names never do. No component has a dark variant, and there is not a single dark: class in the library."
-      >
-        <CodeBlock language="ts" code={MODE} />
-        <Text size="caption" tone="soft" leading="normal" className="max-w-[72ch]">
-          <Code>system</Code> follows the operating system and keeps following it, so a visitor who
-          changes theme at lunch does not have to reload. Call <Code>restoreMode()</Code> once as the
-          app boots to re-apply whatever they last chose.
-        </Text>
-      </Section>
+        <Step
+          number={5}
+          title="Dark mode"
+          description="Token values change; token names never do. No component has a dark variant, and there is not a single dark: class in the library."
+        >
+          <CodeBlock language="ts" code={MODE} />
+          <Text size="caption" tone="soft" leading="normal" className="max-w-[72ch]">
+            <Code>system</Code> follows the operating system and keeps following it, so a visitor who changes theme at
+            lunch does not have to reload. Call <Code>restoreMode()</Code> once as the app boots to re-apply whatever
+            they last chose.
+          </Text>
+        </Step>
 
-      <Section title="6 — Good to know" description="The things that usually come up next.">
+        <Step number={6} title="Or copy the source instead" description="If you would rather own the file than depend on the package.">
+          <CodeBlock language="bash" code={CLI} highlight={false} />
+          <Text size="caption" tone="soft" leading="normal" className="max-w-[72ch]">
+            The folders are flat and every internal import is relative, so copied files compile where they land — no
+            rewriting and no codemod. Dependencies come with it: two thirds of the library imports at least one sibling,
+            so a single file on its own would not build.
+          </Text>
+        </Step>
+      </div>
+
+      <Section title="Good to know" description="The things that usually come up next.">
         <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
           {NOTES.map((note) => (
-            <Surface key={note.title} variant="tile" padding="sm" className="gap-1.5">
-              <Text size="caption" weight="bold">
+            <Surface key={note.title} variant="tile" padding="md" className="gap-1.5 bg-surface">
+              <Text as="h3" size="caption" weight="bold">
                 {note.title}
               </Text>
               <Text size="caption" weight="medium" tone="soft" leading="normal">
@@ -143,25 +170,18 @@ export default function GettingStartedPage() {
         </div>
       </Section>
 
-      <Section
-        title="7 — Or copy the source instead"
-        description="If you would rather own the file than depend on the package."
-      >
-        <CodeBlock language="bash" code={CLI} highlight={false} />
-        <Text size="caption" tone="soft" leading="normal" className="max-w-[72ch]">
-          The folders are flat and every internal import is relative, so copied files compile where
-          they land — no rewriting and no codemod. Dependencies come with it: two thirds of the
-          library imports at least one sibling, so a single file on its own would not build.
-        </Text>
-      </Section>
-
-      <Section title="Where to next" description="">
+      <Section title="Where to next">
         <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
           {NEXT.map((item) => (
-            <Link key={item.to} to={item.to} className="rounded-[var(--radius-card)]">
-              <Surface variant="tile" padding="sm" interactive className="h-full gap-1.5">
-                <Text size="caption" weight="bold">
+            <Link
+              key={item.to}
+              to={item.to}
+              className="group rounded-[var(--radius-tile)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+            >
+              <Surface variant="tile" padding="md" className="h-full gap-1.5 bg-surface transition-colors group-hover:border-line-strong group-hover:bg-surface-sunken">
+                <Text as="span" size="body" weight="bold" className="inline-flex items-center gap-1">
                   {item.title}
+                  <ArrowRight size={13} aria-hidden className="text-ink-faint transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
                 </Text>
                 <Text size="caption" weight="medium" tone="soft" leading="normal">
                   {item.body}
@@ -249,6 +269,16 @@ const NEXT = [
     body: 'The catalogue, filterable by group and searchable by what a component does.',
   },
   {
+    to: '/composer',
+    title: 'Composer',
+    body: 'Assemble a screen from the real components and take the code with its dependencies.',
+  },
+  {
+    to: '/templates',
+    title: 'Templates',
+    body: 'Sets of finished screens that make a product together, one CLI command away.',
+  },
+  {
     to: '/foundations',
     title: 'Foundations',
     body: 'The six rules behind the tokens, and why a new component almost never needs a new value.',
@@ -257,11 +287,6 @@ const NEXT = [
     to: '/tokens',
     title: 'Tokens',
     body: 'Every colour, radius, shadow and type step, read live from the page you are on.',
-  },
-  {
-    to: '/playground',
-    title: 'Playground',
-    body: 'Change props on a live component and watch the code update with them.',
   },
   {
     to: '/agents',

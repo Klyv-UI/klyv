@@ -1,7 +1,8 @@
 import { useMemo, useState, type ReactNode } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { LayoutGrid, List, X } from 'lucide-react'
-import { SearchField, Surface, Text, cn } from 'citrine'
+import { Button, SearchField, Surface, Text, cn } from 'citrine'
+import { PageIntro } from '../components/PageIntro'
 import { NEW_COMPONENTS, catalog, componentCount, isNewComponent, type CatalogEntry } from '../data/catalog'
 import { NewBadge } from '../components/NewBadge'
 import { Count, FilterChip } from '../components/FilterChip'
@@ -98,14 +99,26 @@ export default function ComponentsPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <header className="flex flex-col gap-3">
-        <Text as="h1" size="title">
-          {active ? active.id : 'Components'}
-        </Text>
-        <Text size="body" weight="medium" tone="soft" leading="normal" className="max-w-[70ch]">
-          {active ? active.tagline : `All ${componentCount} of them, grouped by what they are for.`}
-        </Text>
-      </header>
+      <PageIntro
+        eyebrow={active ? 'Components' : 'Explore'}
+        title={active ? active.id : 'Components'}
+        stats={
+          active
+            ? undefined
+            : [
+                { value: componentCount, label: 'components' },
+                { value: groups.length, label: 'groups' },
+                { value: NEW_COMPONENTS.size, label: 'new in the SaaS release' },
+              ]
+        }
+        actions={
+          <Button as={Link} to="/composer" size="sm" variant="outline">
+            Compose with them
+          </Button>
+        }
+      >
+        {active ? active.tagline : `All ${componentCount} of them, grouped by what they are for. Every one is typed, themed by the accent, and copyable as source.`}
+      </PageIntro>
 
       {/* Sticky, because the filters are useless once you have scrolled past
           the fold of a 250-item list. */}

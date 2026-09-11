@@ -32,7 +32,7 @@ export default function IntegrationsPage() {
 
   return (
     <div className="flex flex-col gap-8">
-      <PageIntro title="Integrations" meta={`${integrations.length} integrations`}>
+      <PageIntro eyebrow="Developer" title="Integrations" meta={`${integrations.length} integrations`}>
         How the library fits the rest of a stack. Only things with a real path are listed, and each one says
         how real that path is — nothing is marked official unless it is shipped and exercised here.
       </PageIntro>

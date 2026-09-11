@@ -8,7 +8,7 @@ import { recipes } from '../data/recipes'
 export default function RecipesPage() {
   return (
     <div className="flex flex-col gap-8">
-      <PageIntro title="Recipes" meta={`${recipes.length} recipes`}>
+      <PageIntro eyebrow="Explore" title="Recipes" meta={`${recipes.length} recipes`}>
         How to build one common thing from the library — which components, in what order, and the props that
         matter. A block is the finished screen; a recipe is the reasoning behind one.
       </PageIntro>

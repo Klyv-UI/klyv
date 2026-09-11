@@ -2,6 +2,7 @@ import { Suspense, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Badge, Button, CodeBlock, Surface, Text } from 'citrine'
 import { Preview, Section } from '../components/Doc'
+import { PageIntro } from '../components/PageIntro'
 import { SaveControls } from '../components/SaveControls'
 import { brand } from '../brand'
 import { blocks, findBlock } from '../data/blocks'
@@ -43,36 +44,22 @@ export default function BlockPage() {
   const next = index < blocks.length - 1 ? blocks[index + 1] : undefined
 
   return (
-    <article className="flex flex-col gap-8">
-      <header className="flex flex-col gap-3">
-        <nav aria-label="Documentation breadcrumb" className="flex flex-wrap items-center gap-1.5">
-          <Link
-            to="/blocks"
-            className="rounded-md text-[11.5px] font-bold text-ink-faint transition-colors hover:text-ink"
-          >
-            Blocks
-          </Link>
-          <span aria-hidden className="text-[11.5px] font-bold text-ink-faint">
-            /
-          </span>
-          <span className="text-[11.5px] font-bold text-ink-soft">{block.category}</span>
-        </nav>
-
-        <div className="flex flex-wrap items-start justify-between gap-3">
-          <Text as="h1" size="title">
-            {block.name}
-          </Text>
-          <div className="flex flex-wrap items-center gap-1.5">
+    <article className="flex flex-col gap-12">
+      <PageIntro
+        breadcrumb={[{ label: 'Blocks', to: '/blocks' }, { label: block.category }]}
+        title={block.name}
+        meta={`${block.uses.length} components · ${block.category}`}
+        actions={
+          <>
             <Button as={Link} to={`/composer?block=${block.slug}`} size="sm" variant="ghost">
               Open in Composer
             </Button>
             <SaveControls itemId={`block:${block.slug}`} name={block.name} />
-          </div>
-        </div>
-        <Text size="body" weight="medium" tone="soft" leading="normal" className="max-w-[68ch]">
-          {block.blurb}
-        </Text>
-      </header>
+          </>
+        }
+      >
+        {block.blurb}
+      </PageIntro>
 
       <Section title="Screen" description="Live, and interactive — try it rather than reading it.">
         <Preview frame="canvas" className="p-0">

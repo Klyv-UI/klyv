@@ -1,6 +1,7 @@
 import { Suspense, memo, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, NavLink, Outlet, useLocation, useMatches } from 'react-router-dom'
-import { Heart, Menu as MenuIcon } from 'lucide-react'
+import { ChevronRight, Heart, Menu as MenuIcon } from 'lucide-react'
+import { createStore, sessionStorageAdapter, useStoreValue } from '../lib/store'
 import { AccentMenu } from '../components/AccentMenu'
 import { Drawer, IconButton, SearchField, Surface, Text, cn } from 'citrine'
 import { AccentPicker } from '../components/AccentPicker'
@@ -248,6 +249,8 @@ function SavedLink() {
 const NAV_TREE = groups.map((group) => ({
   group,
   count: catalog.filter((entry) => entry.group === group.id).length,
+  /** Every page in the group, so it can tell when it holds the current one. */
+  paths: new Set(catalog.filter((entry) => entry.group === group.id).map((entry) => `/components/${entry.slug}`)),
   sections: group.sections
     .map((section) => ({
       section,
@@ -255,6 +258,106 @@ const NAV_TREE = groups.map((group) => ({
     }))
     .filter(({ entries }) => entries.length > 0),
 }))
+
+const BLOCK_PATHS = new Set(blocks.map((block) => `/blocks/${block.slug}`))
+
+/**
+ * Which library groups are open, shared by the sidebar and the drawer and
+ * kept for the session — so collapsing a group stays collapsed as you move
+ * around, and a reload in the same tab does not throw it away.
+ */
+const openGroups = createStore<Record<string, boolean>>('nav-open', {}, {
+  adapter: sessionStorageAdapter,
+  parse: (raw) => (raw && typeof raw === 'object' ? (raw as Record<string, boolean>) : undefined),
+})
+
+/**
+ * One collapsible library group.
+ *
+ * Collapsed groups render no links at all, which is most of what makes the
+ * sidebar light: two hundred and fifty links become the dozen in the open
+ * group. Each group reads the location itself, so the tree around it stays
+ * memoised; when navigation lands in a closed group it opens, and after that
+ * the reader's choice holds.
+ */
+const NavGroup = memo(function NavGroup({
+  id,
+  label,
+  count,
+  paths,
+  allTo,
+  children,
+}: {
+  id: string
+  label: string
+  count: number
+  paths: ReadonlySet<string>
+  allTo: string
+  children: ReactNode
+}) {
+  const { pathname } = useLocation()
+  const active = paths.has(pathname)
+  const stored = useStoreValue(openGroups, (state) => state[id])
+  const open = stored ?? active
+  const panelId = `nav-group-${id}`
+
+  useEffect(() => {
+    if (active) openGroups.set((state) => (state[id] ? state : { ...state, [id]: true }))
+  }, [active, id])
+
+  return (
+    <div className="flex flex-col">
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls={panelId}
+        onClick={() => openGroups.set((state) => ({ ...state, [id]: !open }))}
+        className="flex w-full items-center gap-2 rounded-[10px] px-2.5 py-2 text-left transition-colors hover:bg-surface-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+      >
+        <ChevronRight
+          size={13}
+          aria-hidden
+          className={cn('shrink-0 text-ink-faint transition-transform motion-reduce:transition-none', open && 'rotate-90')}
+        />
+        <Text as="span" size="label" weight="bold" className="min-w-0 flex-1 truncate">
+          {label}
+        </Text>
+        {active && !open && <span aria-hidden className="size-1.5 shrink-0 rounded-full bg-accent-strong" />}
+        <Text as="span" size="micro" weight="bold" tone="faint" tabular>
+          {count}
+        </Text>
+      </button>
+      {open && (
+        <div id={panelId} className="mb-1 ml-[17px] flex flex-col border-l border-line pl-2">
+          <NavLink
+            to={allTo}
+            end
+            className="rounded-[10px] px-2.5 py-1.5 text-[12px] font-bold text-ink-faint transition-colors hover:bg-surface-muted hover:text-ink"
+          >
+            All {label.toLowerCase()}
+          </NavLink>
+          {children}
+        </div>
+      )}
+    </div>
+  )
+})
+
+const BlockNavItem = memo(function BlockNavItem({ slug, name }: { slug: string; name: string }) {
+  return (
+    <NavLink
+      to={`/blocks/${slug}`}
+      className={({ isActive }) =>
+        cn(
+          'truncate rounded-[10px] px-2.5 py-1.5 text-[12.5px] font-semibold transition-colors',
+          isActive ? 'bg-accent-soft text-ink' : 'text-ink-soft hover:bg-surface-muted hover:text-ink',
+        )
+      }
+    >
+      {name}
+    </NavLink>
+  )
+})
 
 /**
  * The component index.
@@ -329,30 +432,6 @@ const ComponentNav = memo(function ComponentNav({ inDrawer = false }: { inDrawer
             </nav>
           ))}
 
-        {!matches && (
-          <div className="flex flex-col gap-0.5">
-            <GroupHeading count={blocks.length} to="/blocks">
-              Blocks
-            </GroupHeading>
-            {blocks.map((block) => (
-              <NavLink
-                key={block.slug}
-                to={`/blocks/${block.slug}`}
-                className={({ isActive }) =>
-                  cn(
-                    'truncate rounded-[10px] px-2.5 py-1.5 text-[12.5px] font-semibold transition-colors',
-                    isActive
-                      ? 'bg-accent-soft text-ink'
-                      : 'text-ink-soft hover:bg-surface-muted hover:text-ink',
-                  )
-                }
-              >
-                {block.name}
-              </NavLink>
-            ))}
-          </div>
-        )}
-
         {matches ? (
           <div className="flex flex-col gap-0.5">
             <GroupHeading count={matchCount}>{matchCount === 1 ? 'Match' : 'Matches'}</GroupHeading>
@@ -372,23 +451,37 @@ const ComponentNav = memo(function ComponentNav({ inDrawer = false }: { inDrawer
             )}
           </div>
         ) : (
-          NAV_TREE.map(({ group, count, sections }) => (
-            <div key={group.id} className="flex flex-col gap-0.5">
-              <GroupHeading count={count} to={`/components?group=${group.slug}`}>
-                {group.id}
-              </GroupHeading>
-              {sections.map(({ section, entries }) => (
-                <div key={section} className="flex flex-col">
-                  <Text size="caption" weight="medium" tone="faint" className="px-2.5 pb-1 pt-2.5">
-                    {section}
-                  </Text>
-                  {entries.map((entry) => (
-                    <NavItem key={entry.slug} entry={entry} />
-                  ))}
-                </div>
+          <nav aria-label="Library" className="flex flex-col gap-0.5">
+            <Text as="span" size="micro" weight="bold" tone="faint" className="px-2.5 pb-1 uppercase tracking-[0.14em]">
+              Library
+            </Text>
+            <NavGroup id="blocks" label="Blocks" count={blocks.length} paths={BLOCK_PATHS} allTo="/blocks">
+              {blocks.map((block) => (
+                <BlockNavItem key={block.slug} slug={block.slug} name={block.name} />
               ))}
-            </div>
-          ))
+            </NavGroup>
+            {NAV_TREE.map(({ group, count, sections, paths }) => (
+              <NavGroup
+                key={group.id}
+                id={group.slug}
+                label={group.id}
+                count={count}
+                paths={paths}
+                allTo={`/components?group=${group.slug}`}
+              >
+                {sections.map(({ section, entries }) => (
+                  <div key={section} className="flex flex-col">
+                    <Text size="caption" weight="medium" tone="faint" className="px-2.5 pb-1 pt-2">
+                      {section}
+                    </Text>
+                    {entries.map((entry) => (
+                      <NavItem key={entry.slug} entry={entry} />
+                    ))}
+                  </div>
+                ))}
+              </NavGroup>
+            ))}
+          </nav>
         )}
       </div>
     </>
