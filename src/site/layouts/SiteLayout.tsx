@@ -197,9 +197,11 @@ const SiteHeader = memo(function SiteHeader({
 
         <div className="ml-auto flex items-center gap-2">
           <SearchTrigger onOpen={onOpenSearch} />
-          <span aria-hidden className="mx-1 hidden h-6 w-px bg-line sm:block" />
+          {/* Between md and lg the section links take the room these need, so
+              they step out there; the drawer and the footer still reach both. */}
+          <span aria-hidden className="mx-1 hidden h-6 w-px bg-line sm:block md:hidden lg:block" />
           <SavedLink />
-          <ThemeToggle className="hidden sm:flex" />
+          <ThemeToggle className="hidden sm:flex md:hidden lg:flex" />
           <AccentMenu />
         </div>
       </div>
@@ -216,7 +218,7 @@ function SavedLink() {
       aria-label={count ? `Saved, ${count} favorites` : 'Saved'}
       className={({ isActive }) =>
         cn(
-          'relative hidden size-9 place-items-center rounded-full border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:grid',
+          'relative hidden size-9 place-items-center rounded-full border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:grid md:hidden lg:grid',
           isActive ? 'border-line-strong bg-surface-muted text-ink' : 'border-line bg-surface text-ink-soft hover:border-line-strong hover:text-ink',
         )
       }

@@ -176,7 +176,7 @@ export function SearchTrigger({ onOpen }: { onOpen: () => void }) {
       // Below sm the label and the shortcut are dropped for a square glyph:
       // the header runs out of room before the reader runs out of patience,
       // and a keyboard hint is not much use on a device without one.
-      className="group flex h-9 items-center justify-center gap-2 rounded-full border border-line bg-surface transition-colors hover:border-line-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent max-sm:w-9 sm:justify-start sm:pl-3 sm:pr-1.5 lg:w-[210px]"
+      className="group flex h-9 items-center justify-center gap-2 rounded-full border border-line bg-surface transition-colors hover:border-line-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent max-sm:w-9 sm:justify-start sm:pl-3 sm:pr-1.5 xl:w-[210px]"
     >
       <Search size={15} aria-hidden className="shrink-0 text-ink-faint group-hover:text-ink-soft" />
       <Text
@@ -185,8 +185,8 @@ export function SearchTrigger({ onOpen }: { onOpen: () => void }) {
         tone="faint"
         className="hidden flex-1 text-left group-hover:text-ink-soft sm:block"
       >
-        <span className="lg:hidden">Search</span>
-        <span className="hidden lg:inline">Search docs…</span>
+        <span className="xl:hidden">Search</span>
+        <span className="hidden xl:inline">Search docs…</span>
       </Text>
       <span className="hidden items-center gap-0.5 sm:flex">
         <Kbd>{isMac ? '⌘' : 'Ctrl'}</Kbd>
