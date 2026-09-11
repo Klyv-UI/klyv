@@ -610,6 +610,13 @@
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      },
+      {
+        "name": "embedded",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Render inside a host page rather than as the page — a docs preview, a marketing embed, a Storybook canvas. The content region becomes a plain region instead of a second `main` landmark, and the skip link is left to the host, which already has one. Layout is unchanged."
       }
     ]
   },

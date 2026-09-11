@@ -87,14 +87,30 @@ export function SiteLayout() {
 
 /* ------------------------------------------------------------------ header */
 
-const TOP_LINKS = [
-  { to: '/getting-started', label: 'Get started' },
-  { to: '/components', label: 'Components' },
-  { to: '/foundations', label: 'Foundations' },
-  { to: '/tokens', label: 'Tokens' },
-  { to: '/playground', label: 'Playground' },
-  { to: '/agents', label: 'AI agents' },
+/**
+ * Header links, in priority order, each with the width it earns a place from.
+ *
+ * Seven links and the search do not fit a tablet, and `nowrap` alone just moved
+ * the overflow off the right edge. The paths a newcomer needs first stay at
+ * every width; the rest arrive as room does. Nothing is lost below that — the
+ * sidebar, the footer and ⌘K all reach every page.
+ */
+const TOP_LINKS: { to: string; label: string; from: 'md' | 'lg' | 'xl' }[] = [
+  { to: '/getting-started', label: 'Get started', from: 'md' },
+  { to: '/components', label: 'Components', from: 'md' },
+  { to: '/blocks', label: 'Blocks', from: 'md' },
+  { to: '/foundations', label: 'Foundations', from: 'lg' },
+  { to: '/agents', label: 'AI agents', from: 'lg' },
+  { to: '/tokens', label: 'Tokens', from: 'xl' },
+  { to: '/playground', label: 'Playground', from: 'xl' },
 ]
+
+/** Static strings, so Tailwind can see every class it has to generate. */
+const SHOW_FROM = {
+  md: '',
+  lg: 'hidden lg:inline-flex',
+  xl: 'hidden xl:inline-flex',
+} as const
 
 function SiteHeader({
   onOpenNav,
@@ -139,7 +155,8 @@ function SiteHeader({
               to={link.to}
               className={({ isActive }) =>
                 cn(
-                  'rounded-full px-3 py-1.5 text-[12px] font-bold transition-colors',
+                  'whitespace-nowrap rounded-full px-3 py-1.5 text-[12px] font-bold transition-colors',
+                  SHOW_FROM[link.from],
                   isActive ? 'bg-surface-muted text-ink' : 'text-ink-soft hover:text-ink',
                 )
               }
@@ -387,6 +404,7 @@ const NavItem = memo(function NavItem({ entry }: { entry: CatalogEntry }) {
 const RESOURCES = [
   { to: '/getting-started', label: 'Get started' },
   { to: '/components', label: 'All components' },
+  { to: '/blocks', label: 'Blocks' },
   { to: '/foundations', label: 'Foundations' },
   { to: '/tokens', label: 'Tokens' },
   { to: '/playground', label: 'Playground' },
@@ -411,7 +429,7 @@ function SiteFooter() {
               </Text>
             </Link>
             <Text size="caption" tone="soft" leading="normal" className="max-w-[42ch]">
-              {brand.tagline} {componentCount} components, three runtime dependencies, and a theme
+              {brand.tagline} {componentCount} components, two runtime dependencies, and a theme
               that is one call wide.
             </Text>
             <div className="flex flex-wrap items-center gap-3">

@@ -1,6 +1,6 @@
-import { useState, type ReactNode } from 'react'
+import { Suspense, lazy, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Bell, Command, Keyboard, Package, Wind } from 'lucide-react'
+import { ArrowRight, Keyboard, Package, Wind } from 'lucide-react'
 import {
   ACCENT_PRESETS,
   AvatarGroup,
@@ -23,15 +23,13 @@ import {
   PianoKeys,
   ProgressRing,
   Rating,
-  SegmentedControl,
-  ShimmerButton,
   Slider,
   Sparkline,
   StatCard,
-  StatusDot,
   StreakCounter,
   Surface,
   Switch,
+  Tabs,
   Tag,
   Terminal,
   Text,
@@ -39,22 +37,25 @@ import {
   XPBar,
   applyAccent,
   cn,
-  systemMode,
   deriveAccent,
   saveAccent,
+  systemMode,
 } from 'citrine'
-import { AdminDemo } from '../components/AdminDemo'
 import { ContrastReadout } from '../components/ContrastReadout'
 import { useAccent, useMode } from '../components/useTheme'
 import { brand } from '../brand'
+import { blockCount } from '../data/blocks'
 import { catalog, componentCount } from '../data/catalog'
-import { library } from '../data/sizes'
 import { groups } from '../data/groups'
+import { mcpTools } from '../data/mcp'
+import { library } from '../data/sizes'
 
 /**
  * The front page.
  *
- * Every specimen on it is a real component from the library, running — not a
+ * It tells the library's story in the order a visitor asks it: what is this,
+ * can it build a real screen, what are the parts, can I make it mine, and how
+ * do I start. Every specimen on it is a real component, running — not a
  * screenshot and not a mock. That is the entire argument the page is making, so
  * faking any part of it would be self-defeating.
  */
@@ -62,13 +63,11 @@ export default function LandingPage() {
   return (
     <>
       <Hero />
-      <Wall />
-      <Showcase />
-      <AdminSection />
+      <FactsBand />
+      <BlocksShowcase />
+      <ComponentsBento />
       <OneHue />
-      <CopySection />
-      <AgentSection />
-      <WeightSection />
+      <ShipIt />
       <GroupGrid />
       <Principles />
       <Closing />
@@ -101,24 +100,20 @@ function Hero() {
 
       <div className="relative mx-auto grid w-full max-w-[1400px] items-center gap-12 px-5 pb-16 pt-14 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:px-8 lg:pb-24 lg:pt-20">
         <div className="flex flex-col items-start gap-6">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5">
-              <StatusDot tone="success" />
-              <Text size="micro" weight="bold" tone="soft">
-                v1.0
-              </Text>
-            </span>
-            <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5">
-              <Text size="micro" weight="bold" tone="soft" tabular>
-                {componentCount} components
-              </Text>
-            </span>
-            <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5">
-              <Text size="micro" weight="bold" tone="soft">
-                3 runtime deps
-              </Text>
-            </span>
-          </div>
+          <Link
+            to="/blocks"
+            className="group inline-flex items-center gap-2 rounded-full border border-line bg-surface py-1 pl-1 pr-3 transition-colors hover:border-line-strong"
+          >
+            <Badge>New</Badge>
+            <Text as="span" size="micro" weight="bold" tone="soft">
+              {blockCount} production blocks, built from the library
+            </Text>
+            <ArrowRight
+              size={12}
+              aria-hidden
+              className="text-ink-faint transition-transform group-hover:translate-x-0.5"
+            />
+          </Link>
 
           <h1 className="max-w-[15ch] text-balance text-[44px] font-extrabold leading-[0.98] tracking-[-0.045em] sm:text-[60px] lg:text-[68px]">
             The library that runs on{' '}
@@ -145,13 +140,16 @@ function Hero() {
           </Text>
 
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
-            <Link to="/components" className="w-full sm:w-auto">
-              <ShimmerButton size="lg" glow fullWidth>
-                Browse {componentCount} components
-              </ShimmerButton>
-            </Link>
-            <InstallChip />
+            <CtaLink to="/getting-started">
+              Get started
+              <ArrowRight size={14} aria-hidden />
+            </CtaLink>
+            <CtaLink to="/components" variant="outline">
+              Browse {componentCount} components
+            </CtaLink>
           </div>
+
+          <InstallChip />
 
           {/* The hero's interaction is the product's thesis: change the hue and
               the page you are reading changes with it. */}
@@ -205,7 +203,7 @@ function InstallChip() {
           setCopied(false)
         }
       }}
-      className="group inline-flex h-11 items-center justify-between gap-3 rounded-full border border-line bg-surface px-4 font-mono text-[12px] font-semibold text-ink-soft transition-colors hover:border-line-strong hover:text-ink"
+      className="group inline-flex h-10 items-center justify-between gap-3 rounded-full border border-line bg-surface px-4 font-mono text-[12px] font-semibold text-ink-soft transition-colors hover:border-line-strong hover:text-ink"
     >
       <span>
         <span className="text-ink-faint">$</span> {command}
@@ -214,7 +212,9 @@ function InstallChip() {
         {copied ? 'Copied' : 'Copy'}
       </span>
       <VisuallyHidden>
-        <span role="status" aria-live="polite">{copied ? 'Copied to clipboard' : ''}</span>
+        <span role="status" aria-live="polite">
+          {copied ? 'Copied to clipboard' : ''}
+        </span>
       </VisuallyHidden>
     </button>
   )
@@ -227,7 +227,7 @@ const HERO_TRAFFIC = [14, 19, 16, 26, 23, 33, 30, 41, 37, 48, 45, 58]
  *
  * Everything in here recolours with the swatches to its left, which is the
  * point — a screenshot could not do that, and a screenshot is what a hero
- * usually is.
+ * usually is. Nothing in it is repeated further down the page.
  */
 function HeroCollage() {
   const [live, setLive] = useState(true)
@@ -243,7 +243,7 @@ function HeroCollage() {
         <Surface
           variant="card"
           padding="lg"
-          className="gap-4 rotate-[-1.4deg] shadow-[var(--shadow-float)]"
+          className="rotate-[-1.4deg] gap-4 shadow-[var(--shadow-float)]"
         >
           <div className="flex items-start justify-between gap-4">
             <Metric label="Monthly active" value="12,480" delta="+18.2%" trend="up" size="lg" />
@@ -255,7 +255,7 @@ function HeroCollage() {
         <Surface
           variant="card"
           padding="lg"
-          className="gap-4 rotate-[0.9deg] shadow-[var(--shadow-float)]"
+          className="rotate-[0.9deg] gap-4 shadow-[var(--shadow-float)]"
         >
           <div className="flex flex-wrap items-center gap-2">
             <Button size="sm">Deploy</Button>
@@ -284,7 +284,7 @@ function HeroCollage() {
         <Surface
           variant="card"
           padding="lg"
-          className="flex-row items-center justify-between gap-4 rotate-[-0.6deg] shadow-[var(--shadow-float)]"
+          className="rotate-[-0.6deg] flex-row items-center justify-between gap-4 shadow-[var(--shadow-float)]"
         >
           <AvatarGroup
             label="Reviewers"
@@ -304,171 +304,110 @@ function HeroCollage() {
   )
 }
 
-/* ------------------------------------------------------------ specimen wall */
+/* ------------------------------------------------------------------- facts */
 
-const TRAFFIC = [12, 18, 15, 24, 22, 31, 28, 38, 35, 44, 41, 52]
+/**
+ * The numbers, before the pitch goes any further.
+ *
+ * Every figure is derived — from the catalogue, the block list, the generated
+ * MCP definitions, or the contrast guarantee in the accent maths — so none of
+ * them can quietly go stale. There are no borrowed logos here, because there are
+ * none to borrow.
+ */
+function FactsBand() {
+  const facts = [
+    { value: String(componentCount), label: 'components' },
+    { value: String(blockCount), label: 'production blocks' },
+    { value: String(groups.length), label: 'groups' },
+    { value: '4.5:1', label: 'contrast, on any accent' },
+    { value: '2', label: 'runtime dependencies' },
+    { value: String(mcpTools.length), label: 'MCP tools for agents' },
+  ]
 
-function Wall() {
-  const [tab, setTab] = useState('week')
-  const [notify, setNotify] = useState(true)
-  const [budget, setBudget] = useState(64)
+  return (
+    <section aria-label="At a glance" className="mx-auto w-full max-w-[1400px] px-5 pt-10 lg:px-8">
+      <Surface variant="card" padding="none" className="overflow-hidden">
+        {/* A one-pixel gap over a line-coloured ground draws the hairlines,
+            so the dividers stay correct at every column count. */}
+        <dl className="grid grid-cols-2 gap-px bg-line sm:grid-cols-3 lg:grid-cols-6">
+          {facts.map((fact) => (
+            <div key={fact.label} className="flex flex-col gap-1 bg-surface px-5 py-5">
+              <dt className="order-2">
+                <Text as="span" size="caption" weight="semibold" tone="faint">
+                  {fact.label}
+                </Text>
+              </dt>
+              <dd className="order-1">
+                <Text as="span" size="title" tabular>
+                  {fact.value}
+                </Text>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </Surface>
+    </section>
+  )
+}
+
+/* ------------------------------------------------------------------ blocks */
+
+const AdminBlock = lazy(() => import('../blocks/AdminBlock'))
+const DashboardBlock = lazy(() => import('../blocks/DashboardBlock'))
+const SettingsBlock = lazy(() => import('../blocks/SettingsBlock'))
+const LoginBlock = lazy(() => import('../blocks/LoginBlock'))
+
+type ScreenKey = 'admin' | 'dashboard' | 'settings' | 'login'
+
+/**
+ * Whole screens, live.
+ *
+ * The strongest thing a component library can show is the thing people are
+ * about to build. Each tab is a real block from the Blocks section, and only the
+ * open one is mounted — Tabs renders the current panel alone — so four screens
+ * cost the page one.
+ */
+function BlocksShowcase() {
+  const [screen, setScreen] = useState<ScreenKey>('admin')
+
+  const frame = (slug: string, node: ReactNode) => (
+    <div className="flex flex-col gap-3 pt-4">
+      <Surface variant="sunken" padding="none" className="overflow-hidden bg-app p-3 sm:p-5">
+        <Suspense fallback={<div className="min-h-[540px]" aria-busy="true" />}>{node}</Suspense>
+      </Surface>
+      <SectionLink to={`/blocks/${slug}`}>Open this block, with its source</SectionLink>
+    </div>
+  )
 
   return (
     <SectionShell
-      eyebrow="Live, not screenshots"
-      title="Every one of these is running"
-      lede="The same components you would import. Poke at them — the switch switches, the slider slides, the chart is drawn from an array."
+      eyebrow="Blocks"
+      title="From component to finished screen"
+      lede="Assembled from the same parts, and nothing else — no block introduces a colour, a radius or a spacing value of its own. Sort the tables, open the dialogs, flip the switches: every control is wired."
+      action={<SectionLink to="/blocks">All {blockCount} blocks</SectionLink>}
     >
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
-        <SpecimenCard className="xl:col-span-2">
-          <div className="flex flex-wrap items-start justify-between gap-4">
-            <Metric label="Monthly active" value="12,480" delta="+18.2%" trend="up" size="lg" />
-            <SegmentedControl
-              label="Range"
-              size="sm"
-              value={tab}
-              onValueChange={setTab}
-              options={[
-                { value: 'week', label: 'Week' },
-                { value: 'month', label: 'Month' },
-                { value: 'year', label: 'Year' },
-              ]}
-            />
-          </div>
-          <Sparkline values={TRAFFIC} label="Monthly active users" area showLast height={72} />
-        </SpecimenCard>
-
-        <SpecimenCard>
-          <DonutChart
-            label="Traffic by source"
-            size={148}
-            slices={[
-              { id: 'direct', label: 'Direct', value: 48 },
-              { id: 'search', label: 'Search', value: 32 },
-              { id: 'social', label: 'Social', value: 20 },
-            ]}
-          />
-        </SpecimenCard>
-
-        <SpecimenCard>
-          <StatCard
-            icon={Package}
-            title="Deploys"
-            value="184"
-            delta="+12"
-            trend="up"
-            caption="This quarter"
-            meter={{ value: 184, total: 240, label: 'Quarterly target' }}
-          />
-        </SpecimenCard>
-
-        <SpecimenCard>
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex flex-col gap-1">
-              <Text size="heading">Notifications</Text>
-              <Text size="caption" tone="faint">
-                Weekly digest, Mondays
-              </Text>
-            </div>
-            <Switch
-              checked={notify}
-              onChange={(event) => setNotify(event.target.checked)}
-              aria-label="Weekly digest"
-            />
-          </div>
-          <div className="flex flex-col gap-1.5">
-            <div className="flex items-baseline justify-between">
-              <Text size="caption" weight="semibold" tone="soft">
-                Alert threshold
-              </Text>
-              <Text size="caption" weight="bold" tabular>
-                {budget}%
-              </Text>
-            </div>
-            <Slider
-              value={budget}
-              onChange={(event) => setBudget(Number(event.target.value))}
-              aria-label="Alert threshold"
-            />
-          </div>
-          <div className="flex flex-wrap items-center gap-1.5">
-            <Badge>New</Badge>
-            <Tag tone="accent">v1.0</Tag>
-            <Tag>tokens</Tag>
-            <Kbd>⌘</Kbd>
-            <Kbd>K</Kbd>
-          </div>
-        </SpecimenCard>
-
-        <SpecimenCard>
-          <div className="flex items-center justify-between gap-4">
-            <AvatarGroup
-              label="Reviewers"
-              people={[
-                { name: 'Ada Lovelace' },
-                { name: 'Grace Hopper' },
-                { name: 'Alan Turing' },
-                { name: 'Katherine Johnson' },
-                { name: 'Radia Perlman' },
-              ]}
-              max={4}
-            />
-            <ProgressRing value={72} label="Review progress" size="md" />
-          </div>
-          <Rating value={4} label="Documentation" readOnly />
-          <div className="flex items-center gap-2">
-            <IconTile icon={Bell} />
-            <IconTile icon={Wind} tone="accent" />
-            <IconTile icon={Command} />
-          </div>
-        </SpecimenCard>
-      </div>
-
-      <div className="mt-3 overflow-hidden rounded-[var(--radius-card)] border border-line bg-surface py-3">
-        <Marquee speed={26} fade pauseOnHover>
-          {catalog
-            .filter((_, index) => index % 5 === 0)
-            .map((entry) => (
-              // Text, not links: Marquee clones its children behind aria-hidden
-              // for the seamless loop, and a cloned link is a second tab stop
-              // leading to the same page.
-              <Text
-                key={entry.slug}
-                size="caption"
-                weight="bold"
-                tone="soft"
-                className="whitespace-nowrap px-2"
-              >
-                {entry.name}
-              </Text>
-            ))}
-        </Marquee>
-      </div>
+      <Tabs
+        label="Example screens"
+        value={screen}
+        onValueChange={(value) => setScreen(value as ScreenKey)}
+        items={[
+          { value: 'admin', label: 'Admin panel', content: frame('admin', <AdminBlock />) },
+          { value: 'dashboard', label: 'Operations', content: frame('dashboard', <DashboardBlock embedded />) },
+          { value: 'settings', label: 'Settings', content: frame('settings', <SettingsBlock />) },
+          { value: 'login', label: 'Sign in', content: frame('login', <LoginBlock />) },
+        ]}
+      />
     </SectionShell>
   )
 }
 
-function SpecimenCard({
-  children,
-  className,
-}: {
-  children: ReactNode
-  className?: string
-}) {
-  return (
-    <Surface variant="card" padding="lg" className={`justify-center gap-5 ${className ?? ''}`}>
-      {children}
-    </Surface>
-  )
-}
-
-/* ---------------------------------------------------------------- showcase */
+/* -------------------------------------------------------------- components */
 
 const CUBE_FACES = [
-  <FaceTile key="1" label="Tokens" value="42" />,
-  <FaceTile key="2" label="Groups" value="12" />,
-  <FaceTile key="3" label="Components" value="238" />,
-  <FaceTile key="4" label="Runtime deps" value="3" />,
+  <FaceTile key="1" label="Tokens" value="31" />,
+  <FaceTile key="2" label="Groups" value={String(groups.length)} />,
+  <FaceTile key="3" label="Components" value={String(componentCount)} />,
+  <FaceTile key="4" label="Blocks" value={String(blockCount)} />,
 ]
 
 function FaceTile({ label, value }: { label: string; value: string }) {
@@ -485,27 +424,86 @@ function FaceTile({ label, value }: { label: string; value: string }) {
 }
 
 /**
- * The other half of the library.
+ * The parts, everyday and otherwise.
  *
- * A component set that stops at buttons and tables is a component set someone
- * has to leave to build the memorable part of their product. These are here
- * because they are the ones nobody expects to find already built.
+ * One bento rather than two sections: the everyday components sit in the same
+ * grid as the canvas and audio pieces, because the claim is that they are one
+ * system, and splitting them would argue the opposite.
  */
-function Showcase() {
+function ComponentsBento() {
+  const [notify, setNotify] = useState(true)
+  const [threshold, setThreshold] = useState(64)
+
   return (
     <SectionShell
-      eyebrow="It does not stop at buttons"
-      title="The parts you would otherwise build yourself"
-      lede="Canvas, Web Audio, physics and 3D transforms — all drawn by hand, all reduced-motion aware, all one import away."
+      eyebrow="Components"
+      title="Everyday parts, and the ones nobody expects to find built"
+      lede="Every tile is the component you would import, running. The chart is drawn from an array, the switch switches, and the canvas pieces are reduced-motion aware."
+      action={<SectionLink to="/components">All {componentCount} components</SectionLink>}
     >
       <div className="grid grid-cols-1 gap-3 md:grid-cols-6">
+        <ShowcaseTile className="md:col-span-2" name="DonutChart" slug="donut-chart">
+          <div className="grid h-[168px] place-items-center">
+            <DonutChart
+              label="Traffic by source"
+              size={148}
+              slices={[
+                { id: 'direct', label: 'Direct', value: 48 },
+                { id: 'search', label: 'Search', value: 32 },
+                { id: 'social', label: 'Social', value: 20 },
+              ]}
+            />
+          </div>
+        </ShowcaseTile>
+
+        <ShowcaseTile className="md:col-span-2" name="StatCard" slug="stat-card" plain>
+          <StatCard
+            icon={Package}
+            title="Deploys"
+            value="184"
+            delta="+12"
+            trend="up"
+            caption="This quarter"
+            meter={{ value: 184, total: 240, label: 'Quarterly target' }}
+            className="h-full"
+          />
+        </ShowcaseTile>
+
+        <ShowcaseTile className="md:col-span-2" name="Switch and Slider" slug="slider">
+          <div className="flex h-[168px] flex-col justify-center gap-5">
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex flex-col gap-1">
+                <Text size="heading">Notifications</Text>
+                <Text size="caption" tone="faint">
+                  Weekly digest, Mondays
+                </Text>
+              </div>
+              <Switch
+                checked={notify}
+                onChange={(event) => setNotify(event.target.checked)}
+                aria-label="Weekly digest"
+              />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <div className="flex items-baseline justify-between">
+                <Text size="caption" weight="semibold" tone="soft">
+                  Alert threshold
+                </Text>
+                <Text size="caption" weight="bold" tabular>
+                  {threshold}%
+                </Text>
+              </div>
+              <Slider
+                value={threshold}
+                onChange={(event) => setThreshold(Number(event.target.value))}
+                aria-label="Alert threshold"
+              />
+            </div>
+          </div>
+        </ShowcaseTile>
+
         {/* Matrix rain, with a neon sign standing in front of it. */}
-        <ShowcaseTile
-          className="md:col-span-3"
-          name="MatrixRain + NeonSign"
-          slug="matrix-rain"
-          bare
-        >
+        <ShowcaseTile className="md:col-span-3" name="MatrixRain + NeonSign" slug="matrix-rain" bare>
           <div className="relative h-[260px] w-full overflow-hidden rounded-[var(--radius-card)]">
             <MatrixRain speed={0.7} />
             <div className="pointer-events-none absolute inset-0 grid place-items-center">
@@ -516,23 +514,29 @@ function Showcase() {
           </div>
         </ShowcaseTile>
 
-        {/* A foil card that tilts under the pointer. */}
+        {/* A foil card that tilts under the pointer. Ink on inverse ink rather
+            than a fixed near-black, so it follows the theme like everything
+            else on the page. */}
         <ShowcaseTile className="md:col-span-3" name="HoloCard" slug="holo-card" bare>
           <HoloCard radius="var(--radius-card)" className="h-[260px]">
-            <div className="flex h-[260px] flex-col justify-between bg-[#12141a] p-6">
+            <div className="flex h-[260px] flex-col justify-between bg-ink p-6">
               <div className="flex items-center justify-between">
-                <Text size="micro" weight="bold" className="uppercase tracking-[0.2em] text-white/60">
+                <Text
+                  size="micro"
+                  weight="bold"
+                  className="uppercase tracking-[0.2em] text-ink-inverse/60"
+                >
                   Foil
                 </Text>
-                <Text size="micro" weight="bold" className="text-white/60">
-                  001 / 238
+                <Text size="micro" weight="bold" tabular className="text-ink-inverse/60">
+                  001 / {componentCount}
                 </Text>
               </div>
               <div className="flex flex-col gap-1">
-                <Text size="title" className="text-white">
+                <Text size="title" className="text-ink-inverse">
                   Hold the pointer
                 </Text>
-                <Text size="caption" className="text-white/60" leading="normal">
+                <Text size="caption" leading="normal" className="text-ink-inverse/60">
                   The foil tracks where you are, the sparkle does not follow the tilt, and the whole
                   thing settles when you leave.
                 </Text>
@@ -543,9 +547,7 @@ function Showcase() {
 
         <ShowcaseTile className="md:col-span-2" name="GlitchText" slug="glitch-text">
           <div className="grid h-[128px] place-items-center">
-            <GlitchText className="text-[30px] font-extrabold tracking-[-0.03em]">
-              corrupted
-            </GlitchText>
+            <GlitchText className="text-[30px] font-extrabold tracking-[-0.03em]">corrupted</GlitchText>
           </div>
         </ShowcaseTile>
 
@@ -563,12 +565,7 @@ function Showcase() {
 
         <ShowcaseTile className="md:col-span-2" name="CubeCarousel" slug="cube-carousel">
           <div className="grid h-[168px] place-items-center">
-            <CubeCarousel
-              label="Four faces"
-              size={116}
-              autoRotate={3200}
-              faces={CUBE_FACES}
-            />
+            <CubeCarousel label="Four faces" size={116} autoRotate={3200} faces={CUBE_FACES} />
           </div>
         </ShowcaseTile>
 
@@ -592,6 +589,8 @@ function Showcase() {
             title="citrine — zsh"
             commands={['help', 'about', 'groups']}
             greeting={
+              // The terminal is always dark — its colours are physical, not
+              // thematic — so white stays white here in either theme.
               <>
                 <span className="text-[color:var(--color-accent-strong)]">citrine</span> v1.0 — try{' '}
                 <span className="text-white">groups</span>, then press ↑.
@@ -621,6 +620,27 @@ function Showcase() {
           </div>
         </ShowcaseTile>
       </div>
+
+      <div className="mt-3 overflow-hidden rounded-[var(--radius-card)] border border-line bg-surface py-3">
+        <Marquee speed={26} fade pauseOnHover>
+          {catalog
+            .filter((_, index) => index % 5 === 0)
+            .map((entry) => (
+              // Text, not links: Marquee clones its children behind aria-hidden
+              // for the seamless loop, and a cloned link is a second tab stop
+              // leading to the same page.
+              <Text
+                key={entry.slug}
+                size="caption"
+                weight="bold"
+                tone="soft"
+                className="whitespace-nowrap px-2"
+              >
+                {entry.name}
+              </Text>
+            ))}
+        </Marquee>
+      </div>
     </SectionShell>
   )
 }
@@ -631,6 +651,7 @@ function ShowcaseTile({
   children,
   className,
   bare = false,
+  plain = false,
 }: {
   name: string
   slug: string
@@ -638,79 +659,22 @@ function ShowcaseTile({
   className?: string
   /** Let the specimen reach the card edge — for the ones that fill a frame. */
   bare?: boolean
+  /** The specimen is itself a card, so it gets no second one around it. */
+  plain?: boolean
 }) {
   return (
     <div className={cn('flex flex-col gap-2', className)}>
-      <Surface variant="card" padding={bare ? 'none' : 'lg'} className="overflow-hidden">
-        {children}
-      </Surface>
-      <Link
-        to={`/components/${slug}`}
-        className="group inline-flex items-center gap-1 self-start rounded-md px-0.5"
-      >
-        <Text size="caption" weight="bold" tone="soft" className="group-hover:text-ink">
-          {name}
-        </Text>
-        <ArrowRight
-          size={11}
-          aria-hidden
-          className="text-ink-faint transition-transform group-hover:translate-x-0.5"
-        />
-      </Link>
+      {plain ? (
+        <div className="flex flex-1 flex-col">{children}</div>
+      ) : (
+        <Surface variant="card" padding={bare ? 'none' : 'lg'} className="flex-1 overflow-hidden">
+          {children}
+        </Surface>
+      )}
+      <SectionLink to={`/components/${slug}`}>{name}</SectionLink>
     </div>
   )
 }
-
-/* ------------------------------------------------------------------ admin */
-
-/**
- * A working product, not a gallery.
- *
- * The strongest thing a component library can show is the thing people are
- * actually about to build — so this is a real admin panel, assembled only from
- * components on this site, with every control wired up.
- */
-function AdminSection() {
-  return (
-    <SectionShell
-      eyebrow="Assembled, not illustrated"
-      title="An admin panel, built from the same parts"
-      lede="Sort the table, invite someone, change a role, remove a row and undo it. Nothing here is a mockup — it is DataTable, Modal, Select, Switch, StatCard, AreaChart and Toast, wired together the way you would wire them."
-    >
-      <AdminDemo />
-
-      <div className="mt-3 flex flex-wrap items-center gap-1.5">
-        <Text size="caption" tone="faint" className="mr-1">
-          Built from
-        </Text>
-        {ADMIN_PARTS.map((part) => (
-          <Link
-            key={part.slug}
-            to={`/components/${part.slug}`}
-            className="rounded-full bg-surface-muted px-2.5 py-1 text-[11px] font-bold text-ink-soft transition-colors hover:text-ink"
-          >
-            {part.name}
-          </Link>
-        ))}
-      </div>
-    </SectionShell>
-  )
-}
-
-const ADMIN_PARTS = [
-  { name: 'DataTable', slug: 'data-table' },
-  { name: 'Modal', slug: 'modal' },
-  { name: 'Field', slug: 'field' },
-  { name: 'Select', slug: 'select' },
-  { name: 'Switch', slug: 'switch' },
-  { name: 'SearchField', slug: 'search-field' },
-  { name: 'StatCard', slug: 'stat-card' },
-  { name: 'AreaChart', slug: 'area-chart' },
-  { name: 'DonutChart', slug: 'donut-chart' },
-  { name: 'Toast', slug: 'toast' },
-  { name: 'Avatar', slug: 'avatar' },
-  { name: 'Tag', slug: 'tag' },
-]
 
 /* ----------------------------------------------------------------- one hue */
 
@@ -724,48 +688,47 @@ function OneHue() {
     saveAccent(next)
   }
 
+  const dark = mode === 'dark' || (mode === 'system' && systemMode() === 'dark')
+
   return (
     <SectionShell
       eyebrow="Theming"
       title="Pick a hue. Everything follows."
       lede="Four custom properties are derived from one colour — the accent, a darker press state, a pale wash, and the text that sits on top of it. Nothing else in the library hard-codes a colour, so the whole page repaints, this one included."
     >
-      <div className="grid gap-3 lg:grid-cols-[1.15fr_1fr]">
+      <div className="grid grid-cols-1 gap-3 lg:grid-cols-[1.15fr_1fr]">
         <Surface variant="card" padding="lg" className="gap-5">
           <div className="flex flex-wrap gap-2">
-            {ACCENT_PRESETS.map((preset) => (
-              <button
-                key={preset.id}
-                type="button"
-                onClick={() => pick(preset.hex)}
-                aria-pressed={preset.hex.toLowerCase() === hex.toLowerCase()}
-                className="group flex flex-col items-center gap-1.5"
-              >
-                <span
-                  className="h-11 w-11 rounded-[14px] border border-line-strong transition-transform group-hover:scale-105"
-                  style={{
-                    background: preset.hex,
-                    outline:
-                      preset.hex.toLowerCase() === hex.toLowerCase()
-                        ? '2px solid var(--color-ink)'
-                        : undefined,
-                    outlineOffset: '2px',
-                  }}
-                />
-                <Text size="micro" weight="bold" tone="faint">
-                  {preset.name}
-                </Text>
-              </button>
-            ))}
+            {ACCENT_PRESETS.map((preset) => {
+              const active = preset.hex.toLowerCase() === hex.toLowerCase()
+              return (
+                <button
+                  key={preset.id}
+                  type="button"
+                  onClick={() => pick(preset.hex)}
+                  aria-pressed={active}
+                  className="group flex flex-col items-center gap-1.5"
+                >
+                  <span
+                    className="h-11 w-11 rounded-[14px] border border-line-strong transition-transform group-hover:scale-105"
+                    style={{
+                      background: preset.hex,
+                      outline: active ? '2px solid var(--color-ink)' : undefined,
+                      outlineOffset: '2px',
+                    }}
+                  />
+                  <Text size="micro" weight="bold" tone="faint">
+                    {preset.name}
+                  </Text>
+                </button>
+              )
+            })}
           </div>
 
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
             <Swatch token="--color-accent" value={family.accent} />
             <Swatch token="--color-accent-strong" value={family.strong} />
-            <Swatch
-              token="--color-accent-soft"
-              value={mode === 'dark' || (mode === 'system' && systemMode() === 'dark') ? family.softDark : family.soft}
-            />
+            <Swatch token="--color-accent-soft" value={dark ? family.softDark : family.soft} />
             <Swatch token="--color-accent-ink" value={family.ink} />
           </div>
 
@@ -774,12 +737,14 @@ function OneHue() {
 
         <BorderBeam radius="var(--radius-card)">
           <Surface variant="card" padding="lg" className="h-full justify-center gap-4">
-            <Text size="heading">Derived, not configured</Text>
+            <Text as="h3" size="heading">
+              Derived, not configured
+            </Text>
             <Text size="caption" tone="soft" leading="normal">
               The press state is the same hue at a different lightness. The wash is the same hue,
               desaturated. The label colour is chosen by contrast — a tinted near-black where it
-              reads, white where that is stronger — so every hue clears 4.5:1. Checked below for
-              whichever one you pick.
+              reads, white where that is stronger — so every hue clears 4.5:1. Checked beside this
+              for whichever one you pick.
             </Text>
             <CodeBlock
               language="ts"
@@ -811,129 +776,46 @@ function Swatch({ token, value }: { token: string; value: string }) {
   )
 }
 
-/* ------------------------------------------------------------------- copy */
-
-const SNIPPET = `import { DataTable, Metric, Sparkline } from '${brand.pkg}'
-
-export function Overview({ rows }: { rows: Row[] }) {
-  return (
-    <>
-      <Metric label="Monthly active" value="12,480" delta="+18.2%" trend="up" />
-      <Sparkline values={rows.map((row) => row.total)} label="Volume" area />
-      <DataTable rows={rows} columns={columns} />
-    </>
-  )
-}`
-
-function CopySection() {
-  return (
-    <SectionShell
-      eyebrow="Developer experience"
-      title="Read the page, take the file"
-      lede="Every component page ends with its own implementation — the real file, read off disk at build time, with a copy button. No wrapper to unpick, no build step to reverse-engineer."
-    >
-      <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
-        <Surface variant="card" padding="lg" className="gap-4">
-          <Text size="heading">Import it</Text>
-          <CodeBlock language="tsx" code={SNIPPET} />
-        </Surface>
-
-        <div className="flex flex-col gap-3">
-          <Feature
-            title="The source is the source"
-            body="The Code section on a page loads the same file the preview above it is running. It cannot drift, because there is no second copy."
-          />
-          <Feature
-            title="Typed, and documented where it matters"
-            body="Every prop table is written next to its examples. Types come from the implementation, so the table and the compiler never disagree."
-          />
-          <Feature
-            title="No lock-in"
-            body="Three runtime dependencies: React, clsx and tailwind-merge. Icons are a structural type, so bring whichever set you already use."
-          />
-        </div>
-      </div>
-    </SectionShell>
-  )
-}
-
-function Feature({ title, body }: { title: string; body: string }) {
-  return (
-    <Surface variant="card" padding="lg" className="gap-1.5">
-      <Text size="heading">{title}</Text>
-      <Text size="caption" tone="soft" leading="normal">
-        {body}
-      </Text>
-    </Surface>
-  )
-}
-
-/* ------------------------------------------------------------------ agents */
-
-/**
- * The library is too large to hold in a head — 238 components and 1,615 props —
- * which is exactly the case for handing it to an agent as data rather than
- * hoping one guesses right.
- */
-function AgentSection() {
-  return (
-    <SectionShell
-      eyebrow="For agents"
-      title="Your coding agent can read the whole library"
-      lede="An MCP server ships inside the package: the catalogue, every prop with its real type and default, the ARIA roles, the tokens and the house rules. Connect it and an agent stops guessing prop names and inventing colours."
-    >
-      <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
-        <Surface variant="card" padding="lg" className="gap-4">
-          <Text size="heading">One command to connect</Text>
-          <CodeBlock
-            language="bash"
-            code={`claude mcp add ${brand.pkg} -- npx -y ${brand.pkg}-mcp`}
-            highlight={false}
-          />
-          <Text size="caption" tone="soft" leading="normal">
-            Seven tools and four resources, plus an Agent Skill for harnesses that load those
-            instead. Both read the same generated data this site is built from.
-          </Text>
-          <Link
-            to="/agents"
-            className="text-[13px] font-bold text-ink underline underline-offset-2"
-          >
-            How to connect it
-          </Link>
-        </Surface>
-
-        <div className="flex flex-col gap-3">
-          <Feature
-            title="Types, not guesses"
-            body="get_component returns every prop with the type and default read off the implementation, so an agent writes switchSize rather than size because that is what Switch actually takes."
-          />
-          <Feature
-            title="The tokens, not a palette it made up"
-            body="Colour, radius, shadow and type in W3C Design Tokens format, dark mode included. Nothing in the library names a colour, and neither should anything built on it."
-          />
-          <Feature
-            title="No SDK, no third dependency"
-            body="Plain JSON-RPC over stdio in one file. A library that advertises two runtime dependencies should not quietly add a third to document itself."
-          />
-        </div>
-      </div>
-    </SectionShell>
-  )
-}
-
-/* ------------------------------------------------------------------ weight */
+/* ----------------------------------------------------------------- ship it */
 
 const kb = (bytes: number) => `${(bytes / 1024).toFixed(bytes < 10240 ? 2 : 1)} kB`
 
+const PATHS = [
+  {
+    step: '01',
+    title: 'Install the package',
+    body: 'Prebuilt CSS, ESM, one module per component with side effects declared. No Tailwind required, and nothing to configure.',
+    code: `npm install ${brand.pkg}`,
+    to: '/getting-started',
+    link: 'Get started',
+  },
+  {
+    step: '02',
+    title: 'Or copy the source',
+    body: 'Every component page ends with the real file. The CLI writes it — and everything it imports — into your project, with relative imports that resolve as they land.',
+    code: `npx ${brand.pkg} add data-table`,
+    to: '/components/data-table',
+    link: 'See a Code section',
+  },
+  {
+    step: '03',
+    title: 'Hand it to your agent',
+    body: `An MCP server ships in the package: ${mcpTools.length} tools over the real props, tokens and rules, so a coding agent stops guessing prop names.`,
+    code: `claude mcp add ${brand.pkg} -- npx -y ${brand.pkg}-mcp`,
+    to: '/agents',
+    link: 'For AI agents',
+  },
+]
+
 /**
- * What an import costs, measured.
+ * How to take it, and what it costs.
  *
- * Headline numbers rather than a chart: the reader's question is "how heavy",
- * and four figures answer it faster than a distribution would. Every figure is
- * read off the built package over a component's whole dependency set.
+ * Three ways in, and all three read the same generated data — so the package,
+ * the CLI and the MCP server can never disagree about a prop. The weights sit
+ * underneath because they are the question that comes straight after "how".
  */
-function WeightSection() {
-  const tiles = [
+function ShipIt() {
+  const weights = [
     { label: 'Median component', value: kb(library.median), caption: 'gzipped, dependencies included' },
     { label: 'Lightest', value: kb(library.lightest.gzip), caption: library.lightest.name },
     { label: 'Heaviest', value: kb(library.heaviest.gzip), caption: library.heaviest.name },
@@ -942,20 +824,43 @@ function WeightSection() {
 
   return (
     <SectionShell
-      eyebrow="Weight"
-      title="What an import actually costs"
-      lede="Measured on the built package, over each component's whole dependency set — what a bundler adds for that one import. ESM with side effects declared, so the rest is dropped. The last figure is every module at once: an upper bound, not something any app ships."
+      eyebrow="Ship it your way"
+      title="Install it, copy it, or hand it to your agent"
+      lede="Three ways in, one source of truth. The package, the CLI and the MCP server all read the same generated data, so none of them can disagree about a prop."
     >
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {tiles.map((tile) => (
+      <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
+        {PATHS.map((path) => (
+          <Surface key={path.step} variant="card" padding="lg" className="gap-4">
+            <Text size="micro" weight="bold" tone="accent" tabular className="tracking-[0.18em]">
+              {path.step}
+            </Text>
+            <div className="flex flex-col gap-1.5">
+              <Text as="h3" size="heading">
+                {path.title}
+              </Text>
+              <Text size="caption" tone="soft" leading="normal">
+                {path.body}
+              </Text>
+            </div>
+            <CodeBlock language="bash" code={path.code} highlight={false} />
+            <div className="mt-auto">
+              <SectionLink to={path.to}>{path.link}</SectionLink>
+            </div>
+          </Surface>
+        ))}
+      </div>
+
+      <div className="mt-3 grid grid-cols-2 gap-3 lg:grid-cols-4">
+        {weights.map((tile) => (
           <Surface key={tile.label} variant="card" padding="lg">
             <Metric label={tile.label} value={tile.value} caption={tile.caption} />
           </Surface>
         ))}
       </div>
       <Text size="caption" tone="faint" leading="normal" className="mt-3 max-w-[72ch]">
-        Two runtime dependencies, clsx and tailwind-merge, shared by everything after the first
-        import. Every component page shows its own figure.
+        What an import costs, measured on the built package over each component's whole dependency
+        set — what a bundler adds for that one import. The last figure is every module at once: an
+        upper bound, not something any app ships.
       </Text>
     </SectionShell>
   )
@@ -969,6 +874,7 @@ function GroupGrid() {
       eyebrow="Everything, filed by what it is for"
       title={`${groups.length} groups, ${componentCount} components`}
       lede="From the type scale up to a Web Audio keyboard. Pick a group, or search the catalogue."
+      action={<SectionLink to="/components">Open the catalogue</SectionLink>}
     >
       <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
         {groups.map((group) => {
@@ -1032,7 +938,9 @@ function Principles() {
         {PRINCIPLES.map((principle) => (
           <Surface key={principle.title} variant="card" padding="lg" className="gap-3">
             <IconTile icon={principle.icon} tone="accent" />
-            <Text size="heading">{principle.title}</Text>
+            <Text as="h3" size="heading">
+              {principle.title}
+            </Text>
             <Text size="caption" tone="soft" leading="normal">
               {principle.body}
             </Text>
@@ -1053,23 +961,29 @@ function Closing() {
         padding="lg"
         className="items-center gap-4 overflow-hidden bg-accent py-16 text-center"
       >
-        <Text size="title" className="text-accent-ink">
-          Start with a button
+        <Text as="h2" size="title" className="text-balance text-accent-ink sm:text-[32px]">
+          Build the first screen today
         </Text>
         <Text
           size="body"
           weight="medium"
           leading="normal"
-          className="max-w-[52ch] text-accent-ink opacity-80"
+          className="max-w-[54ch] text-balance text-accent-ink opacity-80"
         >
-          Or a Sankey diagram, a signature pad, or a terminal with working history. They are all one
-          page away, and all copyable.
+          Start from a block, change the copy, pick one colour. {componentCount} components and{' '}
+          {blockCount} screens, every one of them copyable.
         </Text>
-        <Link to="/components">
-          <Button variant="white" size="md">
-            Browse all {componentCount}
-          </Button>
-        </Link>
+        <div className="flex flex-wrap items-center justify-center gap-4 pt-1">
+          <CtaLink to="/getting-started" variant="white">
+            Get started
+          </CtaLink>
+          <Link
+            to="/blocks"
+            className="rounded-md text-[13px] font-bold text-accent-ink underline underline-offset-4"
+          >
+            Browse the blocks
+          </Link>
+        </div>
       </Surface>
     </section>
   )
@@ -1077,37 +991,91 @@ function Closing() {
 
 /* ------------------------------------------------------------------ shared */
 
+const CTA_VARIANTS = {
+  accent: 'bg-accent text-accent-ink hover:bg-accent-strong active:bg-accent-strong',
+  outline: 'border border-line-strong bg-surface text-ink hover:bg-surface-muted',
+  white: 'bg-shell text-ink shadow-[var(--shadow-float)] hover:bg-surface-muted',
+} as const
+
+/**
+ * A link with Button's exact classes.
+ *
+ * Button renders a <button>, and a button inside a link is invalid nested
+ * interactive markup — assistive technology meets two controls for one action.
+ * Navigation belongs on a link, so rather than wrapping a Button this copies its
+ * base, variant and `md` size classes verbatim from Button.tsx. If Button gains
+ * link rendering, this goes.
+ */
+function CtaLink({
+  to,
+  variant = 'accent',
+  children,
+}: {
+  to: string
+  variant?: keyof typeof CTA_VARIANTS
+  children: ReactNode
+}) {
+  return (
+    <Link
+      to={to}
+      className={cn(
+        'inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-full px-5 text-[13px] font-semibold leading-none transition-colors',
+        CTA_VARIANTS[variant],
+      )}
+    >
+      {children}
+    </Link>
+  )
+}
+
+/** The quiet "more of this" link used under tiles and beside section titles. */
+function SectionLink({ to, children }: { to: string; children: ReactNode }) {
+  return (
+    <Link
+      to={to}
+      className="group inline-flex items-center gap-1 self-start rounded-md px-0.5 text-[12.5px] font-bold text-ink-soft transition-colors hover:text-ink"
+    >
+      {children}
+      <ArrowRight
+        size={12}
+        aria-hidden
+        className="text-ink-faint transition-transform group-hover:translate-x-0.5"
+      />
+    </Link>
+  )
+}
+
 function SectionShell({
   eyebrow,
   title,
   lede,
+  action,
   children,
 }: {
   eyebrow: string
   title: string
   lede?: string
+  /** A "see all" link, set against the title on wide screens. */
+  action?: ReactNode
   children: ReactNode
 }) {
   return (
     <section className="mx-auto w-full max-w-[1400px] px-5 py-14 lg:px-8 lg:py-20">
-      <div className="mb-8 flex flex-col gap-2.5">
-        <Text size="micro" weight="bold" tone="accent" className="uppercase tracking-[0.18em]">
-          {eyebrow}
-        </Text>
-        <Text as="h2" size="title" className="max-w-[22ch] text-balance sm:text-[32px]">
-          {title}
-        </Text>
-        {lede && (
-          <Text
-            size="body"
-            weight="medium"
-            tone="soft"
-            leading="normal"
-            className="max-w-[72ch] text-balance"
-          >
-            {lede}
+      <div className="mb-8 flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
+        <div className="flex max-w-[72ch] flex-col gap-2.5">
+          <Text size="micro" weight="bold" tone="accent" className="uppercase tracking-[0.18em]">
+            {eyebrow}
           </Text>
-        )}
+          <Text as="h2" size="title" className="max-w-[22ch] text-balance sm:text-[32px]">
+            {title}
+          </Text>
+          {lede && (
+            <Text size="body" weight="medium" tone="soft" leading="normal" className="text-balance">
+              {lede}
+            </Text>
+          )}
+        </div>
+        {action && <div className="shrink-0 pb-1">{action}</div>}
       </div>
       {children}
     </section>

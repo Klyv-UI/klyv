@@ -19,10 +19,19 @@ import { blockSource } from '../data/source'
  * a frame, source, then previous/next — because a block is not a different kind
  * of documentation, only a larger subject.
  */
-const BLOCK_COMPONENTS: Record<string, LazyExoticComponent<ComponentType>> = {
+/**
+ * Every block is shown inside this page's own main landmark, so each one is
+ * told it is embedded. Blocks without a shell of their own simply ignore it.
+ */
+interface BlockProps {
+  embedded?: boolean
+}
+
+const BLOCK_COMPONENTS: Record<string, LazyExoticComponent<ComponentType<BlockProps>>> = {
   login: lazy(() => import('../blocks/LoginBlock')),
   signup: lazy(() => import('../blocks/SignupBlock')),
   authentication: lazy(() => import('../blocks/AuthenticationBlock')),
+  admin: lazy(() => import('../blocks/AdminBlock')),
   dashboard: lazy(() => import('../blocks/DashboardBlock')),
   settings: lazy(() => import('../blocks/SettingsBlock')),
   profile: lazy(() => import('../blocks/ProfileBlock')),
@@ -33,6 +42,7 @@ const FILES: Record<string, string> = {
   login: 'LoginBlock.tsx',
   signup: 'SignupBlock.tsx',
   authentication: 'AuthenticationBlock.tsx',
+  admin: 'AdminBlock.tsx',
   dashboard: 'DashboardBlock.tsx',
   settings: 'SettingsBlock.tsx',
   profile: 'ProfileBlock.tsx',
@@ -93,7 +103,7 @@ export default function BlockPage() {
       <Section title="Screen" description="Live, and interactive — try it rather than reading it.">
         <Preview frame="canvas" className="p-0">
           <Suspense fallback={<div className="min-h-[420px]" aria-busy="true" />}>
-            <Block />
+            <Block embedded />
           </Suspense>
         </Preview>
       </Section>

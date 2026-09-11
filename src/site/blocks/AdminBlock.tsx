@@ -95,7 +95,7 @@ const NAV: { id: Panel; label: string; icon: typeof Users }[] = [
  * component names is an inventory, and this is the thing people are actually
  * trying to work out whether they can build.
  */
-export function AdminDemo() {
+export default function AdminBlock() {
   return (
     <ToastProvider placement="bottom-right">
       <AdminShell />

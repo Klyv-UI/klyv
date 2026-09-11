@@ -44,7 +44,12 @@ import {
 type NavKey = 'overview' | 'shipments' | 'fleet' | 'depots' | 'team' | 'reports' | 'settings'
 type Range = '24h' | '7d' | '30d'
 
-export default function DashboardBlock() {
+/**
+ * `embedded` is for hosts that show this screen inside their own page, as the
+ * docs do. Leave it off in a real app: the shell should own the main landmark
+ * and the skip link, and it only hands them over when told there is a host.
+ */
+export default function DashboardBlock({ embedded = false }: { embedded?: boolean }) {
   const [nav, setNav] = useState<NavKey>('overview')
   const [range, setRange] = useState<Range>('7d')
   const [selected, setSelected] = useState<string[]>([])
@@ -54,6 +59,7 @@ export default function DashboardBlock() {
   return (
     <AppShell
       framed
+      embedded={embedded}
       header={
         <Navbar
           brand="Meridian Freight"
