@@ -1105,7 +1105,8 @@ export const generatedProps: Record<string, GeneratedProps> = {
       {
         "name": "items",
         "type": "BarListItem[]",
-        "required": true
+        "required": true,
+        "description": "The rows. Sorted largest first unless `sorted` is off."
       },
       {
         "name": "label",
@@ -1446,7 +1447,8 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "name": "clearLabel",
         "type": "string",
         "required": false,
-        "defaultValue": "'Clear'"
+        "defaultValue": "'Clear'",
+        "description": "Label for the action that drops the selection."
       },
       {
         "name": "floating",
@@ -1499,7 +1501,8 @@ export const generatedProps: Record<string, GeneratedProps> = {
       {
         "name": "children",
         "type": "ReactNode",
-        "required": false
+        "required": false,
+        "description": "The label, and any glyph beside it."
       },
       {
         "name": "className",
@@ -1781,7 +1784,8 @@ export const generatedProps: Record<string, GeneratedProps> = {
       {
         "name": "segments",
         "type": "CategoryBarSegment[]",
-        "required": true
+        "required": true,
+        "description": "The parts, in the order they sit along the bar."
       },
       {
         "name": "label",
@@ -1812,7 +1816,8 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "name": "showLegend",
         "type": "boolean",
         "required": false,
-        "defaultValue": "true"
+        "defaultValue": "true",
+        "description": "Show the key under the bar, with each part's figure."
       },
       {
         "name": "className",
@@ -2557,13 +2562,15 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "name": "copiedLabel",
         "type": "string",
         "required": false,
-        "defaultValue": "'Copied'"
+        "defaultValue": "'Copied'",
+        "description": "Shown and announced after a successful copy."
       },
       {
         "name": "failedLabel",
         "type": "string",
         "required": false,
-        "defaultValue": "'Copy failed'"
+        "defaultValue": "'Copy failed'",
+        "description": "Shown and announced when the clipboard refuses."
       },
       {
         "name": "iconOnly",
@@ -2576,7 +2583,8 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "name": "size",
         "type": "ButtonSize",
         "required": false,
-        "defaultValue": "'sm'"
+        "defaultValue": "'sm'",
+        "description": "Control height: 32px or 40px."
       },
       {
         "name": "onCopy",
@@ -2657,7 +2665,8 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "name": "size",
         "type": "'sm' | 'md'",
         "required": false,
-        "defaultValue": "'md'"
+        "defaultValue": "'md'",
+        "description": "Tile size."
       },
       {
         "name": "className",
@@ -3909,19 +3918,22 @@ export const generatedProps: Record<string, GeneratedProps> = {
       {
         "name": "onExpandedChange",
         "type": "(expanded: boolean) => void",
-        "required": false
+        "required": false,
+        "description": "Called with the new state when the toggle is pressed."
       },
       {
         "name": "moreLabel",
         "type": "string",
         "required": false,
-        "defaultValue": "'Show more'"
+        "defaultValue": "'Show more'",
+        "description": "Toggle label while the text is clamped."
       },
       {
         "name": "lessLabel",
         "type": "string",
         "required": false,
-        "defaultValue": "'Show less'"
+        "defaultValue": "'Show less'",
+        "description": "Toggle label while the text is open."
       },
       {
         "name": "className",
@@ -5353,7 +5365,8 @@ export const generatedProps: Record<string, GeneratedProps> = {
       {
         "name": "images",
         "type": "LightboxImage[]",
-        "required": true
+        "required": true,
+        "description": "Every image the viewer moves between, in order."
       },
       {
         "name": "index",
@@ -9731,19 +9744,22 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "name": "variant",
         "type": "'accent' | 'muted' | 'outline'",
         "required": false,
-        "defaultValue": "'accent'"
+        "defaultValue": "'accent'",
+        "description": "Emphasis, shared by both halves."
       },
       {
         "name": "size",
         "type": "ButtonSize",
         "required": false,
-        "defaultValue": "'md'"
+        "defaultValue": "'md'",
+        "description": "Control height, shared by both halves."
       },
       {
         "name": "disabled",
         "type": "boolean",
         "required": false,
-        "defaultValue": "false"
+        "defaultValue": "false",
+        "description": "Disables the action and the menu together."
       },
       {
         "name": "className",
@@ -11219,7 +11235,8 @@ export const generatedProps: Record<string, GeneratedProps> = {
       {
         "name": "items",
         "type": "ToggleGroupItem<T>[]",
-        "required": true
+        "required": true,
+        "description": "The toggles, in order."
       },
       {
         "name": "value",
@@ -11230,7 +11247,8 @@ export const generatedProps: Record<string, GeneratedProps> = {
       {
         "name": "onValueChange",
         "type": "(value: T[]) => void",
-        "required": true
+        "required": true,
+        "description": "Called with the full set of pressed values after each press."
       },
       {
         "name": "type",
@@ -11249,7 +11267,8 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "name": "size",
         "type": "ToggleGroupSize",
         "required": false,
-        "defaultValue": "'md'"
+        "defaultValue": "'md'",
+        "description": "Control height: 28px or 32px."
       },
       {
         "name": "className",
@@ -11666,7 +11685,8 @@ export const generatedProps: Record<string, GeneratedProps> = {
       {
         "name": "items",
         "type": "T[]",
-        "required": true
+        "required": true,
+        "description": "Every row's data. Only the visible slice is rendered."
       },
       {
         "name": "itemHeight",
@@ -11683,7 +11703,8 @@ export const generatedProps: Record<string, GeneratedProps> = {
       {
         "name": "renderItem",
         "type": "(item: T, index: number) => ReactNode",
-        "required": true
+        "required": true,
+        "description": "Draws one row, inside a box exactly `itemHeight` tall."
       },
       {
         "name": "getKey",

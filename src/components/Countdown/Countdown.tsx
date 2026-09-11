@@ -15,6 +15,7 @@ export interface CountdownProps {
   units?: CountdownUnit[]
   /** Called once, on reaching zero. */
   onComplete?: () => void
+  /** Tile size. */
   size?: 'sm' | 'md'
   /** Merged last, so it wins. */
   className?: string

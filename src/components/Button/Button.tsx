@@ -38,6 +38,7 @@ export interface ButtonOwnProps {
    * pointer instead.
    */
   disabled?: boolean
+  /** The label, and any glyph beside it. */
   children?: ReactNode
   /** Merged last, so it wins. */
   className?: string

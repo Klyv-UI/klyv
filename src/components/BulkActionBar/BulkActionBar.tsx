@@ -18,6 +18,7 @@ export interface BulkActionBarProps {
   children: ReactNode
   /** Clears the selection. */
   onClear: () => void
+  /** Label for the action that drops the selection. */
   clearLabel?: string
   /** Pin to the foot of the viewport instead of sitting in the flow. */
   floating?: boolean

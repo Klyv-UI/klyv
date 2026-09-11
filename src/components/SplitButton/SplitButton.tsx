@@ -15,8 +15,11 @@ export interface SplitButtonProps {
   items: (MenuItem | 'separator')[]
   /** Accessible name for the menu half — "More save options". */
   menuLabel: string
+  /** Emphasis, shared by both halves. */
   variant?: 'accent' | 'muted' | 'outline'
+  /** Control height, shared by both halves. */
   size?: ButtonSize
+  /** Disables the action and the menu together. */
   disabled?: boolean
   /** Merged last, so it wins. */
   className?: string

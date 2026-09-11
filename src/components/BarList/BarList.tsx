@@ -12,6 +12,7 @@ export interface BarListItem {
 }
 
 export interface BarListProps {
+  /** The rows. Sorted largest first unless `sorted` is off. */
   items: BarListItem[]
   /** Accessible name for the list. */
   label: string

@@ -12,6 +12,7 @@ export interface CategoryBarSegment {
 }
 
 export interface CategoryBarProps {
+  /** The parts, in the order they sit along the bar. */
   segments: CategoryBarSegment[]
   /** Accessible name — what is being split. */
   label: string
@@ -21,6 +22,7 @@ export interface CategoryBarProps {
   format?: (value: number) => string
   /** A line across the bar — a quota, a target, a limit. */
   marker?: { value: number; label: string }
+  /** Show the key under the bar, with each part's figure. */
   showLegend?: boolean
   /** Merged last, so it wins. */
   className?: string

@@ -10,8 +10,11 @@ export interface ExpandableTextProps {
   lines?: number
   /** Controlled state. Omit it to let the component own the toggle. */
   expanded?: boolean
+  /** Called with the new state when the toggle is pressed. */
   onExpandedChange?: (expanded: boolean) => void
+  /** Toggle label while the text is clamped. */
   moreLabel?: string
+  /** Toggle label while the text is open. */
   lessLabel?: string
   /** Merged last, so it wins. */
   className?: string

@@ -19,6 +19,7 @@ export interface LightboxImage {
 }
 
 export interface LightboxProps {
+  /** Every image the viewer moves between, in order. */
   images: LightboxImage[]
   /** The open image, or null when the viewer is closed. */
   index: number | null

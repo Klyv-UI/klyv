@@ -4,11 +4,13 @@ import { useEffect, useRef, useState, type ReactNode, type UIEvent } from 'react
 import { cn } from '../../lib/cn'
 
 export interface VirtualListProps<T> {
+  /** Every row's data. Only the visible slice is rendered. */
   items: T[]
   /** Every row's height in pixels. Fixed heights are what keep this constant-time. */
   itemHeight: number
   /** The list's visible height in pixels. */
   height: number
+  /** Draws one row, inside a box exactly `itemHeight` tall. */
   renderItem: (item: T, index: number) => ReactNode
   /** Stable identity per row. Defaults to the index. */
   getKey?: (item: T, index: number) => string | number

@@ -23,9 +23,11 @@ const SIZES: Record<ToggleGroupSize, { text: string; square: string; icon: numbe
 }
 
 export interface ToggleGroupProps<T extends string = string> {
+  /** The toggles, in order. */
   items: ToggleGroupItem<T>[]
   /** The values currently pressed. */
   value: T[]
+  /** Called with the full set of pressed values after each press. */
   onValueChange: (value: T[]) => void
   /**
    * `multiple` lets any combination be on — bold and italic together. `single`
@@ -35,6 +37,7 @@ export interface ToggleGroupProps<T extends string = string> {
   type?: 'single' | 'multiple'
   /** Accessible name for the set. */
   label: string
+  /** Control height: 28px or 32px. */
   size?: ToggleGroupSize
   /** Merged last, so it wins. */
   className?: string

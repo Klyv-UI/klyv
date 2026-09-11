@@ -11,10 +11,13 @@ export interface CopyButtonProps {
   value: string
   /** The visible label, and the accessible name when icon-only. */
   label?: string
+  /** Shown and announced after a successful copy. */
   copiedLabel?: string
+  /** Shown and announced when the clipboard refuses. */
   failedLabel?: string
   /** Show the glyph alone. The label is still announced. */
   iconOnly?: boolean
+  /** Control height: 32px or 40px. */
   size?: ButtonSize
   /** Called after a successful copy. */
   onCopy?: (value: string) => void
