@@ -80,7 +80,6 @@ export function DocPage({ name, description, propNotes, apiNote, children }: Doc
           <Text size="body" weight="medium" tone="soft" leading="normal" className="max-w-[68ch]">
             {description}
           </Text>
-          <Facts name={name} />
         </header>
 
         {children}
@@ -98,6 +97,13 @@ export function DocPage({ name, description, propNotes, apiNote, children }: Doc
           description="The implementation, verbatim. Copy it into your own project, or install the package and import it."
         >
           <SourceCode component={name} />
+        </Section>
+
+        <Section
+          title="Details"
+          description="Measured on the built package, over this component's whole dependency set."
+        >
+          <Facts name={name} />
         </Section>
 
         <Neighbours previous={previous} next={next} />
@@ -243,29 +249,31 @@ function Facts({ name }: { name: string }) {
   const brought = resolved.components.length - 1
 
   return (
-    <dl className="mt-1 flex flex-wrap items-center gap-x-5 gap-y-1.5">
-      <Fact label="Size">
-        {(size.gzip / 1024).toFixed(2)} kB{' '}
-        <span className="font-normal text-ink-faint">gzipped</span>
-      </Fact>
-      <Fact label="Brings">
-        {brought === 0 ? 'nothing' : `${brought} component${brought === 1 ? '' : 's'}`}
-      </Fact>
-      <Fact label="Files">{resolved.files.length}</Fact>
-      {ariaRoles[name] && <Fact label="Roles">{ariaRoles[name].join(', ')}</Fact>}
-    </dl>
+    <Surface variant="card" padding="lg">
+      <dl className="flex flex-col">
+        <Fact label="Size">
+          {(size.gzip / 1024).toFixed(2)} kB{' '}
+          <span className="font-normal text-ink-faint">gzipped</span>
+        </Fact>
+        <Fact label="Brings">
+          {brought === 0 ? 'nothing' : `${brought} component${brought === 1 ? '' : 's'}`}
+        </Fact>
+        <Fact label="Files">{resolved.files.length}</Fact>
+        {ariaRoles[name] && <Fact label="Roles">{ariaRoles[name].join(', ')}</Fact>}
+      </dl>
+    </Surface>
   )
 }
 
 function Fact({ label, children }: { label: string; children: ReactNode }) {
   return (
-    <div className="flex items-baseline gap-1.5">
+    <div className="flex items-baseline justify-between gap-4 border-b border-line py-2 last:border-0">
       <dt>
-        <Text as="span" size="micro" weight="bold" tone="faint" className="uppercase tracking-[0.14em]">
+        <Text as="span" size="caption" weight="semibold" tone="soft">
           {label}
         </Text>
       </dt>
-      <dd>
+      <dd className="min-w-0 text-right">
         <Text as="span" size="caption" weight="bold" tabular>
           {children}
         </Text>
@@ -313,20 +321,41 @@ interface PreviewProps {
   background?: PreviewBackground
   /** Stack specimens instead of laying them out in a row. */
   stack?: boolean
+  /**
+   * `card` frames loose specimens on a surface. `canvas` is for content that
+   * brings its own cards — it keeps the same outer geometry but recedes, so a
+   * card never lands inside another card.
+   */
+  frame?: 'card' | 'canvas'
   className?: string
 }
 
-/** The canvas a demo sits on. */
-export function Preview({ children, background = 'surface', stack = false, className }: PreviewProps) {
+/**
+ * The canvas a demo sits on.
+ *
+ * Every example gets one, including the ones whose content is already a card.
+ * Two thirds of the sections in the library used to opt out of the frame
+ * entirely, and the result was a page where each example began at a different
+ * inset — the single biggest thing making the docs feel unlike one system.
+ */
+export function Preview({
+  children,
+  background = 'surface',
+  stack = false,
+  frame = 'card',
+  className,
+}: PreviewProps) {
   return (
     <Surface
-      variant="card"
+      variant={frame === 'canvas' ? 'sunken' : 'card'}
       className={cn(
         'overflow-hidden p-6',
-        BACKGROUNDS[background],
+        frame === 'canvas' ? 'bg-app' : BACKGROUNDS[background],
         // `flex-row` is explicit: Surface defaults to a column, and `flex-wrap`
         // alone does not override a flex-direction.
-        stack ? 'flex flex-col gap-5' : 'flex flex-row flex-wrap items-center gap-5',
+        stack || frame === 'canvas'
+          ? 'flex flex-col gap-5'
+          : 'flex flex-row flex-wrap items-center gap-5',
         className,
       )}
     >

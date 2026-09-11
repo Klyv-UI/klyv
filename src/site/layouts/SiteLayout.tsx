@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { Suspense, memo, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import {
   Bot,
@@ -170,14 +170,37 @@ const DOC_LINKS = [
 ]
 
 /**
+ * The nav tree, built once at module load.
+ *
+ * The catalogue and the groups are static, so grouping them was pure waste on
+ * every navigation: twelve `catalog.filter` passes plus one per section, for a
+ * result that can never differ.
+ */
+const NAV_TREE = groups.map((group) => ({
+  group,
+  count: catalog.filter((entry) => entry.group === group.id).length,
+  sections: group.sections
+    .map((section) => ({
+      section,
+      entries: catalog.filter((entry) => entry.group === group.id && entry.section === section),
+    }))
+    .filter(({ entries }) => entries.length > 0),
+}))
+
+/**
  * The component index.
  *
  * It sits on its own panel rather than loose on the page, because 238 links
  * next to a document need an edge to be a column instead of a wall of text.
  * Filtering searches the name, the section and the group, so "chart", "drag"
  * and "Overlays" all find something.
+ *
+ * Memoised, because it is a sibling of the page outlet: without this, changing
+ * route re-rendered all 241 links to produce identical markup. The active
+ * highlight still tracks the URL, since each NavLink subscribes to the router
+ * itself and context updates are not blocked by memo.
  */
-function ComponentNav({ inDrawer = false }: { inDrawer?: boolean }) {
+const ComponentNav = memo(function ComponentNav({ inDrawer = false }: { inDrawer?: boolean }) {
   const [query, setQuery] = useState('')
 
   const matches = useMemo(() => {
@@ -239,33 +262,23 @@ function ComponentNav({ inDrawer = false }: { inDrawer?: boolean }) {
             )}
           </div>
         ) : (
-          groups.map((group) => {
-            const entries = catalog.filter((entry) => entry.group === group.id)
-            return (
-              <div key={group.id} className="flex flex-col gap-0.5">
-                <GroupHeading count={entries.length} to={`/components?group=${group.slug}`}>
-                  {group.id}
-                </GroupHeading>
-                {group.sections.map((section) => (
-                  <div key={section} className="flex flex-col">
-                    <Text
-                      size="caption"
-                      weight="medium"
-                      tone="faint"
-                      className="px-2.5 pb-1 pt-2.5"
-                    >
-                      {section}
-                    </Text>
-                    {entries
-                      .filter((entry) => entry.section === section)
-                      .map((entry) => (
-                        <NavItem key={entry.slug} entry={entry} />
-                      ))}
-                  </div>
-                ))}
-              </div>
-            )
-          })
+          NAV_TREE.map(({ group, count, sections }) => (
+            <div key={group.id} className="flex flex-col gap-0.5">
+              <GroupHeading count={count} to={`/components?group=${group.slug}`}>
+                {group.id}
+              </GroupHeading>
+              {sections.map(({ section, entries }) => (
+                <div key={section} className="flex flex-col">
+                  <Text size="caption" weight="medium" tone="faint" className="px-2.5 pb-1 pt-2.5">
+                    {section}
+                  </Text>
+                  {entries.map((entry) => (
+                    <NavItem key={entry.slug} entry={entry} />
+                  ))}
+                </div>
+              ))}
+            </div>
+          ))
         )}
       </div>
     </>
@@ -282,7 +295,7 @@ function ComponentNav({ inDrawer = false }: { inDrawer?: boolean }) {
       {body}
     </Surface>
   )
-}
+})
 
 function GroupHeading({
   children,
@@ -323,7 +336,8 @@ function GroupHeading({
   )
 }
 
-function NavItem({ entry }: { entry: CatalogEntry }) {
+/** Memoised too: 241 of these mount at once, and `entry` never changes. */
+const NavItem = memo(function NavItem({ entry }: { entry: CatalogEntry }) {
   return (
     <NavLink
       to={`/components/${entry.slug}`}
@@ -339,7 +353,7 @@ function NavItem({ entry }: { entry: CatalogEntry }) {
       {entry.name}
     </NavLink>
   )
-}
+})
 
 /* ------------------------------------------------------------------ footer */
 

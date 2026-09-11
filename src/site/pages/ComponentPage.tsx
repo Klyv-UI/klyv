@@ -129,13 +129,17 @@ export default function ComponentPage() {
 
         return (
           <Section key={section.title} title={section.title} description={section.description}>
-            {section.bare ? (
-              body
-            ) : (
-              <Preview stack={section.stack} background={section.background}>
-                {body}
-              </Preview>
-            )}
+            {/* `bare` no longer means "no frame" — it means the content brings
+                its own cards, so the frame recedes to a canvas instead of
+                stacking a card inside a card. Every example keeps one outer
+                container, which is what makes the pages feel like one system. */}
+            <Preview
+              stack={section.stack}
+              background={section.background}
+              frame={section.bare ? 'canvas' : 'card'}
+            >
+              {body}
+            </Preview>
             {section.note && <Note>{section.note}</Note>}
           </Section>
         )
