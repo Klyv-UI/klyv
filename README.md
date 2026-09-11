@@ -177,10 +177,14 @@ lives in `site/data/catalog.ts` and can be rearranged without moving a file.
 
 ## The docs site
 
-- **Landing** — the pitch, with live components, not screenshots, and a
-  **working admin panel** assembled only from library components: the table
-  sorts, selects and paginates, the invite dialog validates and adds a real
-  row, removing one raises a toast with a working undo.
+- **Landing** — the pitch, in the order a visitor asks: what it is (a hero
+  whose product window switches between a working sign-in screen, its code and
+  the accent that themes it), why this one (four reasons, each with its
+  number), how it is used (find, compose, theme, ship), live screens including
+  a **working admin panel**, the platform, the components, theming, code
+  examples, the personal workspace, and standards with the checks behind them.
+  Every figure is generated, and every specimen is the real component. Each
+  section is its own module in `site/pages/landing/`.
 - **/components** — the catalogue, filterable by group, searchable by name or
   by what a component does. Text only, deliberately: the page exists to scan 254
   names quickly, and a live preview per card made that slower than it was worth.
