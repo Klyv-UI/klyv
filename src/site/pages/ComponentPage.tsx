@@ -2,6 +2,7 @@ import { Suspense, lazy, useEffect, useState, type ComponentType, type LazyExoti
 import { Link, useParams } from 'react-router-dom'
 import { Surface, Text } from 'citrine'
 import { DocPage, Note, Preview, Section, Specimen } from '../components/Doc'
+import { PageSkeleton } from '../components/PageSkeleton'
 import { findComponent } from '../data/catalog'
 import { loadExamples } from '../examples'
 import type { ComponentExamples } from '../examples/types'
@@ -146,10 +147,5 @@ export default function ComponentPage() {
       })}
     </DocPage>
   )
-}
-
-/** Reserves the page height so the sidebar does not jump while a page loads. */
-function PageSkeleton() {
-  return <div className="min-h-[60vh]" aria-busy="true" />
 }
 

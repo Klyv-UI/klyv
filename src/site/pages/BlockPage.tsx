@@ -1,6 +1,6 @@
 import { Suspense, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Badge, Button, CodeBlock, Surface, Text } from 'citrine'
+import { Badge, Button, CodeBlock, Skeleton, Surface, Text } from 'citrine'
 import { Preview, Section } from '../components/Doc'
 import { PageIntro } from '../components/PageIntro'
 import { SaveControls } from '../components/SaveControls'
@@ -63,7 +63,13 @@ export default function BlockPage() {
 
       <Section title="Screen" description="Live, and interactive — try it rather than reading it.">
         <Preview frame="canvas" className="p-0">
-          <Suspense fallback={<div className="min-h-[420px]" aria-busy="true" />}>
+          <Suspense
+            fallback={
+              <div aria-busy="true" className="p-3 sm:p-5">
+                <Skeleton shape="rect" height={420} className="w-full rounded-[var(--radius-card)]" />
+              </div>
+            }
+          >
             <Block embedded />
           </Suspense>
         </Preview>

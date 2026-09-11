@@ -1,10 +1,12 @@
 import { Suspense, memo, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
-import { Link, NavLink, Outlet, useLocation, useMatches } from 'react-router-dom'
+import { Link, NavLink, Outlet, ScrollRestoration, useLocation, useMatches } from 'react-router-dom'
+import { PageSkeleton } from '../components/PageSkeleton'
+import { RouteProgress } from '../components/RouteProgress'
 import { ChevronRight, Heart, Menu as MenuIcon } from 'lucide-react'
 import { createStore, sessionStorageAdapter, useStoreValue } from '../lib/store'
 import { AccentMenu } from '../components/AccentMenu'
 import { PlatformLinks } from '../components/PlatformLinks'
-import { Drawer, IconButton, SearchField, Surface, Text, cn } from 'citrine'
+import { Drawer, IconButton, SearchField, Text, cn } from 'citrine'
 import { AccentPicker } from '../components/AccentPicker'
 import { SearchPalette, SearchTrigger, useSearchPalette } from '../components/SearchPalette'
 import { ThemeToggle } from '../components/ThemeToggle'
@@ -57,6 +59,9 @@ export function SiteLayout() {
 
   return (
     <div className="min-h-dvh">
+      <RouteProgress />
+      {/* New pages open at the top; Back and Forward return to where you were. */}
+      <ScrollRestoration />
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-[13px] focus:font-bold focus:text-ink-inverse"
@@ -76,20 +81,23 @@ export function SiteLayout() {
         </main>
       ) : fullBleed ? (
         <main id="main" tabIndex={-1} className="mx-auto w-full max-w-[1600px] px-3 py-4 sm:px-5 lg:px-6">
-          <Suspense fallback={<div className="min-h-[70vh]" aria-busy="true" />}>
+          <Suspense fallback={<PageSkeleton />}>
             <Outlet />
           </Suspense>
         </main>
       ) : (
-        <div className="mx-auto flex w-full max-w-[1400px] gap-10 px-5 lg:px-8">
-          <div className="hidden w-[248px] shrink-0 lg:block">
-            <div className="sticky top-[88px] py-8">
+        <div className="mx-auto flex w-full max-w-[1400px] px-5 lg:px-8">
+          {/* A full-height column on the page itself, set off by one hairline —
+              the same way the header meets the page — rather than a card
+              floating beside the content. It scrolls on its own. */}
+          <div className="hidden w-[256px] shrink-0 border-r border-line lg:block">
+            <div className="sticky top-[73px] flex h-[calc(100dvh-73px)] flex-col pb-2 pr-5 pt-6">
               <ComponentNav />
             </div>
           </div>
 
-          <main id="main" tabIndex={-1} className="min-w-0 flex-1 py-8 pb-24 lg:py-10">
-            <Suspense fallback={<div className="min-h-[60vh]" aria-busy="true" />}>
+          <main id="main" tabIndex={-1} className="min-w-0 flex-1 py-8 pb-24 lg:py-10 lg:pl-10">
+            <Suspense fallback={<PageSkeleton />}>
               <Outlet />
             </Suspense>
           </main>
@@ -316,59 +324,69 @@ const NavGroup = memo(function NavGroup({
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => openGroups.set((state) => ({ ...state, [id]: !open }))}
-        className="flex w-full items-center gap-2 rounded-[10px] px-2.5 py-2 text-left transition-colors hover:bg-surface-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        className={cn(
+          'flex w-full items-center gap-2 rounded-[10px] px-3 py-[7px] text-left text-[13px] font-semibold transition-colors hover:bg-surface-muted/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent',
+          open || active ? 'text-ink' : 'text-ink-soft hover:text-ink',
+        )}
       >
+        <span className="min-w-0 flex-1 truncate">{label}</span>
+        {active && !open && <span aria-hidden className="size-1.5 shrink-0 rounded-full bg-accent-strong" />}
+        <span className="font-mono text-[10.5px] font-bold tabular-nums text-ink-faint">{count}</span>
         <ChevronRight
-          size={13}
+          size={14}
           aria-hidden
           className={cn('shrink-0 text-ink-faint transition-transform motion-reduce:transition-none', open && 'rotate-90')}
         />
-        <Text as="span" size="label" weight="bold" className="min-w-0 flex-1 truncate">
-          {label}
-        </Text>
-        {active && !open && <span aria-hidden className="size-1.5 shrink-0 rounded-full bg-accent-strong" />}
-        <Text as="span" size="micro" weight="bold" tone="faint" tabular>
-          {count}
-        </Text>
       </button>
-      {open && (
-        <div id={panelId} className="mb-1 ml-[17px] flex flex-col border-l border-line pl-2">
-          <NavLink
-            to={allTo}
-            end
-            className="rounded-[10px] px-2.5 py-1.5 text-[12px] font-bold text-ink-faint transition-colors hover:bg-surface-muted hover:text-ink"
-          >
-            All {label.toLowerCase()}
-          </NavLink>
-          {children}
-        </div>
-      )}
+      {open && <NavTrail id={panelId} allTo={allTo}>{children}</NavTrail>}
     </div>
   )
 })
 
+/**
+ * The indented list under an open group: a hairline guide on the left, which
+ * the current item marks with an accent bar sitting on the line itself.
+ */
+function NavTrail({ id, allTo, children }: { id?: string; allTo?: string; children: ReactNode }) {
+  return (
+    <div id={id} className="mb-1.5 ml-[18px] flex flex-col border-l border-line py-1 pl-3">
+      {allTo && (
+        <NavLink
+          to={allTo}
+          end
+          className="rounded-[8px] px-2 py-[5px] text-[12px] font-semibold text-ink-faint transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        >
+          View all
+        </NavLink>
+      )}
+      {children}
+    </div>
+  )
+}
+
+/** A leaf link inside a group. The accent bar lands on the trail's hairline. */
+const leafClass = ({ isActive }: { isActive: boolean }) =>
+  cn(
+    'group relative flex items-center gap-2 rounded-[8px] px-2 py-[5px] text-[12.5px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent',
+    isActive
+      ? 'font-bold text-ink before:absolute before:inset-y-1 before:-left-[13.5px] before:w-[2px] before:rounded-full before:bg-accent-strong'
+      : 'font-medium text-ink-soft hover:text-ink',
+  )
+
 const BlockNavItem = memo(function BlockNavItem({ slug, name }: { slug: string; name: string }) {
   return (
-    <NavLink
-      to={`/blocks/${slug}`}
-      className={({ isActive }) =>
-        cn(
-          'truncate rounded-[10px] px-2.5 py-1.5 text-[12.5px] font-semibold transition-colors',
-          isActive ? 'bg-accent-soft text-ink' : 'text-ink-soft hover:bg-surface-muted hover:text-ink',
-        )
-      }
-    >
-      {name}
+    <NavLink to={`/blocks/${slug}`} className={leafClass}>
+      <span className="min-w-0 flex-1 truncate">{name}</span>
     </NavLink>
   )
 })
 
 /**
- * The component index.
+ * The site navigation and the component index.
  *
- * It sits on its own panel rather than loose on the page, because 250-odd links
- * next to a document need an edge to be a column instead of a wall of text.
- * Filtering searches the site's pages too, then the components by name,
+ * It is a column of the page, set off by a hairline, with the site's pages
+ * first and the library below as collapsible groups. Filtering searches the
+ * site's pages too, then the components by name,
  * section and group, so "chart", "drag", "Overlays" and "composer" all find
  * something.
  *
@@ -407,102 +425,117 @@ const ComponentNav = memo(function ComponentNav({ inDrawer = false }: { inDrawer
 
   const matchCount = matches ? matches.pages.length + matches.components.length : 0
 
-  const body = (
-    <>
-      <SearchField
-        value={query}
-        onValueChange={setQuery}
-        inputSize="sm"
-        label="Filter navigation"
-        placeholder="Filter pages and components"
-      />
-
-      <div className={cn('flex min-h-0 flex-col gap-4', !inDrawer && 'overflow-y-auto pr-1')}>
-        {!matches &&
-          SITE_SECTIONS.map((section) => (
-            <nav key={section.id} aria-label={section.label} className="flex flex-col">
-              <Text
-                as="span"
-                size="micro"
-                weight="bold"
-                tone="faint"
-                className="px-2.5 pb-1 uppercase tracking-[0.14em]"
-              >
-                {section.label}
-              </Text>
-              {section.pages.map((page) => (
-                <PageLink key={page.to} page={page} />
-              ))}
-            </nav>
+  const content = matches ? (
+    <div className="flex flex-col">
+      <NavLabel count={matchCount}>{matchCount === 1 ? 'Match' : 'Matches'}</NavLabel>
+      {matchCount === 0 ? (
+        <Text size="caption" tone="faint" className="px-3 py-2">
+          Nothing matches “{query}”.
+        </Text>
+      ) : (
+        <>
+          {matches.pages.map((page) => (
+            <PageLink key={page.to} page={page} />
           ))}
+          {matches.components.length > 0 && (
+            <NavTrail>
+              {matches.components.map((entry) => (
+                <NavItem key={entry.slug} entry={entry} />
+              ))}
+            </NavTrail>
+          )}
+        </>
+      )}
+    </div>
+  ) : (
+    <>
+      {SITE_SECTIONS.map((section) => (
+        <nav key={section.id} aria-label={section.label} className="flex flex-col gap-px">
+          <NavLabel>{section.label}</NavLabel>
+          {section.pages.map((page) => (
+            <PageLink key={page.to} page={page} />
+          ))}
+        </nav>
+      ))}
 
-        {matches ? (
-          <div className="flex flex-col gap-0.5">
-            <GroupHeading count={matchCount}>{matchCount === 1 ? 'Match' : 'Matches'}</GroupHeading>
-            {matchCount === 0 ? (
-              <Text size="caption" tone="faint" className="px-2.5 py-2">
-                Nothing matches “{query}”.
-              </Text>
-            ) : (
-              <>
-                {matches.pages.map((page) => (
-                  <PageLink key={page.to} page={page} />
-                ))}
-                {matches.components.map((entry) => (
+      <nav aria-label="Library" className="flex flex-col gap-px">
+        <NavLabel>Library</NavLabel>
+        <NavGroup id="blocks" label="Blocks" count={blocks.length} paths={BLOCK_PATHS} allTo="/blocks">
+          {blocks.map((block) => (
+            <BlockNavItem key={block.slug} slug={block.slug} name={block.name} />
+          ))}
+        </NavGroup>
+        {NAV_TREE.map(({ group, count, sections, paths }) => (
+          <NavGroup
+            key={group.id}
+            id={group.slug}
+            label={group.id}
+            count={count}
+            paths={paths}
+            allTo={`/components?group=${group.slug}`}
+          >
+            {sections.map(({ section, entries }) => (
+              <div key={section} className="flex flex-col">
+                <span className="px-2 pb-0.5 pt-2.5 text-[10.5px] font-bold uppercase tracking-[0.12em] text-ink-faint">
+                  {section}
+                </span>
+                {entries.map((entry) => (
                   <NavItem key={entry.slug} entry={entry} />
                 ))}
-              </>
-            )}
-          </div>
-        ) : (
-          <nav aria-label="Library" className="flex flex-col gap-0.5">
-            <Text as="span" size="micro" weight="bold" tone="faint" className="px-2.5 pb-1 uppercase tracking-[0.14em]">
-              Library
-            </Text>
-            <NavGroup id="blocks" label="Blocks" count={blocks.length} paths={BLOCK_PATHS} allTo="/blocks">
-              {blocks.map((block) => (
-                <BlockNavItem key={block.slug} slug={block.slug} name={block.name} />
-              ))}
-            </NavGroup>
-            {NAV_TREE.map(({ group, count, sections, paths }) => (
-              <NavGroup
-                key={group.id}
-                id={group.slug}
-                label={group.id}
-                count={count}
-                paths={paths}
-                allTo={`/components?group=${group.slug}`}
-              >
-                {sections.map(({ section, entries }) => (
-                  <div key={section} className="flex flex-col">
-                    <Text size="caption" weight="medium" tone="faint" className="px-2.5 pb-1 pt-2">
-                      {section}
-                    </Text>
-                    {entries.map((entry) => (
-                      <NavItem key={entry.slug} entry={entry} />
-                    ))}
-                  </div>
-                ))}
-              </NavGroup>
+              </div>
             ))}
-          </nav>
-        )}
-      </div>
+          </NavGroup>
+        ))}
+      </nav>
     </>
   )
 
-  if (inDrawer) return <div className="flex flex-col gap-4">{body}</div>
+  const filter = (
+    <SearchField
+      value={query}
+      onValueChange={setQuery}
+      inputSize="sm"
+      label="Filter navigation"
+      placeholder="Filter navigation"
+    />
+  )
 
+  if (inDrawer) {
+    return (
+      <div className="flex flex-col gap-6">
+        {filter}
+        {content}
+      </div>
+    )
+  }
+
+  // The list scrolls inside the column and fades out at the foot, so the
+  // last visible row reads as "more below" rather than as cut off. The
+  // scrollbar itself is hidden — the fade does its job without the chrome —
+  // but the column still scrolls by wheel, touch and keyboard.
   return (
-    <Surface
-      variant="card"
-      padding="sm"
-      className="max-h-[calc(100dvh-104px)] gap-4 overflow-hidden"
-    >
-      {body}
-    </Surface>
+    <div className="flex h-full min-h-0 flex-col gap-5">
+      {filter}
+      <div className="-mr-3 flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto pb-10 pr-3 [mask-image:linear-gradient(to_bottom,#000_calc(100%-40px),transparent)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {content}
+      </div>
+    </div>
   )
 })
+
+/** A section label: the footer's small capitals, with an optional count. */
+function NavLabel({ children, count }: { children: ReactNode; count?: number }) {
+  return (
+    <div className="flex items-baseline justify-between gap-2 px-3 pb-1.5">
+      <Text as="span" size="micro" weight="bold" tone="faint" className="uppercase tracking-[0.16em]">
+        {children}
+      </Text>
+      {count !== undefined && (
+        <span className="font-mono text-[10.5px] font-bold tabular-nums text-ink-faint">{count}</span>
+      )}
+    </div>
+  )
+}
 
 const PageLink = memo(function PageLink({ page }: { page: SitePage }) {
   return (
@@ -511,14 +544,26 @@ const PageLink = memo(function PageLink({ page }: { page: SitePage }) {
       end={page.end}
       className={({ isActive }) =>
         cn(
-          'flex items-center gap-2.5 rounded-[10px] px-2.5 py-[7px] text-[12.5px] font-semibold transition-colors',
-          isActive ? 'bg-surface-muted text-ink' : 'text-ink-soft hover:bg-surface-muted hover:text-ink',
+          'group flex items-center gap-2.5 rounded-[10px] px-3 py-[7px] text-[13px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent',
+          // Raised out of the column the way the header raises the current
+          // section out of its track.
+          isActive
+            ? 'bg-surface text-ink shadow-[var(--shadow-tile)] ring-1 ring-line'
+            : 'text-ink-soft hover:bg-surface-muted/70 hover:text-ink',
         )
       }
     >
-      <page.icon size={15} aria-hidden />
-      <span className="min-w-0 flex-1 truncate">{page.label}</span>
-      {page.to === '/saved' && <SavedCount />}
+      {({ isActive }) => (
+        <>
+          <page.icon
+            size={15}
+            aria-hidden
+            className={cn('shrink-0 transition-colors', isActive ? 'text-ink' : 'text-ink-faint group-hover:text-ink-soft')}
+          />
+          <span className="min-w-0 flex-1 truncate">{page.label}</span>
+          {page.to === '/saved' && <SavedCount />}
+        </>
+      )}
     </NavLink>
   )
 })
@@ -528,66 +573,17 @@ function SavedCount() {
   const count = useSavedCount()
   if (count === 0) return null
   return (
-    <Text as="span" size="micro" weight="bold" tone="faint" tabular>
+    <span className="rounded-full bg-surface-muted px-1.5 font-mono text-[10.5px] font-bold leading-[18px] tabular-nums text-ink-soft">
       {count}
       <span className="sr-only"> favorites</span>
-    </Text>
-  )
-}
-
-function GroupHeading({
-  children,
-  count,
-  to,
-}: {
-  children: ReactNode
-  count: number
-  to?: string
-}) {
-  const content = (
-    <>
-      <Text
-        as="span"
-        size="micro"
-        weight="bold"
-        tone="faint"
-        className="uppercase tracking-[0.14em]"
-      >
-        {children}
-      </Text>
-      <Text as="span" size="micro" weight="bold" tone="faint" tabular>
-        {count}
-      </Text>
-    </>
-  )
-
-  return (
-    <div className="px-2.5 pb-1 pt-4">
-      {to ? (
-        <Link to={to} className="flex items-baseline justify-between gap-2 rounded-md group/head">
-          {content}
-        </Link>
-      ) : (
-        <div className="flex items-baseline justify-between gap-2">{content}</div>
-      )}
-    </div>
+    </span>
   )
 }
 
 /** Memoised too: Hundreds of these mount at once, and `entry` never changes. */
 const NavItem = memo(function NavItem({ entry }: { entry: CatalogEntry }) {
   return (
-    <NavLink
-      to={`/components/${entry.slug}`}
-      className={({ isActive }) =>
-        cn(
-          'group flex items-center gap-2 rounded-[10px] px-2.5 py-1.5 text-[12.5px] font-semibold transition-colors',
-          isActive
-            ? 'bg-accent-soft text-ink'
-            : 'text-ink-soft hover:bg-surface-muted hover:text-ink',
-        )
-      }
-    >
+    <NavLink to={`/components/${entry.slug}`} className={leafClass}>
       <span className="min-w-0 flex-1 truncate">{entry.name}</span>
       {isNewComponent(entry.name) && <NewBadge />}
     </NavLink>
