@@ -7,3 +7,5 @@ dist-*
 tsconfig.tsbuildinfo
 .verify
 test/a11y-report.json
+playwright-report
+test-results

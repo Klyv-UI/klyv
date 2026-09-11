@@ -114,7 +114,7 @@ export default function FoundationsPage() {
             <div className="rounded-[var(--radius-card)] bg-app p-4">
               <div className="rounded-[var(--radius-tile)] bg-surface-muted p-4">
                 <div className="rounded-[var(--radius-glyph)] bg-accent p-4">
-                  <Text size="caption" weight="bold" tone="accent">
+                  <Text size="caption" weight="bold" tone="accent-ink">
                     12
                   </Text>
                 </div>

@@ -20,8 +20,13 @@ export function ScrollList({ children, fade = true, maxHeight, className }: Scro
   return (
     <div
       style={{ maxHeight }}
+      // Rows are often plain text with nothing focusable in them, which would
+      // leave the overflow reachable by mouse and by nothing else. Taking focus
+      // itself makes the arrow keys work and keeps the scrollbar hidden.
+      tabIndex={0}
       className={cn(
         'no-scrollbar -mx-2.5 min-h-0 flex-1 overflow-y-auto',
+        'focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent-strong',
         fade && 'list-fade',
         className,
       )}

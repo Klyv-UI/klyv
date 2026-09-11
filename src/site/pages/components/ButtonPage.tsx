@@ -178,7 +178,7 @@ export default function ButtonPage() {
             padding="lg"
             className="items-start justify-between gap-4 border-0 bg-accent shadow-none"
           >
-            <Text size="subtitle" tone="accent" leading="normal">
+            <Text size="subtitle" tone="accent-ink" leading="normal">
               Smart banking
               <br />
               makes life different.

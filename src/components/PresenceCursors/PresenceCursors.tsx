@@ -1,4 +1,5 @@
 import { cn } from '../../lib/cn'
+import { readableInk } from '../../lib/contrast'
 import { Text } from '../Text'
 
 export interface RemoteCursor {
@@ -61,6 +62,11 @@ export function PresenceCursors({
     >
       {cursors.map((cursor, index) => {
         const color = cursor.color ?? FALLBACK[index % FALLBACK.length]
+        // A fixed white label is unreadable on a bright cursor — cyan, lime and
+        // amber all land near 2:1 — so the label's ink is chosen against the
+        // colour it sits on. A caller may pass any CSS colour, and a var() or an
+        // rgb() cannot be measured here, so those keep the accent's own label.
+        const ink = color.startsWith('#') ? readableInk(color) : 'var(--color-accent-ink)'
         return (
           <div
             key={cursor.id}
@@ -86,11 +92,13 @@ export function PresenceCursors({
                   className="ml-0.5 mt-2 inline-flex max-w-[180px] items-center gap-1.5 rounded-full px-2 py-1"
                   style={{ background: color }}
                 >
-                  <Text as="span" size="micro" truncate className="text-white">
+                  <Text as="span" size="micro" truncate style={{ color: ink }}>
                     {cursor.name}
                   </Text>
                   {cursor.status && (
-                    <Text as="span" size="micro" weight="medium" truncate className="text-white/80">
+                    // Weight, not opacity, separates the status from the name:
+                    // fading ink that was only just readable makes it unreadable.
+                    <Text as="span" size="micro" weight="medium" truncate style={{ color: ink }}>
                       {cursor.status}
                     </Text>
                   )}

@@ -25,7 +25,16 @@ const SIZES: { value: TextSize; px: string; usage: string }[] = [
 
 const SIZE_NAMES = SIZES.map((size) => size.value)
 const WEIGHTS: TextWeight[] = ['medium', 'semibold', 'bold', 'extrabold']
-const TONES: TextTone[] = ['default', 'soft', 'faint', 'accent', 'success', 'danger', 'inverse']
+const TONES: TextTone[] = [
+  'default',
+  'soft',
+  'faint',
+  'accent',
+  'accent-ink',
+  'success',
+  'danger',
+  'inverse',
+]
 const LEADINGS: TextLeading[] = ['none', 'tight', 'normal']
 
 export default function TextPage() {
@@ -54,9 +63,10 @@ export default function TextPage() {
             },
             {
               name: 'tone',
-              type: "'default' | 'soft' | 'faint' | 'accent' | 'success' | 'danger' | 'inverse'",
+              type: "'default' | 'soft' | 'faint' | 'accent' | 'accent-ink' | 'success' | 'danger' | 'inverse'",
               defaultValue: "'default'",
-              description: 'Colour, from the ink hierarchy and the status tokens.',
+              description:
+                'Colour, from the ink hierarchy and the status tokens. Use inverse on an ink ground and accent-ink on an accent one.',
             },
             {
               name: 'leading',
@@ -129,11 +139,11 @@ export default function TextPage() {
 
       <Section
         title="Tones"
-        description="The three inks do nearly all the work. The status tones exist for amounts and errors; inverse is for text on a dark surface."
+        description="The three inks do nearly all the work. The status tones exist for amounts and errors. The last two are for text that sits on a filled ground: inverse on ink, accent-ink on the accent."
       >
         <Preview stack>
           <div className="flex flex-wrap gap-5">
-            {TONES.filter((value) => value !== 'inverse').map((value) => (
+            {TONES.filter((value) => value !== 'inverse' && value !== 'accent-ink').map((value) => (
               <Specimen key={value} label={value}>
                 <Text size="stat" tone={value}>
                   +$125,00
@@ -141,11 +151,22 @@ export default function TextPage() {
               </Specimen>
             ))}
           </div>
-          <div className="flex w-fit rounded-[var(--radius-tile)] bg-ink px-4 py-3">
+          {/* The ground goes inside the Specimen, so only the sample sits on it
+              and the caption keeps its contrast against the page. */}
+          <div className="flex flex-wrap gap-5">
             <Specimen label="inverse">
-              <Text size="stat" tone="inverse">
-                +$125,00
-              </Text>
+              <div className="flex rounded-[var(--radius-tile)] bg-ink px-4 py-3">
+                <Text size="stat" tone="inverse">
+                  +$125,00
+                </Text>
+              </div>
+            </Specimen>
+            <Specimen label="accent-ink">
+              <div className="flex rounded-[var(--radius-tile)] bg-accent px-4 py-3">
+                <Text size="stat" tone="accent-ink">
+                  +$125,00
+                </Text>
+              </div>
             </Specimen>
           </div>
         </Preview>
@@ -248,7 +269,17 @@ export default function TextPage() {
         <Playground
           background={tone === 'inverse' ? 'app' : 'surface'}
           stage={
-            <div className={tone === 'inverse' ? 'rounded-[14px] bg-ink px-5 py-4' : undefined}>
+            // Both filled-ground tones need their ground, or the sample is
+            // invisible the moment you pick them.
+            <div
+              className={
+                tone === 'inverse'
+                  ? 'rounded-[14px] bg-ink px-5 py-4'
+                  : tone === 'accent-ink'
+                    ? 'rounded-[14px] bg-accent px-5 py-4'
+                    : undefined
+              }
+            >
               <Text size={size} weight={weight} tone={tone} leading={leading} tabular={tabular}>
                 {value}
               </Text>

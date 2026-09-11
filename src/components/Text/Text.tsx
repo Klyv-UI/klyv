@@ -19,7 +19,15 @@ export type TextSize =
 
 export type TextWeight = 'medium' | 'semibold' | 'bold' | 'extrabold'
 
-export type TextTone = 'default' | 'soft' | 'faint' | 'accent' | 'success' | 'danger' | 'inverse'
+export type TextTone =
+  | 'default'
+  | 'soft'
+  | 'faint'
+  | 'accent'
+  | 'accent-ink'
+  | 'success'
+  | 'danger'
+  | 'inverse'
 
 const SIZES: Record<TextSize, string> = {
   display: 'text-[30px] tracking-[-0.035em]',
@@ -80,7 +88,12 @@ const TONES: Record<TextTone, string> = {
   default: 'text-ink',
   soft: 'text-ink-soft',
   faint: 'text-ink-faint',
-  accent: 'text-[color-mix(in_oklab,var(--color-accent-strong)_62%,var(--color-ink))]',
+  /* The accent is a bright fill colour, so accent-toned *text* is the accent
+     pulled most of the way to ink. 45% is the lightest mix that still clears
+     4.5:1 on every surface the library paints, accent-soft included. */
+  accent: 'text-[color-mix(in_oklab,var(--color-accent-strong)_45%,var(--color-ink))]',
+  /* For text sitting on an accent fill, where `accent` would be invisible. */
+  'accent-ink': 'text-accent-ink',
   success: 'text-success',
   danger: 'text-danger',
   inverse: 'text-ink-inverse',

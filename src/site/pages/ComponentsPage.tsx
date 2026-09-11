@@ -422,6 +422,9 @@ function FilterChip({
 
 function Count({ children }: { children: ReactNode }) {
   return (
-    <span className="font-mono text-[10px] font-bold opacity-55 tabular-nums">{children}</span>
+    // No opacity: it multiplies against whatever colour the row inherits and
+    // throws away the contrast the ink tokens were chosen for. The mono face at
+    // 10px already reads as secondary.
+    <span className="font-mono text-[10px] font-bold tabular-nums">{children}</span>
   )
 }

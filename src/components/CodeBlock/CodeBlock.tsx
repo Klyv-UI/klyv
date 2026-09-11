@@ -97,7 +97,14 @@ export function CodeBlock({
 
       <div className="relative">
         <pre
-          className={cn('m-0 overflow-x-auto px-3 py-3', clipped && 'overflow-y-hidden')}
+          // A scrolling region a mouse can reach but a keyboard cannot is a
+          // trap: long lines scroll sideways, so the block takes focus itself.
+          tabIndex={0}
+          className={cn(
+            'm-0 overflow-x-auto px-3 py-3',
+            'focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent-strong',
+            clipped && 'overflow-y-hidden',
+          )}
           // An em-based cap so the clip lands on a line boundary at any size.
           style={clipped ? { maxHeight: `calc(${collapsedLines} * 1.625em + 1.5rem)` } : undefined}
         >

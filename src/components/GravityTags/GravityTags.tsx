@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import { cn } from '../../lib/cn'
+import { readableInk } from '../../lib/contrast'
 import { VisuallyHidden } from '../VisuallyHidden'
 
 export interface GravityTag {
@@ -228,7 +229,13 @@ export function GravityTags({
           className="absolute left-0 top-0 inline-flex select-none items-center rounded-full px-3.5 py-2 text-[13px] font-bold will-change-transform"
           style={{
             background: tag.color ?? 'var(--color-accent)',
-            color: tag.color ? '#ffffff' : 'var(--color-accent-ink)',
+            // White is only readable on a dark tag; measure it when the colour
+            // is a hex we can read, and keep the accent's label otherwise.
+            color: tag.color
+              ? tag.color.startsWith('#')
+                ? readableInk(tag.color)
+                : '#ffffff'
+              : 'var(--color-accent-ink)',
           }}
         >
           {tag.label}

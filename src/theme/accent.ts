@@ -15,6 +15,11 @@
  * every accent a consumer invents — is guaranteed to hold its contrast.
  */
 
+import { contrastRatio, hexToRgb } from '../lib/contrast'
+
+// Re-exported because this has always been part of the theme's public surface.
+export { contrastRatio } from '../lib/contrast'
+
 export interface AccentFamily {
   /** The hue itself. Logos, active pills, primary actions, badges. */
   accent: string
@@ -54,19 +59,6 @@ interface Hsl {
   h: number
   s: number
   l: number
-}
-
-function hexToRgb(hex: string): [number, number, number] {
-  const value = hex.replace('#', '')
-  const full =
-    value.length === 3
-      ? value
-          .split('')
-          .map((character) => character + character)
-          .join('')
-      : value
-  const number = Number.parseInt(full, 16)
-  return [(number >> 16) & 255, (number >> 8) & 255, number & 255]
 }
 
 function rgbToHex(r: number, g: number, b: number): string {
@@ -112,28 +104,6 @@ function hslToHex({ h, s, l }: Hsl): string {
   }
 
   return rgbToHex(channel(h + 1 / 3) * 255, channel(h) * 255, channel(h - 1 / 3) * 255)
-}
-
-/** WCAG relative luminance — what decides whether ink is dark or light. */
-function luminance(hex: string): number {
-  const [r, g, b] = hexToRgb(hex).map((channel) => {
-    const value = channel / 255
-    return value <= 0.03928 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4
-  })
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b
-}
-
-/**
- * WCAG contrast ratio between two hex colours, from 1 to 21.
- *
- * Exported because the question "is this readable on that?" comes up the
- * moment anyone picks an accent of their own, and the answer should not
- * need a second library.
- */
-export function contrastRatio(a: string, b: string): number {
-  const la = luminance(a)
-  const lb = luminance(b)
-  return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05)
 }
 
 /* ------------------------------------------------------------ derivation */

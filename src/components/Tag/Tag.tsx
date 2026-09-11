@@ -7,7 +7,7 @@ export type TagSize = 'sm' | 'md'
 const TONES: Record<TagTone, string> = {
   neutral: 'bg-surface-muted text-ink-soft',
   outline: 'border border-line-strong text-ink-soft',
-  accent: 'bg-accent-soft text-[color-mix(in_oklab,var(--color-accent-strong)_58%,var(--color-ink))]',
+  accent: 'bg-accent-soft text-[color-mix(in_oklab,var(--color-accent-strong)_45%,var(--color-ink))]',
 }
 
 const SIZES: Record<TagSize, string> = {

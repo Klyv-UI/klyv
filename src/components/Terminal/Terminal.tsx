@@ -155,7 +155,7 @@ export function Terminal({
               <span key={dot} className="h-2.5 w-2.5 rounded-full" style={{ background: dot }} />
             ))}
           </span>
-          <span className="text-[11px] font-bold text-white/40">{title}</span>
+          <span className="text-[11px] font-bold text-white/55">{title}</span>
         </div>
       )}
 

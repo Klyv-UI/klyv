@@ -36,9 +36,12 @@
   --color-accent-strong: #b9e93a;
   --color-accent-soft: #e6fbb0;
   --color-accent-ink: #16200c;
-  --color-success: #3f9b4a;
+  /* Status colours carry text as often as they fill a bar — a field error, a
+     falling figure, a destructive menu item — so each is dark enough to read at
+     11px on every surface, and still takes white when used as a fill. */
+  --color-success: #2d7135;
   --color-warning: #f5a524;
-  --color-danger: #e5484d;
+  --color-danger: #c42630;
 
   /* Radii */
   --radius-glyph: 12px; /* icon tiles, rate rows */
@@ -69,7 +72,7 @@
      design tokens and nothing but code highlighting may use them. They are
      hue-fixed rather than accent-derived, because six categories of token have
      to stay distinguishable from each other whatever the accent is. */
-  --syntax-comment: #98a2a8;
+  --syntax-comment: #5f6b72;
   --syntax-keyword: #a03595;
   --syntax-string: #2c7a52;
   --syntax-number: #b25a09;
