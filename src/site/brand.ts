@@ -17,4 +17,15 @@ export const brand = {
    * derived, so the pitch cannot fall behind the catalogue.
    */
   pitch: `${componentCountRounded} components that take their entire personality from a single colour. Pick a hue and the whole set repaints — buttons, charts, focus rings, the page behind them.`,
+  /**
+   * Where the project lives elsewhere. PLACEHOLDERS — none of these accounts
+   * exist yet. Replace each href here when they do; the header and footer
+   * both read this list, so nothing else needs to change.
+   */
+  links: [
+    { id: 'github', label: 'GitHub', href: 'https://github.com/your-org/citrine' },
+    { id: 'npm', label: 'npm', href: 'https://www.npmjs.com/package/your-org-citrine' },
+    { id: 'discord', label: 'Discord', href: 'https://discord.gg/your-invite' },
+    { id: 'x', label: 'X', href: 'https://x.com/your-handle' },
+  ],
 } as const

@@ -3,6 +3,7 @@ import { Link, NavLink, Outlet, useLocation, useMatches } from 'react-router-dom
 import { ChevronRight, Heart, Menu as MenuIcon } from 'lucide-react'
 import { createStore, sessionStorageAdapter, useStoreValue } from '../lib/store'
 import { AccentMenu } from '../components/AccentMenu'
+import { PlatformLinks } from '../components/PlatformLinks'
 import { Drawer, IconButton, SearchField, Surface, Text, cn } from 'citrine'
 import { AccentPicker } from '../components/AccentPicker'
 import { SearchPalette, SearchTrigger, useSearchPalette } from '../components/SearchPalette'
@@ -202,6 +203,9 @@ const SiteHeader = memo(function SiteHeader({
               they step out there; the drawer and the footer still reach both. */}
           <span aria-hidden className="mx-1 hidden h-6 w-px bg-line sm:block md:hidden lg:block" />
           <SavedLink />
+          {/* From 1360px only: at xl the seven section links and the wide
+              search already fill the row, and one more tool ran 6px over. */}
+          <PlatformLinks only={['github']} className="hidden min-[1360px]:flex" />
           <ThemeToggle className="hidden sm:flex md:hidden lg:flex" />
           <AccentMenu />
         </div>
@@ -620,6 +624,7 @@ function SiteFooter() {
               <AccentPicker compact />
               <ThemeToggle />
             </div>
+            <PlatformLinks />
           </div>
 
           <nav aria-label="Resources" className="flex flex-col gap-2.5">
