@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Check, CodeXml, Eye, Palette } from 'lucide-react'
 import {
@@ -7,11 +7,8 @@ import {
   Button,
   Card,
   CodeBlock,
-  Field,
-  InlineMessage,
-  Input,
-  PasswordInput,
   SegmentedControl,
+  Switch,
   Text,
   VisuallyHidden,
   applyAccent,
@@ -115,22 +112,57 @@ export function Hero() {
 
 type View = 'preview' | 'code' | 'theme'
 
-const HERO_CODE = `import { Button, Card, Field, Input, PasswordInput } from '${brand.pkg}'
+const HERO_CODE = `import { useState } from 'react'
+import { Button, Card, SegmentedControl, Switch, Text } from '${brand.pkg}'
 
-export default function SignIn() {
+const TOPICS = [
+  { id: 'mentions', label: 'Mentions', hint: 'When someone @mentions you' },
+  { id: 'digest', label: 'Weekly digest', hint: 'A summary every Monday' },
+  { id: 'releases', label: 'Product updates', hint: 'New components and releases' },
+]
+
+export default function Notifications() {
+  const [on, setOn] = useState<Record<string, boolean>>({ mentions: true, digest: true })
+  const [channel, setChannel] = useState('email')
+  const count = TOPICS.filter((topic) => on[topic.id]).length
+
   return (
-    <Card title="Welcome back">
-      <form className="flex flex-col gap-4">
-        <Field label="Email">
-          <Input type="email" placeholder="you@example.com" />
-        </Field>
-        <Field label="Password">
-          <PasswordInput />
-        </Field>
-        <Button type="submit" fullWidth>
-          Continue
-        </Button>
-      </form>
+    <Card title="Notifications" className="gap-4">
+      <ul className="flex flex-col divide-y divide-line border-y border-line">
+        {TOPICS.map((topic) => (
+          <li key={topic.id}>
+            <label className="flex items-center justify-between gap-4 py-3">
+              <span className="flex flex-col gap-0.5">
+                <Text as="span" size="label" weight="semibold">{topic.label}</Text>
+                <Text as="span" size="caption" tone="faint">{topic.hint}</Text>
+              </span>
+              <Switch
+                switchSize="sm"
+                checked={Boolean(on[topic.id])}
+                onChange={(event) => setOn({ ...on, [topic.id]: event.target.checked })}
+              />
+            </label>
+          </li>
+        ))}
+      </ul>
+      <div className="flex items-center justify-between gap-3">
+        <Text as="span" size="label" weight="semibold">Deliver by</Text>
+        <SegmentedControl
+          label="Deliver by"
+          size="sm"
+          value={channel}
+          onValueChange={setChannel}
+          options={[
+            { value: 'email', label: 'Email' },
+            { value: 'slack', label: 'Slack' },
+            { value: 'both', label: 'Both' },
+          ]}
+        />
+      </div>
+      <div className="flex items-center justify-between gap-3 border-t border-line pt-4">
+        <Text as="span" size="caption" tone="faint">{count} of {TOPICS.length} on</Text>
+        <Button size="sm">Save</Button>
+      </div>
     </Card>
   )
 }`
@@ -149,7 +181,7 @@ function ProductWindow() {
               <span className="size-2.5 rounded-full bg-line-strong" />
             </span>
             <Text as="span" size="caption" weight="semibold" tone="faint" className="truncate font-mono">
-              SignIn.tsx
+              Notifications.tsx
             </Text>
           </div>
           <SegmentedControl<View>
@@ -178,7 +210,7 @@ function ProductWindow() {
 
         <div className="flex flex-wrap items-center justify-between gap-2 border-t border-line px-4 py-2.5">
           <Text as="span" size="caption" tone="faint">
-            Card · Field · Input · PasswordInput · Button
+            Card · Switch · SegmentedControl · Button
           </Text>
           <Link to="/composer" className="rounded-md text-[12px] font-bold text-ink-soft transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
             Build your own in the Composer →
@@ -189,36 +221,98 @@ function ProductWindow() {
   )
 }
 
-/** The screen itself — a working form, not a picture of one. */
-function PreviewView() {
-  const [state, setState] = useState<'idle' | 'pending' | 'done'>('idle')
+const TOPICS = [
+  { id: 'mentions', label: 'Mentions', hint: 'When someone @mentions you' },
+  { id: 'digest', label: 'Weekly digest', hint: 'A summary every Monday' },
+  { id: 'releases', label: 'Product updates', hint: 'New components and releases' },
+]
 
-  const submit = (event: FormEvent) => {
-    event.preventDefault()
-    setState('pending')
-    window.setTimeout(() => setState('done'), 700)
+type Channel = 'email' | 'slack' | 'both'
+
+/**
+ * The screen itself — a settings card that works, not a picture of one.
+ *
+ * Deliberately not a sign-in form: a login in the hero read as "you need an
+ * account to use this", and browsers autofilled real credentials into it.
+ * Preferences have no fields to autofill, and show more of the library.
+ */
+function PreviewView() {
+  const [on, setOn] = useState<Record<string, boolean>>({ mentions: true, digest: true })
+  const [channel, setChannel] = useState<Channel>('email')
+  const [state, setState] = useState<'idle' | 'saving' | 'saved'>('idle')
+  const count = TOPICS.filter((topic) => on[topic.id]).length
+
+  const save = () => {
+    setState('saving')
+    window.setTimeout(() => setState('saved'), 700)
   }
 
   return (
     <div className="grid min-h-full place-items-center bg-app p-5 sm:p-8">
-      {/* h2, not h3: the hero has only its h1 above this, and a level may not be skipped. */}
-      <Card title="Welcome back" headingLevel="h2" className="w-full max-w-[340px]">
-        <form className="flex flex-col gap-4" onSubmit={submit} aria-label="Example sign-in">
-          <Field label="Email">
-            <Input type="email" placeholder="you@example.com" autoComplete="off" />
-          </Field>
-          <Field label="Password">
-            <PasswordInput autoComplete="off" />
-          </Field>
-          <Button type="submit" fullWidth loading={state === 'pending'}>
-            Continue
-          </Button>
-          <div aria-live="polite" className="min-h-[18px]">
-            {state === 'done' && (
-              <InlineMessage tone="success">Signed in — every part of this form is a library component.</InlineMessage>
+      {/* h2, not h3: the hero has only its h1 above this, and a level may not be
+          skipped. Card stacks its header and body with no gap of its own, so the
+          gap is set here. */}
+      <Card title="Notifications" headingLevel="h2" className="w-full max-w-[380px] gap-4">
+        <ul className="flex flex-col divide-y divide-line border-y border-line">
+          {TOPICS.map((topic) => (
+            <li key={topic.id}>
+              <label className="flex cursor-pointer items-center justify-between gap-4 py-3">
+                <span className="flex min-w-0 flex-col gap-0.5">
+                  <Text as="span" size="label" weight="semibold">
+                    {topic.label}
+                  </Text>
+                  <Text as="span" size="caption" tone="faint">
+                    {topic.hint}
+                  </Text>
+                </span>
+                <Switch
+                  switchSize="sm"
+                  checked={Boolean(on[topic.id])}
+                  onChange={(event) => {
+                    setOn({ ...on, [topic.id]: event.target.checked })
+                    setState('idle')
+                  }}
+                />
+              </label>
+            </li>
+          ))}
+        </ul>
+
+        <div className="flex items-center justify-between gap-3">
+          <Text as="span" size="label" weight="semibold">
+            Deliver by
+          </Text>
+          <SegmentedControl<Channel>
+            label="Deliver by"
+            size="sm"
+            value={channel}
+            onValueChange={(value) => {
+              setChannel(value)
+              setState('idle')
+            }}
+            options={[
+              { value: 'email', label: 'Email' },
+              { value: 'slack', label: 'Slack' },
+              { value: 'both', label: 'Both' },
+            ]}
+          />
+        </div>
+
+        <div className="flex items-center justify-between gap-3 border-t border-line pt-4">
+          <Text as="span" size="caption" tone="faint" aria-live="polite" className="inline-flex items-center gap-1.5">
+            {state === 'saved' ? (
+              <>
+                <Check size={13} strokeWidth={2.5} aria-hidden className="text-ink-soft" />
+                Saved
+              </>
+            ) : (
+              `${count} of ${TOPICS.length} on`
             )}
-          </div>
-        </form>
+          </Text>
+          <Button size="sm" loading={state === 'saving'} onClick={save}>
+            Save
+          </Button>
+        </div>
       </Card>
     </div>
   )
