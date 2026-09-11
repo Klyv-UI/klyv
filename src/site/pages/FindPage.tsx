@@ -94,7 +94,11 @@ export default function FindPage() {
           <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 xl:grid-cols-4">
             {PROJECT_TYPES.map((type) => (
               <label key={type.id} className={choiceCard}>
-                <Radio name="project" value={type.id} checked={project === type.id} onChange={() => go({ type: type.id })} className="mt-0.5" />
+                {/* The offset goes on a wrapper: Radio puts className on the input
+                    itself, and a margin there moves the ring off its dot. */}
+                <span className="mt-0.5 inline-flex shrink-0">
+                  <Radio name="project" value={type.id} checked={project === type.id} onChange={() => go({ type: type.id })} />
+                </span>
                 <span className="flex min-w-0 flex-col gap-0.5">
                   <Text as="span" size="body" weight="bold">
                     {type.label}
@@ -129,7 +133,9 @@ export default function FindPage() {
           <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 xl:grid-cols-5">
             {NEEDS.map((need) => (
               <label key={need.id} className={choiceCard}>
-                <Checkbox checked={needs.includes(need.id)} onChange={() => toggleNeed(need.id)} className="mt-0.5" />
+                <span className="mt-0.5 inline-flex shrink-0">
+                  <Checkbox checked={needs.includes(need.id)} onChange={() => toggleNeed(need.id)} />
+                </span>
                 <span className="flex min-w-0 flex-col gap-0.5">
                   <Text as="span" size="body" weight="bold">
                     {need.label}
