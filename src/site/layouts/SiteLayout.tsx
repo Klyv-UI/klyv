@@ -4,6 +4,7 @@ import {
   Bot,
   Layers,
   LayoutGrid,
+  LayoutTemplate,
   Menu as MenuIcon,
   Palette,
   Rocket,
@@ -15,6 +16,7 @@ import { AccentPicker } from '../components/AccentPicker'
 import { SearchPalette, SearchTrigger, useSearchPalette } from '../components/SearchPalette'
 import { ThemeToggle } from '../components/ThemeToggle'
 import { brand } from '../brand'
+import { blocks } from '../data/blocks'
 import { catalog, componentCount, type CatalogEntry } from '../data/catalog'
 import { groups } from '../data/groups'
 
@@ -165,6 +167,7 @@ const DOC_LINKS = [
   { to: '/foundations', label: 'Foundations', icon: Layers, end: false },
   { to: '/tokens', label: 'Design Tokens', icon: Palette, end: false },
   { to: '/components', label: 'All components', icon: LayoutGrid, end: true },
+  { to: '/blocks', label: 'Blocks', icon: LayoutTemplate, end: true },
   { to: '/playground', label: 'Playground', icon: SlidersHorizontal, end: false },
   { to: '/agents', label: 'AI agents', icon: Bot, end: false },
 ]
@@ -243,6 +246,30 @@ const ComponentNav = memo(function ComponentNav({ inDrawer = false }: { inDrawer
               >
                 <link.icon size={15} aria-hidden />
                 {link.label}
+              </NavLink>
+            ))}
+          </div>
+        )}
+
+        {!matches && (
+          <div className="flex flex-col gap-0.5">
+            <GroupHeading count={blocks.length} to="/blocks">
+              Blocks
+            </GroupHeading>
+            {blocks.map((block) => (
+              <NavLink
+                key={block.slug}
+                to={`/blocks/${block.slug}`}
+                className={({ isActive }) =>
+                  cn(
+                    'truncate rounded-[10px] px-2.5 py-1.5 text-[12.5px] font-semibold transition-colors',
+                    isActive
+                      ? 'bg-accent-soft text-ink'
+                      : 'text-ink-soft hover:bg-surface-muted hover:text-ink',
+                  )
+                }
+              >
+                {block.name}
               </NavLink>
             ))}
           </div>

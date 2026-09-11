@@ -18,6 +18,8 @@ const TokensPage = lazy(() => import('./pages/TokensPage'))
 const PlaygroundPage = lazy(() => import('./pages/PlaygroundPage'))
 const AgentsPage = lazy(() => import('./pages/AgentsPage'))
 const GettingStartedPage = lazy(() => import('./pages/GettingStartedPage'))
+const BlocksPage = lazy(() => import('./pages/BlocksPage'))
+const BlockPage = lazy(() => import('./pages/BlockPage'))
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,8 @@ const router = createBrowserRouter([
       { path: 'tokens', element: <TokensPage /> },
       { path: 'playground', element: <PlaygroundPage /> },
       { path: 'getting-started', element: <GettingStartedPage /> },
+      { path: 'blocks', element: <BlocksPage /> },
+      { path: 'blocks/:slug', element: <BlockPage /> },
       { path: 'agents', element: <AgentsPage /> },
       { path: '*', element: <NotFound /> },
     ],

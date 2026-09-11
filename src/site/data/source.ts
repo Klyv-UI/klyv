@@ -16,6 +16,24 @@ const LIB_RAW = import.meta.glob('../../lib/*.ts', {
   import: 'default',
 }) as Record<string, () => Promise<string>>
 
+/**
+ * The blocks, read the same way.
+ *
+ * They live in the site rather than the library — a block is an example of
+ * composition, not something you import — but the Code section on a block page
+ * has to show the real file for the same reason a component page does.
+ */
+const BLOCK_RAW = import.meta.glob('../blocks/*.tsx', {
+  query: '?raw',
+  import: 'default',
+}) as Record<string, () => Promise<string>>
+
+/** Raw source for one block component, keyed by its file basename. */
+export function blockSource(file: string): (() => Promise<string>) | undefined {
+  const key = Object.keys(BLOCK_RAW).find((path) => path.endsWith(`/${file}`))
+  return key ? BLOCK_RAW[key] : undefined
+}
+
 /** Keyed by library-relative path: `components/Button/Button.tsx`, `lib/cn.ts`. */
 const BY_PATH: Record<string, () => Promise<string>> = {}
 for (const [key, load] of Object.entries(COMPONENT_RAW)) {
