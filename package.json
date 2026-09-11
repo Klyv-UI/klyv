@@ -39,7 +39,8 @@
     "./tokens.json": "./dist/tokens.json"
   },
   "bin": {
-    "citrine": "./cli/citrine.mjs"
+    "citrine": "./cli/citrine.mjs",
+    "citrine-mcp": "./mcp/server.mjs"
   },
   "files": [
     "dist",
@@ -50,9 +51,11 @@
     "src/tokens",
     "src/index.ts",
     "cli",
-    "scripts/components.json",
     "types",
-    "dist/tokens.json"
+    "data",
+    "mcp",
+    "skills",
+    "LICENSE"
   ],
   "scripts": {
     "generate": "node scripts/generate-metadata.mjs && node scripts/generate-props.mjs && node scripts/client-directives.mjs --check && node scripts/check-rules.mjs",
@@ -70,7 +73,9 @@
     "citrine": "node cli/citrine.mjs",
     "directives": "node scripts/client-directives.mjs",
     "rules": "node scripts/check-rules.mjs",
-    "test:a11y": "vitest run --reporter=dot"
+    "test:a11y": "vitest run --reporter=dot",
+    "mcp": "node mcp/server.mjs",
+    "test:mcp": "node --test test/mcp.test.mjs"
   },
   "peerDependencies": {
     "react": "^18.3.0 || ^19.0.0",

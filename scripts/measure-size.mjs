@@ -17,7 +17,7 @@ if (!existsSync(DIST)) {
   process.exit(1)
 }
 
-const meta = JSON.parse(readFileSync(join(ROOT, 'scripts', 'components.json'), 'utf8'))
+const meta = JSON.parse(readFileSync(join(ROOT, 'data', 'components.json'), 'utf8'))
 const { components, shared } = meta
 
 /** The transitive file set, mirroring what the CLI and the docs both resolve. */
@@ -126,6 +126,12 @@ const library = {
   lightest: { name: ranked[0][0], gzip: ranked[0][1].gzip },
   heaviest: { name: ranked[ranked.length - 1][0], gzip: ranked[ranked.length - 1][1].gzip },
 }
+
+writeFileSync(
+  join(ROOT, 'data', 'sizes.json'),
+  `${JSON.stringify({ components: sizes, library }, null, 2)}
+`,
+)
 
 writeFileSync(
   join(ROOT, 'src', 'site', 'data', 'sizes.ts'),

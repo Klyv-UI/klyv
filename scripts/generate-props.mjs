@@ -210,6 +210,8 @@ export function propsFor(component: string): GeneratedProps | undefined {
 `
 
 writeFileSync(join(ROOT, 'src', 'site', 'data', 'props.ts'), output)
+writeFileSync(join(ROOT, 'data', 'props.json'), `${JSON.stringify(sorted, null, 2)}
+`)
 
 console.log(
   `props: ${names.length} components, ${propCount} props, ` +
@@ -224,7 +226,7 @@ console.log(
 // This finds those, so the descriptions stay attached to props that exist.
 const SITE = join(ROOT, 'src', 'site')
 
-const catalogPath = join(ROOT, 'scripts', 'components.json')
+const catalogPath = join(ROOT, 'data', 'components.json')
 let slugToName = {}
 try {
   const meta = JSON.parse(readFileSync(catalogPath, 'utf8'))

@@ -12,7 +12,7 @@ const HERE = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(HERE, '..')
 const SRC = join(ROOT, 'src')
 
-const META = JSON.parse(readFileSync(join(ROOT, 'scripts', 'components.json'), 'utf8'))
+const META = JSON.parse(readFileSync(join(ROOT, 'data', 'components.json'), 'utf8'))
 const COMPONENTS = META.components
 const SHARED = META.shared
 const CATALOG = META.catalog ?? {}

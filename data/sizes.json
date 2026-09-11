@@ -1,0 +1,1451 @@
+{
+  "components": {
+    "Accordion": {
+      "bytes": 6777,
+      "gzip": 2216,
+      "files": 9,
+      "dependencies": 3
+    },
+    "AchievementPop": {
+      "bytes": 6934,
+      "gzip": 2357,
+      "files": 7,
+      "dependencies": 2
+    },
+    "ActionSheet": {
+      "bytes": 15844,
+      "gzip": 4453,
+      "files": 19,
+      "dependencies": 7
+    },
+    "ActivityFeed": {
+      "bytes": 16406,
+      "gzip": 4617,
+      "files": 21,
+      "dependencies": 8
+    },
+    "ActivityHeatmap": {
+      "bytes": 16861,
+      "gzip": 4761,
+      "files": 16,
+      "dependencies": 6
+    },
+    "Alert": {
+      "bytes": 9860,
+      "gzip": 2920,
+      "files": 11,
+      "dependencies": 3
+    },
+    "AlertDialog": {
+      "bytes": 19128,
+      "gzip": 5317,
+      "files": 23,
+      "dependencies": 9
+    },
+    "AmountField": {
+      "bytes": 21041,
+      "gzip": 5705,
+      "files": 18,
+      "dependencies": 6
+    },
+    "AnchorNav": {
+      "bytes": 2563,
+      "gzip": 1061,
+      "files": 3,
+      "dependencies": 0
+    },
+    "AnimatedBeam": {
+      "bytes": 4142,
+      "gzip": 1466,
+      "files": 3,
+      "dependencies": 0
+    },
+    "AnimatedNumber": {
+      "bytes": 1589,
+      "gzip": 700,
+      "files": 3,
+      "dependencies": 0
+    },
+    "AppShell": {
+      "bytes": 2086,
+      "gzip": 855,
+      "files": 5,
+      "dependencies": 1
+    },
+    "ApprovalChain": {
+      "bytes": 13644,
+      "gzip": 4078,
+      "files": 18,
+      "dependencies": 7
+    },
+    "AreaChart": {
+      "bytes": 14436,
+      "gzip": 3884,
+      "files": 14,
+      "dependencies": 5
+    },
+    "AsciiImage": {
+      "bytes": 3601,
+      "gzip": 1425,
+      "files": 5,
+      "dependencies": 1
+    },
+    "AudioVisualizer": {
+      "bytes": 8671,
+      "gzip": 2807,
+      "files": 7,
+      "dependencies": 2
+    },
+    "AuditTrail": {
+      "bytes": 12066,
+      "gzip": 3691,
+      "files": 12,
+      "dependencies": 4
+    },
+    "AuroraSurface": {
+      "bytes": 2843,
+      "gzip": 1235,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Avatar": {
+      "bytes": 1937,
+      "gzip": 930,
+      "files": 5,
+      "dependencies": 1
+    },
+    "AvatarGroup": {
+      "bytes": 3499,
+      "gzip": 1287,
+      "files": 7,
+      "dependencies": 2
+    },
+    "BackButton": {
+      "bytes": 1513,
+      "gzip": 735,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Badge": {
+      "bytes": 715,
+      "gzip": 415,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Banner": {
+      "bytes": 9460,
+      "gzip": 2811,
+      "files": 11,
+      "dependencies": 3
+    },
+    "BarChart": {
+      "bytes": 14030,
+      "gzip": 3830,
+      "files": 14,
+      "dependencies": 5
+    },
+    "BentoGrid": {
+      "bytes": 1069,
+      "gzip": 477,
+      "files": 3,
+      "dependencies": 0
+    },
+    "BlobMorph": {
+      "bytes": 5525,
+      "gzip": 1966,
+      "files": 4,
+      "dependencies": 0
+    },
+    "BoidsFlock": {
+      "bytes": 7640,
+      "gzip": 2379,
+      "files": 4,
+      "dependencies": 0
+    },
+    "BorderBeam": {
+      "bytes": 2215,
+      "gzip": 915,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Breadcrumb": {
+      "bytes": 7001,
+      "gzip": 2190,
+      "files": 7,
+      "dependencies": 1
+    },
+    "Button": {
+      "bytes": 2663,
+      "gzip": 1110,
+      "files": 5,
+      "dependencies": 1
+    },
+    "ButtonGroup": {
+      "bytes": 946,
+      "gzip": 470,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Calendar": {
+      "bytes": 15207,
+      "gzip": 4360,
+      "files": 13,
+      "dependencies": 4
+    },
+    "Card": {
+      "bytes": 4870,
+      "gzip": 1651,
+      "files": 7,
+      "dependencies": 2
+    },
+    "CardDeck": {
+      "bytes": 892,
+      "gzip": 471,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Carousel": {
+      "bytes": 9323,
+      "gzip": 2914,
+      "files": 10,
+      "dependencies": 2
+    },
+    "CartesianChart": {
+      "bytes": 12416,
+      "gzip": 3417,
+      "files": 12,
+      "dependencies": 4
+    },
+    "ChartTooltip": {
+      "bytes": 3428,
+      "gzip": 1207,
+      "files": 5,
+      "dependencies": 1
+    },
+    "Checkbox": {
+      "bytes": 2562,
+      "gzip": 1009,
+      "files": 3,
+      "dependencies": 0
+    },
+    "CheckboxGroup": {
+      "bytes": 8081,
+      "gzip": 2457,
+      "files": 9,
+      "dependencies": 3
+    },
+    "Chip": {
+      "bytes": 2663,
+      "gzip": 974,
+      "files": 5,
+      "dependencies": 1
+    },
+    "CoachTour": {
+      "bytes": 14161,
+      "gzip": 4037,
+      "files": 13,
+      "dependencies": 5
+    },
+    "CodeBlock": {
+      "bytes": 10413,
+      "gzip": 3616,
+      "files": 10,
+      "dependencies": 3
+    },
+    "Collapse": {
+      "bytes": 1485,
+      "gzip": 654,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Collapsible": {
+      "bytes": 5693,
+      "gzip": 1929,
+      "files": 7,
+      "dependencies": 2
+    },
+    "ColorPicker": {
+      "bytes": 15321,
+      "gzip": 4407,
+      "files": 14,
+      "dependencies": 5
+    },
+    "Combobox": {
+      "bytes": 23886,
+      "gzip": 6032,
+      "files": 18,
+      "dependencies": 6
+    },
+    "CommandPalette": {
+      "bytes": 18827,
+      "gzip": 5282,
+      "files": 19,
+      "dependencies": 7
+    },
+    "Confetti": {
+      "bytes": 3607,
+      "gzip": 1402,
+      "files": 4,
+      "dependencies": 0
+    },
+    "ConfirmDialog": {
+      "bytes": 22434,
+      "gzip": 6009,
+      "files": 27,
+      "dependencies": 11
+    },
+    "ConnectionBanner": {
+      "bytes": 7895,
+      "gzip": 2573,
+      "files": 8,
+      "dependencies": 2
+    },
+    "ConsentManager": {
+      "bytes": 10787,
+      "gzip": 3244,
+      "files": 13,
+      "dependencies": 5
+    },
+    "ContextMenu": {
+      "bytes": 18227,
+      "gzip": 4511,
+      "files": 17,
+      "dependencies": 6
+    },
+    "CountUp": {
+      "bytes": 2830,
+      "gzip": 1028,
+      "files": 5,
+      "dependencies": 1
+    },
+    "CoverFlow": {
+      "bytes": 3959,
+      "gzip": 1493,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Cropper": {
+      "bytes": 6435,
+      "gzip": 1965,
+      "files": 3,
+      "dependencies": 0
+    },
+    "CubeCarousel": {
+      "bytes": 4014,
+      "gzip": 1483,
+      "files": 3,
+      "dependencies": 0
+    },
+    "CursorAura": {
+      "bytes": 3693,
+      "gzip": 1415,
+      "files": 3,
+      "dependencies": 0
+    },
+    "DataExplorer": {
+      "bytes": 42105,
+      "gzip": 9708,
+      "files": 45,
+      "dependencies": 20
+    },
+    "DataFreshness": {
+      "bytes": 7343,
+      "gzip": 2336,
+      "files": 12,
+      "dependencies": 4
+    },
+    "DataTable": {
+      "bytes": 22504,
+      "gzip": 5851,
+      "files": 21,
+      "dependencies": 8
+    },
+    "DatePicker": {
+      "bytes": 25397,
+      "gzip": 6854,
+      "files": 24,
+      "dependencies": 9
+    },
+    "DateRangePicker": {
+      "bytes": 29128,
+      "gzip": 7614,
+      "files": 26,
+      "dependencies": 10
+    },
+    "DaySchedule": {
+      "bytes": 8592,
+      "gzip": 2702,
+      "files": 7,
+      "dependencies": 2
+    },
+    "DescriptionList": {
+      "bytes": 3150,
+      "gzip": 1131,
+      "files": 5,
+      "dependencies": 1
+    },
+    "DiceRoller": {
+      "bytes": 6798,
+      "gzip": 2298,
+      "files": 7,
+      "dependencies": 2
+    },
+    "DiffSummary": {
+      "bytes": 7414,
+      "gzip": 2221,
+      "files": 9,
+      "dependencies": 3
+    },
+    "DiffView": {
+      "bytes": 6747,
+      "gzip": 2119,
+      "files": 9,
+      "dependencies": 3
+    },
+    "Divider": {
+      "bytes": 633,
+      "gzip": 342,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Dock": {
+      "bytes": 7187,
+      "gzip": 2405,
+      "files": 6,
+      "dependencies": 1
+    },
+    "DonutChart": {
+      "bytes": 9061,
+      "gzip": 2902,
+      "files": 10,
+      "dependencies": 3
+    },
+    "DotGlobe": {
+      "bytes": 6384,
+      "gzip": 2168,
+      "files": 6,
+      "dependencies": 1
+    },
+    "Drawer": {
+      "bytes": 12748,
+      "gzip": 3869,
+      "files": 15,
+      "dependencies": 5
+    },
+    "DropdownMenu": {
+      "bytes": 17699,
+      "gzip": 4880,
+      "files": 21,
+      "dependencies": 8
+    },
+    "EmojiSlider": {
+      "bytes": 6542,
+      "gzip": 2176,
+      "files": 5,
+      "dependencies": 1
+    },
+    "EmptyState": {
+      "bytes": 4158,
+      "gzip": 1403,
+      "files": 8,
+      "dependencies": 2
+    },
+    "ErrorState": {
+      "bytes": 7956,
+      "gzip": 2346,
+      "files": 11,
+      "dependencies": 3
+    },
+    "Field": {
+      "bytes": 4965,
+      "gzip": 1546,
+      "files": 9,
+      "dependencies": 3
+    },
+    "Figure": {
+      "bytes": 3001,
+      "gzip": 1125,
+      "files": 5,
+      "dependencies": 1
+    },
+    "FileUpload": {
+      "bytes": 17101,
+      "gzip": 4777,
+      "files": 17,
+      "dependencies": 6
+    },
+    "FilterBar": {
+      "bytes": 8963,
+      "gzip": 2641,
+      "files": 13,
+      "dependencies": 5
+    },
+    "FlipBook": {
+      "bytes": 7563,
+      "gzip": 2303,
+      "files": 7,
+      "dependencies": 2
+    },
+    "FlipCard": {
+      "bytes": 2041,
+      "gzip": 790,
+      "files": 3,
+      "dependencies": 0
+    },
+    "FocusTrap": {
+      "bytes": 1924,
+      "gzip": 808,
+      "files": 2,
+      "dependencies": 0
+    },
+    "Form": {
+      "bytes": 3413,
+      "gzip": 1204,
+      "files": 5,
+      "dependencies": 1
+    },
+    "GlitchText": {
+      "bytes": 1855,
+      "gzip": 681,
+      "files": 3,
+      "dependencies": 0
+    },
+    "GooeyLoader": {
+      "bytes": 2669,
+      "gzip": 1043,
+      "files": 5,
+      "dependencies": 1
+    },
+    "GradientText": {
+      "bytes": 1500,
+      "gzip": 715,
+      "files": 3,
+      "dependencies": 0
+    },
+    "GravityTags": {
+      "bytes": 6154,
+      "gzip": 2034,
+      "files": 5,
+      "dependencies": 1
+    },
+    "HoldToConfirm": {
+      "bytes": 5913,
+      "gzip": 2013,
+      "files": 6,
+      "dependencies": 1
+    },
+    "HoloCard": {
+      "bytes": 4158,
+      "gzip": 1407,
+      "files": 3,
+      "dependencies": 0
+    },
+    "HoverCard": {
+      "bytes": 9506,
+      "gzip": 2594,
+      "files": 10,
+      "dependencies": 3
+    },
+    "IconButton": {
+      "bytes": 2862,
+      "gzip": 1127,
+      "files": 6,
+      "dependencies": 1
+    },
+    "IconTile": {
+      "bytes": 906,
+      "gzip": 515,
+      "files": 4,
+      "dependencies": 0
+    },
+    "ImageCompare": {
+      "bytes": 7213,
+      "gzip": 2291,
+      "files": 5,
+      "dependencies": 1
+    },
+    "ImportMapper": {
+      "bytes": 23504,
+      "gzip": 6402,
+      "files": 18,
+      "dependencies": 6
+    },
+    "InlineMessage": {
+      "bytes": 3087,
+      "gzip": 1089,
+      "files": 5,
+      "dependencies": 1
+    },
+    "Input": {
+      "bytes": 1775,
+      "gzip": 773,
+      "files": 3,
+      "dependencies": 0
+    },
+    "InputOTP": {
+      "bytes": 3230,
+      "gzip": 1220,
+      "files": 3,
+      "dependencies": 0
+    },
+    "KanbanBoard": {
+      "bytes": 11431,
+      "gzip": 3083,
+      "files": 13,
+      "dependencies": 5
+    },
+    "Kbd": {
+      "bytes": 702,
+      "gzip": 412,
+      "files": 3,
+      "dependencies": 0
+    },
+    "KineticText": {
+      "bytes": 3014,
+      "gzip": 1142,
+      "files": 6,
+      "dependencies": 1
+    },
+    "Knob": {
+      "bytes": 7396,
+      "gzip": 2264,
+      "files": 5,
+      "dependencies": 1
+    },
+    "Label": {
+      "bytes": 2792,
+      "gzip": 1004,
+      "files": 5,
+      "dependencies": 1
+    },
+    "LayerStack": {
+      "bytes": 5344,
+      "gzip": 1843,
+      "files": 5,
+      "dependencies": 1
+    },
+    "Legend": {
+      "bytes": 3245,
+      "gzip": 1162,
+      "files": 5,
+      "dependencies": 1
+    },
+    "LineChart": {
+      "bytes": 14173,
+      "gzip": 3879,
+      "files": 14,
+      "dependencies": 5
+    },
+    "LiquidGlass": {
+      "bytes": 3828,
+      "gzip": 1374,
+      "files": 3,
+      "dependencies": 0
+    },
+    "List": {
+      "bytes": 559,
+      "gzip": 317,
+      "files": 3,
+      "dependencies": 0
+    },
+    "ListItem": {
+      "bytes": 3671,
+      "gzip": 1266,
+      "files": 5,
+      "dependencies": 1
+    },
+    "LiveChart": {
+      "bytes": 9115,
+      "gzip": 2935,
+      "files": 8,
+      "dependencies": 2
+    },
+    "LoadingOverlay": {
+      "bytes": 3673,
+      "gzip": 1292,
+      "files": 7,
+      "dependencies": 2
+    },
+    "MagicTabs": {
+      "bytes": 8459,
+      "gzip": 2581,
+      "files": 6,
+      "dependencies": 1
+    },
+    "MagneticButton": {
+      "bytes": 2995,
+      "gzip": 1137,
+      "files": 4,
+      "dependencies": 0
+    },
+    "Marquee": {
+      "bytes": 1391,
+      "gzip": 607,
+      "files": 3,
+      "dependencies": 0
+    },
+    "MarqueeSelect": {
+      "bytes": 4279,
+      "gzip": 1539,
+      "files": 5,
+      "dependencies": 1
+    },
+    "MaskedValue": {
+      "bytes": 5096,
+      "gzip": 1756,
+      "files": 7,
+      "dependencies": 2
+    },
+    "MatrixRain": {
+      "bytes": 4621,
+      "gzip": 1827,
+      "files": 4,
+      "dependencies": 0
+    },
+    "MentionInput": {
+      "bytes": 11862,
+      "gzip": 3929,
+      "files": 11,
+      "dependencies": 4
+    },
+    "Menu": {
+      "bytes": 13712,
+      "gzip": 3925,
+      "files": 15,
+      "dependencies": 5
+    },
+    "Meter": {
+      "bytes": 1079,
+      "gzip": 540,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Metric": {
+      "bytes": 3946,
+      "gzip": 1319,
+      "files": 7,
+      "dependencies": 2
+    },
+    "MetricSpotlight": {
+      "bytes": 16137,
+      "gzip": 4598,
+      "files": 19,
+      "dependencies": 8
+    },
+    "MiniMap": {
+      "bytes": 2651,
+      "gzip": 988,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Modal": {
+      "bytes": 16072,
+      "gzip": 4703,
+      "files": 19,
+      "dependencies": 7
+    },
+    "MorphDialog": {
+      "bytes": 14669,
+      "gzip": 4395,
+      "files": 15,
+      "dependencies": 5
+    },
+    "MultiSelect": {
+      "bytes": 25692,
+      "gzip": 6346,
+      "files": 22,
+      "dependencies": 8
+    },
+    "Navbar": {
+      "bytes": 20933,
+      "gzip": 5380,
+      "files": 25,
+      "dependencies": 10
+    },
+    "NeonSign": {
+      "bytes": 1492,
+      "gzip": 671,
+      "files": 3,
+      "dependencies": 0
+    },
+    "NotificationCenter": {
+      "bytes": 29204,
+      "gzip": 7386,
+      "files": 37,
+      "dependencies": 16
+    },
+    "NumberInput": {
+      "bytes": 9466,
+      "gzip": 2792,
+      "files": 11,
+      "dependencies": 3
+    },
+    "Odometer": {
+      "bytes": 2254,
+      "gzip": 906,
+      "files": 3,
+      "dependencies": 0
+    },
+    "OrbitRing": {
+      "bytes": 2946,
+      "gzip": 972,
+      "files": 3,
+      "dependencies": 0
+    },
+    "PageHeader": {
+      "bytes": 3354,
+      "gzip": 1140,
+      "files": 5,
+      "dependencies": 1
+    },
+    "PageTransition": {
+      "bytes": 2524,
+      "gzip": 965,
+      "files": 4,
+      "dependencies": 0
+    },
+    "Pagination": {
+      "bytes": 10607,
+      "gzip": 3175,
+      "files": 11,
+      "dependencies": 3
+    },
+    "PanZoom": {
+      "bytes": 4583,
+      "gzip": 1580,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Parallax": {
+      "bytes": 2691,
+      "gzip": 1011,
+      "files": 4,
+      "dependencies": 0
+    },
+    "ParticleField": {
+      "bytes": 6601,
+      "gzip": 2119,
+      "files": 4,
+      "dependencies": 0
+    },
+    "PasswordInput": {
+      "bytes": 8391,
+      "gzip": 2558,
+      "files": 11,
+      "dependencies": 3
+    },
+    "PermissionGate": {
+      "bytes": 7910,
+      "gzip": 2617,
+      "files": 11,
+      "dependencies": 4
+    },
+    "PianoKeys": {
+      "bytes": 8462,
+      "gzip": 2823,
+      "files": 5,
+      "dependencies": 1
+    },
+    "PinPad": {
+      "bytes": 6601,
+      "gzip": 2281,
+      "files": 7,
+      "dependencies": 2
+    },
+    "PixelCanvas": {
+      "bytes": 8374,
+      "gzip": 2753,
+      "files": 7,
+      "dependencies": 2
+    },
+    "Popover": {
+      "bytes": 6964,
+      "gzip": 2297,
+      "files": 8,
+      "dependencies": 2
+    },
+    "Portal": {
+      "bytes": 314,
+      "gzip": 222,
+      "files": 2,
+      "dependencies": 0
+    },
+    "Presence": {
+      "bytes": 1495,
+      "gzip": 645,
+      "files": 3,
+      "dependencies": 0
+    },
+    "PresenceBar": {
+      "bytes": 17167,
+      "gzip": 4850,
+      "files": 18,
+      "dependencies": 7
+    },
+    "PresenceCursors": {
+      "bytes": 4454,
+      "gzip": 1557,
+      "files": 5,
+      "dependencies": 1
+    },
+    "PressScale": {
+      "bytes": 944,
+      "gzip": 476,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Progress": {
+      "bytes": 1287,
+      "gzip": 604,
+      "files": 3,
+      "dependencies": 0
+    },
+    "ProgressChart": {
+      "bytes": 5059,
+      "gzip": 1656,
+      "files": 7,
+      "dependencies": 2
+    },
+    "ProgressRing": {
+      "bytes": 2135,
+      "gzip": 818,
+      "files": 3,
+      "dependencies": 0
+    },
+    "PromoBanner": {
+      "bytes": 4525,
+      "gzip": 1471,
+      "files": 5,
+      "dependencies": 1
+    },
+    "PullToRefresh": {
+      "bytes": 8895,
+      "gzip": 2743,
+      "files": 9,
+      "dependencies": 3
+    },
+    "QRCode": {
+      "bytes": 2627,
+      "gzip": 1029,
+      "files": 3,
+      "dependencies": 0
+    },
+    "QuickActions": {
+      "bytes": 17820,
+      "gzip": 4841,
+      "files": 21,
+      "dependencies": 8
+    },
+    "RadarChart": {
+      "bytes": 12338,
+      "gzip": 3706,
+      "files": 11,
+      "dependencies": 3
+    },
+    "RadialGauge": {
+      "bytes": 5509,
+      "gzip": 1708,
+      "files": 7,
+      "dependencies": 2
+    },
+    "RadialMenu": {
+      "bytes": 7591,
+      "gzip": 2430,
+      "files": 6,
+      "dependencies": 1
+    },
+    "Radio": {
+      "bytes": 1535,
+      "gzip": 712,
+      "files": 3,
+      "dependencies": 0
+    },
+    "RadioGroup": {
+      "bytes": 9462,
+      "gzip": 2776,
+      "files": 11,
+      "dependencies": 4
+    },
+    "RangeSlider": {
+      "bytes": 2583,
+      "gzip": 888,
+      "files": 3,
+      "dependencies": 0
+    },
+    "RateLimitMeter": {
+      "bytes": 6700,
+      "gzip": 2282,
+      "files": 6,
+      "dependencies": 1
+    },
+    "Rating": {
+      "bytes": 5970,
+      "gzip": 1803,
+      "files": 7,
+      "dependencies": 1
+    },
+    "ReactionBar": {
+      "bytes": 5151,
+      "gzip": 1878,
+      "files": 5,
+      "dependencies": 1
+    },
+    "RetryQueue": {
+      "bytes": 10543,
+      "gzip": 2939,
+      "files": 12,
+      "dependencies": 4
+    },
+    "Reveal": {
+      "bytes": 2467,
+      "gzip": 989,
+      "files": 4,
+      "dependencies": 0
+    },
+    "Ripple": {
+      "bytes": 1772,
+      "gzip": 824,
+      "files": 3,
+      "dependencies": 0
+    },
+    "RippleSurface": {
+      "bytes": 4882,
+      "gzip": 1723,
+      "files": 4,
+      "dependencies": 0
+    },
+    "RopeCursor": {
+      "bytes": 5713,
+      "gzip": 1924,
+      "files": 4,
+      "dependencies": 0
+    },
+    "RotatingWord": {
+      "bytes": 3073,
+      "gzip": 1188,
+      "files": 4,
+      "dependencies": 0
+    },
+    "SankeyFlow": {
+      "bytes": 8437,
+      "gzip": 2338,
+      "files": 5,
+      "dependencies": 1
+    },
+    "SaveIndicator": {
+      "bytes": 7897,
+      "gzip": 2402,
+      "files": 12,
+      "dependencies": 4
+    },
+    "ScratchCard": {
+      "bytes": 7665,
+      "gzip": 2527,
+      "files": 5,
+      "dependencies": 1
+    },
+    "ScrollList": {
+      "bytes": 635,
+      "gzip": 360,
+      "files": 3,
+      "dependencies": 0
+    },
+    "ScrollProgress": {
+      "bytes": 6906,
+      "gzip": 2277,
+      "files": 5,
+      "dependencies": 1
+    },
+    "ScrollVelocity": {
+      "bytes": 3586,
+      "gzip": 1319,
+      "files": 4,
+      "dependencies": 0
+    },
+    "SearchField": {
+      "bytes": 8590,
+      "gzip": 2616,
+      "files": 11,
+      "dependencies": 3
+    },
+    "SegmentedControl": {
+      "bytes": 3706,
+      "gzip": 1439,
+      "files": 6,
+      "dependencies": 1
+    },
+    "Select": {
+      "bytes": 17046,
+      "gzip": 4823,
+      "files": 14,
+      "dependencies": 4
+    },
+    "SessionTimeout": {
+      "bytes": 15081,
+      "gzip": 4576,
+      "files": 16,
+      "dependencies": 6
+    },
+    "ShimmerButton": {
+      "bytes": 3791,
+      "gzip": 1474,
+      "files": 3,
+      "dependencies": 0
+    },
+    "ShortcutRecorder": {
+      "bytes": 6722,
+      "gzip": 2334,
+      "files": 7,
+      "dependencies": 2
+    },
+    "Sidebar": {
+      "bytes": 5463,
+      "gzip": 1766,
+      "files": 10,
+      "dependencies": 3
+    },
+    "SidebarRail": {
+      "bytes": 13499,
+      "gzip": 3769,
+      "files": 17,
+      "dependencies": 6
+    },
+    "SignaturePad": {
+      "bytes": 8192,
+      "gzip": 2581,
+      "files": 5,
+      "dependencies": 1
+    },
+    "Skeleton": {
+      "bytes": 1238,
+      "gzip": 582,
+      "files": 3,
+      "dependencies": 0
+    },
+    "SkipLink": {
+      "bytes": 900,
+      "gzip": 468,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Slider": {
+      "bytes": 1505,
+      "gzip": 640,
+      "files": 3,
+      "dependencies": 0
+    },
+    "SlotReels": {
+      "bytes": 6715,
+      "gzip": 2278,
+      "files": 7,
+      "dependencies": 2
+    },
+    "SortableList": {
+      "bytes": 6241,
+      "gzip": 2071,
+      "files": 5,
+      "dependencies": 1
+    },
+    "Sparkline": {
+      "bytes": 2506,
+      "gzip": 1015,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Spinner": {
+      "bytes": 779,
+      "gzip": 437,
+      "files": 3,
+      "dependencies": 0
+    },
+    "SplitFlap": {
+      "bytes": 3866,
+      "gzip": 1516,
+      "files": 6,
+      "dependencies": 1
+    },
+    "Spotlight": {
+      "bytes": 2973,
+      "gzip": 1159,
+      "files": 4,
+      "dependencies": 0
+    },
+    "StackedCards": {
+      "bytes": 4277,
+      "gzip": 1492,
+      "files": 4,
+      "dependencies": 0
+    },
+    "Stagger": {
+      "bytes": 3094,
+      "gzip": 1139,
+      "files": 6,
+      "dependencies": 1
+    },
+    "StarField": {
+      "bytes": 5564,
+      "gzip": 1790,
+      "files": 4,
+      "dependencies": 0
+    },
+    "StatCard": {
+      "bytes": 8665,
+      "gzip": 2572,
+      "files": 16,
+      "dependencies": 6
+    },
+    "StateView": {
+      "bytes": 9485,
+      "gzip": 2666,
+      "files": 13,
+      "dependencies": 4
+    },
+    "StatusDot": {
+      "bytes": 1267,
+      "gzip": 569,
+      "files": 5,
+      "dependencies": 1
+    },
+    "StatusStrip": {
+      "bytes": 15338,
+      "gzip": 4093,
+      "files": 16,
+      "dependencies": 6
+    },
+    "Stepper": {
+      "bytes": 8537,
+      "gzip": 2477,
+      "files": 7,
+      "dependencies": 1
+    },
+    "StickerPeel": {
+      "bytes": 5260,
+      "gzip": 1745,
+      "files": 3,
+      "dependencies": 0
+    },
+    "StoryProgress": {
+      "bytes": 4083,
+      "gzip": 1516,
+      "files": 4,
+      "dependencies": 0
+    },
+    "StreakCounter": {
+      "bytes": 5936,
+      "gzip": 1968,
+      "files": 7,
+      "dependencies": 2
+    },
+    "SuccessMark": {
+      "bytes": 1926,
+      "gzip": 785,
+      "files": 5,
+      "dependencies": 1
+    },
+    "Surface": {
+      "bytes": 1668,
+      "gzip": 814,
+      "files": 3,
+      "dependencies": 0
+    },
+    "SwipeDeck": {
+      "bytes": 5726,
+      "gzip": 1748,
+      "files": 3,
+      "dependencies": 0
+    },
+    "SwipeRow": {
+      "bytes": 3590,
+      "gzip": 1388,
+      "files": 4,
+      "dependencies": 0
+    },
+    "Switch": {
+      "bytes": 1471,
+      "gzip": 696,
+      "files": 3,
+      "dependencies": 0
+    },
+    "TabBar": {
+      "bytes": 5228,
+      "gzip": 1722,
+      "files": 10,
+      "dependencies": 3
+    },
+    "Table": {
+      "bytes": 2177,
+      "gzip": 754,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Tabs": {
+      "bytes": 4063,
+      "gzip": 1535,
+      "files": 4,
+      "dependencies": 0
+    },
+    "Tag": {
+      "bytes": 935,
+      "gzip": 518,
+      "files": 3,
+      "dependencies": 0
+    },
+    "TagInput": {
+      "bytes": 5584,
+      "gzip": 1840,
+      "files": 7,
+      "dependencies": 2
+    },
+    "Terminal": {
+      "bytes": 6441,
+      "gzip": 2036,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Text": {
+      "bytes": 2112,
+      "gzip": 815,
+      "files": 3,
+      "dependencies": 0
+    },
+    "TextReveal": {
+      "bytes": 3914,
+      "gzip": 1418,
+      "files": 4,
+      "dependencies": 0
+    },
+    "TextScramble": {
+      "bytes": 3240,
+      "gzip": 1211,
+      "files": 6,
+      "dependencies": 1
+    },
+    "Textarea": {
+      "bytes": 1108,
+      "gzip": 579,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Ticker": {
+      "bytes": 1799,
+      "gzip": 810,
+      "files": 3,
+      "dependencies": 0
+    },
+    "TiltCard": {
+      "bytes": 3068,
+      "gzip": 1161,
+      "files": 4,
+      "dependencies": 0
+    },
+    "TimePicker": {
+      "bytes": 12995,
+      "gzip": 3961,
+      "files": 14,
+      "dependencies": 5
+    },
+    "Timeline": {
+      "bytes": 4533,
+      "gzip": 1432,
+      "files": 9,
+      "dependencies": 3
+    },
+    "Toast": {
+      "bytes": 13369,
+      "gzip": 4046,
+      "files": 15,
+      "dependencies": 5
+    },
+    "Toolbar": {
+      "bytes": 1601,
+      "gzip": 750,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Tooltip": {
+      "bytes": 9391,
+      "gzip": 2716,
+      "files": 10,
+      "dependencies": 3
+    },
+    "TreeMap": {
+      "bytes": 8143,
+      "gzip": 2681,
+      "files": 7,
+      "dependencies": 2
+    },
+    "TreeView": {
+      "bytes": 9046,
+      "gzip": 2746,
+      "files": 7,
+      "dependencies": 1
+    },
+    "Typewriter": {
+      "bytes": 4537,
+      "gzip": 1685,
+      "files": 6,
+      "dependencies": 1
+    },
+    "TypingIndicator": {
+      "bytes": 3979,
+      "gzip": 1389,
+      "files": 5,
+      "dependencies": 1
+    },
+    "UndoStack": {
+      "bytes": 9905,
+      "gzip": 2967,
+      "files": 11,
+      "dependencies": 4
+    },
+    "ValidationSummary": {
+      "bytes": 4361,
+      "gzip": 1578,
+      "files": 5,
+      "dependencies": 1
+    },
+    "VibePoll": {
+      "bytes": 5813,
+      "gzip": 1991,
+      "files": 7,
+      "dependencies": 2
+    },
+    "VisuallyHidden": {
+      "bytes": 229,
+      "gzip": 190,
+      "files": 2,
+      "dependencies": 0
+    },
+    "Waveform": {
+      "bytes": 2277,
+      "gzip": 1016,
+      "files": 3,
+      "dependencies": 0
+    },
+    "Wordmark": {
+      "bytes": 1454,
+      "gzip": 671,
+      "files": 3,
+      "dependencies": 0
+    },
+    "XPBar": {
+      "bytes": 6704,
+      "gzip": 2198,
+      "files": 7,
+      "dependencies": 2
+    }
+  },
+  "library": {
+    "gzip": 160642,
+    "modules": 251,
+    "median": 1766,
+    "lightest": {
+      "name": "VisuallyHidden",
+      "gzip": 190
+    },
+    "heaviest": {
+      "name": "DataExplorer",
+      "gzip": 9708
+    }
+  }
+}

@@ -377,6 +377,41 @@ and never names.
 { "color": { "accent": { "$value": "#c8f24e", "$type": "color" } } }
 ```
 
+## For AI agents
+
+Two ways for a coding agent to know what is in here. Both are generated from
+the same data the docs site and the CLI read, so none of the three can drift.
+
+**An MCP server**, shipped with the package:
+
+```bash
+claude mcp add citrine -- npx -y citrine-mcp
+```
+
+or, for anything that reads `mcp.json`:
+
+```json
+{ "mcpServers": { "citrine": { "command": "npx", "args": ["-y", "citrine-mcp"] } } }
+```
+
+Seven tools: `search_components`, `get_component` (every prop with its real
+type and default, ARIA roles, gzipped size, dependencies),
+`get_component_source` (optionally with everything it imports), `list_groups`,
+`get_design_tokens`, `get_design_rules`, `how_to_install`. The same knowledge is
+served as resources too — `citrine://catalog`, `citrine://tokens`,
+`citrine://rules`, `citrine://usage` — for clients that prefer to attach
+documents over calling tools.
+
+It is plain JSON-RPC 2.0 over stdio in one file, with no SDK: a library that
+advertises two runtime dependencies should not quietly add a third.
+`npm run test:mcp` spawns the real process and talks to it over real pipes.
+
+**An Agent Skill**, `skills/citrine/SKILL.md`, carrying the same guidance for
+harnesses that load skills instead: which component to reach for, the theming
+API, the house rules, and the mistakes that come up most.
+
+More in [`mcp/README.md`](mcp/README.md).
+
 ## House rules
 
 Every component in the library obeys these, and the page for each one says how.
@@ -406,4 +441,6 @@ Every component in the library obeys these, and the page for each one says how.
 | `npm run build:lib` | build the publishable package (JS, types, CSS, sizes, tokens) |
 | `npm run rules` | check reduced motion and hard-coded colour |
 | `npm run test:a11y` | render all 238 pages and audit each with axe |
+| `npm run mcp` | run the MCP server on stdio |
+| `npm run test:mcp` | drive the MCP server over real pipes |
 | `npm pack` | build and tarball it |

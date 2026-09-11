@@ -59,6 +59,10 @@ const output = {
   $modes: { dark: { color: dark } },
 }
 
-mkdirSync(join(ROOT, 'dist'), { recursive: true })
-writeFileSync(join(ROOT, 'dist', 'tokens.json'), `${JSON.stringify(output, null, 2)}\n`)
+// dist/ for the package export; data/ for the repo, the CLI and the MCP server.
+const json = `${JSON.stringify(output, null, 2)}\n`
+for (const dir of ['dist', 'data']) {
+  mkdirSync(join(ROOT, dir), { recursive: true })
+  writeFileSync(join(ROOT, dir, 'tokens.json'), json)
+}
 console.log(`tokens: ${count} exported, ${Object.keys(dark).length} dark overrides`)
