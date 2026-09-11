@@ -1,6 +1,7 @@
 import { Suspense, memo, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, NavLink, Outlet, useLocation, useMatches } from 'react-router-dom'
-import { Menu as MenuIcon } from 'lucide-react'
+import { Heart, Menu as MenuIcon } from 'lucide-react'
+import { AccentMenu } from '../components/AccentMenu'
 import { Drawer, IconButton, SearchField, Surface, Text, cn } from 'citrine'
 import { AccentPicker } from '../components/AccentPicker'
 import { SearchPalette, SearchTrigger, useSearchPalette } from '../components/SearchPalette'
@@ -168,16 +169,24 @@ const SiteHeader = memo(function SiteHeader({
           </span>
         </Link>
 
-        <nav aria-label="Sections" className="ml-4 hidden items-center gap-1 md:flex">
+        {/* One track for the links, so they read as a single control with the
+            current page raised out of it, rather than loose words between the
+            logo and the tools. */}
+        <nav
+          aria-label="Sections"
+          className="ml-2 hidden items-center gap-0.5 rounded-full border border-line bg-surface-muted/60 p-1 md:flex lg:ml-4"
+        >
           {TOP_LINKS.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
                 cn(
-                  'whitespace-nowrap rounded-full px-3 py-1.5 text-[12px] font-bold transition-colors',
+                  'whitespace-nowrap rounded-full px-3 py-1.5 text-[12px] font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent',
                   SHOW_FROM[link.from],
-                  isActive ? 'bg-surface-muted text-ink' : 'text-ink-soft hover:text-ink',
+                  isActive
+                    ? 'bg-surface text-ink shadow-[var(--shadow-tile)]'
+                    : 'text-ink-soft hover:bg-surface/70 hover:text-ink',
                 )
               }
             >
@@ -186,15 +195,44 @@ const SiteHeader = memo(function SiteHeader({
           ))}
         </nav>
 
-        <div className="ml-auto flex items-center gap-2.5">
+        <div className="ml-auto flex items-center gap-2">
           <SearchTrigger onOpen={onOpenSearch} />
-          <ThemeToggle />
-          <AccentPicker compact className="hidden xl:flex" />
+          <span aria-hidden className="mx-1 hidden h-6 w-px bg-line sm:block" />
+          <SavedLink />
+          <ThemeToggle className="hidden sm:flex" />
+          <AccentMenu />
         </div>
       </div>
     </header>
   )
 })
+
+/** Saved, as an icon with its count — its own subscriber, so saving re-renders only this. */
+function SavedLink() {
+  const count = useSavedCount()
+  return (
+    <NavLink
+      to="/saved"
+      aria-label={count ? `Saved, ${count} favorites` : 'Saved'}
+      className={({ isActive }) =>
+        cn(
+          'relative hidden size-9 place-items-center rounded-full border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:grid',
+          isActive ? 'border-line-strong bg-surface-muted text-ink' : 'border-line bg-surface text-ink-soft hover:border-line-strong hover:text-ink',
+        )
+      }
+    >
+      <Heart size={15} aria-hidden />
+      {count > 0 && (
+        <span
+          aria-hidden
+          className="absolute -right-1 -top-1 grid min-w-[18px] place-items-center rounded-full bg-accent px-1 text-[10px] font-bold leading-[18px] text-accent-ink tabular-nums"
+        >
+          {count}
+        </span>
+      )}
+    </NavLink>
+  )
+}
 
 /* --------------------------------------------------------------- component nav */
 
