@@ -10,7 +10,9 @@ import { CrossIcon } from '../internal/icons'
 export type BannerTone = 'accent' | 'neutral' | 'ink'
 
 const TONES: Record<BannerTone, { surface: string; title: string; body: string }> = {
-  accent: { surface: 'bg-accent', title: 'text-accent-ink', body: 'text-accent-ink/75' },
+  // Solid, not /75: the accent's label is picked to clear 4.5:1 and no more, so
+  // fading it is what puts it under. Weight separates body from title instead.
+  accent: { surface: 'bg-accent', title: 'text-accent-ink', body: 'text-accent-ink' },
   neutral: { surface: 'bg-surface-muted', title: 'text-ink', body: 'text-ink-soft' },
   ink: { surface: 'bg-ink', title: 'text-ink-inverse', body: 'text-ink-inverse/70' },
 }

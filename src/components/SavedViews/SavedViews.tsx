@@ -99,7 +99,7 @@ export function SavedViews({
                     </>
                   )}
                   {view.count !== undefined && (
-                    <span className={cn('tabular text-[11px]', active ? 'text-accent-ink/70' : 'text-ink-faint')}>
+                    <span className={cn('tabular text-[11px]', active ? 'text-accent-ink' : 'text-ink-faint')}>
                       {view.count.toLocaleString()}
                     </span>
                   )}

@@ -70,7 +70,7 @@ export function UpgradePrompt({
       aria-label="Dismiss"
       className={cn(
         'inline-flex size-7 shrink-0 items-center justify-center rounded-full transition-colors',
-        variant === 'banner' ? 'text-accent-ink/70 hover:bg-accent-strong hover:text-accent-ink' : 'text-ink-faint hover:bg-surface-muted hover:text-ink',
+        variant === 'banner' ? 'text-accent-ink hover:bg-accent-strong' : 'text-ink-faint hover:bg-surface-muted hover:text-ink',
       )}
     >
       <CrossIcon size={13} />
@@ -93,7 +93,9 @@ export function UpgradePrompt({
         )}
         <p className="min-w-0 flex-1 text-[12px] font-semibold leading-snug">
           <strong className="font-bold">{title}</strong>
-          {description && <span className="text-accent-ink/75"> {description}</span>}
+          {/* Solid: the accent's label clears 4.5:1 and no more, so fading it
+              is what puts it under. The title carries font-bold instead. */}
+          {description && <span className="font-medium"> {description}</span>}
         </p>
         <div className="flex items-center gap-2">
           {action}

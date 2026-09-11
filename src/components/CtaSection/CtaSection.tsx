@@ -5,7 +5,7 @@ import { DISPLAY_LG } from '../internal/StatusPill'
 export type CtaTone = 'accent' | 'ink' | 'muted'
 
 const TONES: Record<CtaTone, { surface: string; body: string }> = {
-  accent: { surface: 'bg-accent text-accent-ink', body: 'text-accent-ink/75' },
+  accent: { surface: 'bg-accent text-accent-ink', body: 'text-accent-ink' },
   ink: { surface: 'bg-ink text-ink-inverse', body: 'text-ink-inverse/70' },
   muted: { surface: 'bg-surface-muted text-ink', body: 'text-ink-soft' },
 }

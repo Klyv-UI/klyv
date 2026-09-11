@@ -91,7 +91,8 @@ function TerminalExample() {
         commands={COMMANDS}
         greeting={
           <>
-            <span className="text-[color:var(--color-accent-strong)]">citrine</span> v1.0 — {componentCount}
+            <span className="text-[color-mix(in_oklab,var(--color-accent)_75%,#ffffff)]">citrine</span> v1.0 —{' '}
+            {componentCount}
             components, 0 dependencies.
             {'\n'}Type <span className="text-white">help</span>, or press Tab to complete.
           </>

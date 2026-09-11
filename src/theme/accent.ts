@@ -115,19 +115,14 @@ function hslToHex({ h, s, l }: Hsl): string {
  * accent gets darker on hover and a deep one gets lighter, so the emphasis
  * step is visible either way. `soft` is pinned bright regardless of the input,
  * because it is a background that text has to sit on, and `softDark` is its
- * counterpart for a dark page. And `ink` is chosen by contrast against the
- * accent, which is why a violet gets a label it can carry and a lime gets
- * near-black without anybody configuring either.
+ * counterpart for a dark page. And `ink` is chosen by contrast against both the
+ * accent and `strong` — the pair a label actually sits on as a button hovers —
+ * which is why a violet gets a label it can carry and a lime gets near-black
+ * without anybody configuring either.
  */
 export function deriveAccent(hex: string): AccentFamily {
   const [r, g, b] = hexToRgb(hex)
   const { h, s, l } = rgbToHsl(r, g, b)
-
-  const strong = hslToHex({
-    h,
-    s: Math.min(1, s * 1.05),
-    l: l > 0.5 ? Math.max(0.12, l - 0.07) : Math.min(0.92, l + 0.09),
-  })
 
   const soft = hslToHex({ h, s: Math.min(0.9, Math.max(0.25, s * 0.85)), l: 0.9 })
 
@@ -140,9 +135,11 @@ export function deriveAccent(hex: string): AccentFamily {
   // threshold (this used 0.45) hands white labels to bright oranges and greens,
   // where they read at barely 2:1. Preference order: the tinted near-black,
   // which looks deliberate; then white; then whichever of pure black or pure
-  // white is stronger. That last step is a guarantee, not a hope — for any
-  // colour at all, one of the two reaches at least 4.58:1, because the two
-  // ratios cross at a luminance of 0.229.
+  // white is stronger.
+  //
+  // That last step is a guarantee, not a hope — for any colour at all, one of
+  // the two reaches at least 4.58:1, because the two ratios cross at a
+  // luminance of 0.179.
   const tinted = hslToHex({ h, s: Math.min(0.6, s), l: 0.09 })
   const ink =
     contrastRatio(tinted, hex) >= 4.5
@@ -152,6 +149,36 @@ export function deriveAccent(hex: string): AccentFamily {
         : contrastRatio('#000000', hex) >= contrastRatio('#ffffff', hex)
           ? '#000000'
           : '#ffffff'
+
+  // `strong` is the emphasis step, and it is derived *after* the label, because
+  // the label has to survive it: `bg-accent text-accent-ink hover:bg-accent-strong`
+  // keeps the text while the fill moves underneath it. The step heads toward the
+  // middle — a pale accent darkens, a deep one lightens — which for a mid-tone
+  // accent walks the fill across the luminance where black and white trade
+  // places and strands the label at 3.3:1. So it walks back toward the accent
+  // until the label clears 4.5 again, which always terminates: at the accent
+  // itself the label is the one chosen for it.
+  // The walk is steered by the label, not by the accent: a dark label wants a
+  // lighter fill and a light one wants a darker fill, so stepping that way
+  // always converges rather than stalling a hair short at the accent's own
+  // lightness.
+  const saturated = Math.min(1, s * 1.05)
+  const inkIsDark = contrastRatio(ink, '#ffffff') > contrastRatio(ink, '#000000')
+  const rescue = inkIsDark ? 0.01 : -0.01
+  let strongL = l > 0.5 ? Math.max(0.12, l - 0.07) : Math.min(0.92, l + 0.09)
+  let strong = hslToHex({ h, s: saturated, l: strongL })
+  while (contrastRatio(ink, strong) < 4.5 && strongL > 0.02 && strongL < 0.98) {
+    strongL += rescue
+    strong = hslToHex({ h, s: saturated, l: strongL })
+  }
+
+  // A lightness step that had to be given up leaves a hover nobody can see, so
+  // what is left of it becomes saturation instead — but only while that keeps
+  // the label, since saturation moves luminance too.
+  if (Math.abs(strongL - l) < 0.03) {
+    const vivid = hslToHex({ h, s: Math.min(1, Math.max(s * 1.3, s + 0.18)), l: strongL })
+    if (contrastRatio(ink, vivid) >= 4.5) strong = vivid
+  }
 
   return { accent: hex, strong, soft, softDark, ink }
 }

@@ -177,7 +177,12 @@ export function Terminal({
         ))}
 
         <div className="relative flex items-baseline gap-2">
-          <span className="shrink-0 text-[color:var(--color-accent-strong)]">{prompt}</span>
+          {/* The terminal's ground is physical near-black, not a themed
+              surface, so the accent is mixed toward white before it is used as
+              text on it — a dark accent reads at 4:1 here otherwise. */}
+          <span className="shrink-0 text-[color-mix(in_oklab,var(--color-accent)_75%,#ffffff)]">
+            {prompt}
+          </span>
           <span className="relative min-w-0 flex-1">
             <span className="whitespace-pre-wrap break-words text-white/85">
               {draft}
