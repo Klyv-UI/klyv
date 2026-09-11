@@ -23,6 +23,10 @@
   "AvatarGroup": [
     "group"
   ],
+  "BulkActionBar": [
+    "group",
+    "status"
+  ],
   "ButtonGroup": [
     "group"
   ],
@@ -36,6 +40,9 @@
   "CartesianChart": [
     "img",
     "status"
+  ],
+  "CategoryBar": [
+    "img"
   ],
   "CoachTour": [
     "dialog",
@@ -70,6 +77,12 @@
   "ContextMenu": [
     "menu",
     "menuitem"
+  ],
+  "CopyButton": [
+    "status"
+  ],
+  "Countdown": [
+    "timer"
   ],
   "CoverFlow": [
     "listbox",
@@ -162,6 +175,11 @@
     "radio",
     "radiogroup"
   ],
+  "Lightbox": [
+    "dialog",
+    "modal",
+    "status"
+  ],
   "LiveChart": [
     "status"
   ],
@@ -218,6 +236,9 @@
   ],
   "PanZoom": [
     "application"
+  ],
+  "PasswordStrength": [
+    "status"
   ],
   "PermissionGate": [
     "note"
@@ -323,6 +344,9 @@
   "Spinner": [
     "status"
   ],
+  "SplitPane": [
+    "separator"
+  ],
   "StatusStrip": [
     "img"
   ],
@@ -358,6 +382,9 @@
     "region",
     "status"
   ],
+  "ToggleGroup": [
+    "group"
+  ],
   "Toolbar": [
     "toolbar"
   ],
@@ -383,6 +410,11 @@
   "VibePoll": [
     "group",
     "status"
+  ],
+  "VirtualList": [
+    "list",
+    "listitem",
+    "presentation"
   ],
   "Waveform": [
     "img"

@@ -94,7 +94,7 @@ export default function ComponentsPage() {
       </header>
 
       {/* Sticky, because the filters are useless once you have scrolled past
-          the fold of a 238-item list. */}
+          the fold of a 250-item list. */}
       <div className="sticky top-[72px] z-20 -mt-2 flex flex-col gap-3 bg-[color-mix(in_oklab,var(--color-canvas)_88%,transparent)] py-3 backdrop-blur-xl">
         <div className="flex flex-wrap items-center gap-2">
           <SearchField

@@ -1100,6 +1100,54 @@ export const generatedProps: Record<string, GeneratedProps> = {
       "Omit<CartesianChartProps, 'children'>"
     ]
   },
+  "BarList": {
+    "props": [
+      {
+        "name": "items",
+        "type": "BarListItem[]",
+        "required": true
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the list."
+      },
+      {
+        "name": "format",
+        "type": "(value: number) => string",
+        "required": false,
+        "defaultValue": "plain",
+        "description": "Turns a value into its printed figure."
+      },
+      {
+        "name": "sorted",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Largest first. Turn off to keep the order you pass."
+      },
+      {
+        "name": "limit",
+        "type": "number",
+        "required": false,
+        "description": "Show this many rows, and sum the rest into one."
+      },
+      {
+        "name": "otherLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Other'",
+        "description": "Label for the summed row when `limit` cuts the list."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "BentoGrid": {
     "props": [
       {
@@ -1352,6 +1400,60 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "required": false,
         "defaultValue": "'Breadcrumb'",
         "description": "Accessible name for the trail."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "BulkActionBar": {
+    "props": [
+      {
+        "name": "count",
+        "type": "number",
+        "required": true,
+        "description": "How many items are selected. At zero the bar is not shown."
+      },
+      {
+        "name": "noun",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'item'",
+        "description": "What is being counted, singular — \"row\", \"file\", \"member\"."
+      },
+      {
+        "name": "nounPlural",
+        "type": "string",
+        "required": false,
+        "description": "The plural, when adding an s would be wrong."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The actions — usually small Buttons."
+      },
+      {
+        "name": "onClear",
+        "type": "() => void",
+        "required": true,
+        "description": "Clears the selection."
+      },
+      {
+        "name": "clearLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Clear'"
+      },
+      {
+        "name": "floating",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Pin to the foot of the viewport instead of sitting in the flow."
       },
       {
         "name": "className",
@@ -1671,6 +1773,52 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "(context: { scale: ReturnType<typeof chartScale> series: (ChartSeries & { color: string })[] active: number | null }) => ReactNode",
         "required": true,
         "description": "Drawn inside the plot area, given the resolved scale."
+      }
+    ]
+  },
+  "CategoryBar": {
+    "props": [
+      {
+        "name": "segments",
+        "type": "CategoryBarSegment[]",
+        "required": true
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name — what is being split."
+      },
+      {
+        "name": "total",
+        "type": "number",
+        "required": false,
+        "description": "The whole. Defaults to the sum; set it higher to show unused capacity."
+      },
+      {
+        "name": "format",
+        "type": "(value: number) => string",
+        "required": false,
+        "defaultValue": "plain",
+        "description": "Turns a value into its printed figure."
+      },
+      {
+        "name": "marker",
+        "type": "{ value: number; label: string }",
+        "required": false,
+        "description": "A line across the bar — a quota, a target, a limit."
+      },
+      {
+        "name": "showLegend",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
       }
     ]
   },
@@ -2390,6 +2538,60 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "CopyButton": {
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "What goes on the clipboard."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Copy'",
+        "description": "The visible label, and the accessible name when icon-only."
+      },
+      {
+        "name": "copiedLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Copied'"
+      },
+      {
+        "name": "failedLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Copy failed'"
+      },
+      {
+        "name": "iconOnly",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Show the glyph alone. The label is still announced."
+      },
+      {
+        "name": "size",
+        "type": "ButtonSize",
+        "required": false,
+        "defaultValue": "'sm'"
+      },
+      {
+        "name": "onCopy",
+        "type": "(value: string) => void",
+        "required": false,
+        "description": "Called after a successful copy."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "CountUp": {
     "props": [
       {
@@ -2415,6 +2617,47 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "name": "format",
         "type": "(value: number) => string",
         "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "Countdown": {
+    "props": [
+      {
+        "name": "to",
+        "type": "Date | number | string",
+        "required": true,
+        "description": "When it ends — a Date, a timestamp in milliseconds, or an ISO string."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name — what is ending."
+      },
+      {
+        "name": "units",
+        "type": "CountdownUnit[]",
+        "required": false,
+        "defaultValue": "['days', 'hours', 'minutes', 'seconds']",
+        "description": "Which units to show. The smallest absorbs the remainder."
+      },
+      {
+        "name": "onComplete",
+        "type": "() => void",
+        "required": false,
+        "description": "Called once, on reaching zero."
+      },
+      {
+        "name": "size",
+        "type": "'sm' | 'md'",
+        "required": false,
+        "defaultValue": "'md'"
       },
       {
         "name": "className",
@@ -3642,6 +3885,52 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "ExpandableText": {
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The text. Prose reads best; the clamp counts rendered lines."
+      },
+      {
+        "name": "lines",
+        "type": "number",
+        "required": false,
+        "defaultValue": "3",
+        "description": "Lines shown while collapsed."
+      },
+      {
+        "name": "expanded",
+        "type": "boolean",
+        "required": false,
+        "description": "Controlled state. Omit it to let the component own the toggle."
+      },
+      {
+        "name": "onExpandedChange",
+        "type": "(expanded: boolean) => void",
+        "required": false
+      },
+      {
+        "name": "moreLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Show more'"
+      },
+      {
+        "name": "lessLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Show less'"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "Field": {
     "props": [
       {
@@ -4011,6 +4300,35 @@ export const generatedProps: Record<string, GeneratedProps> = {
     ],
     "inherits": [
       "FormHTMLAttributes<HTMLFormElement>"
+    ]
+  },
+  "FunnelChart": {
+    "props": [
+      {
+        "name": "steps",
+        "type": "FunnelStep[]",
+        "required": true,
+        "description": "The steps, in the order people pass through them."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the funnel."
+      },
+      {
+        "name": "format",
+        "type": "(value: number) => string",
+        "required": false,
+        "defaultValue": "plain",
+        "description": "Turns a count into its printed figure."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
     ]
   },
   "GlitchText": {
@@ -4575,6 +4893,46 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "InlineEdit": {
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "The saved value."
+      },
+      {
+        "name": "onSave",
+        "type": "(value: string) => void",
+        "required": true,
+        "description": "Called with the new value when it is saved and differs from the old."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name — what is being edited."
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "Shown while the value is empty."
+      },
+      {
+        "name": "validate",
+        "type": "(value: string) => string | undefined",
+        "required": false,
+        "description": "Return a reason to reject a value; the field stays open until it passes."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "InlineMessage": {
     "props": [
       {
@@ -4700,6 +5058,41 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "(value: string) => void",
         "required": false,
         "description": "Fired once the last character is entered."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "JsonViewer": {
+    "props": [
+      {
+        "name": "data",
+        "type": "unknown",
+        "required": true,
+        "description": "Any JSON-serialisable value."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the viewer."
+      },
+      {
+        "name": "defaultExpandDepth",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1",
+        "description": "How many levels start open."
+      },
+      {
+        "name": "rootName",
+        "type": "string",
+        "required": false,
+        "description": "Name shown for the root. Omit to show the root's contents directly."
       },
       {
         "name": "className",
@@ -4946,6 +5339,40 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "string",
         "required": false,
         "description": "Accessible name for the key."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "Lightbox": {
+    "props": [
+      {
+        "name": "images",
+        "type": "LightboxImage[]",
+        "required": true
+      },
+      {
+        "name": "index",
+        "type": "number | null",
+        "required": true,
+        "description": "The open image, or null when the viewer is closed."
+      },
+      {
+        "name": "onIndexChange",
+        "type": "(index: number | null) => void",
+        "required": true,
+        "description": "Called with the next image, or null to close."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Image viewer'",
+        "description": "Accessible name for the dialog."
       },
       {
         "name": "className",
@@ -6669,6 +7096,43 @@ export const generatedProps: Record<string, GeneratedProps> = {
       "Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'>"
     ]
   },
+  "PasswordStrength": {
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "The password, as it is being typed."
+      },
+      {
+        "name": "rules",
+        "type": "PasswordRule[]",
+        "required": false,
+        "defaultValue": "DEFAULT_PASSWORD_RULES",
+        "description": "The checks, each a label and a test."
+      },
+      {
+        "name": "levels",
+        "type": "string[]",
+        "required": false,
+        "defaultValue": "DEFAULT_LEVELS",
+        "description": "One word per score, from no rules met to all of them: rules.length + 1 entries."
+      },
+      {
+        "name": "compact",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Show only the meter and the level word, without the checklist."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "PermissionGate": {
     "props": [
       {
@@ -7879,6 +8343,42 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "'sm' | 'md'",
         "required": false,
         "defaultValue": "'md'"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "RelativeTime": {
+    "props": [
+      {
+        "name": "date",
+        "type": "Date | number | string",
+        "required": true,
+        "description": "The moment — a Date, a timestamp in milliseconds, or an ISO string."
+      },
+      {
+        "name": "locale",
+        "type": "string",
+        "required": false,
+        "description": "Locale for the phrasing. Defaults to the browser's."
+      },
+      {
+        "name": "unitStyle",
+        "type": "'long' | 'short' | 'narrow'",
+        "required": false,
+        "defaultValue": "'long'",
+        "description": "long: \"3 minutes ago\". short: \"3 min. ago\". narrow: \"3m ago\"."
+      },
+      {
+        "name": "live",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Keep the phrase current as time passes."
       },
       {
         "name": "className",
@@ -9201,6 +9701,58 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "SplitButton": {
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The primary action's label."
+      },
+      {
+        "name": "onClick",
+        "type": "() => void",
+        "required": true,
+        "description": "The primary action."
+      },
+      {
+        "name": "items",
+        "type": "(MenuItem | 'separator')[]",
+        "required": true,
+        "description": "The alternatives, shown in the menu."
+      },
+      {
+        "name": "menuLabel",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the menu half — \"More save options\"."
+      },
+      {
+        "name": "variant",
+        "type": "'accent' | 'muted' | 'outline'",
+        "required": false,
+        "defaultValue": "'accent'"
+      },
+      {
+        "name": "size",
+        "type": "ButtonSize",
+        "required": false,
+        "defaultValue": "'md'"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "SplitFlap": {
     "props": [
       {
@@ -9233,6 +9785,74 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "string",
         "required": false,
         "description": "Accessible text. Defaults to the value."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "SplitPane": {
+    "props": [
+      {
+        "name": "start",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The first pane — left, or top when vertical."
+      },
+      {
+        "name": "end",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The second pane. It takes whatever the first does not."
+      },
+      {
+        "name": "orientation",
+        "type": "'horizontal' | 'vertical'",
+        "required": false,
+        "defaultValue": "'horizontal'",
+        "description": "horizontal sets the panes side by side; vertical stacks them."
+      },
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "description": "Size of the first pane, as a percentage. Pass it to control the split."
+      },
+      {
+        "name": "defaultSize",
+        "type": "number",
+        "required": false,
+        "defaultValue": "50",
+        "description": "Starting size when the component owns the split."
+      },
+      {
+        "name": "onSizeChange",
+        "type": "(size: number) => void",
+        "required": false,
+        "description": "Fires on each keyboard step, and once when a drag ends."
+      },
+      {
+        "name": "min",
+        "type": "number",
+        "required": false,
+        "defaultValue": "15",
+        "description": "Smallest the first pane may be, as a percentage."
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "required": false,
+        "defaultValue": "85",
+        "description": "Largest the first pane may be, as a percentage."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the divider — say what it resizes."
       },
       {
         "name": "className",
@@ -10594,6 +11214,51 @@ export const generatedProps: Record<string, GeneratedProps> = {
       }
     ]
   },
+  "ToggleGroup": {
+    "props": [
+      {
+        "name": "items",
+        "type": "ToggleGroupItem<T>[]",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "T[]",
+        "required": true,
+        "description": "The values currently pressed."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: T[]) => void",
+        "required": true
+      },
+      {
+        "name": "type",
+        "type": "'single' | 'multiple'",
+        "required": false,
+        "defaultValue": "'multiple'",
+        "description": "`multiple` lets any combination be on — bold and italic together. `single` allows at most one, and pressing it again turns it off, which is what separates this from SegmentedControl, where exactly one is always chosen."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the set."
+      },
+      {
+        "name": "size",
+        "type": "ToggleGroupSize",
+        "required": false,
+        "defaultValue": "'md'"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "Toolbar": {
     "props": [
       {
@@ -10987,6 +11652,57 @@ export const generatedProps: Record<string, GeneratedProps> = {
         "type": "string",
         "required": false,
         "description": "Copy under the bars."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "VirtualList": {
+    "props": [
+      {
+        "name": "items",
+        "type": "T[]",
+        "required": true
+      },
+      {
+        "name": "itemHeight",
+        "type": "number",
+        "required": true,
+        "description": "Every row's height in pixels. Fixed heights are what keep this constant-time."
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": true,
+        "description": "The list's visible height in pixels."
+      },
+      {
+        "name": "renderItem",
+        "type": "(item: T, index: number) => ReactNode",
+        "required": true
+      },
+      {
+        "name": "getKey",
+        "type": "(item: T, index: number) => string | number",
+        "required": false,
+        "description": "Stable identity per row. Defaults to the index."
+      },
+      {
+        "name": "overscan",
+        "type": "number",
+        "required": false,
+        "defaultValue": "6",
+        "description": "Rows rendered past each edge, so a fast scroll does not flash blank."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the list."
       },
       {
         "name": "className",

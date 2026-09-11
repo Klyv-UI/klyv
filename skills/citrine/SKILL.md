@@ -1,17 +1,17 @@
 ---
 name: citrine
-description: Build UI with the Citrine React component library — 238 accessible components driven by a single accent colour. Use whenever writing or reviewing React UI in a project that depends on `citrine`, or when the user asks for a component, screen, form, dashboard, dialog, chart or layout and Citrine is available. Covers finding the right component, its real props, the design tokens, dark mode, and the rules every component follows.
+description: Build UI with the Citrine React component library — 250+ accessible components driven by a single accent colour. Use whenever writing or reviewing React UI in a project that depends on `citrine`, or when the user asks for a component, screen, form, dashboard, dialog, chart or layout and Citrine is available. Covers finding the right component, its real props, the design tokens, dark mode, and the rules every component follows.
 ---
 
 # Building with Citrine
 
-Citrine is a React component library of 238 components in twelve groups. Every
+Citrine is a React component library of more than 250 components in twelve groups. Every
 emphasis in it — buttons, charts, focus rings, the page behind them — resolves
 to one accent colour and three values derived from it.
 
 ## Before writing any UI
 
-1. **Find the component before inventing one.** 238 is more than anyone
+1. **Find the component before inventing one.** Over 250 is more than anyone
    remembers. Search by the job, not the name: "drag", "empty state", "date
    range", "presence".
 2. **Read its real props.** Types and defaults are generated from the source,

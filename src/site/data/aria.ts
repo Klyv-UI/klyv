@@ -28,6 +28,10 @@ export const ariaRoles: Record<string, string[]> = {
   "AvatarGroup": [
     "group"
   ],
+  "BulkActionBar": [
+    "group",
+    "status"
+  ],
   "ButtonGroup": [
     "group"
   ],
@@ -41,6 +45,9 @@ export const ariaRoles: Record<string, string[]> = {
   "CartesianChart": [
     "img",
     "status"
+  ],
+  "CategoryBar": [
+    "img"
   ],
   "CoachTour": [
     "dialog",
@@ -75,6 +82,12 @@ export const ariaRoles: Record<string, string[]> = {
   "ContextMenu": [
     "menu",
     "menuitem"
+  ],
+  "CopyButton": [
+    "status"
+  ],
+  "Countdown": [
+    "timer"
   ],
   "CoverFlow": [
     "listbox",
@@ -167,6 +180,11 @@ export const ariaRoles: Record<string, string[]> = {
     "radio",
     "radiogroup"
   ],
+  "Lightbox": [
+    "dialog",
+    "modal",
+    "status"
+  ],
   "LiveChart": [
     "status"
   ],
@@ -223,6 +241,9 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "PanZoom": [
     "application"
+  ],
+  "PasswordStrength": [
+    "status"
   ],
   "PermissionGate": [
     "note"
@@ -328,6 +349,9 @@ export const ariaRoles: Record<string, string[]> = {
   "Spinner": [
     "status"
   ],
+  "SplitPane": [
+    "separator"
+  ],
   "StatusStrip": [
     "img"
   ],
@@ -363,6 +387,9 @@ export const ariaRoles: Record<string, string[]> = {
     "region",
     "status"
   ],
+  "ToggleGroup": [
+    "group"
+  ],
   "Toolbar": [
     "toolbar"
   ],
@@ -388,6 +415,11 @@ export const ariaRoles: Record<string, string[]> = {
   "VibePoll": [
     "group",
     "status"
+  ],
+  "VirtualList": [
+    "list",
+    "listitem",
+    "presentation"
   ],
   "Waveform": [
     "img"

@@ -1,6 +1,6 @@
 # Citrine
 
-**An accent-led React component library.** 238 components that take their entire
+**An accent-led React component library.** 250+ components that take their entire
 personality from a single colour — pick a hue and the whole set repaints:
 buttons, charts, focus rings, and the page behind them.
 
@@ -55,7 +55,7 @@ want upgrades; copy it if you want to own the file.
 
 Four CSS custom properties are derived from one colour and written to
 `<html>` at runtime. Nothing in the library hard-codes a colour, so a single
-call restyles all 238 components without a rebuild.
+call restyles every component without a rebuild.
 
 ```ts
 import { applyAccent, saveAccent } from 'citrine'
@@ -86,7 +86,7 @@ through them, rather than each keeping a copy that goes stale.
 
 ## What is in it
 
-238 components in twelve groups. The grouping describes what a component is
+254 components in twelve groups. The grouping describes what a component is
 **for** — the only question anyone browsing a library arrives with.
 
 | Group | Count | |
@@ -151,7 +151,7 @@ lives in `site/data/catalog.ts` and can be rearranged without moving a file.
   sorts, selects and paginates, the invite dialog validates and adds a real
   row, removing one raises a toast with a working undo.
 - **/components** — the catalogue, filterable by group, searchable by name or
-  by what a component does. Text only, deliberately: the page exists to scan 238
+  by what a component does. Text only, deliberately: the page exists to scan 254
   names quickly, and a live preview per card made that slower than it was worth.
   The previews live on the component pages, where you have asked for one.
 - **/components/:slug** — one page per component: its measured weight, the ARIA
@@ -224,7 +224,7 @@ the difference between documenting `Surface` and documenting nothing. What it
 cannot inline — `ButtonHTMLAttributes<HTMLButtonElement>` and friends — is named
 under the table instead of being expanded into three hundred DOM rows.
 
-**1,615 props across 238 components, every one described.** 82% carry JSDoc on
+**1,726 props across 254 components, every one described.** 82% carry JSDoc on
 the member itself, so the text reaches a consumer's editor as a hover tooltip
 and not only this site; the rest fall back to the prose written beside the
 examples.
@@ -236,7 +236,7 @@ quietly orphan its documentation.
 
 ### Search
 
-`⌘K` (`Ctrl+K`) opens the library's own `CommandPalette` over all 238
+`⌘K` (`Ctrl+K`) opens the library's own `CommandPalette` over all 254
 components, the twelve groups and the doc pages. It searches slugs and sections
 as well as names, so `datatable`, `data-table` and `drag` all find something.
 
@@ -321,7 +321,7 @@ npm run generate     # regenerate the graph, then verify the directives
 npm run test:a11y
 ```
 
-Renders **all 238 component pages** — examples, API table and all — into jsdom
+Renders **all 254 component pages** — examples, API table and all — into jsdom
 and runs axe over each. 239 tests, about 80 seconds.
 
 Two rules are off, for reasons rather than convenience. `color-contrast` needs
@@ -329,7 +329,7 @@ layout, which jsdom does not do, so contrast is audited in a real browser
 instead (that pass is what found the ink bug above). `region` expects the
 landmarks the site shell supplies, and a page is rendered here without it. The
 Code section is excluded because it is the same source viewer on every page —
-audited once as `CodeBlock`, not 238 times, which is the difference between a
+audited once as `CodeBlock`, not 254 times, which is the difference between a
 80-second suite and a forty-minute one.
 
 The first run found five things, and separating the real ones from the noise was
@@ -444,7 +444,7 @@ Every component in the library obeys these, and the page for each one says how.
 | `npm run citrine -- add <name>` | run the CLI from this repo |
 | `npm run build:lib` | build the publishable package (JS, types, CSS, sizes, tokens) |
 | `npm run rules` | check reduced motion and hard-coded colour |
-| `npm run test:a11y` | render all 238 pages and audit each with axe |
+| `npm run test:a11y` | render every component page, block and the landing page, and audit each with axe |
 | `npm run mcp` | run the MCP server on stdio |
 | `npm run test:mcp` | drive the MCP server over real pipes |
 | `npm pack` | build and tarball it |

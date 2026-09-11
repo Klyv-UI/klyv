@@ -210,13 +210,13 @@ const NAV_TREE = groups.map((group) => ({
 /**
  * The component index.
  *
- * It sits on its own panel rather than loose on the page, because 238 links
+ * It sits on its own panel rather than loose on the page, because 250-odd links
  * next to a document need an edge to be a column instead of a wall of text.
  * Filtering searches the name, the section and the group, so "chart", "drag"
  * and "Overlays" all find something.
  *
  * Memoised, because it is a sibling of the page outlet: without this, changing
- * route re-rendered all 241 links to produce identical markup. The active
+ * route re-rendered every link to produce identical markup. The active
  * highlight still tracks the URL, since each NavLink subscribes to the router
  * itself and context updates are not blocked by memo.
  */
@@ -380,7 +380,7 @@ function GroupHeading({
   )
 }
 
-/** Memoised too: 241 of these mount at once, and `entry` never changes. */
+/** Memoised too: Hundreds of these mount at once, and `entry` never changes. */
 const NavItem = memo(function NavItem({ entry }: { entry: CatalogEntry }) {
   return (
     <NavLink

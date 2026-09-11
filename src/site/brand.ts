@@ -1,3 +1,5 @@
+import { componentCountRounded } from './data/catalog'
+
 /**
  * Everything about how the library presents itself, in one file.
  *
@@ -10,7 +12,9 @@ export const brand = {
   /** Used in code samples and the package name. */
   pkg: 'citrine',
   tagline: 'An accent-led React component library.',
-  /** One paragraph, for the landing hero and the meta description. */
-  pitch:
-    'Two hundred and thirty-eight components that take their entire personality from a single colour. Pick a hue and the whole set repaints — buttons, charts, focus rings, the page behind them.',
+  /**
+   * One paragraph, for the landing hero and the meta description. The count is
+   * derived, so the pitch cannot fall behind the catalogue.
+   */
+  pitch: `${componentCountRounded} components that take their entire personality from a single colour. Pick a hue and the whole set repaints — buttons, charts, focus rings, the page behind them.`,
 } as const

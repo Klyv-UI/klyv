@@ -1,7 +1,7 @@
 # Citrine over MCP
 
 An MCP server that gives an AI coding agent the same knowledge the
-documentation site has: what the 238 components are, every prop with its real
+documentation site has: what the 250+ components are, every prop with its real
 type and default, the design tokens in both themes, the rules the system obeys,
 and each component's actual source with everything it imports.
 

@@ -85,7 +85,7 @@ describe('component pages pass axe', () => {
 
     // The Code section is the same viewer on every page — hundreds of spans of
     // source each time. It is audited once, as CodeBlock on its own page, rather
-    // than 238 times here, which is what made the suite take forty minutes.
+    // than once per page here, which is what made the suite take forty minutes.
     const codeSection = [...container.querySelectorAll('section')].find(
       (section) => section.querySelector('h2')?.textContent === 'Code',
     )

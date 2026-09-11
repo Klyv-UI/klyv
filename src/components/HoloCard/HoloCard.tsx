@@ -82,7 +82,7 @@ export function HoloCard({
         ref={ref}
         onPointerMove={onPointerMove}
         onPointerLeave={reset}
-        className="motion-safe-only relative isolate overflow-hidden transition-transform duration-[var(--duration-slow)] ease-out will-change-transform"
+        className="motion-safe-only relative isolate h-full overflow-hidden transition-transform duration-[var(--duration-slow)] ease-out will-change-transform"
         style={{
           borderRadius: radius,
           transform:
@@ -91,7 +91,9 @@ export function HoloCard({
           boxShadow: '0 18px 44px -18px rgba(20, 27, 15, 0.45)',
         }}
       >
-        <div className={cn('relative z-10', contentClassName)}>{children}</div>
+        {/* Both layers fill the card, so a height given to it reaches the content
+            and the foil covers the whole face, not just the part with text. */}
+        <div className={cn('relative z-10 h-full', contentClassName)}>{children}</div>
 
         {/* The rainbow. color-dodge is what makes it look lit rather than painted. */}
         <div

@@ -37,10 +37,12 @@ export const catalog: CatalogEntry[] = [
   { name: 'Card', slug: 'card', group: 'Layout', section: 'Structure', blurb: 'A titled container with an optional action and a body slot - the shape most content ends up in.' },
   { name: 'PageHeader', slug: 'page-header', group: 'Layout', section: 'Structure', blurb: 'Title block with actions, for secondary routes.' },
   { name: 'PromoBanner', slug: 'promo-banner', group: 'Layout', section: 'Structure', blurb: 'A hero strip: headline, highlighted phrase, supporting link, call to action, and a slot for artwork.' },
+  { name: 'SplitPane', slug: 'split-pane', group: 'Layout', section: 'Structure', blurb: 'Two panes and a divider that moves by pointer or arrow key, announced as a splitter with its position.' },
   // Layout / Disclosure
   { name: 'Accordion', slug: 'accordion', group: 'Layout', section: 'Disclosure', blurb: 'A set of Collapsibles with single- or multi-open policy.' },
   { name: 'Collapse', slug: 'collapse', group: 'Layout', section: 'Disclosure', blurb: 'Height transition primitive for disclosure.' },
   { name: 'Collapsible', slug: 'collapsible', group: 'Layout', section: 'Disclosure', blurb: 'Collapse + a trigger.' },
+  { name: 'ExpandableText', slug: 'expandable-text', group: 'Layout', section: 'Disclosure', blurb: 'Clamps long text to a few lines, and only offers to show more when there is more to show.' },
   // Layout / Stacks & scrolling
   { name: 'CardDeck', slug: 'card-deck', group: 'Layout', section: 'Stacks & scrolling', blurb: 'The equal-height card band.' },
   { name: 'Carousel', slug: 'carousel', group: 'Layout', section: 'Stacks & scrolling', blurb: 'Scroll-snap track + chevrons; the card band below xl.' },
@@ -74,18 +76,23 @@ export const catalog: CatalogEntry[] = [
   // Actions / Buttons
   { name: 'Button', slug: 'button', group: 'Actions', section: 'Buttons', blurb: 'A native button plus token classes.' },
   { name: 'ButtonGroup', slug: 'button-group', group: 'Actions', section: 'Buttons', blurb: 'Segmented Buttons sharing one border and roving focus.' },
+  { name: 'CopyButton', slug: 'copy-button', group: 'Actions', section: 'Buttons', blurb: 'Puts a value on the clipboard and announces it - a glyph turning into a tick tells a screen reader nothing.' },
   { name: 'IconButton', slug: 'icon-button', group: 'Actions', section: 'Buttons', blurb: 'Glyph-only button; the label is non-visual, so it is required.' },
   { name: 'SegmentedControl', slug: 'segmented-control', group: 'Actions', section: 'Buttons', blurb: 'The nav pill track — a single-select ButtonGroup.' },
+  { name: 'ToggleGroup', slug: 'toggle-group', group: 'Actions', section: 'Buttons', blurb: 'On/off toggles in a row, each a real aria-pressed button. Unlike SegmentedControl, having none pressed is allowed.' },
   // Actions / Composed
   { name: 'HoldToConfirm', slug: 'hold-to-confirm', group: 'Actions', section: 'Composed', blurb: 'A destructive action held rather than clicked. Spread commitment beats a dialog dismissed by reflex.' },
   { name: 'MagneticButton', slug: 'magnetic-button', group: 'Actions', section: 'Composed', blurb: 'Button that tracks the pointer.' },
   { name: 'QuickActions', slug: 'quick-actions', group: 'Actions', section: 'Composed', blurb: 'The icon-over-label action row from the balance card, with optional keyboard shortcuts shown on the controls rather than hidden in a help page.' },
   { name: 'ShimmerButton', slug: 'shimmer-button', group: 'Actions', section: 'Composed', blurb: 'A call to action with a sheen sweeping across it and a light that follows the pointer, written to CSS variables rather than to state.' },
+  { name: 'SplitButton', slug: 'split-button', group: 'Actions', section: 'Composed', blurb: 'A primary action with its alternatives beside it - two buttons with two names, not one button with a hot zone.' },
   // Forms & Inputs / Text fields
+  { name: 'InlineEdit', slug: 'inline-edit', group: 'Forms & Inputs', section: 'Text fields', blurb: 'Text that becomes a field on request: Enter saves, Escape restores, and focus returns to where it was.' },
   { name: 'Input', slug: 'input', group: 'Forms & Inputs', section: 'Text fields', blurb: 'Wraps a native input; no label or validation opinions.' },
   { name: 'InputOTP', slug: 'input-otp', group: 'Forms & Inputs', section: 'Text fields', blurb: 'A row of single-character Inputs with paste and focus movement.' },
   { name: 'MentionInput', slug: 'mention-input', group: 'Forms & Inputs', section: 'Text fields', blurb: 'An @-mention list positioned at the caret, measured through a hidden mirror of the textarea.' },
   { name: 'PasswordInput', slug: 'password-input', group: 'Forms & Inputs', section: 'Text fields', blurb: 'Input + reveal IconButton.' },
+  { name: 'PasswordStrength', slug: 'password-strength', group: 'Forms & Inputs', section: 'Text fields', blurb: 'A Meter and a rule checklist that say, in words, what would make a password stronger.' },
   { name: 'PinPad', slug: 'pin-pad', group: 'Forms & Inputs', section: 'Text fields', blurb: 'A keypad and the physical keyboard as one control, where rejection is the return value rather than a ref reaching in.' },
   { name: 'SearchField', slug: 'search-field', group: 'Forms & Inputs', section: 'Text fields', blurb: 'Input + icon adornment + clear affordance. The header search.' },
   { name: 'TagInput', slug: 'tag-input', group: 'Forms & Inputs', section: 'Text fields', blurb: 'Input + Chip list.' },
@@ -134,6 +141,7 @@ export const catalog: CatalogEntry[] = [
   { name: 'Tag', slug: 'tag', group: 'Data Display', section: 'Identity', blurb: 'Static outlined label. Non-interactive counterpart to Chip.' },
   // Data Display / Lists & tables
   { name: 'ActivityFeed', slug: 'activity-feed', group: 'Data Display', section: 'Lists & tables', blurb: 'A transaction feed grouped by day with sticky headers and rows that expand in place, so the reader keeps their position.' },
+  { name: 'BulkActionBar', slug: 'bulk-action-bar', group: 'Data Display', section: 'Lists & tables', blurb: 'Appears once rows are selected: how many, what can be done to them, and a way out - announced as it changes.' },
   { name: 'DataExplorer', slug: 'data-explorer', group: 'Data Display', section: 'Lists & tables', blurb: 'A whole list screen — search, filters, sortable table and all four data states — wired together once.' },
   { name: 'DataTable', slug: 'data-table', group: 'Data Display', section: 'Lists & tables', blurb: 'Table + sorting, selection, pagination and column state.' },
   { name: 'DescriptionList', slug: 'description-list', group: 'Data Display', section: 'Lists & tables', blurb: 'Text + Divider term/definition pairs.' },
@@ -143,6 +151,7 @@ export const catalog: CatalogEntry[] = [
   { name: 'Table', slug: 'table', group: 'Data Display', section: 'Lists & tables', blurb: 'Semantic table styled on the line and surface tokens.' },
   { name: 'Timeline', slug: 'timeline', group: 'Data Display', section: 'Lists & tables', blurb: 'StatusDot + Divider + Text event sequence.' },
   { name: 'TreeView', slug: 'tree-view', group: 'Data Display', section: 'Lists & tables', blurb: 'Recursive disclosure with full tree keyboard semantics.' },
+  { name: 'VirtualList', slug: 'virtual-list', group: 'Data Display', section: 'Lists & tables', blurb: 'Renders only the rows in view, so ten thousand items cost a few dozen nodes and are still announced as ten thousand.' },
   // Data Display / Metrics
   { name: 'Metric', slug: 'metric', group: 'Data Display', section: 'Metrics', blurb: 'Text + Badge: a label, a figure and a delta.' },
   { name: 'MetricSpotlight', slug: 'metric-spotlight', group: 'Data Display', section: 'Metrics', blurb: 'A KPI rail where selecting a tile drives a detail chart — the summary-then-detail dance every analytics screen reinvents.' },
@@ -152,7 +161,9 @@ export const catalog: CatalogEntry[] = [
   { name: 'CodeBlock', slug: 'code-block', group: 'Data Display', section: 'Records', blurb: 'Surface(sunken) + monospace scale + copy action.' },
   { name: 'DiffSummary', slug: 'diff-summary', group: 'Data Display', section: 'Records', blurb: 'What is about to change, per field, before submitting. Cleared and newly set are their own facts.' },
   { name: 'DiffView', slug: 'diff-view', group: 'Data Display', section: 'Records', blurb: 'Two-column CodeBlock with change highlighting.' },
+  { name: 'JsonViewer', slug: 'json-viewer', group: 'Data Display', section: 'Records', blurb: 'A payload as a collapsible tree in the code palette. Collapsing hides a branch; it never truncates a value.' },
   { name: 'MaskedValue', slug: 'masked-value', group: 'Data Display', section: 'Records', blurb: 'A sensitive value that is not in the DOM until revealed, hides itself again, and separates copy from reveal.' },
+  { name: 'RelativeTime', slug: 'relative-time', group: 'Data Display', section: 'Records', blurb: '"3 minutes ago", phrased by Intl in any locale and kept current, over a real time element with the exact moment.' },
   // Data Display / Media
   { name: 'Figure', slug: 'figure', group: 'Data Display', section: 'Media', blurb: 'Image + Text caption.' },
   { name: 'QRCode', slug: 'qr-code', group: 'Data Display', section: 'Media', blurb: 'Encoded matrix rendered as SVG. The QR quick action.' },
@@ -166,10 +177,13 @@ export const catalog: CatalogEntry[] = [
   { name: 'ProgressChart', slug: 'progress-chart', group: 'Charts', section: 'Gauges & rings', blurb: 'Stacked Progress bars for part-to-whole comparison.' },
   { name: 'RadialGauge', slug: 'radial-gauge', group: 'Charts', section: 'Gauges & rings', blurb: 'ProgressRing with a scale and a value readout.' },
   // Charts / Distribution
+  { name: 'BarList', slug: 'bar-list', group: 'Charts', section: 'Distribution', blurb: 'Ranked horizontal bars as a real list - top pages, top referrers - the chart every dashboard actually needs.' },
+  { name: 'CategoryBar', slug: 'category-bar', group: 'Charts', section: 'Distribution', blurb: 'One bar split into its parts, with unused capacity and an optional limit marker. Lengths, not angles.' },
   { name: 'DonutChart', slug: 'donut-chart', group: 'Charts', section: 'Distribution', blurb: 'Part-to-whole arcs with a centre readout.' },
   { name: 'DotGlobe', slug: 'dot-globe', group: 'Charts', section: 'Distribution', blurb: 'A turning sphere of dots with places marked on it. A golden-angle spiral, because a lat/long grid bunches at the poles.' },
   { name: 'RadarChart', slug: 'radar-chart', group: 'Charts', section: 'Distribution', blurb: 'Several measures at once as a shape. Per-axis maxima, so measures on different units can share one outline.' },
   // Charts / Flow & hierarchy
+  { name: 'FunnelChart', slug: 'funnel-chart', group: 'Charts', section: 'Flow & hierarchy', blurb: 'Conversion through ordered steps: each bar against the start, each gap as the share that continued.' },
   { name: 'SankeyFlow', slug: 'sankey-flow', group: 'Charts', section: 'Flow & hierarchy', blurb: 'Where an amount comes from and goes, as ribbons whose thickness is the amount. Columns by longest path, so nothing flows backwards.' },
   { name: 'TreeMap', slug: 'tree-map', group: 'Charts', section: 'Flow & hierarchy', blurb: 'Part-to-whole by area, squarified so no tile becomes a sliver. Shows a long tail a donut cannot.' },
   // Charts / Time & activity
@@ -200,6 +214,7 @@ export const catalog: CatalogEntry[] = [
   { name: 'StateView', slug: 'state-view', group: 'Feedback', section: 'Empty & error', blurb: 'One component for the four states every data region has. Every list rebuilds this branch, and each rebuild forgets one — usually the empty case.' },
   // Feedback / System state
   { name: 'ConnectionBanner', slug: 'connection-banner', group: 'Feedback', section: 'System state', blurb: 'Offline, reconnecting, and what is still queued. navigator.onLine is the default, not the authority — a dead API reads as online.' },
+  { name: 'Countdown', slug: 'countdown', group: 'Feedback', section: 'System state', blurb: 'Time remaining, in tiles - a silent timer role rather than a live region that talks every second.' },
   { name: 'RateLimitMeter', slug: 'rate-limit-meter', group: 'Feedback', section: 'System state', blurb: 'How much of a quota is gone and when it returns — recomputed from a deadline, so a throttled tab cannot drift.' },
   { name: 'RetryQueue', slug: 'retry-queue', group: 'Feedback', section: 'System state', blurb: 'The changes that have not landed, with the backoff shown — a countdown is what stops everyone fighting the retry.' },
   { name: 'SaveIndicator', slug: 'save-indicator', group: 'Feedback', section: 'System state', blurb: 'What autosave is doing, and when it last succeeded — the timestamp is what turns “Saved” into a claim.' },
@@ -215,6 +230,7 @@ export const catalog: CatalogEntry[] = [
   { name: 'AlertDialog', slug: 'alert-dialog', group: 'Overlays', section: 'Dialogs', blurb: 'Modal with alertdialog semantics and a forced choice.' },
   { name: 'ConfirmDialog', slug: 'confirm-dialog', group: 'Overlays', section: 'Dialogs', blurb: 'AlertDialog with a standard confirm/cancel pair.' },
   { name: 'Drawer', slug: 'drawer', group: 'Overlays', section: 'Dialogs', blurb: 'Modal anchored to an edge. The mobile navigation panel.' },
+  { name: 'Lightbox', slug: 'lightbox', group: 'Overlays', section: 'Dialogs', blurb: 'Full-screen images with arrow keys, swipe and a spoken position, built the way Modal is.' },
   { name: 'Modal', slug: 'modal', group: 'Overlays', section: 'Dialogs', blurb: 'Portal + FocusTrap in a centred Surface.' },
   { name: 'MorphDialog', slug: 'morph-dialog', group: 'Overlays', section: 'Dialogs', blurb: 'A card that expands into a dialog from exactly where it sits, as a FLIP transform, so nothing relayouts mid-flight.' },
   // Overlays / Popovers
@@ -325,3 +341,10 @@ export function findComponentByName(name: string): CatalogEntry | undefined {
 }
 
 export const componentCount = catalog.length
+
+/**
+ * The count as marketing copy says it — "250+" rather than "254". Rounded down
+ * to the ten, so it is never a claim the catalogue does not back, and it moves
+ * on its own as components are added.
+ */
+export const componentCountRounded = `${Math.floor(componentCount / 10) * 10}+`

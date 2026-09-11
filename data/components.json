@@ -366,6 +366,20 @@
       "shared": [],
       "external": []
     },
+    "BarList": {
+      "files": [
+        "components/BarList/BarList.tsx",
+        "components/BarList/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": []
+    },
     "BentoGrid": {
       "files": [
         "components/BentoGrid/BentoGrid.tsx",
@@ -430,6 +444,24 @@
       ],
       "shared": [
         "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "BulkActionBar": {
+      "files": [
+        "components/BulkActionBar/BulkActionBar.tsx",
+        "components/BulkActionBar/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Surface",
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
         "lib/cn.ts"
       ],
       "external": [
@@ -546,6 +578,21 @@
       "external": [
         "react"
       ]
+    },
+    "CategoryBar": {
+      "files": [
+        "components/CategoryBar/CategoryBar.tsx",
+        "components/CategoryBar/index.ts"
+      ],
+      "internal": [
+        "Legend",
+        "Text"
+      ],
+      "shared": [
+        "lib/chart.ts",
+        "lib/cn.ts"
+      ],
+      "external": []
     },
     "ChartTooltip": {
       "files": [
@@ -801,6 +848,38 @@
         "Menu",
         "Portal",
         "Surface",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "CopyButton": {
+      "files": [
+        "components/CopyButton/CopyButton.tsx",
+        "components/CopyButton/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "IconButton",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "components/internal/icons.tsx"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Countdown": {
+      "files": [
+        "components/Countdown/Countdown.tsx",
+        "components/Countdown/index.ts"
+      ],
+      "internal": [
         "Text"
       ],
       "shared": [
@@ -1190,6 +1269,19 @@
         "react"
       ]
     },
+    "ExpandableText": {
+      "files": [
+        "components/ExpandableText/ExpandableText.tsx",
+        "components/ExpandableText/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "Field": {
       "files": [
         "components/Field/Field.tsx",
@@ -1312,6 +1404,19 @@
       "external": [
         "react"
       ]
+    },
+    "FunnelChart": {
+      "files": [
+        "components/FunnelChart/FunnelChart.tsx",
+        "components/FunnelChart/index.ts"
+      ],
+      "internal": [
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
     },
     "GlitchText": {
       "files": [
@@ -1476,6 +1581,24 @@
         "react"
       ]
     },
+    "InlineEdit": {
+      "files": [
+        "components/InlineEdit/InlineEdit.tsx",
+        "components/InlineEdit/index.ts"
+      ],
+      "internal": [
+        "IconButton",
+        "Input",
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "InlineMessage": {
       "files": [
         "components/InlineMessage/InlineMessage.tsx",
@@ -1511,6 +1634,22 @@
       ],
       "internal": [],
       "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "JsonViewer": {
+      "files": [
+        "components/JsonViewer/JsonViewer.tsx",
+        "components/JsonViewer/index.ts"
+      ],
+      "internal": [
+        "Surface"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
         "lib/cn.ts"
       ],
       "external": [
@@ -1620,6 +1759,28 @@
         "lib/cn.ts"
       ],
       "external": []
+    },
+    "Lightbox": {
+      "files": [
+        "components/Lightbox/Lightbox.tsx",
+        "components/Lightbox/index.ts"
+      ],
+      "internal": [
+        "FocusTrap",
+        "IconButton",
+        "Portal",
+        "Presence",
+        "Surface",
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
     },
     "LineChart": {
       "files": [
@@ -2152,6 +2313,22 @@
         "react"
       ]
     },
+    "PasswordStrength": {
+      "files": [
+        "components/PasswordStrength/PasswordStrength.tsx",
+        "components/PasswordStrength/index.ts"
+      ],
+      "internal": [
+        "Meter",
+        "StatusDot",
+        "Text",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
     "PermissionGate": {
       "files": [
         "components/PermissionGate/PermissionGate.tsx",
@@ -2535,6 +2712,19 @@
       "internal": [
         "Text"
       ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "RelativeTime": {
+      "files": [
+        "components/RelativeTime/RelativeTime.tsx",
+        "components/RelativeTime/index.ts"
+      ],
+      "internal": [],
       "shared": [
         "lib/cn.ts"
       ],
@@ -2954,6 +3144,23 @@
       ],
       "external": []
     },
+    "SplitButton": {
+      "files": [
+        "components/SplitButton/SplitButton.tsx",
+        "components/SplitButton/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Menu"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "SplitFlap": {
       "files": [
         "components/SplitFlap/SplitFlap.tsx",
@@ -2965,6 +3172,19 @@
       "shared": [
         "lib/cn.ts",
         "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "SplitPane": {
+      "files": [
+        "components/SplitPane/SplitPane.tsx",
+        "components/SplitPane/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
       ],
       "external": [
         "react"
@@ -3437,6 +3657,18 @@
         "react"
       ]
     },
+    "ToggleGroup": {
+      "files": [
+        "components/ToggleGroup/ToggleGroup.tsx",
+        "components/ToggleGroup/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": []
+    },
     "Toolbar": {
       "files": [
         "components/Toolbar/Toolbar.tsx",
@@ -3576,6 +3808,19 @@
         "lib/cn.ts"
       ],
       "external": []
+    },
+    "VirtualList": {
+      "files": [
+        "components/VirtualList/VirtualList.tsx",
+        "components/VirtualList/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
     },
     "VisuallyHidden": {
       "files": [
@@ -3726,6 +3971,12 @@
       "section": "Structure",
       "blurb": "A hero strip: headline, highlighted phrase, supporting link, call to action, and a slot for artwork."
     },
+    "SplitPane": {
+      "slug": "split-pane",
+      "group": "Layout",
+      "section": "Structure",
+      "blurb": "Two panes and a divider that moves by pointer or arrow key, announced as a splitter with its position."
+    },
     "Accordion": {
       "slug": "accordion",
       "group": "Layout",
@@ -3743,6 +3994,12 @@
       "group": "Layout",
       "section": "Disclosure",
       "blurb": "Collapse + a trigger."
+    },
+    "ExpandableText": {
+      "slug": "expandable-text",
+      "group": "Layout",
+      "section": "Disclosure",
+      "blurb": "Clamps long text to a few lines, and only offers to show more when there is more to show."
     },
     "CardDeck": {
       "slug": "card-deck",
@@ -3912,6 +4169,12 @@
       "section": "Buttons",
       "blurb": "Segmented Buttons sharing one border and roving focus."
     },
+    "CopyButton": {
+      "slug": "copy-button",
+      "group": "Actions",
+      "section": "Buttons",
+      "blurb": "Puts a value on the clipboard and announces it - a glyph turning into a tick tells a screen reader nothing."
+    },
     "IconButton": {
       "slug": "icon-button",
       "group": "Actions",
@@ -3923,6 +4186,12 @@
       "group": "Actions",
       "section": "Buttons",
       "blurb": "The nav pill track — a single-select ButtonGroup."
+    },
+    "ToggleGroup": {
+      "slug": "toggle-group",
+      "group": "Actions",
+      "section": "Buttons",
+      "blurb": "On/off toggles in a row, each a real aria-pressed button. Unlike SegmentedControl, having none pressed is allowed."
     },
     "HoldToConfirm": {
       "slug": "hold-to-confirm",
@@ -3948,6 +4217,18 @@
       "section": "Composed",
       "blurb": "A call to action with a sheen sweeping across it and a light that follows the pointer, written to CSS variables rather than to state."
     },
+    "SplitButton": {
+      "slug": "split-button",
+      "group": "Actions",
+      "section": "Composed",
+      "blurb": "A primary action with its alternatives beside it - two buttons with two names, not one button with a hot zone."
+    },
+    "InlineEdit": {
+      "slug": "inline-edit",
+      "group": "Forms & Inputs",
+      "section": "Text fields",
+      "blurb": "Text that becomes a field on request: Enter saves, Escape restores, and focus returns to where it was."
+    },
     "Input": {
       "slug": "input",
       "group": "Forms & Inputs",
@@ -3971,6 +4252,12 @@
       "group": "Forms & Inputs",
       "section": "Text fields",
       "blurb": "Input + reveal IconButton."
+    },
+    "PasswordStrength": {
+      "slug": "password-strength",
+      "group": "Forms & Inputs",
+      "section": "Text fields",
+      "blurb": "A Meter and a rule checklist that say, in words, what would make a password stronger."
     },
     "PinPad": {
       "slug": "pin-pad",
@@ -4218,6 +4505,12 @@
       "section": "Lists & tables",
       "blurb": "A transaction feed grouped by day with sticky headers and rows that expand in place, so the reader keeps their position."
     },
+    "BulkActionBar": {
+      "slug": "bulk-action-bar",
+      "group": "Data Display",
+      "section": "Lists & tables",
+      "blurb": "Appears once rows are selected: how many, what can be done to them, and a way out - announced as it changes."
+    },
     "DataExplorer": {
       "slug": "data-explorer",
       "group": "Data Display",
@@ -4272,6 +4565,12 @@
       "section": "Lists & tables",
       "blurb": "Recursive disclosure with full tree keyboard semantics."
     },
+    "VirtualList": {
+      "slug": "virtual-list",
+      "group": "Data Display",
+      "section": "Lists & tables",
+      "blurb": "Renders only the rows in view, so ten thousand items cost a few dozen nodes and are still announced as ten thousand."
+    },
     "Metric": {
       "slug": "metric",
       "group": "Data Display",
@@ -4314,11 +4613,23 @@
       "section": "Records",
       "blurb": "Two-column CodeBlock with change highlighting."
     },
+    "JsonViewer": {
+      "slug": "json-viewer",
+      "group": "Data Display",
+      "section": "Records",
+      "blurb": "A payload as a collapsible tree in the code palette. Collapsing hides a branch; it never truncates a value."
+    },
     "MaskedValue": {
       "slug": "masked-value",
       "group": "Data Display",
       "section": "Records",
       "blurb": "A sensitive value that is not in the DOM until revealed, hides itself again, and separates copy from reveal."
+    },
+    "RelativeTime": {
+      "slug": "relative-time",
+      "group": "Data Display",
+      "section": "Records",
+      "blurb": "\"3 minutes ago\", phrased by Intl in any locale and kept current, over a real time element with the exact moment."
     },
     "Figure": {
       "slug": "figure",
@@ -4374,6 +4685,18 @@
       "section": "Gauges & rings",
       "blurb": "ProgressRing with a scale and a value readout."
     },
+    "BarList": {
+      "slug": "bar-list",
+      "group": "Charts",
+      "section": "Distribution",
+      "blurb": "Ranked horizontal bars as a real list - top pages, top referrers - the chart every dashboard actually needs."
+    },
+    "CategoryBar": {
+      "slug": "category-bar",
+      "group": "Charts",
+      "section": "Distribution",
+      "blurb": "One bar split into its parts, with unused capacity and an optional limit marker. Lengths, not angles."
+    },
     "DonutChart": {
       "slug": "donut-chart",
       "group": "Charts",
@@ -4391,6 +4714,12 @@
       "group": "Charts",
       "section": "Distribution",
       "blurb": "Several measures at once as a shape. Per-axis maxima, so measures on different units can share one outline."
+    },
+    "FunnelChart": {
+      "slug": "funnel-chart",
+      "group": "Charts",
+      "section": "Flow & hierarchy",
+      "blurb": "Conversion through ordered steps: each bar against the start, each gap as the share that continued."
     },
     "SankeyFlow": {
       "slug": "sankey-flow",
@@ -4536,6 +4865,12 @@
       "section": "System state",
       "blurb": "Offline, reconnecting, and what is still queued. navigator.onLine is the default, not the authority — a dead API reads as online."
     },
+    "Countdown": {
+      "slug": "countdown",
+      "group": "Feedback",
+      "section": "System state",
+      "blurb": "Time remaining, in tiles - a silent timer role rather than a live region that talks every second."
+    },
     "RateLimitMeter": {
       "slug": "rate-limit-meter",
       "group": "Feedback",
@@ -4613,6 +4948,12 @@
       "group": "Overlays",
       "section": "Dialogs",
       "blurb": "Modal anchored to an edge. The mobile navigation panel."
+    },
+    "Lightbox": {
+      "slug": "lightbox",
+      "group": "Overlays",
+      "section": "Dialogs",
+      "blurb": "Full-screen images with arrow keys, swipe and a spoken position, built the way Modal is."
     },
     "Modal": {
       "slug": "modal",

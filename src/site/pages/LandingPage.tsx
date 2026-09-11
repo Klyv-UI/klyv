@@ -5,7 +5,7 @@ import {
   ACCENT_PRESETS,
   AvatarGroup,
   Badge,
-  BoidsFlock,
+  BarList,
   BorderBeam,
   Button,
   CodeBlock,
@@ -15,12 +15,11 @@ import {
   GooeyLoader,
   HoloCard,
   IconTile,
+  JsonViewer,
+  KanbanBoard,
   Kbd,
   Marquee,
-  MatrixRain,
   Metric,
-  NeonSign,
-  PianoKeys,
   ProgressRing,
   Rating,
   Slider,
@@ -40,12 +39,13 @@ import {
   deriveAccent,
   saveAccent,
   systemMode,
+  type KanbanColumn,
 } from 'citrine'
 import { ContrastReadout } from '../components/ContrastReadout'
 import { useAccent, useMode } from '../components/useTheme'
 import { brand } from '../brand'
 import { blockCount } from '../data/blocks'
-import { catalog, componentCount } from '../data/catalog'
+import { catalog, componentCount, componentCountRounded } from '../data/catalog'
 import { groups } from '../data/groups'
 import { mcpTools } from '../data/mcp'
 import { library } from '../data/sizes'
@@ -145,7 +145,7 @@ function Hero() {
               <ArrowRight size={14} aria-hidden />
             </Button>
             <Button as={Link} to="/components" variant="outline">
-              Browse {componentCount} components
+              Browse {componentCountRounded} components
             </Button>
           </div>
 
@@ -438,15 +438,17 @@ function ComponentsBento() {
     <SectionShell
       eyebrow="Components"
       title="Everyday parts, and the ones nobody expects to find built"
-      lede="Every tile is the component you would import, running. The chart is drawn from an array, the switch switches, and the canvas pieces are reduced-motion aware."
+      lede="Every tile is the component you would import, running. The board drags, the chart is drawn from an array, the switch switches, and every animated piece has a still state for reduced motion."
       action={<SectionLink to="/components">All {componentCount} components</SectionLink>}
     >
       <div className="grid grid-cols-1 gap-3 md:grid-cols-6">
         <ShowcaseTile className="md:col-span-2" name="DonutChart" slug="donut-chart">
-          <div className="grid h-[168px] place-items-center">
+          {/* No fixed height: the legend sits under the ring, and a fixed box
+              is what clipped it. */}
+          <div className="flex justify-center">
             <DonutChart
               label="Traffic by source"
-              size={148}
+              size={128}
               slices={[
                 { id: 'direct', label: 'Direct', value: 48 },
                 { id: 'search', label: 'Search', value: 32 },
@@ -502,24 +504,19 @@ function ComponentsBento() {
           </div>
         </ShowcaseTile>
 
-        {/* Matrix rain, with a neon sign standing in front of it. */}
-        <ShowcaseTile className="md:col-span-3" name="MatrixRain + NeonSign" slug="matrix-rain" bare>
-          <div className="relative h-[260px] w-full overflow-hidden rounded-[var(--radius-card)]">
-            <MatrixRain speed={0.7} />
-            <div className="pointer-events-none absolute inset-0 grid place-items-center">
-              <NeonSign color="var(--color-accent)" className="text-[34px]">
-                CITRINE
-              </NeonSign>
-            </div>
-          </div>
+        {/* A board people actually run their work on. Drag a card, or focus
+            one and use its move controls — it really moves. */}
+        <ShowcaseTile className="md:col-span-3" name="KanbanBoard" slug="kanban-board">
+          <KanbanTile />
         </ShowcaseTile>
 
         {/* A foil card that tilts under the pointer. Ink on inverse ink rather
             than a fixed near-black, so it follows the theme like everything
-            else on the page. */}
+            else on the page. It grows with its row, so the taller board beside
+            it does not leave a gap underneath. */}
         <ShowcaseTile className="md:col-span-3" name="HoloCard" slug="holo-card" bare>
-          <HoloCard radius="var(--radius-card)" className="h-[260px]">
-            <div className="flex h-[260px] flex-col justify-between bg-ink p-6">
+          <HoloCard radius="var(--radius-card)" className="min-h-[260px] flex-1">
+            <div className="flex h-full min-h-[260px] flex-col justify-between bg-ink p-6">
               <div className="flex items-center justify-between">
                 <Text
                   size="micro"
@@ -569,9 +566,9 @@ function ComponentsBento() {
           </div>
         </ShowcaseTile>
 
-        <ShowcaseTile className="md:col-span-2" name="BoidsFlock" slug="boids-flock" bare>
-          <div className="h-[168px] w-full overflow-hidden rounded-[var(--radius-card)]">
-            <BoidsFlock count={140} />
+        <ShowcaseTile className="md:col-span-2" name="BarList" slug="bar-list">
+          <div className="flex h-[168px] flex-col justify-center">
+            <BarList label="Top pages this week" items={TOP_PAGES} limit={3} />
           </div>
         </ShowcaseTile>
 
@@ -610,21 +607,17 @@ function ComponentsBento() {
           />
         </ShowcaseTile>
 
-        <ShowcaseTile name="PianoKeys" slug="piano-keys">
-          <div className="flex h-[230px] flex-col justify-center gap-3">
-            <PianoKeys keys={7} />
-            <Text size="caption" tone="faint" leading="normal">
-              Real oscillators with a twelve-millisecond attack, because a gain that jumps straight
-              to one clicks. Sound is on — the home row plays it.
-            </Text>
-          </div>
+        {/* Beside the terminal: the other thing a developer reads all day. */}
+        <ShowcaseTile name="JsonViewer" slug="json-viewer" bare>
+          <JsonViewer label="Webhook payload" data={WEBHOOK} className="h-[230px] rounded-none" />
         </ShowcaseTile>
       </div>
 
       <div className="mt-3 overflow-hidden rounded-[var(--radius-card)] border border-line bg-surface py-3">
         <Marquee speed={26} fade pauseOnHover>
           {catalog
-            .filter((_, index) => index % 5 === 0)
+            // Every fifth name, minus the pieces taken off this page on purpose.
+            .filter((entry, index) => index % 5 === 0 && !OFF_PAGE.has(entry.name))
             .map((entry) => (
               // Text, not links: Marquee clones its children behind aria-hidden
               // for the seamless loop, and a cloned link is a second tab stop
@@ -643,6 +636,77 @@ function ComponentsBento() {
       </div>
     </SectionShell>
   )
+}
+
+const BOARD: KanbanColumn[] = [
+  {
+    id: 'collect',
+    title: 'To collect',
+    cards: [
+      { id: 'c1', title: 'MF-40231 · Porto', meta: <Tag>Chilled</Tag> },
+      { id: 'c2', title: 'MF-40236 · Ghent' },
+    ],
+  },
+  {
+    id: 'transit',
+    title: 'In transit',
+    cards: [
+      { id: 'c3', title: 'MF-40182 · Lyon', meta: <Tag tone="accent">On time</Tag> },
+      { id: 'c4', title: 'MF-40188 · Kraków', meta: <Tag>At risk</Tag> },
+    ],
+  },
+  {
+    id: 'delivered',
+    title: 'Delivered',
+    cards: [{ id: 'c5', title: 'MF-40211 · Berlin', meta: <Tag tone="outline">Signed</Tag> }],
+  },
+]
+
+/** The board keeps its own columns, so a drag on the landing page really moves a card. */
+function KanbanTile() {
+  const [columns, setColumns] = useState(BOARD)
+
+  const move = (cardId: string, toColumnId: string, toIndex: number) => {
+    setColumns((current) => {
+      const card = current.flatMap((column) => column.cards).find((entry) => entry.id === cardId)
+      if (!card) return current
+      return current.map((column) => {
+        const cards = column.cards.filter((entry) => entry.id !== cardId)
+        if (column.id === toColumnId) cards.splice(toIndex, 0, card)
+        return { ...column, cards }
+      })
+    })
+  }
+
+  return <KanbanBoard label="Dispatch board" columns={columns} onMove={move} className="w-full" />
+}
+
+/**
+ * Components deliberately not shown on the landing page. They stay in the
+ * library; this page leads with the ones people build products from.
+ */
+const OFF_PAGE = new Set(['MatrixRain', 'NeonSign', 'BoidsFlock', 'PianoKeys'])
+
+const TOP_PAGES = [
+  { id: 'pricing', label: '/pricing', value: 12_840 },
+  { id: 'docs', label: '/docs/getting-started', value: 9_312 },
+  { id: 'blocks', label: '/blocks/dashboard', value: 6_105 },
+  { id: 'changelog', label: '/changelog', value: 3_870 },
+  { id: 'careers', label: '/careers', value: 2_214 },
+]
+
+const WEBHOOK = {
+  event: 'delivery.completed',
+  id: 'evt_1Q8xR2',
+  data: {
+    shipment: 'MF-40211',
+    signedBy: 'M. Laurent',
+    onTime: true,
+    minutesEarly: 14,
+    proof: { photo: true, signature: true },
+  },
+  attempts: 1,
+  receivedAt: '2026-09-11T09:30:04Z',
 }
 
 function ShowcaseTile({
@@ -959,7 +1023,7 @@ function Closing() {
       <Surface
         variant="card"
         padding="lg"
-        className="items-center gap-4 overflow-hidden bg-accent py-16 text-center"
+        className="items-center gap-5 overflow-hidden bg-accent py-20 text-center sm:py-28"
       >
         <Text as="h2" size="title" className="text-balance text-accent-ink sm:text-[32px]">
           Build the first screen today
@@ -970,7 +1034,7 @@ function Closing() {
           leading="normal"
           className="max-w-[54ch] text-balance text-accent-ink opacity-80"
         >
-          Start from a block, change the copy, pick one colour. {componentCount} components and{' '}
+          Start from a block, change the copy, pick one colour. {componentCountRounded} components and{' '}
           {blockCount} screens, every one of them copyable.
         </Text>
         <div className="flex flex-wrap items-center justify-center gap-4 pt-1">

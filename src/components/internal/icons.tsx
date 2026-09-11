@@ -38,6 +38,13 @@ export const ChevronUpIcon = make(<path d="M12 10L8 6l-4 4" />)
 export const ChevronLeftIcon = make(<path d="M10 3.5L5.5 8l4.5 4.5" />)
 export const ChevronRightIcon = make(<path d="M6 3.5L10.5 8 6 12.5" />)
 export const CheckIcon = make(<path d="M3 8.5l3.5 3.5L13 5" />)
+export const CopyIcon = make(
+  <>
+    <rect x="5.5" y="5.5" width="8" height="8" rx="1.75" />
+    <path d="M10.5 3.5v-.25A1.75 1.75 0 008.75 1.5h-5.5A1.75 1.75 0 001.5 3.25v5.5a1.75 1.75 0 001.75 1.75h.25" />
+  </>,
+)
+export const PencilIcon = make(<path d="M10.5 2.5l3 3L6 13H3v-3l7.5-7.5z" />)
 export const SearchIcon = make(
   <>
     <circle cx="7.25" cy="7.25" r="4.25" />

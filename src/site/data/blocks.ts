@@ -40,7 +40,7 @@ export const blocks: BlockEntry[] = [
     category: 'Authentication',
     blurb:
       'Account creation with a live password strength meter and terms that must be accepted before the button will submit.',
-    uses: ['Surface', 'Field', 'Input', 'PasswordInput', 'Meter', 'Checkbox', 'Button', 'Text'],
+    uses: ['Surface', 'Field', 'Input', 'PasswordInput', 'PasswordStrength', 'Checkbox', 'Button', 'Text'],
   },
   {
     slug: 'authentication',

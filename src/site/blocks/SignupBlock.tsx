@@ -1,13 +1,14 @@
-import { useMemo, useState, type FormEvent } from 'react'
+import { useState, type FormEvent } from 'react'
 import { Mail, UserRound } from 'lucide-react'
 import {
   Button,
   Checkbox,
+  DEFAULT_PASSWORD_RULES,
   Field,
   Input,
   Label,
-  Meter,
   PasswordInput,
+  PasswordStrength,
   Surface,
   Text,
 } from 'citrine'
@@ -15,21 +16,11 @@ import {
 /**
  * Account creation.
  *
- * The strength meter is a Meter, not a coloured bar: it has a value, a maximum
- * and a label, so it is announced as a measurement rather than being a hint
- * only sighted users receive. The terms checkbox gates the button instead of
- * failing after submit, because a disabled reason shown up front is kinder than
- * an error shown after.
+ * Password strength is the library's PasswordStrength, so the score is a Meter
+ * announced as a measurement and each rule says in words whether it is met.
+ * The terms checkbox gates the button instead of failing after submit, because
+ * a reason shown up front is kinder than an error shown after.
  */
-const RULES: { label: string; test: (value: string) => boolean }[] = [
-  { label: '12 characters or more', test: (v) => v.length >= 12 },
-  { label: 'a number', test: (v) => /\d/.test(v) },
-  { label: 'a symbol', test: (v) => /[^A-Za-z0-9]/.test(v) },
-  { label: 'mixed case', test: (v) => /[a-z]/.test(v) && /[A-Z]/.test(v) },
-]
-
-const LABELS = ['Too short', 'Weak', 'Fair', 'Good', 'Strong']
-
 export default function SignupBlock() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -37,7 +28,8 @@ export default function SignupBlock() {
   const [accepted, setAccepted] = useState(false)
   const [done, setDone] = useState(false)
 
-  const passed = useMemo(() => RULES.filter((rule) => rule.test(password)).length, [password])
+  // The same rules PasswordStrength displays, so the gate and the checklist agree.
+  const passed = DEFAULT_PASSWORD_RULES.filter((rule) => rule.test(password)).length
 
   const submit = (event: FormEvent) => {
     event.preventDefault()
@@ -86,26 +78,7 @@ export default function SignupBlock() {
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
-              <Meter
-                value={passed}
-                total={RULES.length}
-                label={`Password strength: ${LABELS[passed]}`}
-              />
-              <div className="flex flex-wrap gap-x-3 gap-y-1">
-                {RULES.map((rule) => {
-                  const ok = rule.test(password)
-                  return (
-                    <Text
-                      key={rule.label}
-                      size="micro"
-                      weight="semibold"
-                      tone={ok ? 'success' : 'faint'}
-                    >
-                      {ok ? '✓' : '·'} {rule.label}
-                    </Text>
-                  )
-                })}
-              </div>
+              <PasswordStrength value={password} />
             </div>
           </Field>
 

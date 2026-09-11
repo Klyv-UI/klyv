@@ -7,6 +7,7 @@ import {
   Terminal,
   Text,
 } from 'citrine'
+import { componentCount } from '../data/catalog'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 
@@ -90,7 +91,7 @@ function TerminalExample() {
         commands={COMMANDS}
         greeting={
           <>
-            <span className="text-[color:var(--color-accent-strong)]">citrine</span> v1.0 — 238
+            <span className="text-[color:var(--color-accent-strong)]">citrine</span> v1.0 — {componentCount}
             components, 0 dependencies.
             {'\n'}Type <span className="text-white">help</span>, or press Tab to complete.
           </>
@@ -102,7 +103,7 @@ function TerminalExample() {
               api.print(`Commands: ${COMMANDS.join(', ')}`)
               break
             case 'about':
-              api.print('An accent-led component library. 238 components, 3 runtime deps.')
+              api.print(`An accent-led component library. ${componentCount} components, 2 runtime deps.`)
               api.print('One accent hue drives every emphasis. Try the swatches in the header.')
               break
             case 'levels':

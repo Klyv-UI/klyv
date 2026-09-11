@@ -381,6 +381,20 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "shared": [],
     "external": []
   },
+  "BarList": {
+    "files": [
+      "components/BarList/BarList.tsx",
+      "components/BarList/index.ts"
+    ],
+    "internal": [
+      "Text"
+    ],
+    "shared": [
+      "lib/cn.ts",
+      "lib/types.ts"
+    ],
+    "external": []
+  },
   "BentoGrid": {
     "files": [
       "components/BentoGrid/BentoGrid.tsx",
@@ -445,6 +459,24 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "shared": [
       "components/internal/icons.tsx",
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "BulkActionBar": {
+    "files": [
+      "components/BulkActionBar/BulkActionBar.tsx",
+      "components/BulkActionBar/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "Surface",
+      "Text",
+      "VisuallyHidden"
+    ],
+    "shared": [
       "lib/cn.ts"
     ],
     "external": [
@@ -561,6 +593,21 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "external": [
       "react"
     ]
+  },
+  "CategoryBar": {
+    "files": [
+      "components/CategoryBar/CategoryBar.tsx",
+      "components/CategoryBar/index.ts"
+    ],
+    "internal": [
+      "Legend",
+      "Text"
+    ],
+    "shared": [
+      "lib/chart.ts",
+      "lib/cn.ts"
+    ],
+    "external": []
   },
   "ChartTooltip": {
     "files": [
@@ -825,6 +872,23 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "CopyButton": {
+    "files": [
+      "components/CopyButton/CopyButton.tsx",
+      "components/CopyButton/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "IconButton",
+      "VisuallyHidden"
+    ],
+    "shared": [
+      "components/internal/icons.tsx"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "CountUp": {
     "files": [
       "components/CountUp/CountUp.tsx",
@@ -834,6 +898,21 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "AnimatedNumber"
     ],
     "shared": [],
+    "external": [
+      "react"
+    ]
+  },
+  "Countdown": {
+    "files": [
+      "components/Countdown/Countdown.tsx",
+      "components/Countdown/index.ts"
+    ],
+    "internal": [
+      "Text"
+    ],
+    "shared": [
+      "lib/cn.ts"
+    ],
     "external": [
       "react"
     ]
@@ -1205,6 +1284,19 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "ExpandableText": {
+    "files": [
+      "components/ExpandableText/ExpandableText.tsx",
+      "components/ExpandableText/index.ts"
+    ],
+    "internal": [],
+    "shared": [
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "Field": {
     "files": [
       "components/Field/Field.tsx",
@@ -1327,6 +1419,19 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "external": [
       "react"
     ]
+  },
+  "FunnelChart": {
+    "files": [
+      "components/FunnelChart/FunnelChart.tsx",
+      "components/FunnelChart/index.ts"
+    ],
+    "internal": [
+      "Text"
+    ],
+    "shared": [
+      "lib/cn.ts"
+    ],
+    "external": []
   },
   "GlitchText": {
     "files": [
@@ -1491,6 +1596,24 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "InlineEdit": {
+    "files": [
+      "components/InlineEdit/InlineEdit.tsx",
+      "components/InlineEdit/index.ts"
+    ],
+    "internal": [
+      "IconButton",
+      "Input",
+      "Text"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "InlineMessage": {
     "files": [
       "components/InlineMessage/InlineMessage.tsx",
@@ -1526,6 +1649,22 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "internal": [],
     "shared": [
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "JsonViewer": {
+    "files": [
+      "components/JsonViewer/JsonViewer.tsx",
+      "components/JsonViewer/index.ts"
+    ],
+    "internal": [
+      "Surface"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
       "lib/cn.ts"
     ],
     "external": [
@@ -1635,6 +1774,28 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "lib/cn.ts"
     ],
     "external": []
+  },
+  "Lightbox": {
+    "files": [
+      "components/Lightbox/Lightbox.tsx",
+      "components/Lightbox/index.ts"
+    ],
+    "internal": [
+      "FocusTrap",
+      "IconButton",
+      "Portal",
+      "Presence",
+      "Surface",
+      "Text",
+      "VisuallyHidden"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
   },
   "LineChart": {
     "files": [
@@ -2167,6 +2328,22 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "PasswordStrength": {
+    "files": [
+      "components/PasswordStrength/PasswordStrength.tsx",
+      "components/PasswordStrength/index.ts"
+    ],
+    "internal": [
+      "Meter",
+      "StatusDot",
+      "Text",
+      "VisuallyHidden"
+    ],
+    "shared": [
+      "lib/cn.ts"
+    ],
+    "external": []
+  },
   "PermissionGate": {
     "files": [
       "components/PermissionGate/PermissionGate.tsx",
@@ -2550,6 +2727,19 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "internal": [
       "Text"
     ],
+    "shared": [
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "RelativeTime": {
+    "files": [
+      "components/RelativeTime/RelativeTime.tsx",
+      "components/RelativeTime/index.ts"
+    ],
+    "internal": [],
     "shared": [
       "lib/cn.ts"
     ],
@@ -2969,6 +3159,23 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "external": []
   },
+  "SplitButton": {
+    "files": [
+      "components/SplitButton/SplitButton.tsx",
+      "components/SplitButton/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "Menu"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "SplitFlap": {
     "files": [
       "components/SplitFlap/SplitFlap.tsx",
@@ -2980,6 +3187,19 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "shared": [
       "lib/cn.ts",
       "lib/motion.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "SplitPane": {
+    "files": [
+      "components/SplitPane/SplitPane.tsx",
+      "components/SplitPane/index.ts"
+    ],
+    "internal": [],
+    "shared": [
+      "lib/cn.ts"
     ],
     "external": [
       "react"
@@ -3452,6 +3672,18 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "ToggleGroup": {
+    "files": [
+      "components/ToggleGroup/ToggleGroup.tsx",
+      "components/ToggleGroup/index.ts"
+    ],
+    "internal": [],
+    "shared": [
+      "lib/cn.ts",
+      "lib/types.ts"
+    ],
+    "external": []
+  },
   "Toolbar": {
     "files": [
       "components/Toolbar/Toolbar.tsx",
@@ -3591,6 +3823,19 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "lib/cn.ts"
     ],
     "external": []
+  },
+  "VirtualList": {
+    "files": [
+      "components/VirtualList/VirtualList.tsx",
+      "components/VirtualList/index.ts"
+    ],
+    "internal": [],
+    "shared": [
+      "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
   },
   "VisuallyHidden": {
     "files": [
