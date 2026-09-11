@@ -84,6 +84,7 @@ export function SiteLayout() {
 /* ------------------------------------------------------------------ header */
 
 const TOP_LINKS = [
+  { to: '/getting-started', label: 'Get started' },
   { to: '/components', label: 'Components' },
   { to: '/foundations', label: 'Foundations' },
   { to: '/tokens', label: 'Tokens' },
@@ -339,6 +340,7 @@ function NavItem({ entry }: { entry: CatalogEntry }) {
 /* ------------------------------------------------------------------ footer */
 
 const RESOURCES = [
+  { to: '/getting-started', label: 'Get started' },
   { to: '/components', label: 'All components' },
   { to: '/foundations', label: 'Foundations' },
   { to: '/tokens', label: 'Tokens' },

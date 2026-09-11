@@ -157,9 +157,12 @@ lives in `site/data/catalog.ts` and can be rearranged without moving a file.
 - **/components/:slug** — one page per component: its measured weight, the ARIA
   roles it renders, live previews, variants, the reasoning, an API table
   generated from the type, and the **Code** section.
+- **/getting-started** — install, the stylesheet, the theme API and the first
+  component: everything a new project needs before it writes any UI.
 - **/foundations** — the six rules the tokens follow.
 - **/tokens** — every token, and the theme switcher.
 - **/playground** — a live prop playground.
+- **/agents** — connecting a coding agent over MCP, and the Agent Skill.
 
 ### Taking a component
 
@@ -410,7 +413,8 @@ advertises two runtime dependencies should not quietly add a third.
 harnesses that load skills instead: which component to reach for, the theming
 API, the house rules, and the mistakes that come up most.
 
-More in [`mcp/README.md`](mcp/README.md).
+More in [`mcp/README.md`](mcp/README.md), or on the **/agents** page of the docs
+site, whose tool table is generated from the server's own definitions.
 
 ## House rules
 
