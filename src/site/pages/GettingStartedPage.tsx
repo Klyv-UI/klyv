@@ -212,7 +212,8 @@ applyMode('system')  // follow the operating system, and keep following it`
 
 const CLI = `npx ${brand.pkg} add data-table   # the component and everything it imports
 npx ${brand.pkg} list drag        # search by name, group, section or description
-npx ${brand.pkg} info combobox    # what it would bring with it`
+npx ${brand.pkg} info combobox    # what it would bring with it
+npx ${brand.pkg} add block login  # a whole screen, into src/blocks`
 
 const EXPORTS = [
   { name: brand.pkg, what: 'The components, cn, the token registry and the theme API.' },

@@ -50,6 +50,7 @@
     "src/theme",
     "src/tokens",
     "src/index.ts",
+    "src/site/blocks",
     "cli",
     "types",
     "data",
@@ -58,7 +59,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "generate": "node scripts/generate-metadata.mjs && node scripts/generate-props.mjs && node scripts/generate-mcp-docs.mjs && node scripts/client-directives.mjs --check && node scripts/check-rules.mjs",
+    "generate": "node scripts/generate-metadata.mjs && node scripts/generate-props.mjs && node scripts/generate-blocks.mjs && node scripts/generate-mcp-docs.mjs && node scripts/client-directives.mjs --check && node scripts/check-rules.mjs",
     "predev": "npm run generate",
     "dev": "vite",
     "prebuild": "npm run generate",

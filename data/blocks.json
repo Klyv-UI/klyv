@@ -1,0 +1,335 @@
+{
+  "blocks": [
+    {
+      "slug": "login",
+      "name": "Login",
+      "category": "Authentication",
+      "blurb": "A sign-in screen with real validation, a pending state, and an error that is announced rather than just coloured red.",
+      "uses": [
+        "Surface",
+        "Field",
+        "Input",
+        "PasswordInput",
+        "Checkbox",
+        "Button",
+        "Alert",
+        "Text"
+      ],
+      "keywords": [
+        "sign in",
+        "log in",
+        "signin",
+        "auth"
+      ],
+      "file": "src/site/blocks/LoginBlock.tsx",
+      "components": [
+        "Alert",
+        "Button",
+        "Checkbox",
+        "Field",
+        "Input",
+        "Label",
+        "PasswordInput",
+        "Surface",
+        "Text"
+      ],
+      "packages": [
+        "citrine",
+        "lucide-react",
+        "react"
+      ]
+    },
+    {
+      "slug": "signup",
+      "name": "Signup",
+      "category": "Authentication",
+      "blurb": "Account creation with a live password strength meter and terms that must be accepted before the button will submit.",
+      "uses": [
+        "Surface",
+        "Field",
+        "Input",
+        "PasswordInput",
+        "PasswordStrength",
+        "Checkbox",
+        "Button",
+        "Text"
+      ],
+      "keywords": [
+        "sign up",
+        "register",
+        "create account",
+        "onboarding"
+      ],
+      "file": "src/site/blocks/SignupBlock.tsx",
+      "components": [
+        "Button",
+        "Checkbox",
+        "Field",
+        "Input",
+        "Label",
+        "PasswordInput",
+        "PasswordStrength",
+        "Surface",
+        "Text"
+      ],
+      "packages": [
+        "citrine",
+        "lucide-react",
+        "react"
+      ]
+    },
+    {
+      "slug": "authentication",
+      "name": "Two-factor",
+      "category": "Authentication",
+      "blurb": "The six-digit step after a password: an OTP field that submits on completion, a resend timer, and a verified state.",
+      "uses": [
+        "Surface",
+        "InputOTP",
+        "Button",
+        "Alert",
+        "SuccessMark",
+        "Text"
+      ],
+      "keywords": [
+        "two factor",
+        "2fa",
+        "mfa",
+        "otp",
+        "verify"
+      ],
+      "file": "src/site/blocks/AuthenticationBlock.tsx",
+      "components": [
+        "Alert",
+        "Button",
+        "InputOTP",
+        "SuccessMark",
+        "Surface",
+        "Text"
+      ],
+      "packages": [
+        "citrine",
+        "lucide-react",
+        "react"
+      ]
+    },
+    {
+      "slug": "admin",
+      "name": "Admin panel",
+      "category": "Application",
+      "blurb": "A team admin panel that works end to end: sort, select and page the members table, invite someone through a validated dialog, change roles, and undo a removal from the toast.",
+      "uses": [
+        "DataTable",
+        "Modal",
+        "Field",
+        "Input",
+        "Select",
+        "Switch",
+        "SearchField",
+        "StatCard",
+        "AreaChart",
+        "DonutChart",
+        "Toast",
+        "Avatar",
+        "Tag"
+      ],
+      "keywords": [
+        "members",
+        "team",
+        "users",
+        "roles",
+        "invite",
+        "permissions"
+      ],
+      "file": "src/site/blocks/AdminBlock.tsx",
+      "components": [
+        "AreaChart",
+        "Avatar",
+        "Badge",
+        "Button",
+        "DataTable",
+        "DonutChart",
+        "Field",
+        "IconButton",
+        "Input",
+        "Modal",
+        "SearchField",
+        "Select",
+        "StatCard",
+        "Surface",
+        "Switch",
+        "Tag",
+        "Text",
+        "Toast"
+      ],
+      "packages": [
+        "citrine",
+        "lucide-react",
+        "react"
+      ]
+    },
+    {
+      "slug": "dashboard",
+      "name": "Dashboard",
+      "category": "Application",
+      "blurb": "A freight operations console: live KPIs, a sortable consignment table with selection, volume and fleet charts, and a route event feed.",
+      "uses": [
+        "AppShell",
+        "Navbar",
+        "Sidebar",
+        "PageHeader",
+        "StatCard",
+        "AreaChart",
+        "DonutChart",
+        "DataTable",
+        "Timeline",
+        "Progress"
+      ],
+      "keywords": [
+        "analytics",
+        "overview",
+        "kpi",
+        "operations",
+        "console"
+      ],
+      "file": "src/site/blocks/DashboardBlock.tsx",
+      "components": [
+        "AppShell",
+        "AreaChart",
+        "Button",
+        "Card",
+        "DataTable",
+        "DonutChart",
+        "Navbar",
+        "PageHeader",
+        "Progress",
+        "SegmentedControl",
+        "Sidebar",
+        "StatCard",
+        "StatusDot",
+        "Surface",
+        "Text",
+        "Timeline"
+      ],
+      "packages": [
+        "citrine",
+        "lucide-react",
+        "react"
+      ]
+    },
+    {
+      "slug": "settings",
+      "name": "Settings",
+      "category": "Application",
+      "blurb": "Tabbed account settings with real switches, a regional panel, and a save bar that sticks to the foot of the form.",
+      "uses": [
+        "PageHeader",
+        "Tabs",
+        "Card",
+        "Field",
+        "Input",
+        "Textarea",
+        "Select",
+        "Switch",
+        "Button",
+        "Alert"
+      ],
+      "keywords": [
+        "preferences",
+        "account",
+        "notifications",
+        "billing"
+      ],
+      "file": "src/site/blocks/SettingsBlock.tsx",
+      "components": [
+        "Alert",
+        "Button",
+        "Card",
+        "Field",
+        "Input",
+        "PageHeader",
+        "Select",
+        "Surface",
+        "Switch",
+        "Tabs",
+        "Text",
+        "Textarea"
+      ],
+      "packages": [
+        "citrine",
+        "lucide-react",
+        "react"
+      ]
+    },
+    {
+      "slug": "profile",
+      "name": "Profile",
+      "category": "Application",
+      "blurb": "A person page: identity, shift status, four measured figures, a definition list of facts, and a recent-activity timeline.",
+      "uses": [
+        "Avatar",
+        "Badge",
+        "StatusDot",
+        "Metric",
+        "DescriptionList",
+        "Timeline",
+        "Card",
+        "Button"
+      ],
+      "keywords": [
+        "person",
+        "user",
+        "bio",
+        "about"
+      ],
+      "file": "src/site/blocks/ProfileBlock.tsx",
+      "components": [
+        "Avatar",
+        "Badge",
+        "Button",
+        "Card",
+        "DescriptionList",
+        "Metric",
+        "StatusDot",
+        "Surface",
+        "Text",
+        "Timeline"
+      ],
+      "packages": [
+        "citrine",
+        "lucide-react"
+      ]
+    },
+    {
+      "slug": "featured",
+      "name": "Featured",
+      "category": "Marketing",
+      "blurb": "A landing section — headline, feature grid, measured figures and a closing call to action — themed entirely by the accent.",
+      "uses": [
+        "Badge",
+        "Text",
+        "Button",
+        "Surface",
+        "Metric"
+      ],
+      "keywords": [
+        "marketing",
+        "landing",
+        "hero",
+        "pricing"
+      ],
+      "file": "src/site/blocks/FeaturedBlock.tsx",
+      "components": [
+        "Badge",
+        "Button",
+        "Metric",
+        "Surface",
+        "Text"
+      ],
+      "packages": [
+        "citrine",
+        "lucide-react"
+      ]
+    }
+  ]
+}

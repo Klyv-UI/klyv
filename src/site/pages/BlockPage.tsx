@@ -9,6 +9,7 @@ import {
 import { Link, useParams } from 'react-router-dom'
 import { Badge, CodeBlock, Surface, Text } from 'citrine'
 import { Preview, Section } from '../components/Doc'
+import { brand } from '../brand'
 import { blocks, findBlock } from '../data/blocks'
 import { blockSource } from '../data/source'
 
@@ -27,32 +28,29 @@ interface BlockProps {
   embedded?: boolean
 }
 
-const BLOCK_COMPONENTS: Record<string, LazyExoticComponent<ComponentType<BlockProps>>> = {
-  login: lazy(() => import('../blocks/LoginBlock')),
-  signup: lazy(() => import('../blocks/SignupBlock')),
-  authentication: lazy(() => import('../blocks/AuthenticationBlock')),
-  admin: lazy(() => import('../blocks/AdminBlock')),
-  dashboard: lazy(() => import('../blocks/DashboardBlock')),
-  settings: lazy(() => import('../blocks/SettingsBlock')),
-  profile: lazy(() => import('../blocks/ProfileBlock')),
-  featured: lazy(() => import('../blocks/FeaturedBlock')),
-}
+/**
+ * Every block file as its own lazy chunk, keyed by file name — the name each
+ * entry in blocks.ts records. Adding a block is one entry and one file; there
+ * is no second map here to forget, and the generator fails the build when an
+ * entry names a file that does not exist.
+ */
+const MODULES = import.meta.glob<{ default: ComponentType<BlockProps> }>('../blocks/*.tsx')
+const loaded = new Map<string, LazyExoticComponent<ComponentType<BlockProps>>>()
 
-const FILES: Record<string, string> = {
-  login: 'LoginBlock.tsx',
-  signup: 'SignupBlock.tsx',
-  authentication: 'AuthenticationBlock.tsx',
-  admin: 'AdminBlock.tsx',
-  dashboard: 'DashboardBlock.tsx',
-  settings: 'SettingsBlock.tsx',
-  profile: 'ProfileBlock.tsx',
-  featured: 'FeaturedBlock.tsx',
+function blockComponent(file: string) {
+  const known = loaded.get(file)
+  if (known) return known
+  const load = MODULES[`../blocks/${file}`]
+  if (!load) return undefined
+  const component = lazy(load)
+  loaded.set(file, component)
+  return component
 }
 
 export default function BlockPage() {
   const { slug } = useParams()
   const block = findBlock(slug)
-  const Block = slug ? BLOCK_COMPONENTS[slug] : undefined
+  const Block = block ? blockComponent(block.file) : undefined
 
   useEffect(() => {
     window.scrollTo({ top: 0 })
@@ -123,9 +121,10 @@ export default function BlockPage() {
 
       <Section
         title="Code"
-        description="The whole screen, verbatim. Paste it in and change the copy."
+        description="The whole screen, verbatim. Take it with the CLI, or paste it in and change the copy."
       >
-        <BlockCode file={FILES[block.slug]} />
+        <CodeBlock language="bash" code={`npx ${brand.pkg} add block ${block.slug}`} highlight={false} />
+        <BlockCode file={block.file} />
       </Section>
 
       <BlockNeighbours previous={previous} next={next} />

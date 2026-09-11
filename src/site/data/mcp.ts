@@ -72,6 +72,30 @@ export const mcpTools: McpTool[] = [
     ]
   },
   {
+    "name": "list_blocks",
+    "description": "Whole screens built only from library components — sign-in, signup, two-factor, an admin panel, an operations dashboard, settings, a profile, a landing section. Reach for one when the job is a page rather than a part.",
+    "args": [
+      {
+        "name": "category",
+        "type": "string",
+        "required": false,
+        "description": "Optional: \"Authentication\", \"Application\" or \"Marketing\"."
+      }
+    ]
+  },
+  {
+    "name": "get_block",
+    "description": "One block in full: what it is for, every library component it uses, the npm packages it needs, and its complete source — a working screen to adapt rather than write from nothing. Accepts the slug or the name: 'dashboard', 'Dashboard', 'two-factor'.",
+    "args": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true,
+        "description": "Block slug or name."
+      }
+    ]
+  },
+  {
     "name": "list_groups",
     "description": "The twelve groups the library is organised by, with what each is for and how many components it holds.",
     "args": []
@@ -105,6 +129,12 @@ export const mcpResources: McpResource[] = [
     "uri": "citrine://catalog",
     "name": "Component catalogue",
     "description": "Every component with its group, section and summary.",
+    "mimeType": "application/json"
+  },
+  {
+    "uri": "citrine://blocks",
+    "name": "Blocks",
+    "description": "Every block — a whole screen — with the components it is built from.",
     "mimeType": "application/json"
   },
   {

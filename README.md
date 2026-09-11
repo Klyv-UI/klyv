@@ -175,6 +175,8 @@ npx citrine add data-table      # 21 files, dependencies included
 npx citrine add button switch   # several at once; shared files written once
 npx citrine list drag           # search by name, group, section or blurb
 npx citrine info combobox       # what it would bring with it
+npx citrine add block dashboard # a whole screen, into src/blocks
+npx citrine blocks              # every block
 ```
 
 | Flag | |
@@ -397,13 +399,15 @@ or, for anything that reads `mcp.json`:
 { "mcpServers": { "citrine": { "command": "npx", "args": ["-y", "citrine-mcp"] } } }
 ```
 
-Seven tools: `search_components`, `get_component` (every prop with its real
+Nine tools: `search_components`, `get_component` (every prop with its real
 type and default, ARIA roles, gzipped size, dependencies),
-`get_component_source` (optionally with everything it imports), `list_groups`,
-`get_design_tokens`, `get_design_rules`, `how_to_install`. The same knowledge is
-served as resources too — `citrine://catalog`, `citrine://tokens`,
-`citrine://rules`, `citrine://usage` — for clients that prefer to attach
-documents over calling tools.
+`get_component_source` (optionally with everything it imports), `list_blocks`
+and `get_block` (whole screens, with the components each uses and its full
+source), `list_groups`, `get_design_tokens`, `get_design_rules`,
+`how_to_install`. The same knowledge is served as resources too —
+`citrine://catalog`, `citrine://blocks`, `citrine://tokens`, `citrine://rules`,
+`citrine://usage` — for clients that prefer to attach documents over calling
+tools.
 
 It is plain JSON-RPC 2.0 over stdio in one file, with no SDK: a library that
 advertises two runtime dependencies should not quietly add a third.

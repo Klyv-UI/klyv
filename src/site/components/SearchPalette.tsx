@@ -1,7 +1,18 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Layers, LayoutGrid, Palette, Search, SlidersHorizontal, Sparkles } from 'lucide-react'
+import {
+  Bot,
+  Layers,
+  LayoutGrid,
+  LayoutTemplate,
+  Palette,
+  Rocket,
+  Search,
+  SlidersHorizontal,
+  Sparkles,
+} from 'lucide-react'
 import { CommandPalette, Kbd, Text, type Command } from 'citrine'
+import { blockCount, blocks } from '../data/blocks'
 import { catalog, componentCount } from '../data/catalog'
 import { groups } from '../data/groups'
 
@@ -31,10 +42,13 @@ export function useSearchPalette() {
 
 const PAGES = [
   { id: 'page:overview', label: 'Overview', to: '/', icon: Sparkles },
+  { id: 'page:getting-started', label: 'Get started', to: '/getting-started', icon: Rocket },
   { id: 'page:components', label: 'All components', to: '/components', icon: LayoutGrid },
+  { id: 'page:blocks', label: 'Blocks', to: '/blocks', icon: LayoutTemplate },
   { id: 'page:foundations', label: 'Foundations', to: '/foundations', icon: Layers },
   { id: 'page:tokens', label: 'Design Tokens', to: '/tokens', icon: Palette },
   { id: 'page:playground', label: 'Playground', to: '/playground', icon: SlidersHorizontal },
+  { id: 'page:agents', label: 'AI agents', to: '/agents', icon: Bot },
 ]
 
 export function SearchPalette({
@@ -60,6 +74,23 @@ export function SearchPalette({
         icon: page.icon,
         onSelect: go(page.to),
       })),
+      ...blocks.map((block) => ({
+        id: `block:${block.slug}`,
+        label: block.name,
+        group: 'Blocks',
+        icon: LayoutTemplate,
+        // The words people actually type — "sign in", "2fa", "kpi" — come from
+        // the block's own keywords; the parts it uses find it by component too.
+        keywords: [
+          ...(block.keywords ?? []),
+          block.slug,
+          block.category,
+          'screen',
+          'block',
+          ...block.uses,
+        ],
+        onSelect: go(`/blocks/${block.slug}`),
+      })),
       ...groups.map((group) => ({
         id: `group:${group.slug}`,
         label: group.id,
@@ -72,10 +103,16 @@ export function SearchPalette({
         id: `component:${entry.slug}`,
         label: entry.name,
         group: entry.group,
-        // The slug carries the hyphenated spelling, so "data-table" and
-        // "datatable" both reach DataTable; the section adds the vocabulary
-        // someone uses when they know the job but not the name.
-        keywords: [entry.slug, entry.slug.replace(/-/g, ''), entry.section, entry.group],
+        // All three spellings reach DataTable: "data-table" from the slug,
+        // "datatable" and "data table" from these. The section adds the
+        // vocabulary someone uses when they know the job but not the name.
+        keywords: [
+          entry.slug,
+          entry.slug.replace(/-/g, ''),
+          entry.slug.replace(/-/g, ' '),
+          entry.section,
+          entry.group,
+        ],
         onSelect: go(`/components/${entry.slug}`),
       })),
     ]
@@ -87,7 +124,7 @@ export function SearchPalette({
       onClose={onClose}
       commands={commands}
       label="Search the library"
-      placeholder={`Search ${componentCount} components…`}
+      placeholder={`Search ${componentCount} components and ${blockCount} blocks…`}
       emptyMessage="Nothing matches. Try what it does rather than what it is called."
     />
   )

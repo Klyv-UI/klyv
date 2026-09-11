@@ -146,9 +146,18 @@ test('search finds by job, not just by name', async () => {
   const out = await converse([
     call(1, 'search_components', { query: 'table' }),
     call(2, 'search_components', {}),
+    call(3, 'search_components', { query: 'data table' }),
+    call(4, 'search_components', { query: 'datatable' }),
   ])
 
   assert.ok(payload(out.get(1)).some((entry) => entry.name === 'DataTable'))
+  // However someone spaces it, it is the same search.
+  for (const id of [3, 4]) {
+    assert.ok(
+      payload(out.get(id)).some((entry) => entry.name === 'DataTable'),
+      `query ${id} should reach DataTable`,
+    )
+  }
   const all = payload(out.get(2))
   assert.ok(all.length > 200, `an empty query lists everything, got ${all.length}`)
   assert.ok(all.every((entry) => entry.summary), 'every entry is described')
@@ -171,6 +180,35 @@ test('tokens and rules are served as resources too', async () => {
 
   const filtered = payload(out.get(4))
   assert.ok(filtered.color && !filtered.radius, 'group filter narrows the result')
+})
+
+test('blocks are listed, found by slug or name, and come with their source', async () => {
+  const out = await converse([
+    call(1, 'list_blocks', {}),
+    call(2, 'get_block', { name: 'dashboard' }),
+    call(3, 'get_block', { name: 'Two-factor' }),
+    call(4, 'get_block', { name: 'no-such-block' }),
+    call(5, 'list_blocks', { category: 'Authentication' }),
+    rpc(6, 'resources/read', { uri: 'citrine://blocks' }),
+  ])
+
+  const all = payload(out.get(1))
+  assert.ok(all.length >= 8, `expected every block, got ${all.length}`)
+  assert.ok(all.every((block) => block.cli.startsWith('npx citrine add block ')))
+
+  const dashboard = payload(out.get(2))
+  assert.equal(dashboard.slug, 'dashboard')
+  assert.ok(dashboard.components.includes('AppShell'), 'components are read off the imports')
+  assert.ok(dashboard.packages.includes('citrine'))
+  assert.match(dashboard.source, /export default function DashboardBlock/, 'the real file comes back')
+
+  assert.equal(payload(out.get(3)).slug, 'authentication', 'the display name resolves too')
+
+  const missing = payload(out.get(4))
+  assert.ok(missing.error && missing.blocks.includes('login'), 'a miss lists what does exist')
+
+  assert.ok(payload(out.get(5)).every((block) => block.category === 'Authentication'))
+  assert.ok(JSON.parse(out.get(6).result.contents[0].text).length >= 8, 'the resource carries them too')
 })
 
 test('bad input is answered, never fatal', async () => {

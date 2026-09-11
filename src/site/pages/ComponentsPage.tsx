@@ -50,11 +50,14 @@ export default function ComponentsPage() {
     const matched = catalog.filter((entry) => {
       if (active && entry.group !== active.id) return false
       if (!needle) return true
+      const fields = [entry.name, entry.slug, entry.blurb, entry.section, entry.group]
+      if (fields.some((field) => field.toLowerCase().includes(needle))) return true
+      // "data table", "data-table" and "datatable" are one search: people type
+      // the spacing they remember, which is rarely the spelling of the slug.
+      const flat = needle.replace(/[^a-z0-9]/g, '')
       return (
-        entry.name.toLowerCase().includes(needle) ||
-        entry.blurb.toLowerCase().includes(needle) ||
-        entry.section.toLowerCase().includes(needle) ||
-        entry.group.toLowerCase().includes(needle)
+        flat.length > 2 &&
+        fields.some((field) => field.toLowerCase().replace(/[^a-z0-9]/g, '').includes(flat))
       )
     })
 

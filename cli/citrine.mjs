@@ -5,7 +5,7 @@
 // makes this possible without rewriting a single line: mirror the same shape
 // under your destination and every import resolves exactly as it did here.
 import { readFileSync, writeFileSync, mkdirSync, existsSync, cpSync } from 'node:fs'
-import { join, dirname, relative, isAbsolute, resolve as resolvePathFrom } from 'node:path'
+import { basename, join, dirname, relative, isAbsolute, resolve as resolvePathFrom } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const HERE = dirname(fileURLToPath(import.meta.url))
@@ -154,6 +154,7 @@ function parseArgs(args) {
 }
 
 function add(args) {
+  if (args[0] === 'block' || args[0] === 'blocks') return addBlocks(args.slice(1))
   const parsed = parseArgs(args)
   const requested = parsed.names
   const dry = parsed.flags.has('--dry') || parsed.flags.has('-n')
@@ -170,6 +171,11 @@ function add(args) {
     const name = resolveName(input)
     if (!name) {
       console.error(red(`No component called "${input}".`))
+      const block = resolveBlock(input)
+      if (block) {
+        console.error(dim(`"${input}" is a block: citrine add block ${block.slug}`))
+        process.exit(1)
+      }
       const near = suggest(input)
       if (near.length) console.error(dim(`Did you mean: ${near.join(', ')}?`))
       process.exit(1)
@@ -297,6 +303,112 @@ function info(args) {
   console.log('')
 }
 
+/* ------------------------------------------------------------------ blocks */
+
+// Whole screens. A block imports from the citrine package rather than from
+// sibling folders, so it is copied as one file, and what it needs is installed
+// rather than copied beside it.
+const BLOCKS_FILE = join(ROOT, 'data', 'blocks.json')
+const BLOCKS = existsSync(BLOCKS_FILE) ? JSON.parse(readFileSync(BLOCKS_FILE, 'utf8')).blocks : []
+
+/** 'dashboard', 'Dashboard', 'two-factor' and 'DashboardBlock' all find a block. */
+function resolveBlock(input) {
+  const flat = input.replace(/[-_\s]/g, '').toLowerCase()
+  return BLOCKS.find((block) =>
+    [block.slug, block.name, basename(block.file, '.tsx')].some(
+      (key) => key.replace(/[-_\s]/g, '').toLowerCase() === flat,
+    ),
+  )
+}
+
+function addBlocks(args) {
+  const parsed = parseArgs(args)
+  const dry = parsed.flags.has('--dry') || parsed.flags.has('-n')
+  const force = parsed.flags.has('--force') || parsed.flags.has('-f')
+  const dest = parsed.dest ? resolvePath(parsed.dest) : join(process.cwd(), 'src')
+
+  if (parsed.names.length === 0) {
+    console.error(red('Name a block. Try `citrine blocks` to see them.'))
+    process.exit(1)
+  }
+
+  const chosen = []
+  for (const input of parsed.names) {
+    const block = resolveBlock(input)
+    if (!block) {
+      console.error(red(`No block called "${input}".`))
+      console.error(dim(`Blocks: ${BLOCKS.map((entry) => entry.slug).join(', ')}`))
+      process.exit(1)
+    }
+    chosen.push(block)
+  }
+
+  const packages = new Set()
+  let written = 0
+  let skipped = 0
+  console.log('')
+
+  for (const block of chosen) {
+    const from = join(ROOT, block.file)
+    const to = join(dest, 'blocks', basename(block.file))
+    console.log(`${bold(block.name)} ${dim('->')} ${cyan(relative(process.cwd(), to) || to)}`)
+    console.log(dim(`  built from ${block.components.length} components: ${block.components.join(', ')}`))
+    block.packages.forEach((pkg) => packages.add(pkg))
+
+    if (!existsSync(from)) {
+      console.error(red(`  missing in package: ${block.file}`))
+      process.exit(1)
+    }
+    if (existsSync(to) && !force) {
+      console.log(`  ${dim('skip')}  ${basename(to)} ${dim('(exists)')}`)
+      skipped += 1
+      continue
+    }
+    if (!dry) {
+      mkdirSync(dirname(to), { recursive: true })
+      writeFileSync(to, readFileSync(from))
+    }
+    console.log(`  ${green('write')} ${basename(to)}`)
+    written += 1
+  }
+
+  console.log('')
+  console.log(
+    `${written} block${written === 1 ? '' : 's'} written` +
+      (skipped ? `, ${skipped} skipped (pass --force to overwrite)` : '') +
+      (dry ? dim(' — dry run, nothing touched') : ''),
+  )
+  const installable = [...packages].filter((pkg) => pkg !== 'react').sort()
+  if (installable.length) {
+    console.log(dim(`\nRequires: ${installable.join(' ')}`))
+    console.log(dim(`  npm install ${installable.join(' ')}`))
+  }
+  console.log(dim('\nBlocks import from the citrine package. Copied components instead of installing?'))
+  console.log(dim('Point the imports at your copies — the names are the same.'))
+  console.log('')
+}
+
+function listBlocks(args) {
+  const query = parseArgs(args).names[0]?.toLowerCase()
+  const found = BLOCKS.filter(
+    (block) =>
+      !query ||
+      [block.slug, block.name, block.category, block.blurb].some((field) =>
+        field.toLowerCase().includes(query),
+      ),
+  )
+
+  if (found.length === 0) {
+    console.log(`No block matches "${query}".`)
+    return
+  }
+  for (const block of found) {
+    console.log(`  ${block.slug.padEnd(16)}${block.name}${dim(`  ${block.category} · ${block.components.length} components`)}`)
+  }
+  console.log('')
+  console.log(dim(`${found.length} of ${BLOCKS.length} blocks. Copy one with: citrine add block <slug>`))
+}
+
 function help() {
   console.log(`
 ${bold('citrine')} — copy components into your project, with what they need.
@@ -310,6 +422,12 @@ ${bold('citrine')} — copy components into your project, with what they need.
 
   ${cyan('citrine info')} <name>
       What one component would bring with it.
+
+  ${cyan('citrine add block')} <slug...> ${dim('[--dest src] [--dry] [--force]')}
+      Copy a whole screen into src/blocks. It imports from the citrine package.
+
+  ${cyan('citrine blocks')} ${dim('[query]')}
+      List the blocks.
 
 ${dim('The folder layout is preserved, so every relative import resolves')}
 ${dim('unchanged — no rewriting, no codemod, no build step.')}
@@ -328,6 +446,9 @@ switch (command) {
     break
   case 'info':
     info(rest)
+    break
+  case 'blocks':
+    listBlocks(rest)
     break
   case undefined:
   case 'help':

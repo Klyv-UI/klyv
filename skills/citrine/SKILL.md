@@ -17,6 +17,9 @@ to one accent colour and three values derived from it.
 2. **Read its real props.** Types and defaults are generated from the source,
    so they are exact. Do not guess prop names.
 3. **Never invent a colour, radius or shadow.** Everything comes from tokens.
+4. **Building a whole page? Start from a block.** A sign-in screen, an admin
+   panel or a settings page already exists as a working block — adapt it
+   rather than assembling one from scratch (`npx citrine add block <slug>`).
 
 If the Citrine MCP server is connected, use its tools for all three:
 
@@ -27,6 +30,8 @@ If the Citrine MCP server is connected, use its tools for all three:
 | `get_component_source` | the real source, optionally with everything it imports |
 | `get_design_tokens` | colour, radius, shadow, type, and dark-mode values |
 | `get_design_rules` | the design system and the five house rules |
+| `list_blocks` | whole screens — sign-in, dashboard, settings and more |
+| `get_block` | one screen: its components, its packages and its full source |
 | `list_groups` | the twelve groups and their counts |
 | `how_to_install` | package, stylesheet, peer dependencies |
 

@@ -51,6 +51,8 @@ Already have Citrine installed? Point at the local copy and skip the fetch:
 | `search_components` | matches by name, group, or what they do |
 | `get_component` | props, types, defaults, ARIA roles, gzipped size, dependencies |
 | `get_component_source` | the real source, optionally with everything it imports |
+| `list_blocks` | whole screens, by category |
+| `get_block` | one screen: its components, its packages and its full source |
 | `list_groups` | the twelve groups and their counts |
 | `get_design_tokens` | colour, radius, shadow and type, plus dark-mode values |
 | `get_design_rules` | the design system and the five house rules |
@@ -61,7 +63,7 @@ a miss suggests near matches rather than failing.
 
 ## Resources
 
-`citrine://catalog`, `citrine://tokens`, `citrine://rules`, `citrine://usage` —
+`citrine://catalog`, `citrine://blocks`, `citrine://tokens`, `citrine://rules`, `citrine://usage` —
 the same knowledge for clients that prefer to attach documents over calling
 tools.
 

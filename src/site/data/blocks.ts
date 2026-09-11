@@ -10,6 +10,8 @@
  */
 export interface BlockEntry {
   slug: string
+  /** The file in src/site/blocks — what the page, the CLI and the MCP server read. */
+  file: string
   name: string
   /** Sidebar and index grouping. */
   category: BlockCategory
@@ -17,6 +19,8 @@ export interface BlockEntry {
   blurb: string
   /** What it is assembled from, shown on the page. */
   uses: string[]
+  /** What someone types when they know the job but not the name. */
+  keywords?: string[]
   /** Give a block the full content width instead of the reading column. */
   wide?: boolean
 }
@@ -28,6 +32,8 @@ export const BLOCK_CATEGORIES: BlockCategory[] = ['Authentication', 'Application
 export const blocks: BlockEntry[] = [
   {
     slug: 'login',
+    file: 'LoginBlock.tsx',
+    keywords: ['sign in', 'log in', 'signin', 'auth'],
     name: 'Login',
     category: 'Authentication',
     blurb:
@@ -36,6 +42,8 @@ export const blocks: BlockEntry[] = [
   },
   {
     slug: 'signup',
+    file: 'SignupBlock.tsx',
+    keywords: ['sign up', 'register', 'create account', 'onboarding'],
     name: 'Signup',
     category: 'Authentication',
     blurb:
@@ -44,6 +52,8 @@ export const blocks: BlockEntry[] = [
   },
   {
     slug: 'authentication',
+    file: 'AuthenticationBlock.tsx',
+    keywords: ['two factor', '2fa', 'mfa', 'otp', 'verify'],
     name: 'Two-factor',
     category: 'Authentication',
     blurb:
@@ -52,6 +62,8 @@ export const blocks: BlockEntry[] = [
   },
   {
     slug: 'admin',
+    file: 'AdminBlock.tsx',
+    keywords: ['members', 'team', 'users', 'roles', 'invite', 'permissions'],
     name: 'Admin panel',
     category: 'Application',
     blurb:
@@ -75,6 +87,8 @@ export const blocks: BlockEntry[] = [
   },
   {
     slug: 'dashboard',
+    file: 'DashboardBlock.tsx',
+    keywords: ['analytics', 'overview', 'kpi', 'operations', 'console'],
     name: 'Dashboard',
     category: 'Application',
     blurb:
@@ -95,6 +109,8 @@ export const blocks: BlockEntry[] = [
   },
   {
     slug: 'settings',
+    file: 'SettingsBlock.tsx',
+    keywords: ['preferences', 'account', 'notifications', 'billing'],
     name: 'Settings',
     category: 'Application',
     blurb:
@@ -115,6 +131,8 @@ export const blocks: BlockEntry[] = [
   },
   {
     slug: 'profile',
+    file: 'ProfileBlock.tsx',
+    keywords: ['person', 'user', 'bio', 'about'],
     name: 'Profile',
     category: 'Application',
     blurb:
@@ -123,6 +141,8 @@ export const blocks: BlockEntry[] = [
   },
   {
     slug: 'featured',
+    file: 'FeaturedBlock.tsx',
+    keywords: ['marketing', 'landing', 'hero', 'pricing'],
     name: 'Featured',
     category: 'Marketing',
     blurb:

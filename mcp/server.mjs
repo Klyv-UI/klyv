@@ -25,6 +25,7 @@ const props = read('props.json')
 const aria = read('aria.json')
 const sizes = read('sizes.json')
 const tokens = read('tokens.json')
+const BLOCKS = read('blocks.json').blocks
 
 const { components, shared, catalog } = meta
 const NAMES = Object.keys(components).sort()
@@ -98,8 +99,13 @@ function search(query = '', group) {
     if (!entry) return false
     if (group && entry.group.toLowerCase() !== group.toLowerCase()) return false
     if (!needle) return true
-    return [name, entry.slug, entry.group, entry.section, entry.blurb].some((field) =>
-      String(field).toLowerCase().includes(needle),
+    const fields = [name, entry.slug, entry.group, entry.section, entry.blurb]
+    if (fields.some((field) => String(field).toLowerCase().includes(needle))) return true
+    // "data table", "data-table" and "datatable" are one search.
+    const flat = needle.replace(/[^a-z0-9]/g, '')
+    return (
+      flat.length > 2 &&
+      fields.some((field) => String(field).toLowerCase().replace(/[^a-z0-9]/g, '').includes(flat))
     )
   }).map((name) => ({
     name,
@@ -181,7 +187,21 @@ Icons are a structural type, not an import: any component taking \`size\`,
 \`strokeWidth\` and \`className\` works, so bring your own set.
 
 Server components: modules that can run on a server boundary do, and the rest
-carry \`'use client'\`. Nothing to configure.`
+carry \`'use client'\`. Nothing to configure.
+
+Whole screens are blocks: \`npx citrine add block dashboard\` copies one into
+\`src/blocks\`, and the \`list_blocks\` and \`get_block\` tools return them with
+their full source.`
+
+/** 'dashboard', 'Dashboard', 'two-factor' and 'DashboardBlock' all find a block. */
+function resolveBlock(input = '') {
+  const flat = String(input).replace(/[-_\s]/g, '').toLowerCase()
+  return BLOCKS.find((block) =>
+    [block.slug, block.name, block.file.split('/').pop().replace(/\.tsx$/, '')].some(
+      (key) => key.replace(/[-_\s]/g, '').toLowerCase() === flat,
+    ),
+  )
+}
 
 /* ------------------------------------------------------------------- tools */
 
@@ -246,6 +266,55 @@ export const TOOLS = [
     },
   },
   {
+    name: 'list_blocks',
+    description:
+      'Whole screens built only from library components — sign-in, signup, two-factor, an admin panel, an operations dashboard, settings, a profile, a landing section. Reach for one when the job is a page rather than a part.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        category: { type: 'string', description: 'Optional: "Authentication", "Application" or "Marketing".' },
+      },
+    },
+    run: ({ category }) =>
+      BLOCKS.filter(
+        (block) => !category || block.category.toLowerCase() === String(category).toLowerCase(),
+      ).map((block) => ({
+        slug: block.slug,
+        name: block.name,
+        category: block.category,
+        summary: block.blurb,
+        builtFrom: block.components.length,
+        cli: `npx citrine add block ${block.slug}`,
+      })),
+  },
+  {
+    name: 'get_block',
+    description:
+      "One block in full: what it is for, every library component it uses, the npm packages it needs, and its complete source — a working screen to adapt rather than write from nothing. Accepts the slug or the name: 'dashboard', 'Dashboard', 'two-factor'.",
+    inputSchema: {
+      type: 'object',
+      properties: { name: { type: 'string', description: 'Block slug or name.' } },
+      required: ['name'],
+    },
+    run: ({ name }) => {
+      const block = resolveBlock(name)
+      if (!block) return { error: `No block named "${name}".`, blocks: BLOCKS.map((entry) => entry.slug) }
+      const path = join(ROOT, block.file)
+      return {
+        slug: block.slug,
+        name: block.name,
+        category: block.category,
+        summary: block.blurb,
+        components: block.components,
+        packages: block.packages,
+        cli: `npx citrine add block ${block.slug}`,
+        note: 'Imports come from the citrine package. If you copied components with `citrine add` instead of installing it, point the imports at those copies — the names are the same.',
+        file: block.file,
+        source: existsSync(path) ? readFileSync(path, 'utf8') : null,
+      }
+    },
+  },
+  {
     name: 'list_groups',
     description: 'The twelve groups the library is organised by, with what each is for and how many components it holds.',
     inputSchema: { type: 'object', properties: {} },
@@ -282,6 +351,7 @@ export const TOOLS = [
 
 export const RESOURCES = [
   { uri: 'citrine://catalog', name: 'Component catalogue', description: 'Every component with its group, section and summary.', mimeType: 'application/json', read: () => JSON.stringify(search(''), null, 2) },
+  { uri: 'citrine://blocks', name: 'Blocks', description: 'Every block — a whole screen — with the components it is built from.', mimeType: 'application/json', read: () => JSON.stringify(BLOCKS, null, 2) },
   { uri: 'citrine://tokens', name: 'Design tokens', description: 'Tokens in W3C Design Tokens format, including dark mode.', mimeType: 'application/json', read: () => JSON.stringify(tokens, null, 2) },
   { uri: 'citrine://rules', name: 'Design rules', description: 'The design system and the rules every component obeys.', mimeType: 'text/markdown', read: () => RULES },
   { uri: 'citrine://usage', name: 'Install and usage', description: 'How to install the package and set up the stylesheet.', mimeType: 'text/markdown', read: () => USAGE },
