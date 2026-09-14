@@ -30,7 +30,7 @@ export function Theming() {
     >
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
         <Reveal className="flex">
-          <Surface variant="card" padding="lg" className="w-full gap-6">
+          <Surface variant="card" padding="lg" className="landing-card w-full gap-6">
             <div className="flex flex-wrap gap-2.5">
               {ACCENT_PRESETS.map((preset) => {
                 const active = preset.hex.toLowerCase() === hex.toLowerCase()
@@ -70,11 +70,11 @@ export function Theming() {
         </Reveal>
 
         <Reveal delay={80} className="flex">
-          <Surface variant="card" padding="lg" className="w-full justify-center gap-4">
-            <Text as="h3" size="heading">
+          <Surface variant="card" padding="lg" className="landing-card w-full justify-center gap-4">
+            <Text as="h3" size="heading" className="text-[16px]">
               Derived, not configured
             </Text>
-            <Text size="caption" tone="soft" leading="normal">
+            <Text size="body" weight="medium" tone="soft" className="leading-relaxed">
               The press state is the same hue at a different lightness. The wash is the same hue, desaturated —
               and different on a dark page, where a pale tint would glare. The label colour prefers a tinted
               near-black, then white, whichever clears 4.5:1.

@@ -8,20 +8,37 @@ import { InstallCommand } from './primitives'
 /** The last ask: one command, and the two places to go next. */
 export function Closing() {
   return (
-    <section aria-labelledby="closing-title" className="mx-auto w-full max-w-[1400px] px-5 pb-24 pt-8 lg:px-8">
+    <section aria-labelledby="closing-title" className="mx-auto w-full max-w-[1400px] px-5 pb-10 pt-6 sm:pb-14 lg:px-8">
       <Reveal>
-        <Surface variant="card" padding="lg" className="items-center gap-6 overflow-hidden bg-accent px-6 py-16 text-center sm:py-24">
-          <Text as="h2" id="closing-title" size="title" className="max-w-[20ch] text-balance text-accent-ink sm:text-[40px] sm:leading-[1.05]">
+        <Surface
+          variant="card"
+          padding="lg"
+          className="relative isolate items-center gap-6 overflow-hidden border-transparent bg-accent px-6 py-16 text-center sm:py-24"
+        >
+          {/* Hairlines in the ink that sits on the accent, fading out behind the
+              words: a texture on the slab, never a second colour. */}
+          <div aria-hidden className="landing-closing-grid pointer-events-none absolute inset-0 -z-10" />
+          <Text
+            as="h2"
+            id="closing-title"
+            size="title"
+            className="max-w-[18ch] text-balance text-[32px] leading-[1.02] tracking-[-0.045em] text-accent-ink sm:text-[44px] lg:text-[52px]"
+          >
             Ship the first screen today
           </Text>
-          <Text size="body" weight="medium" leading="normal" className="max-w-[52ch] text-balance text-accent-ink sm:text-[15px]">
+          <Text size="body" weight="medium" className="max-w-[52ch] text-balance text-[15px] leading-relaxed text-accent-ink sm:text-[16px]">
             Start from one of {blockCount} screens or compose your own from {componentCountRounded} components. Pick
             one colour. Every part of it is yours to copy.
           </Text>
-          <div className="flex flex-col items-center gap-4 sm:flex-row">
-            <Button as={Link} to="/getting-started" variant="white">
+          <div className="mt-2 flex flex-col items-center gap-4 sm:flex-row">
+            <Button
+              as={Link}
+              to="/getting-started"
+              variant="white"
+              className="group h-11 px-6 text-[14px] transition-[background-color,transform] active:translate-y-px motion-reduce:transition-none"
+            >
               Get started
-              <ArrowRight size={14} aria-hidden />
+              <ArrowRight size={15} aria-hidden className="transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
             </Button>
             <Link
               to="/composer"

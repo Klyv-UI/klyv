@@ -62,11 +62,11 @@ export function Workspace() {
                 <span className="grid size-9 shrink-0 place-items-center rounded-[var(--radius-glyph)] bg-accent-soft text-ink">
                   <point.icon size={16} aria-hidden />
                 </span>
-                <div className="flex flex-col gap-1">
-                  <Text as="h3" size="heading">
+                <div className="flex flex-col gap-1.5">
+                  <Text as="h3" size="heading" className="text-[16px] leading-snug">
                     {point.title}
                   </Text>
-                  <Text size="caption" tone="soft" leading="normal">
+                  <Text size="body" weight="medium" tone="soft" className="leading-relaxed">
                     {point.body}
                   </Text>
                 </div>
@@ -84,7 +84,7 @@ export function Workspace() {
         </Reveal>
 
         <Reveal delay={80} className="flex min-w-0">
-          <Surface variant="card" padding="lg" className="w-full gap-3">
+          <Surface variant="card" padding="lg" className="landing-card w-full gap-3">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <Text as="h3" size="heading">
                 {yours ? 'Your saved items, as a document' : 'A saved-items document'}

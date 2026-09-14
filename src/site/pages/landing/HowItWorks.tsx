@@ -96,7 +96,7 @@ export function HowItWorks() {
                 <Text as="h3" size="subtitle">
                   {step.title}
                 </Text>
-                <Text size="caption" tone="soft" leading="normal" className="max-w-[40ch]">
+                <Text size="body" weight="medium" tone="soft" className="max-w-[40ch] leading-relaxed">
                   {step.body}
                 </Text>
               </div>

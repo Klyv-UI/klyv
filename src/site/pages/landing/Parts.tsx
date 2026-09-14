@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { Package } from 'lucide-react'
+import { ArrowRight, Package } from 'lucide-react'
 import {
   BarList,
   DonutChart,
@@ -164,33 +164,57 @@ export function Parts() {
           <Text as="h3" size="heading">
             Browse by what it is for
           </Text>
-          <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-[var(--radius-card)] border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-[var(--radius-card)] border border-line bg-line shadow-[var(--shadow-card)] sm:grid-cols-2 lg:grid-cols-4">
             {groups.map((group) => (
               <li key={group.id} className="bg-surface">
                 <Link
                   to={`/components?group=${group.slug}`}
-                  className="flex h-full items-baseline justify-between gap-3 px-4 py-3.5 transition-colors hover:bg-surface-sunken focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent"
+                  className="group flex h-full items-center justify-between gap-3 px-5 py-4 transition-colors hover:bg-surface-sunken focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent"
                 >
-                  <span className="flex min-w-0 flex-col gap-0.5">
-                    <Text as="span" size="body" weight="bold">
+                  <span className="flex min-w-0 flex-col gap-1">
+                    <Text as="span" size="body" weight="bold" className="text-[14px]">
                       {group.id}
                     </Text>
-                    <Text as="span" size="micro" tone="faint" truncate>
+                    <Text as="span" size="caption" tone="faint" truncate>
                       {group.sections.slice(0, 3).join(' · ')}
                     </Text>
                   </span>
-                  <Text as="span" size="caption" weight="bold" tone="faint" tabular>
-                    {catalog.filter((entry) => entry.group === group.id).length}
-                  </Text>
+                  <span className="flex shrink-0 items-center gap-1.5">
+                    <Text as="span" size="caption" weight="bold" tone="faint" tabular>
+                      {catalog.filter((entry) => entry.group === group.id).length}
+                    </Text>
+                    <ArrowRight
+                      size={12}
+                      aria-hidden
+                      className="text-ink-faint opacity-0 transition-[opacity,transform] group-hover:translate-x-0.5 group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none"
+                    />
+                  </span>
                 </Link>
               </li>
             ))}
+            {/* The way into everything, sized to whatever the last row has left,
+                so the grid never ends on an empty slab of hairline colour. */}
+            <li className={cn('bg-surface', FILL_SM[groups.length % 2], FILL_LG[groups.length % 4])}>
+              <Link
+                to="/components"
+                className="group flex h-full items-center justify-between gap-3 px-5 py-4 transition-colors hover:bg-surface-sunken focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent"
+              >
+                <Text as="span" size="body" weight="bold" className="text-[14px]">
+                  All {componentCount} components
+                </Text>
+                <ArrowRight size={14} aria-hidden className="shrink-0 text-ink-soft transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
+              </Link>
+            </li>
           </ul>
         </nav>
       </Reveal>
     </LandingSection>
   )
 }
+
+/** The closing cell's span, by how many groups the last row already holds. Static strings, so Tailwind sees them. */
+const FILL_SM = ['sm:col-span-2', 'sm:col-span-1'] as const
+const FILL_LG = ['lg:col-span-4', 'lg:col-span-3', 'lg:col-span-2', 'lg:col-span-1'] as const
 
 const BOARD: KanbanColumn[] = [
   {
@@ -275,11 +299,13 @@ function ShowcaseTile({
   plain?: boolean
 }) {
   return (
-    <Reveal className={cn('flex flex-col gap-2', className)}>
+    // `min-w-0`: a grid item is as wide as its content by default, and the
+    // board's own scroller pushed the whole page sideways on a phone.
+    <Reveal className={cn('flex min-w-0 flex-col gap-2', className)}>
       {plain ? (
         <div className="flex flex-1 flex-col">{children}</div>
       ) : (
-        <Surface variant="card" padding={bare ? 'none' : 'lg'} className="flex-1 overflow-hidden">
+        <Surface variant="card" padding={bare ? 'none' : 'lg'} className="landing-card flex-1 overflow-hidden">
           {children}
         </Surface>
       )}

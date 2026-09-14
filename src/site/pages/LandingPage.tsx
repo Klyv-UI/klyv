@@ -10,6 +10,7 @@ import { Screens } from './landing/Screens'
 import { Theming } from './landing/Theming'
 import { Why } from './landing/Why'
 import { Workspace } from './landing/Workspace'
+import './landing/landing.css'
 
 /**
  * The front page.

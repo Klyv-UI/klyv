@@ -1,5 +1,5 @@
 import { Bot, Keyboard, Package, Palette } from 'lucide-react'
-import { IconTile, Reveal, Surface, Text } from 'citrine'
+import { Reveal, Surface, Text } from 'citrine'
 import { componentEvidence } from '../../data/evidence'
 import { mcpTools } from '../../data/mcp'
 import { LandingSection } from './primitives'
@@ -52,18 +52,25 @@ export function Why() {
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
         {REASONS.map((reason, index) => (
           <Reveal key={reason.title} delay={index * 60} className="h-full">
-            <Surface variant="card" padding="lg" className="h-full gap-4">
-              <IconTile icon={reason.icon} tone="accent" />
-              <div className="flex flex-col gap-1.5">
-                <Text as="h3" size="heading">
+            <Surface variant="card" padding="lg" className="landing-card h-full gap-5 p-6">
+              {/* The wash rather than the fill: four solid accent squares in a row
+                  shouted over the headings they were meant to mark. */}
+              <span
+                aria-hidden
+                className="grid size-10 place-items-center rounded-[var(--radius-glyph)] bg-accent-soft text-ink ring-1 ring-inset ring-[color-mix(in_oklab,var(--color-accent-strong)_35%,transparent)]"
+              >
+                <reason.icon size={18} strokeWidth={2} />
+              </span>
+              <div className="flex flex-col gap-2">
+                <Text as="h3" size="heading" className="text-[16px] leading-snug">
                   {reason.title}
                 </Text>
-                <Text size="caption" tone="soft" leading="normal">
+                <Text size="body" weight="medium" tone="soft" className="leading-relaxed">
                   {reason.body}
                 </Text>
               </div>
-              <div className="mt-auto flex items-baseline gap-2 border-t border-line pt-4">
-                <Text as="span" size="title" tabular className="tracking-[-0.03em]">
+              <div className="mt-auto flex items-baseline gap-2 border-t border-line pt-5">
+                <Text as="span" size="title" tabular className="text-[28px] tracking-[-0.045em]">
                   {reason.value}
                 </Text>
                 <Text as="span" size="caption" weight="semibold" tone="faint">

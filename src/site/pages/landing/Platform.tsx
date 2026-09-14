@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { Check, ChefHat, Compass, PanelsTopLeft, Plug, Search, WandSparkles } from 'lucide-react'
-import { Button, CodeBlock, IconTile, Kbd, Reveal, StatusDot, Surface, Text, cn } from 'citrine'
+import { Button, CodeBlock, IconTile, Kbd, Reveal, StatusDot, Surface, Tag, Text, cn } from 'citrine'
 import { brand } from '../../brand'
 import { STATUS_LABELS, healthOf } from '../../data/health'
 import { integrations } from '../../data/integrations'
@@ -78,7 +78,7 @@ export function Platform() {
 
         <Tile className="lg:col-span-2" delay={60}>
           <TileHead icon={Search} title="Search that understands you" />
-          <Text size="caption" tone="soft" leading="normal">
+          <Text size="body" weight="medium" tone="soft" className="leading-relaxed">
             One palette over components, screens, recipes, tokens, docs and releases. It ranks, forgives a typo, and
             knows that “login” means authentication.
           </Text>
@@ -95,7 +95,7 @@ export function Platform() {
 
         <Tile className="lg:col-span-2" delay={120}>
           <TileHead icon={Compass} title="Find My UI" />
-          <Text size="caption" tone="soft" leading="normal">
+          <Text size="body" weight="medium" tone="soft" className="leading-relaxed">
             Say what you are building and what it needs. Get the components, screens, templates and recipes that fit —
             each with the reason it was picked.
           </Text>
@@ -106,10 +106,17 @@ export function Platform() {
 
         <Tile className="lg:col-span-2" delay={60}>
           <TileHead icon={PanelsTopLeft} title="Starters and recipes" />
-          <Text size="caption" tone="soft" leading="normal">
+          <Text size="body" weight="medium" tone="soft" className="leading-relaxed">
             {templates.length} templates — sets of screens that make a product together — and {recipes.length} recipes
             that walk through building a login flow, a billing page or a data view.
           </Text>
+          <ul aria-label="Templates" className="flex flex-wrap gap-1.5">
+            {templates.map((template) => (
+              <li key={template.slug}>
+                <Tag size="sm">{template.name}</Tag>
+              </li>
+            ))}
+          </ul>
           <div className="mt-auto flex flex-wrap gap-x-4 gap-y-1">
             <SectionLink to="/templates">Templates</SectionLink>
             <SectionLink to="/recipes">
@@ -127,7 +134,7 @@ export function Platform() {
                 <Link
                   to={`/integrations/${integration.slug}`}
                   title={integration.name}
-                  className="grid h-10 place-items-center rounded-[var(--radius-glyph)] border border-line bg-surface text-[11px] font-extrabold tracking-[-0.02em] text-ink transition-colors hover:border-line-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  className="grid h-10 place-items-center rounded-[var(--radius-glyph)] border border-line bg-surface text-[11px] font-extrabold tracking-[-0.02em] text-ink transition-[border-color,box-shadow,transform] hover:-translate-y-px hover:border-line-strong hover:shadow-[var(--shadow-tile)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent motion-reduce:transition-none motion-reduce:hover:translate-y-0"
                 >
                   <span aria-hidden>{integration.monogram}</span>
                   <span className="sr-only">{integration.name}</span>
@@ -162,7 +169,7 @@ export function Platform() {
               </ul>
             </div>
           )}
-          <Text size="caption" tone="faint" leading="normal">
+          <Text size="label" tone="faint" leading="normal">
             Only what is measured is shown. A test fails if a claim appears without evidence.
           </Text>
           <SectionLink to="/components/data-table" className="mt-auto">
@@ -188,7 +195,7 @@ export function Platform() {
 function Tile({ children, className, delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
   return (
     <Reveal delay={delay} className={cn('flex', className)}>
-      <Surface variant="card" padding="lg" className="w-full gap-3">
+      <Surface variant="card" padding="lg" className="landing-card w-full gap-3.5 p-6">
         {children}
       </Surface>
     </Reveal>
@@ -199,7 +206,7 @@ function TileHead({ icon, title }: { icon: typeof Search; title: string }) {
   return (
     <div className="flex items-center gap-3">
       <IconTile icon={icon} tone="muted" size="sm" />
-      <Text as="h3" size="heading">
+      <Text as="h3" size="heading" className="text-[16px]">
         {title}
       </Text>
     </div>

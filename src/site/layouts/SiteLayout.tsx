@@ -86,6 +86,7 @@ export function SiteLayout() {
         onOpenNav={openNav}
         onOpenSearch={openSearch}
         navButton={isLanding ? 'none' : fullBleed ? 'always' : 'narrow'}
+        overlay={isLanding}
       />
 
       {isLanding ? (
@@ -163,14 +164,22 @@ const SiteHeader = memo(function SiteHeader({
   onOpenNav,
   onOpenSearch,
   navButton,
+  overlay = false,
 }: {
   onOpenNav: () => void
   onOpenSearch: () => void
   /** Where the drawer button shows: never, below lg (where the sidebar hides), or always. */
   navButton: 'none' | 'narrow' | 'always'
+  /** Over the landing hero: clear at the top, frosted once the page scrolls (landing.css). */
+  overlay?: boolean
 }) {
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-[color-mix(in_oklab,var(--color-canvas)_82%,transparent)] backdrop-blur-xl">
+    <header
+      className={cn(
+        'sticky top-0 z-40 border-b border-line bg-[color-mix(in_oklab,var(--color-canvas)_82%,transparent)] backdrop-blur-xl',
+        overlay && 'landing-header',
+      )}
+    >
       <div className="mx-auto flex h-[72px] w-full max-w-[1400px] items-center gap-3 px-5 lg:px-8">
         {navButton !== 'none' && (
           <IconButton

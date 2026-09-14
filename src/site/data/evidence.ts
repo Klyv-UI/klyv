@@ -2129,6 +2129,7 @@ export const siteComponents: string[] = [
   "CommandPalette",
   "ConfirmDialog",
   "CopyButton",
+  "CountUp",
   "Divider",
   "DonutChart",
   "Drawer",

@@ -1,0 +1,172 @@
+/* ------------------------------------------------------------------ *
+ * The landing page's own motion and texture.
+ *
+ * Imported by the landing chunk, so no other page downloads it, and every
+ * value reads a token — the accent, the ink, the lines — so a new hue or the
+ * dark theme repaints all of it. Nothing here moves on its own after the page
+ * has settled: the hero rises once, a view fades in when it is chosen, and the
+ * header firms up as the page scrolls.
+ * ------------------------------------------------------------------ */
+
+/* The hero's entrance: one short rise, staggered by `--enter-delay`. Only
+   when motion is welcome — reduced motion gets the page as it rests. */
+@media (prefers-reduced-motion: no-preference) {
+  .landing-enter {
+    animation: landing-rise 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--enter-delay, 0ms);
+  }
+
+  .landing-fade {
+    animation: landing-fade 220ms ease-out both;
+  }
+}
+
+@keyframes landing-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes landing-fade {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 4px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* The header over the hero: clear at the top of the page, so the hero's grid
+   runs under it, and a frosted bar with its hairline once the page moves.
+   Driven by the scroll position itself, so there is no listener to run; where
+   scroll timelines are unsupported the header simply keeps its frosted bar. */
+@supports (animation-timeline: scroll()) {
+  /* Longhands on purpose: the `animation` shorthand resets the timeline, and
+     a header animation on the document timeline has no duration, so it
+     snapped straight to its frosted end state. */
+  .landing-header {
+    animation-name: landing-header-lift;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 96px;
+  }
+}
+
+@keyframes landing-header-lift {
+  from {
+    background-color: transparent;
+    border-bottom-color: transparent;
+    box-shadow: none;
+  }
+  to {
+    background-color: color-mix(in oklab, var(--color-canvas) 82%, transparent);
+    border-bottom-color: var(--color-line);
+    box-shadow: 0 10px 30px -24px color-mix(in oklab, var(--color-ink) 45%, transparent);
+  }
+}
+
+/* Ambient light and one-off flourishes. The drift is the only thing on the
+   page that keeps moving, so it is one layer, transform only, and slow enough
+   to notice only by comparison; the marker draws once and stops. */
+@media (prefers-reduced-motion: no-preference) {
+  .landing-drift {
+    animation: landing-drift 24s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  .landing-mark {
+    transform-origin: left center;
+    animation: landing-mark 760ms cubic-bezier(0.22, 1, 0.36, 1) 480ms both;
+  }
+}
+
+@keyframes landing-drift {
+  from {
+    transform: translate3d(-2%, -1.5%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(2.5%, 2%, 0) scale(1.06);
+  }
+}
+
+@keyframes landing-mark {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Cards answer the pointer by firming up — a stronger edge, a softer lift of
+   shadow — without moving, since most of them are not links. */
+.landing-card {
+  transition:
+    border-color 200ms ease,
+    box-shadow 260ms ease;
+}
+
+@media (hover: hover) {
+  .landing-card:hover {
+    border-color: var(--color-line-strong);
+    box-shadow: var(--shadow-float);
+  }
+}
+
+/* A dot grid for the surfaces that stand for a canvas — the hero's preview. */
+.landing-dots {
+  background-image: radial-gradient(
+    color-mix(in oklab, var(--color-ink) 11%, transparent) 1px,
+    transparent 1.5px
+  );
+  background-size: 16px 16px;
+  background-position: center;
+}
+
+/* The alternate ground for banded sections: the surface, half let through, so
+   the canvas's tint survives instead of turning to flat grey. */
+.landing-band {
+  position: relative;
+  background-color: color-mix(in oklab, var(--color-surface) 50%, transparent);
+}
+
+/* …with a hairline of the accent across its top edge, brightest at the
+   middle and gone before the gutters. */
+.landing-band::before {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: -1px;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 10%,
+    color-mix(in oklab, var(--color-accent-strong) 65%, transparent) 50%,
+    transparent 90%
+  );
+}
+
+/* The closing slab's texture: hairlines in the ink that sits on the accent,
+   strongest at the edges and gone behind the words. */
+.landing-closing-grid {
+  background-image: linear-gradient(
+      color-mix(in oklab, var(--color-accent-ink) 9%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, color-mix(in oklab, var(--color-accent-ink) 9%, transparent) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+  /* Sized to the slab, not its short side: the words sit in a clear ellipse
+     and the lines only gather towards the corners. */
+  mask-image: radial-gradient(ellipse 62% 72% at 50% 50%, transparent 58%, #000 100%);
+  -webkit-mask-image: radial-gradient(ellipse 62% 72% at 50% 50%, transparent 58%, #000 100%);
+}

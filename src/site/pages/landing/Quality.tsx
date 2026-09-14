@@ -58,19 +58,19 @@ export function Quality() {
       action={<SectionLink to="/components/data-table">See a component’s health</SectionLink>}
     >
       <Reveal>
-        <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-[var(--radius-card)] border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+        <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-[var(--radius-card)] border border-line bg-line shadow-[var(--shadow-card)] sm:grid-cols-2 lg:grid-cols-3">
           {STANDARDS.map((standard) => (
-            <div key={standard.label} className="flex flex-col gap-2 bg-surface p-6">
-              <dt className="flex flex-col gap-0.5">
-                <Text as="span" size="display" tabular className="tracking-[-0.04em]">
+            <div key={standard.label} className="flex flex-col gap-3 bg-surface p-6 sm:p-7">
+              <dt className="flex flex-col gap-2">
+                <Text as="span" size="display" tabular className="text-[36px] tracking-[-0.05em]">
                   {standard.value}
                 </Text>
-                <Text as="span" size="caption" weight="bold">
+                <Text as="span" size="body" weight="bold" className="text-[14px]">
                   {standard.label}
                 </Text>
               </dt>
               <dd>
-                <Text size="caption" tone="soft" leading="normal">
+                <Text size="body" weight="medium" tone="soft" className="leading-relaxed">
                   {standard.body}
                 </Text>
               </dd>

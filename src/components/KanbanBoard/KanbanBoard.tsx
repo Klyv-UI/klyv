@@ -47,7 +47,10 @@ export function KanbanBoard({ columns, onMove, label, className }: KanbanBoardPr
     <div
       role="group"
       aria-label={label}
-      className={cn('no-scrollbar flex gap-3 overflow-x-auto pb-2', className)}
+      // `relative` makes the scroller the containing block for the visually
+      // hidden labels inside its cards; without it they escaped the clip and
+      // widened the whole page wherever the board was narrower than its columns.
+      className={cn('no-scrollbar relative flex gap-3 overflow-x-auto pb-2', className)}
     >
       {columns.map((column) => (
         <section
