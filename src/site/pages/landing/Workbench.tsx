@@ -19,8 +19,8 @@ import { enter } from './primitives'
 
 /**
  * The hero's product side: real components laid out the way a product would
- * use them — settings, a figure, a form, a chart — tilted back into the dark
- * stage from `lg`, and flat where there is no room for perspective.
+ * use them — settings, a figure, a form, a chart — tilted back into the stage
+ * from `lg`, and flat where there is no room for perspective.
  *
  * Nothing on it is a picture. Every switch switches, the form sends, and the
  * colour picked beside it repaints all of it at once. The tilt is static: a

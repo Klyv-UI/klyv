@@ -3,9 +3,9 @@
  *
  * Imported by the landing chunk, so no other page downloads it, and every
  * value reads a token — the accent, the ink, the lines — so a new hue or the
- * dark theme repaints all of it. Nothing here moves on its own after the page
- * has settled: the hero rises once, a view fades in when it is chosen, and the
- * header firms up as the page scrolls.
+ * dark theme repaints all of it. Almost nothing here moves on its own after
+ * the page has settled: the hero rises once, its marker draws in once, and
+ * the only lasting motion is the slow drift of the light behind the hero.
  * ------------------------------------------------------------------ */
 
 /* The hero's entrance: one short rise, staggered by `--enter-delay`. Only
@@ -26,15 +26,6 @@
     opacity: 1;
     transform: none;
   }
-}
-
-/* The header over the landing page. The hero is a dark stage in either theme,
-   and it scrolls under this bar: at the docs' 82% the stage showed through
-   enough to pull the section links below 4.5:1, so here the bar is nearly
-   solid, and keeps a soft shadow to lift it off whatever passes beneath. */
-.landing-header {
-  background-color: color-mix(in oklab, var(--color-canvas) 94%, transparent);
-  box-shadow: 0 10px 30px -24px color-mix(in oklab, var(--color-ink) 45%, transparent);
 }
 
 /* Ambient light and one-off flourishes. The drift is the only thing on the

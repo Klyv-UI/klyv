@@ -1,7 +1,6 @@
-import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { ACCENT_PRESETS, Badge, Button, Text, VisuallyHidden, applyAccent, cn, deriveAccent, saveAccent } from 'citrine'
+import { ACCENT_PRESETS, Badge, Button, Text, VisuallyHidden, applyAccent, cn, saveAccent } from 'citrine'
 import { useAccent } from '../../components/useTheme'
 import { blockCount } from '../../data/blocks'
 import { componentCount } from '../../data/catalog'
@@ -9,38 +8,27 @@ import { InstallCommand, enter } from './primitives'
 import { HeroStack } from './Workbench'
 
 /**
- * The hero: a dark stage inset under the header, in either theme.
+ * The hero: a stage inset under the header, on the page's own theme — light
+ * on a light page, dark on a dark one.
  *
  * On the left, the statement and the ways in; on the right, real components
- * tilted back into the stage and running off its edge. The stage is a
- * `data-theme="dark"` subtree, so every component in it reads the dark tokens
- * without a variant of its own — the same mechanism a product would use for a
- * dark sidebar on a light app.
+ * tilted back into the stage and running off its edge.
  */
 export function Hero() {
-  const family = deriveAccent(useAccent())
-
   return (
     <section aria-labelledby="hero-title" className="px-3 pb-6 pt-2 sm:px-4 sm:pb-8 lg:px-5">
-      <div
-        data-theme="dark"
-        // The wash is the one accent token that differs by theme, and the root
-        // carries the page's light one; the stage takes the dark wash of the
-        // same hue, recomputed whenever the accent changes.
-        style={{ '--color-accent-soft': family.softDark } as CSSProperties}
-        className="relative isolate overflow-hidden rounded-[var(--radius-window)] border border-line bg-[color-mix(in_oklab,var(--color-canvas)_82%,#000000)] text-ink shadow-[var(--shadow-window)]"
-      >
+      <div className="relative isolate overflow-hidden rounded-[var(--radius-window)] border border-line bg-[color-mix(in_oklab,var(--color-surface)_55%,var(--color-canvas))] text-ink shadow-[var(--shadow-window)]">
         {/* A hairline grid, strongest behind the components. */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 opacity-60 [background-image:linear-gradient(var(--color-line)_1px,transparent_1px),linear-gradient(90deg,var(--color-line)_1px,transparent_1px)] [background-size:56px_56px] [mask-image:radial-gradient(60%_70%_at_75%_45%,#000_10%,transparent_75%)]"
+          className="pointer-events-none absolute inset-0 -z-10 opacity-70 [background-image:linear-gradient(var(--color-line-strong)_1px,transparent_1px),linear-gradient(90deg,var(--color-line-strong)_1px,transparent_1px)] [background-size:56px_56px] [mask-image:radial-gradient(60%_70%_at_75%_45%,#000_10%,transparent_75%)]"
         />
         <div aria-hidden className="landing-grain pointer-events-none absolute inset-0 -z-10" />
         {/* The spotlight: the accent falling on the components, and a low
             reflection of it under the statement. */}
         <div
           aria-hidden
-          className="landing-drift pointer-events-none absolute -inset-[10%] -z-10 bg-[radial-gradient(36%_42%_at_72%_46%,color-mix(in_oklab,var(--color-accent)_24%,transparent),transparent_72%),radial-gradient(30%_32%_at_12%_100%,color-mix(in_oklab,var(--color-accent)_10%,transparent),transparent_70%)]"
+          className="landing-drift pointer-events-none absolute -inset-[10%] -z-10 bg-[radial-gradient(36%_42%_at_72%_46%,color-mix(in_oklab,var(--color-accent)_20%,transparent),transparent_72%),radial-gradient(30%_32%_at_12%_100%,color-mix(in_oklab,var(--color-accent-soft)_70%,transparent),transparent_70%)]"
         />
         {/* A lit top edge, brightest in the middle. */}
         <div
@@ -68,14 +56,15 @@ export function Hero() {
               className="landing-enter mt-7 text-balance text-[38px] font-extrabold leading-[0.96] tracking-[-0.055em] text-ink sm:text-[56px] lg:max-w-[15ch] lg:text-[58px] xl:text-[68px]"
             >
               Production React UI, themed by{' '}
-              {/* The subject of the sentence, set in it: the accent exactly,
-                  with a thin rule that draws in underneath. */}
-              <span className="relative inline-block whitespace-nowrap text-accent">
-                one colour
+              {/* A flat marker under the words rather than coloured words: the
+                  accent is the subject of the sentence, and a bright hue set as
+                  text on a light page would not be readable. It draws in once. */}
+              <span className="relative isolate whitespace-nowrap">
                 <span
                   aria-hidden
-                  className="landing-mark absolute inset-x-0 -bottom-[0.02em] h-[0.07em] rounded-full bg-accent"
+                  className="landing-mark absolute inset-x-[-0.06em] bottom-[0.05em] -z-10 h-[0.32em] rounded-[0.08em] bg-accent"
                 />
+                one colour
               </span>
             </h1>
 

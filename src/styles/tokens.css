@@ -142,13 +142,7 @@
   }
 }
 
-/* The explicit choice also works on any element, not only the root: a
-   `data-theme="dark"` section renders its whole subtree dark on a light page,
-   with the same values and no second copy of them. The element should set its
-   own `color` and background from the tokens, since both are inherited from
-   above it otherwise. */
-:root[data-theme='dark'],
-[data-theme='dark'] {
+:root[data-theme='dark'] {
   color-scheme: dark;
 
   --color-canvas: #0b0d0a;
