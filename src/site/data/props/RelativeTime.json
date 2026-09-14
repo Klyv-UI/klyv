@@ -1,0 +1,36 @@
+{
+  "props": [
+    {
+      "name": "date",
+      "type": "Date | number | string",
+      "required": true,
+      "description": "The moment — a Date, a timestamp in milliseconds, or an ISO string."
+    },
+    {
+      "name": "locale",
+      "type": "string",
+      "required": false,
+      "description": "Locale for the phrasing. Defaults to the browser's."
+    },
+    {
+      "name": "unitStyle",
+      "type": "'long' | 'short' | 'narrow'",
+      "required": false,
+      "defaultValue": "'long'",
+      "description": "long: \"3 minutes ago\". short: \"3 min. ago\". narrow: \"3m ago\"."
+    },
+    {
+      "name": "live",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Keep the phrase current as time passes."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

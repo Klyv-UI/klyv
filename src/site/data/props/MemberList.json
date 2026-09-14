@@ -1,0 +1,66 @@
+{
+  "props": [
+    {
+      "name": "members",
+      "type": "Member[]",
+      "required": true
+    },
+    {
+      "name": "roles",
+      "type": "RoleOption[]",
+      "required": true
+    },
+    {
+      "name": "currentUserId",
+      "type": "string",
+      "required": false,
+      "description": "The signed-in person, marked \"You\"."
+    },
+    {
+      "name": "ownerRole",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'owner'",
+      "description": "The role that must never reach zero holders."
+    },
+    {
+      "name": "canManage",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Whether the viewer may change roles and remove people."
+    },
+    {
+      "name": "onRoleChange",
+      "type": "(memberId: string, role: string) => void",
+      "required": false
+    },
+    {
+      "name": "onRemove",
+      "type": "(member: Member) => void | Promise<void>",
+      "required": false
+    },
+    {
+      "name": "onResendInvite",
+      "type": "(member: Member) => void",
+      "required": false
+    },
+    {
+      "name": "searchable",
+      "type": "boolean",
+      "required": false,
+      "description": "Search by name or email. On by default past eight people."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Members'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

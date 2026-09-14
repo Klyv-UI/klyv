@@ -1,0 +1,45 @@
+{
+  "props": [
+    {
+      "name": "approvers",
+      "type": "Approver[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name — what is being approved."
+    },
+    {
+      "name": "required",
+      "type": "number",
+      "required": false,
+      "description": "How many approvals are needed. Defaults to everyone."
+    },
+    {
+      "name": "youId",
+      "type": "string",
+      "required": false,
+      "description": "The current person's id, so their row gets the actions."
+    },
+    {
+      "name": "onApprove",
+      "type": "() => void",
+      "required": false,
+      "description": "Called when the current step is approved."
+    },
+    {
+      "name": "onReject",
+      "type": "() => void",
+      "required": false,
+      "description": "Called when the current step is rejected."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

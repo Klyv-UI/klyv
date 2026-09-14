@@ -1,0 +1,43 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Content that keeps focus while the trap is active."
+    },
+    {
+      "name": "active",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Turn the trap off without unmounting the subtree."
+    },
+    {
+      "name": "restoreFocus",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Return focus to whatever was focused before the trap opened."
+    },
+    {
+      "name": "autoFocus",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Move focus inside on mount."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    },
+    {
+      "name": "style",
+      "type": "React.CSSProperties",
+      "required": false,
+      "description": "Inline styles for the wrapper element."
+    }
+  ]
+}

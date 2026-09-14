@@ -1,0 +1,42 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "DockItem[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the bar."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "44",
+      "description": "Resting tile size in pixels."
+    },
+    {
+      "name": "magnification",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1.75",
+      "description": "How much the tile under the pointer grows, as a multiplier."
+    },
+    {
+      "name": "reach",
+      "type": "number",
+      "required": false,
+      "defaultValue": "110",
+      "description": "How far either side the magnification reaches, in pixels."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

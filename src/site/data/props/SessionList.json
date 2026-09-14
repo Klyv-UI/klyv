@@ -1,0 +1,31 @@
+{
+  "props": [
+    {
+      "name": "sessions",
+      "type": "UserSession[]",
+      "required": true
+    },
+    {
+      "name": "onRevoke",
+      "type": "(session: UserSession) => void | Promise<void>",
+      "required": true
+    },
+    {
+      "name": "onRevokeOthers",
+      "type": "() => void | Promise<void>",
+      "required": false,
+      "description": "Sign out everywhere except here."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Active sessions'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

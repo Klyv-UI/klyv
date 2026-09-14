@@ -1,0 +1,36 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The cards. Each becomes one cell of the row."
+    },
+    {
+      "name": "columns",
+      "type": "2 | 3 | 4",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Cards per row from xl up."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "description": "Fixed row height. The dashboard band is 306px."
+    },
+    {
+      "name": "gap",
+      "type": "'sm' | 'md'",
+      "required": false,
+      "defaultValue": "'md'",
+      "description": "Space between cards."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

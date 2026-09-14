@@ -1,0 +1,21 @@
+{
+  "props": [
+    {
+      "name": "stacked",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Stack the series instead of placing them side by side."
+    },
+    {
+      "name": "barRatio",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.62",
+      "description": "Bar width as a fraction of the band, 0 to 1."
+    }
+  ],
+  "inherits": [
+    "Omit<CartesianChartProps, 'children'>"
+  ]
+}

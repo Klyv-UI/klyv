@@ -1,0 +1,25 @@
+{
+  "props": [
+    {
+      "name": "deliveries",
+      "type": "WebhookDelivery[]",
+      "required": true
+    },
+    {
+      "name": "onRetry",
+      "type": "(delivery: WebhookDelivery) => void",
+      "required": false
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Deliveries'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

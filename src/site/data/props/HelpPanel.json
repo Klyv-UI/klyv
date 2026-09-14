@@ -1,0 +1,67 @@
+{
+  "props": [
+    {
+      "name": "articles",
+      "type": "HelpArticle[]",
+      "required": true
+    },
+    {
+      "name": "popular",
+      "type": "string[]",
+      "required": false,
+      "description": "Ids shown before anything is typed. Defaults to the first four."
+    },
+    {
+      "name": "resources",
+      "type": "HelpResource[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Docs, community, shortcuts — the tiles under the search."
+    },
+    {
+      "name": "status",
+      "type": "{ state: SystemStatus; label: string; href?: string }",
+      "required": false
+    },
+    {
+      "name": "onContact",
+      "type": "() => void",
+      "required": false
+    },
+    {
+      "name": "contactLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Contact support'"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Help & support'"
+    },
+    {
+      "name": "bare",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Drop the card chrome, for use inside a Drawer or Popover."
+    },
+    {
+      "name": "maxResults",
+      "type": "number",
+      "required": false,
+      "defaultValue": "5"
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3'",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The rows, usually ListItem."
+    },
+    {
+      "name": "divided",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Hairline between rows. Off by default: the dashboard separates by rhythm."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Accessible name, when the list is not already under a heading."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

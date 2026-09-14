@@ -1,0 +1,50 @@
+{
+  "props": [
+    {
+      "name": "roles",
+      "type": "RoleOption[]",
+      "required": true
+    },
+    {
+      "name": "defaultRole",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "onInvite",
+      "type": "(invites: Invite[]) => void | Promise<void>",
+      "required": true
+    },
+    {
+      "name": "existingEmails",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Already in the workspace or already invited — caught before sending."
+    },
+    {
+      "name": "seats",
+      "type": "{ used: number; total: number }",
+      "required": false,
+      "description": "Seats on the plan. Inviting past them warns, or blocks without allowOverage."
+    },
+    {
+      "name": "allowOverage",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Extra seats are billed rather than refused."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Email addresses'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

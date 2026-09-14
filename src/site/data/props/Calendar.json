@@ -1,0 +1,50 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Selected date as an ISO yyyy-mm-dd string."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": false
+    },
+    {
+      "name": "rangeStart",
+      "type": "string",
+      "required": false,
+      "description": "Range endpoints, used by DateRangePicker to shade the span between them."
+    },
+    {
+      "name": "rangeEnd",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "min",
+      "type": "string",
+      "required": false,
+      "description": "Earliest and latest selectable dates, as ISO strings."
+    },
+    {
+      "name": "max",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Choose a date'",
+      "description": "Accessible name for the grid."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

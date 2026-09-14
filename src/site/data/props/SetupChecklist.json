@@ -1,0 +1,48 @@
+{
+  "props": [
+    {
+      "name": "steps",
+      "type": "ChecklistStep[]",
+      "required": true
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Get started'"
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "name": "onDismiss",
+      "type": "() => void",
+      "required": false,
+      "description": "Hide the checklist for good. Offered at every stage, not only at the end."
+    },
+    {
+      "name": "completeTitle",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'You are all set'"
+    },
+    {
+      "name": "completeDescription",
+      "type": "ReactNode",
+      "required": false,
+      "defaultValue": "'Everything on the list is done. You can hide this card now.'"
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3'",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

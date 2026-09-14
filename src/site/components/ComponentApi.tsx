@@ -1,6 +1,29 @@
+import { useEffect, useState } from 'react'
 import { Surface, Text } from 'citrine'
-import { Code, type PropRow } from './Doc'
-import { propsFor } from '../data/props'
+import { Code, Pending, type PropRow } from './Doc'
+import { cachedProps, loadProps, type GeneratedProps } from '../data/props'
+
+/**
+ * One component's generated API. Each is its own small chunk, usually already
+ * here — the component page and the link prefetcher both ask for it early —
+ * in which case the table renders on the first pass with no placeholder.
+ */
+function useProps(component: string): GeneratedProps | null | undefined {
+  const [api, setApi] = useState(() => cachedProps(component))
+
+  useEffect(() => {
+    let live = true
+    setApi(cachedProps(component))
+    loadProps(component).then((loaded) => {
+      if (live) setApi(loaded)
+    })
+    return () => {
+      live = false
+    }
+  }, [component])
+
+  return api
+}
 
 /**
  * The component's API, taken from its type.
@@ -19,7 +42,8 @@ export function ComponentApi({
   /** Hand-written rows, used only to fill in missing descriptions. */
   notes?: PropRow[]
 }) {
-  const api = propsFor(component)
+  const api = useProps(component)
+  if (api === undefined) return <Pending className="h-[260px]" />
   if (!api || api.props.length === 0) {
     return (
       <Text size="caption" tone="faint" leading="normal">

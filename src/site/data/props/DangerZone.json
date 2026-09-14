@@ -1,0 +1,30 @@
+{
+  "props": [
+    {
+      "name": "actions",
+      "type": "DangerAction[]",
+      "required": true
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Danger zone'"
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3'",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "string",
+      "required": true,
+      "description": "The final text. Changing it replays the scramble."
+    },
+    {
+      "name": "frame",
+      "type": "number",
+      "required": false,
+      "defaultValue": "40",
+      "description": "Milliseconds per frame."
+    },
+    {
+      "name": "settle",
+      "type": "number",
+      "required": false,
+      "defaultValue": "8",
+      "description": "Frames each character scrambles before settling."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

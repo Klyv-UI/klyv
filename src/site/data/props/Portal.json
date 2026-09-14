@@ -1,0 +1,15 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "name": "container",
+      "type": "Element | null",
+      "required": false,
+      "description": "Where to mount. Defaults to document.body."
+    }
+  ]
+}

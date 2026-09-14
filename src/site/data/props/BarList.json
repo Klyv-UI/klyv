@@ -1,0 +1,49 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "BarListItem[]",
+      "required": true,
+      "description": "The rows. Sorted largest first unless `sorted` is off."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the list."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "plain",
+      "description": "Turns a value into its printed figure."
+    },
+    {
+      "name": "sorted",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Largest first. Turn off to keep the order you pass."
+    },
+    {
+      "name": "limit",
+      "type": "number",
+      "required": false,
+      "description": "Show this many rows, and sum the rest into one."
+    },
+    {
+      "name": "otherLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Other'",
+      "description": "Label for the summed row when `limit` cuts the list."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

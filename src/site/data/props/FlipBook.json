@@ -1,0 +1,47 @@
+{
+  "props": [
+    {
+      "name": "pages",
+      "type": "ReactNode[]",
+      "required": true,
+      "description": "One node per page. Rendered two at a time, as a spread."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name."
+    },
+    {
+      "name": "spread",
+      "type": "number",
+      "required": false,
+      "description": "Current spread — 0 is pages one and two. Omit for uncontrolled."
+    },
+    {
+      "name": "onSpreadChange",
+      "type": "(spread: number) => void",
+      "required": false
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "required": false,
+      "defaultValue": "300",
+      "description": "Width of one page. The book is twice this."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "380",
+      "description": "Page height in pixels."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

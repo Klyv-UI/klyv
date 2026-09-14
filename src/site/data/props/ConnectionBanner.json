@@ -1,0 +1,56 @@
+{
+  "props": [
+    {
+      "name": "online",
+      "type": "boolean",
+      "required": false,
+      "description": "Override the browser's own reading — useful when your API is the thing that is down."
+    },
+    {
+      "name": "queued",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Changes waiting to be sent. Shown even once the connection returns."
+    },
+    {
+      "name": "retryIn",
+      "type": "number",
+      "required": false,
+      "description": "Seconds until the next automatic attempt. Counts down locally."
+    },
+    {
+      "name": "retrying",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "A reconnection attempt is in flight."
+    },
+    {
+      "name": "onRetry",
+      "type": "() => void",
+      "required": false,
+      "description": "Called when the retry action is pressed."
+    },
+    {
+      "name": "restoredFor",
+      "type": "number",
+      "required": false,
+      "defaultValue": "4000",
+      "description": "Milliseconds to keep \"back online\" on screen before it goes."
+    },
+    {
+      "name": "fixed",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Pin to the top of the viewport rather than sitting in the flow."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "props": [
+    {
+      "name": "events",
+      "type": "ScheduleEvent[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name — whose day, or which day."
+    },
+    {
+      "name": "from",
+      "type": "number",
+      "required": false,
+      "defaultValue": "8",
+      "description": "First and last hour drawn, 0 to 24."
+    },
+    {
+      "name": "to",
+      "type": "number",
+      "required": false,
+      "defaultValue": "20",
+      "description": "Last hour drawn, as a 24-hour number."
+    },
+    {
+      "name": "hourHeight",
+      "type": "number",
+      "required": false,
+      "defaultValue": "52",
+      "description": "Pixels per hour."
+    },
+    {
+      "name": "showNow",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show a line at the current time when it falls inside the range."
+    },
+    {
+      "name": "onSelect",
+      "type": "(event: ScheduleEvent) => void",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

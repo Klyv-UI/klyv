@@ -1,0 +1,59 @@
+{
+  "props": [
+    {
+      "name": "options",
+      "type": "SegmentedOption<T>[]",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "T",
+      "required": true
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: T) => void",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the set."
+    },
+    {
+      "name": "size",
+      "type": "SegmentedControlSize",
+      "required": false,
+      "defaultValue": "'md'",
+      "description": "Control height: 28px or 32px."
+    },
+    {
+      "name": "orientation",
+      "type": "SegmentedControlOrientation",
+      "required": false,
+      "defaultValue": "'horizontal'",
+      "description": "vertical is the stacked form the mobile drawer uses."
+    },
+    {
+      "name": "bare",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Drop the lifted track, for use inside an already-filled surface."
+    },
+    {
+      "name": "fullWidth",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Stretch the control to the container width."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

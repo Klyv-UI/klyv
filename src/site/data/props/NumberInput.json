@@ -1,0 +1,67 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: number) => void",
+      "required": true
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "required": false,
+      "defaultValue": "Number.NEGATIVE_INFINITY"
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "defaultValue": "Number.POSITIVE_INFINITY"
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1"
+    },
+    {
+      "name": "inputSize",
+      "type": "InputSize",
+      "required": false,
+      "defaultValue": "'md'",
+      "description": "Control height, matching Input."
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "description": "Marks the field as failing validation. Pair it with a message."
+    },
+    {
+      "name": "steppers",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Hide the stepper buttons, leaving a plain numeric field."
+    },
+    {
+      "name": "suffix",
+      "type": "string",
+      "required": false,
+      "description": "Text after the figure, e.g. a unit."
+    },
+    {
+      "name": "containerClassName",
+      "type": "string",
+      "required": false,
+      "description": "Classes for the wrapper rather than the control itself."
+    }
+  ],
+  "inherits": [
+    "Omit< InputHTMLAttributes<HTMLInputElement>, 'size' | 'type' | 'value' | 'onChange' >"
+  ]
+}

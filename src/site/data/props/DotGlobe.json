@@ -1,0 +1,64 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name — what the globe is showing."
+    },
+    {
+      "name": "markers",
+      "type": "GlobeMarker[]",
+      "required": false,
+      "defaultValue": "[]"
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "260",
+      "description": "Pixel size of the square canvas."
+    },
+    {
+      "name": "dots",
+      "type": "number",
+      "required": false,
+      "defaultValue": "900",
+      "description": "Dots on the sphere. Higher looks denser, not larger."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "26",
+      "description": "Seconds for one full rotation."
+    },
+    {
+      "name": "tilt",
+      "type": "number",
+      "required": false,
+      "defaultValue": "18",
+      "description": "Axial tilt in degrees, so it does not read as a flat ring of dots."
+    },
+    {
+      "name": "dotColor",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-ink-faint)'",
+      "description": "Any CSS colour for the land dots."
+    },
+    {
+      "name": "markerColor",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-accent-strong)'",
+      "description": "Any CSS colour for the marked points."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "props": [
+    {
+      "name": "dotSize",
+      "type": "RadioSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false"
+    }
+  ],
+  "inherits": [
+    "Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'>"
+  ]
+}

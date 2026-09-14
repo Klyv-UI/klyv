@@ -1,0 +1,53 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "T[]",
+      "required": true,
+      "description": "Every row's data. Only the visible slice is rendered."
+    },
+    {
+      "name": "itemHeight",
+      "type": "number",
+      "required": true,
+      "description": "Every row's height in pixels. Fixed heights are what keep this constant-time."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": true,
+      "description": "The list's visible height in pixels."
+    },
+    {
+      "name": "renderItem",
+      "type": "(item: T, index: number) => ReactNode",
+      "required": true,
+      "description": "Draws one row, inside a box exactly `itemHeight` tall."
+    },
+    {
+      "name": "getKey",
+      "type": "(item: T, index: number) => string | number",
+      "required": false,
+      "description": "Stable identity per row. Defaults to the index."
+    },
+    {
+      "name": "overscan",
+      "type": "number",
+      "required": false,
+      "defaultValue": "6",
+      "description": "Rows rendered past each edge, so a fast scroll does not flash blank."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the list."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

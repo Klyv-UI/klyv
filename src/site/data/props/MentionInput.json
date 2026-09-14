@@ -1,0 +1,58 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "onChange",
+      "type": "(value: string) => void",
+      "required": true
+    },
+    {
+      "name": "options",
+      "type": "MentionOption[]",
+      "required": true,
+      "description": "People, channels, tickets — anything the trigger character introduces."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the field."
+    },
+    {
+      "name": "trigger",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'@'",
+      "description": "Character that opens the list."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "description": "Shown while empty."
+    },
+    {
+      "name": "rows",
+      "type": "number",
+      "required": false,
+      "defaultValue": "4",
+      "description": "Visible rows, as on a textarea."
+    },
+    {
+      "name": "onMention",
+      "type": "(option: MentionOption) => void",
+      "required": false,
+      "description": "Called with the option each time one is inserted."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

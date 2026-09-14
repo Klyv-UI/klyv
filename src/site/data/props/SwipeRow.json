@@ -1,0 +1,43 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "name": "leading",
+      "type": "RowAction[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Revealed by swiping right, i.e. sitting on the left edge."
+    },
+    {
+      "name": "trailing",
+      "type": "RowAction[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Revealed by swiping left. The destructive one belongs here."
+    },
+    {
+      "name": "actionWidth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "76",
+      "description": "Width of one action button, in pixels."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "props": [
+    {
+      "name": "eyebrow",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Small uppercase line above the title — the section's name."
+    },
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "name": "align",
+      "type": "'start' | 'center'",
+      "required": false,
+      "defaultValue": "'center'"
+    },
+    {
+      "name": "as",
+      "type": "'h1' | 'h2' | 'h3'",
+      "required": false,
+      "description": "Heading level. The visual size never changes."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Right-aligned (or, centred, underneath) affordances — a link, a toggle."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

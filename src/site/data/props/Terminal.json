@@ -1,0 +1,49 @@
+{
+  "props": [
+    {
+      "name": "onCommand",
+      "type": "(command: string, api: TerminalApi) => void | Promise<void>",
+      "required": true,
+      "description": "Handle a command. Return what to print, or nothing."
+    },
+    {
+      "name": "prompt",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'~ $'",
+      "description": "Text before the caret."
+    },
+    {
+      "name": "greeting",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Printed once, before anything is typed."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'citrine — zsh'",
+      "description": "Title in the window chrome. Omit for a bare pane."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "320"
+    },
+    {
+      "name": "commands",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Tab-completion candidates."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

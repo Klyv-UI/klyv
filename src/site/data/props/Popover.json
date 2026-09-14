@@ -1,0 +1,64 @@
+{
+  "props": [
+    {
+      "name": "trigger",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The element the panel is anchored to. Rendered inline."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The panel contents."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "required": false
+    },
+    {
+      "name": "placement",
+      "type": "PopoverPlacement",
+      "required": false,
+      "defaultValue": "'bottom'"
+    },
+    {
+      "name": "align",
+      "type": "PopoverAlign",
+      "required": false,
+      "defaultValue": "'start'"
+    },
+    {
+      "name": "offset",
+      "type": "number",
+      "required": false,
+      "defaultValue": "8",
+      "description": "Gap between anchor and panel, in pixels."
+    },
+    {
+      "name": "dismissOnOutsideClick",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Close when the pointer goes down outside."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Accessible name for the panel."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Applied to the panel Surface."
+    }
+  ]
+}

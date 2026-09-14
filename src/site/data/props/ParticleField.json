@@ -1,0 +1,52 @@
+{
+  "props": [
+    {
+      "name": "density",
+      "type": "number",
+      "required": false,
+      "defaultValue": "6",
+      "description": "Particles per 10,000 square pixels of surface. 6 is roughly 90 in a wide panel."
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "required": false,
+      "defaultValue": "14",
+      "description": "Pixels per second, before the per-particle jitter."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-accent-strong)'",
+      "description": "Dot colour. Any CSS colour."
+    },
+    {
+      "name": "linked",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Draw a line between particles that are close to each other."
+    },
+    {
+      "name": "pull",
+      "type": "number",
+      "required": false,
+      "defaultValue": "110",
+      "description": "Radius in which the pointer pulls particles towards it. 0 turns it off."
+    },
+    {
+      "name": "dotSize",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1.9",
+      "description": "Dot radius in pixels."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

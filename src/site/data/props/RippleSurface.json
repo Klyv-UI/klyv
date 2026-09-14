@@ -1,0 +1,51 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Content the ripple plays over."
+    },
+    {
+      "name": "rings",
+      "type": "number",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Rings per drop. More reads as heavier water."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1.8",
+      "description": "Seconds a ring takes to fade out."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'rgba(255,255,255,0.8)'",
+      "description": "Ring colour."
+    },
+    {
+      "name": "onHover",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Drop on hover as well as on press."
+    },
+    {
+      "name": "rain",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Random drops every N milliseconds, as if it were raining. 0 is off."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

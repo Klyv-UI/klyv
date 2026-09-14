@@ -1,0 +1,27 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "name": "tone",
+      "type": "TagTone",
+      "required": false,
+      "defaultValue": "'neutral'"
+    },
+    {
+      "name": "size",
+      "type": "TagSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

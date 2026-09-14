@@ -1,0 +1,56 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The sticker contents."
+    },
+    {
+      "name": "peek",
+      "type": "number",
+      "required": false,
+      "defaultValue": "26",
+      "description": "How far the corner lifts on hover, in pixels."
+    },
+    {
+      "name": "threshold",
+      "type": "number",
+      "required": false,
+      "defaultValue": "90",
+      "description": "How far it can be dragged before it comes off."
+    },
+    {
+      "name": "corner",
+      "type": "'tr' | 'tl' | 'br' | 'bl'",
+      "required": false,
+      "defaultValue": "'tr'",
+      "description": "Which corner peels."
+    },
+    {
+      "name": "onPeel",
+      "type": "() => void",
+      "required": false,
+      "description": "Fires once it is fully peeled off."
+    },
+    {
+      "name": "peeled",
+      "type": "boolean",
+      "required": false,
+      "description": "Put it back. Controlled — omit for uncontrolled."
+    },
+    {
+      "name": "radius",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--radius-tile)'",
+      "description": "Any CSS length. Match the surface it sits on."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

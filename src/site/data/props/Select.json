@@ -1,0 +1,84 @@
+{
+  "props": [
+    {
+      "name": "options",
+      "type": "SelectOption<T>[]",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "T",
+      "required": true
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: T) => void",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name. Pair with a Field for a visible one."
+    },
+    {
+      "name": "size",
+      "type": "SelectSize",
+      "required": false,
+      "defaultValue": "'md'",
+      "description": "Control height: 36px or 40px."
+    },
+    {
+      "name": "placement",
+      "type": "PopoverPlacement",
+      "required": false,
+      "defaultValue": "'bottom'"
+    },
+    {
+      "name": "align",
+      "type": "PopoverAlign",
+      "required": false,
+      "defaultValue": "'end'"
+    },
+    {
+      "name": "variant",
+      "type": "'field' | 'pill'",
+      "required": false,
+      "defaultValue": "'field'",
+      "description": "Lifted pill, as the currency pickers use, instead of a bordered field."
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Marks the field as failing validation. Pair it with a message."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "fullWidth",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Stretch to the container width."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Overrides the generated id. Useful when a label lives elsewhere."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

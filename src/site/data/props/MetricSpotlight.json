@@ -1,0 +1,46 @@
+{
+  "props": [
+    {
+      "name": "metrics",
+      "type": "SpotlightMetric[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the group."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Selected metric id. Omit for uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(id: string) => void",
+      "required": false,
+      "description": "Called when a metric is selected."
+    },
+    {
+      "name": "detail",
+      "type": "(metric: SpotlightMetric) => ReactNode",
+      "required": false,
+      "description": "Rendered under the rail for the selected metric — usually a chart."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Count the figures up when they first appear."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -2,8 +2,10 @@ import { Suspense, lazy, useEffect, useState, type ComponentType, type LazyExoti
 import { Link, useParams } from 'react-router-dom'
 import { Surface, Text } from 'citrine'
 import { DocPage, Note, Preview, Section, Specimen } from '../components/Doc'
+import { LivePlayground } from '../components/LivePlayground'
 import { PageSkeleton } from '../components/PageSkeleton'
 import { findComponent } from '../data/catalog'
+import { loadProps } from '../data/props'
 import { loadExamples } from '../examples'
 import type { ComponentExamples } from '../examples/types'
 
@@ -53,11 +55,15 @@ export default function ComponentPage() {
   const [examples, setExamples] = useState<ComponentExamples | null | undefined>(undefined)
 
   useEffect(() => {
-    if (!slug || !entry || Page) return
+    if (!slug || !entry) return
+    // The API table's data is its own chunk; fetched alongside the examples so
+    // the page arrives whole instead of the table filling in afterwards.
+    const props = loadProps(entry.name)
+    if (Page) return
 
     let cancelled = false
     setExamples(undefined)
-    loadExamples(slug).then((result) => {
+    Promise.all([loadExamples(slug), props]).then(([result]) => {
       if (!cancelled) setExamples(result ?? null)
     })
 
@@ -110,6 +116,7 @@ export default function ComponentPage() {
 
   return (
     <DocPage name={entry.name} description={examples.description} propNotes={examples.props}>
+      <LivePlayground key={entry.name} name={entry.name} />
       {examples.sections.map((section) => {
         const { Content } = section
         const body = (

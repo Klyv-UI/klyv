@@ -1,0 +1,60 @@
+{
+  "props": [
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": true,
+      "description": "Shown while true, then dismissed."
+    },
+    {
+      "name": "onClose",
+      "type": "() => void",
+      "required": true
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "What was achieved."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": false,
+      "description": "One line of detail under the title."
+    },
+    {
+      "name": "tier",
+      "type": "AchievementTier",
+      "required": false,
+      "defaultValue": "'gold'"
+    },
+    {
+      "name": "glyph",
+      "type": "ReactNode",
+      "required": false,
+      "defaultValue": "'★'",
+      "description": "The glyph on the plate. An emoji, a letter, an icon."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "4200",
+      "description": "Milliseconds before it leaves on its own. 0 waits for a click."
+    },
+    {
+      "name": "position",
+      "type": "'top' | 'bottom'",
+      "required": false,
+      "defaultValue": "'top'",
+      "description": "Where it comes from."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

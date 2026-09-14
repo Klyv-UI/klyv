@@ -1,0 +1,76 @@
+{
+  "props": [
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "\"Sign in to Acme\", \"Create your account\"."
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "name": "brand",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Lockup above the title."
+    },
+    {
+      "name": "providers",
+      "type": "AuthProvider[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Single sign-on buttons, drawn above the form."
+    },
+    {
+      "name": "providerLayout",
+      "type": "'stack' | 'grid'",
+      "required": false,
+      "defaultValue": "'stack'",
+      "description": "stack is one per row; grid puts two side by side from sm."
+    },
+    {
+      "name": "dividerLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'or'",
+      "description": "Word on the rule between providers and form."
+    },
+    {
+      "name": "error",
+      "type": "string",
+      "required": false,
+      "description": "A failed attempt — announced, and kept until the next one."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The form itself: Fields, a PasswordInput, the submit Button."
+    },
+    {
+      "name": "legal",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Small print under the form — terms, privacy."
+    },
+    {
+      "name": "footer",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The switch to the other flow — \"No account? Sign up\"."
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h1' | 'h2'",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

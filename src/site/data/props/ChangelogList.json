@@ -1,0 +1,38 @@
+{
+  "props": [
+    {
+      "name": "entries",
+      "type": "ChangelogEntry[]",
+      "required": true
+    },
+    {
+      "name": "unreadSince",
+      "type": "Date",
+      "required": false,
+      "description": "When the reader last looked. Later entries are marked new."
+    },
+    {
+      "name": "variant",
+      "type": "'timeline' | 'compact'",
+      "required": false,
+      "defaultValue": "'timeline'",
+      "description": "timeline for a changelog page; compact for a \"What's new\" popover."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Changelog'"
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3'",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

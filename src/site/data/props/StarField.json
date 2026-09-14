@@ -1,0 +1,45 @@
+{
+  "props": [
+    {
+      "name": "count",
+      "type": "number",
+      "required": false,
+      "defaultValue": "420",
+      "description": "How many stars."
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "required": false,
+      "defaultValue": "6",
+      "description": "Travel speed. Negative flies backwards."
+    },
+    {
+      "name": "warpAt",
+      "type": "number",
+      "required": false,
+      "defaultValue": "14",
+      "description": "Stretch stars into streaks past this speed — the jump to lightspeed."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'#ffffff'",
+      "description": "Any CSS colour for the stars."
+    },
+    {
+      "name": "steer",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Steer towards the pointer."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

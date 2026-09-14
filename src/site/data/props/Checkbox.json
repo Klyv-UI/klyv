@@ -1,0 +1,26 @@
+{
+  "props": [
+    {
+      "name": "boxSize",
+      "type": "CheckboxSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "indeterminate",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Neither checked nor unchecked — the mixed state of a parent checkbox."
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false"
+    }
+  ],
+  "inherits": [
+    "Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'>"
+  ]
+}

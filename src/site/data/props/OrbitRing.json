@@ -1,0 +1,70 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "OrbitItem[]",
+      "required": true,
+      "description": "One entry per position on the ring, spaced evenly."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the whole diagram."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "What sits in the middle."
+    },
+    {
+      "name": "radius",
+      "type": "number",
+      "required": false,
+      "defaultValue": "120",
+      "description": "Ring radius in pixels."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "26",
+      "description": "Seconds for one full revolution."
+    },
+    {
+      "name": "reverse",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Turn the other way — use it to make a second ring read as separate."
+    },
+    {
+      "name": "offset",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Degrees to start from. Offsets a second ring so items never line up."
+    },
+    {
+      "name": "pauseOnHover",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Stop while the diagram is hovered or focused, so items can be read."
+    },
+    {
+      "name": "showPath",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Draw the path the items travel."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

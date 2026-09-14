@@ -1,0 +1,62 @@
+{
+  "props": [
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Headline. Wrap the phrase that carries the promise in `HeroHighlight`."
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "name": "announcement",
+      "type": "HeroAnnouncement",
+      "required": false,
+      "description": "The pill above the headline that links to the latest launch."
+    },
+    {
+      "name": "actions",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Primary and secondary calls to action."
+    },
+    {
+      "name": "note",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Reassurance under the actions — \"No credit card required\"."
+    },
+    {
+      "name": "media",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Product screenshot or illustration. Application-owned."
+    },
+    {
+      "name": "backdrop",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Decoration behind everything — an AuroraSurface, a grid."
+    },
+    {
+      "name": "layout",
+      "type": "'center' | 'split'",
+      "required": false,
+      "defaultValue": "'center'",
+      "description": "center stacks copy over media; split puts them side by side from lg."
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h1' | 'h2'",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

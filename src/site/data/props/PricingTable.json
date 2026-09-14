@@ -1,0 +1,61 @@
+{
+  "props": [
+    {
+      "name": "plans",
+      "type": "PricingPlan[]",
+      "required": true
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'$'"
+    },
+    {
+      "name": "period",
+      "type": "BillingPeriod",
+      "required": false,
+      "description": "Controlled period. Omit to let the table own it."
+    },
+    {
+      "name": "defaultPeriod",
+      "type": "BillingPeriod",
+      "required": false,
+      "defaultValue": "'monthly'"
+    },
+    {
+      "name": "onPeriodChange",
+      "type": "(period: BillingPeriod) => void",
+      "required": false
+    },
+    {
+      "name": "onSelect",
+      "type": "(planId: string, period: BillingPeriod) => void",
+      "required": false
+    },
+    {
+      "name": "currentPlanId",
+      "type": "string",
+      "required": false,
+      "description": "The plan the account is on — its button becomes a disabled \"Current plan\"."
+    },
+    {
+      "name": "unit",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'/month'",
+      "description": "\"/month\", \"/seat/month\"."
+    },
+    {
+      "name": "showToggle",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "props": [
+    {
+      "name": "count",
+      "type": "number",
+      "required": false,
+      "defaultValue": "180",
+      "description": "How many. Two hundred is comfortable; the neighbour search is the cost."
+    },
+    {
+      "name": "vision",
+      "type": "number",
+      "required": false,
+      "defaultValue": "46",
+      "description": "How far a boid can see."
+    },
+    {
+      "name": "separation",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1.5",
+      "description": "Weights for the three classic rules."
+    },
+    {
+      "name": "alignment",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1",
+      "description": "How strongly a bird matches the heading of its neighbours."
+    },
+    {
+      "name": "cohesion",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.9",
+      "description": "How strongly a bird steers toward the middle of its neighbours."
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2.6",
+      "description": "Top speed, in pixels per frame."
+    },
+    {
+      "name": "pointer",
+      "type": "'attract' | 'flee' | 'ignore'",
+      "required": false,
+      "defaultValue": "'attract'",
+      "description": "Follow the pointer, or flee it."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-accent-strong)'",
+      "description": "Any CSS colour for the birds."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

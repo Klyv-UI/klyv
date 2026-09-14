@@ -1,0 +1,48 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The element the tip describes."
+    },
+    {
+      "name": "content",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Tip text. Keep it to a short phrase."
+    },
+    {
+      "name": "placement",
+      "type": "PopoverPlacement",
+      "required": false,
+      "defaultValue": "'top'"
+    },
+    {
+      "name": "align",
+      "type": "PopoverAlign",
+      "required": false,
+      "defaultValue": "'center'"
+    },
+    {
+      "name": "delay",
+      "type": "number",
+      "required": false,
+      "defaultValue": "250",
+      "description": "Delay before showing, in milliseconds. Hiding is immediate."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

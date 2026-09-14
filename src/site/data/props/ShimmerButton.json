@@ -1,0 +1,53 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The button label."
+    },
+    {
+      "name": "tone",
+      "type": "ShimmerTone",
+      "required": false,
+      "defaultValue": "'accent'"
+    },
+    {
+      "name": "size",
+      "type": "keyof typeof SIZES",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Seconds between sweeps."
+    },
+    {
+      "name": "onHover",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Sweep only on hover and focus, rather than continuously."
+    },
+    {
+      "name": "glow",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Add a soft light that follows the pointer across the face."
+    },
+    {
+      "name": "fullWidth",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Stretch to the container width."
+    }
+  ],
+  "inherits": [
+    "ButtonHTMLAttributes<HTMLButtonElement>"
+  ]
+}

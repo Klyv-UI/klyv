@@ -1,0 +1,21 @@
+{
+  "props": [
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "description": "Category or timestamp for the hovered point."
+    },
+    {
+      "name": "rows",
+      "type": "ChartTooltipRow[]",
+      "required": true
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

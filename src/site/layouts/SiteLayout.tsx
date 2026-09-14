@@ -1,4 +1,4 @@
-import { Suspense, memo, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { Suspense, lazy, memo, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, NavLink, Outlet, ScrollRestoration, useLocation, useMatches } from 'react-router-dom'
 import { PageSkeleton } from '../components/PageSkeleton'
 import { RouteProgress } from '../components/RouteProgress'
@@ -8,7 +8,7 @@ import { AccentMenu } from '../components/AccentMenu'
 import { PlatformLinks } from '../components/PlatformLinks'
 import { Drawer, IconButton, SearchField, Text, cn } from 'citrine'
 import { AccentPicker } from '../components/AccentPicker'
-import { SearchPalette, SearchTrigger, useSearchPalette } from '../components/SearchPalette'
+import { SearchTrigger, loadSearchPalette, useSearchPalette } from '../components/SearchTrigger'
 import { ThemeToggle } from '../components/ThemeToggle'
 import { brand } from '../brand'
 import { blocks } from '../data/blocks'
@@ -23,6 +23,12 @@ import { useSavedCount } from '../lib/saved'
 export interface RouteHandle {
   /** Drop the docs sidebar and give the page the full width. */
   fullBleed?: boolean
+  /**
+   * Warms what the page loads after it mounts — a component's examples, a
+   * block's screen — when a link to it is about to be followed. The page's
+   * own chunk is warmed from the route's `lazy` without this.
+   */
+  prefetch?: (params: Record<string, string | undefined>) => Promise<unknown> | undefined
 }
 
 /**
@@ -38,11 +44,18 @@ export interface RouteHandle {
  * so changing route re-renders the page and nothing beside it. Active links
  * still update, because each NavLink reads the router itself.
  */
+const SearchPalette = lazy(() => loadSearchPalette().then((module) => ({ default: module.SearchPalette })))
+
 export function SiteLayout() {
   const { pathname } = useLocation()
   const matches = useMatches()
   const [navOpen, setNavOpen] = useState(false)
   const { open: searchOpen, setOpen: setSearchOpen } = useSearchPalette()
+  // Mounted on first use and kept, so closing it still plays its exit.
+  const [searchUsed, setSearchUsed] = useState(false)
+  useEffect(() => {
+    if (searchOpen) setSearchUsed(true)
+  }, [searchOpen])
 
   const isLanding = pathname === '/'
   const fullBleed = matches.some((match) => (match.handle as RouteHandle | undefined)?.fullBleed)
@@ -110,7 +123,11 @@ export function SiteLayout() {
         <ComponentNav inDrawer />
       </Drawer>
 
-      <SearchPalette open={searchOpen} onClose={closeSearch} />
+      {(searchOpen || searchUsed) && (
+        <Suspense fallback={null}>
+          <SearchPalette open={searchOpen} onClose={closeSearch} />
+        </Suspense>
+      )}
     </div>
   )
 }

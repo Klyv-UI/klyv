@@ -1,0 +1,29 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Content the ripple plays over."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "description": "Any CSS colour. Defaults to a translucent ink wash."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

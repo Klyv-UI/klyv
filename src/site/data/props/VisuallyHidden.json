@@ -1,0 +1,9 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true
+    }
+  ]
+}

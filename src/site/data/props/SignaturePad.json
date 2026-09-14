@@ -1,0 +1,57 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name — what is being signed."
+    },
+    {
+      "name": "onChange",
+      "type": "(dataUrl: string | null) => void",
+      "required": false,
+      "description": "Called after every finished stroke, with the current image."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "180",
+      "description": "Pad height in pixels."
+    },
+    {
+      "name": "weight",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2.4",
+      "description": "Nominal stroke width. Speed varies it either side of this."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-ink)'",
+      "description": "Any CSS colour for the stroke. A `var(--token)` reference is resolved."
+    },
+    {
+      "name": "guide",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Line the signature sits on."
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Sign with a finger, a stylus or the mouse.'",
+      "description": "Copy under the pad."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

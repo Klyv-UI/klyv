@@ -1,0 +1,43 @@
+{
+  "props": [
+    {
+      "name": "variant",
+      "type": "SurfaceVariant",
+      "required": false,
+      "defaultValue": "'card'"
+    },
+    {
+      "name": "padding",
+      "type": "SurfacePadding",
+      "required": false,
+      "defaultValue": "'none'"
+    },
+    {
+      "name": "interactive",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Strengthen the border on hover, as nested tiles do in the dashboard."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The surface contents."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    },
+    {
+      "name": "as",
+      "type": "E",
+      "required": false
+    }
+  ],
+  "inherits": [
+    "Omit<ComponentPropsWithoutRef<E>, keyof SurfaceOwnProps | 'as'>"
+  ]
+}

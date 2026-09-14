@@ -1,0 +1,32 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Visible text."
+    },
+    {
+      "name": "size",
+      "type": "ChipSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "selected",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Toggled on. Sets aria-pressed, so the chip reads as a toggle."
+    },
+    {
+      "name": "onRemove",
+      "type": "() => void",
+      "required": false,
+      "description": "Adds a remove affordance. The chip stays clickable in its own right."
+    }
+  ],
+  "inherits": [
+    "Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onSelect'>"
+  ]
+}

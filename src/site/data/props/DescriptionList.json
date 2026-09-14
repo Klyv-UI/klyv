@@ -1,0 +1,28 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "DescriptionItem[]",
+      "required": true
+    },
+    {
+      "name": "layout",
+      "type": "'row' | 'stack'",
+      "required": false,
+      "defaultValue": "'row'",
+      "description": "row puts term and value on one line; stack puts the value underneath."
+    },
+    {
+      "name": "divided",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

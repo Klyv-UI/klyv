@@ -1,0 +1,21 @@
+{
+  "props": [
+    {
+      "name": "showPoints",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Mark every data point, not only the hovered one."
+    },
+    {
+      "name": "smooth",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Round the corners between points."
+    }
+  ],
+  "inherits": [
+    "Omit<CartesianChartProps, 'children'>"
+  ]
+}

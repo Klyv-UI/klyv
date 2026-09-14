@@ -1,0 +1,47 @@
+{
+  "props": [
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "Page heading."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": false,
+      "description": "Supporting line under it."
+    },
+    {
+      "name": "above",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Rendered above the title — a Breadcrumb or a BackButton."
+    },
+    {
+      "name": "actions",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Right-aligned affordances."
+    },
+    {
+      "name": "meta",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Metadata row under the description — Tags, a Metric, a timestamp."
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h1' | 'h2'",
+      "required": false,
+      "defaultValue": "'h1'",
+      "description": "Heading level. The visual size never changes."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

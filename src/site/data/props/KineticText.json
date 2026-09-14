@@ -1,0 +1,30 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "string",
+      "required": true,
+      "description": "The line to animate."
+    },
+    {
+      "name": "interval",
+      "type": "number",
+      "required": false,
+      "defaultValue": "28",
+      "description": "Milliseconds between characters."
+    },
+    {
+      "name": "by",
+      "type": "'character' | 'word'",
+      "required": false,
+      "defaultValue": "'character'",
+      "description": "Animate whole words rather than characters."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

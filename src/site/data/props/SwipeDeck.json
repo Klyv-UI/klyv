@@ -1,0 +1,71 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "T[]",
+      "required": true,
+      "description": "The deck, top card first."
+    },
+    {
+      "name": "itemId",
+      "type": "(item: T) => string",
+      "required": true,
+      "description": "Stable key for an item."
+    },
+    {
+      "name": "renderItem",
+      "type": "(item: T, index: number) => ReactNode",
+      "required": true,
+      "description": "The face of one card."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the deck."
+    },
+    {
+      "name": "depth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Cards visible behind the top one."
+    },
+    {
+      "name": "threshold",
+      "type": "number",
+      "required": false,
+      "defaultValue": "96",
+      "description": "Pixels dragged before a release counts as a swipe."
+    },
+    {
+      "name": "onSwipe",
+      "type": "(item: T, direction: SwipeDirection) => void",
+      "required": false
+    },
+    {
+      "name": "onEmpty",
+      "type": "() => void",
+      "required": false,
+      "description": "Called when the last card leaves."
+    },
+    {
+      "name": "hints",
+      "type": "{ left: ReactNode; right: ReactNode }",
+      "required": false,
+      "description": "Badges shown as the card is dragged past the threshold."
+    },
+    {
+      "name": "empty",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Rendered once the deck runs out."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

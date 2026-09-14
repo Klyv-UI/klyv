@@ -1,0 +1,56 @@
+{
+  "props": [
+    {
+      "name": "values",
+      "type": "number[]",
+      "required": true,
+      "description": "Series values, oldest first. Needs at least two points."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible summary of the trend."
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "required": false,
+      "defaultValue": "96",
+      "description": "Intrinsic width in pixels."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "28",
+      "description": "Intrinsic height in pixels."
+    },
+    {
+      "name": "tone",
+      "type": "SparklineTone",
+      "required": false,
+      "defaultValue": "'accent'"
+    },
+    {
+      "name": "area",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Fill the area under the line."
+    },
+    {
+      "name": "showLast",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Mark the most recent point."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

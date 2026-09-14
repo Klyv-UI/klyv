@@ -1,0 +1,28 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The route currently being shown."
+    },
+    {
+      "name": "transitionKey",
+      "type": "string",
+      "required": true,
+      "description": "Changing this replays the transition — pass the route key."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "260"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

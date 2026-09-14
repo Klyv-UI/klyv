@@ -1,0 +1,46 @@
+{
+  "props": [
+    {
+      "name": "icon",
+      "type": "IconComponent",
+      "required": false,
+      "description": "Glyph above the title."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "What is missing."
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false,
+      "description": "What to do about it."
+    },
+    {
+      "name": "action",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Primary affordance — usually a Button."
+    },
+    {
+      "name": "secondaryAction",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Quieter secondary affordance beside the action."
+    },
+    {
+      "name": "size",
+      "type": "EmptyStateSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

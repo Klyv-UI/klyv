@@ -8,7 +8,7 @@
 // Descriptions still come from prose: the JSDoc on the member where there is
 // one, and the old hand-written row where there is not. That is the one part a
 // type cannot supply.
-import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs'
+import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync, rmSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import ts from 'typescript'
@@ -201,15 +201,40 @@ export interface GeneratedProps {
   inherits?: string[]
 }
 
-export const generatedProps: Record<string, GeneratedProps> = ${JSON.stringify(sorted, null, 2)}
+/**
+ * One JSON file per component under ./props, each its own chunk: a component
+ * page downloads its own API and nobody else's. Together they are several
+ * hundred kilobytes, which every page used to pay for one table.
+ */
+const MODULES = import.meta.glob<GeneratedProps>('./props/*.json', { import: 'default' })
+const loaded = new Map<string, GeneratedProps | null>()
 
-/** The API for one component, or undefined when it declares no props type. */
-export function propsFor(component: string): GeneratedProps | undefined {
-  return generatedProps[component]
+/** The API if it has already arrived; undefined when it has not been loaded yet. */
+export function cachedProps(component: string): GeneratedProps | null | undefined {
+  return loaded.get(component)
+}
+
+/** The API for one component, or null when it declares no props type. */
+export async function loadProps(component: string): Promise<GeneratedProps | null> {
+  const known = loaded.get(component)
+  if (known !== undefined) return known
+  const load = MODULES[\`./props/\${component}.json\`]
+  const api = load ? await load() : null
+  loaded.set(component, api)
+  return api
 }
 `
 
 writeFileSync(join(ROOT, 'src', 'site', 'data', 'props.ts'), output)
+
+// Rewritten whole, so a component that is removed or loses its props type
+// does not leave a stale file behind.
+const PROPS_DIR = join(ROOT, 'src', 'site', 'data', 'props')
+rmSync(PROPS_DIR, { recursive: true, force: true })
+mkdirSync(PROPS_DIR)
+for (const name of names) {
+  writeFileSync(join(PROPS_DIR, `${name}.json`), `${JSON.stringify(sorted[name], null, 2)}\n`)
+}
 writeFileSync(join(ROOT, 'data', 'props.json'), `${JSON.stringify(sorted, null, 2)}
 `)
 

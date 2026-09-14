@@ -1,0 +1,41 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string[]",
+      "required": true,
+      "description": "The current binding, as parts: e.g. ['Meta', 'Shift', 'K']."
+    },
+    {
+      "name": "onChange",
+      "type": "(parts: string[]) => void",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name — which command this binds."
+    },
+    {
+      "name": "taken",
+      "type": "{ parts: string[]; label: string }[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Bindings already taken, so a clash can be reported rather than saved."
+    },
+    {
+      "name": "requireModifier",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Require at least one modifier. Off for a single-key command palette."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

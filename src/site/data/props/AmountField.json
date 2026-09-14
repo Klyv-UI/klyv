@@ -1,0 +1,57 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": true,
+      "description": "Raw text, so a partially typed number is preserved while editing."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": true
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "required": true,
+      "description": "Currently selected currency code."
+    },
+    {
+      "name": "onCurrencyChange",
+      "type": "(code: string) => void",
+      "required": false
+    },
+    {
+      "name": "currencies",
+      "type": "CurrencyOption[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Visible label above the amount."
+    },
+    {
+      "name": "readOnly",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Render the amount as text rather than an input — the converted side."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

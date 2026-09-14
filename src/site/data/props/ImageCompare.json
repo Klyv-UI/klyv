@@ -1,0 +1,63 @@
+{
+  "props": [
+    {
+      "name": "before",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The state being compared against — drawn underneath."
+    },
+    {
+      "name": "after",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The new state — drawn on top and clipped to the handle."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the comparison."
+    },
+    {
+      "name": "beforeLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Before'",
+      "description": "Corner captions. Omit either to hide it."
+    },
+    {
+      "name": "afterLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'After'",
+      "description": "Caption for the revealed side. Empty hides it."
+    },
+    {
+      "name": "initial",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.5",
+      "description": "Starting position, 0 to 1."
+    },
+    {
+      "name": "orientation",
+      "type": "'horizontal' | 'vertical'",
+      "required": false,
+      "defaultValue": "'horizontal'",
+      "description": "Split top/bottom instead of left/right."
+    },
+    {
+      "name": "hover",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Reveal follows the pointer without a press."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

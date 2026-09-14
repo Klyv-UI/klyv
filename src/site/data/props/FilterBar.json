@@ -1,0 +1,62 @@
+{
+  "props": [
+    {
+      "name": "filters",
+      "type": "FilterChip<T>[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Quick toggles shown as Chips."
+    },
+    {
+      "name": "value",
+      "type": "T[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Currently active filter values."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: T[]) => void",
+      "required": false,
+      "description": "Called with the active filter ids."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Extra controls — a Select, a SearchField, a date range."
+    },
+    {
+      "name": "resultCount",
+      "type": "number",
+      "required": false,
+      "description": "Total matching records, announced when it changes."
+    },
+    {
+      "name": "resultLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'results'",
+      "description": "Noun for the result count, e.g. transactions."
+    },
+    {
+      "name": "onClear",
+      "type": "() => void",
+      "required": false,
+      "description": "Shown when anything is active."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Filters'",
+      "description": "Accessible name for the region."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "props": [
+    {
+      "name": "keys",
+      "type": "ApiKey[]",
+      "required": true
+    },
+    {
+      "name": "onCreate",
+      "type": "(input: { name: string; scopes: string[] }) => Promise<{ secret: string }>",
+      "required": true,
+      "description": "Create the key server-side and return its secret, once."
+    },
+    {
+      "name": "onRevoke",
+      "type": "(key: ApiKey) => void | Promise<void>",
+      "required": true
+    },
+    {
+      "name": "scopes",
+      "type": "ApiScope[]",
+      "required": false,
+      "description": "Offer scopes when creating. Omit for all-access keys."
+    },
+    {
+      "name": "defaultScopes",
+      "type": "string[]",
+      "required": false
+    },
+    {
+      "name": "limit",
+      "type": "number",
+      "required": false,
+      "description": "Most keys an account may hold."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'API keys'"
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3'",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

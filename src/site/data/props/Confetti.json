@@ -1,0 +1,37 @@
+{
+  "props": [
+    {
+      "name": "active",
+      "type": "boolean",
+      "required": true,
+      "description": "Set true to fire a burst."
+    },
+    {
+      "name": "count",
+      "type": "number",
+      "required": false,
+      "defaultValue": "40",
+      "description": "Number of pieces. Keep it modest — this renders real elements."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2200",
+      "description": "Milliseconds before the burst clears itself."
+    },
+    {
+      "name": "colors",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "DEFAULT_COLORS",
+      "description": "Any CSS colours. Defaults to the accent ramp."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

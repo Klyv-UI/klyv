@@ -1,0 +1,50 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "string",
+      "required": true,
+      "description": "Plain text — the layers are copies of it, so it cannot be markup."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "4",
+      "description": "Seconds between bursts. The keyframe spends most of its time clean."
+    },
+    {
+      "name": "onHover",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Only glitch on hover or focus-within."
+    },
+    {
+      "name": "colors",
+      "type": "[string, string]",
+      "required": false,
+      "defaultValue": "['#ff2e88', '#22e0ff']",
+      "description": "The two channel colours."
+    },
+    {
+      "name": "offset",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2",
+      "description": "How far the channels separate, in pixels."
+    },
+    {
+      "name": "as",
+      "type": "ElementType",
+      "required": false,
+      "description": "Element to render."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

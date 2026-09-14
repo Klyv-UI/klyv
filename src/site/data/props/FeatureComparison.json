@@ -1,0 +1,25 @@
+{
+  "props": [
+    {
+      "name": "plans",
+      "type": "ComparisonPlan[]",
+      "required": true
+    },
+    {
+      "name": "groups",
+      "type": "ComparisonGroup[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Caption for the table."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

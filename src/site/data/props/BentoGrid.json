@@ -1,0 +1,30 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The cells. Each one spans whatever it asks for."
+    },
+    {
+      "name": "columns",
+      "type": "2 | 3 | 4",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Columns at the widest breakpoint. Narrower widths step down automatically."
+    },
+    {
+      "name": "gap",
+      "type": "'sm' | 'md'",
+      "required": false,
+      "defaultValue": "'md'",
+      "description": "Gap between cells. The dashboard uses 16px."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Content that moves against the scroll."
+    },
+    {
+      "name": "strength",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.15",
+      "description": "How far the content moves relative to the scroll, 0 to 1. Keep it small."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

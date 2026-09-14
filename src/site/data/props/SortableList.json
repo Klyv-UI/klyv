@@ -1,0 +1,54 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "T[]",
+      "required": true,
+      "description": "The sequence to render."
+    },
+    {
+      "name": "itemId",
+      "type": "(item: T) => string",
+      "required": true,
+      "description": "Stable key for an entry. Index keys break as soon as the order changes."
+    },
+    {
+      "name": "renderItem",
+      "type": "(item: T, state: { dragging: boolean; grabbed: boolean }) => ReactNode",
+      "required": true,
+      "description": "Renders one row."
+    },
+    {
+      "name": "onReorder",
+      "type": "(items: T[]) => void",
+      "required": true,
+      "description": "Called with the whole reordered array."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the list."
+    },
+    {
+      "name": "gap",
+      "type": "number",
+      "required": false,
+      "defaultValue": "8",
+      "description": "Vertical gap between rows, in pixels."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

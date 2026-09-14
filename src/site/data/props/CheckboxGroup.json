@@ -1,0 +1,56 @@
+{
+  "props": [
+    {
+      "name": "options",
+      "type": "CheckboxOption<T>[]",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "T[]",
+      "required": true
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: T[]) => void",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Visible group label, rendered as a legend."
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "required": false,
+      "description": "Guidance under the legend."
+    },
+    {
+      "name": "error",
+      "type": "string",
+      "required": false,
+      "description": "Validation message. Replaces the hint."
+    },
+    {
+      "name": "orientation",
+      "type": "'vertical' | 'horizontal'",
+      "required": false,
+      "defaultValue": "'vertical'"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

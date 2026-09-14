@@ -1,0 +1,47 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "string[]",
+      "required": true,
+      "description": "Selected ids. Items carry theirs on `data-select-id`."
+    },
+    {
+      "name": "onChange",
+      "type": "(ids: string[]) => void",
+      "required": true,
+      "description": "Called with the selected ids."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the region."
+    },
+    {
+      "name": "attribute",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'data-select-id'",
+      "description": "Attribute used to find and identify selectable items."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

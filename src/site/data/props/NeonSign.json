@@ -1,0 +1,50 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The text to light."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'#ff4fd8'",
+      "description": "Tube colour. Anything CSS accepts."
+    },
+    {
+      "name": "flicker",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Flicker like a tube that has seen some nights."
+    },
+    {
+      "name": "off",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Off — dark glass tube, no glow. For a sign that turns on."
+    },
+    {
+      "name": "outline",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Outline only, as real neon is. Solid fills the glyphs instead."
+    },
+    {
+      "name": "as",
+      "type": "ElementType",
+      "required": false,
+      "description": "Element for the text."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

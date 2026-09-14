@@ -1,0 +1,34 @@
+{
+  "props": [
+    {
+      "name": "cursors",
+      "type": "RemoteCursor[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the layer."
+    },
+    {
+      "name": "smoothing",
+      "type": "number",
+      "required": false,
+      "defaultValue": "120",
+      "description": "Milliseconds to glide between two reported positions."
+    },
+    {
+      "name": "showLabels",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

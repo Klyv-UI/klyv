@@ -1,0 +1,53 @@
+{
+  "props": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "avatarSrc",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "badge",
+      "type": "string",
+      "required": false,
+      "description": "Plan or role shown beside the name — \"Admin\", \"Pro\"."
+    },
+    {
+      "name": "items",
+      "type": "(UserMenuItem | 'separator')[]",
+      "required": true
+    },
+    {
+      "name": "onSignOut",
+      "type": "() => void",
+      "required": false
+    },
+    {
+      "name": "signOutLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Sign out'"
+    },
+    {
+      "name": "showName",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Show the name beside the avatar in the trigger."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

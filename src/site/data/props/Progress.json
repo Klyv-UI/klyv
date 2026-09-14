@@ -1,0 +1,42 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Current value. Ignored when `indeterminate`."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "defaultValue": "100"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name — what is progressing."
+    },
+    {
+      "name": "size",
+      "type": "ProgressSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "indeterminate",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Work is happening but the proportion is unknown."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

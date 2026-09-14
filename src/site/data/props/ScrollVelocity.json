@@ -1,0 +1,57 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Content that skews with the scroll speed."
+    },
+    {
+      "name": "skew",
+      "type": "number",
+      "required": false,
+      "defaultValue": "6",
+      "description": "Degrees of skew at full speed."
+    },
+    {
+      "name": "drift",
+      "type": "number",
+      "required": false,
+      "defaultValue": "40",
+      "description": "Pixels of horizontal drift at full speed."
+    },
+    {
+      "name": "squash",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.06",
+      "description": "Vertical squash at full speed, as a scale delta."
+    },
+    {
+      "name": "ceiling",
+      "type": "number",
+      "required": false,
+      "defaultValue": "45",
+      "description": "Scroll speed, in pixels per frame, that counts as full."
+    },
+    {
+      "name": "reverse",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Drift and skew the other way — pair two rows for a shear effect."
+    },
+    {
+      "name": "scrollRef",
+      "type": "RefObject<HTMLElement | null>",
+      "required": false,
+      "description": "Scroll container. Defaults to the window."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

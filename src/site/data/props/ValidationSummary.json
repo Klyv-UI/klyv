@@ -1,0 +1,28 @@
+{
+  "props": [
+    {
+      "name": "errors",
+      "type": "FieldError[]",
+      "required": true
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "description": "Heading above the list."
+    },
+    {
+      "name": "focusOnError",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Move focus here when errors appear."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

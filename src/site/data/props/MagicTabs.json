@@ -1,0 +1,57 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "MagicTabItem[]",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the tab list."
+    },
+    {
+      "name": "variant",
+      "type": "MagicTabsVariant",
+      "required": false,
+      "defaultValue": "'pill'"
+    },
+    {
+      "name": "size",
+      "type": "'sm' | 'md'",
+      "required": false,
+      "defaultValue": "'md'",
+      "description": "Control height."
+    },
+    {
+      "name": "fullWidth",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Spread the tabs across the full width."
+    },
+    {
+      "name": "panelId",
+      "type": "string",
+      "required": false,
+      "description": "Ties the list to its panel — set the same id on the panel."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

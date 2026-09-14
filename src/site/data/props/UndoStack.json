@@ -1,0 +1,54 @@
+{
+  "props": [
+    {
+      "name": "past",
+      "type": "UndoEntry[]",
+      "required": true,
+      "description": "Steps already applied, oldest first. The last one is what undo reverses."
+    },
+    {
+      "name": "future",
+      "type": "UndoEntry[]",
+      "required": true,
+      "description": "Steps undone, most recently undone first."
+    },
+    {
+      "name": "onUndo",
+      "type": "(steps: number) => void",
+      "required": true,
+      "description": "Reverse `steps` entries from the end of `past`."
+    },
+    {
+      "name": "onRedo",
+      "type": "(steps: number) => void",
+      "required": true,
+      "description": "Reapply `steps` entries from the front of `future`."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name."
+    },
+    {
+      "name": "shortcuts",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Bind the platform undo and redo shortcuts while this is mounted."
+    },
+    {
+      "name": "historyLimit",
+      "type": "number",
+      "required": false,
+      "defaultValue": "8",
+      "description": "Entries offered in the history list."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

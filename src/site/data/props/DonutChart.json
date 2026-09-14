@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "slices",
+      "type": "DonutSlice[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "200",
+      "description": "Outer diameter in pixels."
+    },
+    {
+      "name": "thickness",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.28",
+      "description": "Ring thickness as a fraction of the radius, 0 to 1."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Content in the middle — usually the total."
+    },
+    {
+      "name": "showLegend",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the key beside the ring."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "(value) => String(value)",
+      "description": "Turns a slice value into its printed label."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

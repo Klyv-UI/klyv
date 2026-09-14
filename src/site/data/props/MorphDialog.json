@@ -1,0 +1,58 @@
+{
+  "props": [
+    {
+      "name": "trigger",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The closed state — a card, a tile, a row. Clicking it opens the dialog."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Dialog body."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "Dialog heading. Becomes the accessible name."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": false,
+      "description": "Supporting line, wired to aria-describedby."
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "required": false,
+      "defaultValue": "560",
+      "description": "Dialog width in pixels, capped to the viewport."
+    },
+    {
+      "name": "triggerLabel",
+      "type": "string",
+      "required": false,
+      "description": "Accessible name for the trigger, when the trigger is not self-describing."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    },
+    {
+      "name": "dialogClassName",
+      "type": "string",
+      "required": false,
+      "description": "Classes for the opened panel rather than for the trigger."
+    }
+  ]
+}

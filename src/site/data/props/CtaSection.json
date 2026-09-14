@@ -1,0 +1,48 @@
+{
+  "props": [
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "name": "actions",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Usually a white Button and a quieter secondary one."
+    },
+    {
+      "name": "note",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Reassurance under the actions."
+    },
+    {
+      "name": "aside",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Artwork or a product crop on the right, from lg."
+    },
+    {
+      "name": "tone",
+      "type": "CtaTone",
+      "required": false,
+      "defaultValue": "'accent'"
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3'",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

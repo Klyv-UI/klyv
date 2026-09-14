@@ -1,0 +1,51 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Content seen through the glass."
+    },
+    {
+      "name": "blur",
+      "type": "number",
+      "required": false,
+      "defaultValue": "14",
+      "description": "Backdrop blur in pixels."
+    },
+    {
+      "name": "refraction",
+      "type": "number",
+      "required": false,
+      "defaultValue": "24",
+      "description": "How much the edge bends what is behind it. 0 turns the refraction off."
+    },
+    {
+      "name": "radius",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--radius-card)'",
+      "description": "Corner radius."
+    },
+    {
+      "name": "tint",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'rgba(255,255,255,0.16)'",
+      "description": "Tint over the blur. Keep it very low — glass is not paint."
+    },
+    {
+      "name": "glint",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "A specular highlight that follows the pointer."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

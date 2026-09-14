@@ -1,0 +1,61 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Resting label — the action itself."
+    },
+    {
+      "name": "holdingLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Keep holding…'",
+      "description": "Label while the press is held."
+    },
+    {
+      "name": "doneLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Done'",
+      "description": "Label after it fires, held briefly."
+    },
+    {
+      "name": "onConfirm",
+      "type": "() => void",
+      "required": true
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1400",
+      "description": "Milliseconds the press must be held."
+    },
+    {
+      "name": "tone",
+      "type": "HoldTone",
+      "required": false,
+      "defaultValue": "'danger'"
+    },
+    {
+      "name": "icon",
+      "type": "IconComponent",
+      "required": false,
+      "description": "Glyph before the label."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

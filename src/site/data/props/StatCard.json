@@ -1,0 +1,64 @@
+{
+  "props": [
+    {
+      "name": "icon",
+      "type": "IconComponent",
+      "required": false,
+      "description": "Glyph identifying what the figure is about."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "Short name of the thing being measured."
+    },
+    {
+      "name": "value",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The headline figure, already formatted."
+    },
+    {
+      "name": "caption",
+      "type": "string",
+      "required": false,
+      "description": "Small line above the figure — a deadline, a period."
+    },
+    {
+      "name": "delta",
+      "type": "string",
+      "required": false,
+      "description": "Change since the last period."
+    },
+    {
+      "name": "trend",
+      "type": "MetricTrend",
+      "required": false,
+      "description": "Direction of the change, which colours the delta."
+    },
+    {
+      "name": "meter",
+      "type": "{ value: number; total: number; label: string }",
+      "required": false,
+      "description": "Discrete progress under the figure — instalments paid, rewards earned."
+    },
+    {
+      "name": "action",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Overflow control or badge in the top-right."
+    },
+    {
+      "name": "onClick",
+      "type": "() => void",
+      "required": false,
+      "description": "Makes the whole tile activate."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

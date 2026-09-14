@@ -1,0 +1,63 @@
+{
+  "props": [
+    {
+      "name": "columns",
+      "type": "DataTableColumn<Row>[]",
+      "required": true
+    },
+    {
+      "name": "rows",
+      "type": "Row[]",
+      "required": true,
+      "description": "The data."
+    },
+    {
+      "name": "rowId",
+      "type": "(row: Row) => string",
+      "required": true,
+      "description": "Stable identity for each row."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the table."
+    },
+    {
+      "name": "selectable",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Adds a selection column and reports the chosen ids."
+    },
+    {
+      "name": "selected",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]"
+    },
+    {
+      "name": "onSelectedChange",
+      "type": "(ids: string[]) => void",
+      "required": false
+    },
+    {
+      "name": "pageSize",
+      "type": "number",
+      "required": false,
+      "description": "Rows per page. Omit to show everything."
+    },
+    {
+      "name": "empty",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Shown when there are no rows."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

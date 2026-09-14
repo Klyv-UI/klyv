@@ -1,0 +1,58 @@
+{
+  "props": [
+    {
+      "name": "data",
+      "type": "T[] | undefined",
+      "required": true,
+      "description": "The data. Deciding empty from this is the point — see `status`."
+    },
+    {
+      "name": "status",
+      "type": "ViewStatus",
+      "required": false,
+      "description": "Explicit status. Omit and it is derived: undefined is loading, [] is empty."
+    },
+    {
+      "name": "children",
+      "type": "(data: T[]) => ReactNode",
+      "required": true,
+      "description": "Rendered once there is data."
+    },
+    {
+      "name": "skeleton",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Placeholder while loading. Match the shape of the real content."
+    },
+    {
+      "name": "empty",
+      "type": "Pick<EmptyStateProps, 'icon' | 'title' | 'description' | 'action'>",
+      "required": false,
+      "description": "Copy for the empty case."
+    },
+    {
+      "name": "error",
+      "type": "{ title?: string; description?: string; detail?: string }",
+      "required": false,
+      "description": "Copy for the failure case."
+    },
+    {
+      "name": "onRetry",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Retry affordance for the failure case."
+    },
+    {
+      "name": "emptyIcon",
+      "type": "IconComponent",
+      "required": false,
+      "description": "Glyph for the no-data case."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

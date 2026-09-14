@@ -1,0 +1,44 @@
+{
+  "props": [
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the panel is showing."
+    },
+    {
+      "name": "onClose",
+      "type": "() => void",
+      "required": true,
+      "description": "Called when the panel is dismissed."
+    },
+    {
+      "name": "notifications",
+      "type": "NotificationEntry[]",
+      "required": true
+    },
+    {
+      "name": "onMarkRead",
+      "type": "(id: string) => void",
+      "required": true
+    },
+    {
+      "name": "onMarkAllRead",
+      "type": "() => void",
+      "required": false
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Notifications'",
+      "description": "Panel title."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

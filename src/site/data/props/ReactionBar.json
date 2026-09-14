@@ -1,0 +1,46 @@
+{
+  "props": [
+    {
+      "name": "reactions",
+      "type": "Reaction[]",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "string | null",
+      "required": false,
+      "description": "The reaction the current person has picked, if any."
+    },
+    {
+      "name": "onChange",
+      "type": "(id: string | null) => void",
+      "required": true,
+      "description": "Picking the current one again clears it — this reports null for that."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the group."
+    },
+    {
+      "name": "particles",
+      "type": "number",
+      "required": false,
+      "defaultValue": "7",
+      "description": "Particles thrown on pick. 0 turns the burst off."
+    },
+    {
+      "name": "size",
+      "type": "'sm' | 'md'",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

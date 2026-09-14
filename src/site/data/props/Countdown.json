@@ -1,0 +1,42 @@
+{
+  "props": [
+    {
+      "name": "to",
+      "type": "Date | number | string",
+      "required": true,
+      "description": "When it ends — a Date, a timestamp in milliseconds, or an ISO string."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name — what is ending."
+    },
+    {
+      "name": "units",
+      "type": "CountdownUnit[]",
+      "required": false,
+      "defaultValue": "['days', 'hours', 'minutes', 'seconds']",
+      "description": "Which units to show. The smallest absorbs the remainder."
+    },
+    {
+      "name": "onComplete",
+      "type": "() => void",
+      "required": false,
+      "description": "Called once, on reaching zero."
+    },
+    {
+      "name": "size",
+      "type": "'sm' | 'md'",
+      "required": false,
+      "defaultValue": "'md'",
+      "description": "Tile size."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

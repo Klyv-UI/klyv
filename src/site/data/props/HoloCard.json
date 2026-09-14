@@ -1,0 +1,56 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The card contents."
+    },
+    {
+      "name": "tilt",
+      "type": "number",
+      "required": false,
+      "defaultValue": "14",
+      "description": "Maximum tilt in degrees."
+    },
+    {
+      "name": "foil",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.55",
+      "description": "Strength of the rainbow foil, 0 to 1."
+    },
+    {
+      "name": "sparkle",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Sparkle grain over the foil."
+    },
+    {
+      "name": "radius",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--radius-card)'",
+      "description": "Any CSS length. Match the surface it sits on."
+    },
+    {
+      "name": "lift",
+      "type": "number",
+      "required": false,
+      "defaultValue": "14",
+      "description": "Lift towards the viewer on hover, in pixels."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    },
+    {
+      "name": "contentClassName",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

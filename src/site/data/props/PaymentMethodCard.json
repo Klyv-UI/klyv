@@ -1,0 +1,68 @@
+{
+  "props": [
+    {
+      "name": "brand",
+      "type": "string",
+      "required": true,
+      "description": "Card network, lower-case — \"visa\", \"mastercard\". Anything else is shown as given."
+    },
+    {
+      "name": "last4",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "expMonth",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "expYear",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "holder",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "isDefault",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "name": "onMakeDefault",
+      "type": "() => void",
+      "required": false
+    },
+    {
+      "name": "onEdit",
+      "type": "() => void",
+      "required": false
+    },
+    {
+      "name": "onRemove",
+      "type": "() => void",
+      "required": false
+    },
+    {
+      "name": "warnDays",
+      "type": "number",
+      "required": false,
+      "defaultValue": "60",
+      "description": "Days before expiry to start warning."
+    },
+    {
+      "name": "now",
+      "type": "Date",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

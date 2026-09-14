@@ -1,0 +1,73 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The surface being panned and zoomed."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the viewport."
+    },
+    {
+      "name": "contentWidth",
+      "type": "number",
+      "required": true,
+      "description": "Size of the content being framed, in its own coordinates."
+    },
+    {
+      "name": "contentHeight",
+      "type": "number",
+      "required": true,
+      "description": "Height of what is being framed, in its own coordinates."
+    },
+    {
+      "name": "view",
+      "type": "PanZoomView",
+      "required": false,
+      "description": "Controlled view. Omit for uncontrolled."
+    },
+    {
+      "name": "onViewChange",
+      "type": "(view: PanZoomView) => void",
+      "required": false
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.25",
+      "description": "Furthest the view can zoom out."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "defaultValue": "4",
+      "description": "Furthest the view can zoom in."
+    },
+    {
+      "name": "wheelZoom",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Zoom on wheel. Turn it off inside a scrolling page if it fights the scroll."
+    },
+    {
+      "name": "fitOnMount",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Fit the content on mount."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

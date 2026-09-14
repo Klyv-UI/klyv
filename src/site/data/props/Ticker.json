@@ -1,0 +1,35 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "number",
+      "required": true,
+      "description": "Current value. Changing it flashes the direction of travel."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "(next) => next.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the figure."
+    },
+    {
+      "name": "flashDuration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "900",
+      "description": "How long the directional flash lasts."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

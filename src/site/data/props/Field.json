@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Visible label."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Exactly one form control."
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "required": false,
+      "description": "Guidance shown under the control while it is valid."
+    },
+    {
+      "name": "error",
+      "type": "string",
+      "required": false,
+      "description": "Error message. Replaces the hint and marks the control invalid."
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Marks the label and forwards the requirement to the control."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "hideLabel",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Hide the label visually, keeping it for assistive tech."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

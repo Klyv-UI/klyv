@@ -1,0 +1,48 @@
+{
+  "props": [
+    {
+      "name": "segments",
+      "type": "CategoryBarSegment[]",
+      "required": true,
+      "description": "The parts, in the order they sit along the bar."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name — what is being split."
+    },
+    {
+      "name": "total",
+      "type": "number",
+      "required": false,
+      "description": "The whole. Defaults to the sum; set it higher to show unused capacity."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "plain",
+      "description": "Turns a value into its printed figure."
+    },
+    {
+      "name": "marker",
+      "type": "{ value: number; label: string }",
+      "required": false,
+      "description": "A line across the bar — a quota, a target, a limit."
+    },
+    {
+      "name": "showLegend",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the key under the bar, with each part's figure."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

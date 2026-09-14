@@ -1,0 +1,43 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The slides, one per child."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the track."
+    },
+    {
+      "name": "itemMinWidth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "300",
+      "description": "Minimum width of each item while scrolling."
+    },
+    {
+      "name": "gridFrom",
+      "type": "'md' | 'lg' | 'xl' | 'never'",
+      "required": false,
+      "defaultValue": "'xl'",
+      "description": "Breakpoint from which the track becomes a plain grid. The dashboard band scrolls below xl and is a three-up grid above it."
+    },
+    {
+      "name": "columns",
+      "type": "2 | 3 | 4",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Columns once it becomes a grid."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

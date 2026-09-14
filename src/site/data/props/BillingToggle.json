@@ -1,0 +1,50 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "BillingPeriod",
+      "required": true
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: BillingPeriod) => void",
+      "required": true
+    },
+    {
+      "name": "savings",
+      "type": "string",
+      "required": false,
+      "description": "The reason to switch — \"Save 20%\". Shown beside the control, never inside it."
+    },
+    {
+      "name": "monthlyLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Monthly'"
+    },
+    {
+      "name": "yearlyLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Yearly'"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Billing period'",
+      "description": "Accessible name for the control."
+    },
+    {
+      "name": "size",
+      "type": "'sm' | 'md'",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

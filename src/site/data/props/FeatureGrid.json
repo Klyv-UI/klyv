@@ -1,0 +1,32 @@
+{
+  "props": [
+    {
+      "name": "features",
+      "type": "FeatureItem[]",
+      "required": true
+    },
+    {
+      "name": "columns",
+      "type": "2 | 3 | 4",
+      "required": false,
+      "defaultValue": "3"
+    },
+    {
+      "name": "variant",
+      "type": "'plain' | 'card'",
+      "required": false,
+      "defaultValue": "'plain'",
+      "description": "plain sits on the page; card gives each feature its own surface."
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h3' | 'h4'",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

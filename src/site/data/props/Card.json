@@ -1,0 +1,38 @@
+{
+  "props": [
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "description": "Card title. Omit for a card with no header."
+    },
+    {
+      "name": "action",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Right-aligned affordance in the header — a link, a button, a menu."
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3' | 'h4'",
+      "required": false,
+      "defaultValue": "'h2'",
+      "description": "Heading level. The visual size never changes; only the semantics do."
+    },
+    {
+      "name": "padded",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true"
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The card body, under the title row."
+    }
+  ],
+  "inherits": [
+    "HTMLAttributes<HTMLDivElement>"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "props": [
+    {
+      "name": "size",
+      "type": "TextSize",
+      "required": false,
+      "defaultValue": "'body'"
+    },
+    {
+      "name": "weight",
+      "type": "TextWeight",
+      "required": false
+    },
+    {
+      "name": "tone",
+      "type": "TextTone",
+      "required": false,
+      "defaultValue": "'default'"
+    },
+    {
+      "name": "leading",
+      "type": "TextLeading",
+      "required": false
+    },
+    {
+      "name": "tabular",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Lock digit widths so figures don't jitter as they change."
+    },
+    {
+      "name": "truncate",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Clamp to a single line with an ellipsis."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The text."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    },
+    {
+      "name": "as",
+      "type": "E",
+      "required": false
+    }
+  ],
+  "inherits": [
+    "Omit<ComponentPropsWithoutRef<E>, keyof TextOwnProps | 'as'>"
+  ]
+}

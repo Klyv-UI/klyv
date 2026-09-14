@@ -1,0 +1,30 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The card contents."
+    },
+    {
+      "name": "maxTilt",
+      "type": "number",
+      "required": false,
+      "defaultValue": "6",
+      "description": "Maximum tilt in degrees. Keep it small or the text becomes hard to read."
+    },
+    {
+      "name": "scale",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1.01",
+      "description": "Lift the card slightly while tilting."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

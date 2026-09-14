@@ -1,0 +1,44 @@
+{
+  "props": [
+    {
+      "name": "variant",
+      "type": "InputVariant",
+      "required": false,
+      "defaultValue": "'field'",
+      "description": "`field` is the bordered pill; `bare` inherits type styles from its parent."
+    },
+    {
+      "name": "inputSize",
+      "type": "InputSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Marks the control invalid and reddens the border. Pair with a message."
+    },
+    {
+      "name": "leading",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Decoration inside the field — an icon, a currency symbol."
+    },
+    {
+      "name": "trailing",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "name": "containerClassName",
+      "type": "string",
+      "required": false,
+      "description": "Class for the wrapper; `className` still targets the `<input>`."
+    }
+  ],
+  "inherits": [
+    "Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>"
+  ]
+}

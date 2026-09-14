@@ -1,0 +1,57 @@
+{
+  "props": [
+    {
+      "name": "timeout",
+      "type": "number",
+      "required": false,
+      "defaultValue": "15 * 60_000",
+      "description": "Milliseconds of inactivity before the session ends."
+    },
+    {
+      "name": "warnAt",
+      "type": "number",
+      "required": false,
+      "defaultValue": "60_000",
+      "description": "Milliseconds before the end at which to warn."
+    },
+    {
+      "name": "onExtend",
+      "type": "() => void | Promise<void>",
+      "required": true,
+      "description": "Extend the session. Await it, and the dialog stays until it settles."
+    },
+    {
+      "name": "onExpire",
+      "type": "() => void",
+      "required": true,
+      "description": "The session has ended. Sign the person out here."
+    },
+    {
+      "name": "syncKey",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'citrine:last-activity'",
+      "description": "localStorage key used to share activity between tabs. Empty disables it."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Still there?'",
+      "description": "Heading for the warning dialog."
+    },
+    {
+      "name": "paused",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Suspend the whole thing — while a payment is being confirmed, say."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

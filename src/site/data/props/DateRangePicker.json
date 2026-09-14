@@ -1,0 +1,62 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "DateRange",
+      "required": true
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: DateRange) => void",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Choose a range'",
+      "description": "Shown while the field is empty."
+    },
+    {
+      "name": "min",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "max",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "presets",
+      "type": "{ label: string; range: DateRange }[]",
+      "required": false,
+      "description": "Named ranges shown beside the grid."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Overrides the generated id. Useful when a label lives elsewhere."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

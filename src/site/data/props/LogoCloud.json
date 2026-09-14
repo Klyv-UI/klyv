@@ -1,0 +1,27 @@
+{
+  "props": [
+    {
+      "name": "logos",
+      "type": "LogoItem[]",
+      "required": true
+    },
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The claim the logos support — \"Trusted by 4,000 teams\"."
+    },
+    {
+      "name": "variant",
+      "type": "'row' | 'grid' | 'marquee'",
+      "required": false,
+      "defaultValue": "'row'",
+      "description": "row wraps centred; grid draws hairline cells; marquee scrolls."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

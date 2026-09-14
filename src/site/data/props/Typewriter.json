@@ -1,0 +1,63 @@
+{
+  "props": [
+    {
+      "name": "words",
+      "type": "string[]",
+      "required": true,
+      "description": "Phrases, typed in order. One phrase and `loop={false}` types once."
+    },
+    {
+      "name": "typeSpeed",
+      "type": "number",
+      "required": false,
+      "defaultValue": "62",
+      "description": "Milliseconds per character while typing."
+    },
+    {
+      "name": "deleteSpeed",
+      "type": "number",
+      "required": false,
+      "defaultValue": "32",
+      "description": "Milliseconds per character while deleting."
+    },
+    {
+      "name": "pause",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1600",
+      "description": "Milliseconds held on a finished phrase."
+    },
+    {
+      "name": "loop",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true"
+    },
+    {
+      "name": "caret",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the blinking caret."
+    },
+    {
+      "name": "reserveSpace",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Reserve the width of the longest phrase so nothing beside it reflows."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "What a screen reader hears instead of the typing. Defaults to every phrase."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

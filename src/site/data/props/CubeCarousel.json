@@ -1,0 +1,54 @@
+{
+  "props": [
+    {
+      "name": "faces",
+      "type": "ReactNode[]",
+      "required": true,
+      "description": "Four faces. Fewer are padded; more are ignored."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name."
+    },
+    {
+      "name": "index",
+      "type": "number",
+      "required": false,
+      "description": "Face index. Omit for uncontrolled."
+    },
+    {
+      "name": "onIndexChange",
+      "type": "(index: number) => void",
+      "required": false
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "260",
+      "description": "Cube size in pixels."
+    },
+    {
+      "name": "autoRotate",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Turn on its own, every N milliseconds. 0 is off."
+    },
+    {
+      "name": "axis",
+      "type": "'y' | 'x'",
+      "required": false,
+      "defaultValue": "'y'",
+      "description": "Rotate about the X axis instead — a rolling cube rather than a spinning one."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "props": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "name": "logo",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The service's mark. Application-owned."
+    },
+    {
+      "name": "category",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "status",
+      "type": "IntegrationStatus",
+      "required": false,
+      "defaultValue": "'available'"
+    },
+    {
+      "name": "meta",
+      "type": "ReactNode",
+      "required": false,
+      "description": "\"Synced 4 minutes ago\", or what went wrong."
+    },
+    {
+      "name": "badge",
+      "type": "string",
+      "required": false,
+      "description": "Qualifier beside the name — \"Popular\", \"Beta\"."
+    },
+    {
+      "name": "requiresPlan",
+      "type": "string",
+      "required": false,
+      "description": "The plan it needs, when the account is not on it. Replaces Connect."
+    },
+    {
+      "name": "onConnect",
+      "type": "() => void",
+      "required": false
+    },
+    {
+      "name": "onDisconnect",
+      "type": "() => void",
+      "required": false
+    },
+    {
+      "name": "onConfigure",
+      "type": "() => void",
+      "required": false
+    },
+    {
+      "name": "onUpgrade",
+      "type": "() => void",
+      "required": false
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3'",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "props": [
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the dialog is showing."
+    },
+    {
+      "name": "onClose",
+      "type": "() => void",
+      "required": true,
+      "description": "Called on cancel, on Escape, and on a backdrop click."
+    },
+    {
+      "name": "onConfirm",
+      "type": "() => void",
+      "required": true,
+      "description": "Called when the confirming action is pressed."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "The question, put as a statement. Becomes the accessible name."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": true,
+      "description": "What is about to happen, and to what. Name the consequence, not the mechanism."
+    },
+    {
+      "name": "confirmLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Confirm'",
+      "description": "Label for the confirming action. Name the verb rather than saying OK."
+    },
+    {
+      "name": "cancelLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Cancel'",
+      "description": "Label for the way out."
+    },
+    {
+      "name": "destructive",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Colours the confirming action as dangerous."
+    },
+    {
+      "name": "busy",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Shows a spinner in the confirming action and blocks it."
+    },
+    {
+      "name": "confirmationText",
+      "type": "string",
+      "required": false,
+      "description": "Require the user to type this exactly before confirming."
+    }
+  ]
+}

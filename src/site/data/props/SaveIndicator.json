@@ -1,0 +1,46 @@
+{
+  "props": [
+    {
+      "name": "state",
+      "type": "SaveState",
+      "required": true
+    },
+    {
+      "name": "lastSavedAt",
+      "type": "Date",
+      "required": false,
+      "description": "When the last successful save landed. Shown as a live relative time."
+    },
+    {
+      "name": "onSaveNow",
+      "type": "() => void",
+      "required": false,
+      "description": "Save now — offered while there are unsaved changes."
+    },
+    {
+      "name": "onRetry",
+      "type": "() => void",
+      "required": false,
+      "description": "Try again after a failure."
+    },
+    {
+      "name": "error",
+      "type": "string",
+      "required": false,
+      "description": "Why it failed. Shown verbatim, so keep it in the reader's language."
+    },
+    {
+      "name": "compact",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Drop the relative time and the actions."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

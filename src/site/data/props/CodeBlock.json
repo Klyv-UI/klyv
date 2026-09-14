@@ -1,0 +1,64 @@
+{
+  "props": [
+    {
+      "name": "code",
+      "type": "string",
+      "required": true,
+      "description": "The source."
+    },
+    {
+      "name": "language",
+      "type": "string",
+      "required": false,
+      "description": "Language label shown in the header."
+    },
+    {
+      "name": "copyable",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show a copy-to-clipboard control."
+    },
+    {
+      "name": "numbered",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Number the lines."
+    },
+    {
+      "name": "highlight",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Colour TypeScript and TSX tokens."
+    },
+    {
+      "name": "collapsible",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Clip to `collapsedLines` with a control to expand. The full source is always in the DOM, so find-in-page and copy work while it is collapsed."
+    },
+    {
+      "name": "collapsedLines",
+      "type": "number",
+      "required": false,
+      "defaultValue": "14",
+      "description": "Lines shown before the expand control appears."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Start expanded. Only meaningful with `collapsible`."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "props": [
+    {
+      "name": "present",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the content should be shown."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Content kept mounted long enough to animate out."
+    },
+    {
+      "name": "animation",
+      "type": "PresenceAnimation",
+      "required": false,
+      "defaultValue": "'fade'"
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "150",
+      "description": "Must match the transition duration so the unmount is not cut short."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

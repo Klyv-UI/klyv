@@ -1,0 +1,48 @@
+{
+  "props": [
+    {
+      "name": "brand",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The lockup on the left — usually a Wordmark inside a link home."
+    },
+    {
+      "name": "links",
+      "type": "SiteLink[]",
+      "required": false,
+      "defaultValue": "[]"
+    },
+    {
+      "name": "actions",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Right-hand affordances: sign in, and the primary call to action."
+    },
+    {
+      "name": "sticky",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Pin to the top and lift off the page once it has scrolled."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Main'",
+      "description": "Accessible name for the navigation landmark."
+    },
+    {
+      "name": "maxWidth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1200",
+      "description": "Width of the content column."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

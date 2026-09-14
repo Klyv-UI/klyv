@@ -1,0 +1,49 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The scrollable content."
+    },
+    {
+      "name": "onRefresh",
+      "type": "() => void | Promise<void>",
+      "required": true,
+      "description": "Run the refresh. Await it, and the indicator stays until it settles."
+    },
+    {
+      "name": "threshold",
+      "type": "number",
+      "required": false,
+      "defaultValue": "72",
+      "description": "Pixels the content must travel before the release counts."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Height of the scrolling area. It must scroll for the gesture to make sense."
+    },
+    {
+      "name": "labels",
+      "type": "{ pull?: string; release?: string; refreshing?: string }",
+      "required": false,
+      "description": "Copy shown at each stage."
+    },
+    {
+      "name": "showButton",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Render a real Refresh button above the list. Turn it off at your peril."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    }
+  ]
+}

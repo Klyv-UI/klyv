@@ -1,0 +1,47 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "RailItem<T>[]",
+      "required": true,
+      "description": "The primary group of destinations."
+    },
+    {
+      "name": "footerItems",
+      "type": "RailItem<T>[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Pinned to the bottom — settings, sign out."
+    },
+    {
+      "name": "value",
+      "type": "T",
+      "required": true
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: T) => void",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Sections'",
+      "description": "Accessible name for the rail."
+    },
+    {
+      "name": "tooltips",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show a Tooltip on each control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "props": [
+    {
+      "name": "intervals",
+      "type": "StatusInterval[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name — which service this describes."
+    },
+    {
+      "name": "from",
+      "type": "string",
+      "required": false,
+      "description": "Caption at each end of the strip."
+    },
+    {
+      "name": "to",
+      "type": "string",
+      "required": false,
+      "description": "Caption at the right-hand end of the strip."
+    },
+    {
+      "name": "degraded",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.995",
+      "description": "Below this counts as degraded; below `down` counts as an outage."
+    },
+    {
+      "name": "down",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.9",
+      "description": "Ratio at or above which an interval counts as down."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "34"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

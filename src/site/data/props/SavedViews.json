@@ -1,0 +1,58 @@
+{
+  "props": [
+    {
+      "name": "views",
+      "type": "SavedView[]",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "onValueChange",
+      "type": "(id: string) => void",
+      "required": true
+    },
+    {
+      "name": "dirty",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "The filters, sort or columns have changed since the view was loaded."
+    },
+    {
+      "name": "onSave",
+      "type": "() => void",
+      "required": false,
+      "description": "Overwrite the current view."
+    },
+    {
+      "name": "onSaveAs",
+      "type": "(name: string) => void",
+      "required": false
+    },
+    {
+      "name": "onDiscard",
+      "type": "() => void",
+      "required": false
+    },
+    {
+      "name": "onDelete",
+      "type": "(view: SavedView) => void",
+      "required": false
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Saved views'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

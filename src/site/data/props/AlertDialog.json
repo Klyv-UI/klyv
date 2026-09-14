@@ -1,0 +1,74 @@
+{
+  "props": [
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the dialog is showing."
+    },
+    {
+      "name": "onClose",
+      "type": "() => void",
+      "required": true,
+      "description": "Called on cancel, on Escape, and on a backdrop click."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "The question. Becomes the accessible name."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": true,
+      "description": "Its consequence."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The body: what happened, and what can be done about it."
+    },
+    {
+      "name": "confirmLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Confirm'",
+      "description": "Text on the confirming button. Name the action, not just \"OK\"."
+    },
+    {
+      "name": "cancelLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Cancel'",
+      "description": "Label for the dismissing action."
+    },
+    {
+      "name": "onConfirm",
+      "type": "() => void",
+      "required": true
+    },
+    {
+      "name": "destructive",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Reddens the confirm button, for a destructive action."
+    },
+    {
+      "name": "busy",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Disables both buttons and shows a spinner while the action runs."
+    },
+    {
+      "name": "confirmDisabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Disables confirming without implying that work is happening."
+    }
+  ]
+}

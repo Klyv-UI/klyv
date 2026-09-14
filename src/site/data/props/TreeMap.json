@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "nodes",
+      "type": "TreeMapNode[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name — what the whole area represents."
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "required": false,
+      "defaultValue": "620",
+      "description": "Layout width. The rendered element keeps the ratio and fills its container."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "300",
+      "description": "Layout height. The rendered element keeps the ratio and fills its container."
+    },
+    {
+      "name": "onSelect",
+      "type": "(node: TreeMapNode) => void",
+      "required": false,
+      "description": "Called when a tile is chosen. Tiles become buttons when set."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "(value) => String(value)",
+      "description": "Turns a value into its printed label."
+    },
+    {
+      "name": "showShare",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show each tile's share of the total."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

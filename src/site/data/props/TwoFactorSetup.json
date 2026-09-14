@@ -1,0 +1,37 @@
+{
+  "props": [
+    {
+      "name": "otpauthUrl",
+      "type": "string",
+      "required": true,
+      "description": "The otpauth:// URI the authenticator app scans."
+    },
+    {
+      "name": "secret",
+      "type": "string",
+      "required": true,
+      "description": "The same secret, for typing in by hand."
+    },
+    {
+      "name": "onVerify",
+      "type": "(code: string) => Promise<string[] | false>",
+      "required": true,
+      "description": "Check a code. Resolve with the recovery codes on success, false otherwise."
+    },
+    {
+      "name": "onComplete",
+      "type": "() => void",
+      "required": true
+    },
+    {
+      "name": "onCancel",
+      "type": "() => void",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

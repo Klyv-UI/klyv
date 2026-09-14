@@ -1,0 +1,78 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Content the beam travels around."
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1.5",
+      "description": "Border thickness in pixels."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "6",
+      "description": "Seconds for one full lap."
+    },
+    {
+      "name": "delay",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Start the lap partway round, so two beams beside each other differ."
+    },
+    {
+      "name": "colors",
+      "type": "[string, string]",
+      "required": false,
+      "defaultValue": "['var(--color-accent-strong)', 'var(--color-accent-soft)']",
+      "description": "The lit arc. Two stops, in order."
+    },
+    {
+      "name": "arc",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.22",
+      "description": "How much of the lap is lit, 0–1. Small values read as a comet."
+    },
+    {
+      "name": "radius",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--radius-card)'",
+      "description": "Border radius. Defaults to the card radius."
+    },
+    {
+      "name": "onHover",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Run the beam only while the container is hovered or focused within."
+    },
+    {
+      "name": "paused",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Stop the beam without removing the border."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    },
+    {
+      "name": "contentClassName",
+      "type": "string",
+      "required": false,
+      "description": "Classes for the inner content surface."
+    }
+  ]
+}

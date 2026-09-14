@@ -1,0 +1,47 @@
+{
+  "props": [
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Headline. Use `highlight` to mark the emphasised phrase."
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Supporting line under the headline."
+    },
+    {
+      "name": "action",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Primary affordance, usually a Button with variant=\"white\"."
+    },
+    {
+      "name": "art",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Artwork behind the copy. Application-owned; the library ships no imagery."
+    },
+    {
+      "name": "aside",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Figure or portrait beside the action."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "160",
+      "description": "Height at the sm breakpoint and up."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

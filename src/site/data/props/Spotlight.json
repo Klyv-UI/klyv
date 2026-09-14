@@ -1,0 +1,29 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Content the spotlight tracks across."
+    },
+    {
+      "name": "radius",
+      "type": "number",
+      "required": false,
+      "defaultValue": "220",
+      "description": "Radius of the highlight in pixels."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "description": "Any CSS colour. Defaults to a soft accent wash."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

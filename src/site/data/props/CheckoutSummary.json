@@ -1,0 +1,73 @@
+{
+  "props": [
+    {
+      "name": "lines",
+      "type": "CheckoutLine[]",
+      "required": true
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'$'"
+    },
+    {
+      "name": "taxRate",
+      "type": "number",
+      "required": false,
+      "description": "Fraction applied after discounts — 0.2 for 20% VAT."
+    },
+    {
+      "name": "taxLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Tax'"
+    },
+    {
+      "name": "onApplyPromo",
+      "type": "(code: string) => Promise<AppliedPromo | string>",
+      "required": false,
+      "description": "Validate a code. Resolve with the promo, or with an error message."
+    },
+    {
+      "name": "recurring",
+      "type": "ReactNode",
+      "required": false,
+      "description": "What happens after today — \"Then $468 / month from 1 Oct\"."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The payment provider's card element goes here."
+    },
+    {
+      "name": "action",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Usually the Pay button."
+    },
+    {
+      "name": "note",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Small print under the action."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Order summary'"
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3'",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

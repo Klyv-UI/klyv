@@ -1,0 +1,23 @@
+{
+  "props": [
+    {
+      "name": "words",
+      "type": "string[]",
+      "required": true,
+      "description": "Words to cycle through."
+    },
+    {
+      "name": "interval",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2200",
+      "description": "Milliseconds each word is held."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

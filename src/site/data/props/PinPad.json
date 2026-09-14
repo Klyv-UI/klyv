@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "length",
+      "type": "number",
+      "required": false,
+      "defaultValue": "4",
+      "description": "How many digits."
+    },
+    {
+      "name": "onComplete",
+      "type": "(code: string) => boolean | void | Promise<boolean | void>",
+      "required": true,
+      "description": "Called once the last digit lands. Return false to reject and shake."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name — what the code is for."
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "required": false,
+      "description": "Shown under the dots."
+    },
+    {
+      "name": "errorMessage",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'That code was not right. Try again.'",
+      "description": "Message shown after a rejection."
+    },
+    {
+      "name": "extra",
+      "type": "{ label: string; onSelect: () => void; glyph?: string }",
+      "required": false,
+      "description": "Extra key in the bottom-left — biometrics, \"forgot\", anything."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

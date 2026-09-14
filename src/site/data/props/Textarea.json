@@ -1,0 +1,20 @@
+{
+  "props": [
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "name": "resize",
+      "type": "'none' | 'vertical'",
+      "required": false,
+      "defaultValue": "'vertical'",
+      "description": "Whether the user may drag-resize. Defaults to vertical only."
+    }
+  ],
+  "inherits": [
+    "TextareaHTMLAttributes<HTMLTextAreaElement>"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "props": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "description": "Product name, rendered beside the mark."
+    },
+    {
+      "name": "mark",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The mark itself — a glyph, a letter, an inline SVG. Kept as a slot so the library carries no brand asset of its own."
+    },
+    {
+      "name": "size",
+      "type": "WordmarkSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "markOnly",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Hide the name and expose it to assistive tech only."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

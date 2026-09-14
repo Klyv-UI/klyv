@@ -1,0 +1,35 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The controls. Separators are drawn between groups."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the cluster."
+    },
+    {
+      "name": "variant",
+      "type": "'track' | 'bare'",
+      "required": false,
+      "defaultValue": "'track'",
+      "description": "track is the lifted white rail from the header; bare has no chrome."
+    },
+    {
+      "name": "orientation",
+      "type": "'horizontal' | 'vertical'",
+      "required": false,
+      "defaultValue": "'horizontal'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "props": [
+    {
+      "name": "count",
+      "type": "number",
+      "required": true,
+      "description": "How many segments."
+    },
+    {
+      "name": "index",
+      "type": "number",
+      "required": true,
+      "description": "Which segment is running, zero-based."
+    },
+    {
+      "name": "onIndexChange",
+      "type": "(index: number) => void",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name — what the sequence is."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "5000",
+      "description": "Milliseconds per segment."
+    },
+    {
+      "name": "playing",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Advance on its own. Turn it off to drive it entirely by hand."
+    },
+    {
+      "name": "onComplete",
+      "type": "() => void",
+      "required": false,
+      "description": "Called instead of advancing past the last segment."
+    },
+    {
+      "name": "pauseOnHover",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Pause while hovered or focused, so a reader can stop to look."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

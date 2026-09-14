@@ -1,0 +1,14 @@
+{
+  "props": [
+    {
+      "name": "stacked",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Stack the series instead of overlaying them."
+    }
+  ],
+  "inherits": [
+    "Omit<CartesianChartProps, 'children'>"
+  ]
+}

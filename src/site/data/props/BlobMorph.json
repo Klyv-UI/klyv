@@ -1,0 +1,58 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Rendered over the blob, centred."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "220",
+      "description": "Width and height in pixels. The blob is square."
+    },
+    {
+      "name": "wobble",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.18",
+      "description": "How far the outline wanders from a circle, 0 to 1."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "9",
+      "description": "Seconds for one full cycle of the slowest wave."
+    },
+    {
+      "name": "points",
+      "type": "number",
+      "required": false,
+      "defaultValue": "8",
+      "description": "Control points. More gives a busier outline; 6 to 10 reads best."
+    },
+    {
+      "name": "fill",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'linear-gradient(135deg, #c8f24e, #7fd4ff 55%, #b06ab3)'",
+      "description": "Fill. A gradient is what stops it looking like a puddle."
+    },
+    {
+      "name": "reactive",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Follow the pointer — the blob bulges towards it."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

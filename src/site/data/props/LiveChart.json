@@ -1,0 +1,75 @@
+{
+  "props": [
+    {
+      "name": "values",
+      "type": "number[]",
+      "required": true,
+      "description": "Newest last. Push to it on whatever interval the source ticks at."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name — what is being measured."
+    },
+    {
+      "name": "window",
+      "type": "number",
+      "required": false,
+      "description": "Samples kept on screen. Older ones scroll off the left."
+    },
+    {
+      "name": "interval",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1000",
+      "description": "Milliseconds between samples. Drives the scroll, so keep it honest."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "120",
+      "description": "Plot height in pixels. The width fills the container."
+    },
+    {
+      "name": "domain",
+      "type": "[number, number]",
+      "required": false,
+      "description": "Fixed scale. Omit and it follows the window, easing between bounds."
+    },
+    {
+      "name": "area",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Fill under the line."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-accent-strong)'",
+      "description": "Any CSS colour for the line. Defaults to the accent."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "(value) => String(Math.round(value))",
+      "description": "Turns a sample into its printed readout."
+    },
+    {
+      "name": "threshold",
+      "type": "{ value: number; label: string }",
+      "required": false,
+      "description": "Highlight a threshold — a limit, a target, an alarm level."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "What is loading. Announced; the blobs are decorative."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "96",
+      "description": "Overall size in pixels."
+    },
+    {
+      "name": "count",
+      "type": "number",
+      "required": false,
+      "defaultValue": "4",
+      "description": "How many blobs orbit. Three or four reads best."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-accent-strong)'",
+      "description": "Any CSS colour for the blobs."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2.6",
+      "description": "Seconds for one orbit."
+    },
+    {
+      "name": "goo",
+      "type": "number",
+      "required": false,
+      "defaultValue": "18",
+      "description": "How much the blobs merge. Higher fuses them into one mass."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

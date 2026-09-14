@@ -1,0 +1,50 @@
+{
+  "props": [
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Something went wrong'",
+      "description": "What went wrong."
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false,
+      "defaultValue": "'The data could not be loaded. Try again, or come back in a moment.'",
+      "description": "What to do about it."
+    },
+    {
+      "name": "icon",
+      "type": "IconComponent",
+      "required": false,
+      "defaultValue": "AlertIcon",
+      "description": "Glyph above the title."
+    },
+    {
+      "name": "action",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Retry affordance — usually a Button."
+    },
+    {
+      "name": "detail",
+      "type": "string",
+      "required": false,
+      "description": "Technical detail, shown small and monospaced under the copy."
+    },
+    {
+      "name": "size",
+      "type": "EmptyStateSize",
+      "required": false,
+      "defaultValue": "'md'",
+      "description": "Compact for a card, roomy for a page."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

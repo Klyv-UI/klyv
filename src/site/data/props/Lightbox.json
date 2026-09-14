@@ -1,0 +1,35 @@
+{
+  "props": [
+    {
+      "name": "images",
+      "type": "LightboxImage[]",
+      "required": true,
+      "description": "Every image the viewer moves between, in order."
+    },
+    {
+      "name": "index",
+      "type": "number | null",
+      "required": true,
+      "description": "The open image, or null when the viewer is closed."
+    },
+    {
+      "name": "onIndexChange",
+      "type": "(index: number | null) => void",
+      "required": true,
+      "description": "Called with the next image, or null to close."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Image viewer'",
+      "description": "Accessible name for the dialog."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

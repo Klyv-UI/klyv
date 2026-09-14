@@ -1,0 +1,66 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string[]",
+      "required": true,
+      "description": "Current tags, in order."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string[]) => void",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the control."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Add and press Enter'",
+      "description": "Shown when no tags have been added."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "description": "Cap the number of tags. The field disables once reached."
+    },
+    {
+      "name": "validate",
+      "type": "(value: string) => boolean",
+      "required": false,
+      "description": "Reject a value before it is added. Return false to refuse it."
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Marks the field as failing validation. Pair it with a message."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Overrides the generated id. Useful when a label lives elsewhere."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

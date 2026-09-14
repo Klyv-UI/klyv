@@ -1,0 +1,77 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible description — what the bars represent."
+    },
+    {
+      "name": "bars",
+      "type": "number",
+      "required": false,
+      "defaultValue": "32",
+      "description": "Bar count. Ignored when `values` is given."
+    },
+    {
+      "name": "values",
+      "type": "number[]",
+      "required": false,
+      "description": "Fixed heights, 0–1. Supply these to draw a real signal."
+    },
+    {
+      "name": "playing",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Animate the bars. With `values`, the bars breathe around their height."
+    },
+    {
+      "name": "progress",
+      "type": "number",
+      "required": false,
+      "description": "Fraction already played, 0–1. Bars behind it stay lit."
+    },
+    {
+      "name": "tone",
+      "type": "WaveformTone",
+      "required": false,
+      "defaultValue": "'accent'",
+      "description": "Bar colour."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "44",
+      "description": "Overall height in pixels."
+    },
+    {
+      "name": "barWidth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Width of one bar in pixels."
+    },
+    {
+      "name": "gap",
+      "type": "number",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Space between bars in pixels."
+    },
+    {
+      "name": "mirrored",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Mirror the bars around the centre line, as an editor waveform does."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

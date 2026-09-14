@@ -1,0 +1,44 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Items revealed one after another."
+    },
+    {
+      "name": "interval",
+      "type": "number",
+      "required": false,
+      "defaultValue": "60",
+      "description": "Milliseconds between each child."
+    },
+    {
+      "name": "direction",
+      "type": "RevealDirection",
+      "required": false,
+      "defaultValue": "'up'",
+      "description": "Passed to each Reveal."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "450",
+      "description": "Passed to each Reveal."
+    },
+    {
+      "name": "maxDelay",
+      "type": "number",
+      "required": false,
+      "defaultValue": "400",
+      "description": "Cap the total delay so a long list does not take seconds to finish."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

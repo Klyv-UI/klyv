@@ -30,5 +30,14 @@ export function blockComponent(file: string): LazyExoticComponent<ComponentType<
   return component
 }
 
+/**
+ * Starts downloading a block's module without rendering it, for prefetching.
+ * The lazy component above imports the same module, so once this settles the
+ * block page renders its screen without waiting.
+ */
+export function preloadBlock(file: string): Promise<unknown> | undefined {
+  return MODULES[`../blocks/${file}`]?.()
+}
+
 /** "LoginBlock.tsx" → "LoginBlock", the name its default export takes in a paste. */
 export const blockExportName = (file: string) => file.replace(/\.tsx$/, '')

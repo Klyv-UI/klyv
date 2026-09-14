@@ -1,0 +1,45 @@
+{
+  "props": [
+    {
+      "name": "question",
+      "type": "string",
+      "required": true,
+      "description": "What is being asked. Becomes the group label."
+    },
+    {
+      "name": "options",
+      "type": "PollOption[]",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "string | null",
+      "required": false,
+      "description": "The option this person picked, if any."
+    },
+    {
+      "name": "onVote",
+      "type": "(id: string) => void",
+      "required": true
+    },
+    {
+      "name": "revealBeforeVote",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Show the split before voting. Off is the honest default."
+    },
+    {
+      "name": "footnote",
+      "type": "string",
+      "required": false,
+      "description": "Copy under the bars."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

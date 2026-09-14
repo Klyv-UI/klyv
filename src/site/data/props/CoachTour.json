@@ -1,0 +1,40 @@
+{
+  "props": [
+    {
+      "name": "steps",
+      "type": "TourStep[]",
+      "required": true
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the tour is running."
+    },
+    {
+      "name": "onClose",
+      "type": "() => void",
+      "required": true,
+      "description": "Called when the tour is dismissed."
+    },
+    {
+      "name": "onComplete",
+      "type": "() => void",
+      "required": false,
+      "description": "Fired after the last step is confirmed."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Product tour'",
+      "description": "Accessible name for the tour dialog."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

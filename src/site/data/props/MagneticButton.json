@@ -1,0 +1,30 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The button label."
+    },
+    {
+      "name": "strength",
+      "type": "number",
+      "required": false,
+      "defaultValue": "6",
+      "description": "How far the content drifts towards the pointer, in pixels."
+    },
+    {
+      "name": "radius",
+      "type": "number",
+      "required": false,
+      "defaultValue": "60",
+      "description": "Radius around the element that starts the pull."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

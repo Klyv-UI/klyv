@@ -1,0 +1,44 @@
+{
+  "props": [
+    {
+      "name": "onSubmit",
+      "type": "(feedback: Feedback) => void | Promise<void>",
+      "required": true
+    },
+    {
+      "name": "categories",
+      "type": "string[]",
+      "required": false,
+      "description": "\"Idea\", \"Bug\", \"Other\". Omit to skip the choice."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Share feedback'"
+    },
+    {
+      "name": "triggerLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Feedback'"
+    },
+    {
+      "name": "placement",
+      "type": "PopoverPlacement",
+      "required": false,
+      "defaultValue": "'top'"
+    },
+    {
+      "name": "align",
+      "type": "PopoverAlign",
+      "required": false,
+      "defaultValue": "'end'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

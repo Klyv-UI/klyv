@@ -1,0 +1,71 @@
+{
+  "props": [
+    {
+      "name": "variant",
+      "type": "UpgradePromptVariant",
+      "required": false,
+      "defaultValue": "'card'",
+      "description": "card is a panel; banner spans the top of a page; inline sits where a locked feature would be."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "name": "benefits",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "What the upgrade unlocks. card only."
+    },
+    {
+      "name": "plan",
+      "type": "string",
+      "required": false,
+      "description": "The plan being offered — \"Pro\"."
+    },
+    {
+      "name": "icon",
+      "type": "IconComponent",
+      "required": false
+    },
+    {
+      "name": "action",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Usually an accent Button — \"Upgrade to Pro\"."
+    },
+    {
+      "name": "secondaryAction",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "name": "trialEndsAt",
+      "type": "Date",
+      "required": false,
+      "description": "A running trial. The days left are worked out and shown."
+    },
+    {
+      "name": "onDismiss",
+      "type": "() => void",
+      "required": false
+    },
+    {
+      "name": "now",
+      "type": "Date",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

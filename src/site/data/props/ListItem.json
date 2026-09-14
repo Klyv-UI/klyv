@@ -1,0 +1,72 @@
+{
+  "props": [
+    {
+      "name": "leading",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Glyph or avatar."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "The first line."
+    },
+    {
+      "name": "subtitle",
+      "type": "string",
+      "required": false,
+      "description": "The second, quieter line."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Bold right-hand value — an amount, a price."
+    },
+    {
+      "name": "meta",
+      "type": "string",
+      "required": false,
+      "description": "Muted line under the value — a due date, a timestamp."
+    },
+    {
+      "name": "trailing",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Replaces the value column entirely — a control, a badge."
+    },
+    {
+      "name": "highlighted",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Tints the row, as the dashboard does for the subscription due next."
+    },
+    {
+      "name": "onClick",
+      "type": "() => void",
+      "required": false,
+      "description": "Makes the whole row a button. Adds hover and keyboard access."
+    },
+    {
+      "name": "valueTone",
+      "type": "'default' | 'success' | 'danger'",
+      "required": false,
+      "defaultValue": "'default'",
+      "description": "Colour override for the value, e.g. a positive amount."
+    },
+    {
+      "name": "as",
+      "type": "'li' | 'div'",
+      "required": false,
+      "description": "Element to render. Defaults to `li`, since rows normally sit in a List. Use `div` when the row is already inside an `li` supplied by the caller."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

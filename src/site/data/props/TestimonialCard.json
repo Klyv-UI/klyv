@@ -1,0 +1,54 @@
+{
+  "props": [
+    {
+      "name": "quote",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "role",
+      "type": "string",
+      "required": false,
+      "description": "Job title."
+    },
+    {
+      "name": "company",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "avatarSrc",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "logo",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The company's mark, in the corner."
+    },
+    {
+      "name": "rating",
+      "type": "number",
+      "required": false,
+      "description": "Out of five."
+    },
+    {
+      "name": "featured",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Larger quote on the accent-soft ground, for the one that leads the wall."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

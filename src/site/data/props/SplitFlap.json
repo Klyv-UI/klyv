@@ -1,0 +1,41 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "string",
+      "required": true,
+      "description": "The text to display. Changing it re-runs the flap."
+    },
+    {
+      "name": "size",
+      "type": "SplitFlapSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "required": false,
+      "defaultValue": "45",
+      "description": "Milliseconds per flap step."
+    },
+    {
+      "name": "length",
+      "type": "number",
+      "required": false,
+      "description": "Pad to this many cells, so the board keeps a fixed width."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Accessible text. Defaults to the value."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

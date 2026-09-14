@@ -1,0 +1,37 @@
+{
+  "props": [
+    {
+      "name": "count",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2",
+      "description": "How many dice."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "72",
+      "description": "Die size in pixels."
+    },
+    {
+      "name": "onRoll",
+      "type": "(values: number[]) => void",
+      "required": false,
+      "description": "Called with the faces once they land."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1100",
+      "description": "Milliseconds of tumbling."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "brand",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "name": "tagline",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "name": "columns",
+      "type": "FooterColumn[]",
+      "required": true
+    },
+    {
+      "name": "social",
+      "type": "FooterSocial[]",
+      "required": false,
+      "defaultValue": "[]"
+    },
+    {
+      "name": "legal",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Copyright line."
+    },
+    {
+      "name": "bottomLinks",
+      "type": "SiteLink[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Terms, privacy, cookies — the row under the rule."
+    },
+    {
+      "name": "aside",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Newsletter sign-up, a status badge, a region switcher."
+    },
+    {
+      "name": "maxWidth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1200"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

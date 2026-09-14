@@ -1,0 +1,83 @@
+{
+  "props": [
+    {
+      "name": "plan",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "price",
+      "type": "string",
+      "required": false,
+      "description": "Already formatted — \"$49\"."
+    },
+    {
+      "name": "period",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'per month'",
+      "description": "\"per month\", \"per seat / month\"."
+    },
+    {
+      "name": "status",
+      "type": "SubscriptionStatus",
+      "required": true
+    },
+    {
+      "name": "renewsAt",
+      "type": "Date",
+      "required": false,
+      "description": "Next charge, for an active plan."
+    },
+    {
+      "name": "trialEndsAt",
+      "type": "Date",
+      "required": false
+    },
+    {
+      "name": "endsAt",
+      "type": "Date",
+      "required": false,
+      "description": "When access stops, for a canceled plan."
+    },
+    {
+      "name": "seats",
+      "type": "{ used: number; total: number }",
+      "required": false
+    },
+    {
+      "name": "details",
+      "type": "DescriptionItem[]",
+      "required": false,
+      "description": "Extra key/value rows — billing email, payment method, tax ID."
+    },
+    {
+      "name": "actions",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Change plan, cancel, manage billing."
+    },
+    {
+      "name": "paymentAction",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The fix for a failed payment, shown inside the warning."
+    },
+    {
+      "name": "now",
+      "type": "Date",
+      "required": false,
+      "description": "Fixed \"now\", for tests and stories."
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3'",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

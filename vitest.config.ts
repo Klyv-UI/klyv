@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 import { fileURLToPath, URL } from 'node:url'
+import { directImports, registerComponents } from './vite.citrine'
 
 /**
  * The accessibility suite. Same aliases as the docs site, so every component
@@ -8,7 +9,7 @@ import { fileURLToPath, URL } from 'node:url'
  * does not do. That is why colour contrast is audited in the browser instead.
  */
 export default defineConfig({
-  plugins: [react()],
+  plugins: [registerComponents(), directImports(), react()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

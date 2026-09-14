@@ -1,0 +1,35 @@
+{
+  "props": [
+    {
+      "name": "tone",
+      "type": "InlineMessageTone",
+      "required": false,
+      "defaultValue": "'hint'"
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The message."
+    },
+    {
+      "name": "live",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Announce changes. Use for validation results that appear after an action."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Wire this to the control via aria-describedby."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

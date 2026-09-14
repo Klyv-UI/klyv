@@ -1,0 +1,13 @@
+{
+  "props": [
+    {
+      "name": "target",
+      "type": "string",
+      "required": true,
+      "description": "Id of the landmark to jump to, without the hash."
+    }
+  ],
+  "inherits": [
+    "AnchorHTMLAttributes<HTMLAnchorElement>"
+  ]
+}

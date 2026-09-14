@@ -1,0 +1,36 @@
+{
+  "props": [
+    {
+      "name": "names",
+      "type": "string[]",
+      "required": true,
+      "description": "Who is typing, in the order they started. Empty renders nothing."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Names listed before the rest become a count."
+    },
+    {
+      "name": "dotsOnly",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Dots only, for a compact row."
+    },
+    {
+      "name": "size",
+      "type": "'sm' | 'md'",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

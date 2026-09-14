@@ -1,0 +1,58 @@
+{
+  "props": [
+    {
+      "name": "scopeRef",
+      "type": "React.RefObject<HTMLElement | null>",
+      "required": false,
+      "description": "Region the aura lives in. Omit and it follows the whole document."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "26",
+      "description": "Resting diameter in pixels."
+    },
+    {
+      "name": "target",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'a, button, [data-aura]'",
+      "description": "Selector for elements the aura snaps to and wraps."
+    },
+    {
+      "name": "ease",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.16",
+      "description": "How quickly it catches up, 0 to 1. Lower is heavier."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-accent-strong)'",
+      "description": "Any CSS colour for the glow."
+    },
+    {
+      "name": "labels",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Read `data-aura` off the hovered target and show it inside the aura."
+    },
+    {
+      "name": "invert",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Invert what is underneath instead of tinting it."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "AccordionItem[]",
+      "required": true
+    },
+    {
+      "name": "mode",
+      "type": "'single' | 'multiple'",
+      "required": false,
+      "defaultValue": "'single'",
+      "description": "single closes the others when one opens; multiple leaves them alone."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Ids open on first render."
+    },
+    {
+      "name": "divided",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Hairline between items."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

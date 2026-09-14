@@ -1,0 +1,30 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "number",
+      "required": true,
+      "description": "Target value. Changing it tweens from the current display value."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "600",
+      "description": "Tween length in milliseconds."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "(next) => Math.round(next).toLocaleString('en-US')",
+      "description": "Turn the animated value into display text. Defaults to a rounded integer."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

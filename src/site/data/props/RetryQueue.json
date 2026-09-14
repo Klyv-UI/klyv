@@ -1,0 +1,43 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "QueuedChange[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the list."
+    },
+    {
+      "name": "onRetry",
+      "type": "(id: string) => void",
+      "required": false
+    },
+    {
+      "name": "onDiscard",
+      "type": "(id: string) => void",
+      "required": false
+    },
+    {
+      "name": "onRetryAll",
+      "type": "() => void",
+      "required": false
+    },
+    {
+      "name": "emptyLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Everything is saved.'",
+      "description": "Copy for the empty case — the normal state, and worth stating."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

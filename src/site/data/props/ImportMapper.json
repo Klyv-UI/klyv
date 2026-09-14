@@ -1,0 +1,45 @@
+{
+  "props": [
+    {
+      "name": "headers",
+      "type": "string[]",
+      "required": true,
+      "description": "The file's header row."
+    },
+    {
+      "name": "rows",
+      "type": "string[][]",
+      "required": true,
+      "description": "A few rows from the file, for the preview. Three or four is plenty."
+    },
+    {
+      "name": "fields",
+      "type": "ImportField[]",
+      "required": true,
+      "description": "The fields the importer needs."
+    },
+    {
+      "name": "value",
+      "type": "Record<string, string | null>",
+      "required": true,
+      "description": "field id → header, or null for unmapped."
+    },
+    {
+      "name": "onChange",
+      "type": "(value: Record<string, string | null>) => void",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

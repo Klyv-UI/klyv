@@ -1,0 +1,43 @@
+{
+  "props": [
+    {
+      "name": "grid",
+      "type": "number",
+      "required": false,
+      "defaultValue": "16",
+      "description": "Grid size. Square."
+    },
+    {
+      "name": "palette",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "PALETTE",
+      "description": "Available colours. The first is the eraser."
+    },
+    {
+      "name": "cell",
+      "type": "number",
+      "required": false,
+      "defaultValue": "20",
+      "description": "Rendered cell size in pixels."
+    },
+    {
+      "name": "onChange",
+      "type": "(pixels: number[]) => void",
+      "required": false,
+      "description": "Called on every change, with a flat array of palette indices."
+    },
+    {
+      "name": "value",
+      "type": "number[]",
+      "required": false,
+      "description": "Starting artwork, as a flat array of palette indices."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

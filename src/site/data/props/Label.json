@@ -1,0 +1,21 @@
+{
+  "props": [
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Marks the associated control as required."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Dims the label alongside a disabled control."
+    }
+  ],
+  "inherits": [
+    "LabelHTMLAttributes<HTMLLabelElement>"
+  ]
+}

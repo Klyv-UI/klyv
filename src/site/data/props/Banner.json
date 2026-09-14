@@ -1,0 +1,45 @@
+{
+  "props": [
+    {
+      "name": "tone",
+      "type": "BannerTone",
+      "required": false,
+      "defaultValue": "'accent'"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "Heading for the message."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The message body."
+    },
+    {
+      "name": "icon",
+      "type": "IconComponent",
+      "required": false,
+      "description": "Glyph before the message."
+    },
+    {
+      "name": "action",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Right-aligned affordance, usually a Button."
+    },
+    {
+      "name": "onDismiss",
+      "type": "() => void",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

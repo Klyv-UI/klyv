@@ -1,0 +1,63 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "(MenuItem | 'separator')[]",
+      "required": true,
+      "description": "The menu contents."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Trigger text."
+    },
+    {
+      "name": "menuLabel",
+      "type": "string",
+      "required": false,
+      "description": "Accessible name for the menu panel. Defaults to the trigger label."
+    },
+    {
+      "name": "variant",
+      "type": "ButtonVariant",
+      "required": false,
+      "defaultValue": "'outline'",
+      "description": "Trigger styling, matching Button."
+    },
+    {
+      "name": "size",
+      "type": "ButtonSize",
+      "required": false,
+      "defaultValue": "'md'",
+      "description": "Trigger height, matching Button."
+    },
+    {
+      "name": "placement",
+      "type": "PopoverPlacement",
+      "required": false,
+      "defaultValue": "'bottom'",
+      "description": "Which side of the trigger it opens on. Flips when it would leave the viewport."
+    },
+    {
+      "name": "align",
+      "type": "PopoverAlign",
+      "required": false,
+      "defaultValue": "'start'",
+      "description": "How it lines up with the trigger along that side."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

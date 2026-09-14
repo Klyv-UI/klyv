@@ -1,0 +1,60 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0"
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "defaultValue": "100"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "What is being measured. Becomes the accessible name."
+    },
+    {
+      "name": "unit",
+      "type": "string",
+      "required": false,
+      "description": "Unit shown after the figure, e.g. a percent sign."
+    },
+    {
+      "name": "size",
+      "type": "ProgressRingSize",
+      "required": false,
+      "defaultValue": "'lg'",
+      "description": "Ring size: 36, 56 or 88px across."
+    },
+    {
+      "name": "showScale",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the min and max under the arc."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "(next) => String(Math.round(next))",
+      "description": "Format the centre figure."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

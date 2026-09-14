@@ -1,0 +1,48 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "SsoConfig",
+      "required": true
+    },
+    {
+      "name": "onChange",
+      "type": "(value: SsoConfig) => void",
+      "required": true
+    },
+    {
+      "name": "serviceProvider",
+      "type": "{ acsUrl: string; entityId: string; metadataUrl?: string }",
+      "required": true,
+      "description": "What the identity provider needs from us."
+    },
+    {
+      "name": "providers",
+      "type": "{ value: string; label: string }[]",
+      "required": false,
+      "defaultValue": "DEFAULT_PROVIDERS"
+    },
+    {
+      "name": "onTest",
+      "type": "(config: SsoConfig) => Promise<{ ok: boolean; message: string }>",
+      "required": true
+    },
+    {
+      "name": "onSave",
+      "type": "(config: SsoConfig) => void | Promise<void>",
+      "required": true
+    },
+    {
+      "name": "domains",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Domains whose members enforcement applies to."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

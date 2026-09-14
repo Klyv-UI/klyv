@@ -1,0 +1,53 @@
+{
+  "props": [
+    {
+      "name": "used",
+      "type": "number",
+      "required": true,
+      "description": "How much of the allowance is spent."
+    },
+    {
+      "name": "limit",
+      "type": "number",
+      "required": true,
+      "description": "The ceiling."
+    },
+    {
+      "name": "resetAt",
+      "type": "Date",
+      "required": true,
+      "description": "When the window resets and the count returns to zero."
+    },
+    {
+      "name": "unit",
+      "type": "string",
+      "required": true,
+      "description": "What is being counted — \"API calls\", \"exports\", \"transfers\"."
+    },
+    {
+      "name": "warnAt",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.8",
+      "description": "Fraction at which to start warning."
+    },
+    {
+      "name": "onUpgrade",
+      "type": "() => void",
+      "required": false,
+      "description": "Offer a way out of the limit rather than only announcing it."
+    },
+    {
+      "name": "upgradeLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Increase the limit'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

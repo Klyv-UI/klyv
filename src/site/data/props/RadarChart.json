@@ -1,0 +1,59 @@
+{
+  "props": [
+    {
+      "name": "axes",
+      "type": "RadarAxis[]",
+      "required": true
+    },
+    {
+      "name": "series",
+      "type": "RadarSeries[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "260",
+      "description": "Chart size in pixels, before the label padding."
+    },
+    {
+      "name": "rings",
+      "type": "number",
+      "required": false,
+      "defaultValue": "4",
+      "description": "Rings drawn behind the shapes."
+    },
+    {
+      "name": "showLegend",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true"
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Grow the shapes from the centre when the chart first comes into view."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "(value) => String(value)"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

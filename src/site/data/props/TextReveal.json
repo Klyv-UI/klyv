@@ -1,0 +1,49 @@
+{
+  "props": [
+    {
+      "name": "text",
+      "type": "string",
+      "required": true,
+      "description": "The passage. Split on whitespace, so punctuation stays attached."
+    },
+    {
+      "name": "as",
+      "type": "ElementType",
+      "required": false,
+      "description": "Element for the passage. Use a heading level where one is right."
+    },
+    {
+      "name": "scrollRef",
+      "type": "React.RefObject<HTMLElement | null>",
+      "required": false,
+      "description": "Scroll container. Defaults to the window."
+    },
+    {
+      "name": "span",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.72",
+      "description": "How much of the pass is spent lighting words, 0–1. Lower finishes sooner."
+    },
+    {
+      "name": "softness",
+      "type": "number",
+      "required": false,
+      "defaultValue": "6",
+      "description": "How many words are mid-fade at once."
+    },
+    {
+      "name": "dimClassName",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'text-ink-faint/35'",
+      "description": "Colour of a word that has not been reached."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

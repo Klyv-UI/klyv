@@ -1,0 +1,53 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "[number, number]",
+      "required": true,
+      "description": "Current range, low then high."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: [number, number]) => void",
+      "required": true
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0"
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "defaultValue": "100"
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1"
+    },
+    {
+      "name": "labels",
+      "type": "[string, string]",
+      "required": false,
+      "defaultValue": "['Minimum', 'Maximum']",
+      "description": "Accessible names for the two thumbs."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

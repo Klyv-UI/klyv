@@ -1,0 +1,52 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "What is being cropped — an image, a chart, a screenshot."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the crop frame."
+    },
+    {
+      "name": "value",
+      "type": "CropRect",
+      "required": false
+    },
+    {
+      "name": "onChange",
+      "type": "(rect: CropRect) => void",
+      "required": false
+    },
+    {
+      "name": "aspect",
+      "type": "number",
+      "required": false,
+      "description": "Lock the ratio, as width ÷ height. Omit to crop freely."
+    },
+    {
+      "name": "minSize",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.08",
+      "description": "Smallest crop, as a fraction of the frame."
+    },
+    {
+      "name": "guides",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Draw thirds inside the crop."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

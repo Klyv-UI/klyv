@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "UsageItem[]",
+      "required": true
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Usage'"
+    },
+    {
+      "name": "period",
+      "type": "ReactNode",
+      "required": false,
+      "description": "When the counts reset — \"Resets on 1 Oct\"."
+    },
+    {
+      "name": "warnAt",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.8",
+      "description": "Fraction at which a row starts warning."
+    },
+    {
+      "name": "onUpgrade",
+      "type": "() => void",
+      "required": false
+    },
+    {
+      "name": "upgradeLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Upgrade plan'"
+    },
+    {
+      "name": "layout",
+      "type": "'list' | 'grid'",
+      "required": false,
+      "defaultValue": "'list'"
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3'",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

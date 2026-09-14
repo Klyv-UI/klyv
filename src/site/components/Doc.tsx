@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { Suspense, lazy, useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Surface, Text, cn } from 'citrine'
 import { catalog, findComponentByName, isNewComponent, type CatalogEntry } from '../data/catalog'
@@ -6,12 +6,14 @@ import { isComposable } from '../composer/registry'
 import { HealthSummary } from './Health'
 import { NewBadge } from './NewBadge'
 import { SaveControls } from './SaveControls'
-import { sizeOf } from '../data/sizes'
-import { dependenciesOf } from '../data/dependencies'
-import { ariaRoles } from '../data/aria'
 import { groupOf, type GroupDefinition } from '../data/groups'
 import { ComponentApi } from './ComponentApi'
-import { SourceCode } from './SourceCode'
+
+// The source viewer carries a loader for every file in the library, and the
+// facts carry the whole dependency graph. Both sit below the examples, so the
+// page renders first and they follow as their own chunks.
+const SourceCode = lazy(() => import('./SourceCode').then((module) => ({ default: module.SourceCode })))
+const Facts = lazy(() => import('./DocFacts').then((module) => ({ default: module.Facts })))
 
 /**
  * Documentation chrome. It lives with the site rather than in the library so
@@ -116,14 +118,18 @@ export function DocPage({ name, description, propNotes, apiNote, children }: Doc
           title="Code"
           description="The implementation, verbatim. Copy it into your own project, or install the package and import it."
         >
-          <SourceCode component={name} />
+          <Suspense fallback={<Pending className="h-[420px]" />}>
+            <SourceCode component={name} />
+          </Suspense>
         </Section>
 
         <Section
           title="Details"
           description="Measured on the built package, over this component's whole dependency set."
         >
-          <Facts name={name} />
+          <Suspense fallback={<Pending className="h-[170px]" />}>
+            <Facts name={name} />
+          </Suspense>
         </Section>
 
         <Neighbours previous={previous} next={next} />
@@ -254,51 +260,16 @@ function Neighbour({
 }
 
 /**
- * The three numbers worth knowing before you import something: what it weighs,
- * how many files come with it, and whether it can run on a server.
- *
- * All measured, none asserted — the weight comes from the built package over
- * the component's whole dependency set, which is what a bundler would actually
- * add.
+ * Where a section's content will be while its module downloads: the same
+ * rough shape, so the page does not jump when it arrives.
  */
-function Facts({ name }: { name: string }) {
-  const size = sizeOf(name)
-  if (!size) return null
-
-  const resolved = dependenciesOf(name)
-  const brought = resolved.components.length - 1
-
+export function Pending({ className }: { className: string }) {
   return (
-    <Surface variant="card" padding="lg">
-      <dl className="flex flex-col">
-        <Fact label="Size">
-          {(size.gzip / 1024).toFixed(2)} kB{' '}
-          <span className="font-normal text-ink-faint">gzipped</span>
-        </Fact>
-        <Fact label="Brings">
-          {brought === 0 ? 'nothing' : `${brought} component${brought === 1 ? '' : 's'}`}
-        </Fact>
-        <Fact label="Files">{resolved.files.length}</Fact>
-        {ariaRoles[name] && <Fact label="Roles">{ariaRoles[name].join(', ')}</Fact>}
-      </dl>
-    </Surface>
-  )
-}
-
-function Fact({ label, children }: { label: string; children: ReactNode }) {
-  return (
-    <div className="flex items-baseline justify-between gap-4 border-b border-line py-2 last:border-0">
-      <dt>
-        <Text as="span" size="caption" weight="semibold" tone="soft">
-          {label}
-        </Text>
-      </dt>
-      <dd className="min-w-0 text-right">
-        <Text as="span" size="caption" weight="bold" tabular>
-          {children}
-        </Text>
-      </dd>
-    </div>
+    <div
+      data-doc-pending
+      aria-hidden
+      className={cn('rounded-2xl bg-surface-muted motion-safe:animate-pulse', className)}
+    />
   )
 }
 

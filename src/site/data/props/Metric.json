@@ -1,0 +1,47 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "What the figure measures. Omit inside a container that already names it."
+    },
+    {
+      "name": "value",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The figure itself, already formatted."
+    },
+    {
+      "name": "delta",
+      "type": "string",
+      "required": false,
+      "description": "Change since the last period, e.g. \"+12%\"."
+    },
+    {
+      "name": "trend",
+      "type": "MetricTrend",
+      "required": false,
+      "defaultValue": "'flat'",
+      "description": "Direction of the delta. Drives the badge tone and the announced text."
+    },
+    {
+      "name": "caption",
+      "type": "string",
+      "required": false,
+      "description": "Line under the figure — a comparison, a period."
+    },
+    {
+      "name": "size",
+      "type": "MetricSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

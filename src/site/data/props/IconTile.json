@@ -1,0 +1,27 @@
+{
+  "props": [
+    {
+      "name": "icon",
+      "type": "IconComponent",
+      "required": true
+    },
+    {
+      "name": "tone",
+      "type": "IconTileTone",
+      "required": false,
+      "defaultValue": "'muted'"
+    },
+    {
+      "name": "size",
+      "type": "IconTileSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

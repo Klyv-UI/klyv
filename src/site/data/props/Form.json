@@ -1,0 +1,20 @@
+{
+  "props": [
+    {
+      "name": "gap",
+      "type": "'sm' | 'md' | 'lg'",
+      "required": false,
+      "defaultValue": "'md'",
+      "description": "Vertical rhythm between fields."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The fields, and the actions that submit them."
+    }
+  ],
+  "inherits": [
+    "FormHTMLAttributes<HTMLFormElement>"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "One sentence."
+    },
+    {
+      "name": "badge",
+      "type": "string",
+      "required": false,
+      "description": "Short qualifier in front — \"New\"."
+    },
+    {
+      "name": "href",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "linkLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Learn more'"
+    },
+    {
+      "name": "tone",
+      "type": "AnnouncementTone",
+      "required": false,
+      "defaultValue": "'ink'"
+    },
+    {
+      "name": "onDismiss",
+      "type": "() => void",
+      "required": false
+    },
+    {
+      "name": "storageKey",
+      "type": "string",
+      "required": false,
+      "description": "Remember the dismissal in this browser under this key. Change the key for the next announcement."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

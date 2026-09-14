@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "count",
+      "type": "number",
+      "required": true,
+      "description": "How many items are selected. At zero the bar is not shown."
+    },
+    {
+      "name": "noun",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'item'",
+      "description": "What is being counted, singular — \"row\", \"file\", \"member\"."
+    },
+    {
+      "name": "nounPlural",
+      "type": "string",
+      "required": false,
+      "description": "The plural, when adding an s would be wrong."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The actions — usually small Buttons."
+    },
+    {
+      "name": "onClear",
+      "type": "() => void",
+      "required": true,
+      "description": "Clears the selection."
+    },
+    {
+      "name": "clearLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Clear'",
+      "description": "Label for the action that drops the selection."
+    },
+    {
+      "name": "floating",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Pin to the foot of the viewport instead of sitting in the flow."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The text. It stays selectable and searchable."
+    },
+    {
+      "name": "colors",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "['#7fd4ff', 'var(--color-accent-strong)', '#b6f09c', '#7fd4ff']",
+      "description": "Two or more colours. They are repeated to make the loop seamless."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "5",
+      "description": "Seconds for one pass. Ignored when `animate` is false."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true"
+    },
+    {
+      "name": "angle",
+      "type": "number",
+      "required": false,
+      "defaultValue": "90",
+      "description": "Angle of the sweep in degrees."
+    },
+    {
+      "name": "glow",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "A soft coloured halo under the text, for a dark or busy background."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    },
+    {
+      "name": "as",
+      "type": "E",
+      "required": false
+    }
+  ],
+  "inherits": [
+    "Omit<ComponentPropsWithoutRef<E>, keyof GradientTextOwnProps | 'as'>"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": true,
+      "description": "The real value. Only rendered while it is revealed."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "What it is — \"Account number\", \"Card number\". Used in every announcement."
+    },
+    {
+      "name": "tail",
+      "type": "number",
+      "required": false,
+      "defaultValue": "4",
+      "description": "Characters left visible while masked."
+    },
+    {
+      "name": "hideAfter",
+      "type": "number",
+      "required": false,
+      "defaultValue": "20_000",
+      "description": "Milliseconds before it hides itself again. 0 keeps it shown."
+    },
+    {
+      "name": "group",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Group the revealed value — 4 for a card number, 0 to leave it alone."
+    },
+    {
+      "name": "copyable",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Offer a copy button. Copying never reveals."
+    },
+    {
+      "name": "copyValue",
+      "type": "string",
+      "required": false,
+      "description": "Copy this instead of `value` — the unformatted form, usually."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

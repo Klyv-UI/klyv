@@ -1,0 +1,44 @@
+{
+  "props": [
+    {
+      "name": "categories",
+      "type": "ConsentCategory[]",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "Record<string, boolean>",
+      "required": true,
+      "description": "Which categories are on. Required ones are treated as on regardless."
+    },
+    {
+      "name": "onChange",
+      "type": "(value: Record<string, boolean>) => void",
+      "required": true
+    },
+    {
+      "name": "onSave",
+      "type": "(value: Record<string, boolean>) => void",
+      "required": true,
+      "description": "Save the current selection."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": false,
+      "description": "Copy above the list."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

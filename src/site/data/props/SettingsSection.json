@@ -1,0 +1,79 @@
+{
+  "props": [
+    {
+      "name": "title",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Fields and SettingsRows."
+    },
+    {
+      "name": "layout",
+      "type": "'split' | 'stacked'",
+      "required": false,
+      "defaultValue": "'split'",
+      "description": "split puts the description beside the card from md; stacked puts it above."
+    },
+    {
+      "name": "onSave",
+      "type": "() => void | Promise<void>",
+      "required": false,
+      "description": "Adds a save bar and turns the card into a form."
+    },
+    {
+      "name": "onReset",
+      "type": "() => void",
+      "required": false,
+      "description": "Put the fields back as they were."
+    },
+    {
+      "name": "dirty",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Something has changed. Save and reset stay disabled until it has."
+    },
+    {
+      "name": "saving",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "name": "saveLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Save changes'"
+    },
+    {
+      "name": "footerNote",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Left side of the save bar while nothing has changed — \"Last saved 2 min ago\"."
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3'",
+      "required": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

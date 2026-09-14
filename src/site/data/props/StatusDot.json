@@ -1,0 +1,35 @@
+{
+  "props": [
+    {
+      "name": "tone",
+      "type": "StatusDotTone",
+      "required": false,
+      "defaultValue": "'accent'"
+    },
+    {
+      "name": "size",
+      "type": "StatusDotSize",
+      "required": false,
+      "defaultValue": "'sm'"
+    },
+    {
+      "name": "ring",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Halo that lifts the dot off whatever it overlaps — as on the bell icon."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Announced to assistive tech; without it the dot is decorative."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "props": [
+    {
+      "name": "from",
+      "type": "number",
+      "required": false,
+      "defaultValue": "60",
+      "description": "Lowest note, as a MIDI number. 60 is middle C."
+    },
+    {
+      "name": "keys",
+      "type": "number",
+      "required": false,
+      "defaultValue": "10",
+      "description": "How many white keys."
+    },
+    {
+      "name": "keyboard",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Bind the home row — z x c v… and s d, g h j for the blacks."
+    },
+    {
+      "name": "showLetters",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the letter on each key."
+    },
+    {
+      "name": "timbre",
+      "type": "OscillatorType",
+      "required": false,
+      "defaultValue": "'triangle'",
+      "description": "Oscillator shape."
+    },
+    {
+      "name": "onNote",
+      "type": "(midi: number) => void",
+      "required": false,
+      "description": "Called with the MIDI number each time a key sounds."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "150",
+      "description": "Keyboard height in pixels."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

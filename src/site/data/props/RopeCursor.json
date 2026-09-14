@@ -1,0 +1,59 @@
+{
+  "props": [
+    {
+      "name": "segments",
+      "type": "number",
+      "required": false,
+      "defaultValue": "26",
+      "description": "Points in the rope. More is heavier and smoother."
+    },
+    {
+      "name": "length",
+      "type": "number",
+      "required": false,
+      "defaultValue": "9",
+      "description": "Distance between points, in pixels."
+    },
+    {
+      "name": "gravity",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.55",
+      "description": "Downward pull per frame. 0 makes it a weightless ribbon."
+    },
+    {
+      "name": "damping",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.96",
+      "description": "Velocity kept each frame. Lower is more damped."
+    },
+    {
+      "name": "stiffness",
+      "type": "number",
+      "required": false,
+      "defaultValue": "5",
+      "description": "Constraint passes. More is stiffer and less stretchy."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-accent-strong)'",
+      "description": "Any CSS colour for the rope."
+    },
+    {
+      "name": "taper",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Thickest at the pointer, tapering to nothing at the tail."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

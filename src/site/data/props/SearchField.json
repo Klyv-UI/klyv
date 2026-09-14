@@ -1,0 +1,44 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": true
+    },
+    {
+      "name": "inputSize",
+      "type": "InputSize",
+      "required": false,
+      "defaultValue": "'md'",
+      "description": "Control height, matching Input."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Search'",
+      "description": "Accessible name. Required, since the icon is not a label."
+    },
+    {
+      "name": "clearable",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Hide the clear control even when there is text."
+    },
+    {
+      "name": "containerClassName",
+      "type": "string",
+      "required": false,
+      "description": "Classes for the wrapper rather than the control itself."
+    }
+  ],
+  "inherits": [
+    "Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'>"
+  ]
+}

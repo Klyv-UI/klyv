@@ -1,0 +1,73 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "onChange",
+      "type": "(value: number) => void",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "What is being turned."
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Lowest value."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "defaultValue": "100",
+      "description": "Highest value."
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Snap to this increment. 0 is continuous."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "76",
+      "description": "Diameter in pixels."
+    },
+    {
+      "name": "sweep",
+      "type": "number",
+      "required": false,
+      "defaultValue": "270",
+      "description": "Degrees of the sweep. 270 is the studio convention."
+    },
+    {
+      "name": "origin",
+      "type": "number",
+      "required": false,
+      "description": "Value the ring fills out from — 0 for a level, the middle for a pan."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "description": "Shown under the knob."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

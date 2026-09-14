@@ -1,8 +1,12 @@
-import type { ComponentType } from 'react'
-import { Link, RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { useEffect, type ComponentType } from 'react'
+import { Link, RouterProvider, createBrowserRouter, type RouteObject } from 'react-router-dom'
 import { Surface, Text } from 'citrine'
 import { BootScreen } from './components/BootScreen'
 import { SiteLayout, type RouteHandle } from './layouts/SiteLayout'
+import { findBlock } from './data/blocks'
+import { findComponent } from './data/catalog'
+import { preloadBlock } from './lib/blocks'
+import { installPrefetch } from './lib/prefetch'
 
 /**
  * Routes for the documentation site.
@@ -23,6 +27,29 @@ const page = (load: () => Promise<{ default: ComponentType }>) => async () => ({
 /** The Composer needs the whole width, so it drops the docs sidebar. */
 const fullBleed: RouteHandle = { fullBleed: true }
 
+/**
+ * What the two detail pages load after they mount, warmed by the prefetcher
+ * along with their chunk: a component's examples and API, and a block's
+ * screen. The loaders are imported on demand, so none of their lookup tables
+ * ride in the first page's bundle.
+ */
+const componentHandle: RouteHandle = {
+  prefetch: ({ slug }) => {
+    const entry = findComponent(slug)
+    if (!entry) return undefined
+    return Promise.all([
+      import('./examples').then((module) => module.loadExamples(entry.slug)),
+      import('./data/props').then((module) => module.loadProps(entry.name)),
+    ])
+  },
+}
+const blockHandle: RouteHandle = {
+  prefetch: ({ slug }) => {
+    const block = findBlock(slug)
+    return block ? preloadBlock(block.file) : undefined
+  },
+}
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -30,13 +57,13 @@ const router = createBrowserRouter([
     children: [
       { index: true, lazy: page(() => import('./pages/LandingPage')) },
       { path: 'components', lazy: page(() => import('./pages/ComponentsPage')) },
-      { path: 'components/:slug', lazy: page(() => import('./pages/ComponentPage')) },
+      { path: 'components/:slug', lazy: page(() => import('./pages/ComponentPage')), handle: componentHandle },
       { path: 'foundations', lazy: page(() => import('./pages/FoundationsPage')) },
       { path: 'tokens', lazy: page(() => import('./pages/TokensPage')) },
       { path: 'playground', lazy: page(() => import('./pages/PlaygroundPage')) },
       { path: 'getting-started', lazy: page(() => import('./pages/GettingStartedPage')) },
       { path: 'blocks', lazy: page(() => import('./pages/BlocksPage')) },
-      { path: 'blocks/:slug', lazy: page(() => import('./pages/BlockPage')) },
+      { path: 'blocks/:slug', lazy: page(() => import('./pages/BlockPage')), handle: blockHandle },
       { path: 'templates', lazy: page(() => import('./pages/TemplatesPage')) },
       { path: 'templates/:slug', lazy: page(() => import('./pages/TemplatePage')) },
       { path: 'recipes', lazy: page(() => import('./pages/RecipesPage')) },
@@ -70,6 +97,11 @@ function NotFound() {
 }
 
 export function App() {
+  // Pages start loading when a link is hovered, focused or touched, resolved
+  // against this router's own routes. Installed once, outside every page, so
+  // nothing in the shell re-renders for it.
+  useEffect(() => installPrefetch(router.routes as RouteObject[]), [])
+
   // The boot screen covers the first page's download, continuing the splash
   // index.html painted before any script ran.
   return <RouterProvider router={router} fallbackElement={<BootScreen />} />

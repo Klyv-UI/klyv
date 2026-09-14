@@ -141,10 +141,11 @@ interface NumberControlProps {
   value: number
   min: number
   max: number
+  step?: number
   onChange: (value: number) => void
 }
 
-export function NumberControl({ label, value, min, max, onChange }: NumberControlProps) {
+export function NumberControl({ label, value, min, max, step = 1, onChange }: NumberControlProps) {
   const id = useId()
   return (
     <div className="flex flex-col gap-1.5">
@@ -159,6 +160,7 @@ export function NumberControl({ label, value, min, max, onChange }: NumberContro
         type="range"
         min={min}
         max={max}
+        step={step}
         value={value}
         onChange={(event) => onChange(Number(event.target.value))}
         className="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-line-strong accent-[var(--color-accent-strong)]"

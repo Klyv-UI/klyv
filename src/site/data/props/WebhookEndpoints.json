@@ -1,0 +1,62 @@
+{
+  "props": [
+    {
+      "name": "endpoints",
+      "type": "WebhookEndpoint[]",
+      "required": true
+    },
+    {
+      "name": "onAdd",
+      "type": "() => void",
+      "required": false
+    },
+    {
+      "name": "onToggle",
+      "type": "(id: string, enabled: boolean) => void",
+      "required": false
+    },
+    {
+      "name": "onDelete",
+      "type": "(endpoint: WebhookEndpoint) => void | Promise<void>",
+      "required": false
+    },
+    {
+      "name": "onTest",
+      "type": "(endpoint: WebhookEndpoint) => void",
+      "required": false
+    },
+    {
+      "name": "onView",
+      "type": "(endpoint: WebhookEndpoint) => void",
+      "required": false,
+      "description": "Open the delivery log for an endpoint."
+    },
+    {
+      "name": "selectedId",
+      "type": "string",
+      "required": false,
+      "description": "The endpoint whose deliveries are shown beside the list."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Webhooks'"
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3'",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

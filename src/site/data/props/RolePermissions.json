@@ -1,0 +1,37 @@
+{
+  "props": [
+    {
+      "name": "roles",
+      "type": "PermissionRole[]",
+      "required": true
+    },
+    {
+      "name": "groups",
+      "type": "PermissionGroup[]",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "Record<string, string[]>",
+      "required": true,
+      "description": "role id → the permission ids it holds."
+    },
+    {
+      "name": "onChange",
+      "type": "(value: Record<string, string[]>) => void",
+      "required": false,
+      "description": "Omit for a read-only matrix."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Caption for the table."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": true,
+      "description": "Current code. Shorter than `length` while being entered."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": true
+    },
+    {
+      "name": "length",
+      "type": "number",
+      "required": false,
+      "defaultValue": "6",
+      "description": "Number of characters."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'One-time code'",
+      "description": "Accessible name for the group."
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Marks the field as failing validation. Pair it with a message."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "onComplete",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Fired once the last character is entered."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

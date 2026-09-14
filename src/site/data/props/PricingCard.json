@@ -1,0 +1,100 @@
+{
+  "props": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "price",
+      "type": "number | null",
+      "required": true,
+      "description": "Price per period. null is a custom plan — \"Let's talk\" pricing."
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'$'"
+    },
+    {
+      "name": "period",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'/month'",
+      "description": "\"/month\", \"/seat/month\"."
+    },
+    {
+      "name": "priceCaption",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Line under the price — \"Billed $468 yearly\"."
+    },
+    {
+      "name": "compareAt",
+      "type": "number | null",
+      "required": false,
+      "description": "The price before a discount, struck through beside the real one."
+    },
+    {
+      "name": "customLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Custom'",
+      "description": "Shown in place of the figure when price is null."
+    },
+    {
+      "name": "features",
+      "type": "(string | PricingFeature)[]",
+      "required": false,
+      "defaultValue": "[]"
+    },
+    {
+      "name": "featuresTitle",
+      "type": "string",
+      "required": false,
+      "description": "Heading over the list — \"Everything in Starter, plus\"."
+    },
+    {
+      "name": "action",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Usually a full-width Button."
+    },
+    {
+      "name": "badge",
+      "type": "string",
+      "required": false,
+      "description": "Pill on the top edge — \"Most popular\"."
+    },
+    {
+      "name": "featured",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "The recommended plan: accent border and lift."
+    },
+    {
+      "name": "current",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "The plan this account is on."
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3'",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

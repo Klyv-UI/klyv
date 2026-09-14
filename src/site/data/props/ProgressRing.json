@@ -1,0 +1,40 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0"
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "defaultValue": "100"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name — what is progressing."
+    },
+    {
+      "name": "size",
+      "type": "ProgressRingSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Centre content — a percentage, a figure, an icon."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

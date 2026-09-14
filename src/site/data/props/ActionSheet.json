@@ -1,0 +1,46 @@
+{
+  "props": [
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the dialog is showing."
+    },
+    {
+      "name": "onClose",
+      "type": "() => void",
+      "required": true,
+      "description": "Called on cancel, on Escape, and on a backdrop click."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "Visible title."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": false,
+      "description": "What the sheet is about."
+    },
+    {
+      "name": "actions",
+      "type": "ActionSheetAction[]",
+      "required": true
+    },
+    {
+      "name": "cancelLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Cancel'",
+      "description": "Text on the trailing cancel row."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

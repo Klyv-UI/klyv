@@ -1,0 +1,38 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "TabBarItem<T>[]",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "T",
+      "required": true
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: T) => void",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the bar."
+    },
+    {
+      "name": "fixed",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Pin to the bottom of the viewport, with safe-area padding."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "props": [
+    {
+      "name": "symbols",
+      "type": "string[]",
+      "required": true,
+      "description": "What can land. Any short strings — emoji read best."
+    },
+    {
+      "name": "reels",
+      "type": "number",
+      "required": false,
+      "defaultValue": "3",
+      "description": "How many reels."
+    },
+    {
+      "name": "result",
+      "type": "number[]",
+      "required": false,
+      "description": "Force a result. Omit and it picks one at random."
+    },
+    {
+      "name": "onSettle",
+      "type": "(result: number[]) => void",
+      "required": false,
+      "description": "Called once every reel has stopped."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1200",
+      "description": "Milliseconds the first reel spins. Each later one adds `stagger`."
+    },
+    {
+      "name": "stagger",
+      "type": "number",
+      "required": false,
+      "defaultValue": "320",
+      "description": "Milliseconds between one reel stopping and the next."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "84",
+      "description": "Row height in pixels."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "props": [
+    {
+      "name": "switchSize",
+      "type": "SwitchSize",
+      "required": false,
+      "defaultValue": "'md'"
+    }
+  ],
+  "inherits": [
+    "Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'>"
+  ]
+}

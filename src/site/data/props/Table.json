@@ -1,0 +1,29 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "TableHead and TableBody."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Accessible name. Required unless a visible heading already names it."
+    },
+    {
+      "name": "striped",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Tint alternate body rows."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

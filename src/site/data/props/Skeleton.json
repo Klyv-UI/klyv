@@ -1,0 +1,35 @@
+{
+  "props": [
+    {
+      "name": "shape",
+      "type": "SkeletonShape",
+      "required": false,
+      "defaultValue": "'text'"
+    },
+    {
+      "name": "width",
+      "type": "number | string",
+      "required": false,
+      "description": "Any CSS length; defaults to filling the container."
+    },
+    {
+      "name": "height",
+      "type": "number | string",
+      "required": false,
+      "description": "Any CSS length. `text` derives its height from the line it stands in for."
+    },
+    {
+      "name": "lines",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1",
+      "description": "Number of stacked lines. `text` only."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

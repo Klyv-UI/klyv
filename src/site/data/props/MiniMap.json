@@ -1,0 +1,53 @@
+{
+  "props": [
+    {
+      "name": "contentWidth",
+      "type": "number",
+      "required": true,
+      "description": "Size of the whole thing being surveyed, in content coordinates."
+    },
+    {
+      "name": "contentHeight",
+      "type": "number",
+      "required": true,
+      "description": "Height of the whole surface, in its own coordinates."
+    },
+    {
+      "name": "viewport",
+      "type": "MiniMapRect",
+      "required": true,
+      "description": "The part currently on screen, in the same coordinates."
+    },
+    {
+      "name": "onNavigate",
+      "type": "(point: { x: number; y: number }) => void",
+      "required": true,
+      "description": "Called with the content point the reader wants centred."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name."
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "required": false,
+      "defaultValue": "168",
+      "description": "Width of the map itself, in pixels. The height follows the aspect ratio."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "A cheap likeness of the content — blocks, not the real thing."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

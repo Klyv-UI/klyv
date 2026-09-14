@@ -1,0 +1,53 @@
+{
+  "props": [
+    {
+      "name": "tone",
+      "type": "AlertTone",
+      "required": false,
+      "defaultValue": "'neutral'"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "description": "Heading for the message."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The message body."
+    },
+    {
+      "name": "icon",
+      "type": "IconComponent",
+      "required": false,
+      "description": "Glyph shown before the text."
+    },
+    {
+      "name": "action",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Right-aligned affordance — usually a Button."
+    },
+    {
+      "name": "onDismiss",
+      "type": "() => void",
+      "required": false,
+      "description": "Adds a dismiss control."
+    },
+    {
+      "name": "live",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Announce when it appears. Leave off for content present on load."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "props": [
+    {
+      "name": "options",
+      "type": "SelectOption<T>[]",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "T[]",
+      "required": true
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: T[]) => void",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Select'",
+      "description": "Trigger text when nothing is chosen."
+    },
+    {
+      "name": "showChips",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the chosen values as removable Chips under the trigger."
+    },
+    {
+      "name": "placement",
+      "type": "PopoverPlacement",
+      "required": false,
+      "defaultValue": "'bottom'",
+      "description": "Which side of the trigger it opens on. Flips when it would leave the viewport."
+    },
+    {
+      "name": "align",
+      "type": "PopoverAlign",
+      "required": false,
+      "defaultValue": "'start'",
+      "description": "How it lines up with the trigger along that side."
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Marks the field as failing validation. Pair it with a message."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Overrides the generated id. Useful when a label lives elsewhere."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

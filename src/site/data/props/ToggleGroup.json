@@ -1,0 +1,48 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "ToggleGroupItem<T>[]",
+      "required": true,
+      "description": "The toggles, in order."
+    },
+    {
+      "name": "value",
+      "type": "T[]",
+      "required": true,
+      "description": "The values currently pressed."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: T[]) => void",
+      "required": true,
+      "description": "Called with the full set of pressed values after each press."
+    },
+    {
+      "name": "type",
+      "type": "'single' | 'multiple'",
+      "required": false,
+      "defaultValue": "'multiple'",
+      "description": "`multiple` lets any combination be on — bold and italic together. `single` allows at most one, and pressing it again turns it off, which is what separates this from SegmentedControl, where exactly one is always chosen."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the set."
+    },
+    {
+      "name": "size",
+      "type": "ToggleGroupSize",
+      "required": false,
+      "defaultValue": "'md'",
+      "description": "Control height: 28px or 32px."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

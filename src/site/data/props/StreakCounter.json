@@ -1,0 +1,49 @@
+{
+  "props": [
+    {
+      "name": "days",
+      "type": "number",
+      "required": true,
+      "description": "Days in a row."
+    },
+    {
+      "name": "todayDone",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Whether today is already counted. Drives the whole tone."
+    },
+    {
+      "name": "week",
+      "type": "boolean[]",
+      "required": false,
+      "description": "The last seven days, oldest first. Shown as pips."
+    },
+    {
+      "name": "milestone",
+      "type": "number",
+      "required": false,
+      "description": "Next milestone worth reaching."
+    },
+    {
+      "name": "broken",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Streak is over — shown cold, with the number it reached."
+    },
+    {
+      "name": "size",
+      "type": "'sm' | 'md' | 'lg'",
+      "required": false,
+      "defaultValue": "'md'",
+      "description": "Flame and figure size."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "props": [
+    {
+      "name": "brand",
+      "type": "string",
+      "required": true,
+      "description": "Product name for the lockup."
+    },
+    {
+      "name": "brandMark",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Custom mark inside the lockup."
+    },
+    {
+      "name": "sections",
+      "type": "SegmentedOption<T>[]",
+      "required": false,
+      "description": "Primary sections. Rendered as a SegmentedControl from xl up."
+    },
+    {
+      "name": "value",
+      "type": "T",
+      "required": false
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: T) => void",
+      "required": false
+    },
+    {
+      "name": "utilities",
+      "type": "NavbarUtility[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Icon cluster on the right."
+    },
+    {
+      "name": "user",
+      "type": "Pick<AvatarProps, 'name' | 'src'>",
+      "required": false,
+      "description": "Identity."
+    },
+    {
+      "name": "searchable",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Adds an expanding search."
+    },
+    {
+      "name": "searchPlaceholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Search'",
+      "description": "Placeholder for the search field."
+    },
+    {
+      "name": "onSearch",
+      "type": "(query: string) => void",
+      "required": false,
+      "description": "Called as the query changes."
+    },
+    {
+      "name": "onOpenMenu",
+      "type": "() => void",
+      "required": false,
+      "description": "Opens the mobile navigation. Shown below xl."
+    },
+    {
+      "name": "menuIcon",
+      "type": "IconComponent",
+      "required": false,
+      "description": "Glyph for the menu button shown on narrow viewports."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

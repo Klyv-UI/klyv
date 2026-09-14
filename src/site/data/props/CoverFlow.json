@@ -1,0 +1,80 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "T[]",
+      "required": true,
+      "description": "The sequence to render."
+    },
+    {
+      "name": "itemId",
+      "type": "(item: T) => string",
+      "required": true,
+      "description": "Stable key for an entry. Index keys break as soon as the order changes."
+    },
+    {
+      "name": "renderItem",
+      "type": "(item: T, state: { selected: boolean; distance: number }) => ReactNode",
+      "required": true,
+      "description": "Renders the face of one card."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the set."
+    },
+    {
+      "name": "index",
+      "type": "number",
+      "required": false,
+      "description": "Selected index. Omit for uncontrolled."
+    },
+    {
+      "name": "onIndexChange",
+      "type": "(index: number) => void",
+      "required": false
+    },
+    {
+      "name": "cardWidth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "200",
+      "description": "Card width in pixels. The track height follows the tallest card."
+    },
+    {
+      "name": "spread",
+      "type": "number",
+      "required": false,
+      "defaultValue": "116",
+      "description": "Horizontal step between neighbours, in pixels."
+    },
+    {
+      "name": "rotation",
+      "type": "number",
+      "required": false,
+      "defaultValue": "42",
+      "description": "Degrees a side card turns away from the viewer."
+    },
+    {
+      "name": "perspective",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1100",
+      "description": "Perspective depth. Lower is a stronger effect."
+    },
+    {
+      "name": "depth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Cards drawn either side of the selected one."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

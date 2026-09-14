@@ -1,0 +1,29 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The rows, usually List or ListItem."
+    },
+    {
+      "name": "fade",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Fade the last row out instead of clipping it, as both list cards do."
+    },
+    {
+      "name": "maxHeight",
+      "type": "number | string",
+      "required": false,
+      "description": "Any CSS length. Omit inside a flex parent that already bounds the height."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

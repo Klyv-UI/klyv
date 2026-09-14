@@ -1,0 +1,57 @@
+{
+  "props": [
+    {
+      "name": "src",
+      "type": "string",
+      "required": true,
+      "description": "Image to convert. Same-origin, or CORS-enabled — the canvas has to read it."
+    },
+    {
+      "name": "alt",
+      "type": "string",
+      "required": true,
+      "description": "What the picture is. The ASCII is decorative; this is the alt text."
+    },
+    {
+      "name": "columns",
+      "type": "number",
+      "required": false,
+      "defaultValue": "90",
+      "description": "Characters across. Height follows the aspect ratio."
+    },
+    {
+      "name": "ramp",
+      "type": "string",
+      "required": false,
+      "defaultValue": "RAMP",
+      "description": "Darkest to lightest. The first character is used for black."
+    },
+    {
+      "name": "invert",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Invert, for light art on a dark background."
+    },
+    {
+      "name": "colored",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Colour each character from the source pixel instead of one flat colour."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-accent-strong)'",
+      "description": "Any CSS colour for the glyphs."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The text. Prose reads best; the clamp counts rendered lines."
+    },
+    {
+      "name": "lines",
+      "type": "number",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Lines shown while collapsed."
+    },
+    {
+      "name": "expanded",
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled state. Omit it to let the component own the toggle."
+    },
+    {
+      "name": "onExpandedChange",
+      "type": "(expanded: boolean) => void",
+      "required": false,
+      "description": "Called with the new state when the toggle is pressed."
+    },
+    {
+      "name": "moreLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Show more'",
+      "description": "Toggle label while the text is clamped."
+    },
+    {
+      "name": "lessLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Show less'",
+      "description": "Toggle label while the text is open."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "props": [
+    {
+      "name": "tags",
+      "type": "GravityTag[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the pile."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "320"
+    },
+    {
+      "name": "gravity",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.42",
+      "description": "Downward acceleration, in pixels per frame squared."
+    },
+    {
+      "name": "bounce",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.35",
+      "description": "How much of the speed survives a collision, 0 to 1."
+    },
+    {
+      "name": "interactive",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Pointer pushes the pile around."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

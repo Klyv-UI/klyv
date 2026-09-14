@@ -1,0 +1,48 @@
+{
+  "props": [
+    {
+      "name": "segments",
+      "type": "ProgressSegment[]",
+      "required": true
+    },
+    {
+      "name": "total",
+      "type": "number",
+      "required": false,
+      "description": "Total to measure against. Defaults to the sum of the segments."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "showLegend",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the series key underneath."
+    },
+    {
+      "name": "size",
+      "type": "'sm' | 'md'",
+      "required": false,
+      "defaultValue": "'md'",
+      "description": "Bar thickness."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "(value) => String(value)",
+      "description": "Format each value in the key."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

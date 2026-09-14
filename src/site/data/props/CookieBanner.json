@@ -1,0 +1,49 @@
+{
+  "props": [
+    {
+      "name": "onAcceptAll",
+      "type": "() => void",
+      "required": true
+    },
+    {
+      "name": "onRejectAll",
+      "type": "() => void",
+      "required": true
+    },
+    {
+      "name": "onCustomize",
+      "type": "() => void",
+      "required": false,
+      "description": "Open the full choice — usually a Modal holding ConsentManager."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Cookies on this site'"
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "defaultValue": "'We use essential cookies to make the site work, and optional ones to understand how it is used. You choose which optional ones to allow.'"
+    },
+    {
+      "name": "policyHref",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "position",
+      "type": "'bottom' | 'bottom-start' | 'inline'",
+      "required": false,
+      "defaultValue": "'bottom'",
+      "description": "bottom centres a bar; bottom-start is a corner card; inline stays in the flow."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "props": [
+    {
+      "name": "audioRef",
+      "type": "React.RefObject<HTMLAudioElement | null>",
+      "required": false,
+      "description": "The element to listen to. Its audio is routed through the analyser."
+    },
+    {
+      "name": "microphone",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Use the microphone instead. Asks permission on the first start."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "What it is listening to — announced, since the picture is decorative."
+    },
+    {
+      "name": "shape",
+      "type": "VisualizerShape",
+      "required": false,
+      "defaultValue": "'bars'"
+    },
+    {
+      "name": "fftSize",
+      "type": "number",
+      "required": false,
+      "defaultValue": "512",
+      "description": "FFT size. Must be a power of two; higher is more bars and more latency."
+    },
+    {
+      "name": "range",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.55",
+      "description": "How much of the spectrum to draw, 0 to 1. Music lives in the bottom half."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-accent-strong)'",
+      "description": "Any CSS colour for the bars. Defaults to the accent."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "140",
+      "description": "Canvas height in pixels."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

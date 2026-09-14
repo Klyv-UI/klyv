@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "header",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The header region — usually a Navbar."
+    },
+    {
+      "name": "sidebar",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The left rail or sidebar. Hidden below the lg breakpoint."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The page content, rendered inside the main landmark."
+    },
+    {
+      "name": "bottomBar",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Bottom navigation, for narrow viewports."
+    },
+    {
+      "name": "framed",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Reproduce the floating rounded window from xl up. Turn it off for a conventional full-bleed application."
+    },
+    {
+      "name": "maxWidth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1512",
+      "description": "Maximum content width. The design targets 1512px."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    },
+    {
+      "name": "embedded",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Render inside a host page rather than as the page — a docs preview, a marketing embed, a Storybook canvas. The content region becomes a plain region instead of a second `main` landmark, and the skip link is left to the host, which already has one. Layout is unchanged."
+    }
+  ]
+}

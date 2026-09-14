@@ -1,0 +1,21 @@
+{
+  "props": [
+    {
+      "name": "lines",
+      "type": "DiffLine[]",
+      "required": true
+    },
+    {
+      "name": "titles",
+      "type": "[string, string]",
+      "required": false,
+      "description": "Labels for the two sides."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

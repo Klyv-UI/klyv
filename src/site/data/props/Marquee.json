@@ -1,0 +1,37 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Content to scroll. It is duplicated to make the loop seamless."
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "required": false,
+      "defaultValue": "20",
+      "description": "Seconds for one full pass. Higher is slower."
+    },
+    {
+      "name": "pauseOnHover",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Pause while the pointer is over the strip."
+    },
+    {
+      "name": "fade",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Fade the leading and trailing edges."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

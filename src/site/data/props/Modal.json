@@ -1,0 +1,64 @@
+{
+  "props": [
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "name": "onClose",
+      "type": "() => void",
+      "required": true
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "Visible title. Becomes the accessible name."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The dialog body."
+    },
+    {
+      "name": "footer",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Footer row, usually a pair of Buttons."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": false,
+      "description": "Supporting line, wired to aria-describedby."
+    },
+    {
+      "name": "size",
+      "type": "ModalSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "dismissible",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Forces a choice — Escape and the backdrop stop dismissing."
+    },
+    {
+      "name": "role",
+      "type": "'dialog' | 'alertdialog'",
+      "required": false,
+      "defaultValue": "'dialog'",
+      "description": "Use alertdialog semantics, for a destructive confirmation."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "props": [
+    {
+      "name": "icon",
+      "type": "IconComponent",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Required — the control has no visible text."
+    },
+    {
+      "name": "shape",
+      "type": "IconButtonShape",
+      "required": false,
+      "defaultValue": "'circle'"
+    },
+    {
+      "name": "tone",
+      "type": "IconButtonTone",
+      "required": false,
+      "defaultValue": "'bare'"
+    },
+    {
+      "name": "size",
+      "type": "IconButtonSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "selected",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Applies the accent treatment, for toggles and current-page markers."
+    },
+    {
+      "name": "loading",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false"
+    }
+  ],
+  "inherits": [
+    "Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'>"
+  ]
+}

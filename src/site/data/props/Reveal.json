@@ -1,0 +1,36 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Content that fades in once it is on screen."
+    },
+    {
+      "name": "direction",
+      "type": "RevealDirection",
+      "required": false,
+      "defaultValue": "'up'"
+    },
+    {
+      "name": "delay",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Milliseconds to wait after entering the viewport."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "500",
+      "description": "Milliseconds the fade takes."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

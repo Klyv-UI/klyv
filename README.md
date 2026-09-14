@@ -288,7 +288,8 @@ larger than the component using them.
 
 Generated from the type, not maintained by hand. `scripts/generate-props.mjs`
 walks each component's props declaration with the TypeScript AST and writes
-`site/data/props.ts`:
+one file per component to `site/data/props/`, so a page loads only its own
+API (the whole set is also written to `data/props.json`):
 
 | Column | Where it comes from |
 | --- | --- |

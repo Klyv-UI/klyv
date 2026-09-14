@@ -91,8 +91,11 @@ describe('component pages pass axe', () => {
       )
     })
 
-    // Examples load lazily; wait until the page has its heading.
-    await waitFor(() => !!container.querySelector('article h1'))
+    // Examples load lazily, and so do the API table, the source and the
+    // facts; wait for the heading and for every placeholder to be replaced.
+    await waitFor(
+      () => !!container.querySelector('article h1') && !container.querySelector('[data-doc-pending]'),
+    )
 
     // The Code section is the same viewer on every page — hundreds of spans of
     // source each time. It is audited once, as CodeBlock on its own page, rather

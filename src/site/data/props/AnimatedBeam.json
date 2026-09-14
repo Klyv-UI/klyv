@@ -1,0 +1,98 @@
+{
+  "props": [
+    {
+      "name": "containerRef",
+      "type": "RefObject<HTMLElement | null>",
+      "required": true,
+      "description": "The positioned element both endpoints live inside."
+    },
+    {
+      "name": "fromRef",
+      "type": "RefObject<HTMLElement | null>",
+      "required": true,
+      "description": "The element the beam starts at."
+    },
+    {
+      "name": "toRef",
+      "type": "RefObject<HTMLElement | null>",
+      "required": true,
+      "description": "The element the beam ends at."
+    },
+    {
+      "name": "curvature",
+      "type": "number",
+      "required": false,
+      "defaultValue": "60",
+      "description": "Bow of the curve in pixels. Negative bows the other way. 0 is a straight line."
+    },
+    {
+      "name": "reverse",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Send the pulse from `to` to `from` instead."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Seconds for one pulse to cross."
+    },
+    {
+      "name": "delay",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Seconds before the first pulse. Stagger these across a diagram."
+    },
+    {
+      "name": "pathColor",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-line-strong)'",
+      "description": "The dim track the pulse runs along."
+    },
+    {
+      "name": "pathWidth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1.75",
+      "description": "Stroke width of the dim track underneath."
+    },
+    {
+      "name": "pathOpacity",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1",
+      "description": "Opacity of the dim track underneath."
+    },
+    {
+      "name": "beamColor",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-accent-strong)'",
+      "description": "Any CSS colour for the travelling pulse."
+    },
+    {
+      "name": "beamLength",
+      "type": "number",
+      "required": false,
+      "defaultValue": "46",
+      "description": "Length of the lit pulse in pixels."
+    },
+    {
+      "name": "paused",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Draw the track but hold the pulse still."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

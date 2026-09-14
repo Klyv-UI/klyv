@@ -1,0 +1,114 @@
+{
+  "props": [
+    {
+      "name": "rows",
+      "type": "Row[] | undefined",
+      "required": true,
+      "description": "Rows to display. undefined means still loading."
+    },
+    {
+      "name": "columns",
+      "type": "DataTableColumn<Row>[]",
+      "required": true,
+      "description": "Column definitions, passed through to DataTable."
+    },
+    {
+      "name": "rowId",
+      "type": "(row: Row) => string",
+      "required": true,
+      "description": "Stable identity for each row."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "Title shown in the card header."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Accessible name for the table. Defaults to the title."
+    },
+    {
+      "name": "filters",
+      "type": "FilterChip[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Quick filter toggles."
+    },
+    {
+      "name": "matchesFilter",
+      "type": "(row: Row, active: string[]) => boolean",
+      "required": false,
+      "description": "Decides whether a row matches the active filters."
+    },
+    {
+      "name": "searchIn",
+      "type": "(row: Row) => string",
+      "required": false,
+      "description": "Fields searched by the search field."
+    },
+    {
+      "name": "searchPlaceholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Search'",
+      "description": "Placeholder for the search field."
+    },
+    {
+      "name": "status",
+      "type": "ViewStatus",
+      "required": false,
+      "description": "Explicit status. Omit and it is derived from `rows`."
+    },
+    {
+      "name": "onRetry",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "name": "emptyTitle",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Nothing here yet'",
+      "description": "Copy for the no-data case, before any filtering."
+    },
+    {
+      "name": "emptyDescription",
+      "type": "string",
+      "required": false,
+      "description": "Second line of the no-data case."
+    },
+    {
+      "name": "emptyIcon",
+      "type": "IconComponent",
+      "required": false,
+      "description": "Glyph for the no-data case."
+    },
+    {
+      "name": "actions",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Extra controls in the header — an export button, a date range."
+    },
+    {
+      "name": "pageSize",
+      "type": "number",
+      "required": false,
+      "defaultValue": "8"
+    },
+    {
+      "name": "selectable",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}
