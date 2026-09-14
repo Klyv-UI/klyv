@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react'
+import { useState, type CSSProperties, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Check, Copy } from 'lucide-react'
 import { Reveal, Text, VisuallyHidden, cn } from 'citrine'
@@ -13,6 +13,9 @@ import { Eyebrow } from '../../components/Eyebrow'
  */
 
 export const kb = (bytes: number) => `${(bytes / 1024).toFixed(bytes < 10240 ? 2 : 1)} kB`
+
+/** Where an element falls in the page's entrance; `.landing-enter` reads it. */
+export const enter = (ms: number) => ({ '--enter-delay': `${ms}ms` }) as CSSProperties
 
 /** The quiet "more of this" link, used under tiles and beside section headings. */
 export function SectionLink({ to, children, className }: { to: string; children: ReactNode; className?: string }) {
@@ -35,8 +38,8 @@ export function SectionLink({ to, children, className }: { to: string; children:
 }
 
 /**
- * One section: eyebrow, heading, a short lede, an optional link set against
- * the heading on wide screens, then the content. `band` gives it a lifted
+ * One section: eyebrow, heading, a short lede and an optional link, centred
+ * over the content. `band` gives it a lifted
  * full-width ground, which is how the page alternates without resorting to
  * gradients.
  *
@@ -46,8 +49,10 @@ export function SectionLink({ to, children, className }: { to: string; children:
  */
 export function LandingSection({
   id,
+  index,
   eyebrow,
   title,
+  tail,
   lede,
   action,
   band = false,
@@ -55,8 +60,12 @@ export function LandingSection({
 }: {
   /** The anchor, and the base of the heading's id. */
   id: string
+  /** The section's place on the page, shown before the eyebrow as 01, 02… */
+  index?: number
   eyebrow: string
   title: ReactNode
+  /** The rest of the heading, set in a quieter ink: the statement, then its turn. */
+  tail?: string
   lede?: ReactNode
   action?: ReactNode
   band?: boolean
@@ -64,32 +73,40 @@ export function LandingSection({
 }) {
   const titleId = `${id}-title`
   return (
-    <section id={id} aria-labelledby={titleId} className={cn('scroll-mt-20', band && 'landing-band border-y border-line')}>
+    <section id={id} aria-labelledby={titleId} className={cn('scroll-mt-20 lg:scroll-mt-36', band && 'landing-band border-y border-line')}>
       <div className="mx-auto w-full max-w-[1400px] px-5 py-16 sm:py-20 lg:px-8 lg:py-24">
         <Reveal>
-          <header className="mb-10 flex flex-wrap items-end justify-between gap-x-10 gap-y-5 lg:mb-12">
-            <div className="flex max-w-[68ch] flex-col">
-              <Eyebrow>{eyebrow}</Eyebrow>
+          <header className="mx-auto mb-10 flex max-w-[860px] flex-col items-center text-center lg:mb-14">
+            <div className="flex flex-col items-center">
+              <Eyebrow>
+                {index !== undefined && (
+                  <span aria-hidden className="mr-2 tabular-nums text-ink-faint">
+                    {String(index).padStart(2, '0')} /
+                  </span>
+                )}
+                {eyebrow}
+              </Eyebrow>
               <Text
                 as="h2"
                 id={titleId}
                 size="title"
-                className="mt-4 max-w-[22ch] text-balance text-[30px] leading-[1.06] tracking-[-0.04em] sm:text-[40px] lg:text-[44px]"
+                className="mt-4 max-w-[24ch] text-balance text-[32px] leading-[1.04] tracking-[-0.045em] sm:text-[44px] lg:text-[52px]"
               >
                 {title}
+                {tail && <span className="text-ink-faint"> {tail}</span>}
               </Text>
               {lede && (
                 <Text
                   size="body"
                   weight="medium"
                   tone="soft"
-                  className="mt-4 max-w-[62ch] text-pretty text-[15px] leading-relaxed sm:text-[16px]"
+                  className="mt-5 max-w-[60ch] text-balance text-[15px] leading-relaxed sm:text-[17px]"
                 >
                   {lede}
                 </Text>
               )}
             </div>
-            {action && <div className="shrink-0">{action}</div>}
+            {action && <div className="mt-5">{action}</div>}
           </header>
         </Reveal>
         {children}

@@ -25,7 +25,9 @@ export function Theming() {
     <LandingSection
       id="theming"
       eyebrow="Theming"
-      title="Pick a hue. Everything follows."
+      index={6}
+      title="Pick a hue."
+      tail="Everything follows."
       lede="Four custom properties are derived from one colour. Nothing else in the library names a colour, so the whole page repaints — this one included — and the text on the accent is chosen by contrast, not by guesswork."
     >
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">

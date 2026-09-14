@@ -105,8 +105,10 @@ export function Developer() {
   return (
     <LandingSection
       id="developers"
+      index={7}
       eyebrow="Developer experience"
-      title="Read the example, and you know how to use it"
+      title="Read the example,"
+      tail="and you know how to use it"
       lede="Plain React components with typed props, a theme API that is two functions, and three ways to take the code: the package, the source, or your agent."
       action={<SectionLink to="/getting-started">Read the setup guide</SectionLink>}
       band

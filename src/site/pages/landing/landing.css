@@ -15,10 +15,6 @@
     animation: landing-rise 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
     animation-delay: var(--enter-delay, 0ms);
   }
-
-  .landing-fade {
-    animation: landing-fade 220ms ease-out both;
-  }
 }
 
 @keyframes landing-rise {
@@ -32,45 +28,13 @@
   }
 }
 
-@keyframes landing-fade {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 4px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* The header over the hero: clear at the top of the page, so the hero's grid
-   runs under it, and a frosted bar with its hairline once the page moves.
-   Driven by the scroll position itself, so there is no listener to run; where
-   scroll timelines are unsupported the header simply keeps its frosted bar. */
-@supports (animation-timeline: scroll()) {
-  /* Longhands on purpose: the `animation` shorthand resets the timeline, and
-     a header animation on the document timeline has no duration, so it
-     snapped straight to its frosted end state. */
-  .landing-header {
-    animation-name: landing-header-lift;
-    animation-timing-function: linear;
-    animation-fill-mode: both;
-    animation-timeline: scroll(root block);
-    animation-range: 0 96px;
-  }
-}
-
-@keyframes landing-header-lift {
-  from {
-    background-color: transparent;
-    border-bottom-color: transparent;
-    box-shadow: none;
-  }
-  to {
-    background-color: color-mix(in oklab, var(--color-canvas) 82%, transparent);
-    border-bottom-color: var(--color-line);
-    box-shadow: 0 10px 30px -24px color-mix(in oklab, var(--color-ink) 45%, transparent);
-  }
+/* The header over the landing page. The hero is a dark stage in either theme,
+   and it scrolls under this bar: at the docs' 82% the stage showed through
+   enough to pull the section links below 4.5:1, so here the bar is nearly
+   solid, and keeps a soft shadow to lift it off whatever passes beneath. */
+.landing-header {
+  background-color: color-mix(in oklab, var(--color-canvas) 94%, transparent);
+  box-shadow: 0 10px 30px -24px color-mix(in oklab, var(--color-ink) 45%, transparent);
 }
 
 /* Ambient light and one-off flourishes. The drift is the only thing on the
@@ -109,9 +73,30 @@
 /* Cards answer the pointer by firming up — a stronger edge, a softer lift of
    shadow — without moving, since most of them are not links. */
 .landing-card {
+  position: relative;
+  isolation: isolate;
   transition:
     border-color 200ms ease,
     box-shadow 260ms ease;
+}
+
+/* The spotlight: a soft pool of the accent under the pointer, positioned by
+   the one listener in LandingPage. It sits behind the card's content, so it
+   tints the ground and never the words. */
+.landing-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 320ms ease;
+  background: radial-gradient(
+    280px circle at var(--spot-x, 50%) var(--spot-y, 0%),
+    color-mix(in oklab, var(--color-accent) 13%, transparent),
+    transparent 70%
+  );
 }
 
 @media (hover: hover) {
@@ -119,6 +104,17 @@
     border-color: var(--color-line-strong);
     box-shadow: var(--shadow-float);
   }
+
+  .landing-card:hover::before {
+    opacity: 1;
+  }
+}
+
+/* Film grain: a tiny tiled noise image, static, over the hero's light. */
+.landing-grain {
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
 }
 
 /* A dot grid for the surfaces that stand for a canvas — the hero's preview. */

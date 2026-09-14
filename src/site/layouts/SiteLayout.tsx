@@ -170,7 +170,7 @@ const SiteHeader = memo(function SiteHeader({
   onOpenSearch: () => void
   /** Where the drawer button shows: never, below lg (where the sidebar hides), or always. */
   navButton: 'none' | 'narrow' | 'always'
-  /** Over the landing hero: clear at the top, frosted once the page scrolls (landing.css). */
+  /** On the landing page: a near-solid bar, since its dark hero stage scrolls beneath (landing.css). */
   overlay?: boolean
 }) {
   return (

@@ -1,110 +1,47 @@
-import { useState, type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Package } from 'lucide-react'
-import {
-  BarList,
-  DonutChart,
-  HoloCard,
-  JsonViewer,
-  KanbanBoard,
-  Reveal,
-  Slider,
-  StatCard,
-  Surface,
-  Switch,
-  Tag,
-  Terminal,
-  Text,
-  cn,
-  type KanbanColumn,
-} from 'citrine'
+import { ArrowRight } from 'lucide-react'
+import { HoloCard, JsonViewer, Marquee, Reveal, Surface, Terminal, Text, cn } from 'citrine'
 import { catalog, componentCount } from '../../data/catalog'
 import { groups } from '../../data/groups'
 import { LandingSection, SectionLink } from './primitives'
 
+/** Two belts of names, drawn from across the catalogue rather than its first letters. */
+const BELT_A = catalog.filter((_, index) => index % 5 === 0).slice(0, 36).map((entry) => entry.name)
+const BELT_B = catalog.filter((_, index) => index % 5 === 2).slice(0, 36).map((entry) => entry.name)
+
+/** The closing cell's span, by how many groups the last row already holds. Static strings, so Tailwind sees them. */
+const FILL_SM = ['sm:col-span-2', 'sm:col-span-1'] as const
+const FILL_LG = ['lg:col-span-4', 'lg:col-span-3', 'lg:col-span-2', 'lg:col-span-1'] as const
+
 /**
- * The parts, everyday and otherwise, then the whole catalogue by what it is
- * for.
- *
- * Every tile is the component you would import, running: the board drags, the
- * chart is drawn from an array, the terminal answers. The tiles lead with the
- * parts products are built from; the more playful pieces are one click away in
- * the catalogue rather than competing for the first impression.
+ * The range: the everyday parts are already running on the workbench in the
+ * hero, so this section shows the breadth — the names rolling past, a few of
+ * the components nobody expects to find built, and the whole catalogue by
+ * what it is for.
  */
 export function Parts() {
-  const [notify, setNotify] = useState(true)
-  const [threshold, setThreshold] = useState(64)
-
   return (
     <LandingSection
       id="components"
+      index={5}
       eyebrow="Components"
-      title="Everyday parts, and the ones nobody expects to find built"
-      lede="Every tile below is the component you would import, running — not a picture of it."
+      title="Everyday parts,"
+      tail="and the ones nobody expects to find built"
+      lede="The workbench above is the everyday end of the range. Here is the rest — every tile the component you would import, running."
       action={<SectionLink to="/components">All {componentCount} components</SectionLink>}
     >
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-6">
-        <ShowcaseTile className="md:col-span-2" name="DonutChart" slug="donut-chart">
-          <div className="flex justify-center">
-            <DonutChart
-              label="Traffic by source"
-              size={128}
-              slices={[
-                { id: 'direct', label: 'Direct', value: 48 },
-                { id: 'search', label: 'Search', value: 32 },
-                { id: 'social', label: 'Social', value: 20 },
-              ]}
-            />
-          </div>
-        </ShowcaseTile>
+      {/* The names roll past as texture, so they are hidden from assistive
+          technology; the index at the foot of the section is the way in. */}
+      <div aria-hidden className="-mx-5 mb-10 flex flex-col gap-2.5 lg:-mx-8">
+        <Belt names={BELT_A} speed={90} />
+        <Belt names={BELT_B} speed={120} />
+      </div>
 
-        <ShowcaseTile className="md:col-span-2" name="StatCard" slug="stat-card" plain>
-          <StatCard
-            icon={Package}
-            title="Deploys"
-            value="184"
-            delta="+12"
-            trend="up"
-            caption="This quarter"
-            meter={{ value: 184, total: 240, label: 'Quarterly target' }}
-            className="h-full"
-          />
-        </ShowcaseTile>
-
-        <ShowcaseTile className="md:col-span-2" name="Switch and Slider" slug="slider">
-          <div className="flex h-full min-h-[168px] flex-col justify-center gap-5">
-            <div className="flex items-center justify-between gap-4">
-              <div className="flex flex-col gap-1">
-                <Text size="heading">Notifications</Text>
-                <Text size="caption" tone="faint">
-                  Weekly digest, Mondays
-                </Text>
-              </div>
-              <Switch checked={notify} onChange={(event) => setNotify(event.target.checked)} aria-label="Weekly digest" />
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <div className="flex items-baseline justify-between">
-                <Text size="caption" weight="semibold" tone="soft">
-                  Alert threshold
-                </Text>
-                <Text size="caption" weight="bold" tabular>
-                  {threshold}%
-                </Text>
-              </div>
-              <Slider value={threshold} onChange={(event) => setThreshold(Number(event.target.value))} aria-label="Alert threshold" />
-            </div>
-          </div>
-        </ShowcaseTile>
-
-        {/* A board people actually run their work on. Drag a card, or focus one
-            and use its move controls — it really moves. */}
-        <ShowcaseTile className="md:col-span-4" name="KanbanBoard" slug="kanban-board">
-          <KanbanTile />
-        </ShowcaseTile>
-
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
         {/* Ink on inverse ink rather than a fixed near-black, so the foil card
             follows the theme like everything else on the page. */}
-        <ShowcaseTile className="md:col-span-2" name="HoloCard" slug="holo-card" bare>
+        <ShowcaseTile name="HoloCard" slug="holo-card" bare>
           <HoloCard radius="var(--radius-card)" className="min-h-[240px] flex-1">
             <div className="flex h-full min-h-[240px] flex-col justify-between bg-ink p-6">
               <Text size="micro" weight="bold" tabular className="uppercase tracking-[0.2em] text-ink-inverse/70">
@@ -122,15 +59,9 @@ export function Parts() {
           </HoloCard>
         </ShowcaseTile>
 
-        <ShowcaseTile className="md:col-span-3 lg:col-span-2" name="BarList" slug="bar-list">
-          <div className="flex h-full min-h-[200px] flex-col justify-center">
-            <BarList label="Top pages this week" items={TOP_PAGES} limit={4} />
-          </div>
-        </ShowcaseTile>
-
-        <ShowcaseTile className="md:col-span-3 lg:col-span-2" name="Terminal" slug="terminal" bare>
+        <ShowcaseTile name="Terminal" slug="terminal" bare>
           <Terminal
-            height={200}
+            height={240}
             title="citrine — zsh"
             commands={['help', 'about', 'groups']}
             greeting={
@@ -152,8 +83,8 @@ export function Parts() {
           />
         </ShowcaseTile>
 
-        <ShowcaseTile className="md:col-span-6 lg:col-span-2" name="JsonViewer" slug="json-viewer" bare>
-          <JsonViewer label="Webhook payload" data={WEBHOOK} className="h-[200px] rounded-none" />
+        <ShowcaseTile name="JsonViewer" slug="json-viewer" bare>
+          <JsonViewer label="Webhook payload" data={WEBHOOK} className="h-[240px] rounded-none" />
         </ShowcaseTile>
       </div>
 
@@ -161,7 +92,7 @@ export function Parts() {
           before they know a component's name. */}
       <Reveal>
         <nav aria-label="Component groups" className="mt-10 flex flex-col gap-4">
-          <Text as="h3" size="heading">
+          <Text as="h3" size="heading" className="text-center">
             Browse by what it is for
           </Text>
           <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-[var(--radius-card)] border border-line bg-line shadow-[var(--shadow-card)] sm:grid-cols-2 lg:grid-cols-4">
@@ -212,60 +143,21 @@ export function Parts() {
   )
 }
 
-/** The closing cell's span, by how many groups the last row already holds. Static strings, so Tailwind sees them. */
-const FILL_SM = ['sm:col-span-2', 'sm:col-span-1'] as const
-const FILL_LG = ['lg:col-span-4', 'lg:col-span-3', 'lg:col-span-2', 'lg:col-span-1'] as const
-
-const BOARD: KanbanColumn[] = [
-  {
-    id: 'collect',
-    title: 'To collect',
-    cards: [
-      { id: 'c1', title: 'MF-40231 · Porto', meta: <Tag>Chilled</Tag> },
-      { id: 'c2', title: 'MF-40236 · Ghent' },
-    ],
-  },
-  {
-    id: 'transit',
-    title: 'In transit',
-    cards: [
-      { id: 'c3', title: 'MF-40182 · Lyon', meta: <Tag tone="accent">On time</Tag> },
-      { id: 'c4', title: 'MF-40188 · Kraków', meta: <Tag>At risk</Tag> },
-    ],
-  },
-  {
-    id: 'delivered',
-    title: 'Delivered',
-    cards: [{ id: 'c5', title: 'MF-40211 · Berlin', meta: <Tag tone="outline">Signed</Tag> }],
-  },
-]
-
-/** The board keeps its own columns, so a drag on the landing page really moves a card. */
-function KanbanTile() {
-  const [columns, setColumns] = useState(BOARD)
-
-  const move = (cardId: string, toColumnId: string, toIndex: number) => {
-    setColumns((current) => {
-      const card = current.flatMap((column) => column.cards).find((entry) => entry.id === cardId)
-      if (!card) return current
-      return current.map((column) => {
-        const cards = column.cards.filter((entry) => entry.id !== cardId)
-        if (column.id === toColumnId) cards.splice(toIndex, 0, card)
-        return { ...column, cards }
-      })
-    })
-  }
-
-  return <KanbanBoard label="Dispatch board" columns={columns} onMove={move} className="w-full" />
+/** One rolling belt of component names. Paused on hover, still under reduced motion. */
+function Belt({ names, speed }: { names: string[]; speed: number }) {
+  return (
+    <Marquee speed={speed}>
+      {names.map((name) => (
+        <span
+          key={name}
+          className="mr-2.5 inline-flex h-9 shrink-0 items-center rounded-full border border-line bg-surface px-4 text-[13px] font-semibold text-ink-soft shadow-[var(--shadow-tile)]"
+        >
+          {name}
+        </span>
+      ))}
+    </Marquee>
+  )
 }
-
-const TOP_PAGES = [
-  { id: 'pricing', label: '/pricing', value: 12_840 },
-  { id: 'docs', label: '/docs/getting-started', value: 9_312 },
-  { id: 'blocks', label: '/blocks/dashboard', value: 6_105 },
-  { id: 'changelog', label: '/changelog', value: 3_870 },
-  { id: 'careers', label: '/careers', value: 2_214 },
-]
 
 const WEBHOOK = {
   event: 'delivery.completed',
@@ -287,7 +179,6 @@ function ShowcaseTile({
   children,
   className,
   bare = false,
-  plain = false,
 }: {
   name: string
   slug: string
@@ -295,20 +186,14 @@ function ShowcaseTile({
   className?: string
   /** Let the specimen reach the card edge — for the ones that fill a frame. */
   bare?: boolean
-  /** The specimen is itself a card, so it gets no second one around it. */
-  plain?: boolean
 }) {
   return (
-    // `min-w-0`: a grid item is as wide as its content by default, and the
-    // board's own scroller pushed the whole page sideways on a phone.
+    // `min-w-0`: a grid item is as wide as its content by default, and a
+    // specimen's own scroller could push the whole page sideways on a phone.
     <Reveal className={cn('flex min-w-0 flex-col gap-2', className)}>
-      {plain ? (
-        <div className="flex flex-1 flex-col">{children}</div>
-      ) : (
-        <Surface variant="card" padding={bare ? 'none' : 'lg'} className="landing-card flex-1 overflow-hidden">
-          {children}
-        </Surface>
-      )}
+      <Surface variant="card" padding={bare ? 'none' : 'lg'} className="landing-card flex-1 overflow-hidden">
+        {children}
+      </Surface>
       <SectionLink to={`/components/${slug}`}>{name}</SectionLink>
     </Reveal>
   )

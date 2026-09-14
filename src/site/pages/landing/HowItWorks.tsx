@@ -75,7 +75,9 @@ export function HowItWorks() {
     <LandingSection
       id="how-it-works"
       eyebrow="How it works"
-      title="From idea to shipped screen, in four steps"
+      index={2}
+      title="From idea to shipped screen,"
+      tail="in four steps"
       lede="Each step is a tool on this site, built from the same design system as the components themselves."
     >
       <ol className="relative grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-6 xl:grid-cols-4">

@@ -53,12 +53,15 @@ export function Screens() {
     <LandingSection
       id="screens"
       eyebrow="Screens"
-      title="Real screens, not screenshots"
+      index={3}
+      title="Real screens,"
+      tail="not screenshots"
       lede="Every block is assembled from the library and nothing else — no colour, radius or spacing of its own. Sort the tables, open the dialogs, flip the switches: every control is wired."
       action={<SectionLink to="/blocks">All {blockCount} screens</SectionLink>}
     >
       <Tabs
         label="Example screens"
+        className="[&>[role=tablist]]:self-center"
         value={screen}
         onValueChange={(value) => setScreen(value as ScreenKey)}
         items={SCREENS.map((entry) => {

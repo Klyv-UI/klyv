@@ -53,7 +53,9 @@ export function Quality() {
     <LandingSection
       id="quality"
       eyebrow="Production-ready"
-      title="Standards you can check, not adjectives"
+      index={9}
+      title="Standards you can check,"
+      tail="not adjectives"
       lede="Each number is produced by a test or a build step in the repository, and shown on every component’s own page as its health."
       action={<SectionLink to="/components/data-table">See a component’s health</SectionLink>}
     >
