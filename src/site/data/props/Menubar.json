@@ -1,0 +1,22 @@
+{
+  "props": [
+    {
+      "name": "menus",
+      "type": "MenubarMenu[]",
+      "required": true,
+      "description": "The top-level menus, left to right."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the bar."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

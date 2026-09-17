@@ -1,0 +1,59 @@
+{
+  "props": [
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "The incident name — \"Elevated API error rates\"."
+    },
+    {
+      "name": "severity",
+      "type": "IncidentTimelineSeverity",
+      "required": true
+    },
+    {
+      "name": "updates",
+      "type": "IncidentTimelineUpdate[]",
+      "required": true,
+      "description": "Updates in any order. They are shown newest first."
+    },
+    {
+      "name": "components",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Components the incident touches — \"API\", \"Dashboard\"."
+    },
+    {
+      "name": "startedAt",
+      "type": "Date",
+      "required": false,
+      "description": "When impact began, if earlier than the first update."
+    },
+    {
+      "name": "now",
+      "type": "Date",
+      "required": false,
+      "description": "Reference time for an incident still open. Pass it for stable server rendering."
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3' | 'h4'",
+      "required": false,
+      "description": "Heading element for the title, to fit the page outline."
+    },
+    {
+      "name": "formatTime",
+      "type": "(date: Date) => string",
+      "required": false,
+      "defaultValue": "defaultTime",
+      "description": "Format each update’s timestamp."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

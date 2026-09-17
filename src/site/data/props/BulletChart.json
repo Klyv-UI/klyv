@@ -1,0 +1,43 @@
+{
+  "props": [
+    {
+      "name": "rows",
+      "type": "BulletChartRow[]",
+      "required": true,
+      "description": "One row per measure, stacked on a shared layout."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the group of measures."
+    },
+    {
+      "name": "rangeLabels",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "['Poor', 'Satisfactory', 'Good']",
+      "description": "Names of the qualitative ranges, lowest first. Used in each row’s spoken summary."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format the value, target and axis ticks."
+    },
+    {
+      "name": "showAxis",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Print the axis under each bar."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

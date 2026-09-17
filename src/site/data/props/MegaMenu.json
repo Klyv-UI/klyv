@@ -1,0 +1,35 @@
+{
+  "props": [
+    {
+      "name": "sections",
+      "type": "MegaMenuSection[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the navigation landmark."
+    },
+    {
+      "name": "openDelay",
+      "type": "number",
+      "required": false,
+      "defaultValue": "150",
+      "description": "Milliseconds the pointer must rest on a trigger before its panel opens."
+    },
+    {
+      "name": "closeDelay",
+      "type": "number",
+      "required": false,
+      "defaultValue": "200",
+      "description": "Milliseconds of grace after the pointer leaves before the panel closes."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

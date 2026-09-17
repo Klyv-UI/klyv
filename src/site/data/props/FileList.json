@@ -1,0 +1,66 @@
+{
+  "props": [
+    {
+      "name": "files",
+      "type": "FileListItem[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the list."
+    },
+    {
+      "name": "actions",
+      "type": "(file: FileListItem) => (MenuItem | 'separator')[]",
+      "required": false,
+      "description": "Row actions for a file — download, rename, delete. Omit for no menu."
+    },
+    {
+      "name": "onRetry",
+      "type": "(file: FileListItem) => void",
+      "required": false,
+      "description": "Called from a failed row’s Retry button."
+    },
+    {
+      "name": "selectable",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Show a checkbox on each row."
+    },
+    {
+      "name": "selected",
+      "type": "string[]",
+      "required": false,
+      "description": "Controlled selection, as file ids."
+    },
+    {
+      "name": "defaultSelected",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Initial selection when uncontrolled."
+    },
+    {
+      "name": "onSelectedChange",
+      "type": "(selected: string[]) => void",
+      "required": false,
+      "description": "Called with the new selection."
+    },
+    {
+      "name": "empty",
+      "type": "ReactNode",
+      "required": false,
+      "defaultValue": "'No files yet'",
+      "description": "Shown when there are no files."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

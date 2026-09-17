@@ -1,0 +1,71 @@
+{
+  "props": [
+    {
+      "name": "comments",
+      "type": "CommentThreadComment[]",
+      "required": true,
+      "description": "Top-level comments, oldest first. The caller owns the tree."
+    },
+    {
+      "name": "currentUserId",
+      "type": "string",
+      "required": true,
+      "description": "Whose comments get Edit and Delete."
+    },
+    {
+      "name": "onReply",
+      "type": "(parentId: string | null, body: string) => void",
+      "required": true,
+      "description": "A reply to a comment, or a new top-level comment when `parentId` is null."
+    },
+    {
+      "name": "onEdit",
+      "type": "(id: string, body: string) => void",
+      "required": false
+    },
+    {
+      "name": "onDelete",
+      "type": "(id: string) => void",
+      "required": false
+    },
+    {
+      "name": "onReact",
+      "type": "(id: string, emoji: string) => void",
+      "required": false,
+      "description": "Toggles one reaction for the current person. Omit to hide reactions."
+    },
+    {
+      "name": "reactionChoices",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "['👍', '🎉', '👀']",
+      "description": "The reactions offered on every comment."
+    },
+    {
+      "name": "maxDepth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Nesting stops here. Replying at the deepest level answers the parent, with a mention."
+    },
+    {
+      "name": "resolved",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Resolved threads hide their composers and read as settled."
+    },
+    {
+      "name": "onResolvedChange",
+      "type": "(resolved: boolean) => void",
+      "required": false,
+      "description": "Shows the Resolve / Reopen control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

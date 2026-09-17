@@ -1,0 +1,78 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The label. It must not change with the state — \"Mute\" stays \"Mute\" and the pressed state says whether it is on. A label that flips to \"Unmute\" makes a screen reader announce \"Unmute, pressed\", which contradicts itself."
+    },
+    {
+      "name": "pressed",
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled pressed state."
+    },
+    {
+      "name": "defaultPressed",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Starting state when uncontrolled."
+    },
+    {
+      "name": "onPressedChange",
+      "type": "(pressed: boolean) => void",
+      "required": false,
+      "description": "Called with the new state after each press."
+    },
+    {
+      "name": "variant",
+      "type": "ButtonVariant",
+      "required": false,
+      "defaultValue": "'outline'",
+      "description": "Look while not pressed. Same set as Button."
+    },
+    {
+      "name": "pressedVariant",
+      "type": "ButtonVariant",
+      "required": false,
+      "defaultValue": "'accent'",
+      "description": "Look while pressed."
+    },
+    {
+      "name": "size",
+      "type": "ButtonSize",
+      "required": false,
+      "defaultValue": "'md'",
+      "description": "Same heights as Button: 32px or 40px."
+    },
+    {
+      "name": "icon",
+      "type": "IconComponent",
+      "required": false,
+      "description": "Glyph beside the label."
+    },
+    {
+      "name": "pressedIcon",
+      "type": "IconComponent",
+      "required": false,
+      "description": "Glyph shown instead of `icon` while pressed — an outlined star becoming a filled one."
+    },
+    {
+      "name": "iconOnly",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Show the glyph alone. The label is kept for assistive technology."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ],
+  "inherits": [
+    "Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'onChange' | 'value' | 'defaultValue' | 'aria-pressed'>"
+  ]
+}

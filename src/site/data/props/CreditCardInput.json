@@ -1,0 +1,74 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "CreditCardInputValue",
+      "required": false,
+      "description": "Controlled number, expiry and CVC, as digits."
+    },
+    {
+      "name": "defaultValue",
+      "type": "CreditCardInputValue",
+      "required": false,
+      "defaultValue": "EMPTY",
+      "description": "Starting value when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: CreditCardInputValue, status: CreditCardInputStatus) => void",
+      "required": false,
+      "description": "Called on every edit with the digits and what they add up to."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Card details'",
+      "description": "Accessible name for the group."
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Marks the whole control invalid, on top of its own per-field checks."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false,
+      "description": "Forwarded to all three inputs."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Put on the card-number input, so a Field label points at it."
+    },
+    {
+      "name": "'aria-describedby'",
+      "type": "string",
+      "required": false,
+      "description": "Forwarded to each input. Field sets it to its hint or error."
+    },
+    {
+      "name": "now",
+      "type": "Date",
+      "required": false,
+      "description": "Reference date for the expiry check. Defaults to now."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

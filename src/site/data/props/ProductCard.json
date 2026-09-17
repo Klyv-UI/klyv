@@ -1,0 +1,117 @@
+{
+  "props": [
+    {
+      "name": "title",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "href",
+      "type": "string",
+      "required": false,
+      "description": "Product page. Makes the title a link."
+    },
+    {
+      "name": "image",
+      "type": "ProductCardImage",
+      "required": true
+    },
+    {
+      "name": "hoverImage",
+      "type": "ProductCardImage",
+      "required": false,
+      "description": "A second photo shown while the card is hovered — the product worn, or from behind."
+    },
+    {
+      "name": "badge",
+      "type": "ProductCardBadge",
+      "required": false,
+      "description": "Corner label. sale uses the accent fill; new the neutral one."
+    },
+    {
+      "name": "price",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "compareAtPrice",
+      "type": "number",
+      "required": false,
+      "description": "The earlier price. Shown struck through when higher than `price`."
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'$'",
+      "description": "Currency symbol prefixed to prices."
+    },
+    {
+      "name": "rating",
+      "type": "{ value: number; count: number }",
+      "required": false,
+      "description": "Average rating and review count."
+    },
+    {
+      "name": "swatches",
+      "type": "ProductCardSwatch[]",
+      "required": false,
+      "description": "Colour options, as a radio group."
+    },
+    {
+      "name": "swatch",
+      "type": "string",
+      "required": false,
+      "description": "Controlled selected swatch value."
+    },
+    {
+      "name": "defaultSwatch",
+      "type": "string",
+      "required": false,
+      "description": "Initial swatch when uncontrolled. Defaults to the first."
+    },
+    {
+      "name": "onSwatchChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called when a swatch is chosen."
+    },
+    {
+      "name": "onAddToCart",
+      "type": "(swatch: string | undefined) => void | Promise<void>",
+      "required": false,
+      "description": "Add to cart. Return a promise to show the loading state until it settles."
+    },
+    {
+      "name": "wishlisted",
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled wishlist state."
+    },
+    {
+      "name": "defaultWishlisted",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Initial wishlist state when uncontrolled."
+    },
+    {
+      "name": "onWishlistChange",
+      "type": "(wishlisted: boolean) => void",
+      "required": false,
+      "description": "Called when the heart is toggled."
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3' | 'h4'",
+      "required": false,
+      "description": "Heading level for the title."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

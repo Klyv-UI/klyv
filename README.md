@@ -1,6 +1,6 @@
 # Klyv
 
-**An accent-led React component library.** 250+ components that take their entire
+**An accent-led React component library.** 330+ components that take their entire
 personality from a single colour — pick a hue and the whole set repaints:
 buttons, charts, selection washes, and the page behind them.
 
@@ -88,30 +88,49 @@ through them, rather than each keeping a copy that goes stale.
 
 ## What is in it
 
-296 components in thirteen groups. The grouping describes what a component is
+336 components in thirteen groups. The grouping describes what a component is
 **for** — the only question anyone browsing a library arrives with.
 
 | Group | Count | |
 | --- | --- | --- |
 | Foundations | 9 | the type scale, container recipes, utilities |
-| Layout | 16 | structure, disclosure, stacks and scrolling |
-| Navigation | 18 | bars, shells, tabs, steps, menus, search |
-| Actions | 8 | buttons, and the richer controls built on them |
-| Forms & Inputs | 37 | text, choice, ranges, dates, rich input |
-| Data Display | 27 | identity, lists, tables, metrics, records |
-| Charts | 17 | plots, gauges, distribution, flow, activity |
-| Feedback | 26 | status, messages, empty states, celebration |
-| Overlays | 11 | dialogs, popovers, guidance |
+| Layout | 21 | structure, disclosure, stacks and scrolling |
+| Navigation | 21 | bars, shells, tabs, steps, menus, search |
+| Actions | 14 | buttons, and the richer controls built on them |
+| Forms & Inputs | 47 | text, choice, ranges, dates, rich input |
+| Data Display | 37 | identity, lists, tables, metrics, records |
+| Charts | 26 | plots, gauges, distribution, flow, activity |
+| Feedback | 29 | status, messages, empty states, celebration |
+| Overlays | 14 | dialogs, popovers, guidance |
 | Motion & Effects | 34 | entrances, kinetic type, light and surfaces |
-| Interaction | 20 | touch and drag, presence, trust and workflow |
+| Interaction | 23 | touch and drag, presence, trust and workflow |
 | Canvas & Play | 15 | generative, audio, physics, toys |
-| **SaaS** ✦ New | 42 | marketing, pricing, auth, billing, team, settings, developer, data views, engagement, security |
+| SaaS | 46 | marketing, pricing, auth, billing, team, settings, developer, data views, engagement, security |
 
-### New: the SaaS group
+### New: forty more components
+
+Forty components that fill gaps across the library, every one marked **New** on
+the site (sidebar, catalogue cards, component page header, and a **New** filter
+on /components). The SaaS set below is no longer tagged New.
+
+**Layout** — AspectRatio · ScrollArea · Masonry.
+**Navigation** — Menubar · MegaMenu · BackToTop.
+**Actions** — ToggleButton · SpeedDial · ShareMenu.
+**Forms & Inputs** — PhoneInput · CreditCardInput · ChoiceCardGroup · TransferList ·
+MonthPicker · TimeSlotPicker · InputGroup · EmojiPicker.
+**Data Display** — ProfileCard · FileList · ReviewSummary · ProductCard ·
+OrderTracker · ImageGallery.
+**Charts** — ScatterChart · WaterfallChart · Histogram · BoxPlot · BulletChart ·
+CandlestickChart.
+**Feedback** — UptimeBar · IncidentTimeline.
+**Overlays** — ConfirmPopover · Toggletip.
+**Interaction** — ChatThread · MessageComposer · CommentThread.
+**SaaS** — NotificationPreferences · FeatureFlags · ReferralCard · NpsSurvey.
+
+### The SaaS group
 
 Forty-two components chosen from a gap audit of the library against what a SaaS
-product needs, every one marked **New** on the site (sidebar, catalogue cards,
-component page header, and a **New** filter on /components). Nothing duplicates
+product needs. Nothing duplicates
 an existing component — `PasswordStrength` and `CopyButton` were already here and
 are reused, not re-made.
 

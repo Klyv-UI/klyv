@@ -1,0 +1,59 @@
+{
+  "props": [
+    {
+      "name": "status",
+      "type": "OrderTrackerStatus",
+      "required": true,
+      "description": "The step the shipment has reached. Every earlier step counts as complete."
+    },
+    {
+      "name": "timestamps",
+      "type": "Partial<Record<OrderTrackerStatus, Date>>",
+      "required": false,
+      "defaultValue": "{}",
+      "description": "When each reached step happened. Steps without one show no time."
+    },
+    {
+      "name": "orderNumber",
+      "type": "string",
+      "required": false,
+      "description": "Order reference shown in the header — \"A-10482\"."
+    },
+    {
+      "name": "carrier",
+      "type": "string",
+      "required": false,
+      "description": "Shipping company — \"DHL Express\"."
+    },
+    {
+      "name": "trackingNumber",
+      "type": "string",
+      "required": false,
+      "description": "Carrier tracking number, with a copy button."
+    },
+    {
+      "name": "trackingUrl",
+      "type": "string",
+      "required": false,
+      "description": "Carrier tracking page. Makes the number a link."
+    },
+    {
+      "name": "estimatedDelivery",
+      "type": "Date",
+      "required": false,
+      "description": "Expected delivery date, shown until the order is delivered."
+    },
+    {
+      "name": "labels",
+      "type": "Partial<Record<OrderTrackerStatus, string>>",
+      "required": false,
+      "description": "Override step names, for another language or wording."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

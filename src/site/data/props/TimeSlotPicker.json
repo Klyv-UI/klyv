@@ -1,0 +1,62 @@
+{
+  "props": [
+    {
+      "name": "days",
+      "type": "TimeSlotPickerDay[]",
+      "required": true,
+      "description": "Days in the strip, in order, each with its slots."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Controlled choice as `yyyy-mm-ddTHH:mm`, or empty."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "Starting choice when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called with `yyyy-mm-ddTHH:mm` when a slot is chosen."
+    },
+    {
+      "name": "timeZoneLabel",
+      "type": "string",
+      "required": false,
+      "description": "Timezone the times are shown in, printed under the grid. Defaults to the browser's."
+    },
+    {
+      "name": "columns",
+      "type": "2 | 3 | 4",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Slots per row."
+    },
+    {
+      "name": "locale",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'en-US'",
+      "description": "BCP 47 locale for day and time formats."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Choose a time'",
+      "description": "Accessible name for the whole picker."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

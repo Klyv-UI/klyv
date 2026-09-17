@@ -1,0 +1,70 @@
+{
+  "props": [
+    {
+      "name": "onSelect",
+      "type": "(emoji: EmojiPickerEmoji) => void",
+      "required": true,
+      "description": "Called with the chosen emoji. The picker adds it to the recent row too."
+    },
+    {
+      "name": "emojis",
+      "type": "EmojiPickerEmoji[]",
+      "required": false,
+      "defaultValue": "EMOJI_PICKER_DATA",
+      "description": "Replace the built-in set."
+    },
+    {
+      "name": "categories",
+      "type": "EmojiPickerCategory[]",
+      "required": false,
+      "defaultValue": "EMOJI_PICKER_CATEGORIES",
+      "description": "Replace the built-in category tabs."
+    },
+    {
+      "name": "recent",
+      "type": "string[]",
+      "required": false,
+      "description": "Controlled recent emoji characters, most recent first."
+    },
+    {
+      "name": "defaultRecent",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Starting recent emoji when uncontrolled."
+    },
+    {
+      "name": "onRecentChange",
+      "type": "(recent: string[]) => void",
+      "required": false,
+      "description": "Called with the new recent list after each pick. Persist it if you want it to survive a reload."
+    },
+    {
+      "name": "maxRecent",
+      "type": "number",
+      "required": false,
+      "defaultValue": "16",
+      "description": "How many recent emoji to keep."
+    },
+    {
+      "name": "columns",
+      "type": "number",
+      "required": false,
+      "defaultValue": "8",
+      "description": "Cells per row; arrow keys move by this many vertically."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Emoji'",
+      "description": "Accessible name for the picker."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

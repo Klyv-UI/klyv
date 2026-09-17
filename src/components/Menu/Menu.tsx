@@ -102,6 +102,7 @@ export function Menu({
       onOpenChange={setOpen}
       placement={placement}
       align={align}
+      label={label}
       className={cn('min-w-[180px] p-1', className)}
     >
       <div

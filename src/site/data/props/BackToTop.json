@@ -1,0 +1,58 @@
+{
+  "props": [
+    {
+      "name": "threshold",
+      "type": "number",
+      "required": false,
+      "defaultValue": "400",
+      "description": "Pixels scrolled before the button appears."
+    },
+    {
+      "name": "target",
+      "type": "RefObject<HTMLElement | null>",
+      "required": false,
+      "description": "The scrolling element. Omit to track the window."
+    },
+    {
+      "name": "focusTarget",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'#main, main'",
+      "description": "Selector for the element that receives focus once back at the top — usually the skip-link target. Without this, focus stays on a button at the bottom of the page while the reader is looking at the top of it."
+    },
+    {
+      "name": "showProgress",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Draw a ring round the button showing how far down the page the reader is."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Back to top'",
+      "description": "Accessible name, and the tooltip."
+    },
+    {
+      "name": "side",
+      "type": "'left' | 'right'",
+      "required": false,
+      "defaultValue": "'right'",
+      "description": "Which corner it floats in."
+    },
+    {
+      "name": "fixed",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Pin to the viewport. Turn it off to place it inside a positioned container."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

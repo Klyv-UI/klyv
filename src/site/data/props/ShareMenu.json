@@ -1,0 +1,81 @@
+{
+  "props": [
+    {
+      "name": "url",
+      "type": "string",
+      "required": true,
+      "description": "The address being shared."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "Page title — the email subject and the post text."
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "required": false,
+      "description": "Extra line passed to the native share sheet."
+    },
+    {
+      "name": "preferNative",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Use the device share sheet where the browser has one."
+    },
+    {
+      "name": "channels",
+      "type": "Exclude<ShareMenuChannel, 'native' | 'copy'>[]",
+      "required": false,
+      "defaultValue": "['email', 'x', 'linkedin', 'facebook']",
+      "description": "Which networks to list, in order."
+    },
+    {
+      "name": "label",
+      "type": "ReactNode",
+      "required": false,
+      "defaultValue": "'Share'",
+      "description": "The trigger’s label."
+    },
+    {
+      "name": "variant",
+      "type": "ButtonVariant",
+      "required": false,
+      "defaultValue": "'outline'",
+      "description": "Trigger button variant."
+    },
+    {
+      "name": "size",
+      "type": "ButtonSize",
+      "required": false,
+      "defaultValue": "'sm'",
+      "description": "Trigger button size."
+    },
+    {
+      "name": "placement",
+      "type": "PopoverPlacement",
+      "required": false,
+      "defaultValue": "'bottom'"
+    },
+    {
+      "name": "align",
+      "type": "PopoverAlign",
+      "required": false,
+      "defaultValue": "'start'"
+    },
+    {
+      "name": "onShare",
+      "type": "(channel: ShareMenuChannel) => void",
+      "required": false,
+      "description": "Called after each share action, with how it was shared."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the trigger button."
+    }
+  ]
+}

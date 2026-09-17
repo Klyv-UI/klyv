@@ -1,0 +1,50 @@
+{
+  "props": [
+    {
+      "name": "messages",
+      "type": "ChatThreadMessage[]",
+      "required": true,
+      "description": "Oldest first."
+    },
+    {
+      "name": "currentUserId",
+      "type": "string",
+      "required": true,
+      "description": "Whose messages sit on the right, in the accent."
+    },
+    {
+      "name": "typing",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Names of the people typing right now. Rendered with TypingIndicator."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Conversation'",
+      "description": "Accessible name for the log."
+    },
+    {
+      "name": "groupGap",
+      "type": "number",
+      "required": false,
+      "defaultValue": "5",
+      "description": "Messages further apart than this start a new group, in minutes."
+    },
+    {
+      "name": "pinThreshold",
+      "type": "number",
+      "required": false,
+      "defaultValue": "48",
+      "description": "Distance from the bottom, in pixels, that still counts as “at the bottom”."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins. Give the thread a height here."
+    }
+  ]
+}

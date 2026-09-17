@@ -1,0 +1,47 @@
+{
+  "props": [
+    {
+      "name": "average",
+      "type": "number",
+      "required": true,
+      "description": "Mean rating, 0–5. Shown to one decimal."
+    },
+    {
+      "name": "distribution",
+      "type": "Record<ReviewSummaryStars, number>",
+      "required": true,
+      "description": "Number of reviews at each star level. The total is their sum."
+    },
+    {
+      "name": "filter",
+      "type": "ReviewSummaryStars | null",
+      "required": false,
+      "description": "Controlled star filter; null shows every review."
+    },
+    {
+      "name": "defaultFilter",
+      "type": "ReviewSummaryStars | null",
+      "required": false,
+      "defaultValue": "null",
+      "description": "Initial filter when uncontrolled."
+    },
+    {
+      "name": "onFilterChange",
+      "type": "(filter: ReviewSummaryStars | null) => void",
+      "required": false,
+      "description": "Called when a distribution row is toggled. Without it, and without `filter`, the rows are not buttons."
+    },
+    {
+      "name": "highlights",
+      "type": "ReviewSummaryHighlight[]",
+      "required": false,
+      "description": "Up to a few excerpts shown under the bars."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

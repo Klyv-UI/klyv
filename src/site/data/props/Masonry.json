@@ -1,0 +1,43 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "One child per tile, in reading order."
+    },
+    {
+      "name": "columns",
+      "type": "number | MasonryColumns",
+      "required": false,
+      "defaultValue": "{ base: 1, sm: 2, lg: 3 }",
+      "description": "A fixed count, or counts by container width."
+    },
+    {
+      "name": "gap",
+      "type": "number",
+      "required": false,
+      "defaultValue": "16",
+      "description": "Space between tiles, in pixels, both ways."
+    },
+    {
+      "name": "as",
+      "type": "'div' | 'ul'",
+      "required": false,
+      "defaultValue": "'div'",
+      "description": "`ul` gives the tiles list semantics, so a screen reader announces the count."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Accessible name for the list."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

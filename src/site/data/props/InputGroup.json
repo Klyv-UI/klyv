@@ -1,0 +1,61 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "InputGroupAddon cells and one Input, in visual order."
+    },
+    {
+      "name": "size",
+      "type": "InputGroupSize",
+      "required": false,
+      "defaultValue": "'md'",
+      "description": "Height and type size of the joined control."
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Reddens the shared border and marks the input invalid."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Disables every control inside, through the fieldset."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Name for the group, when the addons alone do not explain it."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Forwarded to the first non-addon child, so a Field label reaches the input."
+    },
+    {
+      "name": "'aria-describedby'",
+      "type": "string",
+      "required": false,
+      "description": "Forwarded to the first non-addon child."
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false,
+      "description": "Forwarded to the first non-addon child."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "What the bubble explains. Can hold links and formatting."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Names the button — “More about seats”. Say what it explains, not “Info”."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled open state."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Initial state when uncontrolled."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "required": false
+    },
+    {
+      "name": "placement",
+      "type": "PopoverPlacement",
+      "required": false,
+      "defaultValue": "'top'"
+    },
+    {
+      "name": "align",
+      "type": "PopoverAlign",
+      "required": false,
+      "defaultValue": "'center'"
+    },
+    {
+      "name": "icon",
+      "type": "IconComponent",
+      "required": false,
+      "description": "Replaces the “i” glyph."
+    },
+    {
+      "name": "size",
+      "type": "'sm' | 'md'",
+      "required": false,
+      "defaultValue": "'sm'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Applied to the bubble."
+    }
+  ]
+}

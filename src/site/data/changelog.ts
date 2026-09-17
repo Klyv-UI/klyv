@@ -56,6 +56,13 @@ export const releases: Release[] = [
     changes: [
       {
         category: 'feature',
+        title: 'Forty more components, now the ones marked New',
+        description:
+          'AspectRatio, ScrollArea, Masonry, Menubar, MegaMenu, BackToTop, ToggleButton, SpeedDial, ShareMenu, PhoneInput, CreditCardInput, ChoiceCardGroup, TransferList, MonthPicker, TimeSlotPicker, InputGroup, EmojiPicker, ProfileCard, FileList, ReviewSummary, ProductCard, OrderTracker, ImageGallery, ScatterChart, WaterfallChart, Histogram, BoxPlot, BulletChart, CandlestickChart, UptimeBar, IncidentTimeline, ConfirmPopover, Toggletip, ChatThread, MessageComposer, CommentThread, NotificationPreferences, FeatureFlags, ReferralCard and NpsSurvey. The SaaS group is no longer tagged New.',
+        links: [{ label: 'New components', to: '/components?new=1' }],
+      },
+      {
+        category: 'feature',
         title: 'Composer',
         description:
           'Build a screen from the real components and blocks on a canvas, edit their props, preview it at three widths and copy the code with its dependencies.',

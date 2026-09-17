@@ -1,0 +1,50 @@
+{
+  "props": [
+    {
+      "name": "candles",
+      "type": "CandlestickChartCandle[]",
+      "required": true,
+      "description": "Oldest first."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "300",
+      "description": "Chart height in pixels, volume included. The width fills the container."
+    },
+    {
+      "name": "showVolume",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Draw the volume pane when the candles carry volume."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format prices on the axis and in the tooltip."
+    },
+    {
+      "name": "formatVolume",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format volume in the tooltip."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

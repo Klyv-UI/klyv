@@ -1,0 +1,75 @@
+{
+  "props": [
+    {
+      "name": "values",
+      "type": "number[]",
+      "required": true,
+      "description": "Raw observations. Values that are not finite numbers are left out."
+    },
+    {
+      "name": "bins",
+      "type": "number",
+      "required": false,
+      "description": "Roughly how many bins to use. Rounded so the edges land on round numbers."
+    },
+    {
+      "name": "binWidth",
+      "type": "number",
+      "required": false,
+      "description": "Exact bin width. Wins over `bins`."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "xLabel",
+      "type": "string",
+      "required": false,
+      "description": "Name of the measure, printed under the axis."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "220",
+      "description": "Plot height in pixels. The width fills the container."
+    },
+    {
+      "name": "showMean",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Mark the arithmetic mean."
+    },
+    {
+      "name": "showMedian",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Mark the median."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format bin edges and markers."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-accent-strong)'",
+      "description": "Bar colour. Any CSS colour; prefer a token."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

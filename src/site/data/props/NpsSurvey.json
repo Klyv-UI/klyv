@@ -1,0 +1,66 @@
+{
+  "props": [
+    {
+      "name": "question",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'How likely are you to recommend us to a friend or colleague?'",
+      "description": "The recommendation question. Name the product."
+    },
+    {
+      "name": "value",
+      "type": "number | null",
+      "required": false,
+      "description": "Controlled score."
+    },
+    {
+      "name": "defaultValue",
+      "type": "number | null",
+      "required": false,
+      "defaultValue": "null",
+      "description": "Initial score when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(score: number) => void",
+      "required": false
+    },
+    {
+      "name": "onSubmit",
+      "type": "(response: NpsSurveyResponse) => void | Promise<void>",
+      "required": true,
+      "description": "Return a promise to hold the submit button busy until it settles."
+    },
+    {
+      "name": "onDismiss",
+      "type": "() => void",
+      "required": false,
+      "description": "Shows a close button. The survey does not hide itself — the caller decides when to stop asking."
+    },
+    {
+      "name": "followUp",
+      "type": "Partial<Record<NpsSurveyCategory, string>>",
+      "required": false,
+      "description": "The second question, per category."
+    },
+    {
+      "name": "thanks",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Replaces the thank-you message."
+    },
+    {
+      "name": "variant",
+      "type": "'card' | 'inline'",
+      "required": false,
+      "defaultValue": "'card'",
+      "description": "card is a standalone panel; inline sits flat inside a page or a toast."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -32,9 +32,15 @@
   "AvatarGroup": [
     "group"
   ],
+  "BoxPlot": [
+    "img"
+  ],
   "BulkActionBar": [
     "group",
     "status"
+  ],
+  "BulletChart": [
+    "img"
   ],
   "ButtonGroup": [
     "group"
@@ -42,6 +48,9 @@
   "Calendar": [
     "grid",
     "gridcell"
+  ],
+  "CandlestickChart": [
+    "img"
   ],
   "Carousel": [
     "group"
@@ -52,6 +61,10 @@
   ],
   "CategoryBar": [
     "img"
+  ],
+  "ChatThread": [
+    "log",
+    "separator"
   ],
   "CoachTour": [
     "dialog",
@@ -76,6 +89,9 @@
     "modal",
     "option"
   ],
+  "ConfirmPopover": [
+    "alert"
+  ],
   "ConnectionBanner": [
     "status"
   ],
@@ -99,6 +115,10 @@
   "CoverFlow": [
     "listbox",
     "option"
+  ],
+  "CreditCardInput": [
+    "group",
+    "status"
   ],
   "Cropper": [
     "group"
@@ -140,14 +160,30 @@
     "dialog",
     "modal"
   ],
+  "EmojiPicker": [
+    "grid",
+    "gridcell",
+    "group",
+    "row",
+    "status",
+    "tab",
+    "tablist",
+    "tabpanel"
+  ],
   "EmojiSlider": [
     "slider"
   ],
   "ErrorState": [
     "alert"
   ],
+  "FeatureFlags": [
+    "status"
+  ],
   "FeedbackWidget": [
     "status"
+  ],
+  "FileList": [
+    "alert"
   ],
   "FileUpload": [
     "alert"
@@ -168,6 +204,9 @@
   "HelpPanel": [
     "status"
   ],
+  "Histogram": [
+    "img"
+  ],
   "HoldToConfirm": [
     "status"
   ],
@@ -176,6 +215,11 @@
   ],
   "ImageCompare": [
     "slider"
+  ],
+  "ImageGallery": [
+    "tab",
+    "tablist",
+    "tabpanel"
   ],
   "ImportMapper": [
     "group",
@@ -234,6 +278,15 @@
     "menu",
     "menuitem"
   ],
+  "Menubar": [
+    "checkbox",
+    "menu",
+    "menubar",
+    "menuitem",
+    "menuitemcheckbox",
+    "none",
+    "separator"
+  ],
   "Meter": [
     "progressbar"
   ],
@@ -247,6 +300,11 @@
   "Modal": [
     "modal"
   ],
+  "MonthPicker": [
+    "grid",
+    "gridcell",
+    "row"
+  ],
   "MorphDialog": [
     "dialog",
     "modal"
@@ -255,6 +313,12 @@
     "listbox"
   ],
   "NotificationCenter": [
+    "status"
+  ],
+  "NotificationPreferences": [
+    "status"
+  ],
+  "NpsSurvey": [
     "status"
   ],
   "OrbitRing": [
@@ -291,6 +355,10 @@
     "status"
   ],
   "PricingTable": [
+    "status"
+  ],
+  "ProductCard": [
+    "radiogroup",
     "status"
   ],
   "Progress": [
@@ -332,6 +400,9 @@
   "RetryQueue": [
     "status"
   ],
+  "ReviewSummary": [
+    "img"
+  ],
   "RotatingWord": [
     "status"
   ],
@@ -343,6 +414,12 @@
   ],
   "SaveIndicator": [
     "status"
+  ],
+  "ScatterChart": [
+    "img"
+  ],
+  "ScrollArea": [
+    "region"
   ],
   "ScrollProgress": [
     "progressbar"
@@ -363,6 +440,11 @@
   "SettingsSection": [
     "status"
   ],
+  "ShareMenu": [
+    "menu",
+    "menuitem",
+    "status"
+  ],
   "ShortcutRecorder": [
     "status"
   ],
@@ -378,6 +460,11 @@
   ],
   "Sparkline": [
     "img"
+  ],
+  "SpeedDial": [
+    "menu",
+    "menuitem",
+    "none"
   ],
   "Spinner": [
     "status"
@@ -419,6 +506,11 @@
     "listbox",
     "option"
   ],
+  "TimeSlotPicker": [
+    "group",
+    "radio",
+    "radiogroup"
+  ],
   "Toast": [
     "region",
     "status"
@@ -426,11 +518,20 @@
   "ToggleGroup": [
     "group"
   ],
+  "Toggletip": [
+    "status"
+  ],
   "Toolbar": [
     "toolbar"
   ],
   "Tooltip": [
     "tooltip"
+  ],
+  "TransferList": [
+    "group",
+    "listbox",
+    "option",
+    "status"
   ],
   "TreeMap": [
     "group"
@@ -444,6 +545,9 @@
     "menu",
     "menuitem",
     "status"
+  ],
+  "UptimeBar": [
+    "img"
   ],
   "UsageMeter": [
     "progressbar"
@@ -463,6 +567,9 @@
     "list",
     "listitem",
     "presentation"
+  ],
+  "WaterfallChart": [
+    "img"
   ],
   "Waveform": [
     "img"

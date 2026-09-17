@@ -1,0 +1,77 @@
+{
+  "props": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "description": "Full name. Drives the avatar initials and the heading."
+    },
+    {
+      "name": "role",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Job title, team or handle, under the name."
+    },
+    {
+      "name": "avatarSrc",
+      "type": "string",
+      "required": false,
+      "description": "Portrait URL. Without one the avatar shows initials."
+    },
+    {
+      "name": "coverSrc",
+      "type": "string",
+      "required": false,
+      "description": "Banner image URL across the top of the full card. Omitted, a soft accent band is drawn instead."
+    },
+    {
+      "name": "bio",
+      "type": "ReactNode",
+      "required": false,
+      "description": "A sentence or two about the person. Full variant only."
+    },
+    {
+      "name": "stats",
+      "type": "ProfileCardStat[]",
+      "required": false,
+      "description": "Counts in a row under the bio — posts, followers, projects. Full variant only."
+    },
+    {
+      "name": "links",
+      "type": "ProfileCardLink[]",
+      "required": false,
+      "description": "Social and web links."
+    },
+    {
+      "name": "primaryAction",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The main action — Follow, Message. Usually a Button."
+    },
+    {
+      "name": "secondaryAction",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The lesser action beside it."
+    },
+    {
+      "name": "variant",
+      "type": "ProfileCardVariant",
+      "required": false,
+      "defaultValue": "'full'",
+      "description": "full is the standalone card with cover, bio and stats; compact is a single row for lists."
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3' | 'h4'",
+      "required": false,
+      "description": "Heading level for the name, so the card fits the page outline."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

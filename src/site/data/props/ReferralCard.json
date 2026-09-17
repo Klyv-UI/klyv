@@ -1,0 +1,48 @@
+{
+  "props": [
+    {
+      "name": "link",
+      "type": "string",
+      "required": true,
+      "description": "The personal invite link."
+    },
+    {
+      "name": "reward",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The offer in a sentence — both sides of it."
+    },
+    {
+      "name": "tiers",
+      "type": "ReferralCardTier[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Reward tiers, lowest first."
+    },
+    {
+      "name": "referrals",
+      "type": "ReferralCardReferral[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "People invited so far. Joined and rewarded both count towards a tier."
+    },
+    {
+      "name": "share",
+      "type": "ReferralCardShareTarget[]",
+      "required": false,
+      "defaultValue": "[]"
+    },
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "required": false,
+      "defaultValue": "'Invite friends'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

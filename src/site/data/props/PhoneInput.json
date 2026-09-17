@@ -1,0 +1,101 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Controlled number in E.164 form, e.g. `+442071838750`. Empty string when blank."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "Starting number when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string, country: PhoneInputCountry) => void",
+      "required": false,
+      "description": "Called with the E.164 string on every edit, and when the country changes."
+    },
+    {
+      "name": "countries",
+      "type": "PhoneInputCountry[]",
+      "required": false,
+      "defaultValue": "PHONE_INPUT_COUNTRIES",
+      "description": "Countries offered in the dial-code select. Defaults to `PHONE_INPUT_COUNTRIES`."
+    },
+    {
+      "name": "defaultCountry",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'US'",
+      "description": "ISO code selected when the value does not name a country."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Phone number'",
+      "description": "Accessible name for the number field. Field supplies a visible one through `id`."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "description": "Placeholder for the national number. Defaults to the country's mask."
+    },
+    {
+      "name": "size",
+      "type": "PhoneInputSize",
+      "required": false,
+      "defaultValue": "'md'",
+      "description": "Control height: 36px or 40px."
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Marks the number invalid and reddens the border. Pair with a message."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false,
+      "description": "Forwarded to the number input."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Put on the number input, so a Field label points at it."
+    },
+    {
+      "name": "'aria-describedby'",
+      "type": "string",
+      "required": false,
+      "description": "Forwarded to the number input. Field sets it to its hint or error."
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "Form field name for the E.164 value, submitted through a hidden input."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The content that may overflow."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the scrolling region. Required: the region takes keyboard focus, and a focus stop with no name is announced as nothing."
+    },
+    {
+      "name": "orientation",
+      "type": "ScrollAreaOrientation",
+      "required": false,
+      "defaultValue": "'vertical'",
+      "description": "Which axes scroll. The other axis clips."
+    },
+    {
+      "name": "maxHeight",
+      "type": "number | string",
+      "required": false,
+      "description": "Any CSS length. Omit when a flex or grid parent already bounds the height."
+    },
+    {
+      "name": "maxWidth",
+      "type": "number | string",
+      "required": false,
+      "description": "Any CSS length, for horizontal scrolling inside an unbounded parent."
+    },
+    {
+      "name": "fade",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Fade the edges that have more content beyond them."
+    },
+    {
+      "name": "fadeSize",
+      "type": "number",
+      "required": false,
+      "defaultValue": "28",
+      "description": "Length of the fade, in pixels."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

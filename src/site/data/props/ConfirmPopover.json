@@ -1,0 +1,92 @@
+{
+  "props": [
+    {
+      "name": "trigger",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The control that asks for confirmation — usually a Button or IconButton."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "The question — \"Delete this file?\". Also the panel’s accessible name."
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false,
+      "description": "What happens, and whether it can be undone."
+    },
+    {
+      "name": "confirmLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Confirm'",
+      "description": "Label on the confirming button."
+    },
+    {
+      "name": "cancelLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Cancel'",
+      "description": "Label on the cancelling button."
+    },
+    {
+      "name": "tone",
+      "type": "ConfirmPopoverTone",
+      "required": false,
+      "defaultValue": "'default'",
+      "description": "destructive reddens the confirm button."
+    },
+    {
+      "name": "onConfirm",
+      "type": "() => void | Promise<void>",
+      "required": true,
+      "description": "Runs on confirm. Return a promise to hold the panel open, pending, until it settles; a rejection keeps it open with the message."
+    },
+    {
+      "name": "onCancel",
+      "type": "() => void",
+      "required": false,
+      "description": "Called when the panel is dismissed without confirming."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled open state."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Initial open state when uncontrolled."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "required": false,
+      "description": "Called when the panel opens or closes."
+    },
+    {
+      "name": "placement",
+      "type": "PopoverPlacement",
+      "required": false,
+      "defaultValue": "'bottom'"
+    },
+    {
+      "name": "align",
+      "type": "PopoverAlign",
+      "required": false,
+      "defaultValue": "'start'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the panel."
+    }
+  ]
+}

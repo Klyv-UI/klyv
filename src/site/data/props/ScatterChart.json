@@ -1,0 +1,83 @@
+{
+  "props": [
+    {
+      "name": "series",
+      "type": "ScatterChartSeries[]",
+      "required": true,
+      "description": "One entry per group of points."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "xLabel",
+      "type": "string",
+      "required": false,
+      "description": "Name of the horizontal measure, printed under the axis."
+    },
+    {
+      "name": "yLabel",
+      "type": "string",
+      "required": false,
+      "description": "Name of the vertical measure, printed beside the axis."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "260",
+      "description": "Plot height in pixels. The width fills the container."
+    },
+    {
+      "name": "trendLine",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Draw a least-squares line through each series."
+    },
+    {
+      "name": "radius",
+      "type": "[number, number]",
+      "required": false,
+      "defaultValue": "[3.5, 16]",
+      "description": "Smallest and largest bubble radius, in viewBox pixels."
+    },
+    {
+      "name": "formatX",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format x values on the axis and in the tooltip."
+    },
+    {
+      "name": "formatY",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format y values on the axis and in the tooltip."
+    },
+    {
+      "name": "formatSize",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format bubble sizes in the tooltip."
+    },
+    {
+      "name": "showLegend",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the series key under the plot when there is more than one series."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

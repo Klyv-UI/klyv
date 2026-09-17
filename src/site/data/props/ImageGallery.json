@@ -1,0 +1,54 @@
+{
+  "props": [
+    {
+      "name": "images",
+      "type": "ImageGalleryImage[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the thumbnail strip — \"Product photos\"."
+    },
+    {
+      "name": "index",
+      "type": "number",
+      "required": false,
+      "description": "Controlled index of the shown image."
+    },
+    {
+      "name": "defaultIndex",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Initial image when uncontrolled."
+    },
+    {
+      "name": "onIndexChange",
+      "type": "(index: number) => void",
+      "required": false,
+      "description": "Called when the shown image changes."
+    },
+    {
+      "name": "lightbox",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Open the main image in the full-screen Lightbox on click."
+    },
+    {
+      "name": "aspectRatio",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'4 / 3'",
+      "description": "Aspect ratio of the main frame, as a CSS value."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

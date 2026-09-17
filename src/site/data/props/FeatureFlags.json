@@ -1,0 +1,32 @@
+{
+  "props": [
+    {
+      "name": "flags",
+      "type": "FeatureFlagsFlag[]",
+      "required": true
+    },
+    {
+      "name": "onToggle",
+      "type": "(key: string, environment: string, enabled: boolean) => void",
+      "required": true
+    },
+    {
+      "name": "onRolloutChange",
+      "type": "(key: string, rollout: number) => void",
+      "required": false
+    },
+    {
+      "name": "environments",
+      "type": "FeatureFlagsEnvironment[]",
+      "required": false,
+      "defaultValue": "DEFAULT_ENVIRONMENTS",
+      "description": "Columns of switches, in order. Production is protected by default."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

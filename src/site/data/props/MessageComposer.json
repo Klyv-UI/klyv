@@ -1,0 +1,105 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Controlled text."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "Initial text when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called on every edit, and with an empty string after a send."
+    },
+    {
+      "name": "onSend",
+      "type": "(payload: MessageComposerSendPayload) => void | Promise<void>",
+      "required": true,
+      "description": "Called with the trimmed text and attachments. Return a promise to show the sending state until it settles."
+    },
+    {
+      "name": "attachments",
+      "type": "MessageComposerAttachment[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Files waiting to go with the message. The caller owns the list."
+    },
+    {
+      "name": "onRemoveAttachment",
+      "type": "(id: string) => void",
+      "required": false,
+      "description": "Removes one attachment chip."
+    },
+    {
+      "name": "onAttach",
+      "type": "() => void",
+      "required": false,
+      "description": "Shows the attach button. Open your own file picker here."
+    },
+    {
+      "name": "actions",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Extra controls beside attach — an emoji picker trigger, a formatting toggle."
+    },
+    {
+      "name": "sendOnEnter",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Enter sends and Shift+Enter adds a line. When false, Enter adds a line and Ctrl/⌘+Enter sends."
+    },
+    {
+      "name": "maxLength",
+      "type": "number",
+      "required": false,
+      "description": "Character limit. Past it the counter turns red and send is blocked, rather than silently truncating a paste."
+    },
+    {
+      "name": "maxRows",
+      "type": "number",
+      "required": false,
+      "defaultValue": "6",
+      "description": "Tallest the field grows before it scrolls, in lines."
+    },
+    {
+      "name": "sending",
+      "type": "boolean",
+      "required": false,
+      "description": "Forces the sending state, for a send the caller tracks itself."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Write a message…'"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Message'",
+      "description": "Accessible name for the text field."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

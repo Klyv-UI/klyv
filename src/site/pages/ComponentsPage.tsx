@@ -108,7 +108,7 @@ export default function ComponentsPage() {
             : [
                 { value: componentCount, label: 'components' },
                 { value: groups.length, label: 'groups' },
-                { value: NEW_COMPONENTS.size, label: 'new in the SaaS release' },
+                { value: NEW_COMPONENTS.size, label: 'new in the latest release' },
               ]
         }
         actions={

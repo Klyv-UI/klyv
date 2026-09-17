@@ -1,0 +1,42 @@
+{
+  "props": [
+    {
+      "name": "groups",
+      "type": "BoxPlotGroup[]",
+      "required": true,
+      "description": "One box per category."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "orientation",
+      "type": "BoxPlotOrientation",
+      "required": false,
+      "defaultValue": "'vertical'",
+      "description": "Boxes stand up from a category axis, or lie along it."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "description": "Chart height in pixels. Defaults to 240 vertical, or 44 per row horizontal."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format values on the axis and in the tooltip."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

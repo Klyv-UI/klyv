@@ -37,9 +37,15 @@ export const ariaRoles: Record<string, string[]> = {
   "AvatarGroup": [
     "group"
   ],
+  "BoxPlot": [
+    "img"
+  ],
   "BulkActionBar": [
     "group",
     "status"
+  ],
+  "BulletChart": [
+    "img"
   ],
   "ButtonGroup": [
     "group"
@@ -47,6 +53,9 @@ export const ariaRoles: Record<string, string[]> = {
   "Calendar": [
     "grid",
     "gridcell"
+  ],
+  "CandlestickChart": [
+    "img"
   ],
   "Carousel": [
     "group"
@@ -57,6 +66,10 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "CategoryBar": [
     "img"
+  ],
+  "ChatThread": [
+    "log",
+    "separator"
   ],
   "CoachTour": [
     "dialog",
@@ -81,6 +94,9 @@ export const ariaRoles: Record<string, string[]> = {
     "modal",
     "option"
   ],
+  "ConfirmPopover": [
+    "alert"
+  ],
   "ConnectionBanner": [
     "status"
   ],
@@ -104,6 +120,10 @@ export const ariaRoles: Record<string, string[]> = {
   "CoverFlow": [
     "listbox",
     "option"
+  ],
+  "CreditCardInput": [
+    "group",
+    "status"
   ],
   "Cropper": [
     "group"
@@ -145,14 +165,30 @@ export const ariaRoles: Record<string, string[]> = {
     "dialog",
     "modal"
   ],
+  "EmojiPicker": [
+    "grid",
+    "gridcell",
+    "group",
+    "row",
+    "status",
+    "tab",
+    "tablist",
+    "tabpanel"
+  ],
   "EmojiSlider": [
     "slider"
   ],
   "ErrorState": [
     "alert"
   ],
+  "FeatureFlags": [
+    "status"
+  ],
   "FeedbackWidget": [
     "status"
+  ],
+  "FileList": [
+    "alert"
   ],
   "FileUpload": [
     "alert"
@@ -173,6 +209,9 @@ export const ariaRoles: Record<string, string[]> = {
   "HelpPanel": [
     "status"
   ],
+  "Histogram": [
+    "img"
+  ],
   "HoldToConfirm": [
     "status"
   ],
@@ -181,6 +220,11 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "ImageCompare": [
     "slider"
+  ],
+  "ImageGallery": [
+    "tab",
+    "tablist",
+    "tabpanel"
   ],
   "ImportMapper": [
     "group",
@@ -239,6 +283,15 @@ export const ariaRoles: Record<string, string[]> = {
     "menu",
     "menuitem"
   ],
+  "Menubar": [
+    "checkbox",
+    "menu",
+    "menubar",
+    "menuitem",
+    "menuitemcheckbox",
+    "none",
+    "separator"
+  ],
   "Meter": [
     "progressbar"
   ],
@@ -252,6 +305,11 @@ export const ariaRoles: Record<string, string[]> = {
   "Modal": [
     "modal"
   ],
+  "MonthPicker": [
+    "grid",
+    "gridcell",
+    "row"
+  ],
   "MorphDialog": [
     "dialog",
     "modal"
@@ -260,6 +318,12 @@ export const ariaRoles: Record<string, string[]> = {
     "listbox"
   ],
   "NotificationCenter": [
+    "status"
+  ],
+  "NotificationPreferences": [
+    "status"
+  ],
+  "NpsSurvey": [
     "status"
   ],
   "OrbitRing": [
@@ -296,6 +360,10 @@ export const ariaRoles: Record<string, string[]> = {
     "status"
   ],
   "PricingTable": [
+    "status"
+  ],
+  "ProductCard": [
+    "radiogroup",
     "status"
   ],
   "Progress": [
@@ -337,6 +405,9 @@ export const ariaRoles: Record<string, string[]> = {
   "RetryQueue": [
     "status"
   ],
+  "ReviewSummary": [
+    "img"
+  ],
   "RotatingWord": [
     "status"
   ],
@@ -348,6 +419,12 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "SavedViews": [
     "status"
+  ],
+  "ScatterChart": [
+    "img"
+  ],
+  "ScrollArea": [
+    "region"
   ],
   "ScrollProgress": [
     "progressbar"
@@ -368,6 +445,11 @@ export const ariaRoles: Record<string, string[]> = {
   "SettingsSection": [
     "status"
   ],
+  "ShareMenu": [
+    "menu",
+    "menuitem",
+    "status"
+  ],
   "ShortcutRecorder": [
     "status"
   ],
@@ -383,6 +465,11 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "Sparkline": [
     "img"
+  ],
+  "SpeedDial": [
+    "menu",
+    "menuitem",
+    "none"
   ],
   "Spinner": [
     "status"
@@ -424,6 +511,11 @@ export const ariaRoles: Record<string, string[]> = {
     "listbox",
     "option"
   ],
+  "TimeSlotPicker": [
+    "group",
+    "radio",
+    "radiogroup"
+  ],
   "Toast": [
     "region",
     "status"
@@ -431,11 +523,20 @@ export const ariaRoles: Record<string, string[]> = {
   "ToggleGroup": [
     "group"
   ],
+  "Toggletip": [
+    "status"
+  ],
   "Toolbar": [
     "toolbar"
   ],
   "Tooltip": [
     "tooltip"
+  ],
+  "TransferList": [
+    "group",
+    "listbox",
+    "option",
+    "status"
   ],
   "TreeMap": [
     "group"
@@ -449,6 +550,9 @@ export const ariaRoles: Record<string, string[]> = {
     "menu",
     "menuitem",
     "status"
+  ],
+  "UptimeBar": [
+    "img"
   ],
   "UsageMeter": [
     "progressbar"
@@ -468,6 +572,9 @@ export const ariaRoles: Record<string, string[]> = {
     "list",
     "listitem",
     "presentation"
+  ],
+  "WaterfallChart": [
+    "img"
   ],
   "Waveform": [
     "img"

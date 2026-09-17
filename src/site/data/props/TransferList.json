@@ -1,0 +1,63 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "TransferListItem[]",
+      "required": true,
+      "description": "Every item, in the order the lists show them."
+    },
+    {
+      "name": "value",
+      "type": "string[]",
+      "required": false,
+      "description": "Controlled ids in the selected list."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Starting ids when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string[]) => void",
+      "required": false,
+      "description": "Called with the selected ids, in item order, after every move."
+    },
+    {
+      "name": "availableLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Available'",
+      "description": "Heading of the left list."
+    },
+    {
+      "name": "selectedLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Selected'",
+      "description": "Heading of the right list."
+    },
+    {
+      "name": "filterable",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show a filter field above each list."
+    },
+    {
+      "name": "listHeight",
+      "type": "number",
+      "required": false,
+      "defaultValue": "240",
+      "description": "Height of each list body, in pixels."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

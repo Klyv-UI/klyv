@@ -1,0 +1,40 @@
+{
+  "props": [
+    {
+      "name": "events",
+      "type": "NotificationPreferencesEvent[]",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "NotificationPreferencesValue",
+      "required": true,
+      "description": "The saved selections. Edits are a draft against this until saved."
+    },
+    {
+      "name": "digest",
+      "type": "NotificationPreferencesDigest",
+      "required": false,
+      "defaultValue": "'off'",
+      "description": "The saved digest frequency."
+    },
+    {
+      "name": "onSave",
+      "type": "(payload: NotificationPreferencesSavePayload) => void | Promise<void>",
+      "required": true,
+      "description": "Called with the draft. Return a promise to show the saving state."
+    },
+    {
+      "name": "channels",
+      "type": "NotificationPreferencesChannel[]",
+      "required": false,
+      "defaultValue": "DEFAULT_CHANNELS"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

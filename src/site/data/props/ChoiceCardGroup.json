@@ -1,0 +1,6 @@
+{
+  "props": [],
+  "inherits": [
+    "ChoiceCardGroupSingleProps | ChoiceCardGroupMultipleProps"
+  ]
+}

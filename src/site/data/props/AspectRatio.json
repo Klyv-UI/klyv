@@ -1,0 +1,33 @@
+{
+  "props": [
+    {
+      "name": "ratio",
+      "type": "number | string",
+      "required": false,
+      "defaultValue": "1",
+      "description": "Width over height: a number (`1.5`) or a ratio string (`\"16/9\"`, `\"4:3\"`). Unparseable strings fall back to a square."
+    },
+    {
+      "name": "fit",
+      "type": "AspectRatioFit",
+      "required": false,
+      "defaultValue": "'cover'",
+      "description": "How an image, video or iframe child fills the box."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Usually one img, video, iframe or picture. It is stretched to the box."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ],
+  "inherits": [
+    "Omit<HTMLAttributes<HTMLDivElement>, 'children'>"
+  ]
+}
