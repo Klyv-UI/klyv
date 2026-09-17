@@ -118,10 +118,12 @@ export const ariaRoles: Record<string, string[]> = {
     "status"
   ],
   "DatePicker": [
-    "combobox"
+    "combobox",
+    "grid"
   ],
   "DateRangePicker": [
-    "combobox"
+    "combobox",
+    "grid"
   ],
   "DaySchedule": [
     "group"

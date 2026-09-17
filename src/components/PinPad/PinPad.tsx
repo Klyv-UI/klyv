@@ -57,7 +57,11 @@ export function PinPad({
   const [error, setError] = useState(false)
   const [busy, setBusy] = useState(false)
   const rootRef = useRef<HTMLDivElement>(null)
-  const submitted = useRef(false)
+  // The code that was last handed to `onComplete`, so each code is submitted
+  // exactly once however often the pad re-renders.
+  const submittedCode = useRef<string | null>(null)
+  const completeRef = useRef(onComplete)
+  completeRef.current = onComplete
 
   const push = (digit: string) => {
     if (disabled || busy || code.length >= length) return
@@ -70,12 +74,19 @@ export function PinPad({
     setCode((current) => current.slice(0, -1))
   }
 
+  // Submission used to be keyed on `onComplete` itself and re-armed after every
+  // call. An accepted code stays in the buffer, so each re-render with a fresh
+  // inline handler submitted it again — and a parent that set state in
+  // `onComplete` looped, sending the same code to the server without end.
   useEffect(() => {
-    if (code.length !== length || submitted.current) return
-    submitted.current = true
+    if (code.length !== length) {
+      submittedCode.current = null
+      return
+    }
+    if (submittedCode.current === code) return
+    submittedCode.current = code
 
     const finish = (accepted: boolean | void) => {
-      submitted.current = false
       setBusy(false)
       if (accepted === false) {
         setError(true)
@@ -84,14 +95,14 @@ export function PinPad({
       }
     }
 
-    const result = onComplete(code)
+    const result = completeRef.current(code)
     if (result instanceof Promise) {
       setBusy(true)
       void result.then(finish)
     } else {
       finish(result)
     }
-  }, [code, length, onComplete])
+  }, [code, length])
 
   const onKeyDown = (event: React.KeyboardEvent) => {
     if (/^[0-9]$/.test(event.key)) {

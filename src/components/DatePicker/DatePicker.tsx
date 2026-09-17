@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Input } from '../Input'
 import { Surface } from '../Surface'
 import { Popover } from '../Popover'
+import { opensPicker } from '../Popover/opensPicker'
 import { Calendar } from '../Calendar'
 
 function formatDisplay(iso?: string): string {
@@ -65,6 +66,8 @@ export function DatePicker({
       align="start"
       label={label}
       className="p-3"
+      // The day that carries the tab stop: the chosen date, or today.
+      initialFocus='[role="grid"] button[tabindex="0"]'
       trigger={
         <Input
           id={id}
@@ -77,6 +80,9 @@ export function DatePicker({
           placeholder={placeholder}
           invalid={invalid}
           disabled={disabled}
+          onKeyDown={(event) => {
+            if (!disabled && opensPicker(event)) setOpen(true)
+          }}
           containerClassName={className}
           className="cursor-pointer"
         />

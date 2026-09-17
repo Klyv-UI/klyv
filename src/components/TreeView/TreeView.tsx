@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, type KeyboardEvent, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from 'react'
 import { cn } from '../../lib/cn'
 import { Text } from '../Text'
 import { ChevronRightIcon } from '../internal/icons'
@@ -27,14 +27,19 @@ export interface TreeViewProps {
   className?: string
 }
 
-function flatten(
-  nodes: TreeNode[],
-  expanded: Set<string>,
-  depth = 0,
-): { node: TreeNode; depth: number }[] {
-  return nodes.flatMap((node) => [
-    { node, depth },
-    ...(node.children && expanded.has(node.id) ? flatten(node.children, expanded, depth + 1) : []),
+interface VisibleRow {
+  node: TreeNode
+  depth: number
+  parentId?: string
+  /** Position among its siblings, and how many there are — for aria-posinset/setsize. */
+  position: number
+  siblings: number
+}
+
+function flatten(nodes: TreeNode[], expanded: Set<string>, depth = 0, parentId?: string): VisibleRow[] {
+  return nodes.flatMap((node, index) => [
+    { node, depth, parentId, position: index + 1, siblings: nodes.length },
+    ...(node.children && expanded.has(node.id) ? flatten(node.children, expanded, depth + 1, node.id) : []),
   ])
 }
 
@@ -56,8 +61,22 @@ export function TreeView({
 }: TreeViewProps) {
   const [expanded, setExpanded] = useState(new Set(defaultExpanded))
   const [focused, setFocused] = useState<string | undefined>(nodes[0]?.id)
+  const treeRef = useRef<HTMLDivElement>(null)
+  const moveDomFocus = useRef(false)
 
   const visible = flatten(nodes, expanded)
+
+  // If the focused row goes away — its parent collapsed, the data changed —
+  // the tree would have no tab stop at all. The nearest thing left takes it.
+  const tabStop = visible.some((row) => row.node.id === focused) ? focused : visible[0]?.node.id
+
+  // Arrows used to move the tab stop and leave focus behind: the ring stayed on
+  // the first row and every later press started from there again.
+  useEffect(() => {
+    if (!moveDomFocus.current) return
+    moveDomFocus.current = false
+    treeRef.current?.querySelector<HTMLElement>('[role="treeitem"][tabindex="0"]')?.focus()
+  }, [focused])
 
   const toggle = (id: string, open?: boolean) => {
     setExpanded((previous) => {
@@ -70,10 +89,14 @@ export function TreeView({
   }
 
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>, node: TreeNode, index: number) => {
+    const focusRow = (id: string | undefined) => {
+      if (!id) return
+      moveDomFocus.current = true
+      setFocused(id)
+    }
     const move = (target: number) => {
       event.preventDefault()
-      const next = visible[Math.min(visible.length - 1, Math.max(0, target))]
-      if (next) setFocused(next.node.id)
+      focusRow(visible[Math.min(visible.length - 1, Math.max(0, target))]?.node.id)
     }
 
     if (event.key === 'ArrowDown') move(index + 1)
@@ -86,8 +109,10 @@ export function TreeView({
       else if (node.children) move(index + 1)
     } else if (event.key === 'ArrowLeft') {
       event.preventDefault()
+      // Collapse an open parent; otherwise step out to the parent — not to
+      // whatever row happens to sit above, which is what this used to do.
       if (node.children && expanded.has(node.id)) toggle(node.id, false)
-      else move(index - 1)
+      else focusRow(visible[index].parentId)
     } else if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault()
       if (node.children) toggle(node.id)
@@ -96,8 +121,8 @@ export function TreeView({
   }
 
   return (
-    <div role="tree" aria-label={label} className={cn('flex flex-col', className)}>
-      {visible.map(({ node, depth }, index) => {
+    <div ref={treeRef} role="tree" aria-label={label} className={cn('flex flex-col', className)}>
+      {visible.map(({ node, depth, position, siblings }, index) => {
         const hasChildren = Boolean(node.children?.length)
         const isOpen = expanded.has(node.id)
         const Icon = node.icon
@@ -106,9 +131,13 @@ export function TreeView({
             key={node.id}
             role="treeitem"
             aria-level={depth + 1}
+            // The rows are a flat list in the DOM, so the tree's shape has to be
+            // stated: "3 of 5" is otherwise lost to a screen reader.
+            aria-posinset={position}
+            aria-setsize={siblings}
             aria-expanded={hasChildren ? isOpen : undefined}
             aria-selected={node.id === selected}
-            tabIndex={node.id === focused ? 0 : -1}
+            tabIndex={node.id === tabStop ? 0 : -1}
             onKeyDown={(event) => onKeyDown(event, node, index)}
             onFocus={() => setFocused(node.id)}
             onClick={() => {

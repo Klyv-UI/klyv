@@ -24,6 +24,12 @@ export interface PopoverProps {
   dismissOnOutsideClick?: boolean
   /** Accessible name for the panel. */
   label?: string
+  /**
+   * Moves focus into the panel when it opens: a selector for the element to
+   * focus, or `true` for the first focusable one. Off by default, because
+   * several callers — Menu, Select — place focus themselves.
+   */
+  initialFocus?: string | boolean
   /** Applied to the panel Surface. */
   className?: string
 }
@@ -48,6 +54,7 @@ export function Popover({
   offset = 8,
   dismissOnOutsideClick = true,
   label,
+  initialFocus = false,
   className,
 }: PopoverProps) {
   const [uncontrolled, setUncontrolled] = useState(false)
@@ -94,6 +101,19 @@ export function Popover({
     document.addEventListener('mousedown', onPointerDown)
     return () => document.removeEventListener('mousedown', onPointerDown)
   }, [open, isTop, dismissOnOutsideClick])
+
+  // Once the panel has a position — before that it waits off screen — focus
+  // goes in, if the caller asked for it.
+  const placed = position !== null
+  useEffect(() => {
+    if (!open || !placed || !initialFocus) return
+    const panel = panelRef.current
+    if (!panel || panel.contains(document.activeElement)) return
+    const target =
+      (typeof initialFocus === 'string' ? panel.querySelector<HTMLElement>(initialFocus) : null) ??
+      panel.querySelector<HTMLElement>(FOCUSABLE)
+    target?.focus({ preventScroll: true })
+  }, [open, placed, initialFocus])
 
   useEffect(() => {
     if (!open) return

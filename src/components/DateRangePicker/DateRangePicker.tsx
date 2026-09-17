@@ -6,6 +6,7 @@ import { Button } from '../Button'
 import { Input } from '../Input'
 import { Text } from '../Text'
 import { Popover } from '../Popover'
+import { opensPicker } from '../Popover/opensPicker'
 import { Calendar } from '../Calendar'
 
 export interface DateRange {
@@ -84,6 +85,7 @@ export function DateRangePicker({
       align="start"
       label={label}
       className="p-3"
+      initialFocus='[role="grid"] button[tabindex="0"]'
       trigger={
         <Input
           id={id}
@@ -95,6 +97,9 @@ export function DateRangePicker({
           value={formatDisplay(value)}
           placeholder={placeholder}
           disabled={disabled}
+          onKeyDown={(event) => {
+            if (!disabled && opensPicker(event)) setOpen(true)
+          }}
           containerClassName={className}
           className="cursor-pointer"
         />

@@ -283,6 +283,7 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
+    "keyboardSuite": "test/interaction/blockers.test.tsx",
     "axe": true
   },
   "Card": {
@@ -541,6 +542,7 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
+    "keyboardSuite": "test/interaction/blockers.test.tsx",
     "axe": true
   },
   "DateRangePicker": {
@@ -1140,6 +1142,7 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
+    "keyboardSuite": "test/interaction/blockers.test.tsx",
     "axe": true
   },
   "Odometer": {
@@ -1245,6 +1248,7 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": true,
     "reducedMotion": true,
+    "keyboardSuite": "test/interaction/blockers.test.tsx",
     "axe": true
   },
   "PixelCanvas": {
@@ -1934,6 +1938,7 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
+    "keyboardSuite": "test/interaction/blockers.test.tsx",
     "axe": true
   },
   "Timeline": {
@@ -1983,6 +1988,7 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
+    "keyboardSuite": "test/interaction/blockers.test.tsx",
     "axe": true
   },
   "TwoFactorSetup": {

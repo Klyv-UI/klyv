@@ -41,14 +41,45 @@ export interface ChartScale {
 export function chartScale(
   series: ChartSeries[],
   geometry: ChartGeometry,
-  options: { zeroBased?: boolean; tickCount?: number } = {},
+  options: { zeroBased?: boolean; tickCount?: number; stacked?: boolean } = {},
 ): ChartScale {
-  const { zeroBased = true, tickCount = 4 } = options
+  const { zeroBased = true, tickCount = 4, stacked = false } = options
   const { width, height, padding } = geometry
 
-  const all = series.flatMap((entry) => entry.values)
-  const rawMin = all.length ? Math.min(...all) : 0
-  const rawMax = all.length ? Math.max(...all) : 1
+  // A loop rather than Math.min(...values): spreading a large series into
+  // arguments throws (200k points was enough), and one NaN turned every tick
+  // and every point into NaN. Values that are not finite are left out of the
+  // range, so the chart draws around a gap instead of drawing nothing.
+  let rawMin = Number.POSITIVE_INFINITY
+  let rawMax = Number.NEGATIVE_INFINITY
+  const include = (value: number) => {
+    if (!Number.isFinite(value)) return
+    if (value < rawMin) rawMin = value
+    if (value > rawMax) rawMax = value
+  }
+
+  if (stacked) {
+    // Stacked charts draw running totals, so the range has to be the range of
+    // those totals. Scaling to the raw values put the top of every stack above
+    // the plot and printed an axis that understated the total.
+    const categories = Math.max(0, ...series.map((entry) => entry.values.length))
+    for (let index = 0; index < categories; index += 1) {
+      let running = 0
+      for (const entry of series) {
+        const value = entry.values[index]
+        if (!Number.isFinite(value)) continue
+        running += value
+        include(running)
+      }
+    }
+  } else {
+    for (const entry of series) for (const value of entry.values) include(value)
+  }
+
+  if (rawMin === Number.POSITIVE_INFINITY) {
+    rawMin = 0
+    rawMax = 1
+  }
 
   const min = zeroBased ? Math.min(0, rawMin) : rawMin
   const max = rawMax === min ? min + 1 : rawMax
@@ -75,7 +106,10 @@ export function chartScale(
 /** Compact axis formatting: 12.4k rather than 12,400. */
 export function formatTick(value: number): string {
   const absolute = Math.abs(value)
-  if (absolute >= 1_000_000) return `${(value / 1_000_000).toFixed(1)}m`
-  if (absolute >= 1_000) return `${(value / 1_000).toFixed(1)}k`
+  // Each threshold sits where one decimal would round up into the next unit,
+  // so 999,999 reads "1.0m" rather than "1000.0k".
+  if (absolute >= 999_950_000) return `${(value / 1_000_000_000).toFixed(1)}b`
+  if (absolute >= 999_950) return `${(value / 1_000_000).toFixed(1)}m`
+  if (absolute >= 999.95) return `${(value / 1_000).toFixed(1)}k`
   return String(Math.round(value * 10) / 10)
 }

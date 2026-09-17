@@ -225,12 +225,25 @@ export function applyAccent(hex: string, target?: HTMLElement): AccentFamily {
 
   node.style.setProperty('--color-accent', family.accent)
   node.style.setProperty('--color-accent-strong', family.strong)
-  // Only the wash depends on the page being light or dark. Writing it here
-  // rather than selecting it in CSS is what keeps a scoped accent — one
-  // section on a different hue — working, since these are inline properties
-  // and a stylesheet rule could not see the element they are set on.
-  node.style.setProperty('--color-accent-soft', prefersDark() ? family.softDark : family.soft)
   node.style.setProperty('--color-accent-ink', family.ink)
+
+  // The wash is the one value that differs between light and dark.
+  if (node === document.documentElement) {
+    // On the root, both washes are written and the stylesheet picks one, so the
+    // page follows the theme by itself. Writing the resolved wash inline — as
+    // this used to — outranked the stylesheet's dark block: when the system
+    // flipped to dark without an app-level listener, the light wash stayed,
+    // and text on selected rows and accent tags fell to about 1.1:1.
+    node.style.removeProperty('--color-accent-soft')
+    node.style.setProperty('--accent-soft-light', family.soft)
+    node.style.setProperty('--accent-soft-dark', family.softDark)
+  } else {
+    // A scoped accent cannot use the pair: the stylesheet resolves
+    // `--color-accent-soft` on :root, which never sees this element's
+    // properties. It takes the wash for the theme in force, and is re-applied
+    // on a mode change like before.
+    node.style.setProperty('--color-accent-soft', prefersDark() ? family.softDark : family.soft)
+  }
 
   // Announce root-level changes, so every control showing the accent can
   // follow — not only the one that made the change. Scoped accents stay quiet:

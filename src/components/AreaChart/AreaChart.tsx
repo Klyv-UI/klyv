@@ -20,7 +20,7 @@ export function AreaChart({ stacked = false, ...props }: AreaChartProps) {
   const gradientId = useId()
 
   return (
-    <CartesianChart {...props}>
+    <CartesianChart {...props} stacked={stacked}>
       {({ scale, series }) => {
         const running = new Array(props.categories.length).fill(0)
 

@@ -47,6 +47,13 @@
       "description": "Format values in the tooltip and on the axis."
     },
     {
+      "name": "stacked",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Scale to the running totals, for charts that draw their series stacked."
+    },
+    {
       "name": "className",
       "type": "string",
       "required": false,

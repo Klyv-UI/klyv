@@ -16,7 +16,7 @@ export type BarChartProps = Omit<CartesianChartProps, 'children'> & {
  */
 export function BarChart({ stacked = false, barRatio = 0.62, ...props }: BarChartProps) {
   return (
-    <CartesianChart {...props}>
+    <CartesianChart {...props} stacked={stacked}>
       {({ scale, series, active }) => {
         const count = props.categories.length
         const band = scale.plot.width / Math.max(1, count)

@@ -1,10 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, type KeyboardEvent } from 'react'
 import { cn } from '../../lib/cn'
 import { Input } from '../Input'
 import { Text } from '../Text'
 import { Popover } from '../Popover'
+import { opensPicker } from '../Popover/opensPicker'
 
 export interface TimePickerProps {
   /** Time as a 24-hour HH:mm string. */
@@ -45,6 +46,25 @@ function buildTimes(step: number): string[] {
  * with accepting "half two". Values stay 24-hour internally regardless of how
  * they are displayed.
  */
+/** Arrow keys, Home and End walk the options; the list had no keyboard model at all. */
+function moveThroughOptions(event: KeyboardEvent<HTMLDivElement>) {
+  const options = [...event.currentTarget.querySelectorAll<HTMLElement>('[role="option"]')]
+  const index = options.indexOf(document.activeElement as HTMLElement)
+  const next =
+    event.key === 'ArrowDown'
+      ? Math.min(options.length - 1, index + 1)
+      : event.key === 'ArrowUp'
+        ? Math.max(0, index - 1)
+        : event.key === 'Home'
+          ? 0
+          : event.key === 'End'
+            ? options.length - 1
+            : null
+  if (next === null) return
+  event.preventDefault()
+  options[next]?.focus()
+}
+
 export function TimePicker({
   value,
   onValueChange,
@@ -68,6 +88,7 @@ export function TimePicker({
       align="start"
       label={label}
       className="max-h-[260px] w-[140px] overflow-y-auto p-1"
+      initialFocus='[role="option"][aria-selected="true"]'
       trigger={
         <Input
           id={id}
@@ -79,12 +100,15 @@ export function TimePicker({
           value={value ?? ''}
           placeholder={placeholder}
           disabled={disabled}
+          onKeyDown={(event) => {
+            if (!disabled && opensPicker(event)) setOpen(true)
+          }}
           containerClassName={className}
           className="cursor-pointer tabular"
         />
       }
     >
-      <div role="listbox" aria-label={label} className="flex flex-col">
+      <div role="listbox" aria-label={label} className="flex flex-col" onKeyDown={moveThroughOptions}>
         {times.map((time) => (
           <button
             key={time}

@@ -41,7 +41,10 @@
   /* Accent + status */
   --color-accent: #c8f24e;
   --color-accent-strong: #b9e93a;
-  --color-accent-soft: #e6fbb0;
+  /* The wash follows the theme by itself: applyAccent writes both variants on
+     the root and this picks one, so nothing has to re-derive it when the
+     system flips to dark. The fallbacks are the default accent's washes. */
+  --color-accent-soft: var(--accent-soft-light, #e6fbb0);
   --color-accent-ink: #16200c;
   /* Status colours carry text as often as they fill a bar — a field error, a
      falling figure, a destructive menu item — so each is dark enough to read at
@@ -137,7 +140,7 @@
 
     --color-scrim: rgba(0, 0, 0, 0.62);
 
-    --color-accent-soft: #1f2a10;
+    --color-accent-soft: var(--accent-soft-dark, #1f2a10);
     --color-success: #56b863;
     --color-warning: #f7b23f;
     --color-danger: #f2686c;
@@ -178,7 +181,7 @@
 
   --color-scrim: rgba(0, 0, 0, 0.62);
 
-  --color-accent-soft: #1f2a10;
+  --color-accent-soft: var(--accent-soft-dark, #1f2a10);
   --color-success: #56b863;
   --color-warning: #f7b23f;
   --color-danger: #f2686c;

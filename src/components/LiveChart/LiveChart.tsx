@@ -65,6 +65,10 @@ export function LiveChart({
   const groupRef = useRef<SVGGElement>(null)
   const seen = useRef(values.length)
   const [bounds, setBounds] = useState<[number, number]>(domain ?? [0, 1])
+  // The placeholder [0, 1] is not a scale to ease away from: easing a quarter
+  // of the way per sample left readings in the thousands clipped off the plot
+  // for the first ten or so samples. The first real window is taken as it is.
+  const hasBounds = useRef(Boolean(domain))
   const reducedMotion = usePrefersReducedMotion()
 
   const width = 600
@@ -77,10 +81,19 @@ export function LiveChart({
       setBounds(domain)
       return
     }
-    if (shown.length === 0) return
-    const low = Math.min(...shown, threshold?.value ?? Infinity)
-    const high = Math.max(...shown, threshold?.value ?? -Infinity)
+    // Only finite samples count. One NaN used to make the bounds NaN, and
+    // because each new bound eases from the last one, they stayed NaN long
+    // after the bad sample had scrolled away: the line was gone for good.
+    const finite = shown.filter(Number.isFinite)
+    if (finite.length === 0) return
+    const low = Math.min(...finite, threshold?.value ?? Infinity)
+    const high = Math.max(...finite, threshold?.value ?? -Infinity)
     const pad = (high - low || 1) * 0.15
+    if (!hasBounds.current) {
+      hasBounds.current = true
+      setBounds([low - pad, high + pad])
+      return
+    }
     setBounds(([currentLow, currentHigh]) => [
       currentLow + (low - pad - currentLow) * 0.25,
       currentHigh + (high + pad - currentHigh) * 0.25,
@@ -109,11 +122,33 @@ export function LiveChart({
     return () => cancelAnimationFrame(frame)
   }, [interval, reducedMotion, step, values.length])
 
-  const points = shown.map((value, index) => [index * step, y(value)] as const)
+  // A sample that is not a number is skipped rather than drawn at NaN, which
+  // invalidated the whole path.
+  const points = shown.flatMap((value, index) => (Number.isFinite(value) ? [[index * step, y(value)] as const] : []))
   const line = points.map(([px, py], index) => `${index === 0 ? 'M' : 'L'}${px},${py}`).join(' ')
-  const fill = points.length > 1 ? `${line} L${points[points.length - 1][0]},${height} L0,${height} Z` : ''
-  const latest = shown[shown.length - 1]
+  const fill =
+    points.length > 1 ? `${line} L${points[points.length - 1][0]},${height} L${points[0][0]},${height} Z` : ''
+  const latestSample = shown[shown.length - 1]
+  const latest = Number.isFinite(latestSample) ? latestSample : undefined
   const head = points[points.length - 1]
+
+  // What is announced, and when. The readout above is ordinary text a screen
+  // reader can reach whenever it likes; the live region used to repeat it on
+  // every sample, once a second by default, which drowned out the rest of the
+  // page. It now speaks only when the reading crosses the threshold.
+  const above = threshold !== undefined && latest !== undefined && latest > threshold.value
+  const [announcement, setAnnouncement] = useState('')
+  const wasAbove = useRef(above)
+  const describeRef = useRef('')
+  describeRef.current =
+    threshold && latest !== undefined
+      ? `${label}: ${format(latest)}, ${above ? 'above' : 'back below'} ${threshold.label}`
+      : ''
+  useEffect(() => {
+    if (above === wasAbove.current) return
+    wasAbove.current = above
+    if (describeRef.current) setAnnouncement(describeRef.current)
+  }, [above])
 
   return (
     <div className={cn('flex flex-col gap-2', className)}>
@@ -184,10 +219,7 @@ export function LiveChart({
 
       <VisuallyHidden>
         <p role="status" aria-live="polite">
-          {latest === undefined ? `${label}: no data` : `${label}: ${format(latest)}`}
-          {threshold && latest !== undefined && latest > threshold.value
-            ? `, above ${threshold.label}`
-            : ''}
+          {announcement}
         </p>
       </VisuallyHidden>
     </div>

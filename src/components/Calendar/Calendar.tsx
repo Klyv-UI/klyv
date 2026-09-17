@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState, type KeyboardEvent } from 'react'
+import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from 'react'
 import { cn } from '../../lib/cn'
 import { IconButton } from '../IconButton'
 import { Text } from '../Text'
@@ -34,6 +34,15 @@ export function toISODate(date: Date): string {
 function fromISODate(value: string): Date {
   const [year, month, day] = value.split('-').map(Number)
   return new Date(year, month - 1, day)
+}
+
+/** The same day `delta` months away, clamped to the length of that month. */
+function addMonths(value: string, delta: number): string {
+  const date = fromISODate(value)
+  const target = new Date(date.getFullYear(), date.getMonth() + delta, 1)
+  const lastDay = new Date(target.getFullYear(), target.getMonth() + 1, 0).getDate()
+  target.setDate(Math.min(date.getDate(), lastDay))
+  return toISODate(target)
 }
 
 function startOfMonthGrid(year: number, month: number): Date {
@@ -80,6 +89,30 @@ export function Calendar({
   const initial = value ? fromISODate(value) : new Date()
   const [view, setView] = useState({ year: initial.getFullYear(), month: initial.getMonth() })
   const [focusedDate, setFocusedDate] = useState(toISODate(initial))
+  const gridRef = useRef<HTMLTableElement>(null)
+  // Set by the keyboard handlers, so focus follows a key press but a re-render
+  // on its own — a new `value`, the month buttons — never pulls focus into the
+  // grid from wherever the user is.
+  const moveDomFocus = useRef(false)
+
+  // The roving tab stop and the focused element used to part company: the
+  // arrows moved `tabIndex={0}` along and left focus where it was, so the
+  // next press started from the old day and the ring never moved. After a
+  // month change the focused day was unmounted and focus fell to <body>.
+  useEffect(() => {
+    if (!moveDomFocus.current) return
+    moveDomFocus.current = false
+    gridRef.current?.querySelector<HTMLElement>('button[tabindex="0"]')?.focus()
+  }, [focusedDate, view])
+
+  // A controlled calendar follows its value. It used to read `value` once, so a
+  // parent setting a date in another month left the grid on the old one.
+  useEffect(() => {
+    if (!value) return
+    const date = fromISODate(value)
+    setFocusedDate(value)
+    setView({ year: date.getFullYear(), month: date.getMonth() })
+  }, [value])
 
   const days = useMemo(() => {
     const start = startOfMonthGrid(view.year, view.month)
@@ -93,17 +126,20 @@ export function Calendar({
   const today = toISODate(new Date())
   const isDisabled = (iso: string) => Boolean((min && iso < min) || (max && iso > max))
 
-  const shiftView = (delta: number) => {
-    setView((previous) => {
-      const next = new Date(previous.year, previous.month + delta, 1)
-      return { year: next.getFullYear(), month: next.getMonth() }
-    })
+  /** Changes month and carries the tab stop with it, so the grid always has one. */
+  const shiftView = (delta: number, fromKeyboard = false) => {
+    const next = addMonths(focusedDate, delta)
+    const date = fromISODate(next)
+    moveDomFocus.current = fromKeyboard
+    setFocusedDate(next)
+    setView({ year: date.getFullYear(), month: date.getMonth() })
   }
 
   const moveFocus = (event: KeyboardEvent, deltaDays: number) => {
     event.preventDefault()
     const next = fromISODate(focusedDate)
     next.setDate(next.getDate() + deltaDays)
+    moveDomFocus.current = true
     setFocusedDate(toISODate(next))
     setView({ year: next.getFullYear(), month: next.getMonth() })
   }
@@ -118,10 +154,10 @@ export function Calendar({
     else if (event.key === 'End') moveFocus(event, 6 - weekday)
     else if (event.key === 'PageUp') {
       event.preventDefault()
-      shiftView(-1)
+      shiftView(-1, true)
     } else if (event.key === 'PageDown') {
       event.preventDefault()
-      shiftView(1)
+      shiftView(1, true)
     } else if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault()
       if (!isDisabled(focusedDate)) onValueChange?.(focusedDate)
@@ -150,7 +186,7 @@ export function Calendar({
         />
       </div>
 
-      <table role="grid" aria-label={label} className="w-full border-collapse">
+      <table ref={gridRef} role="grid" aria-label={label} className="w-full border-collapse">
         <thead>
           <tr>
             {WEEKDAYS.map((day) => (
@@ -184,15 +220,18 @@ export function Calendar({
                       type="button"
                       tabIndex={iso === focusedDate ? 0 : -1}
                       aria-current={iso === today ? 'date' : undefined}
-                      disabled={disabled}
+                      // aria-disabled, not disabled: a disabled button cannot
+                      // take focus, so an arrow onto a day outside min/max left
+                      // focus stranded and the next press started from nowhere.
+                      aria-disabled={disabled || undefined}
                       onClick={() => {
                         setFocusedDate(iso)
-                        onValueChange?.(iso)
+                        if (!disabled) onValueChange?.(iso)
                       }}
                       onFocus={() => setFocusedDate(iso)}
                       className={cn(
                         'tabular relative flex size-9 items-center justify-center rounded-full text-[12px] transition-colors',
-                        'disabled:pointer-events-none disabled:opacity-30',
+                        'aria-disabled:cursor-not-allowed aria-disabled:opacity-30',
                         selected
                           ? 'bg-accent font-bold text-accent-ink'
                           : inRange(iso)

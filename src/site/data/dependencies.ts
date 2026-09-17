@@ -2875,6 +2875,7 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "files": [
       "components/Popover/Popover.tsx",
       "components/Popover/index.ts",
+      "components/Popover/opensPicker.ts",
       "components/Popover/usePopoverPosition.ts"
     ],
     "internal": [

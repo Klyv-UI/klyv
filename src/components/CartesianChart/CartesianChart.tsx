@@ -25,6 +25,8 @@ export interface CartesianChartProps {
   showGrid?: boolean
   /** Format values in the tooltip and on the axis. */
   format?: (value: number) => string
+  /** Scale to the running totals, for charts that draw their series stacked. */
+  stacked?: boolean
   /** Merged last, so it wins. */
   className?: string
   /** Drawn inside the plot area, given the resolved scale. */
@@ -54,6 +56,7 @@ export function CartesianChart({
   showLegend = true,
   showGrid = true,
   format = formatTick,
+  stacked = false,
   className,
   children,
 }: CartesianChartProps) {
@@ -66,15 +69,11 @@ export function CartesianChart({
   }))
 
   // The left gutter has to fit the widest tick label, or the axis clips.
-  const probe = chartScale(series, {
-    width: WIDTH,
-    height,
-    padding: { ...BASE_PADDING, left: 40 },
-  })
+  const probe = chartScale(series, { width: WIDTH, height, padding: { ...BASE_PADDING, left: 40 } }, { stacked })
   const widestTick = Math.max(...probe.ticks.map((tick) => format(tick).length))
   const padding = { ...BASE_PADDING, left: Math.max(32, widestTick * 6.2 + 12) }
 
-  const scale = chartScale(series, { width: WIDTH, height, padding })
+  const scale = chartScale(series, { width: WIDTH, height, padding }, { stacked })
 
   const trackPointer = (event: React.PointerEvent<SVGSVGElement>) => {
     const rect = event.currentTarget.getBoundingClientRect()

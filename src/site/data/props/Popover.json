@@ -55,6 +55,13 @@
       "description": "Accessible name for the panel."
     },
     {
+      "name": "initialFocus",
+      "type": "string | boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Moves focus into the panel when it opens: a selector for the element to focus, or `true` for the first focusable one. Off by default, because several callers — Menu, Select — place focus themselves."
+    },
+    {
       "name": "className",
       "type": "string",
       "required": false,
