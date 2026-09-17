@@ -11,7 +11,7 @@ export function BootScreen() {
   return (
     <div className="boot" role="status" aria-label="Loading Klyv">
       <span className="boot-mark" aria-hidden="true">
-        C
+        K
       </span>
       <span className="boot-track" aria-hidden="true">
         <span className="boot-fill" />

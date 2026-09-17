@@ -132,7 +132,7 @@ function Preview({ project }: { project: ShowcaseProject }) {
       ) : (
         <div className="grid size-full place-items-center">
           <span className="flex items-center gap-2.5">
-            <span className="grid size-10 place-items-center rounded-[12px] bg-accent text-[18px] font-extrabold text-accent-ink">C</span>
+            <span className="grid size-10 place-items-center rounded-[12px] bg-accent text-[18px] font-extrabold text-accent-ink">{brand.name[0]}</span>
             <span className="text-[22px] font-extrabold tracking-[-0.03em] text-ink">{brand.name}</span>
           </span>
         </div>

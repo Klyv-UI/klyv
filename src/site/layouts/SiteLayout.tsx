@@ -187,7 +187,7 @@ const SiteHeader = memo(function SiteHeader({
             aria-hidden
             className="grid h-8 w-8 place-items-center rounded-[10px] bg-accent text-accent-ink"
           >
-            <span className="text-[15px] font-extrabold leading-none">C</span>
+            <span className="text-[15px] font-extrabold leading-none">{brand.name[0]}</span>
           </span>
           <span className="flex flex-col leading-none">
             <Text size="heading" weight="extrabold" className="tracking-[-0.02em]">
@@ -623,7 +623,7 @@ function SiteFooter() {
                 aria-hidden
                 className="grid h-8 w-8 place-items-center rounded-[10px] bg-accent text-accent-ink"
               >
-                <span className="text-[15px] font-extrabold leading-none">C</span>
+                <span className="text-[15px] font-extrabold leading-none">{brand.name[0]}</span>
               </span>
               <Text size="heading" weight="extrabold" className="tracking-[-0.02em]">
                 {brand.name}
@@ -685,12 +685,21 @@ function SiteFooter() {
         </div>
       </div>
 
-      {/* The wordmark, at the size a wordmark is meant to be read. It is clipped
-          at the baseline so it reads as part of the page edge rather than as a
-          heading, and it takes the accent like everything else. */}
-      <div className="overflow-hidden px-5 lg:px-8" aria-hidden>
-        <div className="mx-auto max-w-[1400px]">
-          <span className="block translate-y-[0.14em] select-none bg-gradient-to-b from-ink to-[color-mix(in_oklab,var(--color-accent)_70%,var(--color-ink))] bg-clip-text text-[clamp(3.25rem,25.5vw,23rem)] font-extrabold leading-[0.78] tracking-[-0.06em] text-transparent">
+      {/* The wordmark, centred on its own small stage: a dot field that fades out
+          toward the edges and the accent rising from the page floor behind it.
+          Every colour is a token, so the stage repaints with the accent and
+          flips with the theme. The descender is never clipped: the y's tail is
+          what tells it from a v. */}
+      <div className="relative isolate overflow-hidden border-t border-line" aria-hidden>
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(color-mix(in_oklab,var(--color-ink)_14%,transparent)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(ellipse_60%_70%_at_50%_45%,black,transparent)]" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-[75%] bg-[radial-gradient(ellipse_55%_80%_at_50%_100%,color-mix(in_oklab,var(--color-accent)_42%,transparent),transparent_70%)]" />
+
+        <div className="mx-auto flex max-w-[1400px] flex-col items-center px-5 pt-12 lg:px-8 lg:pt-16">
+          <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/70 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-ink-soft backdrop-blur">
+            <span className="size-1.5 rounded-full bg-accent" />
+            One colour · every component
+          </span>
+          <span className="block select-none bg-gradient-to-b from-ink from-30% to-[color-mix(in_oklab,var(--color-accent)_65%,var(--color-ink))] bg-clip-text pb-[0.22em] text-center text-[clamp(4.5rem,30vw,26rem)] font-extrabold leading-[1.02] tracking-[-0.045em] text-transparent">
             {brand.name}
           </span>
         </div>
