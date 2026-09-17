@@ -793,7 +793,9 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "Text"
     ],
     "shared": [
-      "lib/cn.ts"
+      "lib/cn.ts",
+      "lib/layout-effect.ts",
+      "lib/overlay.ts"
     ],
     "external": [
       "react"
@@ -877,7 +879,8 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "shared": [
       "components/internal/icons.tsx",
-      "lib/cn.ts"
+      "lib/cn.ts",
+      "lib/overlay.ts"
     ],
     "external": [
       "react"
@@ -900,6 +903,7 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "shared": [
       "components/internal/icons.tsx",
       "lib/cn.ts",
+      "lib/overlay.ts",
       "lib/types.ts"
     ],
     "external": [
@@ -981,7 +985,8 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "Text"
     ],
     "shared": [
-      "lib/cn.ts"
+      "lib/cn.ts",
+      "lib/overlay.ts"
     ],
     "external": [
       "react"
@@ -1379,7 +1384,8 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "shared": [
       "components/internal/icons.tsx",
-      "lib/cn.ts"
+      "lib/cn.ts",
+      "lib/overlay.ts"
     ],
     "external": [
       "react"
@@ -1456,7 +1462,8 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "internal": [],
     "shared": [
-      "lib/cn.ts"
+      "lib/cn.ts",
+      "lib/layout-effect.ts"
     ],
     "external": [
       "react"
@@ -2145,7 +2152,8 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "shared": [
       "components/internal/icons.tsx",
-      "lib/cn.ts"
+      "lib/cn.ts",
+      "lib/overlay.ts"
     ],
     "external": [
       "react"
@@ -2260,6 +2268,7 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "shared": [
       "lib/cn.ts",
+      "lib/layout-effect.ts",
       "lib/types.ts"
     ],
     "external": [
@@ -2373,7 +2382,8 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "Text"
     ],
     "shared": [
-      "lib/cn.ts"
+      "lib/cn.ts",
+      "lib/layout-effect.ts"
     ],
     "external": [
       "react"
@@ -2472,7 +2482,8 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "shared": [
       "components/internal/icons.tsx",
-      "lib/cn.ts"
+      "lib/cn.ts",
+      "lib/overlay.ts"
     ],
     "external": [
       "react"
@@ -2492,6 +2503,7 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "shared": [
       "lib/cn.ts",
       "lib/motion.ts",
+      "lib/overlay.ts",
       "lib/types.ts"
     ],
     "external": [
@@ -2870,7 +2882,8 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "Surface"
     ],
     "shared": [
-      "lib/cn.ts"
+      "lib/cn.ts",
+      "lib/overlay.ts"
     ],
     "external": [
       "react"
@@ -3553,6 +3566,7 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "shared": [
       "lib/cn.ts",
+      "lib/overlay.ts",
       "lib/time.ts"
     ],
     "external": [
@@ -4438,7 +4452,6 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "CopyButton",
       "InlineMessage",
       "InputOTP",
-      "QRCode",
       "Surface",
       "Text"
     ],
@@ -4736,6 +4749,10 @@ export const sharedDependencies: Record<string, string[]> = {
   "lib/time.ts": [],
   "lib/motion.ts": [],
   "lib/chart.ts": [],
+  "lib/layout-effect.ts": [],
+  "lib/overlay.ts": [
+    "lib/layout-effect.ts"
+  ],
   "components/internal/StatusPill.tsx": [],
   "lib/contrast.ts": [],
   "lib/roving.ts": []

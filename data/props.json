@@ -13310,7 +13310,13 @@
         "name": "otpauthUrl",
         "type": "string",
         "required": true,
-        "description": "The otpauth:// URI the authenticator app scans."
+        "description": "The otpauth:// URI. On a phone it opens the authenticator app directly, which is how most people will add it when the QR code is on the same screen."
+      },
+      {
+        "name": "qrCode",
+        "type": "ReactNode",
+        "required": false,
+        "description": "The scannable code for `otpauthUrl`, drawn by a real QR encoder — a server rendered image, or a component such as `qrcode.react`. Citrine's own `QRCode` is not used here: it draws a deterministic, QR-looking pattern for mock-ups, and no authenticator can scan it. Passing it an otpauth URI produced an enrolment screen nobody could complete. With no code supplied, the screen offers the key and the app link instead."
       },
       {
         "name": "secret",

@@ -42,17 +42,34 @@ export function Field({
   hideLabel = false,
   className,
 }: FieldProps) {
-  const id = useId()
-  const messageId = `${id}-message`
+  const generatedId = useId()
+  const child = isValidElement(children) ? (children as ReactElement<Record<string, unknown>>) : null
+  const own = child?.props ?? {}
+
+  // The control keeps an id it was given — a test hook, an anchor target — and
+  // the label follows it. Field only supplies one when there is none.
+  const id = typeof own.id === 'string' && own.id ? own.id : generatedId
+  const messageId = `${generatedId}-message`
   const message = error ?? hint
 
-  const control = isValidElement(children)
-    ? cloneElement(children as ReactElement<Record<string, unknown>>, {
+  // Only what Field actually has to say is passed down. Cloning with
+  // `disabled: undefined` does not leave the child's own `disabled` alone — it
+  // overwrites it, so `<Field><Input disabled /></Field>` rendered an editable
+  // input, and a child's own `required` and `aria-describedby` vanished the
+  // same way. Field's settings add to the child's; they never take away.
+  const control = child
+    ? cloneElement(child, {
         id,
-        'aria-describedby': message ? messageId : undefined,
-        invalid: error ? true : undefined,
-        required: required || undefined,
-        disabled: disabled || undefined,
+        ...(message || own['aria-describedby']
+          ? {
+              'aria-describedby': [own['aria-describedby'], message ? messageId : null]
+                .filter(Boolean)
+                .join(' '),
+            }
+          : null),
+        ...(error ? { invalid: true } : null),
+        ...(required ? { required: true } : null),
+        ...(disabled ? { disabled: true } : null),
       })
     : children
 

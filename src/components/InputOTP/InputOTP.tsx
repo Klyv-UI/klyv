@@ -101,7 +101,7 @@ export function InputOTP({
           onFocus={(event) => event.target.select()}
           className={cn(
             'tabular size-11 rounded-[var(--radius-glyph)] border bg-surface text-center',
-            'text-[16px] font-extrabold text-ink outline-none transition-colors',
+            'text-[16px] font-extrabold text-ink transition-colors',
             'focus:border-line-strong disabled:cursor-not-allowed',
             invalid ? 'border-danger' : 'border-line',
           )}

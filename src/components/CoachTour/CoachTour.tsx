@@ -1,7 +1,9 @@
 'use client'
 
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useIsomorphicLayoutEffect } from '../../lib/layout-effect'
 import { cn } from '../../lib/cn'
+import { useOverlayLayer } from '../../lib/overlay'
 import { Button } from '../Button'
 import { Text } from '../Text'
 import { FocusTrap } from '../FocusTrap'
@@ -72,8 +74,13 @@ export function CoachTour({
     if (open) setIndex(0)
   }, [open])
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!open || !step) return
+
+    // Brought into view once per step. It used to happen inside `measure`,
+    // which runs on every scroll — including the smooth scroll it had just
+    // started — so anyone scrolling a nested container was dragged back.
+    document.querySelector(step.target)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
 
     const measure = () => {
       const element = document.querySelector(step.target)
@@ -81,7 +88,6 @@ export function CoachTour({
         setRect(null)
         return
       }
-      element.scrollIntoView({ behavior: 'smooth', block: 'center' })
       const box = element.getBoundingClientRect()
       setRect({ top: box.top, left: box.left, width: box.width, height: box.height })
     }
@@ -97,45 +103,48 @@ export function CoachTour({
     }
   }, [open, step])
 
+  // Scroll lock, Escape and the layer come from the shared stack.
+  const { zIndex, isTop } = useOverlayLayer({ open, onDismiss: onClose })
+
   useEffect(() => {
-    if (!open) return
+    // Arrows step the tour only while nothing is open in front of it.
+    if (!open || !isTop) return
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose()
       if (event.key === 'ArrowRight') setIndex((value) => Math.min(steps.length - 1, value + 1))
       if (event.key === 'ArrowLeft') setIndex((value) => Math.max(0, value - 1))
     }
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
     document.addEventListener('keydown', onKeyDown)
-    return () => {
-      document.body.style.overflow = previousOverflow
-      document.removeEventListener('keydown', onKeyDown)
-    }
-  }, [open, onClose, steps.length])
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [open, isTop, steps.length])
 
   if (!open || !step) return null
 
   const placement = step.placement ?? 'bottom'
   const cardWidth = 300
 
+  // Read during render, so it has to survive a server render: a tour opened on
+  // first load (`open={!user.seenTour}`) used to throw `window is not defined`.
+  const viewport =
+    typeof window === 'undefined' ? { width: 0, height: 0 } : { width: window.innerWidth, height: window.innerHeight }
+
   const cardPosition = (() => {
     if (!rect) {
-      return { top: window.innerHeight / 2 - 80, left: window.innerWidth / 2 - cardWidth / 2 }
+      return { top: viewport.height / 2 - 80, left: viewport.width / 2 - cardWidth / 2 }
     }
     const below = rect.top + rect.height + PAD + 12
     const above = rect.top - PAD - 12
-    const fitsBelow = below + 180 < window.innerHeight
+    const fitsBelow = below + 180 < viewport.height
     const top = placement === 'top' && above > 180 ? above - 180 : fitsBelow ? below : Math.max(16, above - 180)
     const left = Math.min(
       Math.max(16, rect.left + rect.width / 2 - cardWidth / 2),
-      window.innerWidth - cardWidth - 16,
+      viewport.width - cardWidth - 16,
     )
     return { top, left }
   })()
 
   return (
     <Portal>
-      <div className={cn('fixed inset-0 z-[var(--z-overlay)]', className)}>
+      <div className={cn('fixed inset-0', className)} style={{ zIndex }}>
         {/* Scrim with a hole cut over the target, drawn as four panes so the
             lit element stays fully interactive underneath. */}
         {rect ? (

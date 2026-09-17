@@ -56,7 +56,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
         disabled={disabled}
         aria-invalid={invalid || undefined}
         className={cn(
-          'w-full min-w-0 bg-transparent font-medium text-ink outline-none placeholder:text-ink-faint',
+          'w-full min-w-0 bg-transparent font-medium text-ink placeholder:text-ink-faint',
+          // A field shows the global focus ring. A bare input sits inside
+          // someone else's chrome, and that chrome draws the ring instead.
+          !field && 'outline-none',
           'disabled:cursor-not-allowed',
           field && [
             'rounded-full border border-line bg-surface px-4 focus:border-line-strong',

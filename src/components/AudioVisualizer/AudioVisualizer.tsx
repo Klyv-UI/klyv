@@ -61,6 +61,9 @@ export function AudioVisualizer({
   const contextRef = useRef<AudioContext | null>(null)
   const analyserRef = useRef<AnalyserNode | null>(null)
   const sourceRef = useRef<MediaElementAudioSourceNode | MediaStreamAudioSourceNode | null>(null)
+  /** The microphone itself. Held so it can be let go of. */
+  const streamRef = useRef<MediaStream | null>(null)
+  const unmountedRef = useRef(false)
   const [live, setLive] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -79,6 +82,14 @@ export function AudioVisualizer({
 
       if (microphone) {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+        // Unmounted while the permission prompt was up: the cleanup has already
+        // run and will not run again, so release what just arrived ourselves.
+        if (unmountedRef.current) {
+          for (const track of stream.getTracks()) track.stop()
+          void context.close()
+          return
+        }
+        streamRef.current = stream
         sourceRef.current = context.createMediaStreamSource(stream)
         sourceRef.current.connect(analyser)
         // Deliberately not connected to the destination: that is a feedback loop.
@@ -100,13 +111,24 @@ export function AudioVisualizer({
     }
   }
 
-  useEffect(
-    () => () => {
+  useEffect(() => {
+    unmountedRef.current = false
+    return () => {
+      unmountedRef.current = true
       sourceRef.current?.disconnect()
+      // Closing the AudioContext does not release the microphone. Only stopping
+      // the stream's tracks does — until then the browser keeps recording, and
+      // keeps its recording indicator lit, long after the user has left.
+      for (const track of streamRef.current?.getTracks() ?? []) track.stop()
       void contextRef.current?.close()
-    },
-    [],
-  )
+      // A closed context cannot be resumed. Clearing these makes a remount —
+      // React's Strict Mode does one on purpose — build a fresh graph.
+      streamRef.current = null
+      sourceRef.current = null
+      analyserRef.current = null
+      contextRef.current = null
+    }
+  }, [])
 
   useEffect(() => {
     const canvas = canvasRef.current

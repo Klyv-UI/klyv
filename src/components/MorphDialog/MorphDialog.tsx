@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import { cn } from '../../lib/cn'
+import { useOverlayLayer } from '../../lib/overlay'
 import { FocusTrap } from '../FocusTrap'
 import { Portal } from '../Portal'
 import { IconButton } from '../IconButton'
@@ -84,6 +85,7 @@ export function MorphDialog({
   const id = useId()
   const triggerRef = useRef<HTMLButtonElement>(null)
   const panelRef = useRef<HTMLDivElement>(null)
+  const closeTimer = useRef<number | undefined>(undefined)
   const [open, setOpen] = useState(false)
   /** Kept mounted through the closing animation. */
   const [mounted, setMounted] = useState(false)
@@ -114,8 +116,11 @@ export function MorphDialog({
     panel.style.transition = `transform ${DURATION}ms ${EASING}, opacity ${Math.round(DURATION * 0.6)}ms linear`
     panel.style.transform = transformToTrigger()
     panel.style.opacity = '0'
-    window.setTimeout(() => setMounted(false), DURATION)
+    closeTimer.current = window.setTimeout(() => setMounted(false), DURATION)
   }, [onOpenChange, reducedMotion, transformToTrigger])
+
+  // Unmounting mid-close must not leave a timer to set state on nothing.
+  useEffect(() => () => window.clearTimeout(closeTimer.current), [])
 
   // First frame after mount: pin the panel onto the trigger, then release it.
   useEffect(() => {
@@ -142,19 +147,10 @@ export function MorphDialog({
     return () => cancelAnimationFrame(frame)
   }, [mounted, reducedMotion, transformToTrigger])
 
-  useEffect(() => {
-    if (!mounted) return
-    const previous = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') hide()
-    }
-    document.addEventListener('keydown', onKeyDown)
-    return () => {
-      document.body.style.overflow = previous
-      document.removeEventListener('keydown', onKeyDown)
-    }
-  }, [hide, mounted])
+  // The layer lasts as long as the panel is on screen, exit flight included, so
+  // the page stays locked until it has gone. Escape only counts while it is
+  // actually open: a second press mid-flight used to report the close twice.
+  const { zIndex } = useOverlayLayer({ open: mounted, onDismiss: hide, dismissible: open })
 
   return (
     <>
@@ -181,7 +177,7 @@ export function MorphDialog({
 
       {mounted && (
         <Portal>
-          <div className="fixed inset-0 z-[var(--z-overlay)] flex items-center justify-center p-4">
+          <div className="fixed inset-0 flex items-center justify-center p-4" style={{ zIndex }}>
             <button
               type="button"
               aria-label="Close dialog"

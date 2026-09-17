@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useIsomorphicLayoutEffect } from '../../lib/layout-effect'
 import { cn } from '../../lib/cn'
 import { Text } from '../Text'
 import type { IconComponent } from '../../lib/types'
@@ -77,7 +78,7 @@ export function MagicTabs({
     items.findIndex((item) => item.value === value),
   )
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const measure = () => {
       const list = listRef.current
       const tab = tabsRef.current[selectedIndex]

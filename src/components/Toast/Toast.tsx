@@ -92,7 +92,7 @@ export function ToastProvider({ children, max = 4, placement = 'bottom-right' }:
           role="region"
           aria-label="Notifications"
           className={cn(
-            'pointer-events-none fixed z-[var(--z-overlay)] flex w-[calc(100vw-32px)] max-w-[360px] flex-col gap-2',
+            'pointer-events-none fixed z-[var(--z-toast)] flex w-[calc(100vw-32px)] max-w-[360px] flex-col gap-2',
             PLACEMENTS[placement],
           )}
         >

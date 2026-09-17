@@ -24,7 +24,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function 
       aria-invalid={invalid || undefined}
       className={cn(
         'w-full min-w-0 rounded-[var(--radius-field)] border border-line bg-surface px-4 py-3',
-        'text-[13px] font-medium leading-normal text-ink outline-none transition-colors',
+        'text-[13px] font-medium leading-normal text-ink transition-colors',
         'placeholder:text-ink-faint focus:border-line-strong',
         'disabled:cursor-not-allowed disabled:opacity-40',
         resize === 'none' ? 'resize-none' : 'resize-y',

@@ -2,7 +2,7 @@
 
 **An accent-led React component library.** 250+ components that take their entire
 personality from a single colour — pick a hue and the whole set repaints:
-buttons, charts, focus rings, and the page behind them.
+buttons, charts, selection washes, and the page behind them.
 
 ---
 

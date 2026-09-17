@@ -1,7 +1,8 @@
 'use client'
 
-import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from 'react'
+import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from 'react'
 import { cn } from '../../lib/cn'
+import { useOverlayLayer } from '../../lib/overlay'
 import { Input } from '../Input'
 import { Kbd } from '../Kbd'
 import { Text } from '../Text'
@@ -117,23 +118,16 @@ export function CommandPalette({
 
   useEffect(() => setActive(0), [query, open])
 
+  // A closed palette starts empty next time.
   useEffect(() => {
-    if (!open) {
-      setOwnQuery('')
-      onQueryChangeRef.current?.('')
-      return
-    }
-    const onKeyDown = (event: globalThis.KeyboardEvent) => {
-      if (event.key === 'Escape') onClose()
-    }
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    document.addEventListener('keydown', onKeyDown)
-    return () => {
-      document.body.style.overflow = previousOverflow
-      document.removeEventListener('keydown', onKeyDown)
-    }
-  }, [open, onClose])
+    if (open) return
+    setOwnQuery('')
+    onQueryChangeRef.current?.('')
+  }, [open])
+
+  // Scroll lock, Escape and the layer come from the shared stack.
+  const { zIndex } = useOverlayLayer({ open, onDismiss: onClose })
+  const listId = useId()
 
   useEffect(() => {
     listRef.current
@@ -165,11 +159,9 @@ export function CommandPalette({
 
   if (!open) return null
 
-  const listId = 'command-palette-list'
-
   return (
     <Portal>
-      <div className="fixed inset-0 z-[var(--z-overlay)] flex items-start justify-center p-4 pt-[12vh]">
+      <div className="fixed inset-0 flex items-start justify-center p-4 pt-[12vh]" style={{ zIndex }}>
         <button
           type="button"
           aria-label="Close command palette"

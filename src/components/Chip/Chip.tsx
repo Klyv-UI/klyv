@@ -52,7 +52,7 @@ export function Chip({
         type="button"
         aria-pressed={selected}
         disabled={disabled}
-        className="font-semibold leading-none outline-none transition-colors hover:text-ink disabled:cursor-not-allowed"
+        className="font-semibold leading-none transition-colors hover:text-ink disabled:cursor-not-allowed"
         {...props}
       >
         {label}

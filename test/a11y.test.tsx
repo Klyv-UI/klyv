@@ -1,8 +1,8 @@
 import { Component, act, type ComponentType, type ReactNode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, type Root } from 'react-dom/client'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import axe from 'axe-core'
-import { afterAll, describe, expect, it } from 'vitest'
+import { afterAll, afterEach, describe, expect, it } from 'vitest'
 import { writeFileSync } from 'node:fs'
 import ComponentPage from '../src/site/pages/ComponentPage'
 import LandingPage from '../src/site/pages/LandingPage'
@@ -62,6 +62,31 @@ class Boundary extends Component<{ slug: string; children: ReactNode }, { failed
   }
 }
 
+/**
+ * Mounting, with cleanup that does not depend on the test reaching its own end.
+ *
+ * A test that times out never runs its last two lines, so its container stays
+ * in the body — and a stray `main` left behind makes the *next* page's landmark
+ * check fail for a fault it does not have. One slow page used to fail two
+ * tests and blame the wrong one.
+ */
+const mounted: { root: Root; container: HTMLElement }[] = []
+
+function mount() {
+  const container = document.createElement('div')
+  document.body.append(container)
+  const root = createRoot(container)
+  mounted.push({ root, container })
+  return { root, container }
+}
+
+afterEach(() => {
+  for (const { root, container } of mounted.splice(0)) {
+    act(() => root.unmount())
+    container.remove()
+  }
+})
+
 async function waitFor(check: () => boolean, timeout = 8000) {
   const start = Date.now()
   while (!check()) {
@@ -75,9 +100,7 @@ async function waitFor(check: () => boolean, timeout = 8000) {
 
 describe('component pages pass axe', () => {
   it.each(catalog.map((entry) => entry.slug))('%s', async (slug) => {
-    const container = document.createElement('div')
-    document.body.append(container)
-    const root = createRoot(container)
+    const { root, container } = mount()
 
     await act(async () => {
       root.render(
@@ -118,16 +141,6 @@ describe('component pages pass axe', () => {
         why: (violation.nodes[0]?.failureSummary ?? '').replace(/\s+/g, ' ').slice(0, 240),
       })
     }
-
-    act(() => root.unmount())
-    container.remove()
-  })
-
-  afterAll(() => {
-    writeFileSync(
-      'test/a11y-report.json',
-      `${JSON.stringify({ crashes, findings }, null, 2)}\n`,
-    )
   })
 })
 
@@ -140,9 +153,7 @@ describe('component pages pass axe', () => {
  */
 describe('landing page passes axe', () => {
   it('landing', async () => {
-    const container = document.createElement('div')
-    document.body.append(container)
-    const root = createRoot(container)
+    const { root, container } = mount()
 
     await act(async () => {
       root.render(
@@ -174,10 +185,12 @@ describe('landing page passes axe', () => {
         why: (violation.nodes[0]?.failureSummary ?? '').replace(/\s+/g, ' ').slice(0, 240),
       })
     }
-
-    act(() => root.unmount())
-    container.remove()
-  }, 30000)
+    // Its own budget, and a large one: measured at ~200s under jsdom, against
+    // under 10s for a typical page. It passes — it is slow, not stuck — but at
+    // the shared 60s limit it failed on every run, and a hard-coded 30s here
+    // left its container behind to fail the next test as well. The slowness
+    // is worth finding; until then, a red suite teaches people to ignore it.
+  }, 300_000)
 })
 
 /**
@@ -192,9 +205,7 @@ describe('block pages pass axe', () => {
   it.each(blocks.map((block) => block.slug))(
     '%s',
     async (slug) => {
-      const container = document.createElement('div')
-      document.body.append(container)
-      const root = createRoot(container)
+      const { root, container } = mount()
 
       await act(async () => {
         root.render(
@@ -233,11 +244,7 @@ describe('block pages pass axe', () => {
           why: (violation.nodes[0]?.failureSummary ?? '').replace(/\s+/g, ' ').slice(0, 240),
         })
       }
-
-      act(() => root.unmount())
-      container.remove()
     },
-    30000,
   )
 })
 
@@ -266,9 +273,7 @@ describe('platform pages pass axe', () => {
   it.each(PLATFORM_PAGES)(
     '$url',
     async ({ url, path, Page }) => {
-      const container = document.createElement('div')
-      document.body.append(container)
-      const root = createRoot(container)
+      const { root, container } = mount()
 
       await act(async () => {
         root.render(
@@ -299,12 +304,15 @@ describe('platform pages pass axe', () => {
           why: (violation.nodes[0]?.failureSummary ?? '').replace(/\s+/g, ' ').slice(0, 240),
         })
       }
-
-      act(() => root.unmount())
-      container.remove()
     },
-    30000,
   )
+})
+
+// After every suite above, not just the component pages: the report used to be
+// written when the first describe finished, so a violation on a block or a
+// platform page never reached the file the docs read.
+afterAll(() => {
+  writeFileSync('test/a11y-report.json', `${JSON.stringify({ crashes, findings }, null, 2)}\n`)
 })
 
 describe('audit summary', () => {

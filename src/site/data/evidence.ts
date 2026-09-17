@@ -262,7 +262,6 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
-    "keyboardSuite": "test/interaction/lists.test.tsx",
     "axe": true
   },
   "Button": {
@@ -458,7 +457,6 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
-    "keyboardSuite": "test/interaction/forms.test.tsx",
     "axe": true
   },
   "CountUp": {
@@ -473,7 +471,6 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
-    "keyboardSuite": "test/interaction/time.test.tsx",
     "axe": true
   },
   "CoverFlow": {
@@ -537,7 +534,6 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
-    "keyboardSuite": "test/interaction/data.test.tsx",
     "axe": true
   },
   "DatePicker": {
@@ -657,7 +653,6 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
-    "keyboardSuite": "test/interaction/layout.test.tsx",
     "axe": true
   },
   "FeatureComparison": {
@@ -798,6 +793,7 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": true,
     "reducedMotion": false,
+    "keyboardSuite": "test/interaction/regressions.test.tsx",
     "axe": true
   },
   "HoloCard": {
@@ -1221,7 +1217,6 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
-    "keyboardSuite": "test/interaction/forms.test.tsx",
     "axe": true
   },
   "PaymentMethodCard": {
@@ -1439,7 +1434,6 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
-    "keyboardSuite": "test/interaction/time.test.tsx",
     "axe": true
   },
   "RetryQueue": {
@@ -1961,7 +1955,6 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
-    "keyboardSuite": "test/interaction/controls.test.tsx",
     "axe": true
   },
   "Toolbar": {
@@ -2060,7 +2053,6 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
-    "keyboardSuite": "test/interaction/lists.test.tsx",
     "axe": true
   },
   "VisuallyHidden": {

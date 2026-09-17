@@ -31,6 +31,13 @@
   --color-ink-soft: #5c6165; /* secondary    — 6.2:1 */
   --color-ink-faint: #6a7075; /* tertiary     — 5.0:1 on surface, 4.6:1 on canvas */
 
+  /* The keyboard focus ring. Ink, not the accent: a ring has to reach 3:1
+     against whatever it surrounds (WCAG 1.4.11), and accent-strong on white
+     measured 1.3:1 for the default volt and under 3:1 for half the presets.
+     Ink is ~17:1 in both themes and flips with them. An app whose accent is
+     dark enough can point this at it. */
+  --color-focus: var(--color-ink);
+
   /* Accent + status */
   --color-accent: #c8f24e;
   --color-accent-strong: #b9e93a;
@@ -80,11 +87,19 @@
   --syntax-fn: #6d3fc4;
   --syntax-punct: #6b7178;
 
-  /* Stacking order, from the back of the page to the front. */
+  /* Stacking order, from the back of the page to the front.
+   *
+   * Dialogs, drawers and popovers do not use a fixed value: they take their
+   * layer from the overlay stack (src/lib/overlay.ts), starting at
+   * --z-overlay and rising one per overlay in the order they were opened. That
+   * is what puts a Select opened inside a Modal above the Modal. The fixed
+   * values here are for what sits outside that stack. */
   --z-raised: 10; /* swap button over the exchange fields */
   --z-sticky: 20; /* carousel chevrons over the card band */
-  --z-popover: 30; /* dropdown menus */
-  --z-overlay: 50; /* mobile drawer + backdrop */
+  --z-overlay: 50; /* the first overlay on the stack */
+  --z-popover: 60; /* in-flow menus that are not on the stack — above the first dialog, never under its scrim */
+  --z-toast: 1000; /* status messages, above every overlay */
+  --z-tooltip: 1100; /* the label under the pointer, above everything */
 }
 
 /* ------------------------------------------------------------------ *

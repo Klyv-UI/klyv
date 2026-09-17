@@ -1,7 +1,8 @@
 'use client'
 
-import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from 'react'
+import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from 'react'
 import { cn } from '../../lib/cn'
+import { useOverlayLayer } from '../../lib/overlay'
 import { Input } from '../Input'
 import { Text } from '../Text'
 import { Portal } from '../Portal'
@@ -105,12 +106,24 @@ export function Combobox<T extends string = string>({
       event.preventDefault()
       choose(filtered[active])
     } else if (event.key === 'Escape') {
+      // With the list open, closing it is this press's whole job. Marking it
+      // handled stops the overlay stack also closing the dialog around the
+      // combobox. With the list closed, Escape carries on to that dialog.
+      if (open) event.preventDefault()
       setOpen(false)
       setQuery('')
     }
   }
 
-  const listId = `${id ?? label}-listbox`
+  // The list sits on the overlay stack so it is above any dialog it opens in,
+  // however deep. Escape is handled above, on the input.
+  const { zIndex } = useOverlayLayer({ open, onDismiss: () => setOpen(false), kind: 'popover' })
+
+  // From useId, not the label. An id built from "Ship to country" has spaces
+  // in it, and aria-controls and aria-activedescendant are space-separated
+  // lists — screen readers looked for three elements that did not exist.
+  const generatedId = useId()
+  const listId = `${id ?? generatedId}-listbox`
 
   return (
     <div ref={anchorRef} className={cn('relative', className)}>
@@ -146,7 +159,7 @@ export function Combobox<T extends string = string>({
               top: position?.top ?? -9999,
               left: position?.left ?? -9999,
               width: anchorRef.current?.offsetWidth,
-              zIndex: 'var(--z-popover)' as unknown as number,
+              zIndex,
             }}
             className="max-h-[260px] overflow-y-auto rounded-[var(--radius-tile)] border border-line bg-surface p-1 shadow-[var(--shadow-float)]"
           >

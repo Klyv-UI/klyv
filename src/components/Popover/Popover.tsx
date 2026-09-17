@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { cn } from '../../lib/cn'
+import { useOverlayLayer } from '../../lib/overlay'
 import { Surface } from '../Surface'
 import { Portal } from '../Portal'
 import { usePopoverPosition, type PopoverAlign, type PopoverPlacement } from './usePopoverPosition'
@@ -26,6 +27,8 @@ export interface PopoverProps {
   /** Applied to the panel Surface. */
   className?: string
 }
+
+const FOCUSABLE = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
 /**
  * A floating panel anchored to a trigger, mounted through a Portal so no
@@ -56,6 +59,16 @@ export function Popover({
     if (controlledOpen === undefined) setUncontrolled(next)
     onOpenChange?.(next)
   }
+  // The document listeners below outlive the render that attached them. They
+  // call through this, so a guard in a parent's handler (Select's `disabled`)
+  // is read as it is now rather than as it was when the panel opened.
+  const setOpenRef = useRef(setOpen)
+  setOpenRef.current = setOpen
+
+  // Escape and the layer come from the shared stack: Escape closes this panel
+  // and nothing behind it, and a panel opened inside a Modal sits above it
+  // instead of under its scrim.
+  const { zIndex, isTop } = useOverlayLayer({ open, onDismiss: () => setOpen(false), kind: 'popover' })
 
   const position = usePopoverPosition(
     anchorRef as React.RefObject<HTMLElement>,
@@ -67,25 +80,39 @@ export function Popover({
   )
 
   useEffect(() => {
-    if (!open) return
+    // Only the front layer closes on an outside press. A panel opened from
+    // inside this one is portalled elsewhere in the body, so a click in it is
+    // "outside" as far as this panel's DOM is concerned — and used to close both.
+    if (!open || !isTop || !dismissOnOutsideClick) return
 
     const onPointerDown = (event: MouseEvent) => {
-      if (!dismissOnOutsideClick) return
       const target = event.target as Node
       if (anchorRef.current?.contains(target) || panelRef.current?.contains(target)) return
-      setOpen(false)
-    }
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setOpen(false)
+      setOpenRef.current(false)
     }
 
     document.addEventListener('mousedown', onPointerDown)
-    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('mousedown', onPointerDown)
+  }, [open, isTop, dismissOnOutsideClick])
+
+  useEffect(() => {
+    if (!open) return
+    const panel = panelRef.current
+    const anchor = anchorRef.current
+
+    // Focus goes back to the trigger when the panel closes with focus inside
+    // it — choosing a menu item, pressing Escape. Without this the focused
+    // item is removed from the page, focus falls to <body>, and inside a Modal
+    // the next Tab walks straight out of the focus trap. Focus that has already
+    // moved somewhere deliberate (a click on another control) is left alone.
     return () => {
-      document.removeEventListener('mousedown', onPointerDown)
-      document.removeEventListener('keydown', onKeyDown)
+      const active = document.activeElement
+      const lost = !active || active === document.body || (panel?.contains(active) ?? false)
+      if (!lost || !anchor?.isConnected) return
+      const target = anchor.querySelector<HTMLElement>(FOCUSABLE) ?? anchor
+      target.focus()
     }
-  }, [open, dismissOnOutsideClick])
+  }, [open])
 
   return (
     <>
@@ -106,7 +133,7 @@ export function Popover({
               position: 'fixed',
               top: position?.top ?? -9999,
               left: position?.left ?? -9999,
-              zIndex: 'var(--z-popover)' as unknown as number,
+              zIndex,
             }}
             className={cn(position ? 'opacity-100' : 'opacity-0', 'transition-opacity duration-100')}
           >

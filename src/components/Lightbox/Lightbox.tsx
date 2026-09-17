@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import { cn } from '../../lib/cn'
+import { useOverlayLayer } from '../../lib/overlay'
 import { FocusTrap } from '../FocusTrap'
 import { IconButton } from '../IconButton'
 import { ChevronLeftIcon, ChevronRightIcon, CrossIcon } from '../internal/icons'
@@ -56,27 +57,26 @@ export function Lightbox({
 
   const go = (next: number) => onIndexChange((next + images.length) % images.length)
 
+  // Scroll lock, Escape and the layer come from the shared stack.
+  const { zIndex, isTop } = useOverlayLayer({ open, onDismiss: () => onIndexChange(null) })
+
   useEffect(() => {
-    if (!open) return
+    // The arrows belong to whatever is in front: with a dialog open over the
+    // lightbox, ArrowRight moves that dialog's caret, not the photo behind it.
+    if (!open || !isTop) return
 
     const onKeyDown = (event: KeyboardEvent) => {
       const at = index as number
-      if (event.key === 'Escape') onIndexChange(null)
-      else if (event.key === 'ArrowRight') go(at + 1)
+      if (event.key === 'ArrowRight') go(at + 1)
       else if (event.key === 'ArrowLeft') go(at - 1)
       else if (event.key === 'Home') onIndexChange(0)
       else if (event.key === 'End') onIndexChange(images.length - 1)
     }
 
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
     document.addEventListener('keydown', onKeyDown)
-    return () => {
-      document.body.style.overflow = previousOverflow
-      document.removeEventListener('keydown', onKeyDown)
-    }
+    return () => document.removeEventListener('keydown', onKeyDown)
     // `go` is derived from these; re-subscribing on them keeps it current.
-  }, [open, index, images.length, onIndexChange])
+  }, [open, isTop, index, images.length, onIndexChange])
 
   if (index === null || images.length === 0) return null
 
@@ -90,7 +90,8 @@ export function Lightbox({
         role="dialog"
         aria-modal="true"
         aria-label={label}
-        className={cn('fixed inset-0 z-[var(--z-overlay)]', className)}
+        className={cn('fixed inset-0', className)}
+        style={{ zIndex }}
       >
         <Presence present duration={150}>
           <div aria-hidden="true" className="fixed inset-0 bg-scrim" onClick={() => onIndexChange(null)} />

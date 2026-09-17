@@ -17,8 +17,9 @@ const TONES: Record<IconButtonTone, string> = {
   muted: 'bg-surface-muted text-ink hover:bg-line-strong',
   /** Filled accent — the currency swap control. */
   accent: 'bg-accent text-accent-ink hover:bg-accent-strong',
-  /** Lifted white — carousel chevrons. */
-  white: 'bg-white text-ink shadow-[var(--shadow-float)] hover:bg-surface-muted',
+  /** Lifted white — carousel chevrons. `shell`, not literal white, as Button's
+   *  `white` variant does: `bg-white` stayed white in dark mode while `text-ink` turned light — 1.15:1, which hid the Lightbox's close button. */
+  white: 'bg-shell text-ink shadow-[var(--shadow-float)] hover:bg-surface-muted',
 }
 
 const SIZES: Record<IconButtonSize, { box: string; glyph: number }> = {

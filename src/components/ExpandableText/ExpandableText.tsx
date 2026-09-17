@@ -1,6 +1,7 @@
 'use client'
 
-import { useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
+import { useId, useRef, useState, type ReactNode } from 'react'
+import { useIsomorphicLayoutEffect } from '../../lib/layout-effect'
 import { cn } from '../../lib/cn'
 
 export interface ExpandableTextProps {
@@ -45,7 +46,7 @@ export function ExpandableText({
 
   // Measured only while collapsed: once open there is nothing to compare with.
   // The observer catches the text reflowing when its container resizes.
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const node = body.current
     if (!node || open) return
     const measure = () => setClamped(node.scrollHeight > node.clientHeight + 1)

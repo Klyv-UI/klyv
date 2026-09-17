@@ -35,13 +35,25 @@ const CLIENT = /^\s*['"]use client['"]/m
 /* ------------------------------------------------------------- test evidence */
 
 const INTERACTION = join(ROOT, 'test', 'interaction')
+
+// "Keyboard tested" is a claim the docs print on a component's page, so it is
+// earned by pressing keys, not by being named. It used to be granted for any
+// `describe('Name')` at all — DataTable, VirtualList, BulkActionBar, Countdown
+// and RelativeTime carried the badge from test blocks that never touched the
+// keyboard, and any render-only test added later would have handed out more.
+const PRESSES_KEYS = /\buser\.(?:keyboard|tab)\(|\bfireEvent\.key(?:Down|Up)\(/
+
 const keyboard = {}
 if (existsSync(INTERACTION)) {
   for (const file of readdirSync(INTERACTION).filter((name) => name.endsWith('.test.tsx'))) {
     const source = readFileSync(join(INTERACTION, file), 'utf8')
-    for (const match of source.matchAll(/\bdescribe\(\s*'([A-Z][A-Za-z0-9]*)'/g)) {
-      keyboard[match[1]] = `test/interaction/${file}`
-    }
+    const blocks = [...source.matchAll(/\bdescribe\(\s*'([A-Z][A-Za-z0-9]*)'/g)]
+    blocks.forEach((match, index) => {
+      // A block runs to the next top-level describe. Close enough for a check
+      // that only has to find a key press inside it.
+      const body = source.slice(match.index, blocks[index + 1]?.index ?? source.length)
+      if (PRESSES_KEYS.test(body)) keyboard[match[1]] = `test/interaction/${file}`
+    })
   }
 }
 

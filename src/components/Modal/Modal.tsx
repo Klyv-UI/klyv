@@ -1,7 +1,8 @@
 'use client'
 
-import { useEffect, type ReactNode } from 'react'
+import { useId, type ReactNode } from 'react'
 import { cn } from '../../lib/cn'
+import { useOverlayLayer } from '../../lib/overlay'
 import { IconButton } from '../IconButton'
 import { Surface } from '../Surface'
 import { Text } from '../Text'
@@ -58,25 +59,21 @@ export function Modal({
   role = 'dialog',
   className,
 }: ModalProps) {
-  useEffect(() => {
-    if (!open) return
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && dismissible) onClose()
-    }
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    document.addEventListener('keydown', onKeyDown)
-    return () => {
-      document.body.style.overflow = previousOverflow
-      document.removeEventListener('keydown', onKeyDown)
-    }
-  }, [open, dismissible, onClose])
+  // Scroll lock, Escape and the layer all come from the shared stack, so a
+  // dialog opened from inside this one closes first and hands scrolling back
+  // correctly. See lib/overlay.ts.
+  const { zIndex } = useOverlayLayer({ open, onDismiss: onClose, dismissible })
+
+  // Two dialogs on the page — a confirmation opened from an edit dialog — must
+  // not share an id, or the inner one takes the outer one's title as its name.
+  const titleId = useId()
+  const descriptionId = useId()
 
   if (!open) return null
 
   return (
     <Portal>
-      <div className="fixed inset-0 z-[var(--z-overlay)] flex items-center justify-center p-4">
+      <div className="fixed inset-0 flex items-center justify-center p-4" style={{ zIndex }}>
         <Presence present={open} duration={150}>
           <button
             type="button"
@@ -92,20 +89,20 @@ export function Modal({
             <Surface
               role={role}
               aria-modal="true"
-              aria-labelledby="modal-title"
-              aria-describedby={description ? 'modal-description' : undefined}
+              aria-labelledby={titleId}
+              aria-describedby={description ? descriptionId : undefined}
               variant="floating"
               padding="lg"
               className={cn('max-h-[85dvh] gap-3 overflow-y-auto rounded-[var(--radius-card)]', className)}
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
-                  <Text as="h2" id="modal-title" size="subtitle">
+                  <Text as="h2" id={titleId} size="subtitle">
                     {title}
                   </Text>
                   {description && (
                     <Text
-                      id="modal-description"
+                      id={descriptionId}
                       size="caption"
                       weight="medium"
                       tone="faint"

@@ -116,13 +116,16 @@ export const tokenGroups: readonly TokenGroup[] = [
   {
     id: 'layers',
     title: 'Layers',
-    description: 'The four stacking contexts the dashboard actually creates.',
+    description:
+      'Fixed stacking values. Dialogs, drawers and popovers rise from --z-overlay in the order they open, so a panel opened inside a dialog sits above it.',
     kind: 'layer',
     tokens: [
       t('--z-raised', 'raised', 'Swap button over the exchange fields'),
       t('--z-sticky', 'sticky', 'Carousel chevrons over the card band'),
-      t('--z-popover', 'popover', 'Dropdown menus'),
-      t('--z-overlay', 'overlay', 'Mobile drawer and backdrop'),
+      t('--z-overlay', 'overlay', 'The first overlay on the stack; each one opened after it sits higher'),
+      t('--z-popover', 'popover', 'In-flow menus not on the overlay stack'),
+      t('--z-toast', 'toast', 'Status messages, above every overlay'),
+      t('--z-tooltip', 'tooltip', 'The label under the pointer, above everything'),
     ],
   },
 ]

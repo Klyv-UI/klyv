@@ -778,7 +778,9 @@
         "Text"
       ],
       "shared": [
-        "lib/cn.ts"
+        "lib/cn.ts",
+        "lib/layout-effect.ts",
+        "lib/overlay.ts"
       ],
       "external": [
         "react"
@@ -862,7 +864,8 @@
       ],
       "shared": [
         "components/internal/icons.tsx",
-        "lib/cn.ts"
+        "lib/cn.ts",
+        "lib/overlay.ts"
       ],
       "external": [
         "react"
@@ -885,6 +888,7 @@
       "shared": [
         "components/internal/icons.tsx",
         "lib/cn.ts",
+        "lib/overlay.ts",
         "lib/types.ts"
       ],
       "external": [
@@ -966,7 +970,8 @@
         "Text"
       ],
       "shared": [
-        "lib/cn.ts"
+        "lib/cn.ts",
+        "lib/overlay.ts"
       ],
       "external": [
         "react"
@@ -1364,7 +1369,8 @@
       ],
       "shared": [
         "components/internal/icons.tsx",
-        "lib/cn.ts"
+        "lib/cn.ts",
+        "lib/overlay.ts"
       ],
       "external": [
         "react"
@@ -1441,7 +1447,8 @@
       ],
       "internal": [],
       "shared": [
-        "lib/cn.ts"
+        "lib/cn.ts",
+        "lib/layout-effect.ts"
       ],
       "external": [
         "react"
@@ -2130,7 +2137,8 @@
       ],
       "shared": [
         "components/internal/icons.tsx",
-        "lib/cn.ts"
+        "lib/cn.ts",
+        "lib/overlay.ts"
       ],
       "external": [
         "react"
@@ -2245,6 +2253,7 @@
       ],
       "shared": [
         "lib/cn.ts",
+        "lib/layout-effect.ts",
         "lib/types.ts"
       ],
       "external": [
@@ -2358,7 +2367,8 @@
         "Text"
       ],
       "shared": [
-        "lib/cn.ts"
+        "lib/cn.ts",
+        "lib/layout-effect.ts"
       ],
       "external": [
         "react"
@@ -2457,7 +2467,8 @@
       ],
       "shared": [
         "components/internal/icons.tsx",
-        "lib/cn.ts"
+        "lib/cn.ts",
+        "lib/overlay.ts"
       ],
       "external": [
         "react"
@@ -2477,6 +2488,7 @@
       "shared": [
         "lib/cn.ts",
         "lib/motion.ts",
+        "lib/overlay.ts",
         "lib/types.ts"
       ],
       "external": [
@@ -2855,7 +2867,8 @@
         "Surface"
       ],
       "shared": [
-        "lib/cn.ts"
+        "lib/cn.ts",
+        "lib/overlay.ts"
       ],
       "external": [
         "react"
@@ -3538,6 +3551,7 @@
       ],
       "shared": [
         "lib/cn.ts",
+        "lib/overlay.ts",
         "lib/time.ts"
       ],
       "external": [
@@ -4423,7 +4437,6 @@
         "CopyButton",
         "InlineMessage",
         "InputOTP",
-        "QRCode",
         "Surface",
         "Text"
       ],
@@ -4719,6 +4732,10 @@
     "lib/time.ts": [],
     "lib/motion.ts": [],
     "lib/chart.ts": [],
+    "lib/layout-effect.ts": [],
+    "lib/overlay.ts": [
+      "lib/layout-effect.ts"
+    ],
     "components/internal/StatusPill.tsx": [],
     "lib/contrast.ts": [],
     "lib/roving.ts": []

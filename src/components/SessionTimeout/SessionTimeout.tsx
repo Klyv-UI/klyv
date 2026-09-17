@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { cn } from '../../lib/cn'
+import { useOverlayLayer } from '../../lib/overlay'
 import { Button } from '../Button'
 import { ProgressRing } from '../ProgressRing'
 import { Text } from '../Text'
@@ -114,6 +115,11 @@ export function SessionTimeout({
   }, [onExpire, paused])
 
   const warning = !paused && remaining <= warnAt && remaining > 0
+
+  // On the stack like every other dialog, so it takes the front layer when it
+  // interrupts one that is already open. Not dismissible: see above.
+  const { zIndex } = useOverlayLayer({ open: warning, dismissible: false })
+
   if (!warning) return null
 
   const seconds = Math.max(0, Math.round(remaining / 1000))
@@ -131,7 +137,7 @@ export function SessionTimeout({
 
   return (
     <Portal>
-      <div className="fixed inset-0 z-[var(--z-overlay)] flex items-center justify-center p-4">
+      <div className="fixed inset-0 flex items-center justify-center p-4" style={{ zIndex }}>
         <div aria-hidden="true" className="absolute inset-0 bg-scrim backdrop-blur-[2px]" />
         <FocusTrap className="relative w-full max-w-[400px]">
           <div

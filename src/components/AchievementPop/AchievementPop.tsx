@@ -87,7 +87,7 @@ export function AchievementPop({
     <Portal>
       <div
         className={cn(
-          'pointer-events-none fixed inset-x-0 z-[var(--z-overlay)] flex justify-center px-4',
+          'pointer-events-none fixed inset-x-0 z-[var(--z-toast)] flex justify-center px-4',
           position === 'top' ? 'top-6' : 'bottom-6',
         )}
       >

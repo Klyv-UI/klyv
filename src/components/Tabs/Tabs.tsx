@@ -137,7 +137,7 @@ export function Tabs<T extends string = string>({
           id={`${base}-panel-${current.value}`}
           aria-labelledby={`${base}-tab-${current.value}`}
           tabIndex={0}
-          className="min-w-0 focus-visible:outline-none"
+          className="min-w-0"
         >
           {current.content}
         </div>

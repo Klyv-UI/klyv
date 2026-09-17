@@ -66,7 +66,7 @@ export function VirtualList<T>({
       tabIndex={0}
       onScroll={onScroll}
       style={{ height }}
-      className={cn('relative overflow-y-auto focus-visible:outline-none', className)}
+      className={cn('relative overflow-y-auto', className)}
     >
       <div role="presentation" className="relative" style={{ height: items.length * itemHeight }}>
         {items.slice(from, to).map((item, offset) => {

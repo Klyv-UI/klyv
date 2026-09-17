@@ -1,0 +1,115 @@
+# The checks that used to run only when someone remembered to run them.
+#
+# Order matters: the cheap checks (types, the preset compile, generated data)
+# finish in under a minute and catch the failures that are easiest to ship, so
+# they gate the long suites rather than running beside them.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Types, preset and generated data
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Types
+        run: npm run lint
+
+      # The preset compiled to nothing for a while and nothing failed, because
+      # an empty stylesheet is a valid stylesheet. See scripts/check-preset.mjs.
+      - name: Preset compiles to real utilities
+        run: npm run check:preset
+
+      # `generate` rewrites data/ from the source. If the committed copies
+      # differ, the docs, the CLI and the MCP server are describing a library
+      # that no longer exists.
+      - name: Generated data is current
+        run: |
+          npm run generate
+          git diff --exit-code -- data src/site/data \
+            || { echo '::error::data/ is stale — run `npm run generate` and commit the result'; exit 1; }
+
+  test:
+    name: Unit, interaction and accessibility
+    runs-on: ubuntu-latest
+    needs: checks
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - name: Accessibility report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: a11y-report
+          path: test/a11y-report.json
+          if-no-files-found: ignore
+
+  build:
+    name: Package build
+    runs-on: ubuntu-latest
+    needs: checks
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build:lib
+
+      # What the package actually resolves to for a consumer: entry points,
+      # types, exports map. Reporting only for now — the exports map has known
+      # gaps (no `require` condition), and a job that is red on day one teaches
+      # people to ignore it. Make it gating once those are closed.
+      - name: Package entry points
+        continue-on-error: true
+        run: npx --yes publint@latest run .
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+  browser:
+    name: Browser checks (contrast)
+    runs-on: ubuntu-latest
+    needs: checks
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+
+      # Contrast only. The visual baselines in e2e/visual.spec.ts-snapshots are
+      # named for chromium-win32, so they read as missing on Linux and fail the
+      # run. They need regenerating in this container before visual.spec.ts can
+      # join in — until then, running it here would only teach people to ignore
+      # a red job.
+      - run: npx playwright test e2e/contrast.spec.ts
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report

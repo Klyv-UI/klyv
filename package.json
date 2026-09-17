@@ -71,6 +71,7 @@
     "prepack": "npm run build:lib",
     "preview": "vite preview --outDir dist-site --port 4173",
     "lint": "tsc -b --noEmit",
+    "check:preset": "node scripts/check-preset.mjs",
     "citrine": "node cli/citrine.mjs",
     "directives": "node scripts/client-directives.mjs",
     "rules": "node scripts/check-rules.mjs",
@@ -79,7 +80,7 @@
     "test:mcp": "node --test test/mcp.test.mjs",
     "test:interaction": "vitest run test/interaction --reporter=dot",
     "test:platform": "vitest run test/platform --reporter=dot",
-    "test": "npm run test:interaction && npm run test:platform && npm run test:a11y && npm run test:mcp",
+    "test": "npm run check:preset && npm run test:interaction && npm run test:platform && npm run test:a11y && npm run test:mcp",
     "test:browser": "playwright test",
     "test:browser:update": "playwright test --update-snapshots"
   },

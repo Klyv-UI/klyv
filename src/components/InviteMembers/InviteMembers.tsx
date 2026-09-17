@@ -150,7 +150,7 @@ export function InviteMembers({
         <div
           onClick={() => inputRef.current?.focus()}
           className={cn(
-            'flex min-h-11 cursor-text flex-wrap items-center gap-1.5 rounded-[var(--radius-field)] border bg-surface px-2 py-1.5 transition-colors focus-within:border-line-strong',
+            'flex min-h-11 cursor-text flex-wrap items-center gap-1.5 rounded-[var(--radius-field)] border bg-surface px-2 py-1.5 transition-colors focus-within:border-line-strong focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-focus',
             invalid.length > 0 ? 'border-danger' : 'border-line',
           )}
         >

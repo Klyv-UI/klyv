@@ -1,6 +1,6 @@
 'use client'
 
-import type { ReactNode } from 'react'
+import { useSyncExternalStore, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
 
 export interface PortalProps {
@@ -9,21 +9,35 @@ export interface PortalProps {
   container?: Element | null
 }
 
+// Nothing ever changes, so nothing ever needs to be told.
+const subscribe = () => () => {}
+const onClient = () => true
+const onServer = () => false
+
 /**
  * Renders children outside the current DOM position, so an overlay is never
  * clipped by an ancestor overflow or trapped under a stacking context.
  *
- * It mounts synchronously rather than waiting for an effect. That matters:
- * anything that measures the portalled node — Popover, Tooltip, HoverCard,
- * Combobox — runs its measurement in an effect immediately after this renders,
- * and a deferred mount would leave every one of them measuring a node that is
- * not in the document yet.
+ * Two timings matter, and they pull in opposite directions:
  *
- * `document` is checked rather than assumed, so a server render produces
- * nothing instead of throwing.
+ * - **Hydration has to match the server.** The server has no `document` and
+ *   renders nothing, so the client's first pass must render nothing too. When
+ *   this checked `typeof document` instead, the client portalled on its first
+ *   pass, React saw markup the server never sent, and threw the entire page's
+ *   server HTML away — which, with ToastProvider in a root layout, meant every
+ *   server-rendered page.
+ * - **Every other render has to be immediate.** Popover, Tooltip, HoverCard and
+ *   Combobox measure the portalled node in an effect straight after it renders.
+ *   Mounting in an effect of our own would leave all of them measuring a node
+ *   that is not in the document yet.
+ *
+ * `useSyncExternalStore` gives both. It reads the server snapshot while
+ * hydrating — so the first pass matches — and the client snapshot on every
+ * other render, including the very first render of a plain client mount.
  */
 export function Portal({ children, container }: PortalProps) {
-  const target = container ?? (typeof document === 'undefined' ? null : document.body)
-  if (!target) return null
+  const client = useSyncExternalStore(subscribe, onClient, onServer)
+  if (!client) return null
+  const target = container ?? document.body
   return createPortal(children, target)
 }

@@ -61,7 +61,7 @@ export function AmountField({
     <Surface
       variant="field"
       padding="md"
-      className={cn('flex-row items-center justify-between gap-3', disabled && 'opacity-40', className)}
+      className={cn('flex-row items-center justify-between gap-3 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-focus', disabled && 'opacity-40', className)}
     >
       <div className="min-w-0 flex-1">
         <Text as="label" size="caption" tone="faint" htmlFor={readOnly ? undefined : id}>

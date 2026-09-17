@@ -120,6 +120,29 @@ export function HoldToConfirm({
 
   const end = () => setHolding(false)
 
+  // A hold ends when the holder stops — not only when a key comes back up. The
+  // keyup of a Space held while tabbing or switching windows goes somewhere
+  // else, so the button used to go on "holding" with no one on it and fire the
+  // destructive action by itself. Losing focus, the window losing focus, the
+  // tab being hidden and the button being disabled all end the hold.
+  useEffect(() => {
+    if (!holding) return
+    const release = () => setHolding(false)
+    const onVisibility = () => {
+      if (document.visibilityState === 'hidden') release()
+    }
+    window.addEventListener('blur', release)
+    document.addEventListener('visibilitychange', onVisibility)
+    return () => {
+      window.removeEventListener('blur', release)
+      document.removeEventListener('visibilitychange', onVisibility)
+    }
+  }, [holding])
+
+  useEffect(() => {
+    if (disabled) setHolding(false)
+  }, [disabled])
+
   return (
     <button
       type="button"
@@ -129,6 +152,7 @@ export function HoldToConfirm({
       onPointerUp={end}
       onPointerLeave={end}
       onPointerCancel={end}
+      onBlur={end}
       onKeyDown={(event) => {
         if (event.key === ' ' || event.key === 'Enter') {
           event.preventDefault()

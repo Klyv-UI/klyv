@@ -65,11 +65,17 @@ export function Tooltip({
 
   useEffect(() => {
     if (!open) return
+    // Capture phase, and marked handled: a tooltip inside a Modal is in front of
+    // it, so Escape dismisses the tooltip and the overlay stack, seeing the
+    // press already handled, leaves the Modal open. In the bubble phase this
+    // ran after the stack had already closed the dialog.
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') hide()
+      if (event.key !== 'Escape' || event.defaultPrevented) return
+      event.preventDefault()
+      hide()
     }
-    document.addEventListener('keydown', onKeyDown)
-    return () => document.removeEventListener('keydown', onKeyDown)
+    document.addEventListener('keydown', onKeyDown, true)
+    return () => document.removeEventListener('keydown', onKeyDown, true)
   }, [open])
 
   return (
@@ -95,7 +101,7 @@ export function Tooltip({
               position: 'fixed',
               top: position?.top ?? -9999,
               left: position?.left ?? -9999,
-              zIndex: 'var(--z-popover)' as unknown as number,
+              zIndex: 'var(--z-tooltip)' as unknown as number,
             }}
             className={cn(
               'pointer-events-none max-w-[240px] rounded-[10px] bg-ink px-2.5 py-1.5',

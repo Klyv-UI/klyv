@@ -186,7 +186,7 @@ export function SortableList<T>({
               onPointerCancel={onPointerUp}
               onKeyDown={(event) => onKeyDown(event, index)}
               className={cn(
-                'rounded-[var(--radius-tile)] outline-none',
+                'rounded-[var(--radius-tile)]',
                 !disabled && 'cursor-grab touch-none',
                 dragging && 'cursor-grabbing',
                 // Only the rows making room animate; the dragged one follows

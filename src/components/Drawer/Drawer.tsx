@@ -1,7 +1,8 @@
 'use client'
 
-import { useEffect, type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { cn } from '../../lib/cn'
+import { useOverlayLayer } from '../../lib/overlay'
 import { IconButton } from '../IconButton'
 import { Text } from '../Text'
 import { FocusTrap } from '../FocusTrap'
@@ -57,25 +58,14 @@ export function Drawer({
   bare = false,
   className,
 }: DrawerProps) {
-  useEffect(() => {
-    if (!open) return
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose()
-    }
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    document.addEventListener('keydown', onKeyDown)
-    return () => {
-      document.body.style.overflow = previousOverflow
-      document.removeEventListener('keydown', onKeyDown)
-    }
-  }, [open, onClose])
+  // Scroll lock, Escape and the layer come from the shared stack, as Modal's do.
+  const { zIndex } = useOverlayLayer({ open, onDismiss: onClose })
 
   if (!open) return null
 
   return (
     <Portal>
-      <div className="fixed inset-0 z-[var(--z-overlay)]">
+      <div className="fixed inset-0" style={{ zIndex }}>
         <button
           type="button"
           aria-label="Close panel"

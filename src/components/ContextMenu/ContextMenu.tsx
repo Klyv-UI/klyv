@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { cn } from '../../lib/cn'
+import { useOverlayLayer } from '../../lib/overlay'
 import { Divider } from '../Divider'
 import { Surface } from '../Surface'
 import { Text } from '../Text'
@@ -39,6 +40,9 @@ export function ContextMenu({ children, items, label, className }: ContextMenuPr
     })
   }
 
+  // Escape and the layer come from the shared stack.
+  const { zIndex } = useOverlayLayer({ open: point !== null, onDismiss: () => setPoint(null), kind: 'popover' })
+
   useEffect(() => {
     if (!point) return
     const frame = requestAnimationFrame(() => {
@@ -48,10 +52,16 @@ export function ContextMenu({ children, items, label, className }: ContextMenuPr
       if (!panelRef.current?.contains(event.target as Node)) setPoint(null)
     }
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setPoint(null)
       if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return
       event.preventDefault()
-      const nodes = [...(panelRef.current?.querySelectorAll<HTMLElement>('[role="menuitem"]') ?? [])]
+      // Disabled items are skipped. A browser will not focus a disabled
+      // button, so landing on one left focus where it was and every later
+      // press aimed at the same item — the menu simply stopped moving.
+      const nodes = [
+        ...(panelRef.current?.querySelectorAll<HTMLElement>(
+          '[role="menuitem"]:not([disabled]):not([aria-disabled="true"])',
+        ) ?? []),
+      ]
       const index = nodes.indexOf(document.activeElement as HTMLElement)
       const step = event.key === 'ArrowDown' ? 1 : -1
       nodes[(index + step + nodes.length) % nodes.length]?.focus()
@@ -90,7 +100,7 @@ export function ContextMenu({ children, items, label, className }: ContextMenuPr
         <Portal>
           <div
             ref={panelRef}
-            style={{ position: 'fixed', top: point.y, left: point.x, zIndex: 'var(--z-popover)' as unknown as number }}
+            style={{ position: 'fixed', top: point.y, left: point.x, zIndex }}
           >
             <Surface variant="floating" className="min-w-[200px] border border-line p-1">
               <div role="menu" aria-label={label} className="flex flex-col">

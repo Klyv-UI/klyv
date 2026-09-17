@@ -122,7 +122,7 @@ export function DiceRoller({
               {FACES.map((face) => (
                 <span
                   key={face.value}
-                  className="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-1 rounded-[14px] border border-line bg-white p-2 shadow-[var(--shadow-tile)]"
+                  className="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-1 rounded-[14px] border border-line bg-shell p-2 shadow-[var(--shadow-tile)]"
                   style={{ transform: face.transform, backfaceVisibility: 'hidden' }}
                 >
                   {Array.from({ length: 9 }, (_, cell) => (

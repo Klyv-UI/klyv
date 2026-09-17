@@ -64,11 +64,17 @@ export function HoverCard({
 
   useEffect(() => {
     if (!open) return
+    // Capture phase, and marked handled: a hover card inside a Modal is in front of
+    // it, so Escape dismisses the card and the overlay stack, seeing the
+    // press already handled, leaves the Modal open. In the bubble phase this
+    // ran after the stack had already closed the dialog.
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setOpen(false)
+      if (event.key !== 'Escape' || event.defaultPrevented) return
+      event.preventDefault()
+      setOpen(false)
     }
-    document.addEventListener('keydown', onKeyDown)
-    return () => document.removeEventListener('keydown', onKeyDown)
+    document.addEventListener('keydown', onKeyDown, true)
+    return () => document.removeEventListener('keydown', onKeyDown, true)
   }, [open])
 
   return (
@@ -95,7 +101,7 @@ export function HoverCard({
               position: 'fixed',
               top: position?.top ?? -9999,
               left: position?.left ?? -9999,
-              zIndex: 'var(--z-popover)' as unknown as number,
+              zIndex: 'var(--z-tooltip)' as unknown as number,
             }}
             className={position ? 'opacity-100' : 'opacity-0'}
           >

@@ -83,7 +83,7 @@ export function TagInput({
       onClick={() => inputRef.current?.focus()}
       className={cn(
         'flex min-h-10 w-full flex-wrap items-center gap-1.5 rounded-[var(--radius-field)] border bg-surface px-2 py-1.5',
-        'transition-colors focus-within:border-line-strong',
+        'transition-colors focus-within:border-line-strong focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-focus',
         invalid ? 'border-danger' : 'border-line',
         disabled && 'pointer-events-none opacity-40',
         className,

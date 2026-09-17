@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
+import { useIsomorphicLayoutEffect } from '../../lib/layout-effect'
 import { cn } from '../../lib/cn'
 import { Avatar } from '../Avatar'
 import { Surface } from '../Surface'
@@ -113,7 +114,7 @@ export function MentionInput({
     return { text: run, at }
   }
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const area = areaRef.current
     const mirror = mirrorRef.current
     if (!area || !mirror || !query) return

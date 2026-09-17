@@ -128,7 +128,8 @@ export function Select<T extends string = string>({
             'disabled:pointer-events-none disabled:opacity-40',
             TRIGGER_SIZES[size],
             variant === 'pill'
-              ? 'rounded-full bg-white shadow-[var(--shadow-tile)] hover:bg-surface-muted'
+              ? // `shell`, not `white`: literal white stays white in dark mode, under light text.
+              'rounded-full bg-shell shadow-[var(--shadow-tile)] hover:bg-surface-muted'
               : 'rounded-full border bg-surface hover:border-line-strong',
             variant === 'field' && (invalid ? 'border-danger' : 'border-line'),
             fullWidth && 'w-full',
