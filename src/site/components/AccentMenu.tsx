@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
-import { Popover, Text, cn } from 'citrine'
+import { Popover, Text, cn } from 'klyv'
 import { AccentPicker } from './AccentPicker'
 import { useAccent } from './useTheme'
 

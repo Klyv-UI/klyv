@@ -1,4 +1,4 @@
-import { Reveal, Text } from 'citrine'
+import { Reveal, Text } from 'klyv'
 import { componentCount } from '../../data/catalog'
 import { componentEvidence } from '../../data/evidence'
 import { LandingSection, SectionLink } from './primitives'

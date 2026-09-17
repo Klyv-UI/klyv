@@ -1,6 +1,6 @@
 import { useEffect, type ComponentType } from 'react'
 import { Link, RouterProvider, createBrowserRouter, type RouteObject } from 'react-router-dom'
-import { Surface, Text } from 'citrine'
+import { Surface, Text } from 'klyv'
 import { BootScreen } from './components/BootScreen'
 import { SiteLayout, type RouteHandle } from './layouts/SiteLayout'
 import { findBlock } from './data/blocks'

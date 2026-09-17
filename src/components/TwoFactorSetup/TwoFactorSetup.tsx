@@ -21,7 +21,7 @@ export interface TwoFactorSetupProps {
    * The scannable code for `otpauthUrl`, drawn by a real QR encoder — a server
    * rendered image, or a component such as `qrcode.react`.
    *
-   * Citrine's own `QRCode` is not used here: it draws a deterministic,
+   * Klyv's own `QRCode` is not used here: it draws a deterministic,
    * QR-looking pattern for mock-ups, and no authenticator can scan it. Passing
    * it an otpauth URI produced an enrolment screen nobody could complete. With
    * no code supplied, the screen offers the key and the app link instead.

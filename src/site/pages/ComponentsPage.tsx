@@ -1,7 +1,7 @@
 import { useMemo, useState, type ReactNode } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { LayoutGrid, List, X } from 'lucide-react'
-import { Button, SearchField, Surface, Text, cn } from 'citrine'
+import { Button, SearchField, Surface, Text, cn } from 'klyv'
 import { PageIntro } from '../components/PageIntro'
 import { NEW_COMPONENTS, catalog, componentCount, isNewComponent, type CatalogEntry } from '../data/catalog'
 import { NewBadge } from '../components/NewBadge'

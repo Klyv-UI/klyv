@@ -46,8 +46,8 @@ async function open(
 ) {
   await page.addInitScript(
     (theme: { mode: string; accent?: string }) => {
-      window.localStorage.setItem('citrine:mode', theme.mode)
-      if (theme.accent) window.localStorage.setItem('citrine:accent', theme.accent)
+      window.localStorage.setItem('klyv:mode', theme.mode)
+      if (theme.accent) window.localStorage.setItem('klyv:accent', theme.accent)
     },
     { mode, accent },
   )

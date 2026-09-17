@@ -1,9 +1,10 @@
 {
-  "name": "citrine",
+  "name": "klyv",
   "version": "1.0.0",
   "type": "module",
   "description": "An accent-led React component library. 238 components that take their entire personality from a single colour.",
   "license": "MIT",
+  "homepage": "https://klyvui.xyz",
   "keywords": [
     "react",
     "components",
@@ -25,7 +26,7 @@
     },
     "./styles.css": {
       "types": "./types/css.d.ts",
-      "default": "./dist/citrine.css"
+      "default": "./dist/klyv.css"
     },
     "./preset.css": {
       "types": "./types/css.d.ts",
@@ -39,8 +40,8 @@
     "./tokens.json": "./dist/tokens.json"
   },
   "bin": {
-    "citrine": "./cli/citrine.mjs",
-    "citrine-mcp": "./mcp/server.mjs"
+    "klyv": "./cli/klyv.mjs",
+    "klyv-mcp": "./mcp/server.mjs"
   },
   "files": [
     "dist",
@@ -72,7 +73,7 @@
     "preview": "vite preview --outDir dist-site --port 4173",
     "lint": "tsc -b --noEmit",
     "check:preset": "node scripts/check-preset.mjs",
-    "citrine": "node cli/citrine.mjs",
+    "klyv": "node cli/klyv.mjs",
     "directives": "node scripts/client-directives.mjs",
     "rules": "node scripts/check-rules.mjs",
     "test:a11y": "vitest run test/a11y.test.tsx --reporter=dot",

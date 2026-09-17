@@ -13,7 +13,7 @@ export default defineConfig({
     cssMinify: true,
     rollupOptions: {
       input: fileURLToPath(new URL('./src/styles/package.css', import.meta.url)),
-      output: { assetFileNames: 'citrine.css' },
+      output: { assetFileNames: 'klyv.css' },
     },
   },
 })

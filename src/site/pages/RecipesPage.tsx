@@ -1,4 +1,4 @@
-import { Text } from 'citrine'
+import { Text } from 'klyv'
 import { ItemCard } from '../components/ItemCard'
 import { PageIntro } from '../components/PageIntro'
 import { findItem } from '../data/library'

@@ -9,7 +9,7 @@ import {
   ListItem,
   Meter,
   Text,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 
 const ROWS = [

@@ -10,7 +10,7 @@ import {
   Text,
   type QueuedChange,
   type SaveState,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 
@@ -178,7 +178,7 @@ function SessionExample() {
         <SessionTimeout
           timeout={20_000}
           warnAt={15_000}
-          syncKey="citrine:demo-activity"
+          syncKey="klyv:demo-activity"
           onExtend={() => new Promise((resolve) => window.setTimeout(resolve, 500))}
           onExpire={() => {
             setArmed(false)

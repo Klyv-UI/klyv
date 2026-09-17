@@ -16,7 +16,7 @@ import {
   Text,
   Wordmark,
   type ChecklistStep,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 

@@ -9,7 +9,7 @@ import {
   Sparkline,
   Surface,
   Text,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 
 const SERIES = [

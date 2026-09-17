@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect, useState, type ComponentType, type LazyExoticComponent } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Surface, Text } from 'citrine'
+import { Surface, Text } from 'klyv'
 import { DocPage, Note, Preview, Section, Specimen } from '../components/Doc'
 import { LivePlayground } from '../components/LivePlayground'
 import { PageSkeleton } from '../components/PageSkeleton'

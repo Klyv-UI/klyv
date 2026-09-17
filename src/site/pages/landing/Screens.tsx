@@ -1,6 +1,6 @@
 import { Suspense, useState, type ReactNode } from 'react'
 import { Lock } from 'lucide-react'
-import { Tabs } from 'citrine'
+import { Tabs } from 'klyv'
 import { blockCount } from '../../data/blocks'
 import { blockComponent } from '../../lib/blocks'
 import { LandingSection, SectionLink, WindowDots } from './primitives'

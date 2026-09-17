@@ -18,7 +18,7 @@ import {
   Text,
   TextScramble,
   TiltCard,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 
 function Replay({ children }: { children: (key: number) => React.ReactNode }) {
@@ -151,7 +151,7 @@ function FlipCardExample() {
         front={
           <Card className="h-full justify-end border-0 bg-accent">
             <Text size="caption" weight="bold" tone="accent">
-              Citrine
+              Klyv
             </Text>
             <Text size="amount" tabular tone="accent">
               **** 5199

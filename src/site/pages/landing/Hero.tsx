@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { ACCENT_PRESETS, Badge, Button, Text, VisuallyHidden, applyAccent, cn, saveAccent } from 'citrine'
+import { ACCENT_PRESETS, Badge, Button, Text, VisuallyHidden, applyAccent, cn, saveAccent } from 'klyv'
 import { useAccent } from '../../components/useTheme'
 import { blockCount } from '../../data/blocks'
 import { componentCount } from '../../data/catalog'

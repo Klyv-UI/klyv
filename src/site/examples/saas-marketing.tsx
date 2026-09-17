@@ -16,7 +16,7 @@ import {
   TestimonialCard,
   Wordmark,
   type CtaTone,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 import { FEATURES, FakeLogo, LOGOS, ProductShot, TESTIMONIALS } from './saas-shared'

@@ -55,7 +55,7 @@ export const mcpTools: McpTool[] = [
   },
   {
     "name": "get_component_source",
-    "description": "The real source of a component. With withDependencies, also returns every sibling component and shared module it imports, in the order they should be written — which is exactly what `citrine add` copies.",
+    "description": "The real source of a component. With withDependencies, also returns every sibling component and shared module it imports, in the order they should be written — which is exactly what `klyv add` copies.",
     "args": [
       {
         "name": "name",
@@ -114,7 +114,7 @@ export const mcpTools: McpTool[] = [
   },
   {
     "name": "get_design_rules",
-    "description": "How the design system works and the rules every component obeys: the accent derivation, the surface stack, the ink scale, dark mode, and the five house rules. Read this before writing UI with Citrine.",
+    "description": "How the design system works and the rules every component obeys: the accent derivation, the surface stack, the ink scale, dark mode, and the five house rules. Read this before writing UI with Klyv.",
     "args": []
   },
   {
@@ -126,31 +126,31 @@ export const mcpTools: McpTool[] = [
 
 export const mcpResources: McpResource[] = [
   {
-    "uri": "citrine://catalog",
+    "uri": "klyv://catalog",
     "name": "Component catalogue",
     "description": "Every component with its group, section and summary.",
     "mimeType": "application/json"
   },
   {
-    "uri": "citrine://blocks",
+    "uri": "klyv://blocks",
     "name": "Blocks",
     "description": "Every block — a whole screen — with the components it is built from.",
     "mimeType": "application/json"
   },
   {
-    "uri": "citrine://tokens",
+    "uri": "klyv://tokens",
     "name": "Design tokens",
     "description": "Tokens in W3C Design Tokens format, including dark mode.",
     "mimeType": "application/json"
   },
   {
-    "uri": "citrine://rules",
+    "uri": "klyv://rules",
     "name": "Design rules",
     "description": "The design system and the rules every component obeys.",
     "mimeType": "text/markdown"
   },
   {
-    "uri": "citrine://usage",
+    "uri": "klyv://usage",
     "name": "Install and usage",
     "description": "How to install the package and set up the stylesheet.",
     "mimeType": "text/markdown"

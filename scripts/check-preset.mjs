@@ -1,4 +1,4 @@
-// Compiles `citrine/preset.css` the way an installed consumer does, and fails
+// Compiles `klyv/preset.css` the way an installed consumer does, and fails
 // if the scan comes back empty.
 //
 // The preset exists so Tailwind users build the library's utilities themselves
@@ -18,11 +18,11 @@ import { fileURLToPath } from 'node:url'
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const { exports: subpaths } = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8'))
 
-/** What `@import 'citrine/preset.css'` resolves to from a consumer's stylesheet. */
+/** What `@import 'klyv/preset.css'` resolves to from a consumer's stylesheet. */
 function resolveStylesheet(id, base) {
   if (id === 'tailwindcss') return join(ROOT, 'node_modules', 'tailwindcss', 'index.css')
-  if (id === 'citrine' || id.startsWith('citrine/')) {
-    const key = id === 'citrine' ? '.' : `./${id.slice('citrine/'.length)}`
+  if (id === 'klyv' || id.startsWith('klyv/')) {
+    const key = id === 'klyv' ? '.' : `./${id.slice('klyv/'.length)}`
     const entry = subpaths[key]
     if (!entry) throw new Error(`package.json exports has no ${key}`)
     return resolve(ROOT, typeof entry === 'string' ? entry : entry.default)
@@ -30,7 +30,7 @@ function resolveStylesheet(id, base) {
   return resolve(base, id)
 }
 
-const consumer = ["@import 'tailwindcss';", "@import 'citrine/preset.css';", ''].join('\n')
+const consumer = ["@import 'tailwindcss';", "@import 'klyv/preset.css';", ''].join('\n')
 
 const compiled = await compile(consumer, {
   // A consumer's own stylesheet, somewhere that is not the package.

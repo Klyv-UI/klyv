@@ -12,7 +12,7 @@ import {
   TreeView,
   applyAccent,
   cn,
-} from 'citrine'
+} from 'klyv'
 import { chartScale, formatTick } from '../../src/lib/chart'
 
 /**

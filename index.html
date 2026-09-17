@@ -4,11 +4,16 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Citrine — an accent-led React component library</title>
+    <title>Klyv — an accent-led React component library</title>
     <meta
       name="description"
       content="290+ React components that take their entire personality from a single colour. Live previews, real source, copy and go."
     />
+    <link rel="canonical" href="https://klyvui.xyz/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Klyv" />
+    <meta property="og:url" content="https://klyvui.xyz/" />
+    <meta property="og:title" content="Klyv — an accent-led React component library" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,13 +25,13 @@
       // sees a white flash first. Deliberately inline and dependency-free:
       // anything deferred is already too late.
       try {
-        var mode = localStorage.getItem('citrine:mode')
+        var mode = localStorage.getItem('klyv:mode')
         if (mode === 'dark' || mode === 'light') {
           document.documentElement.dataset.theme = mode
         }
         // The boot screen wears the remembered accent too, with whichever of
         // near-black or white reads on it.
-        var accent = localStorage.getItem('citrine:accent')
+        var accent = localStorage.getItem('klyv:accent')
         if (accent && /^#[0-9a-f]{6}$/i.test(accent)) {
           var channel = function (i) {
             var c = parseInt(accent.slice(i, i + 2), 16) / 255
@@ -107,7 +112,7 @@
   <body>
     <div id="root">
       <!-- React replaces this on its first render. Same markup as BootScreen. -->
-      <div class="boot" role="status" aria-label="Loading Citrine">
+      <div class="boot" role="status" aria-label="Loading Klyv">
         <span class="boot-mark" aria-hidden="true">C</span>
         <span class="boot-track" aria-hidden="true"><span class="boot-fill"></span></span>
       </div>

@@ -6,7 +6,7 @@ import {
   Surface,
   Terminal,
   Text,
-} from 'citrine'
+} from 'klyv'
 import { componentCount } from '../data/catalog'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
@@ -91,7 +91,7 @@ function TerminalExample() {
         commands={COMMANDS}
         greeting={
           <>
-            <span className="text-[color-mix(in_oklab,var(--color-accent)_75%,#ffffff)]">citrine</span> v1.0 —{' '}
+            <span className="text-[color-mix(in_oklab,var(--color-accent)_75%,#ffffff)]">klyv</span> v1.0 —{' '}
             {componentCount}
             components, 0 dependencies.
             {'\n'}Type <span className="text-white">help</span>, or press Tab to complete.

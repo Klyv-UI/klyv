@@ -5,7 +5,7 @@ import { hydrateRoot } from 'react-dom/client'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { CoachTour, Combobox, ConfirmDialog, Modal, Popover, ToastProvider, Tooltip } from 'citrine'
+import { CoachTour, Combobox, ConfirmDialog, Modal, Popover, ToastProvider, Tooltip } from 'klyv'
 import { openOverlayCount } from '../../src/lib/overlay'
 
 /**

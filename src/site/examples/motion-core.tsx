@@ -14,7 +14,7 @@ import {
   Surface,
   Text,
   Ticker,
-} from 'citrine'
+} from 'klyv'
 import { Gamepad2, Music, Zap } from 'lucide-react'
 import type { ExampleModule } from './types'
 

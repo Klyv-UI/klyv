@@ -1,4 +1,4 @@
-import { CodeBlock, Surface, Text } from 'citrine'
+import { CodeBlock, Surface, Text } from 'klyv'
 import { Code, Note, Section } from '../components/Doc'
 import { PageIntro } from '../components/PageIntro'
 import { brand } from '../brand'
@@ -145,13 +145,13 @@ export default function AgentsPage() {
   )
 }
 
-const CLAUDE_CODE = `claude mcp add ${brand.pkg} -- npx -y ${brand.pkg}-mcp`
+const CLAUDE_CODE = `claude mcp add ${brand.pkg} -- npx -y ${brand.pkg} mcp`
 
 const MCP_JSON = `{
   "mcpServers": {
     "${brand.pkg}": {
       "command": "npx",
-      "args": ["-y", "${brand.pkg}-mcp"]
+      "args": ["-y", "${brand.pkg}", "mcp"]
     }
   }
 }`

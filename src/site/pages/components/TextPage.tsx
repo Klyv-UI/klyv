@@ -6,7 +6,7 @@ import {
   type TextSize,
   type TextTone,
   type TextWeight,
-} from 'citrine'
+} from 'klyv'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, SelectControl, TextControl, ToggleControl } from '../../components/Playground'
 

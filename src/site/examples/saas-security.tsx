@@ -9,7 +9,7 @@ import {
   TwoFactorSetup,
   type SsoConfig,
   type UserSession,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 import { daysFromNow } from './saas-shared'

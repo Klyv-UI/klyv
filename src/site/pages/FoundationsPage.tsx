@@ -1,5 +1,5 @@
 import { Bell, Home, Music } from 'lucide-react'
-import { Avatar, Badge, Button, IconButton, IconTile, StatusDot, Surface, Text } from 'citrine'
+import { Avatar, Badge, Button, IconButton, IconTile, StatusDot, Surface, Text } from 'klyv'
 import { Code, Note, Preview, Specimen, Step } from '../components/Doc'
 import { PageIntro } from '../components/PageIntro'
 

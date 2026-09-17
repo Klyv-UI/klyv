@@ -1,6 +1,6 @@
 import { Suspense, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Badge, Button, CodeBlock, Skeleton, Surface, Text } from 'citrine'
+import { Badge, Button, CodeBlock, Skeleton, Surface, Text } from 'klyv'
 import { Preview, Section } from '../components/Doc'
 import { PageIntro } from '../components/PageIntro'
 import { SaveControls } from '../components/SaveControls'

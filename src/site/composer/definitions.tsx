@@ -60,7 +60,7 @@ import {
   type TextSize,
   type TextTone,
   type TextWeight,
-} from 'citrine'
+} from 'klyv'
 import { findBlock } from '../data/blocks'
 import { attr, element, styleAttr, text } from './jsx'
 import { newNodeId, type ComponentNode, type ComposerNode, type PropValue } from './model'
@@ -368,7 +368,7 @@ export const definitions: Record<ComposableName, Definition> = {
   },
   CopyButton: {
     props: [
-      text_('value', 'Value to copy', { initial: 'npm install citrine' }),
+      text_('value', 'Value to copy', { initial: 'npm install klyv' }),
       text_('label', 'Label', { default: 'Copy' }),
       select('size', 'Size', TWO_SIZES satisfies readonly ButtonSize[], { default: 'sm' }),
       bool('iconOnly', 'Icon only'),

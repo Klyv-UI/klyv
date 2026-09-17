@@ -15,7 +15,7 @@ export interface StorageAdapter {
   watch?(key: string, onChange: () => void): () => void
 }
 
-const PREFIX = 'citrine:'
+const PREFIX = 'klyv:'
 
 /**
  * localStorage, with every failure swallowed: storage can be full, denied, or

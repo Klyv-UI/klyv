@@ -30,7 +30,7 @@
       "name": "syncKey",
       "type": "string",
       "required": false,
-      "defaultValue": "'citrine:last-activity'",
+      "defaultValue": "'klyv:last-activity'",
       "description": "localStorage key used to share activity between tabs. Empty disables it."
     },
     {

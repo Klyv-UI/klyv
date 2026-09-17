@@ -267,12 +267,12 @@ import { IconButton } from '${pkg}'
     status: 'official',
     description:
       'A coding agent reads the real props, tokens, blocks and source over the Model Context Protocol instead of guessing them.',
-    basis: `Shipped as the ${pkg}-mcp binary and exercised over real pipes by npm run test:mcp.`,
+    basis: `Shipped in the package as the "${pkg} mcp" command and exercised over real pipes by npm run test:mcp.`,
     setup: [
-      { title: 'Claude Code', code: `claude mcp add ${pkg} -- npx -y ${pkg}-mcp`, language: 'bash' },
+      { title: 'Claude Code', code: `claude mcp add ${pkg} -- npx -y ${pkg} mcp`, language: 'bash' },
       {
         title: 'Anything that reads mcp.json',
-        code: `{ "mcpServers": { "${pkg}": { "command": "npx", "args": ["-y", "${pkg}-mcp"] } } }`,
+        code: `{ "mcpServers": { "${pkg}": { "command": "npx", "args": ["-y", "${pkg}", "mcp"] } } }`,
         language: 'json',
       },
     ],
@@ -286,8 +286,8 @@ import { IconButton } from '${pkg}'
     category: 'AI tooling',
     status: 'official',
     description: 'The same guidance as the MCP server, for harnesses that load skills: which component to reach for, the theming API and the house rules.',
-    basis: 'Published in the package as skills/citrine/SKILL.md.',
-    setup: [{ title: 'Point your harness at the skill file', code: `node_modules/${pkg}/skills/citrine/SKILL.md`, language: 'bash' }],
+    basis: 'Published in the package as skills/klyv/SKILL.md.',
+    setup: [{ title: 'Point your harness at the skill file', code: `node_modules/${pkg}/skills/klyv/SKILL.md`, language: 'bash' }],
     docs: [{ label: 'AI agents', to: '/agents' }],
     tags: ['ai', 'developer'],
   },

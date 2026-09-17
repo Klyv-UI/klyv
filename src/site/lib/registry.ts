@@ -3,8 +3,8 @@ import type { ComponentType } from 'react'
 /**
  * Library components by name, filled in as site modules load.
  *
- * The calls are added at build time (see vite.citrine.ts): each module that
- * imports components from `citrine` registers exactly those. Names cannot be
+ * The calls are added at build time (see vite.klyv.ts): each module that
+ * imports components from `klyv` registers exactly those. Names cannot be
  * read off the functions themselves, because minification renames them.
  */
 export type AnyComponent = ComponentType<Record<string, unknown>>

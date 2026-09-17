@@ -72,7 +72,7 @@ test('handshake reports the server and echoes the protocol version', async () =>
     rpc(2, 'ping', {}),
   ])
 
-  assert.equal(out.get(1).result.serverInfo.name, 'citrine')
+  assert.equal(out.get(1).result.serverInfo.name, 'klyv')
   assert.equal(out.get(1).result.protocolVersion, '2025-06-18')
   assert.ok(out.get(1).result.capabilities.tools, 'declares tools')
   assert.deepEqual(out.get(2).result, {}, 'ping answers, so the notification did not derail it')
@@ -116,7 +116,7 @@ test('a component resolves by name, by slug and case-insensitively', async () =>
   assert.equal(canonical.name, 'DataTable')
   assert.ok(canonical.props.length > 0, 'has props')
   assert.ok(canonical.props.every((p) => p.name && p.type), 'every prop has a name and a type')
-  assert.match(canonical.import, /import \{ DataTable \} from 'citrine'/)
+  assert.match(canonical.import, /import \{ DataTable \} from 'klyv'/)
   assert.ok(canonical.size, 'carries its gzipped size')
 
   assert.deepEqual(payload(out.get(2)), canonical, 'slug resolves to the same component')
@@ -166,8 +166,8 @@ test('search finds by job, not just by name', async () => {
 test('tokens and rules are served as resources too', async () => {
   const out = await converse([
     rpc(1, 'resources/list', {}),
-    rpc(2, 'resources/read', { uri: 'citrine://tokens' }),
-    rpc(3, 'resources/read', { uri: 'citrine://nope' }),
+    rpc(2, 'resources/read', { uri: 'klyv://tokens' }),
+    rpc(3, 'resources/read', { uri: 'klyv://nope' }),
     call(4, 'get_design_tokens', { group: 'color' }),
   ])
 
@@ -189,17 +189,17 @@ test('blocks are listed, found by slug or name, and come with their source', asy
     call(3, 'get_block', { name: 'Two-factor' }),
     call(4, 'get_block', { name: 'no-such-block' }),
     call(5, 'list_blocks', { category: 'Authentication' }),
-    rpc(6, 'resources/read', { uri: 'citrine://blocks' }),
+    rpc(6, 'resources/read', { uri: 'klyv://blocks' }),
   ])
 
   const all = payload(out.get(1))
   assert.ok(all.length >= 8, `expected every block, got ${all.length}`)
-  assert.ok(all.every((block) => block.cli.startsWith('npx citrine add block ')))
+  assert.ok(all.every((block) => block.cli.startsWith('npx klyv add block ')))
 
   const dashboard = payload(out.get(2))
   assert.equal(dashboard.slug, 'dashboard')
   assert.ok(dashboard.components.includes('AppShell'), 'components are read off the imports')
-  assert.ok(dashboard.packages.includes('citrine'))
+  assert.ok(dashboard.packages.includes('klyv'))
   assert.match(dashboard.source, /export default function DashboardBlock/, 'the real file comes back')
 
   assert.equal(payload(out.get(3)).slug, 'authentication', 'the display name resolves too')

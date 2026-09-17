@@ -1,4 +1,4 @@
-# Citrine over MCP
+# Klyv over MCP
 
 An MCP server that gives an AI coding agent the same knowledge the
 documentation site has: what the 250+ components are, every prop with its real
@@ -12,10 +12,10 @@ with the docs, the CLI or the package — all four come from one generator.
 
 The server ships with the package, so no separate install is needed.
 
-**Claude Code** — from a project that depends on `citrine`:
+**Claude Code** — from a project that depends on `klyv`:
 
 ```bash
-claude mcp add citrine -- npx -y citrine-mcp
+claude mcp add klyv -- npx -y klyv mcp
 ```
 
 **Anything that reads `mcp.json`** (Claude Desktop, Cursor, Windsurf, VS Code):
@@ -23,22 +23,22 @@ claude mcp add citrine -- npx -y citrine-mcp
 ```json
 {
   "mcpServers": {
-    "citrine": {
+    "klyv": {
       "command": "npx",
-      "args": ["-y", "citrine-mcp"]
+      "args": ["-y", "klyv", "mcp"]
     }
   }
 }
 ```
 
-Already have Citrine installed? Point at the local copy and skip the fetch:
+Already have Klyv installed? Point at the local copy and skip the fetch:
 
 ```json
 {
   "mcpServers": {
-    "citrine": {
+    "klyv": {
       "command": "node",
-      "args": ["./node_modules/citrine/mcp/server.mjs"]
+      "args": ["./node_modules/klyv/mcp/server.mjs"]
     }
   }
 }
@@ -63,14 +63,14 @@ a miss suggests near matches rather than failing.
 
 ## Resources
 
-`citrine://catalog`, `citrine://blocks`, `citrine://tokens`, `citrine://rules`, `citrine://usage` —
+`klyv://catalog`, `klyv://blocks`, `klyv://tokens`, `klyv://rules`, `klyv://usage` —
 the same knowledge for clients that prefer to attach documents over calling
 tools.
 
 ## Skill
 
 For harnesses that load Agent Skills instead of (or alongside) MCP,
-[`../skills/citrine/SKILL.md`](../skills/citrine/SKILL.md) carries the same
+[`../skills/klyv/SKILL.md`](../skills/klyv/SKILL.md) carries the same
 guidance in one file: when to reach for what, the theming API, and the mistakes
 that come up most.
 

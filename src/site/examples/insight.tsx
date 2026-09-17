@@ -9,7 +9,7 @@ import {
   TreeMap,
   type ScheduleEvent,
   type StatusInterval,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

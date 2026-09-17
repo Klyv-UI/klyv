@@ -9,7 +9,7 @@ import {
   UserMenu,
   WorkspaceSwitcher,
   type Member,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 import { MANY_WORKSPACES, MEMBERS, PERMISSION_GROUPS, PERMISSION_ROLES, PERMISSION_VALUE, ROLES, WORKSPACES } from './saas-shared'

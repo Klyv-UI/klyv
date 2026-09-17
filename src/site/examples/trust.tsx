@@ -11,7 +11,7 @@ import {
   Text,
   type AuditEntry,
   type ConsentCategory,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

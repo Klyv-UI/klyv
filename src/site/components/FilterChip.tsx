@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { cn } from 'citrine'
+import { cn } from 'klyv'
 
 const focusRing =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas'

@@ -1,4 +1,4 @@
-import { SkipLink, Surface, Text, Wordmark } from 'citrine'
+import { SkipLink, Surface, Text, Wordmark } from 'klyv'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 
 export default function SkipLinkPage() {
@@ -34,7 +34,7 @@ export default function SkipLinkPage() {
           <div className="relative w-full overflow-hidden rounded-[var(--radius-tile)] border border-line bg-app">
             <SkipLink target="skiplink-demo-main" className="focus-visible:absolute" />
             <div className="flex items-center gap-4 px-4 py-3">
-              <Wordmark name="Citrine" size="sm" />
+              <Wordmark name="Klyv" size="sm" />
               <nav aria-label="Demo" className="ml-auto flex gap-3">
                 {['Overview', 'Activity', 'Manage'].map((item) => (
                   <a

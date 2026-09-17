@@ -1,4 +1,4 @@
-import { Badge, Surface, Text } from 'citrine'
+import { Badge, Surface, Text } from 'klyv'
 import type { ExampleSection } from './types'
 
 /**

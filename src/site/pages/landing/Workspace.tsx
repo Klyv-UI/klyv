@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { FolderOpen, Heart, WandSparkles } from 'lucide-react'
-import { Button, JsonViewer, Reveal, Surface, Tag, Text } from 'citrine'
+import { Button, JsonViewer, Reveal, Surface, Tag, Text } from 'klyv'
 import { useSaved } from '../../lib/saved'
 import { LandingSection } from './primitives'
 
@@ -54,7 +54,7 @@ export function Workspace() {
       index={8}
       title="Keep what you use,"
       tail="as documents you own"
-      lede="Favourites, collections and Composer drafts — a personal, document-based workspace that comes with Citrine. No account, no extra install, nothing to set up."
+      lede="Favourites, collections and Composer drafts — a personal, document-based workspace that comes with Klyv. No account, no extra install, nothing to set up."
     >
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-12">
         <Reveal className="flex flex-col gap-6">

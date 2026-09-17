@@ -1,4 +1,4 @@
-import { Badge, cn } from 'citrine'
+import { Badge, cn } from 'klyv'
 
 /**
  * The marker for components added in the SaaS release. It is the library's own

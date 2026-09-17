@@ -8,9 +8,11 @@ import { componentCountRounded } from './data/catalog'
  * renaming the library is one edit rather than a search across the site.
  */
 export const brand = {
-  name: 'Citrine',
+  name: 'Klyv',
   /** Used in code samples and the package name. */
-  pkg: 'citrine',
+  pkg: 'klyv',
+  /** Where the docs site is served. */
+  url: 'https://klyvui.xyz',
   tagline: 'An accent-led React component library.',
   /**
    * One paragraph, for the landing hero and the meta description. The count is
@@ -23,8 +25,8 @@ export const brand = {
    * both read this list, so nothing else needs to change.
    */
   links: [
-    { id: 'github', label: 'GitHub', href: 'https://github.com/your-org/citrine' },
-    { id: 'npm', label: 'npm', href: 'https://www.npmjs.com/package/your-org-citrine' },
+    { id: 'github', label: 'GitHub', href: 'https://github.com/your-org/klyv' },
+    { id: 'npm', label: 'npm', href: 'https://www.npmjs.com/package/klyv' },
     { id: 'discord', label: 'Discord', href: 'https://discord.gg/your-invite' },
     { id: 'x', label: 'X', href: 'https://x.com/your-handle' },
   ],

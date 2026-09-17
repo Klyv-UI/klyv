@@ -54,7 +54,7 @@ export function Terminal({
   onCommand,
   prompt = '~ $',
   greeting,
-  title = 'citrine — zsh',
+  title = 'klyv — zsh',
   height = 320,
   commands = [],
   className,

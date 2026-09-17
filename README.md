@@ -1,23 +1,25 @@
-# Citrine
+# Klyv
 
 **An accent-led React component library.** 250+ components that take their entire
 personality from a single colour — pick a hue and the whole set repaints:
 buttons, charts, selection washes, and the page behind them.
+
+**Docs, live previews and source:** [klyvui.xyz](https://klyvui.xyz)
 
 ---
 
 ## Install
 
 ```bash
-npm install citrine
+npm install klyv
 ```
 
 ```tsx
-import { Button, DataTable, applyAccent } from 'citrine'
-import 'citrine/styles.css'
+import { Button, DataTable, applyAccent } from 'klyv'
+import 'klyv/styles.css'
 ```
 
-That is the whole setup. **`citrine/styles.css` is prebuilt** — 14.7 KB gzipped,
+That is the whole setup. **`klyv/styles.css` is prebuilt** — 14.7 KB gzipped,
 containing the tokens, the base layer, the keyframes and exactly the utilities
 the library uses. You do not need Tailwind to use this package.
 
@@ -26,16 +28,16 @@ your build rather than being shipped twice:
 
 ```css
 @import 'tailwindcss';
-@import 'citrine/preset.css';
+@import 'klyv/preset.css';
 ```
 
 | Export | |
 | --- | --- |
-| `citrine` | the components, `cn`, the token registry, the theme API |
-| `citrine/styles.css` | prebuilt stylesheet — no Tailwind required |
-| `citrine/preset.css` | tokens plus an `@source` for Tailwind users |
-| `citrine/tokens.css` | the tokens alone |
-| `citrine/tokens.json` | the tokens as W3C Design Tokens data |
+| `klyv` | the components, `cn`, the token registry, the theme API |
+| `klyv/styles.css` | prebuilt stylesheet — no Tailwind required |
+| `klyv/preset.css` | tokens plus an `@source` for Tailwind users |
+| `klyv/tokens.css` | the tokens alone |
+| `klyv/tokens.json` | the tokens as W3C Design Tokens data |
 
 **ESM only**, one module per component with `sideEffects` declared, so bundlers
 drop what you do not use. Measured against a React-only baseline: importing
@@ -47,7 +49,7 @@ dependencies are `clsx` and `tailwind-merge`.
 
 ### Or copy the source instead
 
-The package ships its own source as well as its build, so `citrine add` works
+The package ships its own source as well as its build, so `klyv add` works
 from an installed copy — see **Taking a component** below. Install it if you
 want upgrades; copy it if you want to own the file.
 
@@ -58,7 +60,7 @@ Four CSS custom properties are derived from one colour and written to
 call restyles every component without a rebuild.
 
 ```ts
-import { applyAccent, saveAccent } from 'citrine'
+import { applyAccent, saveAccent } from 'klyv'
 
 applyAccent('#8b5cf6') // accent, accent-strong, accent-soft, accent-ink
 saveAccent('#8b5cf6')  // remembered, and restored before first paint
@@ -167,7 +169,7 @@ src/
     data/              the catalogue, the dependency graph, the source loader
     examples/          per-component examples, described as data
     pages/             landing, catalogue, component page, tokens, foundations
-cli/                   the `citrine add` command
+cli/                   the `klyv add` command
 scripts/               metadata generation and the `'use client'` check
 ```
 
@@ -248,12 +250,12 @@ Two thirds of the library imports at least one sibling — `Button` needs
 page never hands you one file and calls it done.
 
 ```bash
-npx citrine add data-table      # 21 files, dependencies included
-npx citrine add button switch   # several at once; shared files written once
-npx citrine list drag           # search by name, group, section or blurb
-npx citrine info combobox       # what it would bring with it
-npx citrine add block dashboard # a whole screen, into src/blocks
-npx citrine blocks              # every block
+npx klyv add data-table      # 21 files, dependencies included
+npx klyv add button switch   # several at once; shared files written once
+npx klyv list drag           # search by name, group, section or blurb
+npx klyv info combobox       # what it would bring with it
+npx klyv add block dashboard # a whole screen, into src/blocks
+npx klyv blocks              # every block
 ```
 
 | Flag | |
@@ -267,7 +269,7 @@ every internal import is relative, so mirroring the same shape under your
 destination makes each path resolve exactly as it did here. The CLI also copies
 `styles/` the first time, because every component reads the tokens.
 
-Each component page carries the same information: the `citrine add` command, a
+Each component page carries the same information: the `klyv add` command, a
 linked list of what it depends on, the source itself, and **Copy all N files** —
 one paste with a header comment above each file saying where it goes. The page
 and the CLI resolve the same generated graph, so they can never disagree.
@@ -335,7 +337,7 @@ component has a dark variant, a `dark:` class, or any knowledge that a second
 theme exists.
 
 ```ts
-import { applyMode, saveMode } from 'citrine'
+import { applyMode, saveMode } from 'klyv'
 
 applyMode('dark')     // 'light' | 'dark' | 'system'
 saveMode('dark')      // remembered; restored before first paint
@@ -499,13 +501,13 @@ the same data the docs site and the CLI read, so none of the three can drift.
 **An MCP server**, shipped with the package:
 
 ```bash
-claude mcp add citrine -- npx -y citrine-mcp
+claude mcp add klyv -- npx -y klyv mcp
 ```
 
 or, for anything that reads `mcp.json`:
 
 ```json
-{ "mcpServers": { "citrine": { "command": "npx", "args": ["-y", "citrine-mcp"] } } }
+{ "mcpServers": { "klyv": { "command": "npx", "args": ["-y", "klyv", "mcp"] } } }
 ```
 
 Nine tools: `search_components`, `get_component` (every prop with its real
@@ -514,15 +516,15 @@ type and default, ARIA roles, gzipped size, dependencies),
 and `get_block` (whole screens, with the components each uses and its full
 source), `list_groups`, `get_design_tokens`, `get_design_rules`,
 `how_to_install`. The same knowledge is served as resources too —
-`citrine://catalog`, `citrine://blocks`, `citrine://tokens`, `citrine://rules`,
-`citrine://usage` — for clients that prefer to attach documents over calling
+`klyv://catalog`, `klyv://blocks`, `klyv://tokens`, `klyv://rules`,
+`klyv://usage` — for clients that prefer to attach documents over calling
 tools.
 
 It is plain JSON-RPC 2.0 over stdio in one file, with no SDK: a library that
 advertises two runtime dependencies should not quietly add a third.
 `npm run test:mcp` spawns the real process and talks to it over real pipes.
 
-**An Agent Skill**, `skills/citrine/SKILL.md`, carrying the same guidance for
+**An Agent Skill**, `skills/klyv/SKILL.md`, carrying the same guidance for
 harnesses that load skills instead: which component to reach for, the theming
 API, the house rules, and the mistakes that come up most.
 
@@ -554,7 +556,7 @@ Every component in the library obeys these, and the page for each one says how.
 | `npm run directives` | add or remove `'use client'` to match the code |
 | `npm run lint` | `tsc -b --noEmit` |
 | `npm run preview` | serve the built site |
-| `npm run citrine -- add <name>` | run the CLI from this repo |
+| `npm run klyv -- add <name>` | run the CLI from this repo |
 | `npm run build:lib` | build the publishable package (JS, types, CSS, sizes, tokens) |
 | `npm run rules` | check reduced motion and hard-coded colour |
 | `npm run test:a11y` | render every component page, block and the landing page, and audit each with axe |

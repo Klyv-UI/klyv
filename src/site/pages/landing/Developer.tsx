@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Check } from 'lucide-react'
-import { CodeBlock, Metric, Reveal, Surface, Tabs, Text } from 'citrine'
+import { CodeBlock, Metric, Reveal, Surface, Tabs, Text } from 'klyv'
 import { brand } from '../../brand'
 import { componentCount } from '../../data/catalog'
 import { componentEvidence } from '../../data/evidence'
@@ -75,10 +75,10 @@ npx ${brand.pkg} info combobox    # what it would bring with it`,
     label: 'For agents',
     language: 'bash',
     code: `# Give Claude Code the real props, tokens and screens over MCP
-claude mcp add ${brand.pkg} -- npx -y ${brand.pkg}-mcp
+claude mcp add ${brand.pkg} -- npx -y ${brand.pkg} mcp
 
 # or, for anything that reads mcp.json
-{ "mcpServers": { "${brand.pkg}": { "command": "npx", "args": ["-y", "${brand.pkg}-mcp"] } } }`,
+{ "mcpServers": { "${brand.pkg}": { "command": "npx", "args": ["-y", "${brand.pkg}", "mcp"] } } }`,
   },
 ] as const
 

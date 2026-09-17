@@ -1,5 +1,5 @@
 import { Home, LogOut, Settings } from 'lucide-react'
-import { Divider, IconTile, Surface, Text } from 'citrine'
+import { Divider, IconTile, Surface, Text } from 'klyv'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 
 export default function DividerPage() {

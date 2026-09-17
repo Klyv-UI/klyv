@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Avatar, Surface, Text, type AvatarSize } from 'citrine'
+import { Avatar, Surface, Text, type AvatarSize } from 'klyv'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, SelectControl, TextControl, ToggleControl } from '../../components/Playground'
 
@@ -93,7 +93,7 @@ export default function AvatarPage() {
             <Avatar name="Daniel Vance" size="md" ring />
           </Specimen>
           <Specimen label="single word" hint="One initial">
-            <Avatar name="Citrine" size="md" />
+            <Avatar name="Klyv" size="md" />
           </Specimen>
         </Preview>
         <Note>

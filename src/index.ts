@@ -1,5 +1,5 @@
 /**
- * Citrine — the public API.
+ * Klyv — the public API.
  *
  * Everything a consumer needs comes from this one entry point: the components,
  * the class merger they are built on, the token registry, and the runtime

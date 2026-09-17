@@ -6,7 +6,7 @@ import {
   onModeChange,
   watchSystemMode,
   type ThemeMode,
-} from 'citrine'
+} from 'klyv'
 
 /**
  * The applied accent and mode, as React state that every picker shares.

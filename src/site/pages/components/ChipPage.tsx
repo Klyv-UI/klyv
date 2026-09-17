@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Chip, Surface, Text } from 'citrine'
+import { Chip, Surface, Text } from 'klyv'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, SelectControl, TextControl, ToggleControl } from '../../components/Playground'
 

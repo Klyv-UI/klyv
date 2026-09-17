@@ -15,7 +15,7 @@ import {
   SuccessMark,
   Surface,
   Text,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 
 function LoadingOverlayExample() {

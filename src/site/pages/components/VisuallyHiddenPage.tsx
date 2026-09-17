@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Eye, EyeOff } from 'lucide-react'
-import { Avatar, Button, Surface, Text, VisuallyHidden } from 'citrine'
+import { Avatar, Button, Surface, Text, VisuallyHidden } from 'klyv'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 
 export default function VisuallyHiddenPage() {

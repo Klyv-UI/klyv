@@ -22,7 +22,7 @@ import {
   Surface,
   TagInput,
   Text,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 
 const CURRENCIES = [

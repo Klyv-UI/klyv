@@ -4,11 +4,11 @@ import ts from 'typescript'
 import type { Plugin } from 'vite'
 
 /**
- * Two small transforms over the site's imports from `citrine`.
+ * Two small transforms over the site's imports from `klyv`.
  *
  * Import statements are found with the TypeScript parser rather than a regex:
  * the docs are full of copy-paste snippets, and a string that reads
- * `import { Button } from 'citrine'` must be left exactly as written.
+ * `import { Button } from 'klyv'` must be left exactly as written.
  */
 
 const SRC = fileURLToPath(new URL('./src', import.meta.url))
@@ -21,25 +21,25 @@ interface Specifier {
   typeOnly: boolean
 }
 
-interface CitrineImport {
+interface KlyvImport {
   start: number
   end: number
   typeOnly: boolean
   specifiers: Specifier[]
 }
 
-function citrineImports(code: string, id: string): CitrineImport[] {
-  if (!code.includes('citrine')) return []
+function klyvImports(code: string, id: string): KlyvImport[] {
+  if (!code.includes('klyv')) return []
   const path = id.replace(/\?.*$/, '')
   if (path.includes('/node_modules/') || !/\.(ts|tsx)$/.test(path)) return []
 
   const kind = path.endsWith('.tsx') ? ts.ScriptKind.TSX : ts.ScriptKind.TS
   const file = ts.createSourceFile(path, code, ts.ScriptTarget.Latest, false, kind)
-  const found: CitrineImport[] = []
+  const found: KlyvImport[] = []
 
   for (const statement of file.statements) {
     if (!ts.isImportDeclaration(statement)) continue
-    if (!ts.isStringLiteral(statement.moduleSpecifier) || statement.moduleSpecifier.text !== 'citrine') continue
+    if (!ts.isStringLiteral(statement.moduleSpecifier) || statement.moduleSpecifier.text !== 'klyv') continue
     const clause = statement.importClause
     const bindings = clause?.namedBindings
     if (!clause || clause.name || !bindings || !ts.isNamedImports(bindings)) continue
@@ -67,7 +67,7 @@ const isSiteModule = (id: string) => /\/src\/site\//.test(id.replace(/\\/g, '/')
  *
  * A production build minifies function names, so `Tabs.name` is not "Tabs" on
  * the shipped site. Instead, every site module that imports components from
- * `citrine` also hands them to a small registry (src/site/lib/registry.ts),
+ * `klyv` also hands them to a small registry (src/site/lib/registry.ts),
  * keyed by the name it imported. The live playground on a component page uses
  * it to recognise that component among the examples already on the page.
  *
@@ -80,14 +80,14 @@ export function registerComponents(): Plugin {
   const components = new Set(readdirSync(`${SRC}/components`).filter((name) => /^[A-Z]/.test(name)))
 
   return {
-    name: 'citrine:register-components',
+    name: 'klyv:register-components',
     enforce: 'pre',
     transform(code, id) {
       const normalised = id.replace(/\\/g, '/')
       if (!isSiteModule(normalised) || normalised.endsWith('/src/site/lib/registry.ts')) return null
 
       const found = new Map<string, string>()
-      for (const statement of citrineImports(code, normalised)) {
+      for (const statement of klyvImports(code, normalised)) {
         if (statement.typeOnly) continue
         for (const { name, local, typeOnly } of statement.specifiers) {
           if (!typeOnly && components.has(name)) found.set(name, local)
@@ -130,7 +130,7 @@ function exportMap(): Map<string, string> {
 }
 
 /**
- * In development, imports from `citrine` go straight to the module that
+ * In development, imports from `klyv` go straight to the module that
  * defines each name.
  *
  * The package name points at src/index.ts, a barrel over every component. A
@@ -139,7 +139,7 @@ function exportMap(): Map<string, string> {
  * file in the library — about six hundred requests on every load and every
  * reload, on every page.
  *
- * So `import { Tabs, Text } from 'citrine'` becomes one import from
+ * So `import { Tabs, Text } from 'klyv'` becomes one import from
  * `@/components/Tabs` and one from `@/components/Text`. Those are the modules
  * the barrel re-exports, so nothing changes but the request count. A name the
  * map does not know (a component added while the server runs) stays on the
@@ -150,12 +150,12 @@ export function directImports(): Plugin {
   let map: Map<string, string> | undefined
 
   return {
-    name: 'citrine:direct-imports',
+    name: 'klyv:direct-imports',
     apply: 'serve',
     enforce: 'pre',
     transform(code, id) {
       const normalised = id.replace(/\\/g, '/')
-      const statements = citrineImports(code, normalised).filter((statement) => !statement.typeOnly)
+      const statements = klyvImports(code, normalised).filter((statement) => !statement.typeOnly)
       if (statements.length === 0) return null
       map ??= exportMap()
 
@@ -163,7 +163,7 @@ export function directImports(): Plugin {
       for (const statement of [...statements].reverse()) {
         const groups = new Map<string, string[]>()
         for (const { name, local, typeOnly } of statement.specifiers) {
-          const target = map.get(name) ?? 'citrine'
+          const target = map.get(name) ?? 'klyv'
           const text = `${typeOnly ? 'type ' : ''}${name}${local === name ? '' : ` as ${local}`}`
           groups.set(target, [...(groups.get(target) ?? []), text])
         }

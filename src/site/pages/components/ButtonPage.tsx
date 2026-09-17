@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Surface, Text, type ButtonSize, type ButtonVariant } from 'citrine'
+import { Button, Surface, Text, type ButtonSize, type ButtonVariant } from 'klyv'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, SelectControl, TextControl, ToggleControl } from '../../components/Playground'
 

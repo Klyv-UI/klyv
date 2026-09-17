@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowDown, ArrowUp, ChevronLeft, CopyPlus, MousePointerClick, Trash2 } from 'lucide-react'
-import { EmptyState, IconButton, Kbd, Text } from 'citrine'
+import { EmptyState, IconButton, Kbd, Text } from 'klyv'
 import { NumberControl, SelectControl, TextControl, ToggleControl } from '../components/Playground'
 import { findBlock } from '../data/blocks'
 import { findComponentByName } from '../data/catalog'

@@ -9,7 +9,7 @@ import {
   SegmentedControl,
   Text,
   type AnnouncementTone,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 

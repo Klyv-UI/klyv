@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Button, Text } from 'citrine'
+import { Button, Text } from 'klyv'
 import { BlockThumbnail } from '../components/BlockThumbnail'
 import { PageIntro } from '../components/PageIntro'
 import { FavoriteButton } from '../components/SaveControls'

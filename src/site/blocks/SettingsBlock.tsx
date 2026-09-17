@@ -13,7 +13,7 @@ import {
   Tabs,
   Text,
   Textarea,
-} from 'citrine'
+} from 'klyv'
 
 /**
  * A settings screen.

@@ -10,7 +10,7 @@ import {
   StatusDot,
   Text,
   Toolbar,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 
 function SegmentedExample() {

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Badge, Surface, Text, type BadgeTone } from 'citrine'
+import { Badge, Surface, Text, type BadgeTone } from 'klyv'
 import { DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, SelectControl, TextControl } from '../../components/Playground'
 

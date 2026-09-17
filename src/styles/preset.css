@@ -1,13 +1,13 @@
 /* For consumers who already run Tailwind.
  *
- * Import this instead of `citrine/styles.css`: it adds the tokens, the base
+ * Import this instead of `klyv/styles.css`: it adds the tokens, the base
  * layer and the library's keyframes, and points Tailwind's scanner at the
  * package so the utilities the components use end up in *your* build rather
  * than being shipped twice.
  *
  * The paths are relative to this file, which is how Tailwind resolves `@source`
- * — a bare package name is read as a path too, so `@source 'citrine'` looked
- * for a `citrine` folder next to this one, found nothing, and silently emitted
+ * — a bare package name is read as a path too, so `@source 'klyv'` looked
+ * for a `klyv` folder next to this one, found nothing, and silently emitted
  * no utilities at all. `scripts/check-preset.mjs` compiles this file the way a
  * consumer does and fails if the scan comes back empty.
  */

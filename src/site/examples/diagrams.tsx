@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { RadarChart, SankeyFlow, SegmentedControl, Surface, Text } from 'citrine'
+import { RadarChart, SankeyFlow, SegmentedControl, Surface, Text } from 'klyv'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

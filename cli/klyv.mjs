@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// citrine — copy components into your project, with everything they need.
+// klyv — copy components into your project, with everything they need.
 //
 // The library's folders are flat and its imports are relative, which is what
 // makes this possible without rewriting a single line: mirror the same shape
@@ -162,7 +162,7 @@ function add(args) {
   const dest = parsed.dest ? resolvePath(parsed.dest) : join(process.cwd(), 'src')
 
   if (requested.length === 0) {
-    console.error(red('Name a component. Try `citrine list` to see them.'))
+    console.error(red('Name a component. Try `klyv list` to see them.'))
     process.exit(1)
   }
 
@@ -173,7 +173,7 @@ function add(args) {
       console.error(red(`No component called "${input}".`))
       const block = resolveBlock(input)
       if (block) {
-        console.error(dim(`"${input}" is a block: citrine add block ${block.slug}`))
+        console.error(dim(`"${input}" is a block: klyv add block ${block.slug}`))
         process.exit(1)
       }
       const near = suggest(input)
@@ -305,7 +305,7 @@ function info(args) {
 
 /* ------------------------------------------------------------------ blocks */
 
-// Whole screens. A block imports from the citrine package rather than from
+// Whole screens. A block imports from the klyv package rather than from
 // sibling folders, so it is copied as one file, and what it needs is installed
 // rather than copied beside it.
 const BLOCKS_FILE = join(ROOT, 'data', 'blocks.json')
@@ -328,7 +328,7 @@ function addBlocks(args) {
   const dest = parsed.dest ? resolvePath(parsed.dest) : join(process.cwd(), 'src')
 
   if (parsed.names.length === 0) {
-    console.error(red('Name a block. Try `citrine blocks` to see them.'))
+    console.error(red('Name a block. Try `klyv blocks` to see them.'))
     process.exit(1)
   }
 
@@ -383,7 +383,7 @@ function addBlocks(args) {
     console.log(dim(`\nRequires: ${installable.join(' ')}`))
     console.log(dim(`  npm install ${installable.join(' ')}`))
   }
-  console.log(dim('\nBlocks import from the citrine package. Copied components instead of installing?'))
+  console.log(dim('\nBlocks import from the klyv package. Copied components instead of installing?'))
   console.log(dim('Point the imports at your copies — the names are the same.'))
   console.log('')
 }
@@ -406,28 +406,31 @@ function listBlocks(args) {
     console.log(`  ${block.slug.padEnd(16)}${block.name}${dim(`  ${block.category} · ${block.components.length} components`)}`)
   }
   console.log('')
-  console.log(dim(`${found.length} of ${BLOCKS.length} blocks. Copy one with: citrine add block <slug>`))
+  console.log(dim(`${found.length} of ${BLOCKS.length} blocks. Copy one with: klyv add block <slug>`))
 }
 
 function help() {
   console.log(`
-${bold('citrine')} — copy components into your project, with what they need.
+${bold('klyv')} — copy components into your project, with what they need.
 
-  ${cyan('citrine add')} <name...> ${dim('[--dest src] [--dry] [--force]')}
+  ${cyan('klyv add')} <name...> ${dim('[--dest src] [--dry] [--force]')}
       Copy a component and every file it imports. Names are flexible:
-      ${dim('citrine add data-table   citrine add DataTable   citrine add datatable')}
+      ${dim('klyv add data-table   klyv add DataTable   klyv add datatable')}
 
-  ${cyan('citrine list')} ${dim('[query]')}
+  ${cyan('klyv list')} ${dim('[query]')}
       List components. The +n shows how many others come with each.
 
-  ${cyan('citrine info')} <name>
+  ${cyan('klyv info')} <name>
       What one component would bring with it.
 
-  ${cyan('citrine add block')} <slug...> ${dim('[--dest src] [--dry] [--force]')}
-      Copy a whole screen into src/blocks. It imports from the citrine package.
+  ${cyan('klyv add block')} <slug...> ${dim('[--dest src] [--dry] [--force]')}
+      Copy a whole screen into src/blocks. It imports from the klyv package.
 
-  ${cyan('citrine blocks')} ${dim('[query]')}
+  ${cyan('klyv blocks')} ${dim('[query]')}
       List the blocks.
+
+  ${cyan('klyv mcp')}
+      Start the MCP server on stdio, for AI coding agents.
 
 ${dim('The folder layout is preserved, so every relative import resolves')}
 ${dim('unchanged — no rewriting, no codemod, no build step.')}
@@ -449,6 +452,10 @@ switch (command) {
     break
   case 'blocks':
     listBlocks(rest)
+    break
+  case 'mcp':
+    // Lets `npx -y klyv mcp` start the server without a second package.
+    ;(await import('../mcp/server.mjs')).listen()
     break
   case undefined:
   case 'help':

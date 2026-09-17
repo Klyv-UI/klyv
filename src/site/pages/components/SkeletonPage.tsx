@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Music } from 'lucide-react'
-import { Avatar, IconTile, Skeleton, Surface, Text } from 'citrine'
+import { Avatar, IconTile, Skeleton, Surface, Text } from 'klyv'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { NumberControl, Playground, SelectControl, ToggleControl } from '../../components/Playground'
 

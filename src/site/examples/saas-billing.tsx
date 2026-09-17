@@ -12,7 +12,7 @@ import {
   UsageMeter,
   type Invoice,
   type SubscriptionStatus,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 import { INVOICES, USAGE, daysFromNow } from './saas-shared'

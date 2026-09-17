@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { Layers } from 'lucide-react'
-import { Surface, Text, Wordmark } from 'citrine'
+import { Surface, Text, Wordmark } from 'klyv'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, SelectControl, TextControl, ToggleControl } from '../../components/Playground'
 
 const SIZES = ['sm', 'md', 'lg'] as const
 
 export default function WordmarkPage() {
-  const [name, setName] = useState('Citrine')
+  const [name, setName] = useState('Klyv')
   const [size, setSize] = useState<(typeof SIZES)[number]>('md')
   const [markOnly, setMarkOnly] = useState(false)
 
@@ -42,7 +42,7 @@ export default function WordmarkPage() {
     >
       <Section title="Default">
         <Preview>
-          <Wordmark name="Citrine" />
+          <Wordmark name="Klyv" />
         </Preview>
       </Section>
 
@@ -58,7 +58,7 @@ export default function WordmarkPage() {
               hint={`${{ sm: 28, md: 34, lg: 44 }[value]}px mark`}
               fill
             >
-              <Wordmark name="Citrine" size={value} />
+              <Wordmark name="Klyv" size={value} />
             </Specimen>
           ))}
         </Preview>
@@ -70,17 +70,17 @@ export default function WordmarkPage() {
       >
         <Preview>
           <Specimen label="derived" hint="First letter of the name">
-            <Wordmark name="Citrine" />
+            <Wordmark name="Klyv" />
           </Specimen>
           <Specimen label="custom glyph">
             <Wordmark
-              name="Citrine"
+              name="Klyv"
               mark={<Layers size={17} strokeWidth={2.25} aria-hidden="true" />}
             />
           </Specimen>
           <Specimen label="inline SVG">
             <Wordmark
-              name="Citrine"
+              name="Klyv"
               mark={
                 <svg viewBox="0 0 24 24" className="size-4" aria-hidden="true">
                   <path
@@ -103,10 +103,10 @@ export default function WordmarkPage() {
       >
         <Preview background="app">
           <Specimen label="full">
-            <Wordmark name="Citrine" />
+            <Wordmark name="Klyv" />
           </Specimen>
           <Specimen label="markOnly" hint="Name is still announced">
-            <Wordmark name="Citrine" markOnly />
+            <Wordmark name="Klyv" markOnly />
           </Specimen>
         </Preview>
         <Note>
@@ -123,7 +123,7 @@ export default function WordmarkPage() {
               Application header
             </Text>
             <div className="flex w-full items-center gap-4 rounded-full bg-app px-4 py-2.5">
-              <Wordmark name="Citrine" size="sm" />
+              <Wordmark name="Klyv" size="sm" />
               <span className="ml-auto flex gap-3">
                 {['Overview', 'Activity'].map((item) => (
                   <Text key={item} as="span" size="caption" weight="medium" tone="soft">
@@ -139,7 +139,7 @@ export default function WordmarkPage() {
               Collapsed rail
             </Text>
             <div className="flex flex-col items-center gap-3 rounded-[var(--radius-tile)] bg-app px-3 py-3">
-              <Wordmark name="Citrine" size="sm" markOnly />
+              <Wordmark name="Klyv" size="sm" markOnly />
               <span className="h-px w-6 bg-line-strong" aria-hidden="true" />
               <span className="size-8 rounded-[10px] bg-surface" aria-hidden="true" />
             </div>
@@ -149,7 +149,7 @@ export default function WordmarkPage() {
 
       <Section title="Playground">
         <Playground
-          stage={<Wordmark name={name || 'Citrine'} size={size} markOnly={markOnly} />}
+          stage={<Wordmark name={name || 'Klyv'} size={size} markOnly={markOnly} />}
           controls={
             <>
               <TextControl label="name" value={name} onChange={setName} />

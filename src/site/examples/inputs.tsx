@@ -7,7 +7,7 @@ import {
   Tag,
   Text,
   type MentionOption,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

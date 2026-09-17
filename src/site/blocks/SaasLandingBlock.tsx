@@ -16,7 +16,7 @@ import {
   StatCard,
   TestimonialCard,
   Wordmark,
-} from 'citrine'
+} from 'klyv'
 
 /**
  * A SaaS homepage, top to bottom, from library components only.

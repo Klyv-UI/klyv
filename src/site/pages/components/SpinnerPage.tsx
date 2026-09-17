@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Send } from 'lucide-react'
-import { Button, IconButton, Spinner, Surface, Text, type SpinnerSize } from 'citrine'
+import { Button, IconButton, Spinner, Surface, Text, type SpinnerSize } from 'klyv'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, SelectControl, ToggleControl } from '../../components/Playground'
 

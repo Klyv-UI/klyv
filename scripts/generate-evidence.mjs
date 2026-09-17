@@ -109,7 +109,7 @@ function walk(dir) {
     if (statSync(path).isDirectory()) walk(path)
     else if (/\.tsx?$/.test(entry)) {
       const source = readFileSync(path, 'utf8')
-      for (const match of source.matchAll(/import\s*\{([^}]*)\}\s*from\s*'citrine'/g)) {
+      for (const match of source.matchAll(/import\s*\{([^}]*)\}\s*from\s*'klyv'/g)) {
         for (const raw of match[1].split(',')) {
           const name = raw.trim().split(/\s+as\s+/)[0]
           if (name && !name.startsWith('type ') && evidence[name]) siteComponents.add(name)

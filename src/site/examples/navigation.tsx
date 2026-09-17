@@ -11,7 +11,7 @@ import {
   TabBar,
   Tabs,
   Text,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 
 function TabsExample() {

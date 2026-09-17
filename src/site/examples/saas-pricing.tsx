@@ -7,7 +7,7 @@ import {
   PricingTable,
   Text,
   type BillingPeriod,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 import { COMPARISON_GROUPS, COMPARISON_PLANS, PLANS } from './saas-shared'

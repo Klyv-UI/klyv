@@ -10,7 +10,7 @@ import {
   Surface,
   Text,
   Timeline,
-} from 'citrine'
+} from 'klyv'
 
 /**
  * A person's profile.

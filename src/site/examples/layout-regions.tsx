@@ -19,7 +19,7 @@ import {
   Surface,
   Tag,
   Text,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 
 /** A miniature of the app window, so shell demos have somewhere to live. */
@@ -41,7 +41,7 @@ function NavbarExample() {
     <div className="flex w-full flex-col gap-3">
       <Frame height={140}>
         <Navbar
-          brand="Citrine"
+          brand="Klyv"
           searchable
           onSearch={setQuery}
           value={section}

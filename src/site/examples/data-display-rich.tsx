@@ -12,7 +12,7 @@ import {
   TreeView,
   type DataTableColumn,
   type KanbanColumn,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 
 interface Row {

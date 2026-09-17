@@ -11,7 +11,7 @@ import {
   PasswordStrength,
   Surface,
   Text,
-} from 'citrine'
+} from 'klyv'
 
 /**
  * Account creation.

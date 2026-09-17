@@ -19,7 +19,7 @@ import {
   type IconButtonShape,
   type IconButtonSize,
   type IconButtonTone,
-} from 'citrine'
+} from 'klyv'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, SelectControl, ToggleControl } from '../../components/Playground'
 

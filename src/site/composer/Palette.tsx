@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Plus } from 'lucide-react'
-import { SearchField, Tabs, Text, cn } from 'citrine'
+import { SearchField, Tabs, Text, cn } from 'klyv'
 import { SelectControl } from '../components/Playground'
 import { BLOCK_CATEGORIES, blocksInCategory } from '../data/blocks'
 import { findComponentByName } from '../data/catalog'

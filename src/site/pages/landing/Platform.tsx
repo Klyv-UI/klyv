@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { Check, ChefHat, Compass, PanelsTopLeft, Plug, Search, WandSparkles } from 'lucide-react'
-import { Button, CodeBlock, IconTile, Kbd, Reveal, StatusDot, Surface, Tag, Text, cn } from 'citrine'
+import { Button, CodeBlock, IconTile, Kbd, Reveal, StatusDot, Surface, Tag, Text, cn } from 'klyv'
 import { brand } from '../../brand'
 import { STATUS_LABELS, healthOf } from '../../data/health'
 import { integrations } from '../../data/integrations'

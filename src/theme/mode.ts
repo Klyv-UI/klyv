@@ -7,8 +7,8 @@ export type ThemeMode = 'light' | 'dark' | 'system'
 /** What the page is actually rendering, once `system` has been resolved. */
 export type ResolvedMode = 'light' | 'dark'
 
-const STORAGE_KEY = 'citrine:mode'
-const MODE_EVENT = 'citrine:modechange'
+const STORAGE_KEY = 'klyv:mode'
+const MODE_EVENT = 'klyv:modechange'
 
 const DARK_QUERY = '(prefers-color-scheme: dark)'
 

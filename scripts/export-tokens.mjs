@@ -54,7 +54,7 @@ for (const line of darkBlock.split('\n')) {
 
 const output = {
   $schema: 'https://tr.designtokens.org/format/',
-  $description: 'Citrine design tokens. Names are stable; the dark mode changes values only.',
+  $description: 'Klyv design tokens. Names are stable; the dark mode changes values only.',
   ...tokens,
   $modes: { dark: { color: dark } },
 }

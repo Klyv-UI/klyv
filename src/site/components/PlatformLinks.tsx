@@ -1,5 +1,5 @@
 import { Github, MessageCircle, Package, Twitter } from 'lucide-react'
-import { cn, type IconComponent } from 'citrine'
+import { cn, type IconComponent } from 'klyv'
 import { brand } from '../brand'
 
 type LinkId = (typeof brand.links)[number]['id']

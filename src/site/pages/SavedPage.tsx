@@ -1,7 +1,7 @@
 import { useId, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Heart, X } from 'lucide-react'
-import { Button, ConfirmDialog, CopyButton, EmptyState, IconButton, InlineEdit, Input, Surface, Text } from 'citrine'
+import { Button, ConfirmDialog, CopyButton, EmptyState, IconButton, InlineEdit, Input, Surface, Text } from 'klyv'
 import { Section } from '../components/Doc'
 import { ItemCard } from '../components/ItemCard'
 import { PageIntro } from '../components/PageIntro'

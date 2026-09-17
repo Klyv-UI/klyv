@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Surface, Text } from 'citrine'
+import { Surface, Text } from 'klyv'
 import { Code, Pending, type PropRow } from './Doc'
 import { cachedProps, loadProps, type GeneratedProps } from '../data/props'
 

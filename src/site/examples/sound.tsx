@@ -7,7 +7,7 @@ import {
   Surface,
   Text,
   type VisualizerShape,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

@@ -10725,7 +10725,7 @@
         "name": "syncKey",
         "type": "string",
         "required": false,
-        "defaultValue": "'citrine:last-activity'",
+        "defaultValue": "'klyv:last-activity'",
         "description": "localStorage key used to share activity between tabs. Empty disables it."
       },
       {
@@ -12706,7 +12706,7 @@
         "name": "title",
         "type": "string",
         "required": false,
-        "defaultValue": "'citrine — zsh'",
+        "defaultValue": "'klyv — zsh'",
         "description": "Title in the window chrome. Omit for a bare pane."
       },
       {
@@ -13330,7 +13330,7 @@
         "name": "qrCode",
         "type": "ReactNode",
         "required": false,
-        "description": "The scannable code for `otpauthUrl`, drawn by a real QR encoder — a server rendered image, or a component such as `qrcode.react`. Citrine's own `QRCode` is not used here: it draws a deterministic, QR-looking pattern for mock-ups, and no authenticator can scan it. Passing it an otpauth URI produced an enrolment screen nobody could complete. With no code supplied, the screen offers the key and the app link instead."
+        "description": "The scannable code for `otpauthUrl`, drawn by a real QR encoder — a server rendered image, or a component such as `qrcode.react`. Klyv's own `QRCode` is not used here: it draws a deterministic, QR-looking pattern for mock-ups, and no authenticator can scan it. Passing it an otpauth URI produced an enrolment screen nobody could complete. With no code supplied, the screen offers the key and the app link instead."
       },
       {
         "name": "secret",

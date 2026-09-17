@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { DataTable, type DataTableColumn } from 'citrine'
+import { DataTable, type DataTableColumn } from 'klyv'
 
 afterEach(cleanup)
 

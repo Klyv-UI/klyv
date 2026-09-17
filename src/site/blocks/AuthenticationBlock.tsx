@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ShieldCheck } from 'lucide-react'
-import { Alert, Button, InputOTP, Surface, SuccessMark, Text } from 'citrine'
+import { Alert, Button, InputOTP, Surface, SuccessMark, Text } from 'klyv'
 
 /**
  * The step after the password.

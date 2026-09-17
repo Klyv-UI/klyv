@@ -19,7 +19,7 @@ import {
   type WebhookDelivery,
   type WebhookEndpoint,
   type IntegrationStatus,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 import { API_KEYS, API_SCOPES, ARTICLES, CHANGELOG, RESOURCES, daysFromNow, randomSecret } from './saas-shared'

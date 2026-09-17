@@ -19,7 +19,7 @@ function preserveClientDirectives(): Plugin {
   const clientModules = new Set<string>()
 
   return {
-    name: 'citrine:preserve-use-client',
+    name: 'klyv:preserve-use-client',
     transform(code, id) {
       if (/^\s*['"]use client['"]/.test(code)) clientModules.add(id)
       return null

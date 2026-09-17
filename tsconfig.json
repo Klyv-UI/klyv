@@ -30,7 +30,7 @@
       "@/*": [
         "./src/*"
       ],
-      "citrine": [
+      "klyv": [
         "./src/index.ts"
       ]
     }

@@ -47,7 +47,7 @@ export interface ShowcaseProject {
   sample: boolean
 }
 
-const MAINTAINERS = { name: 'Citrine maintainers' }
+const MAINTAINERS = { name: 'Klyv maintainers' }
 
 function fromBlock(slug: string, category: ShowcaseCategory, tags: string[]): ShowcaseProject | undefined {
   const block = findBlock(slug)
@@ -68,7 +68,7 @@ function fromBlock(slug: string, category: ShowcaseCategory, tags: string[]): Sh
 
 export const showcase: ShowcaseProject[] = [
   {
-    slug: 'citrine-docs',
+    slug: 'klyv-docs',
     name: 'This documentation site',
     description:
       'The site you are reading: the sidebar, search, catalogue, Composer and every page around the examples are built from the library they document.',

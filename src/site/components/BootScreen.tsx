@@ -9,7 +9,7 @@
  */
 export function BootScreen() {
   return (
-    <div className="boot" role="status" aria-label="Loading Citrine">
+    <div className="boot" role="status" aria-label="Loading Klyv">
       <span className="boot-mark" aria-hidden="true">
         C
       </span>

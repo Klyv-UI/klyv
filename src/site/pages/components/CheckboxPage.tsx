@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Checkbox, Label, Surface, Text } from 'citrine'
+import { Checkbox, Label, Surface, Text } from 'klyv'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, SelectControl, ToggleControl } from '../../components/Playground'
 

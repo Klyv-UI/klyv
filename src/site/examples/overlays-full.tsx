@@ -16,7 +16,7 @@ import {
   Text,
   ToastProvider,
   useToast,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 
 function ModalExample() {

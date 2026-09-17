@@ -1,4 +1,4 @@
-import { Skeleton } from 'citrine'
+import { Skeleton } from 'klyv'
 
 /**
  * Stands in for a documentation page while its code or data arrives.

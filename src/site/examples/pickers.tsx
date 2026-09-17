@@ -8,7 +8,7 @@ import {
   Surface,
   Text,
   type UploadFile,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 
 function ColorPickerExample() {
@@ -25,7 +25,7 @@ function ColorPickerExample() {
         style={{ background: color }}
       >
         <Text size="caption" weight="bold" className="text-ink/70">
-          Citrine
+          Klyv
         </Text>
         <Text size="body" tabular className="text-ink">
           **** 5199
@@ -69,7 +69,7 @@ function FileUploadExample() {
 }
 
 function QRCodeExample() {
-  const [value, setValue] = useState('citrine:5199?amount=369.41')
+  const [value, setValue] = useState('klyv:5199?amount=369.41')
   return (
     <div className="flex flex-wrap items-start gap-6">
       <Card className="items-center gap-3 p-5">

@@ -37,7 +37,7 @@ import {
   type NotificationEntry,
   type SpotlightMetric,
   type ViewStatus,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 
 /* ------------------------------------------------------------------ data */

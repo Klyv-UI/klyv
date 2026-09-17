@@ -3,7 +3,7 @@
   "autoPort": true,
   "configurations": [
     {
-      "name": "citrine",
+      "name": "klyv",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "port": 5173,

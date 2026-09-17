@@ -8,7 +8,7 @@ import {
   Surface,
   Text,
   type ImportField,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

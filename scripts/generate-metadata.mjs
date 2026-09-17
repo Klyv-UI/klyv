@@ -2,7 +2,7 @@
 // the CLI both work from.
 //
 // It is generated rather than hand-maintained because it has to be exactly
-// right: "Copy with dependencies" and `citrine add` both hand someone a set of
+// right: "Copy with dependencies" and `klyv add` both hand someone a set of
 // files that must compile, and a stale edge means a broken paste.
 //
 // Run by `predev` and `prebuild`, so it cannot drift from the source.
@@ -106,7 +106,7 @@ for (const entry of Object.values(components)) {
 }
 
 // The catalogue is the site's source of truth for what a component is *for*.
-// Reading it here lets `citrine list drag` find the same things the site's
+// Reading it here lets `klyv list drag` find the same things the site's
 // search does, rather than matching names only.
 const catalogSource = readFileSync(join(ROOT, 'src', 'site', 'data', 'catalog.ts'), 'utf8')
 const catalog = {}

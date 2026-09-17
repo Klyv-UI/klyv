@@ -111,7 +111,7 @@ export const releases: Release[] = [
   {
     version: '1.0.0',
     date: '2026-09-11',
-    title: 'Citrine 1.0',
+    title: 'Klyv 1.0',
     summary:
       'The first version: an accent-led component library, the blocks built from it, an MCP server and an Agent Skill, and a docs site built with the library it documents.',
     status: 'released',
@@ -159,7 +159,7 @@ export const releases: Release[] = [
       },
       {
         category: 'feature',
-        title: 'Citrine, an accent-led React component library',
+        title: 'Klyv, an accent-led React component library',
         commit: 'e68c49b',
         links: [{ label: 'Get started', to: '/getting-started' }],
       },

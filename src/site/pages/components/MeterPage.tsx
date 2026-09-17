@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { GraduationCap, Smartphone } from 'lucide-react'
-import { Button, IconTile, Meter, Surface, Text, type MeterVariant } from 'citrine'
+import { Button, IconTile, Meter, Surface, Text, type MeterVariant } from 'klyv'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { NumberControl, Playground, SelectControl } from '../../components/Playground'
 

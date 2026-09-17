@@ -32,7 +32,7 @@ import {
   type RoleOption,
   type UsageItem,
   type Workspace,
-} from 'citrine'
+} from 'klyv'
 
 /**
  * Fixture data shared by the SaaS Kit demos and the templates page. Every

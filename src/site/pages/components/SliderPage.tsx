@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Label, Slider, Surface, Text } from 'citrine'
+import { Label, Slider, Surface, Text } from 'klyv'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { NumberControl, Playground, ToggleControl } from '../../components/Playground'
 

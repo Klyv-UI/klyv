@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { useId } from 'react'
-import { Surface, Text, cn } from 'citrine'
+import { Surface, Text, cn } from 'klyv'
 
 /**
  * A deliberately small playground: a live stage, and a column of controls the

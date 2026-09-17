@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 import { fileURLToPath, URL } from 'node:url'
-import { directImports, registerComponents } from './vite.citrine'
+import { directImports, registerComponents } from './vite.klyv'
 
 /**
  * The accessibility suite. Same aliases as the docs site, so every component
@@ -13,7 +13,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
-      citrine: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
+      klyv: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
     },
   },
   test: {

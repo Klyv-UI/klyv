@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Citrine's Model Context Protocol server.
+// Klyv's Model Context Protocol server.
 //
 // Gives an AI harness the same knowledge the documentation site has: what
 // components exist and what each is for, every prop with its real type and
@@ -80,8 +80,8 @@ function describe(name) {
     group: entry.group,
     section: entry.section,
     summary: entry.blurb,
-    import: `import { ${name} } from 'citrine'`,
-    cli: entry.slug ? `npx citrine add ${entry.slug}` : undefined,
+    import: `import { ${name} } from 'klyv'`,
+    cli: entry.slug ? `npx klyv add ${entry.slug}` : undefined,
     props: props[name]?.props ?? [],
     inherits: props[name]?.inherits ?? [],
     ariaRoles: aria[name] ?? [],
@@ -116,7 +116,7 @@ function search(query = '', group) {
   }))
 }
 
-const RULES = `# Citrine design rules
+const RULES = `# Klyv design rules
 
 ## One accent drives everything
 Nothing in the library names a colour. Every emphasis resolves to
@@ -159,24 +159,24 @@ dark variant or a \`dark:\` class. Set it with \`applyMode('dark' | 'light' |
 'system')\`.
 
 ## Two ways to take a component
-Install the package and import, or run \`npx citrine add <slug>\` to copy the
+Install the package and import, or run \`npx klyv add <slug>\` to copy the
 source — the folders are flat and the imports relative, so the copy compiles
 with no rewriting.`
 
-const USAGE = `# Using Citrine
+const USAGE = `# Using Klyv
 
 \`\`\`bash
-npm install citrine
+npm install klyv
 \`\`\`
 
 \`\`\`tsx
-import { Button, DataTable, applyAccent } from 'citrine'
-import 'citrine/styles.css'
+import { Button, DataTable, applyAccent } from 'klyv'
+import 'klyv/styles.css'
 \`\`\`
 
-\`citrine/styles.css\` is prebuilt (~14.7 KB gzipped) and contains the tokens,
+\`klyv/styles.css\` is prebuilt (~14.7 KB gzipped) and contains the tokens,
 the base layer and exactly the utilities the library uses — Tailwind is not
-required. If you already run Tailwind, import \`citrine/preset.css\` instead so
+required. If you already run Tailwind, import \`klyv/preset.css\` instead so
 those utilities land in your build rather than shipping twice.
 
 ESM only, one module per component with \`sideEffects\` declared, so bundlers
@@ -189,7 +189,7 @@ Icons are a structural type, not an import: any component taking \`size\`,
 Server components: modules that can run on a server boundary do, and the rest
 carry \`'use client'\`. Nothing to configure.
 
-Whole screens are blocks: \`npx citrine add block dashboard\` copies one into
+Whole screens are blocks: \`npx klyv add block dashboard\` copies one into
 \`src/blocks\`, and the \`list_blocks\` and \`get_block\` tools return them with
 their full source.`
 
@@ -237,7 +237,7 @@ export const TOOLS = [
   {
     name: 'get_component_source',
     description:
-      'The real source of a component. With withDependencies, also returns every sibling component and shared module it imports, in the order they should be written — which is exactly what `citrine add` copies.',
+      'The real source of a component. With withDependencies, also returns every sibling component and shared module it imports, in the order they should be written — which is exactly what `klyv add` copies.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -284,7 +284,7 @@ export const TOOLS = [
         category: block.category,
         summary: block.blurb,
         builtFrom: block.components.length,
-        cli: `npx citrine add block ${block.slug}`,
+        cli: `npx klyv add block ${block.slug}`,
       })),
   },
   {
@@ -307,8 +307,8 @@ export const TOOLS = [
         summary: block.blurb,
         components: block.components,
         packages: block.packages,
-        cli: `npx citrine add block ${block.slug}`,
-        note: 'Imports come from the citrine package. If you copied components with `citrine add` instead of installing it, point the imports at those copies — the names are the same.',
+        cli: `npx klyv add block ${block.slug}`,
+        note: 'Imports come from the klyv package. If you copied components with `klyv add` instead of installing it, point the imports at those copies — the names are the same.',
         file: block.file,
         source: existsSync(path) ? readFileSync(path, 'utf8') : null,
       }
@@ -337,7 +337,7 @@ export const TOOLS = [
   {
     name: 'get_design_rules',
     description:
-      'How the design system works and the rules every component obeys: the accent derivation, the surface stack, the ink scale, dark mode, and the five house rules. Read this before writing UI with Citrine.',
+      'How the design system works and the rules every component obeys: the accent derivation, the surface stack, the ink scale, dark mode, and the five house rules. Read this before writing UI with Klyv.',
     inputSchema: { type: 'object', properties: {} },
     run: () => RULES,
   },
@@ -350,11 +350,11 @@ export const TOOLS = [
 ]
 
 export const RESOURCES = [
-  { uri: 'citrine://catalog', name: 'Component catalogue', description: 'Every component with its group, section and summary.', mimeType: 'application/json', read: () => JSON.stringify(search(''), null, 2) },
-  { uri: 'citrine://blocks', name: 'Blocks', description: 'Every block — a whole screen — with the components it is built from.', mimeType: 'application/json', read: () => JSON.stringify(BLOCKS, null, 2) },
-  { uri: 'citrine://tokens', name: 'Design tokens', description: 'Tokens in W3C Design Tokens format, including dark mode.', mimeType: 'application/json', read: () => JSON.stringify(tokens, null, 2) },
-  { uri: 'citrine://rules', name: 'Design rules', description: 'The design system and the rules every component obeys.', mimeType: 'text/markdown', read: () => RULES },
-  { uri: 'citrine://usage', name: 'Install and usage', description: 'How to install the package and set up the stylesheet.', mimeType: 'text/markdown', read: () => USAGE },
+  { uri: 'klyv://catalog', name: 'Component catalogue', description: 'Every component with its group, section and summary.', mimeType: 'application/json', read: () => JSON.stringify(search(''), null, 2) },
+  { uri: 'klyv://blocks', name: 'Blocks', description: 'Every block — a whole screen — with the components it is built from.', mimeType: 'application/json', read: () => JSON.stringify(BLOCKS, null, 2) },
+  { uri: 'klyv://tokens', name: 'Design tokens', description: 'Tokens in W3C Design Tokens format, including dark mode.', mimeType: 'application/json', read: () => JSON.stringify(tokens, null, 2) },
+  { uri: 'klyv://rules', name: 'Design rules', description: 'The design system and the rules every component obeys.', mimeType: 'text/markdown', read: () => RULES },
+  { uri: 'klyv://usage', name: 'Install and usage', description: 'How to install the package and set up the stylesheet.', mimeType: 'text/markdown', read: () => USAGE },
 ]
 
 /* ------------------------------------------------------------------ server */
@@ -379,7 +379,7 @@ function handle(request) {
         // has told us which it wants.
         protocolVersion: typeof params.protocolVersion === 'string' ? params.protocolVersion : '2024-11-05',
         capabilities: { tools: {}, resources: {}, prompts: {} },
-        serverInfo: { name: 'citrine', version: VERSION },
+        serverInfo: { name: 'klyv', version: VERSION },
       })
 
     case 'notifications/initialized':
@@ -426,9 +426,8 @@ function handle(request) {
   }
 }
 
-// Listen only when run as a program. The docs generator imports this module to
-// read its own tool definitions, and taking stdin there would hang the build.
-if (process.argv[1] && resolvePath(process.argv[1]) === fileURLToPath(import.meta.url)) {
+/** Serve JSON-RPC on stdin/stdout. `klyv mcp` calls this too. */
+export function listen() {
   createInterface({ input: process.stdin }).on('line', (line) => {
     const text = line.trim()
     if (!text) return
@@ -445,3 +444,7 @@ if (process.argv[1] && resolvePath(process.argv[1]) === fileURLToPath(import.met
     }
   })
 }
+
+// Listen only when run as a program. The docs generator imports this module to
+// read its own tool definitions, and taking stdin there would hang the build.
+if (process.argv[1] && resolvePath(process.argv[1]) === fileURLToPath(import.meta.url)) listen()

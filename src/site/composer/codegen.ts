@@ -16,7 +16,7 @@ import { LAYOUT_ONLY } from './registry'
  * inlined, and the imports are exactly what the file uses. Alongside the file:
  * the packages to install, the blocks to take with the CLI, and every
  * component the composition brings — read from the same dependency graph the
- * component pages and `citrine add` use, so all three agree.
+ * component pages and `klyv add` use, so all three agree.
  */
 const blockPackages = new Map(blocksData.blocks.map((block) => [block.slug, block.packages]))
 
@@ -130,7 +130,7 @@ export function generate(doc: ComposerDoc, name = 'Screen'): Generated {
     `├── screens/`,
     `│   └── ${name}.tsx`,
     ...(blocks.length
-      ? ['└── blocks/', ...blocks.map((block, index) => `    ${index === blocks.length - 1 ? '└──' : '├──'} ${block.file}   ← citrine add block ${block.slug}`)]
+      ? ['└── blocks/', ...blocks.map((block, index) => `    ${index === blocks.length - 1 ? '└──' : '├──'} ${block.file}   ← klyv add block ${block.slug}`)]
       : []),
   ].join('\n')
 

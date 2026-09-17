@@ -16,7 +16,7 @@ import {
   UsageMeter,
   UserMenu,
   WorkspaceSwitcher,
-} from 'citrine'
+} from 'klyv'
 
 /**
  * The signed-in home of a SaaS product.

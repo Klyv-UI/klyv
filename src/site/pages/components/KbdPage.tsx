@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Search } from 'lucide-react'
-import { Input, Kbd, Surface, Text } from 'citrine'
+import { Input, Kbd, Surface, Text } from 'klyv'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, TextControl } from '../../components/Playground'
 

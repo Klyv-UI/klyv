@@ -26,7 +26,7 @@ import {
   TableRow,
   Text,
   Timeline,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 
 const ROWS = [

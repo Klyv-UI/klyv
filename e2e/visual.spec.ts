@@ -23,7 +23,7 @@ const MODES = ['light', 'dark'] as const
 
 async function open(page: Page, path: string, mode: (typeof MODES)[number]) {
   await page.addInitScript((value: string) => {
-    window.localStorage.setItem('citrine:mode', value)
+    window.localStorage.setItem('klyv:mode', value)
   }, mode)
   await page.emulateMedia({ colorScheme: mode, reducedMotion: 'reduce' })
   await page.goto(path)

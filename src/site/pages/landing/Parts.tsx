@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { HoloCard, JsonViewer, Marquee, Reveal, Surface, Terminal, Text, cn } from 'citrine'
+import { HoloCard, JsonViewer, Marquee, Reveal, Surface, Terminal, Text, cn } from 'klyv'
 import { catalog, componentCount } from '../../data/catalog'
 import { groups } from '../../data/groups'
 import { LandingSection, SectionLink } from './primitives'
@@ -62,7 +62,7 @@ export function Parts() {
         <ShowcaseTile name="Terminal" slug="terminal" bare>
           <Terminal
             height={240}
-            title="citrine — zsh"
+            title="klyv — zsh"
             commands={['help', 'about', 'groups']}
             greeting={
               // The terminal is always dark — its colours are physical, not
@@ -70,7 +70,7 @@ export function Parts() {
               // accent is lifted towards white: accent-strong alone reads at
               // 4:1 on the terminal under a grey accent.
               <>
-                <span className="text-[color-mix(in_oklab,var(--color-accent)_75%,#ffffff)]">citrine</span> v1.0 — try{' '}
+                <span className="text-[color-mix(in_oklab,var(--color-accent)_75%,#ffffff)]">klyv</span> v1.0 — try{' '}
                 <span className="text-white">groups</span>, then press ↑.
               </>
             }

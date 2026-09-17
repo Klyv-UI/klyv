@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { AnchorNav } from 'citrine'
+import { AnchorNav } from 'klyv'
 import { Closing } from './landing/Closing'
 import { Developer } from './landing/Developer'
 import { Hero } from './landing/Hero'

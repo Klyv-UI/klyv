@@ -196,8 +196,8 @@ function prefersDark(): boolean {
     : false
 }
 
-const STORAGE_KEY = 'citrine:accent'
-const ACCENT_EVENT = 'citrine:accentchange'
+const STORAGE_KEY = 'klyv:accent'
+const ACCENT_EVENT = 'klyv:accentchange'
 
 /**
  * Calls back whenever the document's accent changes, from anywhere.

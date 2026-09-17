@@ -9,7 +9,7 @@ import {
   DescriptionList,
   Surface,
   Text,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 
 function CollapseExample() {

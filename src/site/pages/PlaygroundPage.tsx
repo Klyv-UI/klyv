@@ -16,7 +16,7 @@ import {
   Text,
   type ButtonVariant,
   type SurfaceVariant,
-} from 'citrine'
+} from 'klyv'
 import { Note, Section } from '../components/Doc'
 import { PageIntro } from '../components/PageIntro'
 import { NumberControl, Playground, SelectControl, TextControl, ToggleControl } from '../components/Playground'

@@ -1,11 +1,11 @@
 ---
-name: citrine
-description: Build UI with the Citrine React component library — 250+ accessible components driven by a single accent colour. Use whenever writing or reviewing React UI in a project that depends on `citrine`, or when the user asks for a component, screen, form, dashboard, dialog, chart or layout and Citrine is available. Covers finding the right component, its real props, the design tokens, dark mode, and the rules every component follows.
+name: klyv
+description: Build UI with the Klyv React component library — 250+ accessible components driven by a single accent colour. Use whenever writing or reviewing React UI in a project that depends on `klyv`, or when the user asks for a component, screen, form, dashboard, dialog, chart or layout and Klyv is available. Covers finding the right component, its real props, the design tokens, dark mode, and the rules every component follows.
 ---
 
-# Building with Citrine
+# Building with Klyv
 
-Citrine is a React component library of more than 290 components in thirteen groups. Every
+Klyv is a React component library of more than 290 components in thirteen groups. Every
 emphasis in it — buttons, charts, focus rings, the page behind them — resolves
 to one accent colour and three values derived from it.
 
@@ -19,9 +19,9 @@ to one accent colour and three values derived from it.
 3. **Never invent a colour, radius or shadow.** Everything comes from tokens.
 4. **Building a whole page? Start from a block.** A sign-in screen, an admin
    panel or a settings page already exists as a working block — adapt it
-   rather than assembling one from scratch (`npx citrine add block <slug>`).
+   rather than assembling one from scratch (`npx klyv add block <slug>`).
 
-If the Citrine MCP server is connected, use its tools for all three:
+If the Klyv MCP server is connected, use its tools for all three:
 
 | Tool | For |
 | --- | --- |
@@ -36,21 +36,21 @@ If the Citrine MCP server is connected, use its tools for all three:
 | `how_to_install` | package, stylesheet, peer dependencies |
 
 Without the MCP server, the same data is in the package: `data/components.json`,
-`data/props.json`, `data/tokens.json`, and `npx citrine list <query>`.
+`data/props.json`, `data/tokens.json`, and `npx klyv list <query>`.
 
 ## Setup
 
 ```bash
-npm install citrine
+npm install klyv
 ```
 
 ```tsx
-import { Button, DataTable, applyAccent } from 'citrine'
-import 'citrine/styles.css'
+import { Button, DataTable, applyAccent } from 'klyv'
+import 'klyv/styles.css'
 ```
 
-`citrine/styles.css` is prebuilt and needs no Tailwind. If the project already
-runs Tailwind, import `citrine/preset.css` instead so the utilities land in its
+`klyv/styles.css` is prebuilt and needs no Tailwind. If the project already
+runs Tailwind, import `klyv/preset.css` instead so the utilities land in its
 build rather than shipping twice.
 
 ## Theming
@@ -58,7 +58,7 @@ build rather than shipping twice.
 One call retints everything, at runtime:
 
 ```ts
-import { applyAccent, applyMode } from 'citrine'
+import { applyAccent, applyMode } from 'klyv'
 
 applyAccent('#8b5cf6')   // accent, accent-strong, accent-soft, accent-ink
 applyMode('dark')        // 'light' | 'dark' | 'system'
@@ -104,8 +104,8 @@ Follow these when composing, too — they are what keep the set coherent.
 Install and import, or copy the source:
 
 ```bash
-npx citrine add data-table     # 21 files: the component and all it imports
-npx citrine info combobox      # what it would bring with it
+npx klyv add data-table     # 21 files: the component and all it imports
+npx klyv info combobox      # what it would bring with it
 ```
 
 The folders are flat and every internal import is relative, so a copy compiles

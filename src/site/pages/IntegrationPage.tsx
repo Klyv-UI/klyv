@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Badge, CodeBlock, Text } from 'citrine'
+import { Badge, CodeBlock, Text } from 'klyv'
 import { Note, Section } from '../components/Doc'
 import { ComponentLinks, DocLink, Missing } from '../components/Links'
 import { PageIntro } from '../components/PageIntro'

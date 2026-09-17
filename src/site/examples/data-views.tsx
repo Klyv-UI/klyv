@@ -8,7 +8,7 @@ import {
   RelativeTime,
   Text,
   VirtualList,
-} from 'citrine'
+} from 'klyv'
 import type { ExampleModule } from './types'
 
 /* ------------------------------------------------------------- json viewer */

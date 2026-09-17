@@ -165,7 +165,7 @@ describe('composer code', () => {
   it('leaves out props that equal the default, and imports exactly what it uses', () => {
     const button = createNode('Button')
     const code = generate(docOf(button)).code
-    expect(code).toContain("import { Button } from 'citrine'")
+    expect(code).toContain("import { Button } from 'klyv'")
     expect(code).toContain('<Button>Get started</Button>')
     button.props.variant = 'outline'
     expect(generate(docOf(button)).code).toContain('<Button variant="outline">Get started</Button>')
@@ -173,7 +173,7 @@ describe('composer code', () => {
 
   it('nests children and sorts imports', () => {
     const generated = generate(docOf(createNode('Field')))
-    expect(generated.code).toContain("import { Field, Input } from 'citrine'")
+    expect(generated.code).toContain("import { Field, Input } from 'klyv'")
     expect(generated.components).toEqual(['Field', 'Input'])
     expect(generated.resolved).toEqual(expect.arrayContaining(['Field', 'Input', 'Label']))
   })
@@ -181,7 +181,7 @@ describe('composer code', () => {
   it('brings a block in whole, with the packages it needs', () => {
     const generated = generate(docOf({ id: 'x', kind: 'block', slug: 'login' }))
     expect(generated.code).toContain("import LoginBlock from '../blocks/LoginBlock'")
-    expect(generated.commands).toContain('npx citrine add block login')
+    expect(generated.commands).toContain('npx klyv add block login')
     expect(generated.packages).toContain('lucide-react')
   })
 
@@ -215,7 +215,7 @@ describe('saved items', () => {
 
   it('persists through the storage adapter', () => {
     saved.toggleFavorite('block:login')
-    expect(JSON.parse(window.localStorage.getItem('citrine:saved') ?? '{}').favorites).toEqual(['block:login'])
+    expect(JSON.parse(window.localStorage.getItem('klyv:saved') ?? '{}').favorites).toEqual(['block:login'])
   })
 })
 

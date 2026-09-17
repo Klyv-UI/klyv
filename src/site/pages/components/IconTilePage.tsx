@@ -8,7 +8,7 @@ import {
   Smartphone,
   Zap,
 } from 'lucide-react'
-import { IconTile, Surface, Text, type IconTileSize, type IconTileTone } from 'citrine'
+import { IconTile, Surface, Text, type IconTileSize, type IconTileTone } from 'klyv'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, SelectControl } from '../../components/Playground'
 

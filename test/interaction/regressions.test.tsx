@@ -1,7 +1,7 @@
 import { act, fireEvent, cleanup, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { AudioVisualizer, Field, HoldToConfirm, Input, QRCode, Textarea, TwoFactorSetup } from 'citrine'
+import { AudioVisualizer, Field, HoldToConfirm, Input, QRCode, Textarea, TwoFactorSetup } from 'klyv'
 
 /**
  * One test per defect from the production-readiness audit that was fixed in a

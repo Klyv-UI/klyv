@@ -1,5 +1,5 @@
 import { Bot, Keyboard, Package, Palette } from 'lucide-react'
-import { Reveal, Surface, Text, cn, deriveAccent } from 'citrine'
+import { Reveal, Surface, Text, cn, deriveAccent } from 'klyv'
 import { useAccent } from '../../components/useTheme'
 import { componentEvidence } from '../../data/evidence'
 import { mcpTools } from '../../data/mcp'
@@ -56,7 +56,7 @@ export function Why() {
     <LandingSection
       id="why"
       index={1}
-      eyebrow="Why Citrine"
+      eyebrow="Why Klyv"
       title="A design system you can adopt this week,"
       tail="and still trust next year"
       lede="Most component libraries are quick to start and slow to live with. These are the four things that decide which kind a library is."

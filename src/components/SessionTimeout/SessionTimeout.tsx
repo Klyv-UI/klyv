@@ -53,7 +53,7 @@ export function SessionTimeout({
   warnAt = 60_000,
   onExtend,
   onExpire,
-  syncKey = 'citrine:last-activity',
+  syncKey = 'klyv:last-activity',
   title = 'Still there?',
   paused = false,
   className,
