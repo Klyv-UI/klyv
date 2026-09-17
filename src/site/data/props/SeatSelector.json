@@ -1,0 +1,100 @@
+{
+  "props": [
+    {
+      "name": "current",
+      "type": "number",
+      "required": true,
+      "description": "Seats currently paid for. The change is measured from here."
+    },
+    {
+      "name": "inUse",
+      "type": "number",
+      "required": true,
+      "description": "Seats occupied by members. The count cannot go below this."
+    },
+    {
+      "name": "value",
+      "type": "number",
+      "required": false,
+      "description": "The seat count being chosen. Omit to let the component manage it."
+    },
+    {
+      "name": "defaultValue",
+      "type": "number",
+      "required": false,
+      "description": "Starting count when uncontrolled. Defaults to `current`."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(seats: number) => void",
+      "required": false
+    },
+    {
+      "name": "pricePerSeat",
+      "type": "SeatSelectorPrice",
+      "required": true,
+      "description": "Price of one seat on each cycle."
+    },
+    {
+      "name": "cycle",
+      "type": "SeatSelectorCycle",
+      "required": false,
+      "description": "Billing cycle whose price applies. Omit to let the component manage it."
+    },
+    {
+      "name": "defaultCycle",
+      "type": "SeatSelectorCycle",
+      "required": false,
+      "defaultValue": "'monthly'"
+    },
+    {
+      "name": "onCycleChange",
+      "type": "(cycle: SeatSelectorCycle) => void",
+      "required": false
+    },
+    {
+      "name": "periodEnd",
+      "type": "Date",
+      "required": true,
+      "description": "When the current billing period ends — the next invoice date."
+    },
+    {
+      "name": "periodStart",
+      "type": "Date",
+      "required": false,
+      "description": "When it began. Defaults to one cycle before `periodEnd`."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "description": "The upper bound, for plans with a seat cap."
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'$'",
+      "description": "Currency symbol."
+    },
+    {
+      "name": "onConfirm",
+      "type": "(seats: number, cycle: SeatSelectorCycle) => void | Promise<void>",
+      "required": false,
+      "description": "Called with the new count. A promise shows the pending state."
+    },
+    {
+      "name": "now",
+      "type": "Date",
+      "required": false,
+      "defaultValue": "new Date()",
+      "description": "“Now”, for tests and previews."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

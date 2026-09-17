@@ -7,6 +7,15 @@
     "gridcell",
     "row"
   ],
+  "AddressInput": [
+    "combobox",
+    "listbox",
+    "option",
+    "status"
+  ],
+  "AgendaList": [
+    "region"
+  ],
   "Alert": [
     "alert"
   ],
@@ -23,6 +32,9 @@
     "group",
     "status"
   ],
+  "AudioPlayer": [
+    "group"
+  ],
   "AudioVisualizer": [
     "status"
   ],
@@ -31,6 +43,11 @@
   ],
   "AvatarGroup": [
     "group"
+  ],
+  "AvatarUpload": [
+    "alert",
+    "group",
+    "status"
   ],
   "BoxPlot": [
     "img"
@@ -59,6 +76,12 @@
     "img",
     "status"
   ],
+  "CascadeSelect": [
+    "combobox",
+    "listbox",
+    "option",
+    "status"
+  ],
   "CategoryBar": [
     "img"
   ],
@@ -74,8 +97,17 @@
   "CodeBlock": [
     "status"
   ],
+  "CodeTabs": [
+    "tab",
+    "tablist",
+    "tabpanel"
+  ],
   "ColorPicker": [
     "group"
+  ],
+  "ColorSwatchPicker": [
+    "radio",
+    "radiogroup"
   ],
   "Combobox": [
     "combobox",
@@ -140,6 +172,10 @@
     "combobox",
     "grid"
   ],
+  "DateTimePicker": [
+    "alert",
+    "grid"
+  ],
   "DaySchedule": [
     "group"
   ],
@@ -153,12 +189,32 @@
   "Dock": [
     "toolbar"
   ],
+  "DomainSetup": [
+    "status"
+  ],
   "DonutChart": [
     "img"
+  ],
+  "DownloadButton": [
+    "progressbar",
+    "status"
   ],
   "Drawer": [
     "dialog",
     "modal"
+  ],
+  "DumbbellChart": [
+    "img"
+  ],
+  "DurationInput": [
+    "group",
+    "spinbutton"
+  ],
+  "EditableTable": [
+    "alert",
+    "columnheader",
+    "grid",
+    "gridcell"
   ],
   "EmojiPicker": [
     "grid",
@@ -175,6 +231,12 @@
   ],
   "ErrorState": [
     "alert"
+  ],
+  "EventCalendar": [
+    "columnheader",
+    "grid",
+    "gridcell",
+    "row"
   ],
   "FeatureFlags": [
     "status"
@@ -198,6 +260,13 @@
   "FlipBook": [
     "group"
   ],
+  "GameOfLife": [
+    "application",
+    "status"
+  ],
+  "GanttChart": [
+    "img"
+  ],
   "GooeyLoader": [
     "status"
   ],
@@ -213,6 +282,10 @@
   "HoverCard": [
     "dialog"
   ],
+  "ImageAnnotator": [
+    "application",
+    "status"
+  ],
   "ImageCompare": [
     "slider"
   ],
@@ -225,6 +298,9 @@
     "group",
     "status"
   ],
+  "InfiniteScroll": [
+    "status"
+  ],
   "InlineMessage": [
     "status"
   ],
@@ -235,8 +311,16 @@
     "group",
     "status"
   ],
+  "KeyboardShortcutsDialog": [
+    "status"
+  ],
   "Knob": [
     "slider"
+  ],
+  "LanguageSwitcher": [
+    "listbox",
+    "option",
+    "status"
   ],
   "LayerStack": [
     "radio",
@@ -253,12 +337,18 @@
   "LoadingOverlay": [
     "status"
   ],
+  "LocaleSettings": [
+    "status"
+  ],
   "LogoCloud": [
     "img"
   ],
   "MagicTabs": [
     "tab",
     "tablist"
+  ],
+  "MarkdownEditor": [
+    "toolbar"
   ],
   "MarqueeSelect": [
     "group",
@@ -267,7 +357,16 @@
   "MaskedValue": [
     "status"
   ],
+  "MatrixHeatmap": [
+    "img"
+  ],
   "MemberList": [
+    "status"
+  ],
+  "MemoryGame": [
+    "grid",
+    "gridcell",
+    "row",
     "status"
   ],
   "MentionInput": [
@@ -330,6 +429,9 @@
   "PanZoom": [
     "application"
   ],
+  "ParetoChart": [
+    "img"
+  ],
   "PasswordStrength": [
     "status"
   ],
@@ -382,6 +484,9 @@
   "RadarChart": [
     "img"
   ],
+  "RadialBarChart": [
+    "img"
+  ],
   "RadialMenu": [
     "menu",
     "menuitem"
@@ -396,6 +501,16 @@
   ],
   "ReactionBar": [
     "group"
+  ],
+  "ReleaseNotesModal": [
+    "status"
+  ],
+  "RepeaterField": [
+    "group",
+    "status"
+  ],
+  "ResizableBox": [
+    "separator"
   ],
   "RetryQueue": [
     "status"
@@ -424,6 +539,9 @@
   "ScrollProgress": [
     "progressbar"
   ],
+  "SeatSelector": [
+    "status"
+  ],
   "SegmentedControl": [
     "radio",
     "radiogroup"
@@ -432,6 +550,10 @@
     "combobox",
     "listbox",
     "option"
+  ],
+  "SelectionToolbar": [
+    "status",
+    "toolbar"
   ],
   "SessionTimeout": [
     "alertdialog",
@@ -451,6 +573,9 @@
   "SignaturePad": [
     "img",
     "status"
+  ],
+  "SlopeChart": [
+    "img"
   ],
   "SlotReels": [
     "status"
@@ -474,6 +599,9 @@
   ],
   "StatusStrip": [
     "img"
+  ],
+  "StepLoader": [
+    "status"
   ],
   "StoryProgress": [
     "progressbar"
@@ -536,6 +664,16 @@
   "TreeMap": [
     "group"
   ],
+  "TreeSelect": [
+    "combobox",
+    "tree",
+    "treeitem"
+  ],
+  "TreeTable": [
+    "columnheader",
+    "gridcell",
+    "treegrid"
+  ],
   "TreeView": [
     "tree",
     "treeitem"
@@ -544,6 +682,9 @@
     "group",
     "menu",
     "menuitem",
+    "status"
+  ],
+  "UploadQueue": [
     "status"
   ],
   "UptimeBar": [
@@ -559,7 +700,16 @@
   "ValidationSummary": [
     "alert"
   ],
+  "VersionSwitcher": [
+    "listbox",
+    "note",
+    "option"
+  ],
   "VibePoll": [
+    "group",
+    "status"
+  ],
+  "VideoPlayer": [
     "group",
     "status"
   ],

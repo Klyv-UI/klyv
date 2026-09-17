@@ -1,0 +1,72 @@
+{
+  "props": [
+    {
+      "name": "events",
+      "type": "EventCalendarEvent[]",
+      "required": true
+    },
+    {
+      "name": "month",
+      "type": "string",
+      "required": false,
+      "description": "The month shown, as yyyy-mm. Pass it to control navigation."
+    },
+    {
+      "name": "defaultMonth",
+      "type": "string",
+      "required": false,
+      "description": "Starting month when uncontrolled, as yyyy-mm. Defaults to the month of `today`."
+    },
+    {
+      "name": "onMonthChange",
+      "type": "(month: string) => void",
+      "required": false,
+      "description": "Called when prev, next, today or the keyboard changes month."
+    },
+    {
+      "name": "weekStartsOn",
+      "type": "0 | 1",
+      "required": false,
+      "defaultValue": "1",
+      "description": "0 starts weeks on Sunday, 1 on Monday."
+    },
+    {
+      "name": "maxPerDay",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2",
+      "description": "Chips shown in a day before the rest collapse into \"+n more\"."
+    },
+    {
+      "name": "onEventClick",
+      "type": "(event: EventCalendarEvent) => void",
+      "required": false,
+      "description": "Called when an event chip is chosen."
+    },
+    {
+      "name": "onDayClick",
+      "type": "(date: string) => void",
+      "required": false,
+      "description": "Called when a day is clicked, or Enter is pressed on it."
+    },
+    {
+      "name": "today",
+      "type": "string",
+      "required": false,
+      "description": "Today, as yyyy-mm-dd. Defaults to the system date."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Events'",
+      "description": "Accessible name for the grid."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

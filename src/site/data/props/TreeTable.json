@@ -1,0 +1,59 @@
+{
+  "props": [
+    {
+      "name": "rows",
+      "type": "TreeTableRow<T>[]",
+      "required": true
+    },
+    {
+      "name": "columns",
+      "type": "TreeTableColumn<T>[]",
+      "required": true,
+      "description": "The first column holds the tree: indentation and the expand control."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the table."
+    },
+    {
+      "name": "expanded",
+      "type": "string[]",
+      "required": false,
+      "description": "Controlled expanded row ids."
+    },
+    {
+      "name": "defaultExpanded",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Expanded row ids on first render when uncontrolled."
+    },
+    {
+      "name": "onExpandedChange",
+      "type": "(expanded: string[]) => void",
+      "required": false,
+      "description": "Called with the expanded ids after every toggle."
+    },
+    {
+      "name": "showExpandControls",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show Expand all and Collapse all above the table."
+    },
+    {
+      "name": "onRowClick",
+      "type": "(row: TreeTableRow<T>) => void",
+      "required": false,
+      "description": "Called when a row is clicked, or Enter is pressed on a leaf."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "props": [
+    {
+      "name": "size",
+      "type": "ContainerSize",
+      "required": false,
+      "defaultValue": "'xl'",
+      "description": "Maximum content width. `xl` matches the site shell; `prose` keeps a comfortable line length."
+    },
+    {
+      "name": "gutters",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Side padding that keeps content off the viewport edge — 20px, then 32px from `lg`."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The page content."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    },
+    {
+      "name": "as",
+      "type": "E",
+      "required": false,
+      "description": "The element to render — `main`, `section`, `header`."
+    }
+  ],
+  "inherits": [
+    "Omit<ComponentPropsWithoutRef<E>, keyof ContainerOwnProps | 'as'>"
+  ]
+}

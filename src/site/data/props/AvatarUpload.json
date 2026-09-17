@@ -1,0 +1,70 @@
+{
+  "props": [
+    {
+      "name": "src",
+      "type": "string",
+      "required": false,
+      "description": "The current avatar’s URL. Omit for initials."
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "description": "Whose avatar — drives the initials and the accessible names."
+    },
+    {
+      "name": "onChange",
+      "type": "(file: File | null) => void | Promise<void>",
+      "required": false,
+      "description": "Called with the new image, already cropped when `crop` is on, or `null` when it is removed. Return a promise to show progress; a rejection puts the previous avatar back and shows its message."
+    },
+    {
+      "name": "accept",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'image/png,image/jpeg,image/webp,image/gif'",
+      "description": "Accepted MIME types, as the file input’s `accept`."
+    },
+    {
+      "name": "maxSize",
+      "type": "number",
+      "required": false,
+      "defaultValue": "5 * 1024 * 1024",
+      "description": "Largest accepted file, in bytes."
+    },
+    {
+      "name": "crop",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Ask for a square crop before handing the image over."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "96",
+      "description": "Diameter in pixels."
+    },
+    {
+      "name": "removable",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Allow removing the avatar back to initials."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

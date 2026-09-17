@@ -1,0 +1,59 @@
+{
+  "props": [
+    {
+      "name": "columns",
+      "type": "number",
+      "required": false,
+      "defaultValue": "48",
+      "description": "Cells across."
+    },
+    {
+      "name": "rows",
+      "type": "number",
+      "required": false,
+      "defaultValue": "28",
+      "description": "Cells down."
+    },
+    {
+      "name": "density",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.28",
+      "description": "Share of cells alive after randomising, 0 to 1."
+    },
+    {
+      "name": "defaultSpeed",
+      "type": "number",
+      "required": false,
+      "defaultValue": "10",
+      "description": "Generations per second when the board first renders. The slider changes it after that."
+    },
+    {
+      "name": "autoPlay",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Start running on mount. Ignored under reduced motion, where the board waits for Play."
+    },
+    {
+      "name": "wrap",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Edges wrap round to the opposite side, so gliders do not die at the border."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Game of Life board'",
+      "description": "Accessible name for the board."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

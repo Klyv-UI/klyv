@@ -1,0 +1,81 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "AddressInputValue",
+      "required": false,
+      "description": "Controlled value."
+    },
+    {
+      "name": "defaultValue",
+      "type": "Partial<AddressInputValue>",
+      "required": false,
+      "description": "Starting value when uncontrolled. Missing parts start empty."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: AddressInputValue) => void",
+      "required": false,
+      "description": "Called with the whole address after every edit."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Legend for the group — \"Shipping address\"."
+    },
+    {
+      "name": "countries",
+      "type": "AddressInputCountry[]",
+      "required": false,
+      "defaultValue": "ADDRESS_INPUT_COUNTRIES",
+      "description": "The countries offered, in order. Defaults to a short list with local labels."
+    },
+    {
+      "name": "defaultCountry",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'US'",
+      "description": "Country used when the value names none."
+    },
+    {
+      "name": "onSuggest",
+      "type": "(query: string, country: string) => AddressInputSuggestion[] | Promise<AddressInputSuggestion[]>",
+      "required": false,
+      "description": "Called as the first line is typed, from three characters. Return suggestions from your address provider; picking one fills the fields. Omit for plain fields."
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "Prefix for the `name` of each input, so the address submits with a form: `shipping` gives `shipping-city`."
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Marks the address, the city and the postal code as required."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the fields."
+    },
+    {
+      "name": "hideLabel",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Hide the legend visually, keeping it for assistive tech."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "props": [
+    {
+      "name": "planName",
+      "type": "string",
+      "required": true,
+      "description": "The plan being cancelled."
+    },
+    {
+      "name": "accessEndsAt",
+      "type": "Date",
+      "required": true,
+      "description": "When paid access ends if the cancellation goes through."
+    },
+    {
+      "name": "losses",
+      "type": "string[]",
+      "required": true,
+      "description": "What stops working — named features and data, not “premium features”."
+    },
+    {
+      "name": "reasons",
+      "type": "CancellationFlowReason[]",
+      "required": false,
+      "defaultValue": "DEFAULT_REASONS",
+      "description": "Reasons offered on the first step, each optionally paired with an offer."
+    },
+    {
+      "name": "offers",
+      "type": "Partial<Record<CancellationFlowOfferKind, CancellationFlowOffer>>",
+      "required": false,
+      "defaultValue": "{}",
+      "description": "Copy for each offer the product can make. An offer without copy is never shown."
+    },
+    {
+      "name": "onAcceptOffer",
+      "type": "(offer: CancellationFlowOfferKind, feedback: CancellationFlowFeedback) => void | Promise<void>",
+      "required": false,
+      "description": "Called when an offer is taken instead of cancelling."
+    },
+    {
+      "name": "onCancel",
+      "type": "(feedback: CancellationFlowFeedback) => void | Promise<void>",
+      "required": true,
+      "description": "Called on the final confirmation. A rejected promise shows its message."
+    },
+    {
+      "name": "onKeep",
+      "type": "() => void",
+      "required": false,
+      "description": "Leave the flow without changing anything."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

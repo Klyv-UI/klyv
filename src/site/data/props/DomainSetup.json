@@ -1,0 +1,54 @@
+{
+  "props": [
+    {
+      "name": "domain",
+      "type": "string | null",
+      "required": true,
+      "description": "The connected domain, or null before one is added."
+    },
+    {
+      "name": "records",
+      "type": "DomainSetupRecord[]",
+      "required": true,
+      "description": "Records to add at the DNS provider, with their latest check result."
+    },
+    {
+      "name": "sslStatus",
+      "type": "DomainSetupSslStatus",
+      "required": false,
+      "defaultValue": "'waiting'",
+      "description": "Certificate state. Issued once every record verifies."
+    },
+    {
+      "name": "onAdd",
+      "type": "(domain: string) => void | Promise<void>",
+      "required": true,
+      "description": "Called with a normalised domain. A rejection shows its message."
+    },
+    {
+      "name": "onVerify",
+      "type": "() => void | Promise<void>",
+      "required": true,
+      "description": "Re-check DNS. Update `records` with the results."
+    },
+    {
+      "name": "onRemove",
+      "type": "() => void | Promise<void>",
+      "required": true,
+      "description": "Disconnect the domain, after confirmation."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'app.example.com'",
+      "description": "Shown as the field placeholder."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

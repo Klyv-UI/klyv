@@ -1,0 +1,46 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The label. Plain text reads best; the sweep is painted across every glyph."
+    },
+    {
+      "name": "tone",
+      "type": "ShimmerTextTone",
+      "required": false,
+      "defaultValue": "'ink'",
+      "description": "`ink` sweeps a darker band across soft ink; `accent` sweeps the accent across it."
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2",
+      "description": "Seconds for one sweep across the text."
+    },
+    {
+      "name": "paused",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Stop the sweep and show the text plainly — when the work it labels is finished."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    },
+    {
+      "name": "as",
+      "type": "E",
+      "required": false,
+      "description": "Render as another element — a `p`, a heading."
+    }
+  ],
+  "inherits": [
+    "Omit<ComponentPropsWithoutRef<E>, keyof ShimmerTextOwnProps | 'as'>"
+  ]
+}

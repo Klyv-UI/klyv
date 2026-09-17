@@ -1,6 +1,6 @@
 # Klyv
 
-**An accent-led React component library.** 330+ components that take their entire
+**An accent-led React component library.** 380+ components that take their entire
 personality from a single colour — pick a hue and the whole set repaints:
 buttons, charts, selection washes, and the page behind them.
 
@@ -88,30 +88,51 @@ through them, rather than each keeping a copy that goes stale.
 
 ## What is in it
 
-336 components in thirteen groups. The grouping describes what a component is
+386 components in thirteen groups. The grouping describes what a component is
 **for** — the only question anyone browsing a library arrives with.
 
 | Group | Count | |
 | --- | --- | --- |
 | Foundations | 9 | the type scale, container recipes, utilities |
-| Layout | 21 | structure, disclosure, stacks and scrolling |
-| Navigation | 21 | bars, shells, tabs, steps, menus, search |
-| Actions | 14 | buttons, and the richer controls built on them |
-| Forms & Inputs | 47 | text, choice, ranges, dates, rich input |
-| Data Display | 37 | identity, lists, tables, metrics, records |
-| Charts | 26 | plots, gauges, distribution, flow, activity |
-| Feedback | 29 | status, messages, empty states, celebration |
-| Overlays | 14 | dialogs, popovers, guidance |
-| Motion & Effects | 34 | entrances, kinetic type, light and surfaces |
-| Interaction | 23 | touch and drag, presence, trust and workflow |
-| Canvas & Play | 15 | generative, audio, physics, toys |
-| SaaS | 46 | marketing, pricing, auth, billing, team, settings, developer, data views, engagement, security |
+| Layout | 24 | structure, disclosure, stacks and scrolling |
+| Navigation | 24 | bars, shells, tabs, steps, menus, search |
+| Actions | 17 | buttons, and the richer controls built on them |
+| Forms & Inputs | 56 | text, choice, ranges, dates, rich input |
+| Data Display | 45 | identity, lists, tables, metrics, records |
+| Charts | 32 | plots, gauges, distribution, flow, activity |
+| Feedback | 31 | status, messages, empty states, celebration |
+| Overlays | 17 | dialogs, popovers, guidance |
+| Motion & Effects | 37 | entrances, kinetic type, light and surfaces |
+| Interaction | 25 | touch and drag, presence, trust and workflow |
+| Canvas & Play | 17 | generative, audio, physics, toys |
+| SaaS | 52 | marketing, pricing, auth, billing, team, settings, developer, data views, engagement, security |
 
-### New: forty more components
+### New: fifty more components
 
-Forty components that fill gaps across the library, every one marked **New** on
-the site (sidebar, catalogue cards, component page header, and a **New** filter
-on /components). The SaaS set below is no longer tagged New.
+Fifty components, every one marked **New** on the site (sidebar, catalogue
+cards, component page header, and a **New** filter on /components). The forty
+before them are no longer tagged New.
+
+**Layout** — Stack · Container · InfiniteScroll.
+**Navigation** — LanguageSwitcher · VersionSwitcher · ArticlePager.
+**Actions** — DownloadButton · LikeButton · SelectionToolbar.
+**Forms & Inputs** — DateTimePicker · DurationInput · AddressInput · TreeSelect ·
+CascadeSelect · ColorSwatchPicker · MarkdownEditor · AvatarUpload · RepeaterField.
+**Data Display** — EventCalendar · AgendaList · TreeTable · EditableTable ·
+Leaderboard · CodeTabs · VideoPlayer · AudioPlayer.
+**Charts** — GanttChart · MatrixHeatmap · RadialBarChart · SlopeChart ·
+ParetoChart · DumbbellChart.
+**Feedback** — StepLoader · UploadQueue.
+**Overlays** — KeyboardShortcutsDialog · PromptDialog · ReleaseNotesModal.
+**Motion & Effects** — AnimatedList · MarkerHighlight · ShimmerText.
+**Interaction** — ImageAnnotator · ResizableBox.
+**Canvas & Play** — GameOfLife · MemoryGame.
+**SaaS** — SeatSelector · CancellationFlow · DataExportPanel · AccessRequests ·
+DomainSetup · LocaleSettings.
+
+### Forty more components
+
+Forty components that fill gaps across the library.
 
 **Layout** — AspectRatio · ScrollArea · Masonry.
 **Navigation** — Menubar · MegaMenu · BackToTop.

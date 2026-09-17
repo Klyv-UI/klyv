@@ -1,0 +1,79 @@
+{
+  "props": [
+    {
+      "name": "files",
+      "type": "UploadQueueFile[]",
+      "required": true
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "description": "Heading for the panel. Defaults to a count of what is uploading, failed or complete."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Uploads'",
+      "description": "Accessible name for the region. Give each queue on a page its own."
+    },
+    {
+      "name": "floating",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Pin the panel to the bottom-right corner of the viewport."
+    },
+    {
+      "name": "collapsed",
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled: whether the panel is collapsed to a pill."
+    },
+    {
+      "name": "defaultCollapsed",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Whether the panel starts collapsed, when uncontrolled."
+    },
+    {
+      "name": "onCollapsedChange",
+      "type": "(collapsed: boolean) => void",
+      "required": false
+    },
+    {
+      "name": "onPause",
+      "type": "(id: string) => void",
+      "required": false
+    },
+    {
+      "name": "onResume",
+      "type": "(id: string) => void",
+      "required": false
+    },
+    {
+      "name": "onCancel",
+      "type": "(id: string) => void",
+      "required": false
+    },
+    {
+      "name": "onRetry",
+      "type": "(id: string) => void",
+      "required": false
+    },
+    {
+      "name": "onClearCompleted",
+      "type": "() => void",
+      "required": false,
+      "description": "Removes finished rows. Without it, the button is not shown."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

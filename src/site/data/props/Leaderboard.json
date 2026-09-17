@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "entries",
+      "type": "LeaderboardEntry[]",
+      "required": true
+    },
+    {
+      "name": "limit",
+      "type": "number",
+      "required": false,
+      "defaultValue": "10",
+      "description": "How many ranks to list."
+    },
+    {
+      "name": "currentUserId",
+      "type": "string",
+      "required": false,
+      "description": "The reader's own entry: highlighted, and pinned under the list when it falls outside `limit`."
+    },
+    {
+      "name": "podium",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Raise the top three onto a podium above the list."
+    },
+    {
+      "name": "formatScore",
+      "type": "(score: number) => string",
+      "required": false,
+      "defaultValue": "(score) => score.toLocaleString()",
+      "description": "Formats a score. Defaults to grouped digits."
+    },
+    {
+      "name": "unit",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'points'",
+      "description": "What a score counts, for screen readers — \"points\", \"commits\"."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the ranking."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

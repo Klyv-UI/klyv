@@ -1,0 +1,51 @@
+{
+  "props": [
+    {
+      "name": "steps",
+      "type": "StepLoaderStep[]",
+      "required": true
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "Heading for the whole process — “Deploying to production”."
+    },
+    {
+      "name": "startedAt",
+      "type": "Date | number",
+      "required": false,
+      "description": "When the process started. The elapsed timer counts from here while a step is active."
+    },
+    {
+      "name": "onRetry",
+      "type": "(id: string) => void",
+      "required": false,
+      "description": "Called with a step id when its retry is pressed. Without it, no retry is offered."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled: whether the step list is shown."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Whether the step list starts shown, when uncontrolled."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

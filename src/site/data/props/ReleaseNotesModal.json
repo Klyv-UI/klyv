@@ -1,0 +1,59 @@
+{
+  "props": [
+    {
+      "name": "version",
+      "type": "string",
+      "required": true,
+      "description": "The release being announced. Stored as the last version seen."
+    },
+    {
+      "name": "pages",
+      "type": "ReleaseNotesModalPage[]",
+      "required": true,
+      "description": "One page per highlight. Three or four is plenty."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the dialog is showing. Omit to let the component decide from storage."
+    },
+    {
+      "name": "onClose",
+      "type": "() => void",
+      "required": false,
+      "description": "Called whenever the dialog closes, however it was closed."
+    },
+    {
+      "name": "storageKey",
+      "type": "string",
+      "required": false,
+      "description": "localStorage key for the last version seen. When set and `open` is omitted, the dialog opens by itself for a version this browser has not seen."
+    },
+    {
+      "name": "onDontShowAgain",
+      "type": "() => void",
+      "required": false,
+      "description": "Called on close when “Don’t show release notes” was ticked."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'What’s new'",
+      "description": "Visible title."
+    },
+    {
+      "name": "changelogHref",
+      "type": "string",
+      "required": false,
+      "description": "A link to the full changelog, shown on the last page."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

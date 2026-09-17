@@ -1,0 +1,96 @@
+{
+  "props": [
+    {
+      "name": "nodes",
+      "type": "TreeSelectNode[]",
+      "required": true,
+      "description": "The hierarchy."
+    },
+    {
+      "name": "value",
+      "type": "string[]",
+      "required": false,
+      "description": "Controlled ids. In multiple mode these are leaf ids; a branch is checked when all its leaves are."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Starting ids when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string[]) => void",
+      "required": false,
+      "description": "Called with the chosen ids, in tree order."
+    },
+    {
+      "name": "multiple",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Checkboxes and many values, instead of one."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the trigger and the tree."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Choose…'",
+      "description": "Shown on the trigger while nothing is chosen."
+    },
+    {
+      "name": "searchable",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show a filter above the tree that reveals matching branches."
+    },
+    {
+      "name": "maxChips",
+      "type": "number",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Chips shown on the trigger before the rest collapse into “+N”."
+    },
+    {
+      "name": "defaultExpanded",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Ids expanded when the panel first opens."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Marks the control as failing validation."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Goes on the trigger, so a Field label points at it."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the trigger."
+    }
+  ]
+}

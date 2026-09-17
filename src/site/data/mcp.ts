@@ -159,8 +159,8 @@ export const mcpResources: McpResource[] = [
 
 /** What the server can answer questions about, counted from the same data. */
 export const mcpFacts = {
-  "components": 336,
-  "props": 2446,
+  "components": 386,
+  "props": 2919,
   "tokens": 32,
   "darkOverrides": 18
 }

@@ -1,0 +1,81 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "number",
+      "required": false,
+      "description": "Controlled value, in seconds."
+    },
+    {
+      "name": "defaultValue",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Starting value when uncontrolled, in seconds."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(seconds: number) => void",
+      "required": false,
+      "description": "Called with the total in seconds after every committed change."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the group."
+    },
+    {
+      "name": "showSeconds",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Show a seconds segment. Off, the value is still seconds but moves in whole minutes."
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Shortest allowed duration, in seconds."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "description": "Longest allowed duration, in seconds."
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Marks the control as failing validation."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Goes on the hours segment, so a Field label points at it."
+    },
+    {
+      "name": "'aria-describedby'",
+      "type": "string",
+      "required": false,
+      "description": "Forwarded from Field."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

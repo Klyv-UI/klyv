@@ -1,0 +1,65 @@
+{
+  "props": [
+    {
+      "name": "direction",
+      "type": "StackResponsiveDirection",
+      "required": false,
+      "defaultValue": "'column'",
+      "description": "Main axis. Pass an object to change it at a breakpoint: `{ base: 'column', md: 'row' }`."
+    },
+    {
+      "name": "gap",
+      "type": "StackGap",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Space between children, on the spacing scale — 4 is 16px."
+    },
+    {
+      "name": "align",
+      "type": "StackAlign",
+      "required": false,
+      "description": "Cross-axis alignment."
+    },
+    {
+      "name": "justify",
+      "type": "StackJustify",
+      "required": false,
+      "description": "Main-axis distribution."
+    },
+    {
+      "name": "wrap",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Let children wrap onto further lines. Dividers are best left off when wrapping."
+    },
+    {
+      "name": "dividers",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Draw a hairline between children, turning with the direction at each breakpoint."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The children, laid out in order."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    },
+    {
+      "name": "as",
+      "type": "E",
+      "required": false,
+      "description": "The element to render — `ul`, `section`, `nav`. Dividers become list items inside a list."
+    }
+  ],
+  "inherits": [
+    "Omit<ComponentPropsWithoutRef<E>, keyof StackOwnProps | 'as'>"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "props": [
+    {
+      "name": "tasks",
+      "type": "GanttChartTask[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "zoom",
+      "type": "GanttChartZoom",
+      "required": false,
+      "description": "Controlled zoom level."
+    },
+    {
+      "name": "defaultZoom",
+      "type": "GanttChartZoom",
+      "required": false,
+      "defaultValue": "'week'",
+      "description": "Zoom level when uncontrolled."
+    },
+    {
+      "name": "onZoomChange",
+      "type": "(zoom: GanttChartZoom) => void",
+      "required": false
+    },
+    {
+      "name": "showZoomControl",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the day / week / month switch above the chart."
+    },
+    {
+      "name": "today",
+      "type": "Date",
+      "required": false,
+      "description": "Where the today line is drawn. Pass it explicitly when rendering on a server."
+    },
+    {
+      "name": "showTaskList",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the column of task names beside the timeline."
+    },
+    {
+      "name": "rowHeight",
+      "type": "number",
+      "required": false,
+      "defaultValue": "34",
+      "description": "Height of each row in pixels."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

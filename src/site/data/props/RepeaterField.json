@@ -1,0 +1,86 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "T[]",
+      "required": false,
+      "description": "Controlled rows."
+    },
+    {
+      "name": "defaultValue",
+      "type": "T[]",
+      "required": false,
+      "description": "Starting rows when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(rows: T[]) => void",
+      "required": false,
+      "description": "Called with every row after each add, edit, move and removal."
+    },
+    {
+      "name": "createRow",
+      "type": "() => T",
+      "required": true,
+      "description": "Builds the blank row that Add appends."
+    },
+    {
+      "name": "renderRow",
+      "type": "(row: T, context: RepeaterFieldRowContext<T>) => ReactNode",
+      "required": true,
+      "description": "Draws the fields of one row."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Legend for the whole list — “Contacts”."
+    },
+    {
+      "name": "itemLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'item'",
+      "description": "What one row is, in lower case — used in button names and announcements: “Remove contact 2”."
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Fewest rows. Remove is disabled at this count."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "description": "Most rows. Add is disabled at this count."
+    },
+    {
+      "name": "addLabel",
+      "type": "string",
+      "required": false,
+      "description": "Text on the add button. Defaults to “Add” and the item label."
+    },
+    {
+      "name": "reorderable",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the move buttons."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

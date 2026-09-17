@@ -1,0 +1,88 @@
+{
+  "props": [
+    {
+      "name": "options",
+      "type": "CascadeSelectOption[]",
+      "required": true,
+      "description": "The first column."
+    },
+    {
+      "name": "value",
+      "type": "string[]",
+      "required": false,
+      "description": "Controlled path of values, first column first."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Starting path when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string[], options: CascadeSelectOption[]) => void",
+      "required": false,
+      "description": "Called with the chosen path and the options along it."
+    },
+    {
+      "name": "loadChildren",
+      "type": "(option: CascadeSelectOption, path: string[]) => Promise<CascadeSelectOption[]>",
+      "required": false,
+      "description": "Fetches the children of an option that has none yet. Resolve an empty array for a leaf."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the trigger and the panel."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Choose…'",
+      "description": "Shown on the trigger while nothing is chosen."
+    },
+    {
+      "name": "separator",
+      "type": "string",
+      "required": false,
+      "defaultValue": "' / '",
+      "description": "Placed between the labels of the path on the trigger."
+    },
+    {
+      "name": "allowParentSelection",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Let a choice stop part-way down — “all of California” — rather than only at a leaf."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Marks the control as failing validation."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Goes on the trigger, so a Field label points at it."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the trigger."
+    }
+  ]
+}

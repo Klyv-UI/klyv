@@ -1,0 +1,68 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "T[]",
+      "required": true,
+      "description": "The items as they are now. Add and remove freely; the list animates the difference."
+    },
+    {
+      "name": "getKey",
+      "type": "(item: T) => string",
+      "required": true,
+      "description": "A stable identity per item — an id, never the index."
+    },
+    {
+      "name": "renderItem",
+      "type": "(item: T) => ReactNode",
+      "required": true,
+      "description": "Renders one item's content. It is wrapped in the list item for you."
+    },
+    {
+      "name": "animation",
+      "type": "AnimatedListAnimation",
+      "required": false,
+      "defaultValue": "'slide-up'",
+      "description": "How items arrive and leave."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "220",
+      "description": "Length of each transition, in ms."
+    },
+    {
+      "name": "animateInitial",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Animate the items present on first render as well."
+    },
+    {
+      "name": "as",
+      "type": "'ul' | 'ol' | 'div'",
+      "required": false,
+      "defaultValue": "'ul'",
+      "description": "`ul`, `ol`, or a plain `div` with `div` rows."
+    },
+    {
+      "name": "'aria-label'",
+      "type": "string",
+      "required": false,
+      "description": "Accessible name for the list."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the list element."
+    },
+    {
+      "name": "itemClassName",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto every row."
+    }
+  ]
+}

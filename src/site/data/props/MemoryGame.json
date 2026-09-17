@@ -1,0 +1,43 @@
+{
+  "props": [
+    {
+      "name": "cards",
+      "type": "MemoryGameCard[]",
+      "required": true,
+      "description": "One entry per pair. Eight makes a four-by-four board."
+    },
+    {
+      "name": "columns",
+      "type": "number",
+      "required": false,
+      "defaultValue": "4",
+      "description": "Cards per row."
+    },
+    {
+      "name": "shuffle",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Deal in a random order. Turn off for a fixed board in tests."
+    },
+    {
+      "name": "mismatchDelay",
+      "type": "number",
+      "required": false,
+      "defaultValue": "900",
+      "description": "How long a mismatched pair stays face up, in milliseconds."
+    },
+    {
+      "name": "onWin",
+      "type": "(result: MemoryGameResult) => void",
+      "required": false,
+      "description": "Called once every pair is found."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

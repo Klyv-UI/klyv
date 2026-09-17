@@ -1,0 +1,61 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "SlopeChartItem[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "startLabel",
+      "type": "string",
+      "required": true,
+      "description": "Heading over the left column — “2025”, “Before”."
+    },
+    {
+      "name": "endLabel",
+      "type": "string",
+      "required": true,
+      "description": "Heading over the right column."
+    },
+    {
+      "name": "tone",
+      "type": "'direction' | 'series'",
+      "required": false,
+      "defaultValue": "'direction'",
+      "description": "`direction` colours rises success and falls danger; `series` walks SERIES_COLORS. Flat lines are faint either way in `direction`."
+    },
+    {
+      "name": "higherIsBetter",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Whether a higher value is good. Flips the direction tone for costs, churn, latency."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "300",
+      "description": "Chart height in pixels. The width fills the container."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format values on the labels and in the tooltip."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

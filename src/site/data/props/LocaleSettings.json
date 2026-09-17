@@ -1,0 +1,47 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "LocaleSettingsValue",
+      "required": true,
+      "description": "The saved settings. Edits are a draft against this until saved."
+    },
+    {
+      "name": "onSave",
+      "type": "(value: LocaleSettingsValue) => void | Promise<void>",
+      "required": true,
+      "description": "Called with the draft. A promise shows the saving state."
+    },
+    {
+      "name": "languages",
+      "type": "SelectOption[]",
+      "required": true,
+      "description": "Languages the product is translated into."
+    },
+    {
+      "name": "regions",
+      "type": "SelectOption[]",
+      "required": true,
+      "description": "Regions offered."
+    },
+    {
+      "name": "timeZones",
+      "type": "string[]",
+      "required": false,
+      "description": "IANA zones. Defaults to every zone the browser knows."
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'USD'",
+      "description": "Currency used in the preview line."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

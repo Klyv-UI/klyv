@@ -1,0 +1,41 @@
+{
+  "props": [
+    {
+      "name": "requests",
+      "type": "AccessRequestsItem[]",
+      "required": true,
+      "description": "Pending requests. Remove them once decided."
+    },
+    {
+      "name": "roles",
+      "type": "AccessRequestsRole[]",
+      "required": true,
+      "description": "Roles an approver can grant."
+    },
+    {
+      "name": "onApprove",
+      "type": "(approvals: AccessRequestsApproval[]) => void | Promise<void>",
+      "required": true,
+      "description": "Called with each approved request and the role granted."
+    },
+    {
+      "name": "onDeny",
+      "type": "(ids: string[], reason: string) => void | Promise<void>",
+      "required": true,
+      "description": "Called with the denied ids and the optional reason sent to the requesters."
+    },
+    {
+      "name": "resourceName",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'this workspace'",
+      "description": "Name of the thing being joined, for the copy."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

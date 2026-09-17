@@ -1,0 +1,53 @@
+{
+  "props": [
+    {
+      "name": "src",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "The episode or track title. Also names the player."
+    },
+    {
+      "name": "subtitle",
+      "type": "string",
+      "required": false,
+      "description": "Secondary line — the show, the artist."
+    },
+    {
+      "name": "artwork",
+      "type": "string",
+      "required": false,
+      "description": "Cover image. Decorative: the title already names the audio."
+    },
+    {
+      "name": "waveform",
+      "type": "number[]",
+      "required": false,
+      "description": "Bar heights, 0–1, drawn as a waveform that doubles as the seek bar."
+    },
+    {
+      "name": "chapters",
+      "type": "AudioPlayerChapter[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Chapter marks, listed under the controls and jumped to on click."
+    },
+    {
+      "name": "rates",
+      "type": "number[]",
+      "required": false,
+      "defaultValue": "[0.75, 1, 1.25, 1.5, 1.75, 2]",
+      "description": "Speeds offered in the speed menu."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

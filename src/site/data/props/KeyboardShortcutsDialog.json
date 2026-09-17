@@ -1,0 +1,63 @@
+{
+  "props": [
+    {
+      "name": "groups",
+      "type": "KeyboardShortcutsDialogGroup[]",
+      "required": true,
+      "description": "Shortcuts, grouped by area."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the dialog is showing. Omit to let the component manage it."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Starting state when uncontrolled."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "required": false,
+      "description": "Called whenever the dialog asks to open or close."
+    },
+    {
+      "name": "hotkey",
+      "type": "string | false",
+      "required": false,
+      "defaultValue": "'?'",
+      "description": "The key that opens the dialog from anywhere on the page. `false` turns it off."
+    },
+    {
+      "name": "platform",
+      "type": "KeyboardShortcutsDialogPlatform",
+      "required": false,
+      "defaultValue": "'auto'",
+      "description": "Which modifier glyphs to show. `auto` reads the device."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Keyboard shortcuts'",
+      "description": "Visible title."
+    },
+    {
+      "name": "searchable",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the filter field."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "props": [
+    {
+      "name": "rows",
+      "type": "string[]",
+      "required": true,
+      "description": "Row labels, top to bottom."
+    },
+    {
+      "name": "columns",
+      "type": "string[]",
+      "required": true,
+      "description": "Column labels, left to right."
+    },
+    {
+      "name": "values",
+      "type": "(number | null)[][]",
+      "required": true,
+      "description": "One array per row, one value per column. `null` marks a cell with no data."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "steps",
+      "type": "number",
+      "required": false,
+      "defaultValue": "5",
+      "description": "Number of colour steps between the lowest and highest value."
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "required": false,
+      "description": "Lower end of the scale. Defaults to the smallest value."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "description": "Upper end of the scale. Defaults to the largest value."
+    },
+    {
+      "name": "showValues",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Print each value inside its cell."
+    },
+    {
+      "name": "cellHeight",
+      "type": "number",
+      "required": false,
+      "defaultValue": "30",
+      "description": "Height of each row in viewBox pixels."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format values in cells, the legend and the tooltip."
+    },
+    {
+      "name": "valueLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Value'",
+      "description": "What a value measures, for the tooltip and the legend — “Retention”."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

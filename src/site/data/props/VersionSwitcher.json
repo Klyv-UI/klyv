@@ -1,0 +1,53 @@
+{
+  "props": [
+    {
+      "name": "versions",
+      "type": "VersionSwitcherVersion[]",
+      "required": true,
+      "description": "Every published version, newest first."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "The version being read, when controlled."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "description": "The starting version, when uncontrolled. Defaults to the one marked latest."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called with the chosen version — navigate to its docs here."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Documentation version'",
+      "description": "Accessible name for the trigger and the list."
+    },
+    {
+      "name": "placement",
+      "type": "PopoverPlacement",
+      "required": false,
+      "defaultValue": "'bottom'"
+    },
+    {
+      "name": "align",
+      "type": "PopoverAlign",
+      "required": false,
+      "defaultValue": "'start'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the trigger."
+    }
+  ]
+}

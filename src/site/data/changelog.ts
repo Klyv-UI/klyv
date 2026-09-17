@@ -56,10 +56,16 @@ export const releases: Release[] = [
     changes: [
       {
         category: 'feature',
-        title: 'Forty more components, now the ones marked New',
+        title: 'Fifty more components, now the ones marked New',
         description:
-          'AspectRatio, ScrollArea, Masonry, Menubar, MegaMenu, BackToTop, ToggleButton, SpeedDial, ShareMenu, PhoneInput, CreditCardInput, ChoiceCardGroup, TransferList, MonthPicker, TimeSlotPicker, InputGroup, EmojiPicker, ProfileCard, FileList, ReviewSummary, ProductCard, OrderTracker, ImageGallery, ScatterChart, WaterfallChart, Histogram, BoxPlot, BulletChart, CandlestickChart, UptimeBar, IncidentTimeline, ConfirmPopover, Toggletip, ChatThread, MessageComposer, CommentThread, NotificationPreferences, FeatureFlags, ReferralCard and NpsSurvey. The SaaS group is no longer tagged New.',
+          'Stack, Container, InfiniteScroll, LanguageSwitcher, VersionSwitcher, ArticlePager, DownloadButton, LikeButton, SelectionToolbar, DateTimePicker, DurationInput, AddressInput, TreeSelect, CascadeSelect, ColorSwatchPicker, MarkdownEditor, AvatarUpload, RepeaterField, EventCalendar, AgendaList, TreeTable, EditableTable, Leaderboard, CodeTabs, VideoPlayer, AudioPlayer, GanttChart, MatrixHeatmap, RadialBarChart, SlopeChart, ParetoChart, DumbbellChart, StepLoader, UploadQueue, KeyboardShortcutsDialog, PromptDialog, ReleaseNotesModal, AnimatedList, MarkerHighlight, ShimmerText, ImageAnnotator, ResizableBox, GameOfLife, MemoryGame, SeatSelector, CancellationFlow, DataExportPanel, AccessRequests, DomainSetup and LocaleSettings. The previous forty are no longer tagged New.',
         links: [{ label: 'New components', to: '/components?new=1' }],
+      },
+      {
+        category: 'feature',
+        title: 'Forty more components',
+        description:
+          'AspectRatio, ScrollArea, Masonry, Menubar, MegaMenu, BackToTop, ToggleButton, SpeedDial, ShareMenu, PhoneInput, CreditCardInput, ChoiceCardGroup, TransferList, MonthPicker, TimeSlotPicker, InputGroup, EmojiPicker, ProfileCard, FileList, ReviewSummary, ProductCard, OrderTracker, ImageGallery, ScatterChart, WaterfallChart, Histogram, BoxPlot, BulletChart, CandlestickChart, UptimeBar, IncidentTimeline, ConfirmPopover, Toggletip, ChatThread, MessageComposer, CommentThread, NotificationPreferences, FeatureFlags, ReferralCard and NpsSurvey.',
       },
       {
         category: 'feature',

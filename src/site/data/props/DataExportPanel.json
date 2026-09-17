@@ -1,0 +1,41 @@
+{
+  "props": [
+    {
+      "name": "datasets",
+      "type": "DataExportPanelDataset[]",
+      "required": true,
+      "description": "What can be exported."
+    },
+    {
+      "name": "exports",
+      "type": "DataExportPanelExport[]",
+      "required": true,
+      "description": "Previous exports, newest first."
+    },
+    {
+      "name": "onRequest",
+      "type": "(request: DataExportPanelRequest) => void | Promise<void>",
+      "required": true,
+      "description": "Called with the request. A promise shows the pending state; a rejection its message."
+    },
+    {
+      "name": "formats",
+      "type": "{ value: string; label: string }[]",
+      "required": false,
+      "defaultValue": "DEFAULT_FORMATS",
+      "description": "File formats on offer."
+    },
+    {
+      "name": "now",
+      "type": "Date",
+      "required": false,
+      "description": "“Now”, for tests and previews. The countdown ticks from here each minute."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

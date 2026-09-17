@@ -1,0 +1,89 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Controlled markdown."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "Starting markdown when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called with the markdown after every edit."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the text area. Pair with a Field for a visible label."
+    },
+    {
+      "name": "actions",
+      "type": "MarkdownEditorAction[]",
+      "required": false,
+      "defaultValue": "DEFAULT_ACTIONS",
+      "description": "The formatting buttons, in order."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Write in Markdown…'",
+      "description": "Shown while the text area is empty."
+    },
+    {
+      "name": "rows",
+      "type": "number",
+      "required": false,
+      "defaultValue": "8",
+      "description": "Visible lines in the text area."
+    },
+    {
+      "name": "headingLevel",
+      "type": "2 | 3 | 4",
+      "required": false,
+      "defaultValue": "3",
+      "description": "The HTML level a `#` heading renders at in the preview, so it fits the page’s outline."
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Marks the field as failing validation."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Goes on the text area, so a Field label points at it."
+    },
+    {
+      "name": "'aria-describedby'",
+      "type": "string",
+      "required": false,
+      "description": "Forwarded from Field."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

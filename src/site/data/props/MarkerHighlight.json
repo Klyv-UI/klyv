@@ -1,0 +1,50 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The words to mark. Keep it to a short phrase — the mark does not wrap across lines."
+    },
+    {
+      "name": "variant",
+      "type": "MarkerHighlightVariant",
+      "required": false,
+      "defaultValue": "'underline'",
+      "description": "Underline, a highlighter swipe behind the words, a loose circle, or a box."
+    },
+    {
+      "name": "tint",
+      "type": "number",
+      "required": false,
+      "description": "Strength of the accent, 0–100. The highlighter defaults lighter so the words stay readable."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Draw the mark in when it scrolls into view. False draws it straight away."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "700",
+      "description": "How long the pen takes, in ms."
+    },
+    {
+      "name": "delay",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Wait before drawing, in ms — to follow a heading's own entrance."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

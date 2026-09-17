@@ -1,0 +1,40 @@
+{
+  "props": [
+    {
+      "name": "columns",
+      "type": "EditableTableColumn<T>[]",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "T[]",
+      "required": false,
+      "description": "Controlled rows."
+    },
+    {
+      "name": "defaultValue",
+      "type": "T[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Starting rows when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(rows: T[]) => void",
+      "required": false,
+      "description": "Called with every row after a cell is committed."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the grid."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "props": [
+    {
+      "name": "events",
+      "type": "AgendaListEvent[]",
+      "required": true
+    },
+    {
+      "name": "now",
+      "type": "Date",
+      "required": false,
+      "description": "The moment \"Today\" and the now marker are measured from. Defaults to the clock, re-read each minute."
+    },
+    {
+      "name": "onEventClick",
+      "type": "(event: AgendaListEvent) => void",
+      "required": false,
+      "description": "Called when an event is chosen. Without it, events are plain text."
+    },
+    {
+      "name": "stickyHeaders",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Keep each day's heading pinned while its events scroll under it."
+    },
+    {
+      "name": "maxHeight",
+      "type": "number",
+      "required": false,
+      "description": "Cap the height in pixels and scroll inside."
+    },
+    {
+      "name": "empty",
+      "type": "ReactNode",
+      "required": false,
+      "defaultValue": "'Nothing scheduled.'",
+      "description": "Shown when there are no events at all."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Agenda'",
+      "description": "Accessible name for the agenda."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

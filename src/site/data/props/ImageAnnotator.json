@@ -1,0 +1,47 @@
+{
+  "props": [
+    {
+      "name": "src",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "alt",
+      "type": "string",
+      "required": true,
+      "description": "Describes the image itself."
+    },
+    {
+      "name": "value",
+      "type": "ImageAnnotatorPin[]",
+      "required": false,
+      "description": "Controlled pins."
+    },
+    {
+      "name": "defaultValue",
+      "type": "ImageAnnotatorPin[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Starting pins when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(pins: ImageAnnotatorPin[]) => void",
+      "required": false,
+      "description": "Called with every pin after one is added, moved, edited or deleted."
+    },
+    {
+      "name": "readOnly",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Show pins and notes without letting them change."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

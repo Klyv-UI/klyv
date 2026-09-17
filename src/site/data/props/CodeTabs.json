@@ -1,0 +1,52 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "CodeTabsItem[]",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Controlled selected tab."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "description": "Selected tab on first render when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called when a tab is chosen, here or in another instance sharing the key."
+    },
+    {
+      "name": "storageKey",
+      "type": "string",
+      "required": false,
+      "description": "Remember the choice under this key, in this browser and across every CodeTabs on the page that shares it. Omit to remember nothing."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the tab list."
+    },
+    {
+      "name": "numbered",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Number the lines."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

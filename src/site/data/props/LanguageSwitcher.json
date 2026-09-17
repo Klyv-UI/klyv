@@ -1,0 +1,67 @@
+{
+  "props": [
+    {
+      "name": "options",
+      "type": "LanguageSwitcherOption[]",
+      "required": true,
+      "description": "The languages on offer."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "The current locale, when controlled."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "description": "The starting locale, when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called with the chosen locale."
+    },
+    {
+      "name": "variant",
+      "type": "LanguageSwitcherVariant",
+      "required": false,
+      "defaultValue": "'full'",
+      "description": "`full` shows the current language; `compact` is a globe alone, for a crowded header."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Language'",
+      "description": "Accessible name for the trigger and the list."
+    },
+    {
+      "name": "searchThreshold",
+      "type": "number",
+      "required": false,
+      "defaultValue": "8",
+      "description": "Show a filter field once there are at least this many languages."
+    },
+    {
+      "name": "placement",
+      "type": "PopoverPlacement",
+      "required": false,
+      "defaultValue": "'bottom'"
+    },
+    {
+      "name": "align",
+      "type": "PopoverAlign",
+      "required": false,
+      "defaultValue": "'end'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the trigger."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "props": [
+    {
+      "name": "onDownload",
+      "type": "(context: DownloadButtonContext) => Promise<void>",
+      "required": true,
+      "description": "Does the download. Resolve when the file is saved; reject to show the error state."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Download'",
+      "description": "Verb and object — \"Download report\"."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "description": "File size in bytes, shown in the label so the reader knows what they are starting."
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "required": false,
+      "description": "File type shown beside the size — \"PDF\"."
+    },
+    {
+      "name": "resetAfter",
+      "type": "number",
+      "required": false,
+      "defaultValue": "4000",
+      "description": "How long \"Downloaded\" stays before the button resets, in ms. 0 keeps it."
+    },
+    {
+      "name": "variant",
+      "type": "ButtonVariant",
+      "required": false,
+      "defaultValue": "'accent'"
+    },
+    {
+      "name": "buttonSize",
+      "type": "ButtonSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the wrapper."
+    }
+  ]
+}

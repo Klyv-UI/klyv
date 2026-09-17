@@ -1,0 +1,43 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The content a selection is watched in — an article, a contenteditable editor."
+    },
+    {
+      "name": "actions",
+      "type": "SelectionToolbarAction[]",
+      "required": true,
+      "description": "The buttons, left to right."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Text formatting'",
+      "description": "Accessible name for the toolbar."
+    },
+    {
+      "name": "shortcut",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Alt+F10'",
+      "description": "The key that moves focus into the toolbar while it shows, as `event.key` with modifiers: \"Alt+F10\"."
+    },
+    {
+      "name": "closeOnAction",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Hide the toolbar after an action runs."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the container around the content."
+    }
+  ]
+}

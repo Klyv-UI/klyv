@@ -1,0 +1,92 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "name": "size",
+      "type": "ResizableBoxSize",
+      "required": false,
+      "description": "Controlled size, in pixels."
+    },
+    {
+      "name": "defaultSize",
+      "type": "ResizableBoxSize",
+      "required": false,
+      "defaultValue": "{ width: 320, height: 200 }",
+      "description": "Starting size when uncontrolled, in pixels."
+    },
+    {
+      "name": "onResize",
+      "type": "(size: ResizableBoxSize) => void",
+      "required": false,
+      "description": "Called on every drag movement and key press."
+    },
+    {
+      "name": "onResizeEnd",
+      "type": "(size: ResizableBoxSize) => void",
+      "required": false,
+      "description": "Called once when a drag ends, and after each key press."
+    },
+    {
+      "name": "minWidth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "80"
+    },
+    {
+      "name": "minHeight",
+      "type": "number",
+      "required": false,
+      "defaultValue": "60"
+    },
+    {
+      "name": "maxWidth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1200"
+    },
+    {
+      "name": "maxHeight",
+      "type": "number",
+      "required": false,
+      "defaultValue": "800"
+    },
+    {
+      "name": "handles",
+      "type": "ResizableBoxHandle[]",
+      "required": false,
+      "defaultValue": "['right', 'bottom', 'corner']",
+      "description": "Which edges can be dragged."
+    },
+    {
+      "name": "lockAspectRatio",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Always keep the starting proportions. Holding Shift does this for one resize."
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "required": false,
+      "defaultValue": "10",
+      "description": "Pixels per arrow-key press."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'box'",
+      "description": "What the box is, for the handles' names — \"Preview\" gives \"Resize preview width\"."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "props": [
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the dialog is showing."
+    },
+    {
+      "name": "onClose",
+      "type": "() => void",
+      "required": true,
+      "description": "Called on Cancel, Escape, the backdrop, and after a successful submit."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "The question — “Rename file”. Becomes the accessible name."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": false,
+      "description": "Supporting line under the title."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Visible label for the field."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "The value the field starts with each time the dialog opens."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "selection",
+      "type": "PromptDialogSelection",
+      "required": false,
+      "defaultValue": "'all'",
+      "description": "What is selected when the dialog opens. `name` selects up to the last dot, so renaming `report.pdf` replaces “report” and keeps the extension."
+    },
+    {
+      "name": "validate",
+      "type": "(value: string) => string | undefined",
+      "required": false,
+      "description": "Returns a message when the value cannot be submitted. Runs on every change."
+    },
+    {
+      "name": "onSubmit",
+      "type": "(value: string) => void | Promise<void>",
+      "required": true,
+      "description": "Receives the trimmed value. A rejected promise keeps the dialog open with its message."
+    },
+    {
+      "name": "confirmLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Save'",
+      "description": "Label for the submitting action. Name the verb."
+    },
+    {
+      "name": "cancelLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Cancel'"
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Blank values are refused."
+    },
+    {
+      "name": "maxLength",
+      "type": "number",
+      "required": false,
+      "description": "Maximum length, enforced by the field."
+    }
+  ]
+}

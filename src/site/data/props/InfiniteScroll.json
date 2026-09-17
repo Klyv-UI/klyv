@@ -1,0 +1,63 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The list so far. InfiniteScroll adds nothing around it but the footer."
+    },
+    {
+      "name": "onLoadMore",
+      "type": "() => Promise<number | void>",
+      "required": true,
+      "description": "Fetch the next page. Resolve with how many items arrived, so the count can be announced; reject to show the error."
+    },
+    {
+      "name": "hasMore",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether there is anything left to load. When false the footer says so."
+    },
+    {
+      "name": "mode",
+      "type": "InfiniteScrollMode",
+      "required": false,
+      "defaultValue": "'auto'",
+      "description": "`auto` loads when the end scrolls into view and keeps the button as a fallback; `button` loads only on request."
+    },
+    {
+      "name": "rootMargin",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'200px'",
+      "description": "How far ahead of the end to start loading, as an IntersectionObserver root margin."
+    },
+    {
+      "name": "itemNoun",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'item'",
+      "description": "What the items are, for announcements — \"3 more results loaded\". Singular form."
+    },
+    {
+      "name": "loadMoreLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Load more'",
+      "description": "Label on the load button."
+    },
+    {
+      "name": "endMessage",
+      "type": "ReactNode",
+      "required": false,
+      "defaultValue": "'You’ve reached the end'",
+      "description": "Shown once `hasMore` is false. Pass null to show nothing."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the wrapper."
+    }
+  ]
+}
