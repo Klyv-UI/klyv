@@ -1,0 +1,53 @@
+{
+  "props": [
+    {
+      "name": "schema",
+      "type": "QueryBarSchema",
+      "required": true,
+      "description": "The keys the bar recognises, their types and their values."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Controlled query text."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "Starting text when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called with the text on every edit."
+    },
+    {
+      "name": "onQueryChange",
+      "type": "(result: QueryBarParseResult) => void",
+      "required": false,
+      "description": "Called with the parsed tree and its issues on every edit."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name of the field."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Filter'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "props": [
+    {
+      "name": "src",
+      "type": "string",
+      "required": true,
+      "description": "Image URL — a data: or blob: URL, or any same-origin or CORS-enabled address."
+    },
+    {
+      "name": "value",
+      "type": "ImageAdjustSettings",
+      "required": false,
+      "description": "Settings, controlled."
+    },
+    {
+      "name": "defaultValue",
+      "type": "ImageAdjustSettings",
+      "required": false,
+      "defaultValue": "IMAGE_ADJUST_DEFAULTS",
+      "description": "Settings to start from, uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: ImageAdjustSettings) => void",
+      "required": false,
+      "description": "Called whenever any control changes."
+    },
+    {
+      "name": "onExport",
+      "type": "(blob: Blob) => void",
+      "required": false,
+      "description": "Called with the adjusted image, rotated and flipped, when Export is pressed."
+    },
+    {
+      "name": "exportType",
+      "type": "'image/png' | 'image/jpeg' | 'image/webp'",
+      "required": false,
+      "defaultValue": "'image/png'",
+      "description": "Encoding for the export."
+    },
+    {
+      "name": "maxSize",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1600",
+      "description": "Longest side the image is processed at, in pixels. Larger images are scaled down first."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Adjusted image'",
+      "description": "Accessible name for the preview."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

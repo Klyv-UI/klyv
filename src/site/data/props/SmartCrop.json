@@ -1,0 +1,48 @@
+{
+  "props": [
+    {
+      "name": "src",
+      "type": "string",
+      "required": true,
+      "description": "Image URL — a data: or blob: URL, or any same-origin or CORS-enabled address."
+    },
+    {
+      "name": "alt",
+      "type": "string",
+      "required": true,
+      "description": "Alt text for the image."
+    },
+    {
+      "name": "aspects",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "['1:1', '4:5', '16:9']",
+      "description": "Aspect ratios to suggest crops for, written width:height."
+    },
+    {
+      "name": "onAccept",
+      "type": "(aspect: string, crop: SmartCropRect) => void",
+      "required": false,
+      "description": "Called when a crop is accepted, with the rectangle as fractions of the image."
+    },
+    {
+      "name": "onCropsChange",
+      "type": "(crops: Record<string, SmartCropRect>) => void",
+      "required": false,
+      "description": "Called whenever a crop moves — suggested or adjusted — with every current crop."
+    },
+    {
+      "name": "defaultShowMap",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Show the interest map over the image at first."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

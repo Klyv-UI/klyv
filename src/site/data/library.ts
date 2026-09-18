@@ -45,6 +45,12 @@ export interface LibraryItem {
   category: string
   description: string
   tags: TagId[]
+  /**
+   * The tags that say what this item is mainly about: a component's own tags
+   * and its section's first. Search ranks a match on these above a match on a
+   * tag it only inherits from its section.
+   */
+  primaryTags?: TagId[]
   /** Extra words search should match: slugs, sections, what it is built from. */
   keywords: string[]
   /** Where it lives on the site. */
@@ -91,6 +97,7 @@ const componentItems: LibraryItem[] = catalog.map((entry) => {
     category: entry.group,
     description: entry.blurb,
     tags: unique([...(SECTION_TAGS[entry.group]?.[entry.section] ?? []), ...(COMPONENT_TAGS[entry.name] ?? [])]),
+    primaryTags: unique([...(SECTION_TAGS[entry.group]?.[entry.section] ?? []).slice(0, 1), ...(COMPONENT_TAGS[entry.name] ?? [])]),
     keywords: unique([
       entry.slug,
       entry.slug.replace(/-/g, ''),

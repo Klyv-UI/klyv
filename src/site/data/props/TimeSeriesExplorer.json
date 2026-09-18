@@ -1,0 +1,75 @@
+{
+  "props": [
+    {
+      "name": "series",
+      "type": "TimeSeriesExplorerSeries[]",
+      "required": true,
+      "description": "One entry per line. Every series may have its own sample positions."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "range",
+      "type": "TimeSeriesExplorerRange",
+      "required": false,
+      "description": "Controlled visible range of the detail view."
+    },
+    {
+      "name": "defaultRange",
+      "type": "TimeSeriesExplorerRange",
+      "required": false,
+      "description": "Visible range when uncontrolled. Defaults to everything."
+    },
+    {
+      "name": "onRangeChange",
+      "type": "(range: TimeSeriesExplorerRange) => void",
+      "required": false,
+      "description": "Called on every brush, zoom or pan."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "240",
+      "description": "Detail plot height in pixels."
+    },
+    {
+      "name": "overviewHeight",
+      "type": "number",
+      "required": false,
+      "defaultValue": "56",
+      "description": "Overview strip height in pixels."
+    },
+    {
+      "name": "formatX",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format x positions on the axis and in the tooltip."
+    },
+    {
+      "name": "formatY",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format values on the axis and in the tooltip."
+    },
+    {
+      "name": "showLegend",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the series key when there is more than one series."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

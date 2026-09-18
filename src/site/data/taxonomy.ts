@@ -175,7 +175,9 @@ export const SECTION_TAGS: Partial<Record<GroupId, Record<string, TagId[]>>> = {
     'Settings & developer': ['settings', 'developer'],
     'Data & views': ['tables', 'search'],
     Engagement: ['notifications', 'marketing'],
-    Security: ['authentication', 'security', 'settings'],
+    // Security first: a session list or an IP allowlist is about securing the
+    // account; signing in is what it protects, not what it is.
+    Security: ['security', 'authentication', 'settings'],
   },
 }
 

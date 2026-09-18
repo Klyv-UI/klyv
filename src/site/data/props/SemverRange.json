@@ -1,0 +1,61 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Controlled range, e.g. `^1.2.3 || >=2.1 <3`."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'^1.2.3'",
+      "description": "Starting range when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called with the range after every edit."
+    },
+    {
+      "name": "versions",
+      "type": "string[]",
+      "required": true,
+      "description": "Published versions to test against the range."
+    },
+    {
+      "name": "includePrerelease",
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled npm `includePrerelease` option."
+    },
+    {
+      "name": "defaultIncludePrerelease",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Starting option when uncontrolled."
+    },
+    {
+      "name": "onIncludePrereleaseChange",
+      "type": "(include: boolean) => void",
+      "required": false,
+      "description": "Called when the prerelease switch changes."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Version range'",
+      "description": "Visible label for the range field."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

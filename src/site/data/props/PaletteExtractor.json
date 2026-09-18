@@ -1,0 +1,49 @@
+{
+  "props": [
+    {
+      "name": "src",
+      "type": "string",
+      "required": true,
+      "description": "Image URL — a data: or blob: URL, or any same-origin or CORS-enabled address."
+    },
+    {
+      "name": "alt",
+      "type": "string",
+      "required": true,
+      "description": "Alt text for the image."
+    },
+    {
+      "name": "defaultCount",
+      "type": "number",
+      "required": false,
+      "defaultValue": "6",
+      "description": "How many colours to extract at first."
+    },
+    {
+      "name": "defaultRefine",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Refine the median-cut colours with k-means at first."
+    },
+    {
+      "name": "variablePrefix",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'palette'",
+      "description": "Prefix for the copied CSS custom properties."
+    },
+    {
+      "name": "onPaletteChange",
+      "type": "(colors: PaletteExtractorColor[]) => void",
+      "required": false,
+      "description": "Called with the palette, most common colour first, whenever it is recomputed."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

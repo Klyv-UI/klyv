@@ -1,0 +1,57 @@
+{
+  "props": [
+    {
+      "name": "data",
+      "type": "ArrayBuffer | string",
+      "required": true,
+      "description": "The model: an STL as bytes (binary or ASCII), or an OBJ as text or bytes."
+    },
+    {
+      "name": "format",
+      "type": "'stl' | 'obj'",
+      "required": false,
+      "description": "Skip format detection."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'3D model'",
+      "description": "Accessible name for the viewer."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "360",
+      "description": "Canvas height, in pixels."
+    },
+    {
+      "name": "defaultWireframe",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Start in wireframe."
+    },
+    {
+      "name": "showBounds",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Draw the bounding box."
+    },
+    {
+      "name": "unit",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'mm'",
+      "description": "Unit shown with the dimensions."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

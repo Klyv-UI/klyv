@@ -1,0 +1,82 @@
+{
+  "props": [
+    {
+      "name": "points",
+      "type": "ContourPlotPoint[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "levels",
+      "type": "number",
+      "required": false,
+      "defaultValue": "5",
+      "description": "Number of density bands. Band k holds the densest (k − ½) ÷ levels share of points, counted from the core outwards."
+    },
+    {
+      "name": "bandwidth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1",
+      "description": "Multiplier on Scott's rule bandwidth. Below 1 shows more structure, above 1 smooths it away."
+    },
+    {
+      "name": "gridSize",
+      "type": "number",
+      "required": false,
+      "defaultValue": "64",
+      "description": "Density grid resolution per axis. Finer is smoother and slower."
+    },
+    {
+      "name": "showPoints",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Draw the observations over the bands."
+    },
+    {
+      "name": "xLabel",
+      "type": "string",
+      "required": false,
+      "description": "Name of the horizontal measure, printed under the axis."
+    },
+    {
+      "name": "yLabel",
+      "type": "string",
+      "required": false,
+      "description": "Name of the vertical measure, printed beside the axis."
+    },
+    {
+      "name": "formatX",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format x values on the axis and in the tooltip."
+    },
+    {
+      "name": "formatY",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format y values on the axis and in the tooltip."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "300",
+      "description": "Plot height in pixels. The width fills the container."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

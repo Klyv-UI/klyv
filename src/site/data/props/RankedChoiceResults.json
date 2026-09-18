@@ -1,0 +1,26 @@
+{
+  "props": [
+    {
+      "name": "candidates",
+      "type": "string[]",
+      "required": true
+    },
+    {
+      "name": "ballots",
+      "type": "RankedChoiceResultsBallot[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name and heading for the results."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

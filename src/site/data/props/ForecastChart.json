@@ -1,0 +1,96 @@
+{
+  "props": [
+    {
+      "name": "values",
+      "type": "number[]",
+      "required": true,
+      "description": "The history, evenly spaced, oldest first."
+    },
+    {
+      "name": "period",
+      "type": "number",
+      "required": true,
+      "description": "Season length in steps — 7 for daily data with a weekly cycle, 12 for monthly data."
+    },
+    {
+      "name": "horizon",
+      "type": "number",
+      "required": false,
+      "defaultValue": "period",
+      "description": "Steps to forecast. Defaults to one season."
+    },
+    {
+      "name": "seasonality",
+      "type": "ForecastChartSeasonality",
+      "required": false,
+      "defaultValue": "'additive'",
+      "description": "Additive when the seasonal swing stays the same size; multiplicative when it grows with the level."
+    },
+    {
+      "name": "params",
+      "type": "ForecastChartParams",
+      "required": false,
+      "description": "Fixed smoothing weights. Leave out to fit them by minimising squared one-step error."
+    },
+    {
+      "name": "confidence",
+      "type": "0.8 | 0.9 | 0.95 | 0.99",
+      "required": false,
+      "defaultValue": "0.8",
+      "description": "Coverage of the prediction band."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "formatX",
+      "type": "(index: number) => string",
+      "required": false,
+      "defaultValue": "(index) => String(index + 1)",
+      "description": "Names step `index` — a date, a month. Indexes past the history are forecast steps."
+    },
+    {
+      "name": "formatY",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format values on the axis and in the tooltip."
+    },
+    {
+      "name": "showFitted",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Draw the model's one-step predictions over the history."
+    },
+    {
+      "name": "showMetrics",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the fitted weights and error metrics under the chart."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "260",
+      "description": "Plot height in pixels. The width fills the container."
+    },
+    {
+      "name": "onFit",
+      "type": "(fit: ForecastChartFit) => void",
+      "required": false,
+      "description": "Called with the fitted model whenever it is refitted."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

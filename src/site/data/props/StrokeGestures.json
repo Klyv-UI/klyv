@@ -1,0 +1,68 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the pad."
+    },
+    {
+      "name": "templates",
+      "type": "StrokeGesturesTemplate[]",
+      "required": false,
+      "defaultValue": "STROKE_GESTURES_TEMPLATES",
+      "description": "The gestures it knows. Defaults to the built-in set."
+    },
+    {
+      "name": "customTemplates",
+      "type": "StrokeGesturesTemplate[]",
+      "required": false,
+      "description": "Controlled user-trained templates, added to `templates`."
+    },
+    {
+      "name": "defaultCustomTemplates",
+      "type": "StrokeGesturesTemplate[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "User-trained templates when uncontrolled."
+    },
+    {
+      "name": "onCustomTemplatesChange",
+      "type": "(templates: StrokeGesturesTemplate[]) => void",
+      "required": false
+    },
+    {
+      "name": "actions",
+      "type": "Record<string, string>",
+      "required": false,
+      "defaultValue": "{}",
+      "description": "Maps a gesture name to what it does, e.g. `{ check: 'Mark done' }`."
+    },
+    {
+      "name": "onGesture",
+      "type": "(result: StrokeGesturesResult | null) => void",
+      "required": false,
+      "description": "Called after each stroke with the match, or null if nothing scored above the threshold."
+    },
+    {
+      "name": "threshold",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.78",
+      "description": "Lowest score accepted as a match."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "260",
+      "description": "Height of the pad in pixels."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "props": [
+    {
+      "name": "documents",
+      "type": "D[]",
+      "required": true,
+      "description": "The corpus. Changes are applied to the index incrementally, by id and identity."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name of the search field."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Search'"
+    },
+    {
+      "name": "fields",
+      "type": "Record<string, number>",
+      "required": false,
+      "description": "Searched fields and their boosts. Defaults to title ×3, body ×1."
+    },
+    {
+      "name": "limit",
+      "type": "number",
+      "required": false,
+      "defaultValue": "8",
+      "description": "How many results to show."
+    },
+    {
+      "name": "onSelect",
+      "type": "(document: D) => void",
+      "required": false,
+      "description": "Called with the chosen document — Enter, or a click."
+    },
+    {
+      "name": "renderMeta",
+      "type": "(document: D) => ReactNode",
+      "required": false,
+      "description": "Extra line under a result — a section, a date."
+    },
+    {
+      "name": "showScores",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Show each result’s BM25 score."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

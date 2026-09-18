@@ -1,0 +1,56 @@
+{
+  "props": [
+    {
+      "name": "bands",
+      "type": "EqualizerBand[]",
+      "required": false,
+      "description": "The bands, controlled."
+    },
+    {
+      "name": "defaultBands",
+      "type": "EqualizerBand[]",
+      "required": false,
+      "defaultValue": "FLAT",
+      "description": "The bands, uncontrolled. Defaults to a low shelf, three peaks and a high shelf."
+    },
+    {
+      "name": "onBandsChange",
+      "type": "(bands: EqualizerBand[]) => void",
+      "required": false
+    },
+    {
+      "name": "presets",
+      "type": "EqualizerPreset[]",
+      "required": false,
+      "defaultValue": "PRESETS",
+      "description": "One-click settings. Defaults to Flat, Bass boost, Vocal, Air and Telephone."
+    },
+    {
+      "name": "range",
+      "type": "number",
+      "required": false,
+      "defaultValue": "18",
+      "description": "Largest boost or cut on the graph, in dB."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "260",
+      "description": "Height of the graph in pixels."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Equaliser curve'",
+      "description": "Accessible name for the graph."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

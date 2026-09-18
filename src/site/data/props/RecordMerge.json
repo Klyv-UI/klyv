@@ -1,0 +1,46 @@
+{
+  "props": [
+    {
+      "name": "records",
+      "type": "RecordMergeRecord[]",
+      "required": true
+    },
+    {
+      "name": "threshold",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.8",
+      "description": "Weighted score, 0 to 1, at which two records are linked."
+    },
+    {
+      "name": "weights",
+      "type": "Partial<RecordMergeWeights>",
+      "required": false,
+      "description": "How much each field counts. Only fields both records have are scored."
+    },
+    {
+      "name": "defaultRules",
+      "type": "Partial<Record<RecordMergeField, RecordMergeRule>>",
+      "required": false,
+      "description": "Survivorship rule per field, before any hand-picked value."
+    },
+    {
+      "name": "onMerge",
+      "type": "(result: RecordMergeResult) => void",
+      "required": false,
+      "description": "Called when a cluster is merged."
+    },
+    {
+      "name": "onReject",
+      "type": "(ids: string[]) => void",
+      "required": false,
+      "description": "Called when a cluster is marked as not duplicates."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

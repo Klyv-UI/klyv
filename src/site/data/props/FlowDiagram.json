@@ -1,0 +1,60 @@
+{
+  "props": [
+    {
+      "name": "nodes",
+      "type": "FlowDiagramNode[]",
+      "required": false,
+      "description": "Nodes, in the order they should be preferred when the layout has a free choice."
+    },
+    {
+      "name": "edges",
+      "type": "FlowDiagramEdge[]",
+      "required": false
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "required": false,
+      "description": "The graph as text, used instead of `nodes` and `edges`. One chain per line: `a -> b -> c`, with `id[Label]` to name a node and `: text` after the last node to label the final edge. `#` starts a comment."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the diagram."
+    },
+    {
+      "name": "direction",
+      "type": "FlowDiagramDirection",
+      "required": false,
+      "defaultValue": "'TB'",
+      "description": "Top to bottom or left to right."
+    },
+    {
+      "name": "routing",
+      "type": "FlowDiagramRouting",
+      "required": false,
+      "defaultValue": "'orthogonal'",
+      "description": "Right-angled elbows or smooth curves."
+    },
+    {
+      "name": "onNodeSelect",
+      "type": "(id: string) => void",
+      "required": false,
+      "description": "Called with a node id when Enter is pressed on it or it is clicked."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "420",
+      "description": "Height of the viewport in pixels. The diagram is fitted inside it."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "props": [
+    {
+      "name": "doc",
+      "type": "CollaborativeTextDoc",
+      "required": true,
+      "description": "The replica this field edits. Create one per peer with `new CollaborativeTextDoc(site)`."
+    },
+    {
+      "name": "onOperations",
+      "type": "(ops: CollaborativeTextOperation[]) => void",
+      "required": false,
+      "description": "Local edits, as operations to send to the other replicas."
+    },
+    {
+      "name": "channel",
+      "type": "string",
+      "required": false,
+      "description": "Also sync with other tabs of this origin over a BroadcastChannel of this name."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name."
+    },
+    {
+      "name": "rows",
+      "type": "number",
+      "required": false,
+      "defaultValue": "6"
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

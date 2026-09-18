@@ -1,0 +1,81 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Controlled pattern, without slashes."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "Starting pattern when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called with the pattern after every edit."
+    },
+    {
+      "name": "flags",
+      "type": "string",
+      "required": false,
+      "description": "Controlled flags, e.g. `'gi'`."
+    },
+    {
+      "name": "defaultFlags",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'g'",
+      "description": "Starting flags when uncontrolled."
+    },
+    {
+      "name": "onFlagsChange",
+      "type": "(flags: string) => void",
+      "required": false,
+      "description": "Called with the flags string when a flag is toggled."
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "required": false,
+      "description": "Controlled test text."
+    },
+    {
+      "name": "defaultText",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "Starting test text when uncontrolled."
+    },
+    {
+      "name": "onTextChange",
+      "type": "(text: string) => void",
+      "required": false,
+      "description": "Called with the test text after every edit."
+    },
+    {
+      "name": "timeout",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1000",
+      "description": "Milliseconds a run may take before it is stopped."
+    },
+    {
+      "name": "maxMatches",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1000",
+      "description": "Most matches collected before the run stops."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

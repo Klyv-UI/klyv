@@ -1,0 +1,69 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "TransformBoxValue",
+      "required": false,
+      "description": "Controlled geometry."
+    },
+    {
+      "name": "defaultValue",
+      "type": "TransformBoxValue",
+      "required": false,
+      "defaultValue": "{ x: 40, y: 40, width: 160, height: 120, rotation: 0 }",
+      "description": "Geometry when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: TransformBoxValue) => void",
+      "required": false,
+      "description": "Called on every change during a drag and on every key press."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "What is being transformed, for the accessible name — \"Logo\", \"Photo\"."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The content inside the frame. It is stretched to the frame."
+    },
+    {
+      "name": "minWidth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "24",
+      "description": "Smallest width a resize can reach."
+    },
+    {
+      "name": "minHeight",
+      "type": "number",
+      "required": false,
+      "defaultValue": "24",
+      "description": "Smallest height a resize can reach."
+    },
+    {
+      "name": "lockAspectRatio",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Always keep the aspect ratio, as if Shift were held."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Hide the handles and ignore input."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

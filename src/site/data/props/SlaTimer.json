@@ -1,0 +1,53 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "What the target is for — \"First response\", \"Resolution\"."
+    },
+    {
+      "name": "start",
+      "type": "Date",
+      "required": true,
+      "description": "When the clock started."
+    },
+    {
+      "name": "targetMinutes",
+      "type": "number",
+      "required": true,
+      "description": "The target, in business minutes."
+    },
+    {
+      "name": "calendar",
+      "type": "SlaTimerCalendar",
+      "required": true
+    },
+    {
+      "name": "pauses",
+      "type": "SlaTimerPause[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Spans that do not count, such as waiting on the customer."
+    },
+    {
+      "name": "now",
+      "type": "Date",
+      "required": false,
+      "description": "The current time. Leave out to tick every second."
+    },
+    {
+      "name": "warnAt",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.25",
+      "description": "Warn when this share of the target or less remains."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

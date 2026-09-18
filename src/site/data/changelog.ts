@@ -55,6 +55,13 @@ export const releases: Release[] = [
     status: 'unreleased',
     changes: [
       {
+        category: 'feature',
+        title: 'Seventy more components, each a mechanic the library lacked, now the ones marked New',
+        description:
+          'Proposed with their core mechanic checked against the source, then independently reviewed: 47 of 110 candidates were rejected as duplicates, variants, compositions or too thin. MessageFormat, JustifiedText, TabCoordinator, UrlState, DraftRecovery, FuzzyFinder, FullTextSearch, QueryBar, DockLayout, PairwiseRanker, GeoCoordinateInput, CronEditor, RegexTester, CsvImport, JsonDiff, JsonQuery, AnsiOutput, CurlConverter, SemverRange, CspEvaluator, PathEditor, ImageAdjust, SmartCrop, DocumentScanner, PaletteExtractor, ModelViewer, ExifViewer, ZipBrowser, GifRecorder, MeasureTool, TimeSeriesExplorer, ForecastChart, ControlChart, KaplanMeierChart, TraceWaterfall, ContourPlot, ViolinPlot, HexbinChart, FlameGraph, ErrorBudget, FlowDiagram, Dendrogram, MindMap, ResourceScheduler, TournamentBracket, SlaTimer, TransformBox, SnapGuides, StrokeGestures, RankedChoiceResults, CommentAnchors, CollaborativeText, PeerLink, SlideDeck, ThreeWayMerge, Redactor, ReadabilityMeter, ExpenseSplitter, SqlBuilder, JwtInspector, LogPatterns, RecordMerge, SpacedRepetition, Equalizer, LoudnessMeter, BpmDetector, ChessBoard, Game2048, WordGuess and Solitaire. The previous seventy are no longer tagged New.',
+        links: [{ label: 'New components', to: '/components?new=1' }],
+      },
+      {
         category: 'improvement',
         title: 'Four duplicate pairs merged, and ScrollProgress hands back-to-top to BackToTop',
         description:
@@ -68,10 +75,9 @@ export const releases: Release[] = [
       },
       {
         category: 'feature',
-        title: 'Seventy components with mechanics the library did not have, now the ones marked New',
+        title: 'Seventy components with mechanics the library did not have',
         description:
-          'Each was checked against the whole catalogue first: none duplicates, varies or can be assembled from an existing component. ErrorBoundary, Hotkeys, LazyMount, MiddleTruncate, VisionSimulator, SpatialNavigation, FitText, Sidenotes, ScrollSync, FindInPage, RichTextEditor, SchemaForm, InlineCompletion, FormulaEditor, EasingEditor, NaturalDateInput, ProductVariantPicker, SeatMap, PatternLock, TrackChanges, CameraCapture, VoiceRecorder, CaptionEditor, DictationButton, ReadAloud, PitchTuner, AudioTrimmer, PanoramaViewer, Magnifier, BlurHashImage, ChordDiagram, SequenceDiagram, ParallelCoordinates, VennDiagram, WordCloud, ClickHeatmap, ChoroplethMap, CommitGraph, PivotTable, ImageDiff, HexViewer, OpenApiReference, StackTrace, WebVitals, A11yInspector, EmailViewer, DataProfile, ExperimentResults, AccessExplainer, PasskeyManager, NodeEditor, Whiteboard, Joystick, SortableTree, RemoteSelections, CallGrid, PictureInPicture, ScrollSequence, ShaderCanvas, VoronoiField, FractalExplorer, Sudoku, Minesweeper, SlidingPuzzle, Crossword, SnakeGame, MathFormula, TimezonePlanner, PermissionPrompt and PagedDocument. The previous seventy are no longer tagged New.',
-        links: [{ label: 'New components', to: '/components?new=1' }],
+          'Each was checked against the whole catalogue first: none duplicates, varies or can be assembled from an existing component. ErrorBoundary, Hotkeys, LazyMount, MiddleTruncate, VisionSimulator, SpatialNavigation, FitText, Sidenotes, ScrollSync, FindInPage, RichTextEditor, SchemaForm, InlineCompletion, FormulaEditor, EasingEditor, NaturalDateInput, ProductVariantPicker, SeatMap, PatternLock, TrackChanges, CameraCapture, VoiceRecorder, CaptionEditor, DictationButton, ReadAloud, PitchTuner, AudioTrimmer, PanoramaViewer, Magnifier, BlurHashImage, ChordDiagram, SequenceDiagram, ParallelCoordinates, VennDiagram, WordCloud, ClickHeatmap, ChoroplethMap, CommitGraph, PivotTable, ImageDiff, HexViewer, OpenApiReference, StackTrace, WebVitals, A11yInspector, EmailViewer, DataProfile, ExperimentResults, AccessExplainer, PasskeyManager, NodeEditor, Whiteboard, Joystick, SortableTree, RemoteSelections, CallGrid, PictureInPicture, ScrollSequence, ShaderCanvas, VoronoiField, FractalExplorer, Sudoku, Minesweeper, SlidingPuzzle, Crossword, SnakeGame, MathFormula, TimezonePlanner, PermissionPrompt and PagedDocument.',
       },
       {
         category: 'feature',

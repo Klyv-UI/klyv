@@ -1,0 +1,48 @@
+{
+  "props": [
+    {
+      "name": "text",
+      "type": "string",
+      "required": true,
+      "description": "The current document text. Comments re-anchor whenever it changes."
+    },
+    {
+      "name": "comments",
+      "type": "CommentAnchorsComment[]",
+      "required": true,
+      "description": "Comments with their selectors, in any order."
+    },
+    {
+      "name": "threshold",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.6",
+      "description": "Anchors scoring below this are listed as orphaned. 0.6 keeps a reworded quote and drops a rewritten one."
+    },
+    {
+      "name": "activeId",
+      "type": "string | null",
+      "required": false,
+      "description": "Controlled active comment id."
+    },
+    {
+      "name": "onActiveChange",
+      "type": "(id: string | null) => void",
+      "required": false,
+      "description": "Called when a card or a highlight is chosen."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Document'",
+      "description": "Accessible name for the document region."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

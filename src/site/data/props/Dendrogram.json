@@ -1,0 +1,79 @@
+{
+  "props": [
+    {
+      "name": "labels",
+      "type": "string[]",
+      "required": true,
+      "description": "One label per row of `values`."
+    },
+    {
+      "name": "values",
+      "type": "number[][]",
+      "required": true,
+      "description": "The matrix to cluster: one row per item, one column per measurement."
+    },
+    {
+      "name": "columns",
+      "type": "string[]",
+      "required": false,
+      "description": "Column names. When given, the matrix is drawn as a heatmap in leaf order."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "linkage",
+      "type": "DendrogramLinkage",
+      "required": false,
+      "defaultValue": "'average'",
+      "description": "How the distance between two clusters is measured."
+    },
+    {
+      "name": "distance",
+      "type": "DendrogramDistance",
+      "required": false,
+      "defaultValue": "'euclidean'",
+      "description": "How the distance between two rows is measured. Correlation groups rows by shape, not size."
+    },
+    {
+      "name": "cut",
+      "type": "number",
+      "required": false,
+      "description": "Controlled cut height."
+    },
+    {
+      "name": "defaultCut",
+      "type": "number",
+      "required": false,
+      "description": "Cut height when uncontrolled. Defaults to 60% of the tallest merge."
+    },
+    {
+      "name": "onCutChange",
+      "type": "(cut: number) => void",
+      "required": false
+    },
+    {
+      "name": "showHeatmap",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Draw the reordered matrix beside the tree."
+    },
+    {
+      "name": "rowHeight",
+      "type": "number",
+      "required": false,
+      "defaultValue": "18",
+      "description": "Height of each leaf row in pixels."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

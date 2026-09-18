@@ -1,0 +1,69 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "SnapGuidesItem[]",
+      "required": false,
+      "description": "Controlled items."
+    },
+    {
+      "name": "defaultItems",
+      "type": "SnapGuidesItem[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Items when uncontrolled."
+    },
+    {
+      "name": "onItemsChange",
+      "type": "(items: SnapGuidesItem[]) => void",
+      "required": false,
+      "description": "Called on every move, during a drag and on each key press."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the canvas."
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "required": false,
+      "defaultValue": "640",
+      "description": "Canvas width in pixels."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "380",
+      "description": "Canvas height in pixels."
+    },
+    {
+      "name": "threshold",
+      "type": "number",
+      "required": false,
+      "defaultValue": "6",
+      "description": "How close, in pixels, an edge has to come before it snaps."
+    },
+    {
+      "name": "snapToContainer",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Also snap to the canvas edges and centre lines."
+    },
+    {
+      "name": "renderItem",
+      "type": "(item: SnapGuidesItem, dragging: boolean) => ReactNode",
+      "required": false,
+      "description": "Draws an item. Defaults to a labelled card."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

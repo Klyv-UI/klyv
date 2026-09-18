@@ -1,0 +1,74 @@
+{
+  "props": [
+    {
+      "name": "words",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "DEFAULT_WORDS",
+      "description": "Possible answers, all the same length. Defaults to a built-in list of five-letter words."
+    },
+    {
+      "name": "validGuesses",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "DEFAULT_EXTRA",
+      "description": "Extra words accepted as guesses but never chosen as the answer."
+    },
+    {
+      "name": "mode",
+      "type": "'daily' | 'random'",
+      "required": false,
+      "defaultValue": "'daily'",
+      "description": "`daily` picks the same word for everyone on a date; `random` picks a new one each game."
+    },
+    {
+      "name": "date",
+      "type": "Date",
+      "required": false,
+      "description": "The date that picks the daily word. Defaults to today."
+    },
+    {
+      "name": "answer",
+      "type": "string",
+      "required": false,
+      "description": "Fix the answer — for tests and demos. Wins over `mode`."
+    },
+    {
+      "name": "hardMode",
+      "type": "boolean",
+      "required": false,
+      "description": "Hard mode, controlled. Revealed hints must be used in later guesses."
+    },
+    {
+      "name": "defaultHardMode",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Hard mode, uncontrolled."
+    },
+    {
+      "name": "onHardModeChange",
+      "type": "(hardMode: boolean) => void",
+      "required": false
+    },
+    {
+      "name": "maxGuesses",
+      "type": "number",
+      "required": false,
+      "defaultValue": "6",
+      "description": "Attempts allowed."
+    },
+    {
+      "name": "onComplete",
+      "type": "(result: WordGuessResult) => void",
+      "required": false,
+      "description": "Called once when the game is won or lost."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

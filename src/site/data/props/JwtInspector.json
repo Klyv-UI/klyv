@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Controlled token."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "Starting token when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called as the token is edited, and after signing."
+    },
+    {
+      "name": "defaultKey",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "Starting verification key: an HMAC secret, a PEM public key or a JWK."
+    },
+    {
+      "name": "audience",
+      "type": "string",
+      "required": false,
+      "description": "When set, an `aud` that does not include it is flagged."
+    },
+    {
+      "name": "issuer",
+      "type": "string",
+      "required": false,
+      "description": "When set, a different `iss` is flagged."
+    },
+    {
+      "name": "allowSigning",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the panel that signs HS256/384/512 test tokens."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

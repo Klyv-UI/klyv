@@ -1,0 +1,80 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Schedule'",
+      "description": "Visible label for the expression field."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Controlled expression."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'0 9 * * MON-FRI'",
+      "description": "Starting expression when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called with the expression after every edit, valid or not."
+    },
+    {
+      "name": "timeZone",
+      "type": "string",
+      "required": false,
+      "description": "Controlled IANA time zone the run times are computed in."
+    },
+    {
+      "name": "defaultTimeZone",
+      "type": "string",
+      "required": false,
+      "description": "Starting zone when uncontrolled. Defaults to the browser’s zone."
+    },
+    {
+      "name": "onTimeZoneChange",
+      "type": "(zone: string) => void",
+      "required": false,
+      "description": "Called when the zone picker changes."
+    },
+    {
+      "name": "timeZones",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "ZONES",
+      "description": "Zones offered in the picker. The current zone is always included."
+    },
+    {
+      "name": "count",
+      "type": "number",
+      "required": false,
+      "defaultValue": "5",
+      "description": "How many upcoming runs to list."
+    },
+    {
+      "name": "from",
+      "type": "Date",
+      "required": false,
+      "description": "Count runs from this moment instead of now — for tests and fixed demos."
+    },
+    {
+      "name": "locale",
+      "type": "string",
+      "required": false,
+      "description": "Locale for the run times. Defaults to the browser’s."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

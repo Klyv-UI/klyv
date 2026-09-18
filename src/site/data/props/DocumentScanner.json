@@ -1,0 +1,42 @@
+{
+  "props": [
+    {
+      "name": "src",
+      "type": "string",
+      "required": true,
+      "description": "Photo of the page — a data: or blob: URL, or any same-origin or CORS-enabled address."
+    },
+    {
+      "name": "alt",
+      "type": "string",
+      "required": true,
+      "description": "Alt text for the photo."
+    },
+    {
+      "name": "onExport",
+      "type": "(blob: Blob) => void",
+      "required": false,
+      "description": "Called with the flattened page when Export is pressed."
+    },
+    {
+      "name": "defaultScanLook",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Start with the black-and-white scanned look on."
+    },
+    {
+      "name": "maxOutputSize",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2000",
+      "description": "Longest side of the exported page, in pixels."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

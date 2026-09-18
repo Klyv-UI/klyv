@@ -1,0 +1,57 @@
+{
+  "props": [
+    {
+      "name": "before",
+      "type": "unknown",
+      "required": true,
+      "description": "The old value."
+    },
+    {
+      "name": "after",
+      "type": "unknown",
+      "required": true,
+      "description": "The new value."
+    },
+    {
+      "name": "editable",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Show both sides as editable JSON above the diff."
+    },
+    {
+      "name": "keys",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "['id', 'key']",
+      "description": "Array elements are matched by the first of these fields they all carry."
+    },
+    {
+      "name": "beforeLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Before'",
+      "description": "Heading of the old side."
+    },
+    {
+      "name": "afterLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'After'",
+      "description": "Heading of the new side."
+    },
+    {
+      "name": "defaultView",
+      "type": "'changes' | 'tree'",
+      "required": false,
+      "defaultValue": "'changes'",
+      "description": "Which view opens first."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

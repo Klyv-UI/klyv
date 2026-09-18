@@ -1,0 +1,54 @@
+{
+  "props": [
+    {
+      "name": "cards",
+      "type": "SpacedRepetitionCard[]",
+      "required": false,
+      "description": "The deck, controlled. Every review replaces a card through `onCardsChange`."
+    },
+    {
+      "name": "defaultCards",
+      "type": "SpacedRepetitionCard[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "The deck, uncontrolled."
+    },
+    {
+      "name": "onCardsChange",
+      "type": "(cards: SpacedRepetitionCard[]) => void",
+      "required": false
+    },
+    {
+      "name": "onReview",
+      "type": "(before: SpacedRepetitionCard, grade: SpacedRepetitionGrade, after: SpacedRepetitionCard) => void",
+      "required": false,
+      "description": "Called after each scheduled review with the card before and after."
+    },
+    {
+      "name": "now",
+      "type": "number",
+      "required": false,
+      "description": "The current time in epoch ms. Inject it to test schedules or demo the passing of days."
+    },
+    {
+      "name": "grading",
+      "type": "'buttons' | 'scale'",
+      "required": false,
+      "defaultValue": "'buttons'",
+      "description": "Four buttons mapped onto SM-2, or the raw 0–5 scale."
+    },
+    {
+      "name": "forecastDays",
+      "type": "number",
+      "required": false,
+      "defaultValue": "14",
+      "description": "Days shown in the review forecast."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

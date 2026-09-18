@@ -1,0 +1,44 @@
+{
+  "props": [
+    {
+      "name": "defaultSignal",
+      "type": "LoudnessMeterSignal",
+      "required": false,
+      "defaultValue": "'music'",
+      "description": "The generated signal analysed first."
+    },
+    {
+      "name": "target",
+      "type": "number",
+      "required": false,
+      "defaultValue": "-14",
+      "description": "Integrated target in LUFS — −14 for most streaming, −23 for EBU R 128 broadcast."
+    },
+    {
+      "name": "peakLimit",
+      "type": "number",
+      "required": false,
+      "defaultValue": "-1",
+      "description": "Highest acceptable true peak in dBTP."
+    },
+    {
+      "name": "allowFiles",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Offer analysing a local audio file."
+    },
+    {
+      "name": "onAnalysis",
+      "type": "(analysis: LoudnessMeterAnalysis) => void",
+      "required": false,
+      "description": "Called when an analysis finishes."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

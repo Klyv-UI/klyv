@@ -1,0 +1,50 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "This peer's name, shown in the header and on its messages."
+    },
+    {
+      "name": "signalling",
+      "type": "PeerLinkSignalling",
+      "required": false,
+      "defaultValue": "'manual'",
+      "description": "Copy/paste the SDP by hand, or exchange it with other tabs and panels over a BroadcastChannel."
+    },
+    {
+      "name": "channel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'klyv-peer-link'",
+      "description": "BroadcastChannel name for `broadcast` signalling. Peers on the same name find each other."
+    },
+    {
+      "name": "iceServers",
+      "type": "RTCIceServer[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "STUN/TURN servers. Empty by default, which is enough on one machine or one network — and works offline."
+    },
+    {
+      "name": "chunkSize",
+      "type": "number",
+      "required": false,
+      "defaultValue": "16_384",
+      "description": "File chunk size in bytes. 16 KB is the size every browser delivers unsplit."
+    },
+    {
+      "name": "onMessage",
+      "type": "(text: string) => void",
+      "required": false,
+      "description": "Called with each text message the other peer sends."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

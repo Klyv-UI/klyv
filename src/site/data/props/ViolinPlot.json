@@ -1,0 +1,70 @@
+{
+  "props": [
+    {
+      "name": "groups",
+      "type": "ViolinPlotGroup[]",
+      "required": true,
+      "description": "One violin per group."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "orientation",
+      "type": "ViolinPlotOrientation",
+      "required": false,
+      "defaultValue": "'vertical'",
+      "description": "Vertical violins stand on a category axis; horizontal ones lie along a value axis, which suits long group names."
+    },
+    {
+      "name": "showBox",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Draw a slim box plot inside each violin."
+    },
+    {
+      "name": "showPoints",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Scatter the observations inside each violin, jittered within its width."
+    },
+    {
+      "name": "bandwidth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1",
+      "description": "Multiplier on Silverman's bandwidth. Below 1 shows more bumps, above 1 smooths them."
+    },
+    {
+      "name": "valueLabel",
+      "type": "string",
+      "required": false,
+      "description": "Name of the measure, printed beside the value axis."
+    },
+    {
+      "name": "formatValue",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format values on the axis and in the tooltip."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "280",
+      "description": "Plot height in pixels. The width fills the container."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

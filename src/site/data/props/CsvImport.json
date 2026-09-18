@@ -1,0 +1,70 @@
+{
+  "props": [
+    {
+      "name": "onImport",
+      "type": "(result: CsvImportResult) => void",
+      "required": false,
+      "description": "Called with the typed rows when the import button is pressed."
+    },
+    {
+      "name": "onParsed",
+      "type": "(result: CsvImportResult) => void",
+      "required": false,
+      "description": "Called after every successful read, before import."
+    },
+    {
+      "name": "delimiter",
+      "type": "CsvImportDelimiter | 'auto'",
+      "required": false,
+      "defaultValue": "'auto'",
+      "description": "Field separator, or `auto` to sniff it from the first lines."
+    },
+    {
+      "name": "header",
+      "type": "boolean | 'auto'",
+      "required": false,
+      "defaultValue": "'auto'",
+      "description": "Whether the first row names the columns, or `auto` to decide from the data."
+    },
+    {
+      "name": "previewRows",
+      "type": "number",
+      "required": false,
+      "defaultValue": "8",
+      "description": "Rows shown in the preview table."
+    },
+    {
+      "name": "chunkSize",
+      "type": "number",
+      "required": false,
+      "defaultValue": "256 * 1024",
+      "description": "Bytes read per step when streaming a file."
+    },
+    {
+      "name": "defaultText",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "Text in the paste box at first — handy for demos."
+    },
+    {
+      "name": "file",
+      "type": "File | null",
+      "required": false,
+      "description": "A file to read as if it had been dropped; a new File object reads again."
+    },
+    {
+      "name": "importLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Import rows'",
+      "description": "Label of the import button."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "props": [
+    {
+      "name": "source",
+      "type": "RefObject<HTMLElement | null>",
+      "required": true,
+      "description": "What to record: a canvas, video or image is copied directly; any other element is rasterised through SVG."
+    },
+    {
+      "name": "fps",
+      "type": "number",
+      "required": false,
+      "defaultValue": "12",
+      "description": "Frames captured per second."
+    },
+    {
+      "name": "maxDuration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "4",
+      "description": "Recording stops by itself after this many seconds."
+    },
+    {
+      "name": "maxWidth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "320",
+      "description": "Frames are scaled down to at most this width, in pixels."
+    },
+    {
+      "name": "onRecord",
+      "type": "(blob: Blob) => void",
+      "required": false,
+      "description": "Called with the finished GIF."
+    },
+    {
+      "name": "fileName",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'recording.gif'",
+      "description": "Suggested download name."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

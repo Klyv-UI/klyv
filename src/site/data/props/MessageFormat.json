@@ -1,0 +1,41 @@
+{
+  "props": [
+    {
+      "name": "message",
+      "type": "string",
+      "required": true,
+      "description": "The ICU pattern — \"{count, plural, one {# file} other {# files}}\"."
+    },
+    {
+      "name": "values",
+      "type": "MessageFormatValues",
+      "required": false,
+      "description": "Values for the arguments the pattern names."
+    },
+    {
+      "name": "locale",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'en'",
+      "description": "BCP 47 locale for plural rules, numbers and dates."
+    },
+    {
+      "name": "fallback",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Rendered instead when the pattern does not parse. Defaults to the raw pattern."
+    },
+    {
+      "name": "onError",
+      "type": "(error: MessageFormatError) => void",
+      "required": false,
+      "description": "Called with the parse error when the pattern does not parse."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

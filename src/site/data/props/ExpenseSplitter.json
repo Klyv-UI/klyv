@@ -1,0 +1,48 @@
+{
+  "props": [
+    {
+      "name": "people",
+      "type": "ExpenseSplitterPerson[]",
+      "required": true,
+      "description": "Everyone in the group."
+    },
+    {
+      "name": "expenses",
+      "type": "ExpenseSplitterExpense[]",
+      "required": false,
+      "description": "Controlled expenses."
+    },
+    {
+      "name": "defaultExpenses",
+      "type": "ExpenseSplitterExpense[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Starting expenses when uncontrolled."
+    },
+    {
+      "name": "onExpensesChange",
+      "type": "(expenses: ExpenseSplitterExpense[]) => void",
+      "required": false,
+      "description": "Called with the full list after an add or a removal."
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'USD'",
+      "description": "ISO 4217 code. Its minor-unit count decides how amounts are parsed."
+    },
+    {
+      "name": "locale",
+      "type": "string",
+      "required": false,
+      "description": "Locale for formatting. Defaults to the reader's."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "props": [
+    {
+      "name": "file",
+      "type": "Blob | ArrayBuffer",
+      "required": true,
+      "description": "The archive, as a Blob/File or its bytes."
+    },
+    {
+      "name": "fileName",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'archive.zip'",
+      "description": "Shown as the root of the tree."
+    },
+    {
+      "name": "onExtract",
+      "type": "(entry: ZipBrowserEntry, data: Uint8Array) => void",
+      "required": false,
+      "description": "Called when a file is extracted, with its contents. The browser download still happens."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

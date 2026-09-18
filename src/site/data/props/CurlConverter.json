@@ -1,0 +1,49 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Controlled curl command."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "Starting command when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called with the command after every edit."
+    },
+    {
+      "name": "onRequestChange",
+      "type": "(request: CurlConverterRequest) => void",
+      "required": false,
+      "description": "Called with the request model whenever the command parses."
+    },
+    {
+      "name": "defaultTarget",
+      "type": "CurlConverterTarget",
+      "required": false,
+      "defaultValue": "'fetch'",
+      "description": "Output tab shown first."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'curl command'",
+      "description": "Visible label for the command field."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

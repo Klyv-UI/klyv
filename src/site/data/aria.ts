@@ -56,6 +56,9 @@ export const ariaRoles: Record<string, string[]> = {
   "AlphabetIndex": [
     "toolbar"
   ],
+  "AnsiOutput": [
+    "log"
+  ],
   "ApiKeyManager": [
     "status"
   ],
@@ -91,6 +94,11 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "BoxPlot": [
     "img"
+  ],
+  "BpmDetector": [
+    "alert",
+    "img",
+    "status"
   ],
   "BulkActionBar": [
     "group",
@@ -136,6 +144,14 @@ export const ariaRoles: Record<string, string[]> = {
     "log",
     "separator"
   ],
+  "ChessBoard": [
+    "dialog",
+    "grid",
+    "gridcell",
+    "group",
+    "row",
+    "status"
+  ],
   "ChordDiagram": [
     "img"
   ],
@@ -180,6 +196,9 @@ export const ariaRoles: Record<string, string[]> = {
     "modal",
     "option"
   ],
+  "CommentAnchors": [
+    "region"
+  ],
   "CommitGraph": [
     "listbox",
     "option"
@@ -198,6 +217,12 @@ export const ariaRoles: Record<string, string[]> = {
     "menu",
     "menuitem"
   ],
+  "ContourPlot": [
+    "img"
+  ],
+  "ControlChart": [
+    "img"
+  ],
   "CookieBanner": [
     "region"
   ],
@@ -215,6 +240,9 @@ export const ariaRoles: Record<string, string[]> = {
     "group",
     "status"
   ],
+  "CronEditor": [
+    "group"
+  ],
   "Cropper": [
     "group"
   ],
@@ -223,6 +251,16 @@ export const ariaRoles: Record<string, string[]> = {
     "gridcell",
     "group",
     "row",
+    "status"
+  ],
+  "CspEvaluator": [
+    "region",
+    "status"
+  ],
+  "CsvImport": [
+    "alert",
+    "progressbar",
+    "region",
     "status"
   ],
   "CubeCarousel": [
@@ -255,6 +293,10 @@ export const ariaRoles: Record<string, string[]> = {
   "DaySchedule": [
     "group"
   ],
+  "Dendrogram": [
+    "img",
+    "slider"
+  ],
   "DiceRoller": [
     "status"
   ],
@@ -268,6 +310,19 @@ export const ariaRoles: Record<string, string[]> = {
   "Dock": [
     "toolbar"
   ],
+  "DockLayout": [
+    "region",
+    "separator",
+    "tab",
+    "tablist",
+    "tabpanel"
+  ],
+  "DocumentScanner": [
+    "button",
+    "group",
+    "img",
+    "status"
+  ],
   "DomainSetup": [
     "status"
   ],
@@ -277,6 +332,9 @@ export const ariaRoles: Record<string, string[]> = {
   "DownloadButton": [
     "progressbar",
     "status"
+  ],
+  "DraftRecovery": [
+    "region"
   ],
   "Drawer": [
     "dialog",
@@ -315,8 +373,17 @@ export const ariaRoles: Record<string, string[]> = {
   "EmojiSlider": [
     "slider"
   ],
+  "Equalizer": [
+    "group",
+    "img",
+    "slider",
+    "status"
+  ],
   "ErrorBoundary": [
     "alert"
+  ],
+  "ErrorBudget": [
+    "img"
   ],
   "ErrorState": [
     "alert"
@@ -326,6 +393,10 @@ export const ariaRoles: Record<string, string[]> = {
     "grid",
     "gridcell",
     "row"
+  ],
+  "ExifViewer": [
+    "alert",
+    "status"
   ],
   "ExperimentResults": [
     "status"
@@ -356,6 +427,9 @@ export const ariaRoles: Record<string, string[]> = {
     "search",
     "status"
   ],
+  "FlameGraph": [
+    "img"
+  ],
   "FlipBook": [
     "group"
   ],
@@ -363,7 +437,13 @@ export const ariaRoles: Record<string, string[]> = {
     "dialog",
     "modal"
   ],
+  "FlowDiagram": [
+    "img"
+  ],
   "FlowField": [
+    "img"
+  ],
+  "ForecastChart": [
     "img"
   ],
   "FormulaEditor": [
@@ -376,9 +456,25 @@ export const ariaRoles: Record<string, string[]> = {
     "application",
     "status"
   ],
+  "FullTextSearch": [
+    "combobox",
+    "listbox",
+    "option",
+    "status"
+  ],
   "FullscreenDialog": [
     "dialog",
     "modal"
+  ],
+  "FuzzyFinder": [
+    "combobox",
+    "listbox",
+    "option",
+    "status"
+  ],
+  "Game2048": [
+    "group",
+    "status"
   ],
   "GameOfLife": [
     "application",
@@ -386,6 +482,10 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "GanttChart": [
     "img"
+  ],
+  "GifRecorder": [
+    "progressbar",
+    "status"
   ],
   "GooeyLoader": [
     "status"
@@ -403,6 +503,9 @@ export const ariaRoles: Record<string, string[]> = {
     "rowheader",
     "status"
   ],
+  "HexbinChart": [
+    "img"
+  ],
   "Histogram": [
     "img"
   ],
@@ -411,6 +514,11 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "HoverCard": [
     "dialog"
+  ],
+  "ImageAdjust": [
+    "button",
+    "group",
+    "img"
   ],
   "ImageAnnotator": [
     "application",
@@ -447,9 +555,24 @@ export const ariaRoles: Record<string, string[]> = {
   "Joystick": [
     "application"
   ],
+  "JsonDiff": [
+    "status"
+  ],
+  "JsonQuery": [
+    "group",
+    "region",
+    "status"
+  ],
+  "JwtInspector": [
+    "alert",
+    "status"
+  ],
   "KanbanBoard": [
     "group",
     "status"
+  ],
+  "KaplanMeierChart": [
+    "img"
   ],
   "KeyboardShortcutsDialog": [
     "status"
@@ -497,6 +620,12 @@ export const ariaRoles: Record<string, string[]> = {
   "LogoCloud": [
     "img"
   ],
+  "LoudnessMeter": [
+    "alert",
+    "group",
+    "slider",
+    "status"
+  ],
   "MagicTabs": [
     "tab",
     "tablist"
@@ -522,6 +651,11 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "MatrixHeatmap": [
     "img"
+  ],
+  "MeasureTool": [
+    "application",
+    "button",
+    "status"
   ],
   "MemberList": [
     "status"
@@ -562,6 +696,10 @@ export const ariaRoles: Record<string, string[]> = {
     "listbox",
     "status"
   ],
+  "MindMap": [
+    "tree",
+    "treeitem"
+  ],
   "Minesweeper": [
     "grid",
     "gridcell",
@@ -573,6 +711,10 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "Modal": [
     "modal"
+  ],
+  "ModelViewer": [
+    "alert",
+    "application"
   ],
   "MonthPicker": [
     "grid",
@@ -624,6 +766,9 @@ export const ariaRoles: Record<string, string[]> = {
   "Pagination": [
     "status"
   ],
+  "PairwiseRanker": [
+    "group"
+  ],
   "PanZoom": [
     "application"
   ],
@@ -645,8 +790,19 @@ export const ariaRoles: Record<string, string[]> = {
   "PasswordStrength": [
     "status"
   ],
+  "PathEditor": [
+    "alert",
+    "button",
+    "group",
+    "status"
+  ],
   "PatternLock": [
     "application",
+    "status"
+  ],
+  "PeerLink": [
+    "alert",
+    "log",
     "status"
   ],
   "PermissionGate": [
@@ -713,6 +869,11 @@ export const ariaRoles: Record<string, string[]> = {
   "QRCode": [
     "img"
   ],
+  "QueryBar": [
+    "combobox",
+    "listbox",
+    "option"
+  ],
   "QuestionQueue": [
     "status"
   ],
@@ -744,12 +905,27 @@ export const ariaRoles: Record<string, string[]> = {
   "ReadAloud": [
     "group"
   ],
+  "ReadabilityMeter": [
+    "status"
+  ],
   "RecentItems": [
+    "status"
+  ],
+  "RecordMerge": [
     "status"
   ],
   "RecurrenceEditor": [
     "group",
     "radiogroup"
+  ],
+  "Redactor": [
+    "group",
+    "status"
+  ],
+  "RegexTester": [
+    "group",
+    "region",
+    "status"
   ],
   "ReleaseNotesModal": [
     "status"
@@ -760,6 +936,9 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "ResizableBox": [
     "separator"
+  ],
+  "ResourceScheduler": [
+    "group"
   ],
   "RetryQueue": [
     "status"
@@ -836,6 +1015,9 @@ export const ariaRoles: Record<string, string[]> = {
     "status",
     "toolbar"
   ],
+  "SemverRange": [
+    "status"
+  ],
   "SequenceDiagram": [
     "img"
   ],
@@ -871,6 +1053,14 @@ export const ariaRoles: Record<string, string[]> = {
     "img",
     "status"
   ],
+  "SlaTimer": [
+    "alert",
+    "meter"
+  ],
+  "SlideDeck": [
+    "group",
+    "status"
+  ],
   "SlidingPuzzle": [
     "group",
     "status"
@@ -881,12 +1071,24 @@ export const ariaRoles: Record<string, string[]> = {
   "SlotReels": [
     "status"
   ],
+  "SmartCrop": [
+    "group",
+    "status"
+  ],
   "SnakeGame": [
     "application",
     "status"
   ],
+  "SnapGuides": [
+    "group"
+  ],
   "SocialLoginButtons": [
     "group"
+  ],
+  "Solitaire": [
+    "button",
+    "group",
+    "status"
   ],
   "SortableList": [
     "status"
@@ -894,6 +1096,10 @@ export const ariaRoles: Record<string, string[]> = {
   "SortableTree": [
     "tree",
     "treeitem"
+  ],
+  "SpacedRepetition": [
+    "group",
+    "status"
   ],
   "Sparkline": [
     "img"
@@ -922,6 +1128,10 @@ export const ariaRoles: Record<string, string[]> = {
   "SplitPane": [
     "separator"
   ],
+  "SqlBuilder": [
+    "region",
+    "status"
+  ],
   "StackTrace": [
     "status"
   ],
@@ -936,6 +1146,10 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "StreamGraph": [
     "img"
+  ],
+  "StrokeGestures": [
+    "img",
+    "status"
   ],
   "SuccessMark": [
     "status"
@@ -960,6 +1174,10 @@ export const ariaRoles: Record<string, string[]> = {
   "Switch": [
     "switch"
   ],
+  "TabCoordinator": [
+    "log",
+    "status"
+  ],
   "Tabs": [
     "tab",
     "tablist",
@@ -973,6 +1191,11 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "TextLink": [
     "link"
+  ],
+  "ThreeWayMerge": [
+    "group",
+    "region",
+    "status"
   ],
   "TicTacToe": [
     "grid",
@@ -990,6 +1213,10 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "TimeRangePicker": [
     "group"
+  ],
+  "TimeSeriesExplorer": [
+    "img",
+    "slider"
   ],
   "TimeSlotPicker": [
     "group",
@@ -1016,6 +1243,14 @@ export const ariaRoles: Record<string, string[]> = {
   "Tooltip": [
     "tooltip"
   ],
+  "TournamentBracket": [
+    "group",
+    "status"
+  ],
+  "TraceWaterfall": [
+    "tree",
+    "treeitem"
+  ],
   "TrackChanges": [
     "button",
     "group",
@@ -1029,6 +1264,9 @@ export const ariaRoles: Record<string, string[]> = {
     "listbox",
     "option",
     "status"
+  ],
+  "TransformBox": [
+    "group"
   ],
   "TreeMap": [
     "group"
@@ -1097,6 +1335,9 @@ export const ariaRoles: Record<string, string[]> = {
     "group",
     "status"
   ],
+  "ViolinPlot": [
+    "img"
+  ],
   "VirtualList": [
     "list",
     "listitem",
@@ -1132,6 +1373,10 @@ export const ariaRoles: Record<string, string[]> = {
   "WordCloud": [
     "img"
   ],
+  "WordGuess": [
+    "group",
+    "status"
+  ],
   "WorkspaceSwitcher": [
     "listbox",
     "option"
@@ -1139,5 +1384,10 @@ export const ariaRoles: Record<string, string[]> = {
   "XPBar": [
     "progressbar",
     "status"
+  ],
+  "ZipBrowser": [
+    "alert",
+    "tree",
+    "treeitem"
   ]
 }

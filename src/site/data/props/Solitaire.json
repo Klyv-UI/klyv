@@ -1,0 +1,29 @@
+{
+  "props": [
+    {
+      "name": "defaultDraw",
+      "type": "SolitaireDraw",
+      "required": false,
+      "defaultValue": "1",
+      "description": "Cards turned from the stock at a time, for the first game. The picker changes it after that."
+    },
+    {
+      "name": "seed",
+      "type": "number",
+      "required": false,
+      "description": "Seed the shuffle to replay a deal. Leave it out for a random one each game."
+    },
+    {
+      "name": "onWin",
+      "type": "(result: SolitaireResult) => void",
+      "required": false,
+      "description": "Called once when all four foundations are complete."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

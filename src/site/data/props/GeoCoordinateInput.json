@@ -1,0 +1,83 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Visible label for the field."
+    },
+    {
+      "name": "value",
+      "type": "GeoCoordinateInputPoint | null",
+      "required": false,
+      "description": "Controlled point. `null` while the text does not parse."
+    },
+    {
+      "name": "defaultValue",
+      "type": "GeoCoordinateInputPoint | null",
+      "required": false,
+      "defaultValue": "null",
+      "description": "Starting point when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: GeoCoordinateInputPoint | null) => void",
+      "required": false,
+      "description": "Called with the parsed point on every valid edit, and `null` when the text stops parsing."
+    },
+    {
+      "name": "reference",
+      "type": "GeoCoordinateInputReference",
+      "required": false,
+      "description": "Measure distance and initial bearing from this point to the entered one."
+    },
+    {
+      "name": "unit",
+      "type": "'km' | 'mi'",
+      "required": false,
+      "defaultValue": "'km'",
+      "description": "Distance unit for the reference line."
+    },
+    {
+      "name": "precision",
+      "type": "number",
+      "required": false,
+      "defaultValue": "6",
+      "description": "Decimal places in the normalised decimal output."
+    },
+    {
+      "name": "formats",
+      "type": "GeoCoordinateInputFormat[]",
+      "required": false,
+      "defaultValue": "['decimal', 'dms', 'ddm']",
+      "description": "Notations offered for copying, in order."
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Decimal, 51°30′26″N 0°7′39″W, or N 51° 30.433′ W 0° 7.65′.'",
+      "description": "Guidance under the field while it is valid."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'51.5072, -0.1276'",
+      "description": "Placeholder text inside the field."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

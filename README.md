@@ -1,6 +1,6 @@
 # Klyv
 
-**An accent-led React component library.** 520+ components that take their entire
+**An accent-led React component library.** 590+ components that take their entire
 personality from a single colour — pick a hue and the whole set repaints:
 buttons, charts, selection washes, and the page behind them.
 
@@ -132,24 +132,24 @@ short URL-safe string (`8b5cf6.zinc.lg.geist.elevated`) for a share link.
 
 ## What is in it
 
-523 components in thirteen groups. The grouping describes what a component is
+593 components in thirteen groups. The grouping describes what a component is
 **for** — the only question anyone browsing a library arrives with.
 
 | Group | Count | |
 | --- | --- | --- |
-| Foundations | 21 | the type scale, container recipes, utilities |
-| Layout | 29 | structure, disclosure, stacks and scrolling |
-| Navigation | 30 | bars, shells, tabs, steps, menus, search |
+| Foundations | 25 | the type scale, container recipes, utilities |
+| Layout | 30 | structure, disclosure, stacks and scrolling |
+| Navigation | 33 | bars, shells, tabs, steps, menus, search |
 | Actions | 23 | buttons, and the richer controls built on them |
-| Forms & Inputs | 74 | text, choice, ranges, dates, rich input |
-| Data Display | 62 | identity, lists, tables, metrics, records |
-| Charts | 45 | plots, gauges, distribution, flow, activity |
-| Feedback | 36 | status, messages, empty states, celebration |
+| Forms & Inputs | 80 | text, choice, ranges, dates, rich input |
+| Data Display | 75 | identity, lists, tables, metrics, records |
+| Charts | 57 | plots, gauges, distribution, flow, activity |
+| Feedback | 37 | status, messages, empty states, celebration |
 | Overlays | 23 | dialogs, popovers, guidance |
 | Motion & Effects | 45 | entrances, kinetic type, light and surfaces |
-| Interaction | 38 | touch and drag, presence, trust and workflow |
-| Canvas & Play | 30 | generative, audio, physics, toys |
-| SaaS | 67 | marketing, pricing, auth, billing, team, settings, developer, data views, engagement, security |
+| Interaction | 49 | touch and drag, presence, trust and workflow |
+| Canvas & Play | 37 | generative, audio, physics, toys |
+| SaaS | 79 | marketing, pricing, auth, billing, team, settings, developer, data views, engagement, security |
 
 ### Merged
 
@@ -169,14 +169,37 @@ Four pairs turned out to be one component twice, and are now one:
 ScrollProgress's `backToTop` is deprecated too: it now renders BackToTop with
 `showProgress`, which moves focus, respects reduced motion and hides properly.
 
-### New: seventy components with mechanics the library did not have
+### New: seventy more, each a mechanic the library lacked
 
-Seventy components, every one marked **New** on the site. Each was checked
+Seventy components, every one marked **New** on the site. A proposer put
+forward 110 candidates, each with its core mechanic grepped against the source;
+an independent reviewer then rejected 47 as duplicates, variants, compositions
+of existing parts, or too thin. What remains brings algorithms and browser
+APIs the library did not have — ICU MessageFormat, Knuth–Plass line breaking,
+BM25 search, a sequence CRDT, WebRTC transfer, diff3 merging, Sugiyama layout,
+Holt–Winters forecasting, LTTB downsampling, marching squares, SM-2
+scheduling, BS.1770 loudness, homography warps, GIF and ZIP codecs, JWT
+signature verification. The seventy before them are no longer tagged New.
+
+**Foundations** — MessageFormat · JustifiedText · TabCoordinator · UrlState.
+**Layout** — DockLayout.
+**Navigation** — FuzzyFinder · FullTextSearch · QueryBar.
+**Forms & Inputs** — DraftRecovery · PairwiseRanker · GeoCoordinateInput · CronEditor · PathEditor · ReadabilityMeter.
+**Data Display** — JsonDiff · JsonQuery · AnsiOutput · ImageAdjust · SmartCrop · DocumentScanner · PaletteExtractor · ModelViewer · ExifViewer · ZipBrowser · GifRecorder · ResourceScheduler · TournamentBracket.
+**Charts** — TimeSeriesExplorer · ForecastChart · ControlChart · KaplanMeierChart · TraceWaterfall · ContourPlot · ViolinPlot · HexbinChart · FlameGraph · FlowDiagram · Dendrogram · MindMap.
+**Feedback** — SlaTimer.
+**Interaction** — MeasureTool · TransformBox · SnapGuides · StrokeGestures · RankedChoiceResults · CommentAnchors · CollaborativeText · PeerLink · SlideDeck · ThreeWayMerge · Redactor.
+**Canvas & Play** — Equalizer · LoudnessMeter · BpmDetector · ChessBoard · Game2048 · WordGuess · Solitaire.
+**SaaS** — RegexTester · CsvImport · CurlConverter · SemverRange · CspEvaluator · ErrorBudget · ExpenseSplitter · SqlBuilder · JwtInspector · LogPatterns · RecordMerge · SpacedRepetition.
+
+### Seventy components with mechanics the library did not have
+
+Seventy components. Each was checked
 against the whole catalogue before it was built: none duplicates an existing
 component, is a variant of one, or could be assembled from existing parts —
 each brings a mechanic the library did not have (a JSON Schema form, a WebAudio
 pitch detector, a 360° WebGL viewer, a Myers diff you can accept or reject, a
-pivot engine, a WebAuthn flow). The seventy before them are no longer tagged New.
+pivot engine, a WebAuthn flow).
 
 **Foundations** — ErrorBoundary · Hotkeys · LazyMount · MiddleTruncate · VisionSimulator · SpatialNavigation · FitText.
 **Layout** — Sidenotes · ScrollSync.

@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "FuzzyFinderItem[]",
+      "required": true,
+      "description": "Everything that can be found. Ten thousand is fine: scoring runs in slices between frames."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name of the search field."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Search'"
+    },
+    {
+      "name": "onSelect",
+      "type": "(item: FuzzyFinderItem) => void",
+      "required": false,
+      "description": "Called with the chosen item — Enter, or a click."
+    },
+    {
+      "name": "limit",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1000",
+      "description": "Keep at most this many ranked results."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "320",
+      "description": "Height of the result list, in pixels."
+    },
+    {
+      "name": "rowHeight",
+      "type": "number",
+      "required": false,
+      "defaultValue": "40",
+      "description": "Height of one result row, in pixels. Rows are virtualised, so this must be exact."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

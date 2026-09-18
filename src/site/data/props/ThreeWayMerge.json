@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "base",
+      "type": "string",
+      "required": true,
+      "description": "The common ancestor."
+    },
+    {
+      "name": "ours",
+      "type": "string",
+      "required": true,
+      "description": "Your side."
+    },
+    {
+      "name": "theirs",
+      "type": "string",
+      "required": true,
+      "description": "Their side."
+    },
+    {
+      "name": "oursLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'ours'",
+      "description": "Name of your side in markers and buttons."
+    },
+    {
+      "name": "theirsLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'theirs'",
+      "description": "Name of their side in markers and buttons."
+    },
+    {
+      "name": "markerStyle",
+      "type": "'merge' | 'diff3'",
+      "required": false,
+      "defaultValue": "'merge'",
+      "description": "`diff3` also writes the base between `|||||||` and `=======` in unresolved markers, as git's diff3 style does."
+    },
+    {
+      "name": "onMergedChange",
+      "type": "(text: string, unresolved: number) => void",
+      "required": false,
+      "description": "Called with the merged text and the number of conflicts still open."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

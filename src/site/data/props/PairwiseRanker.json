@@ -1,0 +1,29 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "PairwiseRankerItem[]",
+      "required": true,
+      "description": "What is being ranked. Two or more."
+    },
+    {
+      "name": "question",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Which matters more?'",
+      "description": "The question asked of every pair."
+    },
+    {
+      "name": "onComplete",
+      "type": "(ranking: string[][]) => void",
+      "required": false,
+      "description": "Called once every item has a place, with tiers from first to last — tied items share a tier."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

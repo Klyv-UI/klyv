@@ -1,0 +1,29 @@
+{
+  "props": [
+    {
+      "name": "file",
+      "type": "Blob | ArrayBuffer",
+      "required": true,
+      "description": "The JPEG, as a Blob/File or its bytes."
+    },
+    {
+      "name": "fileName",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'photo.jpg'",
+      "description": "Shown in the header and used for the stripped copy’s download name."
+    },
+    {
+      "name": "onStrip",
+      "type": "(blob: Blob) => void",
+      "required": false,
+      "description": "Called with the metadata-free copy after it has been verified."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

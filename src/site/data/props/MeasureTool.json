@@ -1,0 +1,60 @@
+{
+  "props": [
+    {
+      "name": "src",
+      "type": "string",
+      "required": true,
+      "description": "The image to measure on."
+    },
+    {
+      "name": "alt",
+      "type": "string",
+      "required": true,
+      "description": "Alt text for the image."
+    },
+    {
+      "name": "value",
+      "type": "MeasureToolMeasurement[]",
+      "required": false,
+      "description": "Measurements, controlled."
+    },
+    {
+      "name": "defaultValue",
+      "type": "MeasureToolMeasurement[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Measurements to start with, uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: MeasureToolMeasurement[]) => void",
+      "required": false,
+      "description": "Called whenever a measurement is added, edited or removed."
+    },
+    {
+      "name": "defaultCalibration",
+      "type": "MeasureToolCalibration",
+      "required": false,
+      "description": "Scale to start with. Without one, lengths are in pixels."
+    },
+    {
+      "name": "onCalibrationChange",
+      "type": "(calibration: MeasureToolCalibration) => void",
+      "required": false,
+      "description": "Called when the scale is set."
+    },
+    {
+      "name": "units",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "['mm', 'cm', 'm', 'in', 'ft']",
+      "description": "Units offered when calibrating."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

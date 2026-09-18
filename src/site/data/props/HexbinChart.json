@@ -1,0 +1,94 @@
+{
+  "props": [
+    {
+      "name": "points",
+      "type": "HexbinChartPoint[]",
+      "required": true,
+      "description": "Tens of thousands is fine: points are counted, not drawn."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "radius",
+      "type": "number",
+      "required": false,
+      "description": "Controlled hexagon radius, in viewBox pixels."
+    },
+    {
+      "name": "defaultRadius",
+      "type": "number",
+      "required": false,
+      "defaultValue": "10",
+      "description": "Hexagon radius when uncontrolled."
+    },
+    {
+      "name": "onRadiusChange",
+      "type": "(radius: number) => void",
+      "required": false
+    },
+    {
+      "name": "showRadiusControl",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the radius slider above the chart."
+    },
+    {
+      "name": "colorScale",
+      "type": "HexbinChartScale",
+      "required": false,
+      "defaultValue": "'sqrt'",
+      "description": "How counts map to colour. Square root and log keep a few dense bins from washing out the rest."
+    },
+    {
+      "name": "steps",
+      "type": "number",
+      "required": false,
+      "defaultValue": "7",
+      "description": "Number of colour steps."
+    },
+    {
+      "name": "xLabel",
+      "type": "string",
+      "required": false,
+      "description": "Name of the horizontal measure, printed under the axis."
+    },
+    {
+      "name": "yLabel",
+      "type": "string",
+      "required": false,
+      "description": "Name of the vertical measure, printed beside the axis."
+    },
+    {
+      "name": "formatX",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format x values on the axis and in the tooltip."
+    },
+    {
+      "name": "formatY",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format y values on the axis and in the tooltip."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "320",
+      "description": "Plot height in pixels. The width fills the container."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

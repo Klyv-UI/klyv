@@ -1,0 +1,85 @@
+{
+  "props": [
+    {
+      "name": "profile",
+      "type": "string",
+      "required": true,
+      "description": "Collapsed stacks, one per line: `main;handle;parse 42`. The format Brendan Gregg’s stackcollapse scripts emit."
+    },
+    {
+      "name": "baseline",
+      "type": "string",
+      "required": false,
+      "description": "A second profile in the same format. When given, frames are coloured by how their share changed from it."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the graph."
+    },
+    {
+      "name": "orientation",
+      "type": "FlameGraphOrientation",
+      "required": false,
+      "description": "Controlled orientation: flame grows up from the root, icicle hangs down from it."
+    },
+    {
+      "name": "defaultOrientation",
+      "type": "FlameGraphOrientation",
+      "required": false,
+      "defaultValue": "'flame'",
+      "description": "Orientation when uncontrolled."
+    },
+    {
+      "name": "onOrientationChange",
+      "type": "(orientation: FlameGraphOrientation) => void",
+      "required": false
+    },
+    {
+      "name": "search",
+      "type": "string",
+      "required": false,
+      "description": "Controlled search text. Matching frames are highlighted."
+    },
+    {
+      "name": "defaultSearch",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "Search text when uncontrolled."
+    },
+    {
+      "name": "onSearchChange",
+      "type": "(search: string) => void",
+      "required": false
+    },
+    {
+      "name": "showControls",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the search field, orientation switch and zoom breadcrumb."
+    },
+    {
+      "name": "rowHeight",
+      "type": "number",
+      "required": false,
+      "defaultValue": "18",
+      "description": "Height of a frame row in pixels."
+    },
+    {
+      "name": "unit",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'samples'",
+      "description": "What a sample is called in the tooltip — samples, ms, allocations."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

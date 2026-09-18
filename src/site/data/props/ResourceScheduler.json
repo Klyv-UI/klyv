@@ -1,0 +1,106 @@
+{
+  "props": [
+    {
+      "name": "resources",
+      "type": "ResourceSchedulerResource[]",
+      "required": true,
+      "description": "One row each."
+    },
+    {
+      "name": "bookings",
+      "type": "ResourceSchedulerBooking[]",
+      "required": false,
+      "description": "Controlled bookings."
+    },
+    {
+      "name": "defaultBookings",
+      "type": "ResourceSchedulerBooking[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Bookings when uncontrolled."
+    },
+    {
+      "name": "onBookingsChange",
+      "type": "(bookings: ResourceSchedulerBooking[]) => void",
+      "required": false,
+      "description": "Called with the full list after a create, move, resize or delete."
+    },
+    {
+      "name": "date",
+      "type": "Date",
+      "required": true,
+      "description": "The day shown, or any day in the week shown."
+    },
+    {
+      "name": "zoom",
+      "type": "ResourceSchedulerZoom",
+      "required": false,
+      "description": "Controlled zoom."
+    },
+    {
+      "name": "defaultZoom",
+      "type": "ResourceSchedulerZoom",
+      "required": false,
+      "defaultValue": "'day'",
+      "description": "Zoom when uncontrolled."
+    },
+    {
+      "name": "onZoomChange",
+      "type": "(zoom: ResourceSchedulerZoom) => void",
+      "required": false
+    },
+    {
+      "name": "dayStartHour",
+      "type": "number",
+      "required": false,
+      "defaultValue": "8",
+      "description": "First bookable hour of each day."
+    },
+    {
+      "name": "dayEndHour",
+      "type": "number",
+      "required": false,
+      "defaultValue": "18",
+      "description": "Hour each day ends."
+    },
+    {
+      "name": "snapMinutes",
+      "type": "number",
+      "required": false,
+      "defaultValue": "15",
+      "description": "Every start and end lands on a multiple of this many minutes."
+    },
+    {
+      "name": "conflicts",
+      "type": "ResourceSchedulerConflicts",
+      "required": false,
+      "defaultValue": "'refuse'",
+      "description": "Refuse an overlapping booking on the same resource, or allow it and mark both."
+    },
+    {
+      "name": "now",
+      "type": "Date",
+      "required": false,
+      "description": "Where the now line is drawn. Defaults to the current time."
+    },
+    {
+      "name": "newBookingTitle",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'New booking'",
+      "description": "Title given to a booking made by dragging or with Enter."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the schedule."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

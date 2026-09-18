@@ -51,6 +51,9 @@
   "AlphabetIndex": [
     "toolbar"
   ],
+  "AnsiOutput": [
+    "log"
+  ],
   "ApiKeyManager": [
     "status"
   ],
@@ -86,6 +89,11 @@
   ],
   "BoxPlot": [
     "img"
+  ],
+  "BpmDetector": [
+    "alert",
+    "img",
+    "status"
   ],
   "BulkActionBar": [
     "group",
@@ -131,6 +139,14 @@
     "log",
     "separator"
   ],
+  "ChessBoard": [
+    "dialog",
+    "grid",
+    "gridcell",
+    "group",
+    "row",
+    "status"
+  ],
   "ChordDiagram": [
     "img"
   ],
@@ -175,6 +191,9 @@
     "modal",
     "option"
   ],
+  "CommentAnchors": [
+    "region"
+  ],
   "CommitGraph": [
     "listbox",
     "option"
@@ -193,6 +212,12 @@
     "menu",
     "menuitem"
   ],
+  "ContourPlot": [
+    "img"
+  ],
+  "ControlChart": [
+    "img"
+  ],
   "CookieBanner": [
     "region"
   ],
@@ -210,6 +235,9 @@
     "group",
     "status"
   ],
+  "CronEditor": [
+    "group"
+  ],
   "Cropper": [
     "group"
   ],
@@ -218,6 +246,16 @@
     "gridcell",
     "group",
     "row",
+    "status"
+  ],
+  "CspEvaluator": [
+    "region",
+    "status"
+  ],
+  "CsvImport": [
+    "alert",
+    "progressbar",
+    "region",
     "status"
   ],
   "CubeCarousel": [
@@ -250,6 +288,10 @@
   "DaySchedule": [
     "group"
   ],
+  "Dendrogram": [
+    "img",
+    "slider"
+  ],
   "DiceRoller": [
     "status"
   ],
@@ -263,6 +305,19 @@
   "Dock": [
     "toolbar"
   ],
+  "DockLayout": [
+    "region",
+    "separator",
+    "tab",
+    "tablist",
+    "tabpanel"
+  ],
+  "DocumentScanner": [
+    "button",
+    "group",
+    "img",
+    "status"
+  ],
   "DomainSetup": [
     "status"
   ],
@@ -272,6 +327,9 @@
   "DownloadButton": [
     "progressbar",
     "status"
+  ],
+  "DraftRecovery": [
+    "region"
   ],
   "Drawer": [
     "dialog",
@@ -310,8 +368,17 @@
   "EmojiSlider": [
     "slider"
   ],
+  "Equalizer": [
+    "group",
+    "img",
+    "slider",
+    "status"
+  ],
   "ErrorBoundary": [
     "alert"
+  ],
+  "ErrorBudget": [
+    "img"
   ],
   "ErrorState": [
     "alert"
@@ -321,6 +388,10 @@
     "grid",
     "gridcell",
     "row"
+  ],
+  "ExifViewer": [
+    "alert",
+    "status"
   ],
   "ExperimentResults": [
     "status"
@@ -351,6 +422,9 @@
     "search",
     "status"
   ],
+  "FlameGraph": [
+    "img"
+  ],
   "FlipBook": [
     "group"
   ],
@@ -358,7 +432,13 @@
     "dialog",
     "modal"
   ],
+  "FlowDiagram": [
+    "img"
+  ],
   "FlowField": [
+    "img"
+  ],
+  "ForecastChart": [
     "img"
   ],
   "FormulaEditor": [
@@ -375,6 +455,22 @@
     "dialog",
     "modal"
   ],
+  "FullTextSearch": [
+    "combobox",
+    "listbox",
+    "option",
+    "status"
+  ],
+  "FuzzyFinder": [
+    "combobox",
+    "listbox",
+    "option",
+    "status"
+  ],
+  "Game2048": [
+    "group",
+    "status"
+  ],
   "GameOfLife": [
     "application",
     "status"
@@ -382,11 +478,18 @@
   "GanttChart": [
     "img"
   ],
+  "GifRecorder": [
+    "progressbar",
+    "status"
+  ],
   "GooeyLoader": [
     "status"
   ],
   "HelpPanel": [
     "status"
+  ],
+  "HexbinChart": [
+    "img"
   ],
   "HexViewer": [
     "alert",
@@ -406,6 +509,11 @@
   ],
   "HoverCard": [
     "dialog"
+  ],
+  "ImageAdjust": [
+    "button",
+    "group",
+    "img"
   ],
   "ImageAnnotator": [
     "application",
@@ -442,9 +550,24 @@
   "Joystick": [
     "application"
   ],
+  "JsonDiff": [
+    "status"
+  ],
+  "JsonQuery": [
+    "group",
+    "region",
+    "status"
+  ],
+  "JwtInspector": [
+    "alert",
+    "status"
+  ],
   "KanbanBoard": [
     "group",
     "status"
+  ],
+  "KaplanMeierChart": [
+    "img"
   ],
   "KeyboardShortcutsDialog": [
     "status"
@@ -492,6 +615,12 @@
     "region",
     "status"
   ],
+  "LoudnessMeter": [
+    "alert",
+    "group",
+    "slider",
+    "status"
+  ],
   "MagicTabs": [
     "tab",
     "tablist"
@@ -517,6 +646,11 @@
   ],
   "MatrixHeatmap": [
     "img"
+  ],
+  "MeasureTool": [
+    "application",
+    "button",
+    "status"
   ],
   "MemberList": [
     "status"
@@ -557,6 +691,10 @@
     "listbox",
     "status"
   ],
+  "MindMap": [
+    "tree",
+    "treeitem"
+  ],
   "Minesweeper": [
     "grid",
     "gridcell",
@@ -568,6 +706,10 @@
   ],
   "Modal": [
     "modal"
+  ],
+  "ModelViewer": [
+    "alert",
+    "application"
   ],
   "MonthPicker": [
     "grid",
@@ -619,6 +761,9 @@
   "Pagination": [
     "status"
   ],
+  "PairwiseRanker": [
+    "group"
+  ],
   "PanoramaViewer": [
     "application",
     "status"
@@ -640,8 +785,19 @@
   "PasswordStrength": [
     "status"
   ],
+  "PathEditor": [
+    "alert",
+    "button",
+    "group",
+    "status"
+  ],
   "PatternLock": [
     "application",
+    "status"
+  ],
+  "PeerLink": [
+    "alert",
+    "log",
     "status"
   ],
   "PermissionGate": [
@@ -708,6 +864,11 @@
   "QRCode": [
     "img"
   ],
+  "QueryBar": [
+    "combobox",
+    "listbox",
+    "option"
+  ],
   "QuestionQueue": [
     "status"
   ],
@@ -736,15 +897,30 @@
   "ReactionBar": [
     "group"
   ],
+  "ReadabilityMeter": [
+    "status"
+  ],
   "ReadAloud": [
     "group"
   ],
   "RecentItems": [
     "status"
   ],
+  "RecordMerge": [
+    "status"
+  ],
   "RecurrenceEditor": [
     "group",
     "radiogroup"
+  ],
+  "Redactor": [
+    "group",
+    "status"
+  ],
+  "RegexTester": [
+    "group",
+    "region",
+    "status"
   ],
   "ReleaseNotesModal": [
     "status"
@@ -755,6 +931,9 @@
   ],
   "ResizableBox": [
     "separator"
+  ],
+  "ResourceScheduler": [
+    "group"
   ],
   "RetryQueue": [
     "status"
@@ -831,6 +1010,9 @@
     "status",
     "toolbar"
   ],
+  "SemverRange": [
+    "status"
+  ],
   "SequenceDiagram": [
     "img"
   ],
@@ -866,6 +1048,14 @@
     "img",
     "status"
   ],
+  "SlaTimer": [
+    "alert",
+    "meter"
+  ],
+  "SlideDeck": [
+    "group",
+    "status"
+  ],
   "SlidingPuzzle": [
     "group",
     "status"
@@ -876,12 +1066,24 @@
   "SlotReels": [
     "status"
   ],
+  "SmartCrop": [
+    "group",
+    "status"
+  ],
   "SnakeGame": [
     "application",
     "status"
   ],
+  "SnapGuides": [
+    "group"
+  ],
   "SocialLoginButtons": [
     "group"
+  ],
+  "Solitaire": [
+    "button",
+    "group",
+    "status"
   ],
   "SortableList": [
     "status"
@@ -889,6 +1091,10 @@
   "SortableTree": [
     "tree",
     "treeitem"
+  ],
+  "SpacedRepetition": [
+    "group",
+    "status"
   ],
   "Sparkline": [
     "img"
@@ -917,6 +1123,10 @@
   "SplitPane": [
     "separator"
   ],
+  "SqlBuilder": [
+    "region",
+    "status"
+  ],
   "StackTrace": [
     "status"
   ],
@@ -931,6 +1141,10 @@
   ],
   "StreamGraph": [
     "img"
+  ],
+  "StrokeGestures": [
+    "img",
+    "status"
   ],
   "SuccessMark": [
     "status"
@@ -955,6 +1169,10 @@
   "Switch": [
     "switch"
   ],
+  "TabCoordinator": [
+    "log",
+    "status"
+  ],
   "Tabs": [
     "tab",
     "tablist",
@@ -968,6 +1186,11 @@
   ],
   "TextLink": [
     "link"
+  ],
+  "ThreeWayMerge": [
+    "group",
+    "region",
+    "status"
   ],
   "Ticker": [
     "status"
@@ -985,6 +1208,10 @@
   ],
   "TimeRangePicker": [
     "group"
+  ],
+  "TimeSeriesExplorer": [
+    "img",
+    "slider"
   ],
   "TimeSlotPicker": [
     "group",
@@ -1011,6 +1238,14 @@
   "Tooltip": [
     "tooltip"
   ],
+  "TournamentBracket": [
+    "group",
+    "status"
+  ],
+  "TraceWaterfall": [
+    "tree",
+    "treeitem"
+  ],
   "TrackChanges": [
     "button",
     "group",
@@ -1024,6 +1259,9 @@
     "listbox",
     "option",
     "status"
+  ],
+  "TransformBox": [
+    "group"
   ],
   "TreeMap": [
     "group"
@@ -1092,6 +1330,9 @@
     "group",
     "status"
   ],
+  "ViolinPlot": [
+    "img"
+  ],
   "VirtualList": [
     "list",
     "listitem",
@@ -1127,6 +1368,10 @@
   "WordCloud": [
     "img"
   ],
+  "WordGuess": [
+    "group",
+    "status"
+  ],
   "WorkspaceSwitcher": [
     "listbox",
     "option"
@@ -1134,5 +1379,10 @@
   "XPBar": [
     "progressbar",
     "status"
+  ],
+  "ZipBrowser": [
+    "alert",
+    "tree",
+    "treeitem"
   ]
 }

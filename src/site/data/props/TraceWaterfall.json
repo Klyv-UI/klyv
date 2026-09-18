@@ -1,0 +1,60 @@
+{
+  "props": [
+    {
+      "name": "spans",
+      "type": "TraceWaterfallSpan[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the trace tree."
+    },
+    {
+      "name": "selected",
+      "type": "string | null",
+      "required": false,
+      "description": "Controlled selected span id; its details panel is open."
+    },
+    {
+      "name": "defaultSelected",
+      "type": "string | null",
+      "required": false,
+      "defaultValue": "null",
+      "description": "Selected span when uncontrolled."
+    },
+    {
+      "name": "onSelectedChange",
+      "type": "(id: string | null) => void",
+      "required": false
+    },
+    {
+      "name": "defaultCollapsed",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Ids of spans whose children start hidden."
+    },
+    {
+      "name": "showCriticalPath",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Mark the stretch of each span that lies on the critical path."
+    },
+    {
+      "name": "formatDuration",
+      "type": "(ms: number) => string",
+      "required": false,
+      "defaultValue": "defaultFormat",
+      "description": "Format a duration in milliseconds."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

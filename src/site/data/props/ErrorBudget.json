@@ -1,0 +1,61 @@
+{
+  "props": [
+    {
+      "name": "samples",
+      "type": "ErrorBudgetSample[]",
+      "required": true,
+      "description": "Traffic in time order, evenly spaced. Five-minute buckets or finer, so the shortest alert window has data."
+    },
+    {
+      "name": "target",
+      "type": "number",
+      "required": true,
+      "description": "The SLO as a fraction: 0.999 is three nines."
+    },
+    {
+      "name": "window",
+      "type": "number",
+      "required": false,
+      "description": "SLO window length in milliseconds."
+    },
+    {
+      "name": "windowStart",
+      "type": "number",
+      "required": false,
+      "description": "When the SLO window began. Defaults to the first sample."
+    },
+    {
+      "name": "alerts",
+      "type": "ErrorBudgetAlertRule[]",
+      "required": false,
+      "defaultValue": "DEFAULT_ALERTS",
+      "description": "Alert rules to evaluate. Defaults to the SRE workbook’s four multi-window rules."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "200",
+      "description": "Burn-down plot height in pixels."
+    },
+    {
+      "name": "formatTime",
+      "type": "(time: number) => string",
+      "required": false,
+      "defaultValue": "defaultTime",
+      "description": "Format a timestamp for the axis, tooltip and alert list."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

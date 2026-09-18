@@ -1,0 +1,68 @@
+{
+  "props": [
+    {
+      "name": "values",
+      "type": "number[]",
+      "required": true,
+      "description": "Individual measurements, in time order."
+    },
+    {
+      "name": "labels",
+      "type": "string[]",
+      "required": false,
+      "description": "Names each point — a date, a batch number. Defaults to its position."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "rules",
+      "type": "ControlChartRule[]",
+      "required": false,
+      "defaultValue": "ALL_RULES",
+      "description": "Which rules to test. Defaults to all five."
+    },
+    {
+      "name": "phases",
+      "type": "number[]",
+      "required": false,
+      "description": "Indexes where a new phase begins, e.g. after a process change. Limits are recalculated from each one."
+    },
+    {
+      "name": "showMovingRange",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Draw the moving-range chart under the individuals chart."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "240",
+      "description": "Individuals chart height in pixels."
+    },
+    {
+      "name": "formatY",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format values on the axis and in the tooltip."
+    },
+    {
+      "name": "onViolationsChange",
+      "type": "(violations: ControlChartViolation[]) => void",
+      "required": false,
+      "description": "Called when the set of violations changes."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "props": [
+    {
+      "name": "recovery",
+      "type": "DraftRecoveryControls<T>",
+      "required": true,
+      "description": "The controls from `useDraftRecovery`."
+    },
+    {
+      "name": "summarize",
+      "type": "(draft: T, current: T) => ReactNode",
+      "required": false,
+      "description": "What the draft changes, shown under the question. Defaults to a list of the fields that differ."
+    },
+    {
+      "name": "noun",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'draft'",
+      "description": "Name of the thing being edited, for the prompt — \"issue\", \"post\"."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

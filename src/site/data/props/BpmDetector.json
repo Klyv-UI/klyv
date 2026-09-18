@@ -1,0 +1,43 @@
+{
+  "props": [
+    {
+      "name": "loopTempos",
+      "type": "number[]",
+      "required": false,
+      "defaultValue": "[92, 124, 174]",
+      "description": "Tempos offered for the generated drum loop."
+    },
+    {
+      "name": "minBpm",
+      "type": "number",
+      "required": false,
+      "defaultValue": "60",
+      "description": "Slowest and fastest tempo considered."
+    },
+    {
+      "name": "maxBpm",
+      "type": "number",
+      "required": false,
+      "defaultValue": "200"
+    },
+    {
+      "name": "allowFiles",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Offer analysing a local audio file."
+    },
+    {
+      "name": "onDetect",
+      "type": "(result: BpmDetectorResult) => void",
+      "required": false,
+      "description": "Called when an analysis finishes."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

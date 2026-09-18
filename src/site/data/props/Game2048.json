@@ -1,0 +1,43 @@
+{
+  "props": [
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "4",
+      "description": "Cells per side."
+    },
+    {
+      "name": "target",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2048",
+      "description": "The tile that wins. Play can continue past it."
+    },
+    {
+      "name": "storageKey",
+      "type": "string | null",
+      "required": false,
+      "defaultValue": "'klyv-2048-best'",
+      "description": "localStorage key for the best score. Pass null to keep it in memory only."
+    },
+    {
+      "name": "onWin",
+      "type": "(score: number) => void",
+      "required": false,
+      "description": "Called once per game when the target tile first appears."
+    },
+    {
+      "name": "onGameOver",
+      "type": "(score: number) => void",
+      "required": false,
+      "description": "Called when no move is left."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

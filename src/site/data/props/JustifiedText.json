@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "string",
+      "required": true,
+      "description": "The paragraph. Whitespace is collapsed, as in HTML."
+    },
+    {
+      "name": "algorithm",
+      "type": "JustifiedTextAlgorithm",
+      "required": false,
+      "defaultValue": "'optimal'",
+      "description": "`optimal` is Knuth–Plass; `greedy` is first-fit, as browsers justify. Useful for comparison."
+    },
+    {
+      "name": "hyphenate",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Allow breaks inside words at hyphenation points. Only the optimal breaker hyphenates."
+    },
+    {
+      "name": "patterns",
+      "type": "string",
+      "required": false,
+      "description": "Liang patterns, whitespace-separated, to replace the compact English set."
+    },
+    {
+      "name": "tolerance",
+      "type": "number",
+      "required": false,
+      "description": "How loose a line the first pass accepts (Knuth’s tolerance). Looser passes follow if nothing fits."
+    },
+    {
+      "name": "onLayout",
+      "type": "(lines: JustifiedTextLine[]) => void",
+      "required": false,
+      "description": "Called after every layout with the lines chosen."
+    },
+    {
+      "name": "showRatios",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Show each line’s stretch as a faint bar in the margin."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

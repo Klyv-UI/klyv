@@ -44,6 +44,8 @@ export interface SearchEntry {
   boost?: number
   /** For the library item, when there is one — favourites, the New marker. */
   itemId?: string
+  /** Tags the entry is mainly about; a synonym match on these ranks higher. */
+  primaryTags?: string[]
 }
 
 interface IndexedEntry extends SearchEntry {
@@ -52,6 +54,7 @@ interface IndexedEntry extends SearchEntry {
   compactTitle: string
   normKeywords: string
   normDescription: string
+  normPrimaryTags: string
 }
 
 export interface SearchIndex {
@@ -87,6 +90,7 @@ function prepare(entry: SearchEntry): IndexedEntry {
     compactTitle: normTitle.replace(/ /g, ''),
     normKeywords: ` ${normalise(entry.keywords.map(splitCamel).join(' '))} `,
     normDescription: normalise(entry.description ?? ''),
+    normPrimaryTags: ` ${normalise((entry.primaryTags ?? []).join(' '))} `,
   }
 }
 
@@ -115,6 +119,7 @@ export function buildSearchIndex(): SearchIndex {
       keywords: [...item.keywords, ...item.tags, ...(item.uses ?? [])],
       boost: item.isFeatured ? 4 : 0,
       itemId: item.id,
+      primaryTags: item.primaryTags,
     })
   }
 
@@ -246,7 +251,11 @@ function scoreWord(word: string, entry: IndexedEntry): number {
     return 30
   }
   // The word is a synonym for a tag this entry carries: "login" → authentication.
-  for (const tag of SEARCH_ALIASES[word] ?? []) {
+  // A tag the entry is mainly about outranks one it only inherits from its
+  // section, so "login" puts PasswordInput ahead of an IP allowlist.
+  const aliases = SEARCH_ALIASES[word] ?? []
+  if (aliases.some((tag) => entry.normPrimaryTags.includes(` ${tag} `))) return 28
+  for (const tag of aliases) {
     if (normKeywords.includes(` ${tag} `)) return 26
   }
   if (word.length > 3 && normDescription.includes(word)) return 12

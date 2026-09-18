@@ -1,0 +1,48 @@
+{
+  "props": [
+    {
+      "name": "schema",
+      "type": "SqlBuilderTable[]",
+      "required": true,
+      "description": "Tables, columns and foreign keys. Joins are found along the keys."
+    },
+    {
+      "name": "value",
+      "type": "SqlBuilderQuery",
+      "required": false,
+      "description": "Controlled query."
+    },
+    {
+      "name": "defaultValue",
+      "type": "SqlBuilderQuery",
+      "required": false,
+      "defaultValue": "EMPTY",
+      "description": "Starting query when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: SqlBuilderQuery) => void",
+      "required": false,
+      "description": "Called with the query after every change."
+    },
+    {
+      "name": "defaultDialect",
+      "type": "SqlBuilderDialect",
+      "required": false,
+      "defaultValue": "'postgres'",
+      "description": "Quoting rules to start with."
+    },
+    {
+      "name": "onSqlChange",
+      "type": "(sql: string, errors: string[]) => void",
+      "required": false,
+      "description": "Called with the generated SQL and any validation errors."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Path data, controlled. Anything the parser understands; it is shown back normalised."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "Path data to start from, uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(d: string) => void",
+      "required": false,
+      "description": "Called with normalised, absolute path data after every edit."
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "required": false,
+      "defaultValue": "480",
+      "description": "Width of the drawing in its own units — the viewBox width."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "320",
+      "description": "Height of the drawing in its own units."
+    },
+    {
+      "name": "defaultTool",
+      "type": "PathEditorTool",
+      "required": false,
+      "defaultValue": "'pen'",
+      "description": "Tool selected at first."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Path editor'",
+      "description": "Accessible name for the drawing."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}
