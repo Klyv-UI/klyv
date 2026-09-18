@@ -1,0 +1,31 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The panes, anywhere below. Only `ScrollSyncPane`s take part."
+    },
+    {
+      "name": "mode",
+      "type": "ScrollSyncMode",
+      "required": false,
+      "defaultValue": "'proportional'",
+      "description": "`proportional` matches how far through each pane is. `anchor` lines up elements that share a `data-sync-anchor` value and interpolates between them."
+    },
+    {
+      "name": "axis",
+      "type": "ScrollSyncAxis",
+      "required": false,
+      "defaultValue": "'vertical'",
+      "description": "Which scroll direction to keep in step."
+    },
+    {
+      "name": "enabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Turn syncing off without unmounting anything."
+    }
+  ]
+}

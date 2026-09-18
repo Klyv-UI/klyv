@@ -1,0 +1,54 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Rendered once the wrapper comes within `rootMargin` of the viewport."
+    },
+    {
+      "name": "rootMargin",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'200px'",
+      "description": "How far outside the viewport to start mounting, as an IntersectionObserver root margin."
+    },
+    {
+      "name": "minHeight",
+      "type": "number | string",
+      "required": false,
+      "description": "Space held before mount, so the page does not jump when the content arrives. Number is px."
+    },
+    {
+      "name": "aspectRatio",
+      "type": "number | string",
+      "required": false,
+      "description": "Aspect ratio held before mount — `16 / 9` — for media whose height follows its width."
+    },
+    {
+      "name": "placeholder",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Shown in the reserved space until mount. Defaults to a quiet sunken block."
+    },
+    {
+      "name": "unmountWhenHidden",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Unmount again when scrolled far away, keeping the last measured height. For very long pages."
+    },
+    {
+      "name": "onMount",
+      "type": "() => void",
+      "required": false,
+      "description": "Called each time the children mount."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the wrapper."
+    }
+  ]
+}

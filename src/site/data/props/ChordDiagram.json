@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "labels",
+      "type": "string[]",
+      "required": true,
+      "description": "One name per group, in matrix order."
+    },
+    {
+      "name": "matrix",
+      "type": "number[][]",
+      "required": true,
+      "description": "Square flow matrix: `matrix[i][j]` is what flows from group i to group j. Row totals set each group’s arc; the diagonal is flow a group keeps."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "420",
+      "description": "Largest rendered size in pixels. The chart shrinks with its container."
+    },
+    {
+      "name": "padAngle",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.045",
+      "description": "Gap between group arcs, in radians."
+    },
+    {
+      "name": "colors",
+      "type": "string[]",
+      "required": false,
+      "description": "One CSS colour per group. Defaults walk SERIES_COLORS."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format flows in the tooltip and the hidden table."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

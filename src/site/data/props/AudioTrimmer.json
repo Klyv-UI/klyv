@@ -1,0 +1,75 @@
+{
+  "props": [
+    {
+      "name": "file",
+      "type": "Blob | null",
+      "required": false,
+      "description": "The audio to trim — a File from an input or drop, or any Blob."
+    },
+    {
+      "name": "allowPick",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show a “Choose audio” picker so people can load their own file."
+    },
+    {
+      "name": "value",
+      "type": "AudioTrimmerRange",
+      "required": false,
+      "description": "The selection, when controlled."
+    },
+    {
+      "name": "defaultValue",
+      "type": "AudioTrimmerRange",
+      "required": false,
+      "description": "The starting selection when uncontrolled. Defaults to the whole file."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(range: AudioTrimmerRange) => void",
+      "required": false,
+      "description": "Called as the handles move."
+    },
+    {
+      "name": "onExport",
+      "type": "(wav: Blob, range: AudioTrimmerRange) => void",
+      "required": false,
+      "description": "Called with the trimmed WAV when it is exported."
+    },
+    {
+      "name": "exportName",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'trimmed'",
+      "description": "File name for the download, without extension."
+    },
+    {
+      "name": "minLength",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.1",
+      "description": "Shortest selection allowed, in seconds."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "96",
+      "description": "Waveform height in pixels."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Audio trimmer'",
+      "description": "Names the trimmer."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

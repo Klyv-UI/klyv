@@ -1,0 +1,46 @@
+{
+  "props": [
+    {
+      "name": "passkeys",
+      "type": "PasskeyManagerPasskey[]",
+      "required": true,
+      "description": "The passkeys your server has on record for this account."
+    },
+    {
+      "name": "getCreationOptions",
+      "type": "() => Promise<PublicKeyCredentialCreationOptions>",
+      "required": true,
+      "description": "Fetches fresh registration options — the challenge must come from your server, once per attempt."
+    },
+    {
+      "name": "onCreate",
+      "type": "(created: PasskeyManagerCreated) => void | Promise<void>",
+      "required": true,
+      "description": "Verifies and stores the new credential. Reject to show the server’s message."
+    },
+    {
+      "name": "onRename",
+      "type": "(id: string, name: string) => void | Promise<void>",
+      "required": true,
+      "description": "Renames a passkey."
+    },
+    {
+      "name": "onRemove",
+      "type": "(id: string) => void | Promise<void>",
+      "required": true,
+      "description": "Removes a passkey from the account."
+    },
+    {
+      "name": "now",
+      "type": "Date",
+      "required": false,
+      "description": "The current moment, for relative dates in previews and tests."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

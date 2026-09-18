@@ -1,0 +1,59 @@
+{
+  "props": [
+    {
+      "name": "hash",
+      "type": "string",
+      "required": true,
+      "description": "The BlurHash string, usually stored next to the image URL."
+    },
+    {
+      "name": "src",
+      "type": "string",
+      "required": true,
+      "description": "The real image."
+    },
+    {
+      "name": "alt",
+      "type": "string",
+      "required": true,
+      "description": "Describes the real image."
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "required": true,
+      "description": "Intrinsic width. With `height`, sets the box's aspect ratio so nothing shifts on load."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "punch",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1",
+      "description": "Contrast of the placeholder. 1 is as encoded; higher is punchier."
+    },
+    {
+      "name": "resolution",
+      "type": "number",
+      "required": false,
+      "defaultValue": "32",
+      "description": "Width in pixels the placeholder is decoded at before being scaled up."
+    },
+    {
+      "name": "onLoad",
+      "type": "() => void",
+      "required": false,
+      "description": "Called once the real image has loaded."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

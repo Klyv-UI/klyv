@@ -1,0 +1,52 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The subtree to protect."
+    },
+    {
+      "name": "fallback",
+      "type": "ReactNode | ((props: ErrorBoundaryFallbackProps) => ReactNode)",
+      "required": false,
+      "description": "What to show instead of a failed subtree: a node, or a function that gets the error and a `reset`. Omit for the built-in panel with a retry button."
+    },
+    {
+      "name": "resetKeys",
+      "type": "unknown[]",
+      "required": false,
+      "description": "Values the subtree depends on. When any of them changes while the fallback is showing, the boundary resets itself — pick another record and the error goes."
+    },
+    {
+      "name": "onError",
+      "type": "(error: Error, info: ErrorInfo) => void",
+      "required": false,
+      "description": "Called once per caught error, with React’s component stack. Report it from here."
+    },
+    {
+      "name": "onReset",
+      "type": "(reason: ErrorBoundaryResetReason) => void",
+      "required": false,
+      "description": "Called after the boundary clears its error, with what caused it."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "description": "Heading of the built-in fallback."
+    },
+    {
+      "name": "retryLabel",
+      "type": "string",
+      "required": false,
+      "description": "Label of the built-in fallback’s retry button."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the built-in fallback."
+    }
+  ]
+}

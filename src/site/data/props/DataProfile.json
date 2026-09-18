@@ -1,0 +1,43 @@
+{
+  "props": [
+    {
+      "name": "data",
+      "type": "Record<string, unknown>[]",
+      "required": true,
+      "description": "The records to profile."
+    },
+    {
+      "name": "columns",
+      "type": "string[]",
+      "required": false,
+      "description": "Columns in display order. Defaults to every key seen, in first-seen order."
+    },
+    {
+      "name": "maxCategories",
+      "type": "number",
+      "required": false,
+      "defaultValue": "12",
+      "description": "Strings with at most this many distinct values are treated as categories."
+    },
+    {
+      "name": "bins",
+      "type": "number",
+      "required": false,
+      "defaultValue": "12",
+      "description": "Histogram bins for numbers and dates."
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3' | 'h4' | 'h5'",
+      "required": false,
+      "defaultValue": "'h3'",
+      "description": "Heading level for each column's name, so the cards sit under the page's outline."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

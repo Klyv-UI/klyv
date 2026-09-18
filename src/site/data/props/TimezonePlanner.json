@@ -1,0 +1,62 @@
+{
+  "props": [
+    {
+      "name": "zones",
+      "type": "TimezonePlannerZone[]",
+      "required": false,
+      "description": "Controlled rows. The first row’s day is the one the strip shows."
+    },
+    {
+      "name": "defaultZones",
+      "type": "TimezonePlannerZone[]",
+      "required": false,
+      "defaultValue": "CITIES.filter((city) => ['San Francisco', 'London', 'Mumbai', 'Tokyo'].includes(city.label))",
+      "description": "Starting rows when uncontrolled."
+    },
+    {
+      "name": "onZonesChange",
+      "type": "(zones: TimezonePlannerZone[]) => void",
+      "required": false,
+      "description": "Called when a row is added, removed or moved."
+    },
+    {
+      "name": "cities",
+      "type": "TimezonePlannerZone[]",
+      "required": false,
+      "defaultValue": "CITIES",
+      "description": "Cities offered by the Add menu."
+    },
+    {
+      "name": "defaultDate",
+      "type": "string",
+      "required": false,
+      "description": "The day to plan, as `YYYY-MM-DD`. Defaults to today."
+    },
+    {
+      "name": "workingHours",
+      "type": "{ start: number; end: number }",
+      "required": false,
+      "defaultValue": "{ start: 9, end: 17 }",
+      "description": "Local working hours, shaded in every row."
+    },
+    {
+      "name": "step",
+      "type": "15 | 30 | 60",
+      "required": false,
+      "defaultValue": "30",
+      "description": "Slot length in minutes."
+    },
+    {
+      "name": "onSelectionChange",
+      "type": "(selection: TimezonePlannerSelection) => void",
+      "required": false,
+      "description": "Called when the meeting window changes."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

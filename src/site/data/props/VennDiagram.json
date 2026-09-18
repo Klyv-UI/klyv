@@ -1,0 +1,42 @@
+{
+  "props": [
+    {
+      "name": "sets",
+      "type": "VennDiagramSet[]",
+      "required": true,
+      "description": "Two or three sets. Extra sets are ignored."
+    },
+    {
+      "name": "intersections",
+      "type": "VennDiagramIntersection[]",
+      "required": true,
+      "description": "Overlap sizes. A missing pair means those sets do not overlap."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the diagram."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "300",
+      "description": "Plot height in pixels. The width fills the container."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format counts in regions, the tooltip and the table."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "NodeEditorGraph",
+      "required": false,
+      "description": "Controlled graph."
+    },
+    {
+      "name": "defaultValue",
+      "type": "NodeEditorGraph",
+      "required": false,
+      "defaultValue": "{ nodes: [], wires: [] }",
+      "description": "Initial graph, uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(graph: NodeEditorGraph) => void",
+      "required": false,
+      "description": "Called with the whole graph after every change, including each step of a node drag."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the canvas."
+    },
+    {
+      "name": "isCompatible",
+      "type": "(outputType: string, inputType: string) => boolean",
+      "required": false,
+      "defaultValue": "defaultCompatible",
+      "description": "Whether an output type may feed an input type. Defaults to equal types, or either side being `any`."
+    },
+    {
+      "name": "allowCycles",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Allow wires that close a loop. Off by default: most node graphs are evaluated in order and a loop never ends."
+    },
+    {
+      "name": "nodeWidth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "184",
+      "description": "Width of every node in pixels."
+    },
+    {
+      "name": "wheelZoom",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Zoom with the wheel. Turn it off inside a scrolling page if it fights the scroll."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins. Give the component a height here."
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "props": [
+    {
+      "name": "src",
+      "type": "string",
+      "required": true,
+      "description": "An equirectangular image: 360° across, 180° top to bottom, twice as wide as tall."
+    },
+    {
+      "name": "alt",
+      "type": "string",
+      "required": true,
+      "description": "What the scene is. Names the viewer and the flat fallback image."
+    },
+    {
+      "name": "initialYaw",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Starting heading in degrees. 0 is the centre of the image; 90 is a quarter to the right."
+    },
+    {
+      "name": "initialPitch",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Starting tilt in degrees, positive looking up."
+    },
+    {
+      "name": "initialFov",
+      "type": "number",
+      "required": false,
+      "defaultValue": "75",
+      "description": "Starting field of view in degrees. Smaller is more zoomed in."
+    },
+    {
+      "name": "minFov",
+      "type": "number",
+      "required": false,
+      "defaultValue": "30"
+    },
+    {
+      "name": "maxFov",
+      "type": "number",
+      "required": false,
+      "defaultValue": "100"
+    },
+    {
+      "name": "autoRotate",
+      "type": "boolean | number",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Turn slowly on its own. `true` is 6°/s; a number is degrees per second. Never under reduced motion."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "360",
+      "description": "Viewer height in pixels."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

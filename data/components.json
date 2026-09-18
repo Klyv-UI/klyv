@@ -1,5 +1,24 @@
 {
   "components": {
+    "A11yInspector": {
+      "files": [
+        "components/A11yInspector/A11yInspector.tsx",
+        "components/A11yInspector/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Portal",
+        "Switch",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/contrast.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "AccessDeniedState": {
       "files": [
         "components/AccessDeniedState/AccessDeniedState.tsx",
@@ -13,6 +32,23 @@
       ],
       "shared": [
         "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "AccessExplainer": {
+      "files": [
+        "components/AccessExplainer/AccessExplainer.tsx",
+        "components/AccessExplainer/index.ts"
+      ],
+      "internal": [
+        "Field",
+        "Select",
+        "Text"
+      ],
+      "shared": [
         "lib/cn.ts"
       ],
       "external": [
@@ -483,6 +519,23 @@
         "react"
       ]
     },
+    "AudioTrimmer": {
+      "files": [
+        "components/AudioTrimmer/AudioTrimmer.tsx",
+        "components/AudioTrimmer/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "AudioVisualizer": {
       "files": [
         "components/AudioVisualizer/AudioVisualizer.tsx",
@@ -736,6 +789,19 @@
         "react"
       ]
     },
+    "BlurHashImage": {
+      "files": [
+        "components/BlurHashImage/BlurHashImage.tsx",
+        "components/BlurHashImage/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "BoidsFlock": {
       "files": [
         "components/BoidsFlock/BoidsFlock.tsx",
@@ -900,6 +966,39 @@
         "react"
       ]
     },
+    "CallGrid": {
+      "files": [
+        "components/CallGrid/CallGrid.tsx",
+        "components/CallGrid/index.ts"
+      ],
+      "internal": [
+        "Avatar",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "CameraCapture": {
+      "files": [
+        "components/CameraCapture/CameraCapture.tsx",
+        "components/CameraCapture/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Select",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "CancellationFlow": {
       "files": [
         "components/CancellationFlow/CancellationFlow.tsx",
@@ -936,6 +1035,27 @@
         "components/internal/plot.tsx",
         "lib/chart.ts",
         "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "CaptionEditor": {
+      "files": [
+        "components/CaptionEditor/CaptionEditor.tsx",
+        "components/CaptionEditor/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "IconButton",
+        "Input",
+        "Text",
+        "Textarea"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts",
+        "lib/types.ts"
       ],
       "external": [
         "react"
@@ -1189,6 +1309,42 @@
         "react"
       ]
     },
+    "ChordDiagram": {
+      "files": [
+        "components/ChordDiagram/ChordDiagram.tsx",
+        "components/ChordDiagram/index.ts"
+      ],
+      "internal": [
+        "ChartTooltip",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "components/internal/plot.tsx",
+        "lib/chart.ts",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ChoroplethMap": {
+      "files": [
+        "components/ChoroplethMap/ChoroplethMap.tsx",
+        "components/ChoroplethMap/index.ts"
+      ],
+      "internal": [
+        "ChartTooltip",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "components/internal/plot.tsx",
+        "lib/chart.ts",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "CircularText": {
       "files": [
         "components/CircularText/CircularText.tsx",
@@ -1198,6 +1354,23 @@
       "shared": [
         "lib/cn.ts",
         "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ClickHeatmap": {
+      "files": [
+        "components/ClickHeatmap/ClickHeatmap.tsx",
+        "components/ClickHeatmap/index.ts"
+      ],
+      "internal": [
+        "ChartTooltip",
+        "Switch"
+      ],
+      "shared": [
+        "components/internal/plot.tsx",
+        "lib/cn.ts"
       ],
       "external": [
         "react"
@@ -1409,6 +1582,23 @@
       ],
       "shared": [
         "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "CommitGraph": {
+      "files": [
+        "components/CommitGraph/CommitGraph.tsx",
+        "components/CommitGraph/index.ts"
+      ],
+      "internal": [
+        "Badge"
+      ],
+      "shared": [
+        "components/internal/plot.tsx",
+        "lib/chart.ts",
         "lib/cn.ts"
       ],
       "external": [
@@ -1628,6 +1818,21 @@
         "react"
       ]
     },
+    "Crossword": {
+      "files": [
+        "components/Crossword/Crossword.tsx",
+        "components/Crossword/index.ts"
+      ],
+      "internal": [
+        "Button"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "CtaSection": {
       "files": [
         "components/CtaSection/CtaSection.tsx",
@@ -1765,6 +1970,20 @@
       ],
       "external": []
     },
+    "DataProfile": {
+      "files": [
+        "components/DataProfile/DataProfile.tsx",
+        "components/DataProfile/index.ts"
+      ],
+      "internal": [
+        "Tag",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": []
+    },
     "DataTable": {
       "files": [
         "components/DataTable/DataTable.tsx",
@@ -1878,6 +2097,21 @@
       "internal": [
         "Text",
         "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "DictationButton": {
+      "files": [
+        "components/DictationButton/DictationButton.tsx",
+        "components/DictationButton/index.ts"
+      ],
+      "internal": [
+        "Text"
       ],
       "shared": [
         "lib/cn.ts"
@@ -2105,6 +2339,23 @@
         "react"
       ]
     },
+    "EasingEditor": {
+      "files": [
+        "components/EasingEditor/EasingEditor.tsx",
+        "components/EasingEditor/index.ts"
+      ],
+      "internal": [
+        "CopyButton",
+        "Input"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "EditableTable": {
       "files": [
         "components/EditableTable/EditableTable.tsx",
@@ -2134,6 +2385,23 @@
       ],
       "shared": [
         "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "EmailViewer": {
+      "files": [
+        "components/EmailViewer/EmailViewer.tsx",
+        "components/EmailViewer/index.ts"
+      ],
+      "internal": [
+        "Avatar",
+        "Button",
+        "Text"
+      ],
+      "shared": [
         "lib/cn.ts"
       ],
       "external": [
@@ -2189,6 +2457,22 @@
         "react"
       ]
     },
+    "ErrorBoundary": {
+      "files": [
+        "components/ErrorBoundary/ErrorBoundary.tsx",
+        "components/ErrorBoundary/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "ErrorState": {
       "files": [
         "components/ErrorState/ErrorState.tsx",
@@ -2235,6 +2519,23 @@
       "shared": [
         "lib/cn.ts",
         "lib/layout-effect.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ExperimentResults": {
+      "files": [
+        "components/ExperimentResults/ExperimentResults.tsx",
+        "components/ExperimentResults/index.ts"
+      ],
+      "internal": [
+        "Input",
+        "SegmentedControl",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
       ],
       "external": [
         "react"
@@ -2466,6 +2767,37 @@
       ],
       "external": []
     },
+    "FindInPage": {
+      "files": [
+        "components/FindInPage/FindInPage.tsx",
+        "components/FindInPage/index.ts"
+      ],
+      "internal": [
+        "IconButton",
+        "Input"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "FitText": {
+      "files": [
+        "components/FitText/FitText.tsx",
+        "components/FitText/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/layout-effect.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "FlipBook": {
       "files": [
         "components/FlipBook/FlipBook.tsx",
@@ -2564,6 +2896,39 @@
       ],
       "shared": [
         "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "FormulaEditor": {
+      "files": [
+        "components/FormulaEditor/FormulaEditor.tsx",
+        "components/FormulaEditor/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "FractalExplorer": {
+      "files": [
+        "components/FractalExplorer/FractalExplorer.tsx",
+        "components/FractalExplorer/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "IconButton",
+        "SegmentedControl",
+        "Slider"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts",
+        "lib/motion.ts"
       ],
       "external": [
         "react"
@@ -2750,6 +3115,24 @@
         "react"
       ]
     },
+    "HexViewer": {
+      "files": [
+        "components/HexViewer/HexViewer.tsx",
+        "components/HexViewer/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Input",
+        "SegmentedControl",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "HighlightMatch": {
       "files": [
         "components/HighlightMatch/HighlightMatch.tsx",
@@ -2806,6 +3189,17 @@
       "shared": [
         "lib/cn.ts"
       ],
+      "external": [
+        "react"
+      ]
+    },
+    "Hotkeys": {
+      "files": [
+        "components/Hotkeys/Hotkeys.tsx",
+        "components/Hotkeys/index.ts"
+      ],
+      "internal": [],
+      "shared": [],
       "external": [
         "react"
       ]
@@ -2888,6 +3282,24 @@
         "react"
       ]
     },
+    "ImageDiff": {
+      "files": [
+        "components/ImageDiff/ImageDiff.tsx",
+        "components/ImageDiff/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "SegmentedControl",
+        "Slider"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "ImageGallery": {
       "files": [
         "components/ImageGallery/ImageGallery.tsx",
@@ -2954,6 +3366,20 @@
       ],
       "shared": [
         "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "InlineCompletion": {
+      "files": [
+        "components/InlineCompletion/InlineCompletion.tsx",
+        "components/InlineCompletion/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/layout-effect.ts"
       ],
       "external": [
         "react"
@@ -3124,6 +3550,22 @@
         "react"
       ]
     },
+    "Joystick": {
+      "files": [
+        "components/Joystick/Joystick.tsx",
+        "components/Joystick/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "JsonViewer": {
       "files": [
         "components/JsonViewer/JsonViewer.tsx",
@@ -3275,6 +3717,19 @@
       "internal": [
         "Text"
       ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "LazyMount": {
+      "files": [
+        "components/LazyMount/LazyMount.tsx",
+        "components/LazyMount/index.ts"
+      ],
+      "internal": [],
       "shared": [
         "lib/cn.ts"
       ],
@@ -3558,6 +4013,19 @@
         "react"
       ]
     },
+    "Magnifier": {
+      "files": [
+        "components/Magnifier/Magnifier.tsx",
+        "components/Magnifier/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "MaintenanceNotice": {
       "files": [
         "components/MaintenanceNotice/MaintenanceNotice.tsx",
@@ -3674,6 +4142,19 @@
         "components/internal/icons.tsx",
         "lib/cn.ts",
         "lib/layout-effect.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "MathFormula": {
+      "files": [
+        "components/MathFormula/MathFormula.tsx",
+        "components/MathFormula/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
       ],
       "external": [
         "react"
@@ -3919,6 +4400,36 @@
         "react"
       ]
     },
+    "MiddleTruncate": {
+      "files": [
+        "components/MiddleTruncate/MiddleTruncate.tsx",
+        "components/MiddleTruncate/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/layout-effect.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Minesweeper": {
+      "files": [
+        "components/Minesweeper/Minesweeper.tsx",
+        "components/Minesweeper/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "SegmentedControl"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "MiniMap": {
       "files": [
         "components/MiniMap/MiniMap.tsx",
@@ -4025,6 +4536,25 @@
         "react"
       ]
     },
+    "NaturalDateInput": {
+      "files": [
+        "components/NaturalDateInput/NaturalDateInput.tsx",
+        "components/NaturalDateInput/index.ts"
+      ],
+      "internal": [
+        "Calendar",
+        "IconButton",
+        "Input",
+        "Popover"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "Navbar": {
       "files": [
         "components/Navbar/Navbar.tsx",
@@ -4111,6 +4641,25 @@
       "shared": [
         "lib/cn.ts",
         "lib/format.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "NodeEditor": {
+      "files": [
+        "components/NodeEditor/NodeEditor.tsx",
+        "components/NodeEditor/index.ts"
+      ],
+      "internal": [
+        "IconButton",
+        "LiveRegion",
+        "Menu",
+        "PanZoom"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
       ],
       "external": [
         "react"
@@ -4268,6 +4817,23 @@
         "react"
       ]
     },
+    "OpenApiReference": {
+      "files": [
+        "components/OpenApiReference/OpenApiReference.tsx",
+        "components/OpenApiReference/index.ts"
+      ],
+      "internal": [
+        "CodeBlock",
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "OrbitRing": {
       "files": [
         "components/OrbitRing/OrbitRing.tsx",
@@ -4318,6 +4884,23 @@
         "react"
       ]
     },
+    "PagedDocument": {
+      "files": [
+        "components/PagedDocument/PagedDocument.tsx",
+        "components/PagedDocument/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "SegmentedControl"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/layout-effect.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "PageHeader": {
       "files": [
         "components/PageHeader/PageHeader.tsx",
@@ -4362,6 +4945,24 @@
       ],
       "external": []
     },
+    "PanoramaViewer": {
+      "files": [
+        "components/PanoramaViewer/PanoramaViewer.tsx",
+        "components/PanoramaViewer/index.ts"
+      ],
+      "internal": [
+        "IconButton"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts",
+        "lib/motion.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "PanZoom": {
       "files": [
         "components/PanZoom/PanZoom.tsx",
@@ -4384,6 +4985,24 @@
       "shared": [
         "lib/cn.ts",
         "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ParallelCoordinates": {
+      "files": [
+        "components/ParallelCoordinates/ParallelCoordinates.tsx",
+        "components/ParallelCoordinates/index.ts"
+      ],
+      "internal": [
+        "ChartTooltip",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "components/internal/plot.tsx",
+        "lib/chart.ts",
+        "lib/cn.ts"
       ],
       "external": [
         "react"
@@ -4422,6 +5041,26 @@
         "react"
       ]
     },
+    "PasskeyManager": {
+      "files": [
+        "components/PasskeyManager/PasskeyManager.tsx",
+        "components/PasskeyManager/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "ConfirmPopover",
+        "Input",
+        "Tag",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/time.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "PasswordInput": {
       "files": [
         "components/PasswordInput/PasswordInput.tsx",
@@ -4454,6 +5093,19 @@
       ],
       "external": []
     },
+    "PatternLock": {
+      "files": [
+        "components/PatternLock/PatternLock.tsx",
+        "components/PatternLock/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "PaymentMethodCard": {
       "files": [
         "components/PaymentMethodCard/PaymentMethodCard.tsx",
@@ -4479,6 +5131,22 @@
         "Button",
         "Surface",
         "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "PermissionPrompt": {
+      "files": [
+        "components/PermissionPrompt/PermissionPrompt.tsx",
+        "components/PermissionPrompt/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Spinner"
       ],
       "shared": [
         "lib/cn.ts"
@@ -4516,6 +5184,23 @@
         "react"
       ]
     },
+    "PictureInPicture": {
+      "files": [
+        "components/PictureInPicture/PictureInPicture.tsx",
+        "components/PictureInPicture/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react",
+        "react-dom"
+      ]
+    },
     "PinPad": {
       "files": [
         "components/PinPad/PinPad.tsx",
@@ -4524,6 +5209,39 @@
       "internal": [
         "Text",
         "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "PitchTuner": {
+      "files": [
+        "components/PitchTuner/PitchTuner.tsx",
+        "components/PitchTuner/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Input",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "PivotTable": {
+      "files": [
+        "components/PivotTable/PivotTable.tsx",
+        "components/PivotTable/index.ts"
+      ],
+      "internal": [
+        "Field",
+        "Select"
       ],
       "shared": [
         "lib/cn.ts"
@@ -4732,6 +5450,19 @@
         "components/internal/icons.tsx",
         "lib/cn.ts",
         "lib/format.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ProductVariantPicker": {
+      "files": [
+        "components/ProductVariantPicker/ProductVariantPicker.tsx",
+        "components/ProductVariantPicker/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
       ],
       "external": [
         "react"
@@ -5057,6 +5788,23 @@
         "react"
       ]
     },
+    "ReadAloud": {
+      "files": [
+        "components/ReadAloud/ReadAloud.tsx",
+        "components/ReadAloud/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Select",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "Receipt": {
       "files": [
         "components/Receipt/Receipt.tsx",
@@ -5160,6 +5908,20 @@
         "react"
       ]
     },
+    "RemoteSelections": {
+      "files": [
+        "components/RemoteSelections/RemoteSelections.tsx",
+        "components/RemoteSelections/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/layout-effect.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "RepeaterField": {
       "files": [
         "components/RepeaterField/RepeaterField.tsx",
@@ -5236,6 +5998,24 @@
         "components/internal/icons.tsx",
         "lib/cn.ts",
         "lib/format.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "RichTextEditor": {
+      "files": [
+        "components/RichTextEditor/RichTextEditor.tsx",
+        "components/RichTextEditor/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Field",
+        "Input",
+        "Modal"
+      ],
+      "shared": [
+        "lib/cn.ts"
       ],
       "external": [
         "react"
@@ -5404,6 +6184,28 @@
         "react"
       ]
     },
+    "SchemaForm": {
+      "files": [
+        "components/SchemaForm/SchemaForm.tsx",
+        "components/SchemaForm/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Checkbox",
+        "Field",
+        "InlineMessage",
+        "Input",
+        "Label",
+        "RepeaterField",
+        "Select"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "ScopedSearch": {
       "files": [
         "components/ScopedSearch/ScopedSearch.tsx",
@@ -5480,6 +6282,20 @@
         "react"
       ]
     },
+    "ScrollSequence": {
+      "files": [
+        "components/ScrollSequence/ScrollSequence.tsx",
+        "components/ScrollSequence/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "ScrollStory": {
       "files": [
         "components/ScrollStory/ScrollStory.tsx",
@@ -5491,6 +6307,19 @@
       "shared": [
         "lib/cn.ts",
         "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ScrollSync": {
+      "files": [
+        "components/ScrollSync/ScrollSync.tsx",
+        "components/ScrollSync/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts"
       ],
       "external": [
         "react"
@@ -5539,6 +6368,22 @@
       ],
       "shared": [
         "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "SeatMap": {
+      "files": [
+        "components/SeatMap/SeatMap.tsx",
+        "components/SeatMap/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "InlineMessage"
+      ],
+      "shared": [
         "lib/cn.ts"
       ],
       "external": [
@@ -5633,6 +6478,22 @@
         "react"
       ]
     },
+    "SequenceDiagram": {
+      "files": [
+        "components/SequenceDiagram/SequenceDiagram.tsx",
+        "components/SequenceDiagram/index.ts"
+      ],
+      "internal": [
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "components/internal/plot.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "SessionList": {
       "files": [
         "components/SessionList/SessionList.tsx",
@@ -5711,6 +6572,20 @@
       "shared": [
         "components/internal/icons.tsx",
         "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ShaderCanvas": {
+      "files": [
+        "components/ShaderCanvas/ShaderCanvas.tsx",
+        "components/ShaderCanvas/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
       ],
       "external": [
         "react"
@@ -5847,6 +6722,21 @@
       ],
       "external": []
     },
+    "Sidenotes": {
+      "files": [
+        "components/Sidenotes/Sidenotes.tsx",
+        "components/Sidenotes/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/layout-effect.ts"
+      ],
+      "external": [
+        "react",
+        "react-dom"
+      ]
+    },
     "SignalStrength": {
       "files": [
         "components/SignalStrength/SignalStrength.tsx",
@@ -5941,6 +6831,21 @@
         "react"
       ]
     },
+    "SlidingPuzzle": {
+      "files": [
+        "components/SlidingPuzzle/SlidingPuzzle.tsx",
+        "components/SlidingPuzzle/index.ts"
+      ],
+      "internal": [
+        "Button"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "SlopeChart": {
       "files": [
         "components/SlopeChart/SlopeChart.tsx",
@@ -5970,6 +6875,24 @@
       ],
       "shared": [
         "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "SnakeGame": {
+      "files": [
+        "components/SnakeGame/SnakeGame.tsx",
+        "components/SnakeGame/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "SegmentedControl",
+        "Switch"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
       ],
       "external": [
         "react"
@@ -6006,6 +6929,23 @@
         "react"
       ]
     },
+    "SortableTree": {
+      "files": [
+        "components/SortableTree/SortableTree.tsx",
+        "components/SortableTree/index.ts"
+      ],
+      "internal": [
+        "LiveRegion",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "Sparkline": {
       "files": [
         "components/Sparkline/Sparkline.tsx",
@@ -6015,6 +6955,17 @@
       "shared": [
         "lib/cn.ts"
       ],
+      "external": [
+        "react"
+      ]
+    },
+    "SpatialNavigation": {
+      "files": [
+        "components/SpatialNavigation/SpatialNavigation.tsx",
+        "components/SpatialNavigation/index.ts"
+      ],
+      "internal": [],
+      "shared": [],
       "external": [
         "react"
       ]
@@ -6168,6 +7119,23 @@
       "shared": [
         "lib/cn.ts",
         "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "StackTrace": {
+      "files": [
+        "components/StackTrace/StackTrace.tsx",
+        "components/StackTrace/index.ts"
+      ],
+      "internal": [
+        "CopyButton",
+        "Text"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
       ],
       "external": [
         "react"
@@ -6389,6 +7357,22 @@
         "lib/cn.ts"
       ],
       "external": []
+    },
+    "Sudoku": {
+      "files": [
+        "components/Sudoku/Sudoku.tsx",
+        "components/Sudoku/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "SegmentedControl"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
     },
     "SunburstChart": {
       "files": [
@@ -6756,6 +7740,25 @@
         "react"
       ]
     },
+    "TimezonePlanner": {
+      "files": [
+        "components/TimezonePlanner/TimezonePlanner.tsx",
+        "components/TimezonePlanner/index.ts"
+      ],
+      "internal": [
+        "CopyButton",
+        "IconButton",
+        "Input",
+        "Select"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "Toast": {
       "files": [
         "components/Toast/Toast.tsx",
@@ -6841,6 +7844,21 @@
       "internal": [
         "Popover",
         "Portal"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "TrackChanges": {
+      "files": [
+        "components/TrackChanges/TrackChanges.tsx",
+        "components/TrackChanges/index.ts"
+      ],
+      "internal": [
+        "Button"
       ],
       "shared": [
         "lib/cn.ts"
@@ -7220,6 +8238,24 @@
         "react"
       ]
     },
+    "VennDiagram": {
+      "files": [
+        "components/VennDiagram/VennDiagram.tsx",
+        "components/VennDiagram/index.ts"
+      ],
+      "internal": [
+        "ChartTooltip",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "components/internal/plot.tsx",
+        "lib/chart.ts",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "VersionHistory": {
       "files": [
         "components/VersionHistory/VersionHistory.tsx",
@@ -7304,6 +8340,21 @@
         "react"
       ]
     },
+    "VisionSimulator": {
+      "files": [
+        "components/VisionSimulator/VisionSimulator.tsx",
+        "components/VisionSimulator/index.ts"
+      ],
+      "internal": [
+        "Select"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "VisuallyHidden": {
       "files": [
         "components/VisuallyHidden/VisuallyHidden.tsx",
@@ -7311,6 +8362,38 @@
       ],
       "internal": [],
       "shared": [],
+      "external": [
+        "react"
+      ]
+    },
+    "VoiceRecorder": {
+      "files": [
+        "components/VoiceRecorder/VoiceRecorder.tsx",
+        "components/VoiceRecorder/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Text",
+        "VideoPlayer"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "VoronoiField": {
+      "files": [
+        "components/VoronoiField/VoronoiField.tsx",
+        "components/VoronoiField/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
       "external": [
         "react"
       ]
@@ -7408,6 +8491,22 @@
         "react"
       ]
     },
+    "WebVitals": {
+      "files": [
+        "components/WebVitals/WebVitals.tsx",
+        "components/WebVitals/index.ts"
+      ],
+      "internal": [
+        "StatusDot",
+        "Text"
+      ],
+      "shared": [
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "WeekdayPicker": {
       "files": [
         "components/WeekdayPicker/WeekdayPicker.tsx",
@@ -7431,6 +8530,44 @@
       ],
       "shared": [
         "components/internal/icons.tsx",
+        "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Whiteboard": {
+      "files": [
+        "components/Whiteboard/Whiteboard.tsx",
+        "components/Whiteboard/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "IconButton",
+        "LiveRegion",
+        "Menu",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "WordCloud": {
+      "files": [
+        "components/WordCloud/WordCloud.tsx",
+        "components/WordCloud/index.ts"
+      ],
+      "internal": [
+        "ChartTooltip",
+        "VisuallyHidden"
+      ],
+      "shared": [
+        "components/internal/plot.tsx",
+        "lib/chart.ts",
         "lib/cn.ts"
       ],
       "external": [
@@ -7488,18 +8625,18 @@
     }
   },
   "shared": {
+    "lib/cn.ts": [],
+    "lib/contrast.ts": [],
     "components/internal/icons.tsx": [
       "lib/types.ts"
     ],
     "lib/types.ts": [],
-    "lib/cn.ts": [],
     "lib/format.ts": [],
     "lib/motion.ts": [],
     "components/internal/plot.tsx": [],
     "lib/layout-effect.ts": [],
     "lib/time.ts": [],
     "lib/chart.ts": [],
-    "lib/contrast.ts": [],
     "theme/accent.ts": [
       "lib/contrast.ts"
     ],
@@ -7550,6 +8687,18 @@
       "section": "Primitives",
       "blurb": "The inline link: ink text on an accent underline, new-tab links with an arrow, hidden notice and safe rel, router rendering through as."
     },
+    "MiddleTruncate": {
+      "slug": "middle-truncate",
+      "group": "Foundations",
+      "section": "Primitives",
+      "blurb": "Cuts the middle of a long string to the measured width and keeps the end, such as the extension; screen readers, tooltip and clipboard get the full value."
+    },
+    "FitText": {
+      "slug": "fit-text",
+      "group": "Foundations",
+      "section": "Primitives",
+      "blurb": "Sizes one line of text to exactly fill its container, between a min and max, refitting on resize and when web fonts load."
+    },
     "FocusTrap": {
       "slug": "focus-trap",
       "group": "Foundations",
@@ -7591,6 +8740,36 @@
       "group": "Foundations",
       "section": "Utilities",
       "blurb": "Wraps search matches in accent-tinted marks, ignoring case and accents, matching each word on its own and treating regex characters literally."
+    },
+    "ErrorBoundary": {
+      "slug": "error-boundary",
+      "group": "Foundations",
+      "section": "Utilities",
+      "blurb": "Catches a render error in its subtree and shows a fallback, with retry, resetKeys that clear it when the input changes, and an onError hook."
+    },
+    "Hotkeys": {
+      "slug": "hotkeys",
+      "group": "Foundations",
+      "section": "Utilities",
+      "blurb": "An app-wide shortcut registry: useHotkey with a platform-aware mod key, sequences like g i, scopes a dialog can take over, conflict warnings and a live list."
+    },
+    "LazyMount": {
+      "slug": "lazy-mount",
+      "group": "Foundations",
+      "section": "Utilities",
+      "blurb": "Mounts children only when they near the viewport, holding their space until then; can unmount again when far away, and mounts at once without support."
+    },
+    "VisionSimulator": {
+      "slug": "vision-simulator",
+      "group": "Foundations",
+      "section": "Utilities",
+      "blurb": "Shows content as seen with protanopia, deuteranopia, tritanopia, achromatopsia, blur or low contrast, using Machado 2009 matrices in SVG filters."
+    },
+    "SpatialNavigation": {
+      "slug": "spatial-navigation",
+      "group": "Foundations",
+      "section": "Utilities",
+      "blurb": "Arrow keys move focus to the nearest focusable element in that direction by on-screen geometry, leaving inputs and sliders their own keys."
     },
     "AppShell": {
       "slug": "app-shell",
@@ -7663,6 +8842,12 @@
       "group": "Layout",
       "section": "Structure",
       "blurb": "Widgets rearranged by dragging a handle or with Space and the arrow keys, each move announced, and resized from one to four columns."
+    },
+    "Sidenotes": {
+      "slug": "sidenotes",
+      "group": "Layout",
+      "section": "Structure",
+      "blurb": "Margin notes aligned with their markers and pushed down to avoid overlap; in a narrow container they become inline toggles next to the marker."
     },
     "Accordion": {
       "slug": "accordion",
@@ -7759,6 +8944,12 @@
       "group": "Layout",
       "section": "Stacks & scrolling",
       "blurb": "Loads more as the end comes into view, with a real Load more button as the fallback, the new count announced, and a retry when loading fails."
+    },
+    "ScrollSync": {
+      "slug": "scroll-sync",
+      "group": "Layout",
+      "section": "Stacks & scrolling",
+      "blurb": "Keeps scroll panes in step by proportion or by matching anchors, ignoring its own echoed scrolls so panes never feed back."
     },
     "Dock": {
       "slug": "dock",
@@ -7934,6 +9125,12 @@
       "section": "Menus & search",
       "blurb": "Recently viewed docs, files and projects with time ago, pin, remove and clear, optionally saved to storage so it survives a reload."
     },
+    "FindInPage": {
+      "slug": "find-in-page",
+      "group": "Navigation",
+      "section": "Menus & search",
+      "blurb": "Ctrl or ⌘+F for one container: counts matches, steps with Enter, paints them with the CSS Custom Highlight API and opens closed details around a match."
+    },
     "Button": {
       "slug": "button",
       "group": "Actions",
@@ -8066,6 +9263,18 @@
       "section": "Composed",
       "blurb": "A menu that adds an event to Google, Outlook.com, Office 365 or Yahoo, or downloads a correctly escaped .ics, with the event details shown first."
     },
+    "DictationButton": {
+      "slug": "dictation-button",
+      "group": "Actions",
+      "section": "Composed",
+      "blurb": "A microphone button that types recognised speech into a field at the caret, showing unfinished words as a hint; a message where the browser can’t."
+    },
+    "ReadAloud": {
+      "slug": "read-aloud",
+      "group": "Actions",
+      "section": "Composed",
+      "blurb": "Reads text aloud with the browser’s voices and highlights each word as it is spoken, with adjustable speed and voice."
+    },
     "InlineEdit": {
       "slug": "inline-edit",
       "group": "Forms & Inputs",
@@ -8137,6 +9346,12 @@
       "group": "Forms & Inputs",
       "section": "Text fields",
       "blurb": "A postal address as autofill-ready parts, relabelled per country (State, County, ZIP code, Postcode), with an optional suggestions slot for your provider."
+    },
+    "InlineCompletion": {
+      "slug": "inline-completion",
+      "group": "Forms & Inputs",
+      "section": "Text fields",
+      "blurb": "A field that finishes the sentence in faint text after the caret: Tab takes all, Ctrl+→ one word, Escape dismisses; async requests debounced and cancelled."
     },
     "Checkbox": {
       "slug": "checkbox",
@@ -8233,6 +9448,18 @@
       "group": "Forms & Inputs",
       "section": "Choice",
       "blurb": "A long checkbox list with a filter, select all with a mixed state, a selected count and a selected-only view, rendering only the rows in view."
+    },
+    "ProductVariantPicker": {
+      "slug": "product-variant-picker",
+      "group": "Forms & Inputs",
+      "section": "Choice",
+      "blurb": "Size, colour and material checked against real SKUs; a dead-end option is disabled and says why — not made in this combination, or out of stock."
+    },
+    "SeatMap": {
+      "slug": "seat-map",
+      "group": "Forms & Inputs",
+      "section": "Choice",
+      "blurb": "A venue map from data with price tiers, a seat limit, arrow keys from seat to seat, a running total, and an optional rule against a single empty seat."
     },
     "AmountField": {
       "slug": "amount-field",
@@ -8342,6 +9569,12 @@
       "section": "Date & time",
       "blurb": "Repeat rules by day, week, month or year with end conditions, read back as a plain sentence and returned as an RRULE string."
     },
+    "NaturalDateInput": {
+      "slug": "natural-date-input",
+      "group": "Forms & Inputs",
+      "section": "Date & time",
+      "blurb": "A date field that reads next fri 3pm or in 2 weeks, shows its reading before committing, offers the other fair readings, and keeps a calendar beside it."
+    },
     "ColorPicker": {
       "slug": "color-picker",
       "group": "Forms & Inputs",
@@ -8402,6 +9635,42 @@
       "section": "Rich input",
       "blurb": "A code textarea with a synced line gutter, Tab and Shift+Tab indenting, auto-indent, paired brackets, and Esc then Tab to leave the field."
     },
+    "RichTextEditor": {
+      "slug": "rich-text-editor",
+      "group": "Forms & Inputs",
+      "section": "Rich input",
+      "blurb": "WYSIWYG writing with headings, lists, quotes and links, a toolbar that follows the caret, its own undo history, and HTML sanitised by allow-list, paste included."
+    },
+    "FormulaEditor": {
+      "slug": "formula-editor",
+      "group": "Forms & Inputs",
+      "section": "Rich input",
+      "blurb": "A spreadsheet formula bar with a real parser: errors point to the exact character, functions complete, the current argument is marked, and it evaluates."
+    },
+    "EasingEditor": {
+      "slug": "easing-editor",
+      "group": "Forms & Inputs",
+      "section": "Rich input",
+      "blurb": "A cubic-bezier curve shaped with draggable, keyboard-movable handles and presets, with a live preview dot and the cubic-bezier() string ready to copy."
+    },
+    "CameraCapture": {
+      "slug": "camera-capture",
+      "group": "Forms & Inputs",
+      "section": "Rich input",
+      "blurb": "Take a photo in the page with a live camera preview, a device switch, clear permission states, and retake or use before the still is handed over."
+    },
+    "VoiceRecorder": {
+      "slug": "voice-recorder",
+      "group": "Forms & Inputs",
+      "section": "Rich input",
+      "blurb": "Record voice notes with a live input level meter, pause and resume, a length limit, playback and discard, returning the audio and its real duration."
+    },
+    "CaptionEditor": {
+      "slug": "caption-editor",
+      "group": "Forms & Inputs",
+      "section": "Rich input",
+      "blurb": "Time subtitle cues against the playing media, with the current cue highlighted, overlaps flagged, and WebVTT and SRT import and export."
+    },
     "Field": {
       "slug": "field",
       "group": "Forms & Inputs",
@@ -8443,6 +9712,12 @@
       "group": "Forms & Inputs",
       "section": "Form structure",
       "blurb": "Repeating rows of fields with add, remove and move; focus goes somewhere sensible after every change, and each change is announced."
+    },
+    "SchemaForm": {
+      "slug": "schema-form",
+      "group": "Forms & Inputs",
+      "section": "Form structure",
+      "blurb": "A working form drawn from a JSON Schema with the library’s own fields and validated against that schema, so onSubmit only gets a value that passes."
     },
     "Avatar": {
       "slug": "avatar",
@@ -8594,6 +9869,12 @@
       "section": "Lists & tables",
       "blurb": "A log tail with level chips and filters, highlighted search, copy per line, and a follow mode that pauses when you scroll up, across thousands of lines."
     },
+    "PivotTable": {
+      "slug": "pivot-table",
+      "group": "Data Display",
+      "section": "Lists & tables",
+      "blurb": "Records turned into a pivot you configure — row and column fields, value, sum, count, average, min or max — with nested headers and subtotals."
+    },
     "Metric": {
       "slug": "metric",
       "group": "Data Display",
@@ -8714,6 +9995,42 @@
       "section": "Records",
       "blurb": "A print-ready receipt that adds up line items, discounts, shipping and tax itself, shows the payment method, and has a slot for print and download."
     },
+    "CommitGraph": {
+      "slug": "commit-graph",
+      "group": "Data Display",
+      "section": "Records",
+      "blurb": "Git history with branch lanes worked out from parent hashes: merge curves, refs and tags on each commit, and a list you move through with Up and Down."
+    },
+    "HexViewer": {
+      "slug": "hex-viewer",
+      "group": "Data Display",
+      "section": "Records",
+      "blurb": "Bytes as offset, hex and ASCII with one shared selection, only the visible rows rendered, go-to-offset, arrow-key selection and copy as hex."
+    },
+    "EmailViewer": {
+      "slug": "email-viewer",
+      "group": "Data Display",
+      "section": "Records",
+      "blurb": "Untrusted email in a sandboxed frame with no scripts, remote images blocked until allowed, quoted replies folded and the frame sized to its content."
+    },
+    "MathFormula": {
+      "slug": "math-formula",
+      "group": "Data Display",
+      "section": "Records",
+      "blurb": "TeX-like source turned into native MathML — fractions, roots, scripts, Greek, sums, integrals, matrices, text — with errors in place and a text fallback."
+    },
+    "TimezonePlanner": {
+      "slug": "timezone-planner",
+      "group": "Data Display",
+      "section": "Records",
+      "blurb": "One 24-hour strip with a row per city and DST-correct offsets from Intl; drag or arrow keys to pick a window, shown in every zone and copyable."
+    },
+    "PagedDocument": {
+      "slug": "paged-document",
+      "group": "Data Display",
+      "section": "Records",
+      "blurb": "Measures blocks onto A4 or Letter pages with margins, keep-with-next and breaks, a running header and footer with page X of Y, and prints as previewed."
+    },
     "Figure": {
       "slug": "figure",
       "group": "Data Display",
@@ -8749,6 +10066,30 @@
       "group": "Data Display",
       "section": "Media",
       "blurb": "A timed transcript that highlights and follows the line being spoken, seeks on click, pauses following when you scroll, and searches in place."
+    },
+    "PanoramaViewer": {
+      "slug": "panorama-viewer",
+      "group": "Data Display",
+      "section": "Media",
+      "blurb": "A true 360° photo viewer drawn in WebGL: look around by dragging, pinching or with the arrow keys, and zoom by changing the field of view."
+    },
+    "Magnifier": {
+      "slug": "magnifier",
+      "group": "Data Display",
+      "section": "Media",
+      "blurb": "A loupe that follows the pointer, a finger or the arrow keys over an image and shows the detail under it, enlarged."
+    },
+    "BlurHashImage": {
+      "slug": "blur-hash-image",
+      "group": "Data Display",
+      "section": "Media",
+      "blurb": "Shows a blurred colour impression decoded from a short hash while the real image loads, then fades the image in."
+    },
+    "ImageDiff": {
+      "slug": "image-diff",
+      "group": "Data Display",
+      "section": "Media",
+      "blurb": "Pixel-by-pixel comparison with a perceptual threshold, the share changed, and side by side, diff overlay, onion skin and blink views."
     },
     "AreaChart": {
       "slug": "area-chart",
@@ -8888,6 +10229,36 @@
       "section": "Distribution",
       "blurb": "Every observation as a dot on one axis, packed so none overlap, in rows per group with a median line and a highlighted point."
     },
+    "ParallelCoordinates": {
+      "slug": "parallel-coordinates",
+      "group": "Charts",
+      "section": "Distribution",
+      "blurb": "One axis per measure, one line per record: brush a range on any axis, drag or arrow the headers to reorder, and see how many records are left."
+    },
+    "VennDiagram": {
+      "slug": "venn-diagram",
+      "group": "Charts",
+      "section": "Distribution",
+      "blurb": "Two or three sets with circle areas and overlaps solved to scale, exact counts in every region, and hover or arrow-key highlighting."
+    },
+    "WordCloud": {
+      "slug": "word-cloud",
+      "group": "Charts",
+      "section": "Distribution",
+      "blurb": "Words sized by weight and placed on a seeded spiral so none overlap, with optional vertical words and an accessible list ordered by weight."
+    },
+    "ClickHeatmap": {
+      "slug": "click-heatmap",
+      "group": "Charts",
+      "section": "Distribution",
+      "blurb": "Clicks summed into a Gaussian heat layer on canvas, coloured from theme tokens, over whatever was clicked, with the hotspots named in words."
+    },
+    "ChoroplethMap": {
+      "slug": "choropleth-map",
+      "group": "Charts",
+      "section": "Distribution",
+      "blurb": "GeoJSON regions shaded on a stepped scale, Mercator or equirectangular projections fitted to the frame, and arrow keys to the neighbouring region."
+    },
     "FunnelChart": {
       "slug": "funnel-chart",
       "group": "Charts",
@@ -8923,6 +10294,18 @@
       "group": "Charts",
       "section": "Flow & hierarchy",
       "blurb": "A top-down reporting tree of people cards with collapsible teams, elbow connectors, pan and zoom, and full tree keyboard support."
+    },
+    "ChordDiagram": {
+      "slug": "chord-diagram",
+      "group": "Charts",
+      "section": "Flow & hierarchy",
+      "blurb": "Two-way flows between groups as arcs and ribbons from a computed chord layout; hover or arrow to a group to fade every flow it is not part of."
+    },
+    "SequenceDiagram": {
+      "slug": "sequence-diagram",
+      "group": "Charts",
+      "section": "Flow & hierarchy",
+      "blurb": "Sequence diagrams written as text — participants, replies, notes, alt and loop blocks, activations — with errors by line number and a numbered text version."
     },
     "ActivityHeatmap": {
       "slug": "activity-heatmap",
@@ -9164,6 +10547,12 @@
       "section": "System state",
       "blurb": "A new version prompt that asks rather than reloads: reload now, snooze for a while or skip until the next version, announced politely."
     },
+    "PermissionPrompt": {
+      "slug": "permission-prompt",
+      "group": "Feedback",
+      "section": "System state",
+      "blurb": "Says why before the browser asks, follows the Permissions API state, and gives the steps for the reader’s own browser when a permission is blocked."
+    },
     "AchievementPop": {
       "slug": "achievement-pop",
       "group": "Feedback",
@@ -9302,6 +10691,12 @@
       "section": "Popovers",
       "blurb": "A non-modal panel dragged by its title bar or moved with arrow keys, kept inside the viewport, able to minimise, and reporting where it was left."
     },
+    "PictureInPicture": {
+      "slug": "picture-in-picture",
+      "group": "Overlays",
+      "section": "Popovers",
+      "blurb": "Pops a live React subtree into an always-on-top Document Picture-in-Picture window with the page’s styles, and back, without losing state."
+    },
     "CoachTour": {
       "slug": "coach-tour",
       "group": "Overlays",
@@ -9373,6 +10768,12 @@
       "group": "Motion & Effects",
       "section": "Entrance & scroll",
       "blurb": "Scrollytelling: text steps scroll past a sticky visual that follows the step being read, stacking on narrow screens and under reduced motion."
+    },
+    "ScrollSequence": {
+      "slug": "scroll-sequence",
+      "group": "Motion & Effects",
+      "section": "Entrance & scroll",
+      "blurb": "Preloads frames and scrubs them on a pinned canvas as you scroll, with object-fit maths, a loading bar and a still frame under reduced motion."
     },
     "GlitchText": {
       "slug": "glitch-text",
@@ -9518,6 +10919,12 @@
       "section": "Surfaces & light",
       "blurb": "A background grid or dot pattern with a few cells softly lighting up in the accent, faded at the edges, and static under reduced motion."
     },
+    "ShaderCanvas": {
+      "slug": "shader-canvas",
+      "group": "Motion & Effects",
+      "section": "Surfaces & light",
+      "blurb": "A WebGL fragment shader background fed the theme’s colours, time and pointer; pauses off screen, reports compile errors, falls back to a gradient."
+    },
     "AnimatedNumber": {
       "slug": "animated-number",
       "group": "Motion & Effects",
@@ -9656,6 +11063,36 @@
       "section": "Touch & drag",
       "blurb": "A drop target that appears only while files are dragged over, checks type and size with a reason for every refusal, and always offers a choose-files button."
     },
+    "PatternLock": {
+      "slug": "pattern-lock",
+      "group": "Interaction",
+      "section": "Touch & drag",
+      "blurb": "A phone-style unlock grid where dots crossed by the line join automatically, with a minimum length, success and error states, and a full keyboard route."
+    },
+    "NodeEditor": {
+      "slug": "node-editor",
+      "group": "Interaction",
+      "section": "Touch & drag",
+      "blurb": "Nodes with typed ports joined by wires you drag out; type mismatches and loops are refused with a reason, and every port has a keyboard menu."
+    },
+    "Whiteboard": {
+      "slug": "whiteboard",
+      "group": "Interaction",
+      "section": "Touch & drag",
+      "blurb": "Rectangles, ellipses, arrows, text and a pen on SVG, with geometry hit-testing, resize handles, marquee select, undo and JSON or SVG export."
+    },
+    "Joystick": {
+      "slug": "joystick",
+      "group": "Interaction",
+      "section": "Touch & drag",
+      "blurb": "A virtual analogue stick returning a normalised vector and angle, with a dead zone, 4- or 8-way D-pad modes and arrow or WASD keys."
+    },
+    "SortableTree": {
+      "slug": "sortable-tree",
+      "group": "Interaction",
+      "section": "Touch & drag",
+      "blurb": "Drag a hierarchy into shape: up and down for position, sideways for depth, subtrees travel with their parent, and the keyboard does it all too."
+    },
     "PresenceBar": {
       "slug": "presence-bar",
       "group": "Interaction",
@@ -9716,6 +11153,18 @@
       "section": "Presence & collaboration",
       "blurb": "Live Q&A with anonymous asking, upvotes, top or newest sorting, pinned and answered states, host moderation and politely announced new questions."
     },
+    "RemoteSelections": {
+      "slug": "remote-selections",
+      "group": "Interaction",
+      "section": "Presence & collaboration",
+      "blurb": "Other people’s carets and selections drawn inside a textarea from offsets, measured with a mirror and moved through your own edits."
+    },
+    "CallGrid": {
+      "slug": "call-grid",
+      "group": "Interaction",
+      "section": "Presence & collaboration",
+      "blurb": "A video-call layout that solves rows and columns for the largest tiles, with speaker ring, muted, hand-raised and camera-off states, and pinning."
+    },
     "ApprovalChain": {
       "slug": "approval-chain",
       "group": "Interaction",
@@ -9764,6 +11213,12 @@
       "section": "Trust & workflow",
       "blurb": "Document versions grouped by day, with a named-only filter, preview on select, compare with current, and restore after a confirmation."
     },
+    "TrackChanges": {
+      "slug": "track-changes",
+      "group": "Interaction",
+      "section": "Trust & workflow",
+      "blurb": "Suggested edits from a word-level Myers diff shown inline, each accepted or rejected alone or all at once, with arrow keys between changes."
+    },
     "AsciiImage": {
       "slug": "ascii-image",
       "group": "Canvas & Play",
@@ -9800,6 +11255,18 @@
       "section": "Generative",
       "blurb": "Particles drift along a seeded noise current and leave trails in theme colours, pausing off screen and holding a still frame under reduced motion."
     },
+    "VoronoiField": {
+      "slug": "voronoi-field",
+      "group": "Canvas & Play",
+      "section": "Generative",
+      "blurb": "Drifting seeds and their exact Voronoi cells on canvas, tinted from the accent and drawn towards the pointer; a still frame under reduced motion."
+    },
+    "FractalExplorer": {
+      "slug": "fractal-explorer",
+      "group": "Canvas & Play",
+      "section": "Generative",
+      "blurb": "Mandelbrot and Julia sets on a canvas, rendered in cancellable chunks across frames; drag, wheel and keys to fly, and a click picks the Julia constant."
+    },
     "AudioVisualizer": {
       "slug": "audio-visualizer",
       "group": "Canvas & Play",
@@ -9823,6 +11290,18 @@
       "group": "Canvas & Play",
       "section": "Audio",
       "blurb": "A Web Audio metronome with slider, number field, tap tempo, time signatures and an accented first beat, booked ahead on the audio clock."
+    },
+    "PitchTuner": {
+      "slug": "pitch-tuner",
+      "group": "Canvas & Play",
+      "section": "Audio",
+      "blurb": "A chromatic tuner that listens through the microphone and shows the note, octave and cents off on a needle, with adjustable A4."
+    },
+    "AudioTrimmer": {
+      "slug": "audio-trimmer",
+      "group": "Canvas & Play",
+      "section": "Audio",
+      "blurb": "Cut a clip from an audio file in the browser: a real decoded waveform, draggable or keyboard handles, preview playback and WAV export."
     },
     "DiceRoller": {
       "slug": "dice-roller",
@@ -9889,6 +11368,36 @@
       "group": "Canvas & Play",
       "section": "Toys",
       "blurb": "Noughts and crosses against a friend or a minimax computer, with arrow-key grid focus, squares named by position and mark, and a highlighted winning line."
+    },
+    "Sudoku": {
+      "slug": "sudoku",
+      "group": "Canvas & Play",
+      "section": "Toys",
+      "blurb": "Generated puzzles with a checked unique solution, pencil notes, live conflicts, hint, check and timer, in a grid naming each cell’s row, column and box."
+    },
+    "Minesweeper": {
+      "slug": "minesweeper",
+      "group": "Canvas & Play",
+      "section": "Toys",
+      "blurb": "Real minesweeper: safe first click, flood reveal, flags and chording, three presets, and a one-tab-stop grid where arrows move, Enter reveals and F flags."
+    },
+    "SlidingPuzzle": {
+      "slug": "sliding-puzzle",
+      "group": "Canvas & Play",
+      "section": "Toys",
+      "blurb": "The fifteen puzzle at any size with parity-checked shuffles only, whole-row slides, arrow-key play, a move count and an optional painted picture."
+    },
+    "Crossword": {
+      "slug": "crossword",
+      "group": "Canvas & Play",
+      "section": "Toys",
+      "blurb": "A crossword from data, numbered automatically: type to fill and advance, clue lists that follow the cursor, check or reveal a letter, word or puzzle."
+    },
+    "SnakeGame": {
+      "slug": "snake-game",
+      "group": "Canvas & Play",
+      "section": "Toys",
+      "blurb": "Snake on a fixed-step tick with buffered turns, walls or wrap, three speeds, swipe, auto-pause when the tab is hidden, and a saved best score."
     },
     "CtaSection": {
       "slug": "cta-section",
@@ -10172,6 +11681,30 @@
       "section": "Settings & developer",
       "blurb": "Logo and brand colour with a live preview themed by applyAccent on the preview only, a label contrast check, reset, and a save or discard draft."
     },
+    "OpenApiReference": {
+      "slug": "open-api-reference",
+      "group": "SaaS",
+      "section": "Settings & developer",
+      "blurb": "An API reference drawn from an OpenAPI 3 document, with $refs resolved safely and a working curl command built for every operation."
+    },
+    "StackTrace": {
+      "slug": "stack-trace",
+      "group": "SaaS",
+      "section": "Settings & developer",
+      "blurb": "Chrome, Node, Firefox, Safari and Python traces parsed into frames, library frames folded away, source shown around each line and the raw trace kept."
+    },
+    "WebVitals": {
+      "slug": "web-vitals",
+      "group": "SaaS",
+      "section": "Settings & developer",
+      "blurb": "This page’s LCP, CLS, INP, FCP and TTFB measured live the way field data does, rated against Google’s thresholds and naming the element responsible."
+    },
+    "A11yInspector": {
+      "slug": "a11y-inspector",
+      "group": "SaaS",
+      "section": "Settings & developer",
+      "blurb": "Its own checks on the live page — missing names and alt text, heading jumps, tabindex, contrast, duplicate ids — numbered on the elements concerned."
+    },
     "FilterBuilder": {
       "slug": "filter-builder",
       "group": "SaaS",
@@ -10189,6 +11722,18 @@
       "group": "SaaS",
       "section": "Data & views",
       "blurb": "Request an export by dataset, format and date range, then follow it from queued to ready, with download links and an expiry countdown."
+    },
+    "DataProfile": {
+      "slug": "data-profile",
+      "group": "SaaS",
+      "section": "Data & views",
+      "blurb": "A card per column with inferred type, missing values, distinct count, statistics, a histogram, and flags for mixed types, outliers and empty columns."
+    },
+    "ExperimentResults": {
+      "slug": "experiment-results",
+      "group": "SaaS",
+      "section": "Data & views",
+      "blurb": "An A/B/n readout with Wilson intervals, lift, p-values, the sample size for your minimum lift, and a one-sentence recommendation."
     },
     "AnnouncementBar": {
       "slug": "announcement-bar",
@@ -10249,6 +11794,18 @@
       "group": "SaaS",
       "section": "Security",
       "blurb": "An IPv4/IPv6 and CIDR allowlist that validates and normalises entries, confirms enforcement, and asks before the admin’s own IP gets locked out."
+    },
+    "AccessExplainer": {
+      "slug": "access-explainer",
+      "group": "SaaS",
+      "section": "Security",
+      "blurb": "Answers whether a user can act on a resource by showing each step: groups, inheritance, every rule checked and which deny beat which allow."
+    },
+    "PasskeyManager": {
+      "slug": "passkey-manager",
+      "group": "SaaS",
+      "section": "Security",
+      "blurb": "Checks WebAuthn support, creates a real passkey with options from your server, and lists passkeys to rename or remove after a confirmation."
     }
   }
 }

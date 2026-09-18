@@ -1,4 +1,47 @@
 {
+  "A11yInspector": {
+    "props": [
+      {
+        "name": "target",
+        "type": "RefObject<HTMLElement | null>",
+        "required": true,
+        "description": "The subtree to audit."
+      },
+      {
+        "name": "rules",
+        "type": "A11yInspectorRule[]",
+        "required": false,
+        "defaultValue": "ALL",
+        "description": "Which checks to run. All of them by default."
+      },
+      {
+        "name": "autoRun",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Audit once on mount. Otherwise the reader starts it."
+      },
+      {
+        "name": "defaultShowBadges",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Draw numbered badges over offending elements. The reader can toggle it."
+      },
+      {
+        "name": "onAudit",
+        "type": "(issues: A11yInspectorIssue[]) => void",
+        "required": false,
+        "description": "Called with every audit’s findings."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "AccessDeniedState": {
     "props": [
       {
@@ -69,6 +112,45 @@
         "required": false,
         "defaultValue": "'h1'",
         "description": "The title's heading level."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "AccessExplainer": {
+    "props": [
+      {
+        "name": "policy",
+        "type": "AccessExplainerPolicy",
+        "required": true
+      },
+      {
+        "name": "query",
+        "type": "AccessExplainerQuery",
+        "required": false,
+        "description": "The question, controlled."
+      },
+      {
+        "name": "defaultQuery",
+        "type": "AccessExplainerQuery",
+        "required": false,
+        "description": "The initial question when uncontrolled."
+      },
+      {
+        "name": "onQueryChange",
+        "type": "(query: AccessExplainerQuery) => void",
+        "required": false,
+        "description": "Called when the reader changes the user, action or resource."
+      },
+      {
+        "name": "actions",
+        "type": "string[]",
+        "required": false,
+        "description": "Actions offered in the picker. Defaults to every non-wildcard action named in the policy."
       },
       {
         "name": "className",
@@ -1535,6 +1617,81 @@
       }
     ]
   },
+  "AudioTrimmer": {
+    "props": [
+      {
+        "name": "file",
+        "type": "Blob | null",
+        "required": false,
+        "description": "The audio to trim — a File from an input or drop, or any Blob."
+      },
+      {
+        "name": "allowPick",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Show a “Choose audio” picker so people can load their own file."
+      },
+      {
+        "name": "value",
+        "type": "AudioTrimmerRange",
+        "required": false,
+        "description": "The selection, when controlled."
+      },
+      {
+        "name": "defaultValue",
+        "type": "AudioTrimmerRange",
+        "required": false,
+        "description": "The starting selection when uncontrolled. Defaults to the whole file."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(range: AudioTrimmerRange) => void",
+        "required": false,
+        "description": "Called as the handles move."
+      },
+      {
+        "name": "onExport",
+        "type": "(wav: Blob, range: AudioTrimmerRange) => void",
+        "required": false,
+        "description": "Called with the trimmed WAV when it is exported."
+      },
+      {
+        "name": "exportName",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'trimmed'",
+        "description": "File name for the download, without extension."
+      },
+      {
+        "name": "minLength",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.1",
+        "description": "Shortest selection allowed, in seconds."
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "defaultValue": "96",
+        "description": "Waveform height in pixels."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Audio trimmer'",
+        "description": "Names the trimmer."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "AudioVisualizer": {
     "props": [
       {
@@ -2339,6 +2496,65 @@
       }
     ]
   },
+  "BlurHashImage": {
+    "props": [
+      {
+        "name": "hash",
+        "type": "string",
+        "required": true,
+        "description": "The BlurHash string, usually stored next to the image URL."
+      },
+      {
+        "name": "src",
+        "type": "string",
+        "required": true,
+        "description": "The real image."
+      },
+      {
+        "name": "alt",
+        "type": "string",
+        "required": true,
+        "description": "Describes the real image."
+      },
+      {
+        "name": "width",
+        "type": "number",
+        "required": true,
+        "description": "Intrinsic width. With `height`, sets the box's aspect ratio so nothing shifts on load."
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": true
+      },
+      {
+        "name": "punch",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1",
+        "description": "Contrast of the placeholder. 1 is as encoded; higher is punchier."
+      },
+      {
+        "name": "resolution",
+        "type": "number",
+        "required": false,
+        "defaultValue": "32",
+        "description": "Width in pixels the placeholder is decoded at before being scaled up."
+      },
+      {
+        "name": "onLoad",
+        "type": "() => void",
+        "required": false,
+        "description": "Called once the real image has loaded."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "BoidsFlock": {
     "props": [
       {
@@ -2850,6 +3066,126 @@
       }
     ]
   },
+  "CallGrid": {
+    "props": [
+      {
+        "name": "participants",
+        "type": "CallGridParticipant[]",
+        "required": true,
+        "description": "Everyone in the call, in display order."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the list of tiles."
+      },
+      {
+        "name": "activeSpeakerId",
+        "type": "string | null",
+        "required": false,
+        "defaultValue": "null",
+        "description": "The participant currently speaking. Their tile gets the accent ring."
+      },
+      {
+        "name": "pinnedId",
+        "type": "string | null",
+        "required": false,
+        "description": "Controlled spotlight. Null or undefined shows the grid."
+      },
+      {
+        "name": "defaultPinnedId",
+        "type": "string | null",
+        "required": false,
+        "defaultValue": "null",
+        "description": "Initial spotlight, uncontrolled."
+      },
+      {
+        "name": "onPinnedChange",
+        "type": "(id: string | null) => void",
+        "required": false,
+        "description": "Called with the participant pinned, or null when unpinned."
+      },
+      {
+        "name": "aspectRatio",
+        "type": "number",
+        "required": false,
+        "defaultValue": "16 / 9",
+        "description": "Width over height of a tile. 16 / 9 matches most cameras."
+      },
+      {
+        "name": "gap",
+        "type": "number",
+        "required": false,
+        "defaultValue": "8",
+        "description": "Space between tiles in pixels."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins. Give the component a height here."
+      }
+    ]
+  },
+  "CameraCapture": {
+    "props": [
+      {
+        "name": "onCapture",
+        "type": "(result: CameraCaptureResult) => void",
+        "required": false,
+        "description": "Called with the still when the person presses “Use photo”."
+      },
+      {
+        "name": "facingMode",
+        "type": "'user' | 'environment'",
+        "required": false,
+        "defaultValue": "'user'",
+        "description": "Which camera to ask for first. The device menu can change it afterwards."
+      },
+      {
+        "name": "mirror",
+        "type": "boolean | 'auto'",
+        "required": false,
+        "defaultValue": "'auto'",
+        "description": "Mirror the preview. `auto` mirrors front cameras only, as a mirror would."
+      },
+      {
+        "name": "mimeType",
+        "type": "'image/jpeg' | 'image/png' | 'image/webp'",
+        "required": false,
+        "defaultValue": "'image/jpeg'",
+        "description": "Image format of the still."
+      },
+      {
+        "name": "quality",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.9",
+        "description": "Encoder quality for jpeg and webp, 0 to 1."
+      },
+      {
+        "name": "idealWidth",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1280",
+        "description": "Resolution to ask the camera for. The camera may deliver less."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Camera'",
+        "description": "Names the control and the preview."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "CancellationFlow": {
     "props": [
       {
@@ -2951,6 +3287,55 @@
         "required": false,
         "defaultValue": "formatTick",
         "description": "Format volume in the tooltip."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "CaptionEditor": {
+    "props": [
+      {
+        "name": "value",
+        "type": "CaptionEditorCue[]",
+        "required": false,
+        "description": "The cues, for a controlled editor."
+      },
+      {
+        "name": "defaultValue",
+        "type": "CaptionEditorCue[]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": "The starting cues, for an uncontrolled one."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(cues: CaptionEditorCue[]) => void",
+        "required": false,
+        "description": "Called after every edit, import, add or delete."
+      },
+      {
+        "name": "mediaRef",
+        "type": "RefObject<HTMLMediaElement | null>",
+        "required": true,
+        "description": "The audio or video being captioned. Its time drives the highlight and the “set” buttons."
+      },
+      {
+        "name": "exportName",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'captions'",
+        "description": "File name, without extension, used for exports."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Caption editor'",
+        "description": "Names the editor."
       },
       {
         "name": "className",
@@ -3665,6 +4050,137 @@
       "ChoiceCardGroupSingleProps | ChoiceCardGroupMultipleProps"
     ]
   },
+  "ChordDiagram": {
+    "props": [
+      {
+        "name": "labels",
+        "type": "string[]",
+        "required": true,
+        "description": "One name per group, in matrix order."
+      },
+      {
+        "name": "matrix",
+        "type": "number[][]",
+        "required": true,
+        "description": "Square flow matrix: `matrix[i][j]` is what flows from group i to group j. Row totals set each group’s arc; the diagonal is flow a group keeps."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the chart."
+      },
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "defaultValue": "420",
+        "description": "Largest rendered size in pixels. The chart shrinks with its container."
+      },
+      {
+        "name": "padAngle",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.045",
+        "description": "Gap between group arcs, in radians."
+      },
+      {
+        "name": "colors",
+        "type": "string[]",
+        "required": false,
+        "description": "One CSS colour per group. Defaults walk SERIES_COLORS."
+      },
+      {
+        "name": "format",
+        "type": "(value: number) => string",
+        "required": false,
+        "defaultValue": "formatTick",
+        "description": "Format flows in the tooltip and the hidden table."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "ChoroplethMap": {
+    "props": [
+      {
+        "name": "data",
+        "type": "ChoroplethMapFeatureCollection",
+        "required": true,
+        "description": "Regions as a GeoJSON FeatureCollection of Polygons and MultiPolygons."
+      },
+      {
+        "name": "values",
+        "type": "Record<string, number>",
+        "required": true,
+        "description": "Value per region, keyed by what `featureKey` returns. Missing keys are drawn as “no data”."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the map."
+      },
+      {
+        "name": "featureKey",
+        "type": "(feature: ChoroplethMapFeature) => string",
+        "required": false,
+        "defaultValue": "(feature) => String(feature.id ?? feature.properties?.id ?? '')",
+        "description": "Key of a feature in `values`. Defaults to `feature.id`, then `properties.id`."
+      },
+      {
+        "name": "featureName",
+        "type": "(feature: ChoroplethMapFeature) => string",
+        "required": false,
+        "description": "Name of a feature for labels. Defaults to `properties.name`, then the key."
+      },
+      {
+        "name": "projection",
+        "type": "ChoroplethMapProjection",
+        "required": false,
+        "defaultValue": "'mercator'",
+        "description": "Equirectangular keeps areas honest near the equator; Mercator is what people expect of a world map."
+      },
+      {
+        "name": "steps",
+        "type": "number",
+        "required": false,
+        "defaultValue": "5",
+        "description": "Colour steps between the lowest and highest value."
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "defaultValue": "360",
+        "description": "Plot height in pixels. The width fills the container."
+      },
+      {
+        "name": "format",
+        "type": "(value: number) => string",
+        "required": false,
+        "defaultValue": "formatTick",
+        "description": "Format values in the legend, tooltip and table."
+      },
+      {
+        "name": "valueLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Value'",
+        "description": "What a value measures — “Signups per 1,000”."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "CircularText": {
     "props": [
       {
@@ -3727,6 +4243,83 @@
         "type": "ReactNode",
         "required": false,
         "description": "Centre slot — an icon, a logo, or a round button. Stays upright while the ring turns."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "ClickHeatmap": {
+    "props": [
+      {
+        "name": "points",
+        "type": "ClickHeatmapPoint[]",
+        "required": true
+      },
+      {
+        "name": "width",
+        "type": "number",
+        "required": true,
+        "description": "Width of the coordinate space the points were recorded in."
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": true,
+        "description": "Height of the coordinate space. The heat map keeps this aspect ratio."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name — say which page and which period."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "What was clicked: a screenshot, a wireframe, the real component. Drawn beneath the heat."
+      },
+      {
+        "name": "radius",
+        "type": "number",
+        "required": false,
+        "defaultValue": "36",
+        "description": "Kernel radius (one standard deviation) in coordinate units. Larger blends clicks into regions."
+      },
+      {
+        "name": "intensity",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1",
+        "description": "Multiplies the heat before it is coloured; above 1, quieter areas show sooner."
+      },
+      {
+        "name": "showPoints",
+        "type": "boolean",
+        "required": false,
+        "description": "Draw each click as a dot. Controlled."
+      },
+      {
+        "name": "defaultShowPoints",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Initial dot visibility when uncontrolled."
+      },
+      {
+        "name": "onShowPointsChange",
+        "type": "(show: boolean) => void",
+        "required": false
+      },
+      {
+        "name": "hotspots",
+        "type": "number",
+        "required": false,
+        "description": "How many hotspots to name in the summary."
       },
       {
         "name": "className",
@@ -4438,6 +5031,54 @@
         "type": "(resolved: boolean) => void",
         "required": false,
         "description": "Shows the Resolve / Reopen control."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "CommitGraph": {
+    "props": [
+      {
+        "name": "commits",
+        "type": "CommitGraphCommit[]",
+        "required": true,
+        "description": "Newest first, parents after their children — the order `git log --topo-order` prints."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the list."
+      },
+      {
+        "name": "value",
+        "type": "string | null",
+        "required": false,
+        "description": "Selected commit hash. Controlled."
+      },
+      {
+        "name": "defaultValue",
+        "type": "string | null",
+        "required": false,
+        "defaultValue": "null",
+        "description": "Initially selected hash when uncontrolled."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(hash: string, commit: CommitGraphCommit) => void",
+        "required": false,
+        "description": "Called when the selection moves, by click or arrow key."
+      },
+      {
+        "name": "maxHeight",
+        "type": "number",
+        "required": false,
+        "defaultValue": "440",
+        "description": "Height of the scrolling list in pixels."
       },
       {
         "name": "className",
@@ -5198,6 +5839,34 @@
       }
     ]
   },
+  "Crossword": {
+    "props": [
+      {
+        "name": "puzzle",
+        "type": "CrosswordPuzzle",
+        "required": true
+      },
+      {
+        "name": "onComplete",
+        "type": "() => void",
+        "required": false,
+        "description": "Called once when every letter is correct."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Crossword'",
+        "description": "Accessible name for the grid."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "CtaSection": {
     "props": [
       {
@@ -5645,6 +6314,49 @@
       }
     ]
   },
+  "DataProfile": {
+    "props": [
+      {
+        "name": "data",
+        "type": "Record<string, unknown>[]",
+        "required": true,
+        "description": "The records to profile."
+      },
+      {
+        "name": "columns",
+        "type": "string[]",
+        "required": false,
+        "description": "Columns in display order. Defaults to every key seen, in first-seen order."
+      },
+      {
+        "name": "maxCategories",
+        "type": "number",
+        "required": false,
+        "defaultValue": "12",
+        "description": "Strings with at most this many distinct values are treated as categories."
+      },
+      {
+        "name": "bins",
+        "type": "number",
+        "required": false,
+        "defaultValue": "12",
+        "description": "Histogram bins for numbers and dates."
+      },
+      {
+        "name": "headingLevel",
+        "type": "'h2' | 'h3' | 'h4' | 'h5'",
+        "required": false,
+        "defaultValue": "'h3'",
+        "description": "Heading level for each column's name, so the cards sit under the page's outline."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "DataTable": {
     "props": [
       {
@@ -6037,6 +6749,55 @@
         "required": false,
         "defaultValue": "1100",
         "description": "Milliseconds of tumbling."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "DictationButton": {
+    "props": [
+      {
+        "name": "targetRef",
+        "type": "RefObject<HTMLInputElement | HTMLTextAreaElement | null>",
+        "required": true,
+        "description": "The field the words go into, at the caret."
+      },
+      {
+        "name": "lang",
+        "type": "string",
+        "required": false,
+        "description": "BCP 47 language of the speech, e.g. `en-GB`. Defaults to the page language."
+      },
+      {
+        "name": "continuous",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Keep listening across pauses until pressed again. Off stops after one phrase."
+      },
+      {
+        "name": "onTranscript",
+        "type": "(text: string) => void",
+        "required": false,
+        "description": "Called with each finished phrase, after it is inserted."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Dictate'",
+        "description": "Accessible name of the button."
+      },
+      {
+        "name": "unsupportedMessage",
+        "type": "ReactNode",
+        "required": false,
+        "defaultValue": "'Dictation is not available in this browser. Try Chrome, Edge or Safari.'",
+        "description": "Shown instead of the button where speech recognition does not exist. `null` renders nothing."
       },
       {
         "name": "className",
@@ -6731,6 +7492,56 @@
       }
     ]
   },
+  "EasingEditor": {
+    "props": [
+      {
+        "name": "value",
+        "type": "EasingEditorValue",
+        "required": false,
+        "description": "Controlled curve."
+      },
+      {
+        "name": "defaultValue",
+        "type": "EasingEditorValue",
+        "required": false,
+        "defaultValue": "[0.25, 0.1, 0.25, 1]",
+        "description": "Starting curve when uncontrolled."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: EasingEditorValue) => void",
+        "required": false,
+        "description": "Called with the curve on every drag step, key press, typed number or preset."
+      },
+      {
+        "name": "presets",
+        "type": "EasingEditorPreset[]",
+        "required": false,
+        "defaultValue": "DEFAULT_PRESETS",
+        "description": "Offered as one-click starting points."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Easing'",
+        "description": "Names the editor and prefixes its handle names."
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1400",
+        "description": "Length of one preview run, in milliseconds."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "EditableTable": {
     "props": [
       {
@@ -6842,6 +7653,67 @@
         "type": "ReactNode",
         "required": false,
         "description": "Shown once verified — usually a Continue button."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "EmailViewer": {
+    "props": [
+      {
+        "name": "subject",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "from",
+        "type": "EmailViewerAddress",
+        "required": true
+      },
+      {
+        "name": "to",
+        "type": "EmailViewerAddress[]",
+        "required": true
+      },
+      {
+        "name": "cc",
+        "type": "EmailViewerAddress[]",
+        "required": false,
+        "defaultValue": "[]"
+      },
+      {
+        "name": "date",
+        "type": "Date",
+        "required": true
+      },
+      {
+        "name": "html",
+        "type": "string",
+        "required": true,
+        "description": "The message body. Treated as hostile: it never runs script and never shares this page’s origin."
+      },
+      {
+        "name": "attachments",
+        "type": "EmailViewerAttachment[]",
+        "required": false,
+        "defaultValue": "NO_ATTACHMENTS"
+      },
+      {
+        "name": "defaultShowImages",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Load remote images from the start — for senders the reader has already trusted."
+      },
+      {
+        "name": "onShowImages",
+        "type": "() => void",
+        "required": false,
+        "description": "Called when the reader chooses to load remote images."
       },
       {
         "name": "className",
@@ -7028,6 +7900,58 @@
       }
     ]
   },
+  "ErrorBoundary": {
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The subtree to protect."
+      },
+      {
+        "name": "fallback",
+        "type": "ReactNode | ((props: ErrorBoundaryFallbackProps) => ReactNode)",
+        "required": false,
+        "description": "What to show instead of a failed subtree: a node, or a function that gets the error and a `reset`. Omit for the built-in panel with a retry button."
+      },
+      {
+        "name": "resetKeys",
+        "type": "unknown[]",
+        "required": false,
+        "description": "Values the subtree depends on. When any of them changes while the fallback is showing, the boundary resets itself — pick another record and the error goes."
+      },
+      {
+        "name": "onError",
+        "type": "(error: Error, info: ErrorInfo) => void",
+        "required": false,
+        "description": "Called once per caught error, with React’s component stack. Report it from here."
+      },
+      {
+        "name": "onReset",
+        "type": "(reason: ErrorBoundaryResetReason) => void",
+        "required": false,
+        "description": "Called after the boundary clears its error, with what caused it."
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "Heading of the built-in fallback."
+      },
+      {
+        "name": "retryLabel",
+        "type": "string",
+        "required": false,
+        "description": "Label of the built-in fallback’s retry button."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged onto the built-in fallback."
+      }
+    ]
+  },
   "ErrorState": {
     "props": [
       {
@@ -7190,6 +8114,61 @@
         "required": false,
         "defaultValue": "'Show less'",
         "description": "Toggle label while the text is open."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "ExperimentResults": {
+    "props": [
+      {
+        "name": "variants",
+        "type": "ExperimentResultsVariant[]",
+        "required": true
+      },
+      {
+        "name": "metric",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'conversions'",
+        "description": "What a conversion is — “sign-ups”, “purchases”."
+      },
+      {
+        "name": "alpha",
+        "type": "ExperimentResultsAlpha",
+        "required": false,
+        "description": "Significance level, controlled."
+      },
+      {
+        "name": "defaultAlpha",
+        "type": "ExperimentResultsAlpha",
+        "required": false,
+        "defaultValue": "0.05",
+        "description": "Initial significance level when uncontrolled."
+      },
+      {
+        "name": "onAlphaChange",
+        "type": "(alpha: ExperimentResultsAlpha) => void",
+        "required": false,
+        "description": "Called when the reader picks another confidence level."
+      },
+      {
+        "name": "defaultMinimumEffect",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.1",
+        "description": "Initial minimum detectable effect, relative (0.1 = a 10% lift)."
+      },
+      {
+        "name": "power",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.8",
+        "description": "Statistical power for the sample size."
       },
       {
         "name": "className",
@@ -7794,6 +8773,97 @@
       }
     ]
   },
+  "FindInPage": {
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The content to search. Only its text is searched; the find bar never matches itself."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'this section'",
+        "description": "What the content is, for the field’s name — “Find in {label}”."
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether the find bar is showing. Omit to let the component manage it."
+      },
+      {
+        "name": "defaultOpen",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Starting state when uncontrolled."
+      },
+      {
+        "name": "onOpenChange",
+        "type": "(open: boolean) => void",
+        "required": false,
+        "description": "Called whenever the bar asks to open or close."
+      },
+      {
+        "name": "shortcut",
+        "type": "FindInPageShortcut",
+        "required": false,
+        "defaultValue": "'within'",
+        "description": "Where Ctrl/⌘+F opens this bar instead of the browser’s: only while focus is inside (`within`), anywhere on the page (`document`), or nowhere (`false`)."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged onto the wrapper."
+      }
+    ]
+  },
+  "FitText": {
+    "props": [
+      {
+        "name": "children",
+        "type": "string",
+        "required": true,
+        "description": "The line to fit. It never wraps."
+      },
+      {
+        "name": "min",
+        "type": "number",
+        "required": false,
+        "defaultValue": "16",
+        "description": "Smallest font size, in px. Below this the line is allowed to overflow and clip."
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "required": false,
+        "defaultValue": "160",
+        "description": "Largest font size, in px, however wide the container gets."
+      },
+      {
+        "name": "as",
+        "type": "ElementType",
+        "required": false,
+        "description": "Element to render — `h1` for a hero headline."
+      },
+      {
+        "name": "onFit",
+        "type": "(fontSize: number) => void",
+        "required": false,
+        "description": "Called with the fitted size in px after each fit."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged onto the element. Set weight, family and tracking here; they are measured."
+      }
+    ]
+  },
   "FlipBook": {
     "props": [
       {
@@ -8162,6 +9232,136 @@
     ],
     "inherits": [
       "FormHTMLAttributes<HTMLFormElement>"
+    ]
+  },
+  "FormulaEditor": {
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Controlled formula, including the leading `=`."
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'='",
+        "description": "Starting formula when uncontrolled."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: string) => void",
+        "required": false,
+        "description": "Called with the formula after every edit."
+      },
+      {
+        "name": "functions",
+        "type": "FormulaEditorFunction[]",
+        "required": false,
+        "defaultValue": "DEFAULT_FUNCTIONS",
+        "description": "Functions offered and understood. Defaults to SUM, AVERAGE, MIN, MAX, COUNT, ROUND, ABS, IF and CONCAT."
+      },
+      {
+        "name": "cells",
+        "type": "Record<string, FormulaEditorValue>",
+        "required": false,
+        "description": "Cell values by reference (`A1`). When given, the result is computed and shown."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name. Pair with a Field for a visible one."
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'=SUM(A1:A4)'"
+      },
+      {
+        "name": "invalid",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Marks the field invalid from outside. Parse errors do this by themselves once the field is left."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false"
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": false,
+        "description": "Overrides the generated id. Field supplies one."
+      },
+      {
+        "name": "'aria-describedby'",
+        "type": "string",
+        "required": false,
+        "description": "Extra descriptions, such as a Field hint."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "FractalExplorer": {
+    "props": [
+      {
+        "name": "defaultMode",
+        "type": "FractalExplorerMode",
+        "required": false,
+        "defaultValue": "'mandelbrot'",
+        "description": "Which set is shown first."
+      },
+      {
+        "name": "defaultIterations",
+        "type": "number",
+        "required": false,
+        "defaultValue": "160",
+        "description": "Escape-time iterations per pixel when it first renders. The slider changes it after that."
+      },
+      {
+        "name": "defaultJuliaConstant",
+        "type": "FractalExplorerPoint",
+        "required": false,
+        "defaultValue": "{ re: -0.8, im: 0.156 }",
+        "description": "The constant c the Julia set is drawn for, until one is picked from the Mandelbrot view."
+      },
+      {
+        "name": "onJuliaConstantChange",
+        "type": "(point: FractalExplorerPoint) => void",
+        "required": false,
+        "description": "Called when a new Julia constant is picked."
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "defaultValue": "360",
+        "description": "Height of the canvas, in pixels. The width fills the container."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Fractal explorer'",
+        "description": "Accessible name for the canvas."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
     ]
   },
   "FullscreenDialog": {
@@ -8805,6 +10005,61 @@
       }
     ]
   },
+  "HexViewer": {
+    "props": [
+      {
+        "name": "data",
+        "type": "Uint8Array | ArrayBuffer",
+        "required": true,
+        "description": "The bytes to show. Never copied, so a large buffer costs only the rows on screen."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the byte grid."
+      },
+      {
+        "name": "defaultBytesPerRow",
+        "type": "HexViewerBytesPerRow",
+        "required": false,
+        "defaultValue": "16",
+        "description": "Initial bytes per row; the reader can change it."
+      },
+      {
+        "name": "rows",
+        "type": "number",
+        "required": false,
+        "defaultValue": "12",
+        "description": "Visible rows before the grid scrolls."
+      },
+      {
+        "name": "defaultSelection",
+        "type": "HexViewerSelection",
+        "required": false,
+        "description": "Initial selection."
+      },
+      {
+        "name": "onSelectionChange",
+        "type": "(selection: HexViewerSelection) => void",
+        "required": false,
+        "description": "Called whenever the selection changes."
+      },
+      {
+        "name": "baseOffset",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0",
+        "description": "Added to every displayed offset — for a slice taken from the middle of a file."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "HighlightMatch": {
     "props": [
       {
@@ -9036,6 +10291,42 @@
         "name": "contentClassName",
         "type": "string",
         "required": false
+      }
+    ]
+  },
+  "Hotkeys": {
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true
+      },
+      {
+        "name": "sequenceTimeout",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1000",
+        "description": "Milliseconds allowed between the steps of a sequence."
+      },
+      {
+        "name": "initialScopes",
+        "type": "string[]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": "Scopes active from the start, besides `global`."
+      },
+      {
+        "name": "contained",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Listen only to key presses inside this element rather than the whole document."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged onto the wrapper when `contained`."
       }
     ]
   },
@@ -9279,6 +10570,77 @@
       }
     ]
   },
+  "ImageDiff": {
+    "props": [
+      {
+        "name": "before",
+        "type": "string",
+        "required": true,
+        "description": "The baseline image URL. Cross-origin images need CORS headers for their pixels to be readable."
+      },
+      {
+        "name": "after",
+        "type": "string",
+        "required": true,
+        "description": "The candidate image URL, compared at the baseline’s size."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the comparison."
+      },
+      {
+        "name": "threshold",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.1",
+        "description": "0 to 1. How different two pixels must be, perceptually, to count as changed."
+      },
+      {
+        "name": "mode",
+        "type": "ImageDiffMode",
+        "required": false,
+        "description": "Controlled view."
+      },
+      {
+        "name": "defaultMode",
+        "type": "ImageDiffMode",
+        "required": false,
+        "defaultValue": "'diff'",
+        "description": "Initial view when uncontrolled."
+      },
+      {
+        "name": "onModeChange",
+        "type": "(mode: ImageDiffMode) => void",
+        "required": false
+      },
+      {
+        "name": "beforeLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Before'"
+      },
+      {
+        "name": "afterLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'After'"
+      },
+      {
+        "name": "onDiff",
+        "type": "(result: ImageDiffResult) => void",
+        "required": false,
+        "description": "Called once the images are compared."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "ImageGallery": {
     "props": [
       {
@@ -9497,6 +10859,98 @@
         "type": "string",
         "required": false,
         "description": "Merged onto the wrapper."
+      }
+    ]
+  },
+  "InlineCompletion": {
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Controlled text."
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "defaultValue": "''",
+        "description": "Starting text when uncontrolled."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: string) => void",
+        "required": false,
+        "description": "Called with the text after every keystroke and every accepted suggestion."
+      },
+      {
+        "name": "getSuggestion",
+        "type": "(text: string, signal: AbortSignal) => InlineCompletionSuggestion | Promise<InlineCompletionSuggestion>",
+        "required": true,
+        "description": "Returns what should follow the text — only the continuation, not the text itself. May return a promise; the signal aborts when the text changes before it settles, and a late answer is ignored either way."
+      },
+      {
+        "name": "debounce",
+        "type": "number",
+        "required": false,
+        "defaultValue": "150",
+        "description": "Quiet time after the last keystroke before asking, in milliseconds."
+      },
+      {
+        "name": "multiline",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "A textarea instead of a single line."
+      },
+      {
+        "name": "rows",
+        "type": "number",
+        "required": false,
+        "defaultValue": "3",
+        "description": "Visible lines when multiline."
+      },
+      {
+        "name": "onAccept",
+        "type": "(accepted: string) => void",
+        "required": false,
+        "description": "Called with the part of a suggestion that was accepted."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name. Pair with a Field for a visible one."
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Blocks interaction and dims the control."
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": false,
+        "description": "Overrides the generated id. Field supplies one."
+      },
+      {
+        "name": "'aria-describedby'",
+        "type": "string",
+        "required": false,
+        "description": "Extra descriptions, such as a Field hint."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins; targets the wrapper."
       }
     ]
   },
@@ -9953,6 +11407,69 @@
       }
     ]
   },
+  "Joystick": {
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name, such as “Move”."
+      },
+      {
+        "name": "onMove",
+        "type": "(vector: JoystickVector) => void",
+        "required": false,
+        "description": "Called with the vector whenever it changes, and every frame while held if `continuous` is on."
+      },
+      {
+        "name": "onEnd",
+        "type": "() => void",
+        "required": false,
+        "description": "Called once when the stick is released and springs back."
+      },
+      {
+        "name": "mode",
+        "type": "JoystickMode",
+        "required": false,
+        "defaultValue": "'analog'",
+        "description": "`analog` reports any angle; `dpad4` and `dpad8` snap to four or eight directions."
+      },
+      {
+        "name": "deadZone",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.12",
+        "description": "Fraction of the radius, 0–1, that reads as centred. Stops drift from a resting thumb."
+      },
+      {
+        "name": "continuous",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Report the vector every animation frame while held, not only on change — what a game loop wants."
+      },
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "defaultValue": "144",
+        "description": "Diameter of the base in pixels."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Blocks interaction and dims the control."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "JsonViewer": {
     "props": [
       {
@@ -10376,6 +11893,60 @@
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "LazyMount": {
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Rendered once the wrapper comes within `rootMargin` of the viewport."
+      },
+      {
+        "name": "rootMargin",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'200px'",
+        "description": "How far outside the viewport to start mounting, as an IntersectionObserver root margin."
+      },
+      {
+        "name": "minHeight",
+        "type": "number | string",
+        "required": false,
+        "description": "Space held before mount, so the page does not jump when the content arrives. Number is px."
+      },
+      {
+        "name": "aspectRatio",
+        "type": "number | string",
+        "required": false,
+        "description": "Aspect ratio held before mount — `16 / 9` — for media whose height follows its width."
+      },
+      {
+        "name": "placeholder",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Shown in the reserved space until mount. Defaults to a quiet sunken block."
+      },
+      {
+        "name": "unmountWhenHidden",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Unmount again when scrolled far away, keeping the last measured height. For very long pages."
+      },
+      {
+        "name": "onMount",
+        "type": "() => void",
+        "required": false,
+        "description": "Called each time the children mount."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged onto the wrapper."
       }
     ]
   },
@@ -11236,6 +12807,55 @@
       }
     ]
   },
+  "Magnifier": {
+    "props": [
+      {
+        "name": "src",
+        "type": "string",
+        "required": true,
+        "description": "The image. The lens shows this same file, scaled up."
+      },
+      {
+        "name": "alt",
+        "type": "string",
+        "required": true,
+        "description": "Describes the image."
+      },
+      {
+        "name": "zoom",
+        "type": "number",
+        "required": false,
+        "defaultValue": "2.5",
+        "description": "How many times larger the lens shows it."
+      },
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "defaultValue": "160",
+        "description": "Lens diameter, or side for a square lens, in pixels."
+      },
+      {
+        "name": "shape",
+        "type": "'circle' | 'square'",
+        "required": false,
+        "defaultValue": "'circle'",
+        "description": "Lens shape."
+      },
+      {
+        "name": "aspectRatio",
+        "type": "number",
+        "required": false,
+        "description": "Image aspect ratio (width / height). Reserves the space before the image loads."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "MaintenanceNotice": {
     "props": [
       {
@@ -11741,6 +13361,41 @@
         "type": "string",
         "required": false,
         "description": "Merged onto the wrapper."
+      }
+    ]
+  },
+  "MathFormula": {
+    "props": [
+      {
+        "name": "tex",
+        "type": "string",
+        "required": true,
+        "description": "The formula, in the TeX subset described on the page: fractions, roots, scripts, Greek, big operators, matrices, \\text."
+      },
+      {
+        "name": "display",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Set on its own line, centred and full size. Off, it sits in a line of text."
+      },
+      {
+        "name": "render",
+        "type": "MathFormulaRender",
+        "required": false,
+        "description": "`auto` draws MathML where the browser can and falls back to a linear text form where it cannot. `mathml` and `text` force one or the other."
+      },
+      {
+        "name": "onError",
+        "type": "(message: string) => void",
+        "required": false,
+        "description": "Called with the message when the formula cannot be parsed."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
       }
     ]
   },
@@ -12518,6 +14173,65 @@
       }
     ]
   },
+  "MiddleTruncate": {
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "description": "The full string. Always what assistive technology reads and what copying yields."
+      },
+      {
+        "name": "keepEnd",
+        "type": "number | 'extension'",
+        "required": false,
+        "defaultValue": "'extension'",
+        "description": "Characters always kept at the end. `'extension'` keeps the file extension plus the few characters before it — `…-final.pdf`. A number keeps exactly that many."
+      },
+      {
+        "name": "ellipsis",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'…'",
+        "description": "What stands in for the cut."
+      },
+      {
+        "name": "as",
+        "type": "ElementType",
+        "required": false,
+        "description": "Element to render."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged onto the element. Set the font here; it is what gets measured."
+      }
+    ]
+  },
+  "Minesweeper": {
+    "props": [
+      {
+        "name": "defaultDifficulty",
+        "type": "MinesweeperDifficulty",
+        "required": false,
+        "defaultValue": "'beginner'",
+        "description": "Board size and mine count of the first game. The picker changes it after that."
+      },
+      {
+        "name": "onGameEnd",
+        "type": "(result: MinesweeperResult) => void",
+        "required": false,
+        "description": "Called when a game is won or lost."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "MiniMap": {
     "props": [
       {
@@ -12813,6 +14527,85 @@
         "type": "string",
         "required": false,
         "description": "Overrides the generated id. Useful when a label lives elsewhere."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "NaturalDateInput": {
+    "props": [
+      {
+        "name": "value",
+        "type": "Date | null",
+        "required": false,
+        "description": "Controlled moment. null is an empty field."
+      },
+      {
+        "name": "defaultValue",
+        "type": "Date | null",
+        "required": false,
+        "defaultValue": "null",
+        "description": "Starting moment when uncontrolled."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: Date | null) => void",
+        "required": false,
+        "description": "Called when a reading is committed — Enter, leaving the field, a calendar pick, or a suggestion."
+      },
+      {
+        "name": "referenceDate",
+        "type": "Date",
+        "required": false,
+        "description": "The “now” that phrases are read against. Defaults to the current time."
+      },
+      {
+        "name": "dayFirst",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Read 03/04 as 3 April (true) or March 4 (false). The other reading is still offered."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name. Pair with a Field for a visible one."
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Try “next fri 3pm” or “in 2 weeks”'"
+      },
+      {
+        "name": "invalid",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Marks the field invalid from outside."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false"
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": false,
+        "description": "Overrides the generated id. Field supplies one."
+      },
+      {
+        "name": "'aria-describedby'",
+        "type": "string",
+        "required": false,
+        "description": "Extra descriptions, such as a Field hint."
       },
       {
         "name": "className",
@@ -13123,6 +14916,69 @@
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "NodeEditor": {
+    "props": [
+      {
+        "name": "value",
+        "type": "NodeEditorGraph",
+        "required": false,
+        "description": "Controlled graph."
+      },
+      {
+        "name": "defaultValue",
+        "type": "NodeEditorGraph",
+        "required": false,
+        "defaultValue": "{ nodes: [], wires: [] }",
+        "description": "Initial graph, uncontrolled."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(graph: NodeEditorGraph) => void",
+        "required": false,
+        "description": "Called with the whole graph after every change, including each step of a node drag."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the canvas."
+      },
+      {
+        "name": "isCompatible",
+        "type": "(outputType: string, inputType: string) => boolean",
+        "required": false,
+        "defaultValue": "defaultCompatible",
+        "description": "Whether an output type may feed an input type. Defaults to equal types, or either side being `any`."
+      },
+      {
+        "name": "allowCycles",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Allow wires that close a loop. Off by default: most node graphs are evaluated in order and a loop never ends."
+      },
+      {
+        "name": "nodeWidth",
+        "type": "number",
+        "required": false,
+        "defaultValue": "184",
+        "description": "Width of every node in pixels."
+      },
+      {
+        "name": "wheelZoom",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Zoom with the wheel. Turn it off inside a scrolling page if it fights the scroll."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins. Give the component a height here."
       }
     ]
   },
@@ -13585,6 +15441,35 @@
       }
     ]
   },
+  "OpenApiReference": {
+    "props": [
+      {
+        "name": "document",
+        "type": "OpenApiReferenceDocument",
+        "required": true,
+        "description": "The document to render. Local `$ref`s (`#/components/…`) are resolved; remote ones are shown by name."
+      },
+      {
+        "name": "baseUrl",
+        "type": "string",
+        "required": false,
+        "description": "Base URL for the curl snippet. Defaults to the first server."
+      },
+      {
+        "name": "defaultOpen",
+        "type": "string[]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": "Operation ids (or `METHOD path`) open on first render."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "OrbitRing": {
     "props": [
       {
@@ -13850,6 +15735,62 @@
       }
     ]
   },
+  "PagedDocument": {
+    "props": [
+      {
+        "name": "blocks",
+        "type": "PagedDocumentBlock[]",
+        "required": true,
+        "description": "The content, in reading order. Blocks are never split; one taller than a page is flagged."
+      },
+      {
+        "name": "size",
+        "type": "PagedDocumentSize",
+        "required": false,
+        "defaultValue": "'a4'",
+        "description": "Paper size."
+      },
+      {
+        "name": "margins",
+        "type": "number | PagedDocumentMargins",
+        "required": false,
+        "defaultValue": "18",
+        "description": "Page margins in millimetres — one number for all four sides. Header and footer sit inside the top and bottom margins."
+      },
+      {
+        "name": "header",
+        "type": "ReactNode | ((info: PagedDocumentPageInfo) => ReactNode)",
+        "required": false,
+        "description": "Running header on every page."
+      },
+      {
+        "name": "footer",
+        "type": "ReactNode | ((info: PagedDocumentPageInfo) => ReactNode)",
+        "required": false,
+        "defaultValue": "({ page, total }: PagedDocumentPageInfo) => `Page ${page} of ${total}`",
+        "description": "Running footer on every page. Defaults to “Page X of Y”."
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": "Name of the document, for the landmark and the print button."
+      },
+      {
+        "name": "printable",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Owns the page when printed: everything else is hidden and the pages print at full size. One per page."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "Pagination": {
     "props": [
       {
@@ -13971,6 +15912,75 @@
       }
     ]
   },
+  "PanoramaViewer": {
+    "props": [
+      {
+        "name": "src",
+        "type": "string",
+        "required": true,
+        "description": "An equirectangular image: 360° across, 180° top to bottom, twice as wide as tall."
+      },
+      {
+        "name": "alt",
+        "type": "string",
+        "required": true,
+        "description": "What the scene is. Names the viewer and the flat fallback image."
+      },
+      {
+        "name": "initialYaw",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0",
+        "description": "Starting heading in degrees. 0 is the centre of the image; 90 is a quarter to the right."
+      },
+      {
+        "name": "initialPitch",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0",
+        "description": "Starting tilt in degrees, positive looking up."
+      },
+      {
+        "name": "initialFov",
+        "type": "number",
+        "required": false,
+        "defaultValue": "75",
+        "description": "Starting field of view in degrees. Smaller is more zoomed in."
+      },
+      {
+        "name": "minFov",
+        "type": "number",
+        "required": false,
+        "defaultValue": "30"
+      },
+      {
+        "name": "maxFov",
+        "type": "number",
+        "required": false,
+        "defaultValue": "100"
+      },
+      {
+        "name": "autoRotate",
+        "type": "boolean | number",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Turn slowly on its own. `true` is 6°/s; a number is degrees per second. Never under reduced motion."
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "defaultValue": "360",
+        "description": "Viewer height in pixels."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "Parallax": {
     "props": [
       {
@@ -13985,6 +15995,83 @@
         "required": false,
         "defaultValue": "0.15",
         "description": "How far the content moves relative to the scroll, 0 to 1. Keep it small."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "ParallelCoordinates": {
+    "props": [
+      {
+        "name": "dimensions",
+        "type": "ParallelCoordinatesDimension[]",
+        "required": true
+      },
+      {
+        "name": "records",
+        "type": "ParallelCoordinatesRecord[]",
+        "required": true
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the chart."
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "defaultValue": "300",
+        "description": "Plot height in pixels. The width fills the container."
+      },
+      {
+        "name": "order",
+        "type": "string[]",
+        "required": false,
+        "description": "Axis keys, left to right. Controlled."
+      },
+      {
+        "name": "defaultOrder",
+        "type": "string[]",
+        "required": false,
+        "description": "Initial axis order when uncontrolled. Defaults to the dimensions’ order."
+      },
+      {
+        "name": "onOrderChange",
+        "type": "(order: string[]) => void",
+        "required": false,
+        "description": "Called with the new order after a drag or Arrow key move."
+      },
+      {
+        "name": "brushes",
+        "type": "ParallelCoordinatesBrushes",
+        "required": false,
+        "description": "Active brushes. Controlled."
+      },
+      {
+        "name": "defaultBrushes",
+        "type": "ParallelCoordinatesBrushes",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Initial brushes when uncontrolled."
+      },
+      {
+        "name": "onBrushesChange",
+        "type": "(brushes: ParallelCoordinatesBrushes) => void",
+        "required": false,
+        "description": "Called whenever a brush is drawn, moved or cleared."
+      },
+      {
+        "name": "noun",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'record'",
+        "description": "What a record is called in the count — “team”, “car”."
       },
       {
         "name": "className",
@@ -14103,6 +16190,52 @@
       }
     ]
   },
+  "PasskeyManager": {
+    "props": [
+      {
+        "name": "passkeys",
+        "type": "PasskeyManagerPasskey[]",
+        "required": true,
+        "description": "The passkeys your server has on record for this account."
+      },
+      {
+        "name": "getCreationOptions",
+        "type": "() => Promise<PublicKeyCredentialCreationOptions>",
+        "required": true,
+        "description": "Fetches fresh registration options — the challenge must come from your server, once per attempt."
+      },
+      {
+        "name": "onCreate",
+        "type": "(created: PasskeyManagerCreated) => void | Promise<void>",
+        "required": true,
+        "description": "Verifies and stores the new credential. Reject to show the server’s message."
+      },
+      {
+        "name": "onRename",
+        "type": "(id: string, name: string) => void | Promise<void>",
+        "required": true,
+        "description": "Renames a passkey."
+      },
+      {
+        "name": "onRemove",
+        "type": "(id: string) => void | Promise<void>",
+        "required": true,
+        "description": "Removes a passkey from the account."
+      },
+      {
+        "name": "now",
+        "type": "Date",
+        "required": false,
+        "description": "The current moment, for relative dates in previews and tests."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "PasswordInput": {
     "props": [
       {
@@ -14163,6 +16296,56 @@
         "required": false,
         "defaultValue": "false",
         "description": "Show only the meter and the level word, without the checklist."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "PatternLock": {
+    "props": [
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "defaultValue": "3",
+        "description": "Dots per side."
+      },
+      {
+        "name": "minLength",
+        "type": "number",
+        "required": false,
+        "defaultValue": "4",
+        "description": "Fewest dots a pattern may have. Shorter ones are refused with a message."
+      },
+      {
+        "name": "onComplete",
+        "type": "(pattern: number[]) => boolean | void | Promise<boolean | void>",
+        "required": false,
+        "description": "Called with the dot indices (row by row, from 0) when a pattern is finished. Return or resolve true for success, false for a wrong pattern."
+      },
+      {
+        "name": "status",
+        "type": "PatternLockStatus",
+        "required": false,
+        "description": "Forces the state from outside, for patterns checked elsewhere."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Unlock pattern'",
+        "description": "Accessible name."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Blocks drawing."
       },
       {
         "name": "className",
@@ -14297,6 +16480,64 @@
         "required": false,
         "defaultValue": "false",
         "description": "Render nothing rather than an explanation. Correct only where the region's existence is itself confidential — never merely to tidy the layout."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "PermissionPrompt": {
+    "props": [
+      {
+        "name": "permission",
+        "type": "PermissionPromptKind",
+        "required": true,
+        "description": "The browser permission this card asks for."
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "Heading. Defaults to a plain request for the permission."
+      },
+      {
+        "name": "reason",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Why the product needs it — the value to the reader, said before the browser asks."
+      },
+      {
+        "name": "allowLabel",
+        "type": "string",
+        "required": false,
+        "description": "Text of the button that triggers the real browser prompt."
+      },
+      {
+        "name": "onDismiss",
+        "type": "() => void",
+        "required": false,
+        "description": "Shows a Not now button. Called when it is pressed."
+      },
+      {
+        "name": "onStateChange",
+        "type": "(state: PermissionPromptState) => void",
+        "required": false,
+        "description": "Called on every state change, including changes made in the browser’s own settings."
+      },
+      {
+        "name": "deniedInstructions",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Replaces the built-in steps for turning a blocked permission back on."
+      },
+      {
+        "name": "previewState",
+        "type": "PermissionPromptState",
+        "required": false,
+        "description": "Render a fixed state without touching the browser — for docs and design review."
       },
       {
         "name": "className",
@@ -14465,6 +16706,69 @@
       }
     ]
   },
+  "PictureInPicture": {
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The live content. It keeps its state when it moves into the floating window and back."
+      },
+      {
+        "name": "width",
+        "type": "number",
+        "required": false,
+        "defaultValue": "360",
+        "description": "Size of the floating window in CSS pixels. The browser may clamp it."
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "defaultValue": "240",
+        "description": "Height of the floating window in CSS pixels."
+      },
+      {
+        "name": "openLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Pop out'",
+        "description": "Label on the pop-out button."
+      },
+      {
+        "name": "closeLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Bring back'",
+        "description": "Label on the button that brings the content back."
+      },
+      {
+        "name": "placeholder",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Shown in place of the content while it is in the floating window."
+      },
+      {
+        "name": "unsupportedMessage",
+        "type": "ReactNode",
+        "required": false,
+        "defaultValue": "'Popping this out needs Document Picture-in-Picture, which this browser does not support yet. It works in current Chrome and Edge.'",
+        "description": "Shown beside the content where Document Picture-in-Picture is not available."
+      },
+      {
+        "name": "onOpenChange",
+        "type": "(open: boolean) => void",
+        "required": false,
+        "description": "Called when the window opens or closes, whichever side closed it."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "PinPad": {
     "props": [
       {
@@ -14511,6 +16815,127 @@
         "required": false,
         "defaultValue": "false",
         "description": "Blocks interaction and dims the control."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "PitchTuner": {
+    "props": [
+      {
+        "name": "referenceA4",
+        "type": "number",
+        "required": false,
+        "description": "Concert pitch for A4, in hertz, when controlled."
+      },
+      {
+        "name": "defaultReferenceA4",
+        "type": "number",
+        "required": false,
+        "defaultValue": "440",
+        "description": "Starting concert pitch when uncontrolled."
+      },
+      {
+        "name": "onReferenceA4Change",
+        "type": "(hertz: number) => void",
+        "required": false,
+        "description": "Called when the person changes the reference."
+      },
+      {
+        "name": "tolerance",
+        "type": "number",
+        "required": false,
+        "defaultValue": "5",
+        "description": "Cents either side of the note that count as in tune."
+      },
+      {
+        "name": "minFrequency",
+        "type": "number",
+        "required": false,
+        "defaultValue": "60",
+        "description": "Lowest pitch listened for. Lower costs more work per frame."
+      },
+      {
+        "name": "maxFrequency",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1500",
+        "description": "Highest pitch listened for."
+      },
+      {
+        "name": "onPitch",
+        "type": "(reading: PitchTunerReading | null) => void",
+        "required": false,
+        "description": "Called with each new reading, or null when the sound stops."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Tuner'",
+        "description": "Names the tuner."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "PivotTable": {
+    "props": [
+      {
+        "name": "records",
+        "type": "PivotTableRecord[]",
+        "required": true,
+        "description": "Flat records, one per fact — an order line, a ticket, a session."
+      },
+      {
+        "name": "dimensions",
+        "type": "PivotTableField[]",
+        "required": true,
+        "description": "Fields that can become rows or columns."
+      },
+      {
+        "name": "measures",
+        "type": "PivotTableMeasure[]",
+        "required": true,
+        "description": "Numeric fields that can be aggregated."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name, and the table caption."
+      },
+      {
+        "name": "value",
+        "type": "PivotTableConfig",
+        "required": false,
+        "description": "The pivot. Controlled."
+      },
+      {
+        "name": "defaultValue",
+        "type": "Partial<PivotTableConfig>",
+        "required": false,
+        "description": "Initial pivot when uncontrolled."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(config: PivotTableConfig) => void",
+        "required": false
+      },
+      {
+        "name": "showConfig",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Show the row, column, value and aggregation pickers above the table."
       },
       {
         "name": "className",
@@ -15195,6 +17620,61 @@
         "type": "'h2' | 'h3' | 'h4'",
         "required": false,
         "description": "Heading level for the title."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "ProductVariantPicker": {
+    "props": [
+      {
+        "name": "options",
+        "type": "ProductVariantPickerOption[]",
+        "required": true,
+        "description": "The option groups, in the order they are shown."
+      },
+      {
+        "name": "variants",
+        "type": "ProductVariantPickerVariant[]",
+        "required": true,
+        "description": "Every SKU that exists. A combination missing from this list is not made."
+      },
+      {
+        "name": "value",
+        "type": "Record<string, string>",
+        "required": false,
+        "description": "Controlled selection, by option name."
+      },
+      {
+        "name": "defaultValue",
+        "type": "Record<string, string>",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Starting selection when uncontrolled."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(selection: Record<string, string>, variant: ProductVariantPickerVariant | null) => void",
+        "required": false,
+        "description": "Called with the selection, and the variant once every group has a value."
+      },
+      {
+        "name": "currency",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'GBP'",
+        "description": "ISO 4217 code for the price."
+      },
+      {
+        "name": "lowStock",
+        "type": "number",
+        "required": false,
+        "defaultValue": "5",
+        "description": "At or under this many units, the stock line says how many are left."
       },
       {
         "name": "className",
@@ -16299,6 +18779,48 @@
       }
     ]
   },
+  "ReadAloud": {
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "description": "Text to read. It is rendered by the component, so the current word can be marked in it."
+      },
+      {
+        "name": "targetRef",
+        "type": "RefObject<HTMLElement | null>",
+        "required": false,
+        "description": "Or read the text inside this element, in place. Highlighting needs the CSS Custom Highlight API."
+      },
+      {
+        "name": "lang",
+        "type": "string",
+        "required": false,
+        "description": "Language used to pick a default voice, e.g. `en-GB`. Defaults to the page language."
+      },
+      {
+        "name": "defaultRate",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1",
+        "description": "Starting speed, 0.5 to 2."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Read aloud'",
+        "description": "Names the controls."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "Receipt": {
     "props": [
       {
@@ -16633,6 +19155,62 @@
       }
     ]
   },
+  "RemoteSelections": {
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the text field."
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Controlled text."
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "defaultValue": "''",
+        "description": "Initial text, uncontrolled."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: string) => void",
+        "required": false,
+        "description": "Called with the new text on every local edit."
+      },
+      {
+        "name": "peers",
+        "type": "RemoteSelectionsPeer[]",
+        "required": true,
+        "description": "Everyone else’s carets and selections, as offsets into the current text."
+      },
+      {
+        "name": "onPeersChange",
+        "type": "(peers: RemoteSelectionsPeer[]) => void",
+        "required": false,
+        "description": "Called with the peers’ offsets moved through a local edit, so they can be stored until the next server update."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged onto the wrapper, last, so it wins."
+      },
+      {
+        "name": "textareaClassName",
+        "type": "string",
+        "required": false,
+        "description": "Merged onto the textarea."
+      }
+    ],
+    "inherits": [
+      "Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'value' | 'defaultValue' | 'onChange' | 'className'>"
+    ]
+  },
   "RepeaterField": {
     "props": [
       {
@@ -16928,6 +19506,68 @@
         "type": "ReviewSummaryHighlight[]",
         "required": false,
         "description": "Up to a few excerpts shown under the bars."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "RichTextEditor": {
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Controlled HTML. Sanitised on the way in, so it may come from anywhere."
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "defaultValue": "''",
+        "description": "Starting HTML when uncontrolled."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(html: string) => void",
+        "required": false,
+        "description": "Called with sanitised HTML after every edit. An empty document is ''."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name of the text box and its toolbar."
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Start writing…'",
+        "description": "Shown while the document is empty."
+      },
+      {
+        "name": "minHeight",
+        "type": "number",
+        "required": false,
+        "defaultValue": "160",
+        "description": "Height of the writing area before it grows, in pixels."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Blocks editing and dims the toolbar."
+      },
+      {
+        "name": "'aria-describedby'",
+        "type": "string",
+        "required": false,
+        "description": "Ids of elements that describe the text box — a hint, an error."
       },
       {
         "name": "className",
@@ -17424,6 +20064,53 @@
       }
     ]
   },
+  "SchemaForm": {
+    "props": [
+      {
+        "name": "schema",
+        "type": "SchemaFormSchema",
+        "required": true,
+        "description": "The schema to render. The root is usually an object."
+      },
+      {
+        "name": "value",
+        "type": "T",
+        "required": false,
+        "description": "Controlled value."
+      },
+      {
+        "name": "defaultValue",
+        "type": "T",
+        "required": false,
+        "description": "Starting value when uncontrolled. Defaults are built from the schema."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: T) => void",
+        "required": false,
+        "description": "Called with the whole value after every edit."
+      },
+      {
+        "name": "onSubmit",
+        "type": "(value: T) => void",
+        "required": false,
+        "description": "Called with the value once it passes every rule in the schema."
+      },
+      {
+        "name": "submitLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Save'",
+        "description": "Text of the submit button."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "ScopedSearch": {
     "props": [
       {
@@ -17761,6 +20448,87 @@
       }
     ]
   },
+  "ScrollSequence": {
+    "props": [
+      {
+        "name": "frames",
+        "type": "string[]",
+        "required": false,
+        "description": "Image URLs, one per frame, in order. Use this or `frameCount` with `drawFrame`."
+      },
+      {
+        "name": "frameCount",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0",
+        "description": "Number of generated frames, for `drawFrame`."
+      },
+      {
+        "name": "drawFrame",
+        "type": "ScrollSequenceDrawFrame",
+        "required": false,
+        "description": "Paints frame `index` into a blank canvas. Called once per frame up front, not on scroll."
+      },
+      {
+        "name": "frameSize",
+        "type": "{ width: number; height: number }",
+        "required": false,
+        "defaultValue": "{ width: 960, height: 540 }",
+        "description": "Pixel size generated frames are painted at."
+      },
+      {
+        "name": "length",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'300vh'",
+        "description": "How far the reader scrolls to play the whole sequence, as a CSS length."
+      },
+      {
+        "name": "pinHeight",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'100vh'",
+        "description": "Height of the pinned stage, as a CSS length. `100vh` for a full-screen hero."
+      },
+      {
+        "name": "fit",
+        "type": "ScrollSequenceFit",
+        "required": false,
+        "defaultValue": "'cover'",
+        "description": "`cover` fills the stage and crops; `contain` shows the whole frame."
+      },
+      {
+        "name": "stillFrame",
+        "type": "number",
+        "required": false,
+        "description": "The frame shown under reduced motion. Defaults to the middle one."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Describes the sequence for assistive tech."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode | ((progress: number) => ReactNode)",
+        "required": false,
+        "description": "Laid over the stage. A function receives scroll progress from 0 to 1."
+      },
+      {
+        "name": "onProgress",
+        "type": "(progress: number) => void",
+        "required": false,
+        "description": "Called with scroll progress from 0 to 1."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "ScrollStory": {
     "props": [
       {
@@ -17805,6 +20573,37 @@
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "ScrollSync": {
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The panes, anywhere below. Only `ScrollSyncPane`s take part."
+      },
+      {
+        "name": "mode",
+        "type": "ScrollSyncMode",
+        "required": false,
+        "defaultValue": "'proportional'",
+        "description": "`proportional` matches how far through each pane is. `anchor` lines up elements that share a `data-sync-anchor` value and interpolates between them."
+      },
+      {
+        "name": "axis",
+        "type": "ScrollSyncAxis",
+        "required": false,
+        "defaultValue": "'vertical'",
+        "description": "Which scroll direction to keep in step."
+      },
+      {
+        "name": "enabled",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Turn syncing off without unmounting anything."
       }
     ]
   },
@@ -17962,6 +20761,80 @@
         "required": false,
         "defaultValue": "false",
         "description": "Blocks interaction and dims the control."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "SeatMap": {
+    "props": [
+      {
+        "name": "sections",
+        "type": "SeatMapSection[]",
+        "required": true
+      },
+      {
+        "name": "tiers",
+        "type": "SeatMapTier[]",
+        "required": true,
+        "description": "Up to four tiers, drawn in the accent, success, warning and soft ink colours."
+      },
+      {
+        "name": "value",
+        "type": "string[]",
+        "required": false,
+        "description": "Controlled seat ids."
+      },
+      {
+        "name": "defaultValue",
+        "type": "string[]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": "Starting seat ids when uncontrolled."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(seats: string[]) => void",
+        "required": false,
+        "description": "Called with the chosen seat ids after every change."
+      },
+      {
+        "name": "maxSeats",
+        "type": "number",
+        "required": false,
+        "defaultValue": "6",
+        "description": "Most seats in one order."
+      },
+      {
+        "name": "noSingleGaps",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Refuse to continue while a choice strands a single empty seat between two taken ones."
+      },
+      {
+        "name": "stageLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Stage'",
+        "description": "Label over the top of the map."
+      },
+      {
+        "name": "currency",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'GBP'",
+        "description": "ISO 4217 code for prices."
+      },
+      {
+        "name": "onConfirm",
+        "type": "(seats: string[]) => void",
+        "required": false,
+        "description": "Shows a Continue button, enabled once the choice is valid."
       },
       {
         "name": "className",
@@ -18300,6 +21173,35 @@
       }
     ]
   },
+  "SequenceDiagram": {
+    "props": [
+      {
+        "name": "source",
+        "type": "string",
+        "required": true,
+        "description": "The diagram as text. One statement per line: `participant A as Alice`, `A->B: message`, `B-->A: reply`, `A->+B` / `B-->-A` to activate and deactivate, `note over A,B: text`, `note left of A: text`, `alt` / `else` / `opt` / `loop` … `end`, `activate A`, `deactivate A`. `#` starts a comment."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the diagram."
+      },
+      {
+        "name": "showTranscript",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Print the numbered text version under the diagram instead of only exposing it to assistive tech."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "SessionList": {
     "props": [
       {
@@ -18512,6 +21414,75 @@
         "name": "className",
         "type": "string",
         "required": false
+      }
+    ]
+  },
+  "ShaderCanvas": {
+    "props": [
+      {
+        "name": "fragment",
+        "type": "string",
+        "required": false,
+        "defaultValue": "DEFAULT_FRAGMENT",
+        "description": "GLSL ES 1.0 fragment shader with a `void main()`. Do not declare the uniforms — they are prepended: `u_time` (seconds), `u_resolution` (pixels), `u_pointer` (0–1, y up) and one `vec3` per entry in `colors`."
+      },
+      {
+        "name": "colors",
+        "type": "Record<string, string>",
+        "required": false,
+        "defaultValue": "DEFAULT_COLORS",
+        "description": "Uniform name → CSS colour. Tokens are resolved and re-read when the theme or accent changes."
+      },
+      {
+        "name": "resolution",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1",
+        "description": "Render resolution as a fraction of the device pixels. Lower is cheaper; soft shaders lose nothing at 0.5."
+      },
+      {
+        "name": "stillTime",
+        "type": "number",
+        "required": false,
+        "defaultValue": "4",
+        "description": "Seconds into the animation to draw when motion is reduced, so the still frame is a good one."
+      },
+      {
+        "name": "showErrors",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Show compile errors over the canvas. Useful while writing a shader; errors always reach `onError`."
+      },
+      {
+        "name": "onError",
+        "type": "(message: string) => void",
+        "required": false,
+        "description": "Called with the compile or link log when the shader fails."
+      },
+      {
+        "name": "onStatusChange",
+        "type": "(status: ShaderCanvasStatus) => void",
+        "required": false,
+        "description": "Called when rendering starts, or when it falls back."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Describe the image for assistive tech. Without it the canvas is decorative and hidden."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Content drawn on top of the shader."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins. Give the component a size here."
       }
     ]
   },
@@ -18977,6 +21948,50 @@
       }
     ]
   },
+  "Sidenotes": {
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The text, with `Sidenote` markers inside it."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Notes'",
+        "description": "Accessible name of the list of notes in the margin."
+      },
+      {
+        "name": "noteWidth",
+        "type": "number",
+        "required": false,
+        "defaultValue": "224",
+        "description": "Width of the margin column, in px."
+      },
+      {
+        "name": "gap",
+        "type": "number",
+        "required": false,
+        "defaultValue": "32",
+        "description": "Space between the text and the margin, in px."
+      },
+      {
+        "name": "collapseBelow",
+        "type": "number",
+        "required": false,
+        "defaultValue": "640",
+        "description": "Below this container width, in px, notes become inline toggles next to their markers."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged onto the wrapper."
+      }
+    ]
+  },
   "SignalStrength": {
     "props": [
       {
@@ -19260,6 +22275,43 @@
       "Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>"
     ]
   },
+  "SlidingPuzzle": {
+    "props": [
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "defaultValue": "4",
+        "description": "Tiles per side. 4 is the classic fifteen puzzle."
+      },
+      {
+        "name": "imageTiles",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Paint a generated picture across the tiles instead of plain numbers. The numbers stay, small, as a guide."
+      },
+      {
+        "name": "onSolve",
+        "type": "(result: SlidingPuzzleResult) => void",
+        "required": false,
+        "description": "Called when the tiles are back in order."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Sliding puzzle'",
+        "description": "Accessible name for the board."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "SlopeChart": {
     "props": [
       {
@@ -19368,6 +22420,64 @@
         "required": false,
         "defaultValue": "84",
         "description": "Row height in pixels."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "SnakeGame": {
+    "props": [
+      {
+        "name": "columns",
+        "type": "number",
+        "required": false,
+        "defaultValue": "20",
+        "description": "Cells across."
+      },
+      {
+        "name": "rows",
+        "type": "number",
+        "required": false,
+        "defaultValue": "14",
+        "description": "Cells down."
+      },
+      {
+        "name": "defaultSpeed",
+        "type": "SnakeGameSpeed",
+        "required": false,
+        "defaultValue": "'normal'",
+        "description": "Speed of the first game. The picker changes it after that."
+      },
+      {
+        "name": "defaultWalls",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Start with solid walls. Off, the snake wraps to the opposite edge."
+      },
+      {
+        "name": "storageKey",
+        "type": "string | null",
+        "required": false,
+        "defaultValue": "'klyv-snake-high-score'",
+        "description": "Where the high score is kept in localStorage. Pass null to keep it for the session only."
+      },
+      {
+        "name": "onGameOver",
+        "type": "(score: number) => void",
+        "required": false,
+        "description": "Called when a game ends."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Snake'",
+        "description": "Accessible name for the board."
       },
       {
         "name": "className",
@@ -19493,6 +22603,61 @@
       }
     ]
   },
+  "SortableTree": {
+    "props": [
+      {
+        "name": "value",
+        "type": "SortableTreeItem[]",
+        "required": false,
+        "description": "Controlled tree."
+      },
+      {
+        "name": "defaultValue",
+        "type": "SortableTreeItem[]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": "Initial tree, uncontrolled."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: SortableTreeItem[]) => void",
+        "required": false,
+        "description": "Called with the whole new tree after a move, or after a branch is collapsed or expanded."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the tree."
+      },
+      {
+        "name": "indentation",
+        "type": "number",
+        "required": false,
+        "defaultValue": "24",
+        "description": "Pixels per level, both for drawing and for how far a drag must travel sideways to change depth."
+      },
+      {
+        "name": "maxDepth",
+        "type": "number",
+        "required": false,
+        "defaultValue": "Number.POSITIVE_INFINITY",
+        "description": "Deepest level an item may be dropped at, counting the top level as 0."
+      },
+      {
+        "name": "renderLabel",
+        "type": "(item: SortableTreeItem) => ReactNode",
+        "required": false,
+        "description": "Custom row content. Defaults to the label."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "Sparkline": {
     "props": [
       {
@@ -19546,6 +22711,60 @@
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "SpatialNavigation": {
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Anything with focusable elements in it — cards, tiles, a toolbar of odd shapes."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Accessible name. When set, the container is a labelled group."
+      },
+      {
+        "name": "homeEnd",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Home and End jump to the first and last focusable element."
+      },
+      {
+        "name": "coneAngle",
+        "type": "number",
+        "required": false,
+        "defaultValue": "60",
+        "description": "Half-angle of the search cone, in degrees. Narrower keeps a move in its lane; wider reaches diagonal neighbours when nothing is straight ahead."
+      },
+      {
+        "name": "ignore",
+        "type": "string",
+        "required": false,
+        "description": "Extra selector for elements that keep the arrow keys for themselves."
+      },
+      {
+        "name": "onNavigate",
+        "type": "(element: HTMLElement, direction: SpatialNavigationDirection) => void",
+        "required": false,
+        "description": "Called after focus moves."
+      },
+      {
+        "name": "as",
+        "type": "ElementType",
+        "required": false,
+        "description": "Element to render."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged onto the container."
       }
     ]
   },
@@ -20005,6 +23224,41 @@
     ],
     "inherits": [
       "Omit<ComponentPropsWithoutRef<E>, keyof StackOwnProps | 'as'>"
+    ]
+  },
+  "StackTrace": {
+    "props": [
+      {
+        "name": "trace",
+        "type": "string",
+        "required": true,
+        "description": "The raw trace — `error.stack` from V8, Firefox or Safari, or a Python traceback."
+      },
+      {
+        "name": "getSource",
+        "type": "(file: string) => string | undefined | Promise<string | undefined>",
+        "required": false,
+        "description": "Returns a file’s source, to show lines around a frame. May be async; return undefined when unknown."
+      },
+      {
+        "name": "contextLines",
+        "type": "number",
+        "required": false,
+        "defaultValue": "3",
+        "description": "Lines shown either side of the frame’s line."
+      },
+      {
+        "name": "isLibraryFrame",
+        "type": "(frame: Omit<StackTraceFrame, 'library'>) => boolean",
+        "required": false,
+        "description": "Decides which frames are library code. Defaults to node_modules, site-packages and runtime internals."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
     ]
   },
   "StackedCards": {
@@ -20738,6 +23992,35 @@
         "required": false,
         "defaultValue": "false",
         "description": "Draw the tick only, without the accent disc behind it."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "Sudoku": {
+    "props": [
+      {
+        "name": "defaultDifficulty",
+        "type": "SudokuDifficulty",
+        "required": false,
+        "defaultValue": "'easy'",
+        "description": "Difficulty of the first puzzle. The picker changes it after that."
+      },
+      {
+        "name": "puzzle",
+        "type": "string",
+        "required": false,
+        "description": "A fixed puzzle as 81 characters, row by row, with `0` or `.` for blanks. It must have exactly one solution. Leave it out to generate puzzles."
+      },
+      {
+        "name": "onSolve",
+        "type": "(result: SudokuResult) => void",
+        "required": false,
+        "description": "Called once when the grid is filled correctly."
       },
       {
         "name": "className",
@@ -21893,6 +25176,68 @@
       }
     ]
   },
+  "TimezonePlanner": {
+    "props": [
+      {
+        "name": "zones",
+        "type": "TimezonePlannerZone[]",
+        "required": false,
+        "description": "Controlled rows. The first row’s day is the one the strip shows."
+      },
+      {
+        "name": "defaultZones",
+        "type": "TimezonePlannerZone[]",
+        "required": false,
+        "defaultValue": "CITIES.filter((city) => ['San Francisco', 'London', 'Mumbai', 'Tokyo'].includes(city.label))",
+        "description": "Starting rows when uncontrolled."
+      },
+      {
+        "name": "onZonesChange",
+        "type": "(zones: TimezonePlannerZone[]) => void",
+        "required": false,
+        "description": "Called when a row is added, removed or moved."
+      },
+      {
+        "name": "cities",
+        "type": "TimezonePlannerZone[]",
+        "required": false,
+        "defaultValue": "CITIES",
+        "description": "Cities offered by the Add menu."
+      },
+      {
+        "name": "defaultDate",
+        "type": "string",
+        "required": false,
+        "description": "The day to plan, as `YYYY-MM-DD`. Defaults to today."
+      },
+      {
+        "name": "workingHours",
+        "type": "{ start: number; end: number }",
+        "required": false,
+        "defaultValue": "{ start: 9, end: 17 }",
+        "description": "Local working hours, shaded in every row."
+      },
+      {
+        "name": "step",
+        "type": "15 | 30 | 60",
+        "required": false,
+        "defaultValue": "30",
+        "description": "Slot length in minutes."
+      },
+      {
+        "name": "onSelectionChange",
+        "type": "(selection: TimezonePlannerSelection) => void",
+        "required": false,
+        "description": "Called when the meeting window changes."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "ToggleButton": {
     "props": [
       {
@@ -22157,6 +25502,41 @@
         "required": false,
         "defaultValue": "false",
         "description": "Blocks interaction and dims the control."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "TrackChanges": {
+    "props": [
+      {
+        "name": "original",
+        "type": "string",
+        "required": true,
+        "description": "The text as it stands."
+      },
+      {
+        "name": "suggested",
+        "type": "string",
+        "required": true,
+        "description": "The text with the suggested edits applied."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(text: string, pending: number) => void",
+        "required": false,
+        "description": "Called with the resulting text after every decision. Undecided changes keep the original words."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Suggested edits'",
+        "description": "Accessible name of the document."
       },
       {
         "name": "className",
@@ -23535,6 +26915,48 @@
       }
     ]
   },
+  "VennDiagram": {
+    "props": [
+      {
+        "name": "sets",
+        "type": "VennDiagramSet[]",
+        "required": true,
+        "description": "Two or three sets. Extra sets are ignored."
+      },
+      {
+        "name": "intersections",
+        "type": "VennDiagramIntersection[]",
+        "required": true,
+        "description": "Overlap sizes. A missing pair means those sets do not overlap."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the diagram."
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "defaultValue": "300",
+        "description": "Plot height in pixels. The width fills the container."
+      },
+      {
+        "name": "format",
+        "type": "(value: number) => string",
+        "required": false,
+        "defaultValue": "formatTick",
+        "description": "Format counts in regions, the tooltip and the table."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "VersionHistory": {
     "props": [
       {
@@ -23813,12 +27235,169 @@
       }
     ]
   },
+  "VisionSimulator": {
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The interface to preview. It is only filtered, never changed."
+      },
+      {
+        "name": "value",
+        "type": "VisionSimulatorMode",
+        "required": false,
+        "description": "The simulated condition. Omit to let the component manage it."
+      },
+      {
+        "name": "defaultValue",
+        "type": "VisionSimulatorMode",
+        "required": false,
+        "defaultValue": "'none'",
+        "description": "Starting condition when uncontrolled."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: VisionSimulatorMode) => void",
+        "required": false,
+        "description": "Called when the picker changes the condition."
+      },
+      {
+        "name": "showPicker",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Show the built-in picker above the content."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Simulated vision'",
+        "description": "Accessible name of the picker."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged onto the wrapper."
+      }
+    ]
+  },
   "VisuallyHidden": {
     "props": [
       {
         "name": "children",
         "type": "ReactNode",
         "required": true
+      }
+    ]
+  },
+  "VoiceRecorder": {
+    "props": [
+      {
+        "name": "onRecordingComplete",
+        "type": "(result: VoiceRecorderResult) => void",
+        "required": false,
+        "description": "Called when a recording stops, with the audio and its length."
+      },
+      {
+        "name": "onDiscard",
+        "type": "() => void",
+        "required": false,
+        "description": "Called when the person throws the recording away."
+      },
+      {
+        "name": "maxDuration",
+        "type": "number",
+        "required": false,
+        "defaultValue": "120",
+        "description": "Recording stops by itself after this many seconds."
+      },
+      {
+        "name": "mimeType",
+        "type": "string",
+        "required": false,
+        "description": "Preferred container. Falls back to whatever the browser can record."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Voice recorder'",
+        "description": "Names the recorder."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "VoronoiField": {
+    "props": [
+      {
+        "name": "count",
+        "type": "number",
+        "required": false,
+        "defaultValue": "36",
+        "description": "Number of seeds, and so of cells. The clipping is O(n²), so a few dozen is the sweet spot."
+      },
+      {
+        "name": "speed",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.25",
+        "description": "Drift speed in pixels per frame at 60fps."
+      },
+      {
+        "name": "attraction",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.6",
+        "description": "How strongly seeds lean towards the pointer, 0 to turn it off."
+      },
+      {
+        "name": "reach",
+        "type": "number",
+        "required": false,
+        "defaultValue": "180",
+        "description": "Radius around the pointer, in pixels, inside which seeds are pulled."
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'var(--color-accent)'",
+        "description": "Colour the cells are tinted from — a token such as `var(--color-accent)`, or any CSS colour."
+      },
+      {
+        "name": "edgeColor",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'var(--color-line-strong)'",
+        "description": "Colour of the cell edges."
+      },
+      {
+        "name": "showSeeds",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Draw a dot at each seed."
+      },
+      {
+        "name": "seed",
+        "type": "number",
+        "required": false,
+        "defaultValue": "11",
+        "description": "Seed for the layout, so the same field comes back on every visit."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins. Give the component a size here."
       }
     ]
   },
@@ -24034,6 +27613,29 @@
         "required": false,
         "defaultValue": "false",
         "description": "Mirror the bars around the centre line, as an editor waveform does."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "WebVitals": {
+    "props": [
+      {
+        "name": "metrics",
+        "type": "WebVitalsName[]",
+        "required": false,
+        "defaultValue": "['LCP', 'INP', 'CLS', 'FCP', 'TTFB']",
+        "description": "Which metrics to show, in order."
+      },
+      {
+        "name": "onReport",
+        "type": "(metric: WebVitalsMetric) => void",
+        "required": false,
+        "description": "Called each time a metric’s value changes — send it to your analytics."
       },
       {
         "name": "className",
@@ -24307,6 +27909,124 @@
         "type": "boolean",
         "required": false,
         "defaultValue": "false"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "Whiteboard": {
+    "props": [
+      {
+        "name": "value",
+        "type": "WhiteboardShape[]",
+        "required": false,
+        "description": "Controlled shapes, bottom to top."
+      },
+      {
+        "name": "defaultValue",
+        "type": "WhiteboardShape[]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": "Initial shapes, uncontrolled."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: WhiteboardShape[]) => void",
+        "required": false,
+        "description": "Called with every change, including each step of a drag. Undo history is kept inside."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the drawing surface."
+      },
+      {
+        "name": "defaultTool",
+        "type": "WhiteboardTool",
+        "required": false,
+        "defaultValue": "'select'",
+        "description": "The tool selected at first."
+      },
+      {
+        "name": "onExport",
+        "type": "(format: WhiteboardExportFormat, content: string) => void",
+        "required": false,
+        "description": "Receives an export. Without it, the export is downloaded as a file."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins. Give the component a height here."
+      }
+    ]
+  },
+  "WordCloud": {
+    "props": [
+      {
+        "name": "words",
+        "type": "WordCloudWord[]",
+        "required": true
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the cloud."
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "defaultValue": "320",
+        "description": "Plot height in pixels. The width fills the container."
+      },
+      {
+        "name": "fontSize",
+        "type": "[number, number]",
+        "required": false,
+        "defaultValue": "[12, 52]",
+        "description": "Smallest and largest font size, in viewBox pixels."
+      },
+      {
+        "name": "rotation",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0",
+        "description": "Share of words turned 90°, from 0 to 1. Which ones is decided by the seed."
+      },
+      {
+        "name": "seed",
+        "type": "number",
+        "required": false,
+        "defaultValue": "7",
+        "description": "Same seed, same words, same layout — so a cloud does not reshuffle on every render."
+      },
+      {
+        "name": "maxWords",
+        "type": "number",
+        "required": false,
+        "defaultValue": "80",
+        "description": "Draw at most this many words, heaviest first."
+      },
+      {
+        "name": "format",
+        "type": "(value: number) => string",
+        "required": false,
+        "defaultValue": "formatTick",
+        "description": "Format weights in the tooltip and the list."
+      },
+      {
+        "name": "valueLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Weight'",
+        "description": "What a weight measures — “Mentions”."
       },
       {
         "name": "className",

@@ -1,0 +1,58 @@
+{
+  "props": [
+    {
+      "name": "permission",
+      "type": "PermissionPromptKind",
+      "required": true,
+      "description": "The browser permission this card asks for."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "description": "Heading. Defaults to a plain request for the permission."
+    },
+    {
+      "name": "reason",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Why the product needs it — the value to the reader, said before the browser asks."
+    },
+    {
+      "name": "allowLabel",
+      "type": "string",
+      "required": false,
+      "description": "Text of the button that triggers the real browser prompt."
+    },
+    {
+      "name": "onDismiss",
+      "type": "() => void",
+      "required": false,
+      "description": "Shows a Not now button. Called when it is pressed."
+    },
+    {
+      "name": "onStateChange",
+      "type": "(state: PermissionPromptState) => void",
+      "required": false,
+      "description": "Called on every state change, including changes made in the browser’s own settings."
+    },
+    {
+      "name": "deniedInstructions",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Replaces the built-in steps for turning a blocked permission back on."
+    },
+    {
+      "name": "previewState",
+      "type": "PermissionPromptState",
+      "required": false,
+      "description": "Render a fixed state without touching the browser — for docs and design review."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

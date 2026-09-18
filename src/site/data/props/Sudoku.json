@@ -1,0 +1,29 @@
+{
+  "props": [
+    {
+      "name": "defaultDifficulty",
+      "type": "SudokuDifficulty",
+      "required": false,
+      "defaultValue": "'easy'",
+      "description": "Difficulty of the first puzzle. The picker changes it after that."
+    },
+    {
+      "name": "puzzle",
+      "type": "string",
+      "required": false,
+      "description": "A fixed puzzle as 81 characters, row by row, with `0` or `.` for blanks. It must have exactly one solution. Leave it out to generate puzzles."
+    },
+    {
+      "name": "onSolve",
+      "type": "(result: SudokuResult) => void",
+      "required": false,
+      "description": "Called once when the grid is filled correctly."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

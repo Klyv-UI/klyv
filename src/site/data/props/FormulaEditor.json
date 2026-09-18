@@ -1,0 +1,79 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Controlled formula, including the leading `=`."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'='",
+      "description": "Starting formula when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called with the formula after every edit."
+    },
+    {
+      "name": "functions",
+      "type": "FormulaEditorFunction[]",
+      "required": false,
+      "defaultValue": "DEFAULT_FUNCTIONS",
+      "description": "Functions offered and understood. Defaults to SUM, AVERAGE, MIN, MAX, COUNT, ROUND, ABS, IF and CONCAT."
+    },
+    {
+      "name": "cells",
+      "type": "Record<string, FormulaEditorValue>",
+      "required": false,
+      "description": "Cell values by reference (`A1`). When given, the result is computed and shown."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name. Pair with a Field for a visible one."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'=SUM(A1:A4)'"
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Marks the field invalid from outside. Parse errors do this by themselves once the field is left."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Overrides the generated id. Field supplies one."
+    },
+    {
+      "name": "'aria-describedby'",
+      "type": "string",
+      "required": false,
+      "description": "Extra descriptions, such as a Field hint."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

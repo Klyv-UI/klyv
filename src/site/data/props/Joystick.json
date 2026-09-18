@@ -1,0 +1,63 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name, such as “Move”."
+    },
+    {
+      "name": "onMove",
+      "type": "(vector: JoystickVector) => void",
+      "required": false,
+      "description": "Called with the vector whenever it changes, and every frame while held if `continuous` is on."
+    },
+    {
+      "name": "onEnd",
+      "type": "() => void",
+      "required": false,
+      "description": "Called once when the stick is released and springs back."
+    },
+    {
+      "name": "mode",
+      "type": "JoystickMode",
+      "required": false,
+      "defaultValue": "'analog'",
+      "description": "`analog` reports any angle; `dpad4` and `dpad8` snap to four or eight directions."
+    },
+    {
+      "name": "deadZone",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.12",
+      "description": "Fraction of the radius, 0–1, that reads as centred. Stops drift from a resting thumb."
+    },
+    {
+      "name": "continuous",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Report the vector every animation frame while held, not only on change — what a game loop wants."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "144",
+      "description": "Diameter of the base in pixels."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

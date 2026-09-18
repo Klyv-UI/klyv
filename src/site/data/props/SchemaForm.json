@@ -1,0 +1,47 @@
+{
+  "props": [
+    {
+      "name": "schema",
+      "type": "SchemaFormSchema",
+      "required": true,
+      "description": "The schema to render. The root is usually an object."
+    },
+    {
+      "name": "value",
+      "type": "T",
+      "required": false,
+      "description": "Controlled value."
+    },
+    {
+      "name": "defaultValue",
+      "type": "T",
+      "required": false,
+      "description": "Starting value when uncontrolled. Defaults are built from the schema."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: T) => void",
+      "required": false,
+      "description": "Called with the whole value after every edit."
+    },
+    {
+      "name": "onSubmit",
+      "type": "(value: T) => void",
+      "required": false,
+      "description": "Called with the value once it passes every rule in the schema."
+    },
+    {
+      "name": "submitLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Save'",
+      "description": "Text of the submit button."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

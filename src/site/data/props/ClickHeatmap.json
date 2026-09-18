@@ -1,0 +1,77 @@
+{
+  "props": [
+    {
+      "name": "points",
+      "type": "ClickHeatmapPoint[]",
+      "required": true
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "required": true,
+      "description": "Width of the coordinate space the points were recorded in."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": true,
+      "description": "Height of the coordinate space. The heat map keeps this aspect ratio."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name — say which page and which period."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "What was clicked: a screenshot, a wireframe, the real component. Drawn beneath the heat."
+    },
+    {
+      "name": "radius",
+      "type": "number",
+      "required": false,
+      "defaultValue": "36",
+      "description": "Kernel radius (one standard deviation) in coordinate units. Larger blends clicks into regions."
+    },
+    {
+      "name": "intensity",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1",
+      "description": "Multiplies the heat before it is coloured; above 1, quieter areas show sooner."
+    },
+    {
+      "name": "showPoints",
+      "type": "boolean",
+      "required": false,
+      "description": "Draw each click as a dot. Controlled."
+    },
+    {
+      "name": "defaultShowPoints",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Initial dot visibility when uncontrolled."
+    },
+    {
+      "name": "onShowPointsChange",
+      "type": "(show: boolean) => void",
+      "required": false
+    },
+    {
+      "name": "hotspots",
+      "type": "number",
+      "required": false,
+      "description": "How many hotspots to name in the summary."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

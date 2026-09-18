@@ -1,0 +1,58 @@
+{
+  "props": [
+    {
+      "name": "records",
+      "type": "PivotTableRecord[]",
+      "required": true,
+      "description": "Flat records, one per fact — an order line, a ticket, a session."
+    },
+    {
+      "name": "dimensions",
+      "type": "PivotTableField[]",
+      "required": true,
+      "description": "Fields that can become rows or columns."
+    },
+    {
+      "name": "measures",
+      "type": "PivotTableMeasure[]",
+      "required": true,
+      "description": "Numeric fields that can be aggregated."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name, and the table caption."
+    },
+    {
+      "name": "value",
+      "type": "PivotTableConfig",
+      "required": false,
+      "description": "The pivot. Controlled."
+    },
+    {
+      "name": "defaultValue",
+      "type": "Partial<PivotTableConfig>",
+      "required": false,
+      "description": "Initial pivot when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(config: PivotTableConfig) => void",
+      "required": false
+    },
+    {
+      "name": "showConfig",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the row, column, value and aggregation pickers above the table."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

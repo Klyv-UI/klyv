@@ -1,0 +1,56 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the text field."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Controlled text."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "Initial text, uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called with the new text on every local edit."
+    },
+    {
+      "name": "peers",
+      "type": "RemoteSelectionsPeer[]",
+      "required": true,
+      "description": "Everyone else’s carets and selections, as offsets into the current text."
+    },
+    {
+      "name": "onPeersChange",
+      "type": "(peers: RemoteSelectionsPeer[]) => void",
+      "required": false,
+      "description": "Called with the peers’ offsets moved through a local edit, so they can be stored until the next server update."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the wrapper, last, so it wins."
+    },
+    {
+      "name": "textareaClassName",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the textarea."
+    }
+  ],
+  "inherits": [
+    "Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'value' | 'defaultValue' | 'onChange' | 'className'>"
+  ]
+}

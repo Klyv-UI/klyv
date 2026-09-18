@@ -1,0 +1,66 @@
+{
+  "props": [
+    {
+      "name": "count",
+      "type": "number",
+      "required": false,
+      "defaultValue": "36",
+      "description": "Number of seeds, and so of cells. The clipping is O(n²), so a few dozen is the sweet spot."
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.25",
+      "description": "Drift speed in pixels per frame at 60fps."
+    },
+    {
+      "name": "attraction",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.6",
+      "description": "How strongly seeds lean towards the pointer, 0 to turn it off."
+    },
+    {
+      "name": "reach",
+      "type": "number",
+      "required": false,
+      "defaultValue": "180",
+      "description": "Radius around the pointer, in pixels, inside which seeds are pulled."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-accent)'",
+      "description": "Colour the cells are tinted from — a token such as `var(--color-accent)`, or any CSS colour."
+    },
+    {
+      "name": "edgeColor",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-line-strong)'",
+      "description": "Colour of the cell edges."
+    },
+    {
+      "name": "showSeeds",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Draw a dot at each seed."
+    },
+    {
+      "name": "seed",
+      "type": "number",
+      "required": false,
+      "defaultValue": "11",
+      "description": "Seed for the layout, so the same field comes back on every visit."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins. Give the component a size here."
+    }
+  ]
+}

@@ -19,7 +19,21 @@ export interface ComponentEvidence {
 }
 
 export const componentEvidence: Record<string, ComponentEvidence> = {
+  "A11yInspector": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "AccessDeniedState": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "AccessExplainer": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -222,6 +236,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "AudioTrimmer": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": true,
+    "reducedMotion": true,
+    "axe": true
+  },
   "AudioVisualizer": {
     "serverSafe": false,
     "tokenColours": false,
@@ -341,6 +362,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": true,
     "axe": true
   },
+  "BlurHashImage": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "BoidsFlock": {
     "serverSafe": false,
     "tokenColours": false,
@@ -412,6 +440,20 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "keyboardSuite": "test/interaction/blockers.test.tsx",
     "axe": true
   },
+  "CallGrid": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "CameraCapture": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "CancellationFlow": {
     "serverSafe": false,
     "tokenColours": true,
@@ -420,6 +462,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "axe": true
   },
   "CandlestickChart": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "CaptionEditor": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -530,7 +579,28 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "ChordDiagram": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "ChoroplethMap": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "CircularText": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "ClickHeatmap": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -615,6 +685,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "axe": true
   },
   "CommentThread": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "CommitGraph": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -719,6 +796,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "Crossword": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "CtaSection": {
     "serverSafe": true,
     "tokenColours": true,
@@ -775,6 +859,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "DataProfile": {
+    "serverSafe": true,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "DataTable": {
     "serverSafe": false,
     "tokenColours": true,
@@ -823,6 +914,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
+    "axe": true
+  },
+  "DictationButton": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": true,
+    "reducedMotion": true,
     "axe": true
   },
   "DiffSummary": {
@@ -916,6 +1014,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "EasingEditor": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": true,
+    "reducedMotion": true,
+    "axe": true
+  },
   "EditableTable": {
     "serverSafe": false,
     "tokenColours": true,
@@ -924,6 +1029,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "axe": true
   },
   "EmailVerification": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "EmailViewer": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -951,6 +1063,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "ErrorBoundary": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "ErrorState": {
     "serverSafe": true,
     "tokenColours": true,
@@ -966,6 +1085,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "axe": true
   },
   "ExpandableText": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "ExperimentResults": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -1056,6 +1182,20 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "FindInPage": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "FitText": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "FlipBook": {
     "serverSafe": false,
     "tokenColours": true,
@@ -1103,6 +1243,20 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
+    "axe": true
+  },
+  "FormulaEditor": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "FractalExplorer": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": true,
+    "reducedMotion": true,
     "axe": true
   },
   "FullscreenDialog": {
@@ -1182,6 +1336,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "HexViewer": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "HighlightMatch": {
     "serverSafe": true,
     "tokenColours": true,
@@ -1207,6 +1368,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
   "HoloCard": {
     "serverSafe": false,
     "tokenColours": false,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "Hotkeys": {
+    "serverSafe": false,
+    "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
     "axe": true
@@ -1246,6 +1414,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "ImageDiff": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "ImageGallery": {
     "serverSafe": false,
     "tokenColours": true,
@@ -1268,6 +1443,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "axe": true
   },
   "InfiniteScroll": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "InlineCompletion": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -1338,6 +1520,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "Joystick": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": true,
+    "reducedMotion": true,
+    "axe": true
+  },
   "JsonViewer": {
     "serverSafe": false,
     "tokenColours": true,
@@ -1402,6 +1591,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "axe": true
   },
   "LayerStack": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "LazyMount": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -1535,6 +1731,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "Magnifier": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "MaintenanceNotice": {
     "serverSafe": false,
     "tokenColours": true,
@@ -1585,6 +1788,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "axe": true
   },
   "MasterDetail": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "MathFormula": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -1689,6 +1899,20 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": true,
     "axe": true
   },
+  "MiddleTruncate": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "Minesweeper": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "MiniMap": {
     "serverSafe": false,
     "tokenColours": true,
@@ -1732,6 +1956,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "NaturalDateInput": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "Navbar": {
     "serverSafe": false,
     "tokenColours": true,
@@ -1761,6 +1992,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "axe": true
   },
   "NewsletterSignup": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "NodeEditor": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -1824,6 +2062,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "OpenApiReference": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "OrbitRing": {
     "serverSafe": true,
     "tokenColours": true,
@@ -1859,6 +2104,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "PagedDocument": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "Pagination": {
     "serverSafe": false,
     "tokenColours": true,
@@ -1873,7 +2125,21 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "PanoramaViewer": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": true,
+    "reducedMotion": true,
+    "axe": true
+  },
   "Parallax": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "ParallelCoordinates": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -1894,6 +2160,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": true,
     "axe": true
   },
+  "PasskeyManager": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "PasswordInput": {
     "serverSafe": false,
     "tokenColours": true,
@@ -1908,6 +2181,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "PatternLock": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "PaymentMethodCard": {
     "serverSafe": false,
     "tokenColours": true,
@@ -1916,6 +2196,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "axe": true
   },
   "PermissionGate": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "PermissionPrompt": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -1936,12 +2223,33 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "PictureInPicture": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "PinPad": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": true,
     "reducedMotion": true,
     "keyboardSuite": "test/interaction/blockers.test.tsx",
+    "axe": true
+  },
+  "PitchTuner": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "PivotTable": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
     "axe": true
   },
   "PixelCanvas": {
@@ -2022,6 +2330,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "axe": true
   },
   "ProductCard": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "ProductVariantPicker": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -2168,6 +2483,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": true,
     "axe": true
   },
+  "ReadAloud": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "Receipt": {
     "serverSafe": true,
     "tokenColours": true,
@@ -2210,6 +2532,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "RemoteSelections": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "RepeaterField": {
     "serverSafe": false,
     "tokenColours": true,
@@ -2239,6 +2568,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "axe": true
   },
   "ReviewSummary": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "RichTextEditor": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -2315,6 +2651,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "SchemaForm": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "ScopedSearch": {
     "serverSafe": false,
     "tokenColours": true,
@@ -2350,7 +2693,21 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "ScrollSequence": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "ScrollStory": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "ScrollSync": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -2372,6 +2729,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "axe": true
   },
   "SearchableCheckboxList": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "SeatMap": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -2414,6 +2778,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "SequenceDiagram": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "SessionList": {
     "serverSafe": false,
     "tokenColours": true,
@@ -2440,6 +2811,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
+    "axe": true
+  },
+  "ShaderCanvas": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": true,
+    "reducedMotion": true,
     "axe": true
   },
   "ShareMenu": {
@@ -2498,6 +2876,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "Sidenotes": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "SignalStrength": {
     "serverSafe": true,
     "tokenColours": true,
@@ -2547,6 +2932,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "SlidingPuzzle": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "SlopeChart": {
     "serverSafe": false,
     "tokenColours": true,
@@ -2559,6 +2951,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
+    "axe": true
+  },
+  "SnakeGame": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": true,
+    "reducedMotion": true,
     "axe": true
   },
   "SocialLoginButtons": {
@@ -2575,7 +2974,21 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "SortableTree": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "Sparkline": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "SpatialNavigation": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -2641,6 +3054,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
   },
   "Stack": {
     "serverSafe": true,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "StackTrace": {
+    "serverSafe": false,
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
@@ -2749,6 +3169,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": true,
     "reducedMotion": true,
+    "axe": true
+  },
+  "Sudoku": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
     "axe": true
   },
   "SunburstChart": {
@@ -2928,6 +3355,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "TimezonePlanner": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "Toast": {
     "serverSafe": false,
     "tokenColours": true,
@@ -2964,6 +3398,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "axe": true
   },
   "Tooltip": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "TrackChanges": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -3118,6 +3559,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "VennDiagram": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "VersionHistory": {
     "serverSafe": false,
     "tokenColours": true,
@@ -3153,11 +3601,32 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "VisionSimulator": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "VisuallyHidden": {
     "serverSafe": true,
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
+    "axe": true
+  },
+  "VoiceRecorder": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": true,
+    "reducedMotion": true,
+    "axe": true
+  },
+  "VoronoiField": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": true,
+    "reducedMotion": true,
     "axe": true
   },
   "VoteButtons": {
@@ -3179,6 +3648,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": true,
     "reducedMotion": true,
+    "axe": true
+  },
+  "WebVitals": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
     "axe": true
   },
   "WebhookDeliveries": {
@@ -3203,6 +3679,20 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "axe": true
   },
   "WeekdayPicker": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "Whiteboard": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
+  "WordCloud": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,

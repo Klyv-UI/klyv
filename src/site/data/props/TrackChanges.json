@@ -1,0 +1,35 @@
+{
+  "props": [
+    {
+      "name": "original",
+      "type": "string",
+      "required": true,
+      "description": "The text as it stands."
+    },
+    {
+      "name": "suggested",
+      "type": "string",
+      "required": true,
+      "description": "The text with the suggested edits applied."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(text: string, pending: number) => void",
+      "required": false,
+      "description": "Called with the resulting text after every decision. Undecided changes keep the original words."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Suggested edits'",
+      "description": "Accessible name of the document."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

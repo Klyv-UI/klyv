@@ -1,0 +1,56 @@
+{
+  "props": [
+    {
+      "name": "blocks",
+      "type": "PagedDocumentBlock[]",
+      "required": true,
+      "description": "The content, in reading order. Blocks are never split; one taller than a page is flagged."
+    },
+    {
+      "name": "size",
+      "type": "PagedDocumentSize",
+      "required": false,
+      "defaultValue": "'a4'",
+      "description": "Paper size."
+    },
+    {
+      "name": "margins",
+      "type": "number | PagedDocumentMargins",
+      "required": false,
+      "defaultValue": "18",
+      "description": "Page margins in millimetres — one number for all four sides. Header and footer sit inside the top and bottom margins."
+    },
+    {
+      "name": "header",
+      "type": "ReactNode | ((info: PagedDocumentPageInfo) => ReactNode)",
+      "required": false,
+      "description": "Running header on every page."
+    },
+    {
+      "name": "footer",
+      "type": "ReactNode | ((info: PagedDocumentPageInfo) => ReactNode)",
+      "required": false,
+      "defaultValue": "({ page, total }: PagedDocumentPageInfo) => `Page ${page} of ${total}`",
+      "description": "Running footer on every page. Defaults to “Page X of Y”."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "Name of the document, for the landmark and the print button."
+    },
+    {
+      "name": "printable",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Owns the page when printed: everything else is hidden and the pages print at full size. One per page."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "EasingEditorValue",
+      "required": false,
+      "description": "Controlled curve."
+    },
+    {
+      "name": "defaultValue",
+      "type": "EasingEditorValue",
+      "required": false,
+      "defaultValue": "[0.25, 0.1, 0.25, 1]",
+      "description": "Starting curve when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: EasingEditorValue) => void",
+      "required": false,
+      "description": "Called with the curve on every drag step, key press, typed number or preset."
+    },
+    {
+      "name": "presets",
+      "type": "EasingEditorPreset[]",
+      "required": false,
+      "defaultValue": "DEFAULT_PRESETS",
+      "description": "Offered as one-click starting points."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Easing'",
+      "description": "Names the editor and prefixes its handle names."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1400",
+      "description": "Length of one preview run, in milliseconds."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

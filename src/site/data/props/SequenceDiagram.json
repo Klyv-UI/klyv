@@ -1,0 +1,29 @@
+{
+  "props": [
+    {
+      "name": "source",
+      "type": "string",
+      "required": true,
+      "description": "The diagram as text. One statement per line: `participant A as Alice`, `A->B: message`, `B-->A: reply`, `A->+B` / `B-->-A` to activate and deactivate, `note over A,B: text`, `note left of A: text`, `alt` / `else` / `opt` / `loop` … `end`, `activate A`, `deactivate A`. `#` starts a comment."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the diagram."
+    },
+    {
+      "name": "showTranscript",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Print the numbered text version under the diagram instead of only exposing it to assistive tech."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

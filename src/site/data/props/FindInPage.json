@@ -1,0 +1,49 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The content to search. Only its text is searched; the find bar never matches itself."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'this section'",
+      "description": "What the content is, for the field’s name — “Find in {label}”."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the find bar is showing. Omit to let the component manage it."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Starting state when uncontrolled."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "required": false,
+      "description": "Called whenever the bar asks to open or close."
+    },
+    {
+      "name": "shortcut",
+      "type": "FindInPageShortcut",
+      "required": false,
+      "defaultValue": "'within'",
+      "description": "Where Ctrl/⌘+F opens this bar instead of the browser’s: only while focus is inside (`within`), anywhere on the page (`document`), or nowhere (`false`)."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the wrapper."
+    }
+  ]
+}

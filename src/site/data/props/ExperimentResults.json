@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "variants",
+      "type": "ExperimentResultsVariant[]",
+      "required": true
+    },
+    {
+      "name": "metric",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'conversions'",
+      "description": "What a conversion is — “sign-ups”, “purchases”."
+    },
+    {
+      "name": "alpha",
+      "type": "ExperimentResultsAlpha",
+      "required": false,
+      "description": "Significance level, controlled."
+    },
+    {
+      "name": "defaultAlpha",
+      "type": "ExperimentResultsAlpha",
+      "required": false,
+      "defaultValue": "0.05",
+      "description": "Initial significance level when uncontrolled."
+    },
+    {
+      "name": "onAlphaChange",
+      "type": "(alpha: ExperimentResultsAlpha) => void",
+      "required": false,
+      "description": "Called when the reader picks another confidence level."
+    },
+    {
+      "name": "defaultMinimumEffect",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.1",
+      "description": "Initial minimum detectable effect, relative (0.1 = a 10% lift)."
+    },
+    {
+      "name": "power",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.8",
+      "description": "Statistical power for the sample size."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

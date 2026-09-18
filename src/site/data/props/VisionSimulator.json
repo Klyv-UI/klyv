@@ -1,0 +1,49 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The interface to preview. It is only filtered, never changed."
+    },
+    {
+      "name": "value",
+      "type": "VisionSimulatorMode",
+      "required": false,
+      "description": "The simulated condition. Omit to let the component manage it."
+    },
+    {
+      "name": "defaultValue",
+      "type": "VisionSimulatorMode",
+      "required": false,
+      "defaultValue": "'none'",
+      "description": "Starting condition when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: VisionSimulatorMode) => void",
+      "required": false,
+      "description": "Called when the picker changes the condition."
+    },
+    {
+      "name": "showPicker",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the built-in picker above the content."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Simulated vision'",
+      "description": "Accessible name of the picker."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the wrapper."
+    }
+  ]
+}

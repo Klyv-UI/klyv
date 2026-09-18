@@ -1,0 +1,51 @@
+{
+  "props": [
+    {
+      "name": "defaultMode",
+      "type": "FractalExplorerMode",
+      "required": false,
+      "defaultValue": "'mandelbrot'",
+      "description": "Which set is shown first."
+    },
+    {
+      "name": "defaultIterations",
+      "type": "number",
+      "required": false,
+      "defaultValue": "160",
+      "description": "Escape-time iterations per pixel when it first renders. The slider changes it after that."
+    },
+    {
+      "name": "defaultJuliaConstant",
+      "type": "FractalExplorerPoint",
+      "required": false,
+      "defaultValue": "{ re: -0.8, im: 0.156 }",
+      "description": "The constant c the Julia set is drawn for, until one is picked from the Mandelbrot view."
+    },
+    {
+      "name": "onJuliaConstantChange",
+      "type": "(point: FractalExplorerPoint) => void",
+      "required": false,
+      "description": "Called when a new Julia constant is picked."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "360",
+      "description": "Height of the canvas, in pixels. The width fills the container."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Fractal explorer'",
+      "description": "Accessible name for the canvas."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

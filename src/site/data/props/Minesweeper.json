@@ -1,0 +1,23 @@
+{
+  "props": [
+    {
+      "name": "defaultDifficulty",
+      "type": "MinesweeperDifficulty",
+      "required": false,
+      "defaultValue": "'beginner'",
+      "description": "Board size and mine count of the first game. The picker changes it after that."
+    },
+    {
+      "name": "onGameEnd",
+      "type": "(result: MinesweeperResult) => void",
+      "required": false,
+      "description": "Called when a game is won or lost."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

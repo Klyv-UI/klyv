@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "data",
+      "type": "Uint8Array | ArrayBuffer",
+      "required": true,
+      "description": "The bytes to show. Never copied, so a large buffer costs only the rows on screen."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the byte grid."
+    },
+    {
+      "name": "defaultBytesPerRow",
+      "type": "HexViewerBytesPerRow",
+      "required": false,
+      "defaultValue": "16",
+      "description": "Initial bytes per row; the reader can change it."
+    },
+    {
+      "name": "rows",
+      "type": "number",
+      "required": false,
+      "defaultValue": "12",
+      "description": "Visible rows before the grid scrolls."
+    },
+    {
+      "name": "defaultSelection",
+      "type": "HexViewerSelection",
+      "required": false,
+      "description": "Initial selection."
+    },
+    {
+      "name": "onSelectionChange",
+      "type": "(selection: HexViewerSelection) => void",
+      "required": false,
+      "description": "Called whenever the selection changes."
+    },
+    {
+      "name": "baseOffset",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Added to every displayed offset — for a slice taken from the middle of a file."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

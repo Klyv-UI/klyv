@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "SortableTreeItem[]",
+      "required": false,
+      "description": "Controlled tree."
+    },
+    {
+      "name": "defaultValue",
+      "type": "SortableTreeItem[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Initial tree, uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: SortableTreeItem[]) => void",
+      "required": false,
+      "description": "Called with the whole new tree after a move, or after a branch is collapsed or expanded."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the tree."
+    },
+    {
+      "name": "indentation",
+      "type": "number",
+      "required": false,
+      "defaultValue": "24",
+      "description": "Pixels per level, both for drawing and for how far a drag must travel sideways to change depth."
+    },
+    {
+      "name": "maxDepth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "Number.POSITIVE_INFINITY",
+      "description": "Deepest level an item may be dropped at, counting the top level as 0."
+    },
+    {
+      "name": "renderLabel",
+      "type": "(item: SortableTreeItem) => ReactNode",
+      "required": false,
+      "description": "Custom row content. Defaults to the label."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

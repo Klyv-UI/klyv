@@ -1,0 +1,36 @@
+{
+  "props": [
+    {
+      "name": "text",
+      "type": "string",
+      "required": true,
+      "description": "The full string. Always what assistive technology reads and what copying yields."
+    },
+    {
+      "name": "keepEnd",
+      "type": "number | 'extension'",
+      "required": false,
+      "defaultValue": "'extension'",
+      "description": "Characters always kept at the end. `'extension'` keeps the file extension plus the few characters before it — `…-final.pdf`. A number keeps exactly that many."
+    },
+    {
+      "name": "ellipsis",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'…'",
+      "description": "What stands in for the cut."
+    },
+    {
+      "name": "as",
+      "type": "ElementType",
+      "required": false,
+      "description": "Element to render."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the element. Set the font here; it is what gets measured."
+    }
+  ]
+}

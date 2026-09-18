@@ -1,0 +1,43 @@
+{
+  "props": [
+    {
+      "name": "target",
+      "type": "RefObject<HTMLElement | null>",
+      "required": true,
+      "description": "The subtree to audit."
+    },
+    {
+      "name": "rules",
+      "type": "A11yInspectorRule[]",
+      "required": false,
+      "defaultValue": "ALL",
+      "description": "Which checks to run. All of them by default."
+    },
+    {
+      "name": "autoRun",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Audit once on mount. Otherwise the reader starts it."
+    },
+    {
+      "name": "defaultShowBadges",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Draw numbered badges over offending elements. The reader can toggle it."
+    },
+    {
+      "name": "onAudit",
+      "type": "(issues: A11yInspectorIssue[]) => void",
+      "required": false,
+      "description": "Called with every audit’s findings."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

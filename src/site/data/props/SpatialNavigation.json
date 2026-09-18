@@ -1,0 +1,54 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Anything with focusable elements in it — cards, tiles, a toolbar of odd shapes."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Accessible name. When set, the container is a labelled group."
+    },
+    {
+      "name": "homeEnd",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Home and End jump to the first and last focusable element."
+    },
+    {
+      "name": "coneAngle",
+      "type": "number",
+      "required": false,
+      "defaultValue": "60",
+      "description": "Half-angle of the search cone, in degrees. Narrower keeps a move in its lane; wider reaches diagonal neighbours when nothing is straight ahead."
+    },
+    {
+      "name": "ignore",
+      "type": "string",
+      "required": false,
+      "description": "Extra selector for elements that keep the arrow keys for themselves."
+    },
+    {
+      "name": "onNavigate",
+      "type": "(element: HTMLElement, direction: SpatialNavigationDirection) => void",
+      "required": false,
+      "description": "Called after focus moves."
+    },
+    {
+      "name": "as",
+      "type": "ElementType",
+      "required": false,
+      "description": "Element to render."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the container."
+    }
+  ]
+}

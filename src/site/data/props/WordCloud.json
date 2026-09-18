@@ -1,0 +1,70 @@
+{
+  "props": [
+    {
+      "name": "words",
+      "type": "WordCloudWord[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the cloud."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "320",
+      "description": "Plot height in pixels. The width fills the container."
+    },
+    {
+      "name": "fontSize",
+      "type": "[number, number]",
+      "required": false,
+      "defaultValue": "[12, 52]",
+      "description": "Smallest and largest font size, in viewBox pixels."
+    },
+    {
+      "name": "rotation",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Share of words turned 90°, from 0 to 1. Which ones is decided by the seed."
+    },
+    {
+      "name": "seed",
+      "type": "number",
+      "required": false,
+      "defaultValue": "7",
+      "description": "Same seed, same words, same layout — so a cloud does not reshuffle on every render."
+    },
+    {
+      "name": "maxWords",
+      "type": "number",
+      "required": false,
+      "defaultValue": "80",
+      "description": "Draw at most this many words, heaviest first."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format weights in the tooltip and the list."
+    },
+    {
+      "name": "valueLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Weight'",
+      "description": "What a weight measures — “Mentions”."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

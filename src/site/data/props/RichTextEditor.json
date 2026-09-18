@@ -1,0 +1,62 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Controlled HTML. Sanitised on the way in, so it may come from anywhere."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "Starting HTML when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(html: string) => void",
+      "required": false,
+      "description": "Called with sanitised HTML after every edit. An empty document is ''."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name of the text box and its toolbar."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Start writing…'",
+      "description": "Shown while the document is empty."
+    },
+    {
+      "name": "minHeight",
+      "type": "number",
+      "required": false,
+      "defaultValue": "160",
+      "description": "Height of the writing area before it grows, in pixels."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks editing and dims the toolbar."
+    },
+    {
+      "name": "'aria-describedby'",
+      "type": "string",
+      "required": false,
+      "description": "Ids of elements that describe the text box — a hint, an error."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

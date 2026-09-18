@@ -1,0 +1,76 @@
+{
+  "props": [
+    {
+      "name": "data",
+      "type": "ChoroplethMapFeatureCollection",
+      "required": true,
+      "description": "Regions as a GeoJSON FeatureCollection of Polygons and MultiPolygons."
+    },
+    {
+      "name": "values",
+      "type": "Record<string, number>",
+      "required": true,
+      "description": "Value per region, keyed by what `featureKey` returns. Missing keys are drawn as “no data”."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the map."
+    },
+    {
+      "name": "featureKey",
+      "type": "(feature: ChoroplethMapFeature) => string",
+      "required": false,
+      "defaultValue": "(feature) => String(feature.id ?? feature.properties?.id ?? '')",
+      "description": "Key of a feature in `values`. Defaults to `feature.id`, then `properties.id`."
+    },
+    {
+      "name": "featureName",
+      "type": "(feature: ChoroplethMapFeature) => string",
+      "required": false,
+      "description": "Name of a feature for labels. Defaults to `properties.name`, then the key."
+    },
+    {
+      "name": "projection",
+      "type": "ChoroplethMapProjection",
+      "required": false,
+      "defaultValue": "'mercator'",
+      "description": "Equirectangular keeps areas honest near the equator; Mercator is what people expect of a world map."
+    },
+    {
+      "name": "steps",
+      "type": "number",
+      "required": false,
+      "defaultValue": "5",
+      "description": "Colour steps between the lowest and highest value."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "360",
+      "description": "Plot height in pixels. The width fills the container."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format values in the legend, tooltip and table."
+    },
+    {
+      "name": "valueLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Value'",
+      "description": "What a value measures — “Signups per 1,000”."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

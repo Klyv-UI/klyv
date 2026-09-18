@@ -1,0 +1,35 @@
+{
+  "props": [
+    {
+      "name": "tex",
+      "type": "string",
+      "required": true,
+      "description": "The formula, in the TeX subset described on the page: fractions, roots, scripts, Greek, big operators, matrices, \\text."
+    },
+    {
+      "name": "display",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Set on its own line, centred and full size. Off, it sits in a line of text."
+    },
+    {
+      "name": "render",
+      "type": "MathFormulaRender",
+      "required": false,
+      "description": "`auto` draws MathML where the browser can and falls back to a linear text form where it cannot. `mathml` and `text` force one or the other."
+    },
+    {
+      "name": "onError",
+      "type": "(message: string) => void",
+      "required": false,
+      "description": "Called with the message when the formula cannot be parsed."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

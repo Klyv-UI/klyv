@@ -1,0 +1,35 @@
+{
+  "props": [
+    {
+      "name": "trace",
+      "type": "string",
+      "required": true,
+      "description": "The raw trace — `error.stack` from V8, Firefox or Safari, or a Python traceback."
+    },
+    {
+      "name": "getSource",
+      "type": "(file: string) => string | undefined | Promise<string | undefined>",
+      "required": false,
+      "description": "Returns a file’s source, to show lines around a frame. May be async; return undefined when unknown."
+    },
+    {
+      "name": "contextLines",
+      "type": "number",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Lines shown either side of the frame’s line."
+    },
+    {
+      "name": "isLibraryFrame",
+      "type": "(frame: Omit<StackTraceFrame, 'library'>) => boolean",
+      "required": false,
+      "description": "Decides which frames are library code. Defaults to node_modules, site-packages and runtime internals."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

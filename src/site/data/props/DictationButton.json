@@ -1,0 +1,49 @@
+{
+  "props": [
+    {
+      "name": "targetRef",
+      "type": "RefObject<HTMLInputElement | HTMLTextAreaElement | null>",
+      "required": true,
+      "description": "The field the words go into, at the caret."
+    },
+    {
+      "name": "lang",
+      "type": "string",
+      "required": false,
+      "description": "BCP 47 language of the speech, e.g. `en-GB`. Defaults to the page language."
+    },
+    {
+      "name": "continuous",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Keep listening across pauses until pressed again. Off stops after one phrase."
+    },
+    {
+      "name": "onTranscript",
+      "type": "(text: string) => void",
+      "required": false,
+      "description": "Called with each finished phrase, after it is inserted."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Dictate'",
+      "description": "Accessible name of the button."
+    },
+    {
+      "name": "unsupportedMessage",
+      "type": "ReactNode",
+      "required": false,
+      "defaultValue": "'Dictation is not available in this browser. Try Chrome, Edge or Safari.'",
+      "description": "Shown instead of the button where speech recognition does not exist. `null` renders nothing."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

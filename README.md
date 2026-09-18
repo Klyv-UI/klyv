@@ -1,6 +1,6 @@
 # Klyv
 
-**An accent-led React component library.** 450+ components that take their entire
+**An accent-led React component library.** 520+ components that take their entire
 personality from a single colour — pick a hue and the whole set repaints:
 buttons, charts, selection washes, and the page behind them.
 
@@ -88,30 +88,51 @@ through them, rather than each keeping a copy that goes stale.
 
 ## What is in it
 
-456 components in thirteen groups. The grouping describes what a component is
+526 components in thirteen groups. The grouping describes what a component is
 **for** — the only question anyone browsing a library arrives with.
 
 | Group | Count | |
 | --- | --- | --- |
-| Foundations | 13 | the type scale, container recipes, utilities |
-| Layout | 28 | structure, disclosure, stacks and scrolling |
-| Navigation | 29 | bars, shells, tabs, steps, menus, search |
-| Actions | 22 | buttons, and the richer controls built on them |
-| Forms & Inputs | 63 | text, choice, ranges, dates, rich input |
-| Data Display | 51 | identity, lists, tables, metrics, records |
-| Charts | 38 | plots, gauges, distribution, flow, activity |
-| Feedback | 36 | status, messages, empty states, celebration |
-| Overlays | 22 | dialogs, popovers, guidance |
-| Motion & Effects | 43 | entrances, kinetic type, light and surfaces |
-| Interaction | 30 | touch and drag, presence, trust and workflow |
-| Canvas & Play | 21 | generative, audio, physics, toys |
-| SaaS | 60 | marketing, pricing, auth, billing, team, settings, developer, data views, engagement, security |
+| Foundations | 20 | the type scale, container recipes, utilities |
+| Layout | 30 | structure, disclosure, stacks and scrolling |
+| Navigation | 30 | bars, shells, tabs, steps, menus, search |
+| Actions | 24 | buttons, and the richer controls built on them |
+| Forms & Inputs | 74 | text, choice, ranges, dates, rich input |
+| Data Display | 62 | identity, lists, tables, metrics, records |
+| Charts | 45 | plots, gauges, distribution, flow, activity |
+| Feedback | 37 | status, messages, empty states, celebration |
+| Overlays | 23 | dialogs, popovers, guidance |
+| Motion & Effects | 45 | entrances, kinetic type, light and surfaces |
+| Interaction | 38 | touch and drag, presence, trust and workflow |
+| Canvas & Play | 30 | generative, audio, physics, toys |
+| SaaS | 68 | marketing, pricing, auth, billing, team, settings, developer, data views, engagement, security |
 
-### New: seventy more components, across every group
+### New: seventy components with mechanics the library did not have
 
-Seventy components spread over all thirteen groups, every one marked **New** on
-the site (sidebar, catalogue cards, component page header, and a **New** filter
-on /components). The fifty before them are no longer tagged New.
+Seventy components, every one marked **New** on the site. Each was checked
+against the whole catalogue before it was built: none duplicates an existing
+component, is a variant of one, or could be assembled from existing parts —
+each brings a mechanic the library did not have (a JSON Schema form, a WebAudio
+pitch detector, a 360° WebGL viewer, a Myers diff you can accept or reject, a
+pivot engine, a WebAuthn flow). The seventy before them are no longer tagged New.
+
+**Foundations** — ErrorBoundary · Hotkeys · LazyMount · MiddleTruncate · VisionSimulator · SpatialNavigation · FitText.
+**Layout** — Sidenotes · ScrollSync.
+**Navigation** — FindInPage.
+**Actions** — DictationButton · ReadAloud.
+**Forms & Inputs** — RichTextEditor · SchemaForm · InlineCompletion · FormulaEditor · EasingEditor · NaturalDateInput · ProductVariantPicker · SeatMap · CameraCapture · VoiceRecorder · CaptionEditor.
+**Data Display** — PanoramaViewer · Magnifier · BlurHashImage · CommitGraph · PivotTable · ImageDiff · HexViewer · EmailViewer · MathFormula · TimezonePlanner · PagedDocument.
+**Charts** — ChordDiagram · SequenceDiagram · ParallelCoordinates · VennDiagram · WordCloud · ClickHeatmap · ChoroplethMap.
+**Feedback** — PermissionPrompt.
+**Overlays** — PictureInPicture.
+**Motion & Effects** — ScrollSequence · ShaderCanvas.
+**Interaction** — PatternLock · TrackChanges · NodeEditor · Whiteboard · Joystick · SortableTree · RemoteSelections · CallGrid.
+**Canvas & Play** — PitchTuner · AudioTrimmer · VoronoiField · FractalExplorer · Sudoku · Minesweeper · SlidingPuzzle · Crossword · SnakeGame.
+**SaaS** — OpenApiReference · StackTrace · WebVitals · A11yInspector · DataProfile · ExperimentResults · AccessExplainer · PasskeyManager.
+
+### Seventy more components, across every group
+
+Seventy components spread over all thirteen groups.
 
 **Foundations** — Grid · TextLink · LiveRegion · HighlightMatch.
 **Layout** — Sticky · MasterDetail · DashboardGrid · ShowMoreList.

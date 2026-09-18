@@ -1,0 +1,29 @@
+{
+  "props": [
+    {
+      "name": "document",
+      "type": "OpenApiReferenceDocument",
+      "required": true,
+      "description": "The document to render. Local `$ref`s (`#/components/…`) are resolved; remote ones are shown by name."
+    },
+    {
+      "name": "baseUrl",
+      "type": "string",
+      "required": false,
+      "description": "Base URL for the curl snippet. Defaults to the first server."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Operation ids (or `METHOD path`) open on first render."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

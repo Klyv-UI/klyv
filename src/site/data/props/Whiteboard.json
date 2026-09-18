@@ -1,0 +1,48 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "WhiteboardShape[]",
+      "required": false,
+      "description": "Controlled shapes, bottom to top."
+    },
+    {
+      "name": "defaultValue",
+      "type": "WhiteboardShape[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Initial shapes, uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: WhiteboardShape[]) => void",
+      "required": false,
+      "description": "Called with every change, including each step of a drag. Undo history is kept inside."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the drawing surface."
+    },
+    {
+      "name": "defaultTool",
+      "type": "WhiteboardTool",
+      "required": false,
+      "defaultValue": "'select'",
+      "description": "The tool selected at first."
+    },
+    {
+      "name": "onExport",
+      "type": "(format: WhiteboardExportFormat, content: string) => void",
+      "required": false,
+      "description": "Receives an export. Without it, the export is downloaded as a file."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins. Give the component a height here."
+    }
+  ]
+}

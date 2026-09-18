@@ -1,0 +1,61 @@
+{
+  "props": [
+    {
+      "name": "subject",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "from",
+      "type": "EmailViewerAddress",
+      "required": true
+    },
+    {
+      "name": "to",
+      "type": "EmailViewerAddress[]",
+      "required": true
+    },
+    {
+      "name": "cc",
+      "type": "EmailViewerAddress[]",
+      "required": false,
+      "defaultValue": "[]"
+    },
+    {
+      "name": "date",
+      "type": "Date",
+      "required": true
+    },
+    {
+      "name": "html",
+      "type": "string",
+      "required": true,
+      "description": "The message body. Treated as hostile: it never runs script and never shares this page’s origin."
+    },
+    {
+      "name": "attachments",
+      "type": "EmailViewerAttachment[]",
+      "required": false,
+      "defaultValue": "NO_ATTACHMENTS"
+    },
+    {
+      "name": "defaultShowImages",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Load remote images from the start — for senders the reader has already trusted."
+    },
+    {
+      "name": "onShowImages",
+      "type": "() => void",
+      "required": false,
+      "description": "Called when the reader chooses to load remote images."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "props": [
+    {
+      "name": "frames",
+      "type": "string[]",
+      "required": false,
+      "description": "Image URLs, one per frame, in order. Use this or `frameCount` with `drawFrame`."
+    },
+    {
+      "name": "frameCount",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Number of generated frames, for `drawFrame`."
+    },
+    {
+      "name": "drawFrame",
+      "type": "ScrollSequenceDrawFrame",
+      "required": false,
+      "description": "Paints frame `index` into a blank canvas. Called once per frame up front, not on scroll."
+    },
+    {
+      "name": "frameSize",
+      "type": "{ width: number; height: number }",
+      "required": false,
+      "defaultValue": "{ width: 960, height: 540 }",
+      "description": "Pixel size generated frames are painted at."
+    },
+    {
+      "name": "length",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'300vh'",
+      "description": "How far the reader scrolls to play the whole sequence, as a CSS length."
+    },
+    {
+      "name": "pinHeight",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'100vh'",
+      "description": "Height of the pinned stage, as a CSS length. `100vh` for a full-screen hero."
+    },
+    {
+      "name": "fit",
+      "type": "ScrollSequenceFit",
+      "required": false,
+      "defaultValue": "'cover'",
+      "description": "`cover` fills the stage and crops; `contain` shows the whole frame."
+    },
+    {
+      "name": "stillFrame",
+      "type": "number",
+      "required": false,
+      "description": "The frame shown under reduced motion. Defaults to the middle one."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Describes the sequence for assistive tech."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode | ((progress: number) => ReactNode)",
+      "required": false,
+      "description": "Laid over the stage. A function receives scroll progress from 0 to 1."
+    },
+    {
+      "name": "onProgress",
+      "type": "(progress: number) => void",
+      "required": false,
+      "description": "Called with scroll progress from 0 to 1."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

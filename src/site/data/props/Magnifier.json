@@ -1,0 +1,49 @@
+{
+  "props": [
+    {
+      "name": "src",
+      "type": "string",
+      "required": true,
+      "description": "The image. The lens shows this same file, scaled up."
+    },
+    {
+      "name": "alt",
+      "type": "string",
+      "required": true,
+      "description": "Describes the image."
+    },
+    {
+      "name": "zoom",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2.5",
+      "description": "How many times larger the lens shows it."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "160",
+      "description": "Lens diameter, or side for a square lens, in pixels."
+    },
+    {
+      "name": "shape",
+      "type": "'circle' | 'square'",
+      "required": false,
+      "defaultValue": "'circle'",
+      "description": "Lens shape."
+    },
+    {
+      "name": "aspectRatio",
+      "type": "number",
+      "required": false,
+      "description": "Image aspect ratio (width / height). Reserves the space before the image loads."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

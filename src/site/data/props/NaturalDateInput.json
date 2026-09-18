@@ -1,0 +1,79 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "Date | null",
+      "required": false,
+      "description": "Controlled moment. null is an empty field."
+    },
+    {
+      "name": "defaultValue",
+      "type": "Date | null",
+      "required": false,
+      "defaultValue": "null",
+      "description": "Starting moment when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: Date | null) => void",
+      "required": false,
+      "description": "Called when a reading is committed — Enter, leaving the field, a calendar pick, or a suggestion."
+    },
+    {
+      "name": "referenceDate",
+      "type": "Date",
+      "required": false,
+      "description": "The “now” that phrases are read against. Defaults to the current time."
+    },
+    {
+      "name": "dayFirst",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Read 03/04 as 3 April (true) or March 4 (false). The other reading is still offered."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name. Pair with a Field for a visible one."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Try “next fri 3pm” or “in 2 weeks”'"
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Marks the field invalid from outside."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Overrides the generated id. Field supplies one."
+    },
+    {
+      "name": "'aria-describedby'",
+      "type": "string",
+      "required": false,
+      "description": "Extra descriptions, such as a Field hint."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

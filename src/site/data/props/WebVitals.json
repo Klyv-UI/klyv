@@ -1,0 +1,23 @@
+{
+  "props": [
+    {
+      "name": "metrics",
+      "type": "WebVitalsName[]",
+      "required": false,
+      "defaultValue": "['LCP', 'INP', 'CLS', 'FCP', 'TTFB']",
+      "description": "Which metrics to show, in order."
+    },
+    {
+      "name": "onReport",
+      "type": "(metric: WebVitalsMetric) => void",
+      "required": false,
+      "description": "Called each time a metric’s value changes — send it to your analytics."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

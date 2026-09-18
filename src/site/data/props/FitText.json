@@ -1,0 +1,42 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "string",
+      "required": true,
+      "description": "The line to fit. It never wraps."
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "required": false,
+      "defaultValue": "16",
+      "description": "Smallest font size, in px. Below this the line is allowed to overflow and clip."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "defaultValue": "160",
+      "description": "Largest font size, in px, however wide the container gets."
+    },
+    {
+      "name": "as",
+      "type": "ElementType",
+      "required": false,
+      "description": "Element to render — `h1` for a hero headline."
+    },
+    {
+      "name": "onFit",
+      "type": "(fontSize: number) => void",
+      "required": false,
+      "description": "Called with the fitted size in px after each fit."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the element. Set weight, family and tracking here; they are measured."
+    }
+  ]
+}

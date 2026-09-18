@@ -1,6 +1,24 @@
 {
+  "A11yInspector": [
+    "button",
+    "checkbox",
+    "combobox",
+    "heading",
+    "img",
+    "link",
+    "radio",
+    "searchbox",
+    "slider",
+    "spinbutton",
+    "status",
+    "switch",
+    "textbox"
+  ],
   "AccessDeniedState": [
     "alert",
+    "status"
+  ],
+  "AccessExplainer": [
     "status"
   ],
   "AchievementPop": [
@@ -46,6 +64,9 @@
   "AudioPlayer": [
     "group"
   ],
+  "AudioTrimmer": [
+    "slider"
+  ],
   "AudioVisualizer": [
     "status"
   ],
@@ -80,8 +101,15 @@
     "grid",
     "gridcell"
   ],
+  "CameraCapture": [
+    "group",
+    "status"
+  ],
   "CandlestickChart": [
     "img"
+  ],
+  "CaptionEditor": [
+    "alert"
   ],
   "Carousel": [
     "group"
@@ -102,6 +130,15 @@
   "ChatThread": [
     "log",
     "separator"
+  ],
+  "ChordDiagram": [
+    "img"
+  ],
+  "ChoroplethMap": [
+    "img"
+  ],
+  "ClickHeatmap": [
+    "img"
   ],
   "CoachTour": [
     "dialog",
@@ -138,6 +175,10 @@
     "modal",
     "option"
   ],
+  "CommitGraph": [
+    "listbox",
+    "option"
+  ],
   "ConfirmPopover": [
     "alert"
   ],
@@ -172,6 +213,13 @@
   "Cropper": [
     "group"
   ],
+  "Crossword": [
+    "grid",
+    "gridcell",
+    "group",
+    "row",
+    "status"
+  ],
   "CubeCarousel": [
     "group"
   ],
@@ -180,6 +228,9 @@
   ],
   "DataFreshness": [
     "status"
+  ],
+  "DataProfile": [
+    "img"
   ],
   "DataTable": [
     "status"
@@ -201,6 +252,9 @@
   ],
   "DiceRoller": [
     "status"
+  ],
+  "DictationButton": [
+    "alert"
   ],
   "DiffSummary": [
     "group",
@@ -230,11 +284,18 @@
     "group",
     "spinbutton"
   ],
+  "EasingEditor": [
+    "group",
+    "slider"
+  ],
   "EditableTable": [
     "alert",
     "columnheader",
     "grid",
     "gridcell"
+  ],
+  "EmailViewer": [
+    "status"
   ],
   "EmojiPicker": [
     "grid",
@@ -249,6 +310,9 @@
   "EmojiSlider": [
     "slider"
   ],
+  "ErrorBoundary": [
+    "alert"
+  ],
   "ErrorState": [
     "alert"
   ],
@@ -257,6 +321,9 @@
     "grid",
     "gridcell",
     "row"
+  ],
+  "ExperimentResults": [
+    "status"
   ],
   "FaqSection": [
     "status"
@@ -280,6 +347,10 @@
   "FilterBuilder": [
     "group"
   ],
+  "FindInPage": [
+    "search",
+    "status"
+  ],
   "FlipBook": [
     "group"
   ],
@@ -289,6 +360,16 @@
   ],
   "FlowField": [
     "img"
+  ],
+  "FormulaEditor": [
+    "combobox",
+    "listbox",
+    "option",
+    "status"
+  ],
+  "FractalExplorer": [
+    "application",
+    "status"
   ],
   "FullscreenDialog": [
     "dialog",
@@ -307,6 +388,16 @@
   "HelpPanel": [
     "status"
   ],
+  "HexViewer": [
+    "alert",
+    "grid",
+    "gridcell",
+    "presentation",
+    "row",
+    "rowgroup",
+    "rowheader",
+    "status"
+  ],
   "Histogram": [
     "img"
   ],
@@ -323,6 +414,10 @@
   "ImageCompare": [
     "slider"
   ],
+  "ImageDiff": [
+    "group",
+    "img"
+  ],
   "ImageGallery": [
     "tab",
     "tablist",
@@ -335,11 +430,17 @@
   "InfiniteScroll": [
     "status"
   ],
+  "InlineCompletion": [
+    "status"
+  ],
   "InlineMessage": [
     "status"
   ],
   "InputOTP": [
     "group"
+  ],
+  "Joystick": [
+    "application"
   ],
   "KanbanBoard": [
     "group",
@@ -395,6 +496,9 @@
     "tab",
     "tablist"
   ],
+  "Magnifier": [
+    "group"
+  ],
   "MaintenanceNotice": [
     "status"
   ],
@@ -407,6 +511,9 @@
   ],
   "MaskedValue": [
     "status"
+  ],
+  "MathFormula": [
+    "math"
   ],
   "MatrixHeatmap": [
     "img"
@@ -450,6 +557,12 @@
     "listbox",
     "status"
   ],
+  "Minesweeper": [
+    "grid",
+    "gridcell",
+    "row",
+    "status"
+  ],
   "MiniMap": [
     "group"
   ],
@@ -471,6 +584,10 @@
   "MultiSelect": [
     "listbox"
   ],
+  "NaturalDateInput": [
+    "grid",
+    "status"
+  ],
   "NavigationProgress": [
     "progressbar"
   ],
@@ -479,6 +596,9 @@
   ],
   "NewsletterSignup": [
     "status"
+  ],
+  "NodeEditor": [
+    "group"
   ],
   "NotificationCenter": [
     "status"
@@ -499,25 +619,57 @@
   "Pagination": [
     "status"
   ],
+  "PanoramaViewer": [
+    "application",
+    "status"
+  ],
   "PanZoom": [
     "application"
+  ],
+  "ParallelCoordinates": [
+    "group",
+    "img"
   ],
   "ParetoChart": [
     "img"
   ],
+  "PasskeyManager": [
+    "alert",
+    "status"
+  ],
   "PasswordStrength": [
+    "status"
+  ],
+  "PatternLock": [
+    "application",
     "status"
   ],
   "PermissionGate": [
     "note"
   ],
+  "PermissionPrompt": [
+    "group",
+    "status"
+  ],
   "PianoKeys": [
     "group",
+    "status"
+  ],
+  "PictureInPicture": [
+    "note",
     "status"
   ],
   "PinPad": [
     "group",
     "status"
+  ],
+  "PitchTuner": [
+    "group",
+    "meter",
+    "status"
+  ],
+  "PivotTable": [
+    "region"
   ],
   "PixelCanvas": [
     "group"
@@ -533,6 +685,11 @@
     "status"
   ],
   "ProductCard": [
+    "radiogroup",
+    "status"
+  ],
+  "ProductVariantPicker": [
+    "radio",
     "radiogroup",
     "status"
   ],
@@ -578,6 +735,9 @@
   "ReactionBar": [
     "group"
   ],
+  "ReadAloud": [
+    "group"
+  ],
   "RecentItems": [
     "status"
   ],
@@ -601,6 +761,10 @@
   "ReviewSummary": [
     "img"
   ],
+  "RichTextEditor": [
+    "textbox",
+    "toolbar"
+  ],
   "RoadmapBoard": [
     "status"
   ],
@@ -619,6 +783,9 @@
   "ScatterChart": [
     "img"
   ],
+  "SchemaForm": [
+    "status"
+  ],
   "ScopedSearch": [
     "combobox",
     "listbox",
@@ -632,8 +799,20 @@
   "ScrollProgress": [
     "progressbar"
   ],
+  "ScrollSequence": [
+    "img",
+    "progressbar"
+  ],
+  "ScrollSync": [
+    "region"
+  ],
   "SearchableCheckboxList": [
     "group"
+  ],
+  "SeatMap": [
+    "checkbox",
+    "group",
+    "status"
   ],
   "SeatSelector": [
     "status"
@@ -651,12 +830,19 @@
     "status",
     "toolbar"
   ],
+  "SequenceDiagram": [
+    "img"
+  ],
   "SessionTimeout": [
     "alertdialog",
     "modal"
   ],
   "SettingsSection": [
     "status"
+  ],
+  "ShaderCanvas": [
+    "alert",
+    "img"
   ],
   "ShareMenu": [
     "menu",
@@ -669,11 +855,18 @@
   "ShortcutRecorder": [
     "status"
   ],
+  "Sidenotes": [
+    "note"
+  ],
   "SignalStrength": [
     "img"
   ],
   "SignaturePad": [
     "img",
+    "status"
+  ],
+  "SlidingPuzzle": [
+    "group",
     "status"
   ],
   "SlopeChart": [
@@ -682,14 +875,36 @@
   "SlotReels": [
     "status"
   ],
+  "SnakeGame": [
+    "application",
+    "status"
+  ],
   "SocialLoginButtons": [
     "group"
   ],
   "SortableList": [
     "status"
   ],
+  "SortableTree": [
+    "tree",
+    "treeitem"
+  ],
   "Sparkline": [
     "img"
+  ],
+  "SpatialNavigation": [
+    "combobox",
+    "grid",
+    "group",
+    "listbox",
+    "menu",
+    "menubar",
+    "radiogroup",
+    "slider",
+    "spinbutton",
+    "tablist",
+    "textbox",
+    "tree"
   ],
   "SpeedDial": [
     "menu",
@@ -706,6 +921,9 @@
   "SplitPane": [
     "separator"
   ],
+  "StackTrace": [
+    "status"
+  ],
   "StatusStrip": [
     "img"
   ],
@@ -719,6 +937,13 @@
     "img"
   ],
   "SuccessMark": [
+    "status"
+  ],
+  "Sudoku": [
+    "grid",
+    "gridcell",
+    "group",
+    "row",
     "status"
   ],
   "SunburstChart": [
@@ -770,6 +995,10 @@
     "radio",
     "radiogroup"
   ],
+  "TimezonePlanner": [
+    "slider",
+    "status"
+  ],
   "Toast": [
     "region",
     "status"
@@ -785,6 +1014,11 @@
   ],
   "Tooltip": [
     "tooltip"
+  ],
+  "TrackChanges": [
+    "button",
+    "group",
+    "status"
   ],
   "TranscriptView": [
     "status"
@@ -849,6 +1083,9 @@
   "ValidationSummary": [
     "alert"
   ],
+  "VennDiagram": [
+    "img"
+  ],
   "VersionSwitcher": [
     "listbox",
     "note",
@@ -867,6 +1104,10 @@
     "listitem",
     "presentation"
   ],
+  "VoiceRecorder": [
+    "group",
+    "status"
+  ],
   "VoteButtons": [
     "group"
   ],
@@ -876,12 +1117,22 @@
   "Waveform": [
     "img"
   ],
+  "WebVitals": [
+    "status"
+  ],
   "WeekdayPicker": [
     "group"
   ],
   "WeekView": [
     "group",
     "region"
+  ],
+  "Whiteboard": [
+    "application",
+    "toolbar"
+  ],
+  "WordCloud": [
+    "img"
   ],
   "WorkspaceSwitcher": [
     "listbox",

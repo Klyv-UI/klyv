@@ -1,0 +1,36 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "name": "sequenceTimeout",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1000",
+      "description": "Milliseconds allowed between the steps of a sequence."
+    },
+    {
+      "name": "initialScopes",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Scopes active from the start, besides `global`."
+    },
+    {
+      "name": "contained",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Listen only to key presses inside this element rather than the whole document."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the wrapper when `contained`."
+    }
+  ]
+}

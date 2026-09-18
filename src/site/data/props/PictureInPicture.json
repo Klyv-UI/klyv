@@ -1,0 +1,63 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The live content. It keeps its state when it moves into the floating window and back."
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "required": false,
+      "defaultValue": "360",
+      "description": "Size of the floating window in CSS pixels. The browser may clamp it."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "240",
+      "description": "Height of the floating window in CSS pixels."
+    },
+    {
+      "name": "openLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Pop out'",
+      "description": "Label on the pop-out button."
+    },
+    {
+      "name": "closeLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Bring back'",
+      "description": "Label on the button that brings the content back."
+    },
+    {
+      "name": "placeholder",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Shown in place of the content while it is in the floating window."
+    },
+    {
+      "name": "unsupportedMessage",
+      "type": "ReactNode",
+      "required": false,
+      "defaultValue": "'Popping this out needs Document Picture-in-Picture, which this browser does not support yet. It works in current Chrome and Edge.'",
+      "description": "Shown beside the content where Document Picture-in-Picture is not available."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "required": false,
+      "description": "Called when the window opens or closes, whichever side closed it."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

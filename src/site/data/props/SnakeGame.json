@@ -1,0 +1,58 @@
+{
+  "props": [
+    {
+      "name": "columns",
+      "type": "number",
+      "required": false,
+      "defaultValue": "20",
+      "description": "Cells across."
+    },
+    {
+      "name": "rows",
+      "type": "number",
+      "required": false,
+      "defaultValue": "14",
+      "description": "Cells down."
+    },
+    {
+      "name": "defaultSpeed",
+      "type": "SnakeGameSpeed",
+      "required": false,
+      "defaultValue": "'normal'",
+      "description": "Speed of the first game. The picker changes it after that."
+    },
+    {
+      "name": "defaultWalls",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Start with solid walls. Off, the snake wraps to the opposite edge."
+    },
+    {
+      "name": "storageKey",
+      "type": "string | null",
+      "required": false,
+      "defaultValue": "'klyv-snake-high-score'",
+      "description": "Where the high score is kept in localStorage. Pass null to keep it for the session only."
+    },
+    {
+      "name": "onGameOver",
+      "type": "(score: number) => void",
+      "required": false,
+      "description": "Called when a game ends."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Snake'",
+      "description": "Accessible name for the board."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

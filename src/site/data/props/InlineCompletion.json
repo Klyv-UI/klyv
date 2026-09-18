@@ -1,0 +1,92 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Controlled text."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "Starting text when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called with the text after every keystroke and every accepted suggestion."
+    },
+    {
+      "name": "getSuggestion",
+      "type": "(text: string, signal: AbortSignal) => InlineCompletionSuggestion | Promise<InlineCompletionSuggestion>",
+      "required": true,
+      "description": "Returns what should follow the text — only the continuation, not the text itself. May return a promise; the signal aborts when the text changes before it settles, and a late answer is ignored either way."
+    },
+    {
+      "name": "debounce",
+      "type": "number",
+      "required": false,
+      "defaultValue": "150",
+      "description": "Quiet time after the last keystroke before asking, in milliseconds."
+    },
+    {
+      "name": "multiline",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "A textarea instead of a single line."
+    },
+    {
+      "name": "rows",
+      "type": "number",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Visible lines when multiline."
+    },
+    {
+      "name": "onAccept",
+      "type": "(accepted: string) => void",
+      "required": false,
+      "description": "Called with the part of a suggestion that was accepted."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name. Pair with a Field for a visible one."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Overrides the generated id. Field supplies one."
+    },
+    {
+      "name": "'aria-describedby'",
+      "type": "string",
+      "required": false,
+      "description": "Extra descriptions, such as a Field hint."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins; targets the wrapper."
+    }
+  ]
+}

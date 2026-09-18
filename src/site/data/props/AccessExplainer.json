@@ -1,0 +1,39 @@
+{
+  "props": [
+    {
+      "name": "policy",
+      "type": "AccessExplainerPolicy",
+      "required": true
+    },
+    {
+      "name": "query",
+      "type": "AccessExplainerQuery",
+      "required": false,
+      "description": "The question, controlled."
+    },
+    {
+      "name": "defaultQuery",
+      "type": "AccessExplainerQuery",
+      "required": false,
+      "description": "The initial question when uncontrolled."
+    },
+    {
+      "name": "onQueryChange",
+      "type": "(query: AccessExplainerQuery) => void",
+      "required": false,
+      "description": "Called when the reader changes the user, action or resource."
+    },
+    {
+      "name": "actions",
+      "type": "string[]",
+      "required": false,
+      "description": "Actions offered in the picker. Defaults to every non-wildcard action named in the policy."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}
