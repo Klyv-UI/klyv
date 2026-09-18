@@ -1,0 +1,65 @@
+{
+  "props": [
+    {
+      "name": "density",
+      "type": "number",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Particles per 10,000 square pixels. 3 is about 150 in a wide hero."
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1.2",
+      "description": "Pixels a particle travels per frame at 60fps."
+    },
+    {
+      "name": "scale",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.0035",
+      "description": "How zoomed-in the noise is. Smaller values give broader, calmer currents."
+    },
+    {
+      "name": "fade",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.06",
+      "description": "How quickly trails fade, from 0 (never) to 1 (no trail at all)."
+    },
+    {
+      "name": "lineWidth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1.2",
+      "description": "Stroke width of each trail in pixels."
+    },
+    {
+      "name": "colors",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "['var(--color-accent-strong)', 'var(--color-accent)', 'var(--color-ink-faint)']",
+      "description": "Colours the particles are drawn in — tokens such as `var(--color-accent)`, or any CSS colour."
+    },
+    {
+      "name": "seed",
+      "type": "number",
+      "required": false,
+      "defaultValue": "7",
+      "description": "Seed for the noise, so the same field comes back on every visit."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Describe the image for assistive tech. Without it the canvas is decorative and hidden."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins. Give the component a size here."
+    }
+  ]
+}

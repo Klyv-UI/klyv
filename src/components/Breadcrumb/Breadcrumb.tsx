@@ -54,21 +54,15 @@ export function Breadcrumb({ items, maxItems = 4, label = 'Breadcrumb', classNam
                   <Text as="span" size="caption" weight="medium" tone="faint">
                     {item.label}
                   </Text>
-                ) : item.href || item.onClick ? (
-                  <a
-                    href={item.href}
-                    onClick={
-                      item.onClick
-                        ? (event) => {
-                            if (!item.href) event.preventDefault()
-                            item.onClick?.()
-                          }
-                        : undefined
-                    }
-                    className="truncate rounded-[6px] text-[11px] font-medium text-ink-soft transition-colors hover:text-ink"
-                  >
+                ) : item.href ? (
+                  <a href={item.href} onClick={item.onClick} className="truncate rounded-[6px] text-[11px] font-medium text-ink-soft transition-colors hover:text-ink">
                     {item.label}
                   </a>
+                ) : item.onClick ? (
+                  // Without an href a link is not focusable, so an action-only crumb is a button.
+                  <button type="button" onClick={item.onClick} className="truncate rounded-[6px] text-[11px] font-medium text-ink-soft transition-colors hover:text-ink">
+                    {item.label}
+                  </button>
                 ) : (
                   <Text as="span" size="caption" weight="medium" tone="soft" truncate>
                     {item.label}

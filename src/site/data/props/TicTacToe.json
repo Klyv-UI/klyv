@@ -1,0 +1,43 @@
+{
+  "props": [
+    {
+      "name": "defaultOpponent",
+      "type": "TicTacToeOpponent",
+      "required": false,
+      "defaultValue": "'computer'",
+      "description": "Who plays O. Uncontrolled starting value; the reader can switch it."
+    },
+    {
+      "name": "opponent",
+      "type": "TicTacToeOpponent",
+      "required": false,
+      "description": "Hide the opponent switch and fix the mode."
+    },
+    {
+      "name": "difficulty",
+      "type": "'perfect' | 'casual'",
+      "required": false,
+      "defaultValue": "'perfect'",
+      "description": "How the computer plays: perfect never loses, casual blunders now and then."
+    },
+    {
+      "name": "firstMove",
+      "type": "TicTacToeMark",
+      "required": false,
+      "defaultValue": "'X'",
+      "description": "Which mark opens each game. Against the computer, you are always X."
+    },
+    {
+      "name": "onGameEnd",
+      "type": "(winner: TicTacToeWinner) => void",
+      "required": false,
+      "description": "Called when a game ends."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

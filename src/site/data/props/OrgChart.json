@@ -1,0 +1,61 @@
+{
+  "props": [
+    {
+      "name": "data",
+      "type": "OrgChartPerson",
+      "required": true,
+      "description": "The person at the top."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "defaultExpanded",
+      "type": "string[]",
+      "required": false,
+      "description": "Ids expanded on first render. Overrides `defaultDepth`."
+    },
+    {
+      "name": "defaultDepth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2",
+      "description": "Without `defaultExpanded`, levels open on first render: 1 shows the top person’s reports."
+    },
+    {
+      "name": "selected",
+      "type": "string",
+      "required": false,
+      "description": "Selected person’s id. Omit to let the chart track selection itself."
+    },
+    {
+      "name": "onSelect",
+      "type": "(id: string) => void",
+      "required": false,
+      "description": "Called when a card is clicked or activated with Enter or Space."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "440",
+      "description": "Height of the viewport in pixels."
+    },
+    {
+      "name": "wheelZoom",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Zoom with the mouse wheel. Off by default so the page still scrolls past the chart."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

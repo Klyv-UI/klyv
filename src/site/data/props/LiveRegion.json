@@ -1,0 +1,30 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Components below call `useAnnounce()` and speak through this region. Optional: without children the region only announces `message`."
+    },
+    {
+      "name": "message",
+      "type": "string",
+      "required": false,
+      "description": "Declarative announcement: each new value is spoken once."
+    },
+    {
+      "name": "politeness",
+      "type": "LiveRegionPoliteness",
+      "required": false,
+      "defaultValue": "'polite'",
+      "description": "How `message` interrupts: `polite` waits for the reader to pause, `assertive` cuts in. Keep assertive for errors."
+    },
+    {
+      "name": "clearAfter",
+      "type": "number",
+      "required": false,
+      "defaultValue": "5000",
+      "description": "Milliseconds before the spoken text is cleared from the region. 0 keeps it."
+    }
+  ]
+}

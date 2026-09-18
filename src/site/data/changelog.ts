@@ -56,10 +56,16 @@ export const releases: Release[] = [
     changes: [
       {
         category: 'feature',
-        title: 'Fifty more components, now the ones marked New',
+        title: 'Seventy more components across every group, now the ones marked New',
         description:
-          'Stack, Container, InfiniteScroll, LanguageSwitcher, VersionSwitcher, ArticlePager, DownloadButton, LikeButton, SelectionToolbar, DateTimePicker, DurationInput, AddressInput, TreeSelect, CascadeSelect, ColorSwatchPicker, MarkdownEditor, AvatarUpload, RepeaterField, EventCalendar, AgendaList, TreeTable, EditableTable, Leaderboard, CodeTabs, VideoPlayer, AudioPlayer, GanttChart, MatrixHeatmap, RadialBarChart, SlopeChart, ParetoChart, DumbbellChart, StepLoader, UploadQueue, KeyboardShortcutsDialog, PromptDialog, ReleaseNotesModal, AnimatedList, MarkerHighlight, ShimmerText, ImageAnnotator, ResizableBox, GameOfLife, MemoryGame, SeatSelector, CancellationFlow, DataExportPanel, AccessRequests, DomainSetup and LocaleSettings. The previous forty are no longer tagged New.',
+          'Grid, TextLink, LiveRegion, HighlightMatch, Sticky, MasterDetail, DashboardGrid, ShowMoreList, NavigationProgress, PriorityNav, ScopedSearch, AlphabetIndex, RecentItems, SocialLoginButtons, UnsavedChangesBar, VoteButtons, FollowButton, AddToCalendar, WeekdayPicker, UnitInput, TimeRangePicker, RecurrenceEditor, LikertScale, CodeEditor, SearchableCheckboxList, KpiStrip, TrendDelta, WeekView, Receipt, LogViewer, TranscriptView, SunburstChart, NetworkGraph, OrgChart, BeeswarmChart, CohortRetention, StreamGraph, SignalStrength, Meteors, AnimatedGrid, UpdateAvailable, MaintenanceNotice, NotFoundState, AccessDeniedState, FullscreenDialog, FeatureBeacon, ChecklistPopover, LinkPreview, FloatingPanel, SwipeToConfirm, CircularText, MorphingText, AttentionShake, ScrollStory, SharePermissions, VersionHistory, QuestionQueue, DropOverlay, FlowField, Metronome, SpinWheel, TicTacToe, FaqSection, NewsletterSignup, UsagePricingCalculator, EmailVerification, OAuthConsent, IpAllowlist, BrandingSettings and RoadmapBoard. The previous fifty are no longer tagged New.',
         links: [{ label: 'New components', to: '/components?new=1' }],
+      },
+      {
+        category: 'feature',
+        title: 'Fifty more components',
+        description:
+          'Stack, Container, InfiniteScroll, LanguageSwitcher, VersionSwitcher, ArticlePager, DownloadButton, LikeButton, SelectionToolbar, DateTimePicker, DurationInput, AddressInput, TreeSelect, CascadeSelect, ColorSwatchPicker, MarkdownEditor, AvatarUpload, RepeaterField, EventCalendar, AgendaList, TreeTable, EditableTable, Leaderboard, CodeTabs, VideoPlayer, AudioPlayer, GanttChart, MatrixHeatmap, RadialBarChart, SlopeChart, ParetoChart, DumbbellChart, StepLoader, UploadQueue, KeyboardShortcutsDialog, PromptDialog, ReleaseNotesModal, AnimatedList, MarkerHighlight, ShimmerText, ImageAnnotator, ResizableBox, GameOfLife, MemoryGame, SeatSelector, CancellationFlow, DataExportPanel, AccessRequests, DomainSetup and LocaleSettings.',
       },
       {
         category: 'feature',

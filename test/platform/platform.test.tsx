@@ -46,7 +46,7 @@ describe('search', () => {
   })
 
   it('reads a word as the tag it stands for', () => {
-    expect(inGroup('login', 'Components')).toEqual(expect.arrayContaining(['PasswordInput', 'InputOTP']))
+    expect(inGroup('login', 'Components')).toEqual(expect.arrayContaining(['AuthCard', 'InputOTP']))
     expect(inGroup('login', 'Blocks')).toContain('Login')
     expect(inGroup('login', 'Recipes')).toContain('Build a login flow')
   })

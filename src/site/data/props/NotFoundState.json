@@ -1,0 +1,98 @@
+{
+  "props": [
+    {
+      "name": "code",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'404'",
+      "description": "The status code, drawn large."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'We can’t find that page'",
+      "description": "What happened, in words."
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false,
+      "defaultValue": "'The link may be out of date, or the page may have moved. Check the address, or try one of these instead.'",
+      "description": "Why it might have happened and what to try."
+    },
+    {
+      "name": "search",
+      "type": "ReactNode",
+      "required": false,
+      "description": "A search field — usually a SearchField wired to site search."
+    },
+    {
+      "name": "links",
+      "type": "NotFoundStateLink[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Pages people most often meant. Three or four at most."
+    },
+    {
+      "name": "linksTitle",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Popular pages'",
+      "description": "Heading over the links."
+    },
+    {
+      "name": "homeHref",
+      "type": "string | null",
+      "required": false,
+      "defaultValue": "'/'",
+      "description": "Where the home action goes. Pass null to leave it out."
+    },
+    {
+      "name": "homeLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Go to home'",
+      "description": "Label on the home action."
+    },
+    {
+      "name": "showBack",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show a back action. It calls onBack, or steps back through history."
+    },
+    {
+      "name": "backLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Go back'",
+      "description": "Label on the back action."
+    },
+    {
+      "name": "onBack",
+      "type": "() => void",
+      "required": false,
+      "description": "Replaces the default history step — for an app with its own router."
+    },
+    {
+      "name": "illustration",
+      "type": "ReactNode | null",
+      "required": false,
+      "description": "Artwork above the code. It is hidden from assistive technology; pass null for none."
+    },
+    {
+      "name": "headingLevel",
+      "type": "NotFoundStateHeadingLevel",
+      "required": false,
+      "defaultValue": "'h1'",
+      "description": "The title's heading level. h1 when this is the whole page, lower inside an app shell."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

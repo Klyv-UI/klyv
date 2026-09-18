@@ -1,0 +1,66 @@
+{
+  "props": [
+    {
+      "name": "following",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the reader follows, when controlled."
+    },
+    {
+      "name": "defaultFollowing",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Starting state when uncontrolled."
+    },
+    {
+      "name": "onFollowingChange",
+      "type": "(following: boolean) => void | Promise<void>",
+      "required": false,
+      "description": "Save the change. The button shows as pending until the promise settles; a rejection leaves the state as it was."
+    },
+    {
+      "name": "onError",
+      "type": "(reason: unknown) => void",
+      "required": false,
+      "description": "Called with the reason when saving fails."
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "Who or what is followed — \"Ada Lovelace\". Becomes part of the accessible name: \"Follow Ada Lovelace\"."
+    },
+    {
+      "name": "followerCount",
+      "type": "number",
+      "required": false,
+      "description": "Follower count to show beside the button. Omit to hide it. Should already include the reader."
+    },
+    {
+      "name": "countNoun",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'followers'",
+      "description": "The noun for the count."
+    },
+    {
+      "name": "size",
+      "type": "FollowButtonSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode | ((state: StickyState) => ReactNode)",
+      "required": true,
+      "description": "The pinned content, or a function of the stuck state for content that changes when pinned."
+    },
+    {
+      "name": "top",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Distance from the top of the scroll container at which it pins, in pixels — the height of a fixed header above it."
+    },
+    {
+      "name": "stuckClassName",
+      "type": "string",
+      "required": false,
+      "description": "Classes added only while pinned — `shadow-[var(--shadow-float)]`, `border-b border-line`. `data-stuck` is set too."
+    },
+    {
+      "name": "onStuckChange",
+      "type": "(stuck: boolean) => void",
+      "required": false,
+      "description": "Called when the element pins or unpins."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ],
+  "inherits": [
+    "Omit<ComponentPropsWithoutRef<'div'>, 'children'>"
+  ]
+}

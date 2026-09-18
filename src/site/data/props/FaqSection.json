@@ -1,0 +1,67 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "FaqSectionItem[]",
+      "required": true
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Frequently asked questions'"
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false,
+      "description": "A line under the title."
+    },
+    {
+      "name": "headingLevel",
+      "type": "'h2' | 'h3'",
+      "required": false,
+      "defaultValue": "'h2'",
+      "description": "Level of the section heading."
+    },
+    {
+      "name": "searchable",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the search field."
+    },
+    {
+      "name": "contact",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Actions for the “Still have questions?” area — usually a contact link or button. Omit to hide the area."
+    },
+    {
+      "name": "contactTitle",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Still have questions?'",
+      "description": "Heading of the contact area."
+    },
+    {
+      "name": "contactDescription",
+      "type": "ReactNode",
+      "required": false,
+      "description": "A line under the contact heading — how and how fast you answer."
+    },
+    {
+      "name": "structuredData",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Emit FAQPage JSON-LD for the questions with plain-text answers."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "props": [
+    {
+      "name": "onDrop",
+      "type": "(files: File[]) => void",
+      "required": true,
+      "description": "Called with the files that passed the type and size checks."
+    },
+    {
+      "name": "onReject",
+      "type": "(rejections: DropOverlayRejection[]) => void",
+      "required": false,
+      "description": "Called with the files that did not, and why."
+    },
+    {
+      "name": "accept",
+      "type": "string",
+      "required": false,
+      "description": "Native accept string — \"image/*,.pdf\". Checked on drop as well as in the file picker."
+    },
+    {
+      "name": "maxSize",
+      "type": "number",
+      "required": false,
+      "description": "Largest accepted file, in bytes."
+    },
+    {
+      "name": "multiple",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Accept more than one file at a time."
+    },
+    {
+      "name": "scope",
+      "type": "DropOverlayScope",
+      "required": false,
+      "defaultValue": "'region'",
+      "description": "page listens on the whole window and covers the viewport; region covers only its children."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Drop files to upload'",
+      "description": "Heading on the overlay."
+    },
+    {
+      "name": "acceptLabel",
+      "type": "string",
+      "required": false,
+      "description": "Plain-language version of `accept`, shown on the overlay — “Images or PDFs”."
+    },
+    {
+      "name": "chooseLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Choose files'",
+      "description": "Label on the always-visible button that opens the file picker."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode | ((openFilePicker: () => void) => ReactNode)",
+      "required": false,
+      "description": "The content the overlay covers. A function receives `openFilePicker`, to put the choose-files control somewhere of your own; otherwise a button is drawn after the content."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Ignore drags and disable the button."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

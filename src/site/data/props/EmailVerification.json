@@ -1,0 +1,80 @@
+{
+  "props": [
+    {
+      "name": "email",
+      "type": "string",
+      "required": true,
+      "description": "The address the email went to. Shown masked."
+    },
+    {
+      "name": "onResend",
+      "type": "() => void | Promise<void>",
+      "required": true,
+      "description": "Send the email again. Reject to show the message."
+    },
+    {
+      "name": "cooldown",
+      "type": "number",
+      "required": false,
+      "defaultValue": "30",
+      "description": "Seconds to wait between sends."
+    },
+    {
+      "name": "sentOnMount",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Start with the cooldown running, because an email was sent just before this screen."
+    },
+    {
+      "name": "onChangeEmail",
+      "type": "() => void",
+      "required": false,
+      "description": "Go back and use a different address. Without it, the link is hidden."
+    },
+    {
+      "name": "onVerifyCode",
+      "type": "(code: string) => boolean | void | Promise<boolean | void>",
+      "required": false,
+      "description": "Check a typed code. Resolve false or reject to mark it wrong. Without it, only the link is offered."
+    },
+    {
+      "name": "codeLength",
+      "type": "number",
+      "required": false,
+      "defaultValue": "6",
+      "description": "Characters in the code."
+    },
+    {
+      "name": "expiresIn",
+      "type": "string",
+      "required": false,
+      "description": "How long the link lasts, in words — “24 hours”."
+    },
+    {
+      "name": "mailLinks",
+      "type": "EmailVerificationMailLink[]",
+      "required": false,
+      "defaultValue": "DEFAULT_MAIL_LINKS",
+      "description": "Shortcuts to webmail. Pass [] to hide them."
+    },
+    {
+      "name": "verified",
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled verified state — for a link clicked in another tab."
+    },
+    {
+      "name": "verifiedAction",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Shown once verified — usually a Continue button."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

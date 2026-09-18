@@ -1,0 +1,51 @@
+{
+  "props": [
+    {
+      "name": "columns",
+      "type": "GridResponsiveColumns",
+      "required": false,
+      "defaultValue": "1",
+      "description": "Column count, or one per breakpoint: `{ base: 1, md: 2, lg: 4 }`. Ignored when `minItemWidth` is set."
+    },
+    {
+      "name": "minItemWidth",
+      "type": "number | string",
+      "required": false,
+      "description": "Fit as many columns as there is room for, each at least this wide — a number is pixels, a string any CSS length. The grid then answers to its own width rather than the viewport’s, which is what a card list inside a sidebar layout wants."
+    },
+    {
+      "name": "gap",
+      "type": "GridGap",
+      "required": false,
+      "defaultValue": "4",
+      "description": "Space between cells, on the spacing scale — 4 is 16px."
+    },
+    {
+      "name": "align",
+      "type": "GridAlign",
+      "required": false,
+      "description": "Vertical alignment of cells inside their rows."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The cells. Wrap one in GridItem to span columns or rows."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    },
+    {
+      "name": "as",
+      "type": "E",
+      "required": false,
+      "description": "The element to render — `ul` for a list of cards, `section`."
+    }
+  ],
+  "inherits": [
+    "Omit<ComponentPropsWithoutRef<E>, keyof GridOwnProps | 'as'>"
+  ]
+}

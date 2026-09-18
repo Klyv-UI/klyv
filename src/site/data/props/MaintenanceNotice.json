@@ -1,0 +1,86 @@
+{
+  "props": [
+    {
+      "name": "start",
+      "type": "Date",
+      "required": true,
+      "description": "When the window opens."
+    },
+    {
+      "name": "end",
+      "type": "Date",
+      "required": true,
+      "description": "When the window is expected to close."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Scheduled maintenance'",
+      "description": "What is being worked on — \"Database upgrade\"."
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Extra detail: what to expect, what to do beforehand."
+    },
+    {
+      "name": "impact",
+      "type": "MaintenanceNoticeImpact",
+      "required": false,
+      "defaultValue": "'degraded'",
+      "description": "How much readers will notice. Drives the impact line."
+    },
+    {
+      "name": "statusHref",
+      "type": "string",
+      "required": false,
+      "description": "A status page with live updates."
+    },
+    {
+      "name": "statusLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Status page'",
+      "description": "Label on the status link."
+    },
+    {
+      "name": "storageKey",
+      "type": "string",
+      "required": false,
+      "description": "Remember a dismissal in this browser. The window's start time is added to the key, so dismissing this window never hides the next one. Reads and writes are guarded."
+    },
+    {
+      "name": "onDismiss",
+      "type": "() => void",
+      "required": false,
+      "description": "Called when the notice is dismissed. Leave both this and storageKey out to make it permanent."
+    },
+    {
+      "name": "completedFor",
+      "type": "number",
+      "required": false,
+      "defaultValue": "3_600_000",
+      "description": "Milliseconds to keep saying \"completed\" after the window ends, before the notice goes."
+    },
+    {
+      "name": "now",
+      "type": "Date",
+      "required": false,
+      "description": "The current time. Leave it out to follow the clock; pass it to pin a phase in a test or a demo."
+    },
+    {
+      "name": "timeZone",
+      "type": "string",
+      "required": false,
+      "description": "IANA time zone for the window. Defaults to the reader’s own."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

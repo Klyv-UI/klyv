@@ -1,0 +1,75 @@
+{
+  "props": [
+    {
+      "name": "dirty",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the form has changes that are not saved. The bar shows while this is true."
+    },
+    {
+      "name": "onSave",
+      "type": "() => void | Promise<void>",
+      "required": true,
+      "description": "Save the changes. Return a promise to show Save as pending; a rejection keeps the bar up with the message."
+    },
+    {
+      "name": "onDiscard",
+      "type": "() => void",
+      "required": true,
+      "description": "Throw the changes away."
+    },
+    {
+      "name": "message",
+      "type": "ReactNode",
+      "required": false,
+      "defaultValue": "'You have unsaved changes'",
+      "description": "The sentence on the bar."
+    },
+    {
+      "name": "saveLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Save changes'"
+    },
+    {
+      "name": "discardLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Discard'"
+    },
+    {
+      "name": "confirmDiscard",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Ask before discarding."
+    },
+    {
+      "name": "shortcut",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Save on Ctrl+S / ⌘S while dirty."
+    },
+    {
+      "name": "warnOnLeave",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Warn with the browser’s own dialog when leaving the page while dirty."
+    },
+    {
+      "name": "position",
+      "type": "UnsavedChangesBarPosition",
+      "required": false,
+      "defaultValue": "'sticky'",
+      "description": "sticky rides the bottom of its scroll container; fixed pins to the viewport; static sits in the flow."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Controlled source text."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "Starting text when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called with the whole text after every edit."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Accessible name, when no Field or label supplies one."
+    },
+    {
+      "name": "rows",
+      "type": "number",
+      "required": false,
+      "defaultValue": "12",
+      "description": "Visible lines before the editor scrolls."
+    },
+    {
+      "name": "tabSize",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2",
+      "description": "Spaces per indent level."
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Marks the editor as failing validation. Pair it with a message."
+    },
+    {
+      "name": "showStatus",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the line and column read-out and the keyboard hint under the text."
+    },
+    {
+      "name": "containerClassName",
+      "type": "string",
+      "required": false,
+      "description": "Classes for the frame rather than the textarea itself."
+    }
+  ],
+  "inherits": [
+    "Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'value' | 'defaultValue' | 'onChange' | 'rows' | 'wrap'>"
+  ]
+}

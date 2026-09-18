@@ -1,0 +1,42 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "KpiStripItem[]",
+      "required": true,
+      "description": "The metrics, in reading order."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Names the strip for assistive tech, such as “Last 30 days”."
+    },
+    {
+      "name": "comparison",
+      "type": "string",
+      "required": false,
+      "description": "The comparison every delta is against, read with each one."
+    },
+    {
+      "name": "minItemWidth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "168",
+      "description": "Smallest width an item takes before the row wraps, in pixels."
+    },
+    {
+      "name": "framed",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Draw the strip as a card rather than bare on the page."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

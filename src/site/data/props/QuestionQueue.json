@@ -1,0 +1,72 @@
+{
+  "props": [
+    {
+      "name": "questions",
+      "type": "QuestionQueueQuestion[]",
+      "required": true
+    },
+    {
+      "name": "onAsk",
+      "type": "(text: string, options: { anonymous: boolean }) => void | Promise<void>",
+      "required": true,
+      "description": "Submit a question. Return a promise to show progress; reject with a message to show it."
+    },
+    {
+      "name": "onVote",
+      "type": "(id: string, voted: boolean) => void",
+      "required": true,
+      "description": "Upvote toggled. `voted` is the new state."
+    },
+    {
+      "name": "isHost",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Show the moderation menu on every question."
+    },
+    {
+      "name": "onModerate",
+      "type": "(id: string, action: QuestionQueueAction) => void",
+      "required": false,
+      "description": "A host acted on a question."
+    },
+    {
+      "name": "sort",
+      "type": "QuestionQueueSort",
+      "required": false,
+      "description": "Order (controlled)."
+    },
+    {
+      "name": "defaultSort",
+      "type": "QuestionQueueSort",
+      "required": false,
+      "defaultValue": "'top'",
+      "description": "Initial order when uncontrolled."
+    },
+    {
+      "name": "onSortChange",
+      "type": "(sort: QuestionQueueSort) => void",
+      "required": false
+    },
+    {
+      "name": "maxLength",
+      "type": "number",
+      "required": false,
+      "defaultValue": "280",
+      "description": "Longest question accepted."
+    },
+    {
+      "name": "allowAnonymous",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Allow asking without a name."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

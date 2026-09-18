@@ -1,0 +1,50 @@
+{
+  "props": [
+    {
+      "name": "active",
+      "type": "boolean",
+      "required": true,
+      "description": "True from the moment navigation starts until it finishes. Going false completes the bar and fades it out."
+    },
+    {
+      "name": "value",
+      "type": "number",
+      "required": false,
+      "description": "Real progress, 0–100, when the router knows it. Omit to let the bar trickle on its own."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Loading page'",
+      "description": "Accessible name of the progress bar."
+    },
+    {
+      "name": "position",
+      "type": "'fixed' | 'absolute'",
+      "required": false,
+      "defaultValue": "'fixed'",
+      "description": "`fixed` pins it to the top of the viewport; `absolute` to the top of the nearest positioned ancestor."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Bar thickness in pixels."
+    },
+    {
+      "name": "delay",
+      "type": "number",
+      "required": false,
+      "defaultValue": "120",
+      "description": "Milliseconds before a short navigation shows the bar at all."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the bar’s track."
+    }
+  ]
+}

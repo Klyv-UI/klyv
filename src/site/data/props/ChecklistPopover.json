@@ -1,0 +1,81 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "ChecklistPopoverItem[]",
+      "required": true,
+      "description": "The steps, in the order they are best done. Done state comes from the app, not from clicks here."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Get set up'",
+      "description": "Heading inside the panel."
+    },
+    {
+      "name": "triggerLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Setup guide'",
+      "description": "Text on the trigger."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled open state."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Initial open state when uncontrolled."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "required": false,
+      "description": "Called when the panel opens or closes."
+    },
+    {
+      "name": "completeTitle",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'You’re all set'",
+      "description": "Headline once every step is done."
+    },
+    {
+      "name": "completeDescription",
+      "type": "ReactNode",
+      "required": false,
+      "defaultValue": "'Every step is done. You can find this guide again in Help.'",
+      "description": "Supporting line once every step is done."
+    },
+    {
+      "name": "onDismiss",
+      "type": "() => void",
+      "required": false,
+      "description": "Offered once everything is done — hide the trigger for good."
+    },
+    {
+      "name": "placement",
+      "type": "PopoverPlacement",
+      "required": false,
+      "defaultValue": "'bottom'"
+    },
+    {
+      "name": "align",
+      "type": "PopoverAlign",
+      "required": false,
+      "defaultValue": "'end'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the panel."
+    }
+  ]
+}

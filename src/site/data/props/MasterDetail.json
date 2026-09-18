@@ -1,0 +1,100 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "T[]",
+      "required": true,
+      "description": "The records in the list pane."
+    },
+    {
+      "name": "itemId",
+      "type": "(item: T) => string",
+      "required": true,
+      "description": "Stable id for an item."
+    },
+    {
+      "name": "itemLabel",
+      "type": "(item: T) => string",
+      "required": true,
+      "description": "The item’s name — the detail pane’s heading, and the back button’s context."
+    },
+    {
+      "name": "renderItem",
+      "type": "(item: T, state: MasterDetailItemState) => ReactNode",
+      "required": true,
+      "description": "Content of one row. The row is already a button; do not put controls inside it."
+    },
+    {
+      "name": "renderDetail",
+      "type": "(item: T) => ReactNode",
+      "required": true,
+      "description": "The detail pane’s body, under the heading."
+    },
+    {
+      "name": "value",
+      "type": "string | null",
+      "required": false,
+      "description": "Controlled selected id. Null for nothing selected."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string | null",
+      "required": false,
+      "defaultValue": "null",
+      "description": "Starting selection when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(id: string) => void",
+      "required": false,
+      "description": "Called with the id of the item the reader opens."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the list."
+    },
+    {
+      "name": "splitAt",
+      "type": "number",
+      "required": false,
+      "defaultValue": "640",
+      "description": "Container width in pixels from which the panes sit side by side. Below it, one pane shows at a time."
+    },
+    {
+      "name": "emptyDetail",
+      "type": "ReactNode",
+      "required": false,
+      "defaultValue": "'Select an item to see it here.'",
+      "description": "Shown in the detail pane while nothing is selected, side by side only."
+    },
+    {
+      "name": "backLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Back'",
+      "description": "Label of the back button on narrow layouts."
+    },
+    {
+      "name": "headingLevel",
+      "type": "2 | 3 | 4",
+      "required": false,
+      "defaultValue": "2",
+      "description": "Heading level of the detail title."
+    },
+    {
+      "name": "listWidth",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'18rem'",
+      "description": "Width of the list pane when side by side, as a CSS length."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the wrapper."
+    }
+  ]
+}

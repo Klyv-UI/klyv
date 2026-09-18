@@ -1,6 +1,7 @@
 'use client'
 
 import { forwardRef, type InputHTMLAttributes } from 'react'
+import { cn } from '../../lib/cn'
 import { IconButton } from '../IconButton'
 import { Input, type InputSize } from '../Input'
 import { CrossIcon, SearchIcon } from '../internal/icons'
@@ -32,6 +33,7 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(functi
     clearable = true,
     placeholder = 'Search',
     containerClassName,
+    className,
     ...props
   },
   ref,
@@ -46,6 +48,8 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(functi
       placeholder={placeholder}
       inputSize={inputSize}
       containerClassName={containerClassName}
+      // The field draws its own clear control; the browser's would be a second one.
+      className={cn('[&::-webkit-search-cancel-button]:appearance-none', className)}
       leading={<SearchIcon size={15} />}
       trailing={
         clearable && value ? (

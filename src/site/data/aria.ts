@@ -4,6 +4,10 @@
 // arrive only through a child component are listed on that child, not here.
 
 export const ariaRoles: Record<string, string[]> = {
+  "AccessDeniedState": [
+    "alert",
+    "status"
+  ],
   "AchievementPop": [
     "alert"
   ],
@@ -11,6 +15,10 @@ export const ariaRoles: Record<string, string[]> = {
     "grid",
     "gridcell",
     "row"
+  ],
+  "AddToCalendar": [
+    "menu",
+    "menuitem"
   ],
   "AddressInput": [
     "combobox",
@@ -26,6 +34,9 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "AlertDialog": [
     "alertdialog"
+  ],
+  "AlphabetIndex": [
+    "toolbar"
   ],
   "AnnouncementBar": [
     "region"
@@ -53,6 +64,9 @@ export const ariaRoles: Record<string, string[]> = {
     "alert",
     "group",
     "status"
+  ],
+  "BeeswarmChart": [
+    "img"
   ],
   "BoxPlot": [
     "img"
@@ -106,6 +120,9 @@ export const ariaRoles: Record<string, string[]> = {
     "tab",
     "tablist",
     "tabpanel"
+  ],
+  "CohortRetention": [
+    "grid"
   ],
   "ColorPicker": [
     "group"
@@ -161,6 +178,9 @@ export const ariaRoles: Record<string, string[]> = {
     "group"
   ],
   "CubeCarousel": [
+    "group"
+  ],
+  "DashboardGrid": [
     "group"
   ],
   "DataFreshness": [
@@ -243,6 +263,9 @@ export const ariaRoles: Record<string, string[]> = {
     "gridcell",
     "row"
   ],
+  "FaqSection": [
+    "status"
+  ],
   "FeatureFlags": [
     "status"
   ],
@@ -264,6 +287,17 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "FlipBook": [
     "group"
+  ],
+  "FloatingPanel": [
+    "dialog",
+    "modal"
+  ],
+  "FlowField": [
+    "img"
+  ],
+  "FullscreenDialog": [
+    "dialog",
+    "modal"
   ],
   "GameOfLife": [
     "application",
@@ -336,6 +370,13 @@ export const ariaRoles: Record<string, string[]> = {
     "modal",
     "status"
   ],
+  "LikertScale": [
+    "group",
+    "radiogroup"
+  ],
+  "LinkPreview": [
+    "tooltip"
+  ],
   "LiveChart": [
     "status"
   ],
@@ -345,12 +386,22 @@ export const ariaRoles: Record<string, string[]> = {
   "LocaleSettings": [
     "status"
   ],
+  "LogViewer": [
+    "group",
+    "list",
+    "listitem",
+    "region",
+    "status"
+  ],
   "LogoCloud": [
     "img"
   ],
   "MagicTabs": [
     "tab",
     "tablist"
+  ],
+  "MaintenanceNotice": [
+    "status"
   ],
   "MarkdownEditor": [
     "toolbar"
@@ -398,6 +449,12 @@ export const ariaRoles: Record<string, string[]> = {
     "radio",
     "radiogroup"
   ],
+  "Metronome": [
+    "combobox",
+    "group",
+    "listbox",
+    "status"
+  ],
   "MiniMap": [
     "group"
   ],
@@ -413,8 +470,20 @@ export const ariaRoles: Record<string, string[]> = {
     "dialog",
     "modal"
   ],
+  "MorphingText": [
+    "status"
+  ],
   "MultiSelect": [
     "listbox"
+  ],
+  "NavigationProgress": [
+    "progressbar"
+  ],
+  "NetworkGraph": [
+    "img"
+  ],
+  "NewsletterSignup": [
+    "status"
   ],
   "NotificationCenter": [
     "status"
@@ -427,6 +496,10 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "OrbitRing": [
     "group"
+  ],
+  "OrgChart": [
+    "tree",
+    "treeitem"
   ],
   "Pagination": [
     "status"
@@ -483,6 +556,9 @@ export const ariaRoles: Record<string, string[]> = {
   "QRCode": [
     "img"
   ],
+  "QuestionQueue": [
+    "status"
+  ],
   "QuickActions": [
     "list"
   ],
@@ -507,6 +583,13 @@ export const ariaRoles: Record<string, string[]> = {
   "ReactionBar": [
     "group"
   ],
+  "RecentItems": [
+    "status"
+  ],
+  "RecurrenceEditor": [
+    "group",
+    "radiogroup"
+  ],
   "ReleaseNotesModal": [
     "status"
   ],
@@ -523,6 +606,9 @@ export const ariaRoles: Record<string, string[]> = {
   "ReviewSummary": [
     "img"
   ],
+  "RoadmapBoard": [
+    "status"
+  ],
   "RotatingWord": [
     "status"
   ],
@@ -538,11 +624,21 @@ export const ariaRoles: Record<string, string[]> = {
   "ScatterChart": [
     "img"
   ],
+  "ScopedSearch": [
+    "combobox",
+    "listbox",
+    "option",
+    "search",
+    "status"
+  ],
   "ScrollArea": [
     "region"
   ],
   "ScrollProgress": [
     "progressbar"
+  ],
+  "SearchableCheckboxList": [
+    "group"
   ],
   "SeatSelector": [
     "status"
@@ -572,8 +668,14 @@ export const ariaRoles: Record<string, string[]> = {
     "menuitem",
     "status"
   ],
+  "SharePermissions": [
+    "status"
+  ],
   "ShortcutRecorder": [
     "status"
+  ],
+  "SignalStrength": [
+    "img"
   ],
   "SignaturePad": [
     "img",
@@ -585,6 +687,9 @@ export const ariaRoles: Record<string, string[]> = {
   "SlotReels": [
     "status"
   ],
+  "SocialLoginButtons": [
+    "group"
+  ],
   "SortableList": [
     "status"
   ],
@@ -595,6 +700,10 @@ export const ariaRoles: Record<string, string[]> = {
     "menu",
     "menuitem",
     "none"
+  ],
+  "SpinWheel": [
+    "img",
+    "status"
   ],
   "Spinner": [
     "status"
@@ -611,11 +720,21 @@ export const ariaRoles: Record<string, string[]> = {
   "StoryProgress": [
     "progressbar"
   ],
+  "StreamGraph": [
+    "img"
+  ],
   "SuccessMark": [
     "status"
   ],
+  "SunburstChart": [
+    "img"
+  ],
   "SwipeDeck": [
     "group"
+  ],
+  "SwipeToConfirm": [
+    "slider",
+    "status"
   ],
   "Switch": [
     "switch"
@@ -631,6 +750,15 @@ export const ariaRoles: Record<string, string[]> = {
   "TestimonialCard": [
     "img"
   ],
+  "TextLink": [
+    "link"
+  ],
+  "TicTacToe": [
+    "grid",
+    "gridcell",
+    "row",
+    "status"
+  ],
   "Ticker": [
     "status"
   ],
@@ -638,6 +766,9 @@ export const ariaRoles: Record<string, string[]> = {
     "combobox",
     "listbox",
     "option"
+  ],
+  "TimeRangePicker": [
+    "group"
   ],
   "TimeSlotPicker": [
     "group",
@@ -659,6 +790,9 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "Tooltip": [
     "tooltip"
+  ],
+  "TranscriptView": [
+    "status"
   ],
   "TransferList": [
     "group",
@@ -689,6 +823,18 @@ export const ariaRoles: Record<string, string[]> = {
     "menuitem",
     "status"
   ],
+  "UnitInput": [
+    "spinbutton"
+  ],
+  "UnsavedChangesBar": [
+    "alert",
+    "dialog",
+    "region",
+    "status"
+  ],
+  "UpdateAvailable": [
+    "status"
+  ],
   "UploadQueue": [
     "status"
   ],
@@ -697,6 +843,9 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "UsageMeter": [
     "progressbar"
+  ],
+  "UsagePricingCalculator": [
+    "status"
   ],
   "UserMenu": [
     "menu",
@@ -723,11 +872,21 @@ export const ariaRoles: Record<string, string[]> = {
     "listitem",
     "presentation"
   ],
+  "VoteButtons": [
+    "group"
+  ],
   "WaterfallChart": [
     "img"
   ],
   "Waveform": [
     "img"
+  ],
+  "WeekView": [
+    "group",
+    "region"
+  ],
+  "WeekdayPicker": [
+    "group"
   ],
   "WorkspaceSwitcher": [
     "listbox",

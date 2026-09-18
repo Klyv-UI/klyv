@@ -1,0 +1,87 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "T[]",
+      "required": true,
+      "description": "Every item. Only the first `initialCount` render until the list is expanded."
+    },
+    {
+      "name": "itemKey",
+      "type": "(item: T) => string",
+      "required": true,
+      "description": "Stable key for an item."
+    },
+    {
+      "name": "renderItem",
+      "type": "(item: T, index: number) => ReactNode",
+      "required": true,
+      "description": "Content of one list item."
+    },
+    {
+      "name": "initialCount",
+      "type": "number",
+      "required": false,
+      "defaultValue": "5",
+      "description": "How many show while collapsed."
+    },
+    {
+      "name": "expanded",
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled expanded state."
+    },
+    {
+      "name": "defaultExpanded",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Starting expanded state when uncontrolled."
+    },
+    {
+      "name": "onExpandedChange",
+      "type": "(expanded: boolean) => void",
+      "required": false,
+      "description": "Called when the reader shows all or shows fewer."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Accessible name for the list."
+    },
+    {
+      "name": "ordered",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Numbered list instead of bulleted semantics."
+    },
+    {
+      "name": "showAllLabel",
+      "type": "(total: number) => string",
+      "required": false,
+      "defaultValue": "(total) => `Show all ${total}`",
+      "description": "Label of the expand button, given the total."
+    },
+    {
+      "name": "showFewerLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Show fewer'",
+      "description": "Label of the collapse button."
+    },
+    {
+      "name": "listClassName",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the list element."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the wrapper."
+    }
+  ]
+}

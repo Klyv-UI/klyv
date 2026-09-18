@@ -6,7 +6,7 @@
 // files that must compile, and a stale edge means a broken paste.
 //
 // Run by `predev` and `prebuild`, so it cannot drift from the source.
-import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync } from 'node:fs'
+import { existsSync, readFileSync, writeFileSync, readdirSync, statSync, mkdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -75,6 +75,8 @@ for (const name of readdirSync(COMPONENTS).filter(isComponentDir)) {
         shared.add(`lib/${spec.slice('../../lib/'.length)}.ts`)
       } else if (spec.startsWith('../internal/')) {
         shared.add(`components/internal/${spec.slice('../internal/'.length)}.tsx`)
+      } else if (spec.startsWith('../../theme/')) {
+        shared.add(`theme/${spec.slice('../../theme/'.length)}.ts`)
       } else if (!spec.startsWith('.')) {
         external.add(spec)
       }
@@ -90,19 +92,33 @@ for (const name of readdirSync(COMPONENTS).filter(isComponentDir)) {
 }
 
 // Shared modules pull in their own dependencies; `lib/motion` is imported by 16
-// components and would otherwise arrive without whatever it needs.
+// components and would otherwise arrive without whatever it needs. Resolved
+// transitively, because `theme/mode` needs `theme/accent`, which needs
+// `lib/contrast`, and a copy that stops one level down does not compile.
 const sharedDeps = {}
-for (const entry of Object.values(components)) {
-  for (const path of entry.shared) {
-    if (sharedDeps[path]) continue
-    const full = join(ROOT, 'src', path)
-    const deps = new Set()
-    for (const spec of importsOf(readFileSync(full, 'utf8'))) {
-      if (spec.startsWith('./')) deps.add(`${dirname(path)}/${spec.slice(2)}.ts`)
-      else if (spec.startsWith('../../lib/')) deps.add(`lib/${spec.slice('../../lib/'.length)}.ts`)
-    }
-    sharedDeps[path] = [...deps].sort()
+const resolveShared = (from, spec) => {
+  const base = join(dirname(from), spec).replaceAll('\\', '/')
+  for (const ext of ['.ts', '.tsx']) {
+    if (existsSync(join(ROOT, 'src', base + ext))) return base + ext
   }
+  return null
+}
+const collectShared = (path) => {
+  if (sharedDeps[path]) return sharedDeps[path]
+  sharedDeps[path] = []
+  const deps = new Set()
+  for (const spec of importsOf(readFileSync(join(ROOT, 'src', path), 'utf8'))) {
+    if (!spec.startsWith('.')) continue
+    const resolved = resolveShared(path, spec)
+    if (!resolved || (resolved.startsWith('components/') && !resolved.startsWith('components/internal/'))) continue
+    deps.add(resolved)
+    for (const nested of collectShared(resolved)) deps.add(nested)
+  }
+  deps.delete(path)
+  return (sharedDeps[path] = [...deps].sort())
+}
+for (const entry of Object.values(components)) {
+  for (const path of entry.shared) collectShared(path)
 }
 
 // The catalogue is the site's source of truth for what a component is *for*.

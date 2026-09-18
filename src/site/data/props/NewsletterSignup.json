@@ -1,0 +1,61 @@
+{
+  "props": [
+    {
+      "name": "onSubscribe",
+      "type": "(payload: NewsletterSignupPayload) => Promise<NewsletterSignupOutcome | void> | NewsletterSignupOutcome | void",
+      "required": true,
+      "description": "Subscribe the address. Resolve with 'already-subscribed' to say so; reject to show the error message."
+    },
+    {
+      "name": "variant",
+      "type": "NewsletterSignupVariant",
+      "required": false,
+      "defaultValue": "'card'",
+      "description": "inline is a single row for footers and articles; card adds a heading and description."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Get the newsletter'",
+      "description": "Card heading."
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Card description — what arrives and how often."
+    },
+    {
+      "name": "consentLabel",
+      "type": "ReactNode",
+      "required": false,
+      "description": "When set, a required consent checkbox with this label is shown."
+    },
+    {
+      "name": "submitLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Subscribe'",
+      "description": "Label on the submit button."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'you@example.com'"
+    },
+    {
+      "name": "footnote",
+      "type": "ReactNode",
+      "required": false,
+      "description": "A line under the field — the unsubscribe promise, a privacy link."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

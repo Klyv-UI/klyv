@@ -1,0 +1,80 @@
+{
+  "props": [
+    {
+      "name": "merchant",
+      "type": "{ name: string; address?: string; logo?: ReactNode }",
+      "required": true,
+      "description": "Who was paid."
+    },
+    {
+      "name": "number",
+      "type": "string",
+      "required": true,
+      "description": "Receipt or order number, shown as given."
+    },
+    {
+      "name": "date",
+      "type": "Date | string",
+      "required": true,
+      "description": "When the payment was taken."
+    },
+    {
+      "name": "items",
+      "type": "ReceiptLineItem[]",
+      "required": true
+    },
+    {
+      "name": "discounts",
+      "type": "ReceiptAdjustment[]",
+      "required": false,
+      "defaultValue": "[]"
+    },
+    {
+      "name": "shipping",
+      "type": "number",
+      "required": false,
+      "description": "Delivery charge, before tax."
+    },
+    {
+      "name": "tax",
+      "type": "ReceiptTax",
+      "required": false
+    },
+    {
+      "name": "payment",
+      "type": "ReceiptPayment",
+      "required": false
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'USD'",
+      "description": "ISO 4217 code for every amount."
+    },
+    {
+      "name": "locale",
+      "type": "string",
+      "required": false,
+      "description": "BCP 47 locale for amounts and the date. Defaults to the reader’s."
+    },
+    {
+      "name": "actions",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Buttons such as Print or Download PDF. Hidden when printed."
+    },
+    {
+      "name": "footer",
+      "type": "ReactNode",
+      "required": false,
+      "description": "A closing line: returns policy, a thank-you, a support address."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

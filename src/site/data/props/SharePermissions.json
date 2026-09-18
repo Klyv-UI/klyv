@@ -1,0 +1,69 @@
+{
+  "props": [
+    {
+      "name": "people",
+      "type": "SharePermissionsPerson[]",
+      "required": true,
+      "description": "Everyone with access, owner included."
+    },
+    {
+      "name": "onInvite",
+      "type": "(email: string, role: SharePermissionsRole) => void | Promise<void>",
+      "required": true,
+      "description": "Invite someone by email. Return a promise to show progress; reject with a message to show it."
+    },
+    {
+      "name": "onRoleChange",
+      "type": "(id: string, role: SharePermissionsRole) => void",
+      "required": true,
+      "description": "Someone’s role was changed from their menu."
+    },
+    {
+      "name": "onRemove",
+      "type": "(id: string) => void",
+      "required": true,
+      "description": "Someone was removed from their menu."
+    },
+    {
+      "name": "generalAccess",
+      "type": "SharePermissionsAccess",
+      "required": true,
+      "description": "Who else can open it: only the people listed, or anyone holding the link."
+    },
+    {
+      "name": "onGeneralAccessChange",
+      "type": "(access: SharePermissionsAccess) => void",
+      "required": true
+    },
+    {
+      "name": "linkRole",
+      "type": "SharePermissionsRole",
+      "required": false,
+      "defaultValue": "'viewer'",
+      "description": "What anyone with the link can do."
+    },
+    {
+      "name": "onLinkRoleChange",
+      "type": "(role: SharePermissionsRole) => void",
+      "required": false
+    },
+    {
+      "name": "link",
+      "type": "string",
+      "required": true,
+      "description": "The link the copy button puts on the clipboard."
+    },
+    {
+      "name": "currentUserId",
+      "type": "string",
+      "required": false,
+      "description": "The id of the person looking, marked “(you)”."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "props": [
+    {
+      "name": "scopes",
+      "type": "ScopedSearchScope[]",
+      "required": false,
+      "defaultValue": "DEFAULT_SCOPES",
+      "description": "The scopes on offer. The first one is the catch-all when it is called `all`."
+    },
+    {
+      "name": "scope",
+      "type": "string",
+      "required": false,
+      "description": "Controlled scope."
+    },
+    {
+      "name": "defaultScope",
+      "type": "string",
+      "required": false,
+      "description": "Starting scope when uncontrolled."
+    },
+    {
+      "name": "onScopeChange",
+      "type": "(scope: string) => void",
+      "required": false,
+      "description": "Called when the scope changes — from the selector or from an `in:` token."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Controlled query text."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "defaultValue": "''",
+      "description": "Starting query when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called on every keystroke with the query text."
+    },
+    {
+      "name": "suggestions",
+      "type": "ScopedSearchSuggestion[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Candidate results. They are filtered by scope and by a case-insensitive match on the label."
+    },
+    {
+      "name": "filterSuggestions",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Set false when the suggestions are already filtered by a server. Scope is still applied."
+    },
+    {
+      "name": "maxSuggestions",
+      "type": "number",
+      "required": false,
+      "defaultValue": "6",
+      "description": "Most suggestions shown at once."
+    },
+    {
+      "name": "onSubmit",
+      "type": "(query: string, scope: string) => void",
+      "required": false,
+      "description": "Called with the query and scope when Enter is pressed without a suggestion highlighted."
+    },
+    {
+      "name": "onSuggestionSelect",
+      "type": "(suggestion: ScopedSearchSuggestion) => void",
+      "required": false,
+      "description": "Called when a suggestion is chosen."
+    },
+    {
+      "name": "recognizeTokens",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Recognise a typed `in:docs ` and turn it into the scope."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Search'",
+      "description": "Accessible name for the search field."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Search'"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the form."
+    }
+  ]
+}

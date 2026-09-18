@@ -1,0 +1,51 @@
+{
+  "props": [
+    {
+      "name": "lines",
+      "type": "LogViewerLine[]",
+      "required": true,
+      "description": "Every line, oldest first. Append to stream."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Logs'",
+      "description": "Names the log region."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "360",
+      "description": "Height of the scrolling log, in pixels."
+    },
+    {
+      "name": "defaultLevels",
+      "type": "LogViewerLevel[]",
+      "required": false,
+      "defaultValue": "LEVELS",
+      "description": "Levels shown at first."
+    },
+    {
+      "name": "defaultFollow",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Start pinned to the newest line."
+    },
+    {
+      "name": "defaultWrap",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Start with long lines wrapped."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "props": [
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "name": "onClose",
+      "type": "() => void",
+      "required": true,
+      "description": "Called by the close button, and by Escape while focus is inside the panel."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "Title in the drag bar. Becomes the accessible name."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Panel contents."
+    },
+    {
+      "name": "defaultPosition",
+      "type": "FloatingPanelPosition",
+      "required": false,
+      "description": "Where the panel first appears. Defaults to the top right corner."
+    },
+    {
+      "name": "onPositionChange",
+      "type": "(position: FloatingPanelPosition) => void",
+      "required": false,
+      "description": "Called when a move ends, by pointer or keyboard. Store it to reopen the panel where it was left."
+    },
+    {
+      "name": "minimized",
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled minimised state."
+    },
+    {
+      "name": "defaultMinimized",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Initial minimised state when uncontrolled."
+    },
+    {
+      "name": "onMinimizedChange",
+      "type": "(minimized: boolean) => void",
+      "required": false,
+      "description": "Called when the panel is minimised or restored."
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "required": false,
+      "defaultValue": "320",
+      "description": "Panel width in pixels."
+    },
+    {
+      "name": "autoFocus",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Move focus into the panel when it opens."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the panel."
+    }
+  ]
+}

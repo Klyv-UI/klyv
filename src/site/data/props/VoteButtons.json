@@ -1,0 +1,74 @@
+{
+  "props": [
+    {
+      "name": "vote",
+      "type": "VoteButtonsVote",
+      "required": false,
+      "description": "The reader’s vote, when controlled."
+    },
+    {
+      "name": "defaultVote",
+      "type": "VoteButtonsVote",
+      "required": false,
+      "defaultValue": "null",
+      "description": "Starting vote when uncontrolled."
+    },
+    {
+      "name": "score",
+      "type": "number",
+      "required": false,
+      "description": "The score, when controlled. Should already include the reader’s own vote."
+    },
+    {
+      "name": "defaultScore",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Starting score when uncontrolled."
+    },
+    {
+      "name": "onVoteChange",
+      "type": "(vote: VoteButtonsVote) => void | Promise<void>",
+      "required": false,
+      "description": "Save the vote. The buttons update at once; a rejected promise puts them back."
+    },
+    {
+      "name": "onError",
+      "type": "(reason: unknown) => void",
+      "required": false,
+      "description": "Called with the reason when saving fails and the vote is rolled back."
+    },
+    {
+      "name": "subject",
+      "type": "string",
+      "required": false,
+      "description": "What is being voted on, for the accessible names — \"answer\" gives \"Upvote answer\"."
+    },
+    {
+      "name": "orientation",
+      "type": "VoteButtonsOrientation",
+      "required": false,
+      "defaultValue": "'vertical'",
+      "description": "vertical is the Stack Overflow column; horizontal the inline row under a comment."
+    },
+    {
+      "name": "size",
+      "type": "VoteButtonsSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks voting — your own post, a locked thread."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

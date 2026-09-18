@@ -1,6 +1,6 @@
 # Klyv
 
-**An accent-led React component library.** 380+ components that take their entire
+**An accent-led React component library.** 450+ components that take their entire
 personality from a single colour — pick a hue and the whole set repaints:
 buttons, charts, selection washes, and the page behind them.
 
@@ -88,30 +88,48 @@ through them, rather than each keeping a copy that goes stale.
 
 ## What is in it
 
-386 components in thirteen groups. The grouping describes what a component is
+456 components in thirteen groups. The grouping describes what a component is
 **for** — the only question anyone browsing a library arrives with.
 
 | Group | Count | |
 | --- | --- | --- |
-| Foundations | 9 | the type scale, container recipes, utilities |
-| Layout | 24 | structure, disclosure, stacks and scrolling |
-| Navigation | 24 | bars, shells, tabs, steps, menus, search |
-| Actions | 17 | buttons, and the richer controls built on them |
-| Forms & Inputs | 56 | text, choice, ranges, dates, rich input |
-| Data Display | 45 | identity, lists, tables, metrics, records |
-| Charts | 32 | plots, gauges, distribution, flow, activity |
-| Feedback | 31 | status, messages, empty states, celebration |
-| Overlays | 17 | dialogs, popovers, guidance |
-| Motion & Effects | 37 | entrances, kinetic type, light and surfaces |
-| Interaction | 25 | touch and drag, presence, trust and workflow |
-| Canvas & Play | 17 | generative, audio, physics, toys |
-| SaaS | 52 | marketing, pricing, auth, billing, team, settings, developer, data views, engagement, security |
+| Foundations | 13 | the type scale, container recipes, utilities |
+| Layout | 28 | structure, disclosure, stacks and scrolling |
+| Navigation | 29 | bars, shells, tabs, steps, menus, search |
+| Actions | 22 | buttons, and the richer controls built on them |
+| Forms & Inputs | 63 | text, choice, ranges, dates, rich input |
+| Data Display | 51 | identity, lists, tables, metrics, records |
+| Charts | 38 | plots, gauges, distribution, flow, activity |
+| Feedback | 36 | status, messages, empty states, celebration |
+| Overlays | 22 | dialogs, popovers, guidance |
+| Motion & Effects | 43 | entrances, kinetic type, light and surfaces |
+| Interaction | 30 | touch and drag, presence, trust and workflow |
+| Canvas & Play | 21 | generative, audio, physics, toys |
+| SaaS | 60 | marketing, pricing, auth, billing, team, settings, developer, data views, engagement, security |
 
-### New: fifty more components
+### New: seventy more components, across every group
 
-Fifty components, every one marked **New** on the site (sidebar, catalogue
-cards, component page header, and a **New** filter on /components). The forty
-before them are no longer tagged New.
+Seventy components spread over all thirteen groups, every one marked **New** on
+the site (sidebar, catalogue cards, component page header, and a **New** filter
+on /components). The fifty before them are no longer tagged New.
+
+**Foundations** — Grid · TextLink · LiveRegion · HighlightMatch.
+**Layout** — Sticky · MasterDetail · DashboardGrid · ShowMoreList.
+**Navigation** — NavigationProgress · PriorityNav · ScopedSearch · AlphabetIndex · RecentItems.
+**Actions** — SocialLoginButtons · UnsavedChangesBar · VoteButtons · FollowButton · AddToCalendar.
+**Forms & Inputs** — WeekdayPicker · UnitInput · TimeRangePicker · RecurrenceEditor · LikertScale · CodeEditor · SearchableCheckboxList.
+**Data Display** — KpiStrip · TrendDelta · WeekView · Receipt · LogViewer · TranscriptView.
+**Charts** — SunburstChart · NetworkGraph · OrgChart · BeeswarmChart · CohortRetention · StreamGraph.
+**Feedback** — SignalStrength · UpdateAvailable · MaintenanceNotice · NotFoundState · AccessDeniedState.
+**Overlays** — FullscreenDialog · FeatureBeacon · ChecklistPopover · LinkPreview · FloatingPanel.
+**Motion & Effects** — Meteors · AnimatedGrid · CircularText · MorphingText · AttentionShake · ScrollStory.
+**Interaction** — SwipeToConfirm · SharePermissions · VersionHistory · QuestionQueue · DropOverlay.
+**Canvas & Play** — FlowField · Metronome · SpinWheel · TicTacToe.
+**SaaS** — FaqSection · NewsletterSignup · UsagePricingCalculator · EmailVerification · OAuthConsent · IpAllowlist · BrandingSettings · RoadmapBoard.
+
+### Fifty more components
+
+Fifty components that filled gaps in forms, data, charts, dialogs and SaaS.
 
 **Layout** — Stack · Container · InfiniteScroll.
 **Navigation** — LanguageSwitcher · VersionSwitcher · ArticlePager.

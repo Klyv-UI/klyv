@@ -1,0 +1,54 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "PriorityNavItem[]",
+      "required": true,
+      "description": "The links, in order of priority — the last ones move into More first."
+    },
+    {
+      "name": "currentId",
+      "type": "string",
+      "required": false,
+      "description": "Id of the current page. Kept in the bar whenever it fits, and marked `aria-current=\"page\"` wherever it is."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name of the navigation landmark."
+    },
+    {
+      "name": "moreLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'More'",
+      "description": "Label of the overflow button."
+    },
+    {
+      "name": "linkAs",
+      "type": "ElementType",
+      "required": false,
+      "description": "Component that renders each link — a router `Link`. It receives `href`, or `to` when `linkProp` is `to`."
+    },
+    {
+      "name": "linkProp",
+      "type": "'href' | 'to'",
+      "required": false,
+      "defaultValue": "'href'",
+      "description": "Which prop carries the destination on `linkAs`."
+    },
+    {
+      "name": "onNavigate",
+      "type": "(item: PriorityNavItem) => void",
+      "required": false,
+      "description": "Called when any link is followed, from the bar or from More."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the nav."
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "number",
+      "required": false,
+      "description": "Tempo in beats per minute (controlled)."
+    },
+    {
+      "name": "defaultValue",
+      "type": "number",
+      "required": false,
+      "defaultValue": "100",
+      "description": "Initial tempo when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(bpm: number) => void",
+      "required": false,
+      "description": "Called when the tempo changes — slider, field, or tap."
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "required": false,
+      "defaultValue": "30",
+      "description": "Slowest tempo allowed."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "defaultValue": "260",
+      "description": "Fastest tempo allowed."
+    },
+    {
+      "name": "timeSignature",
+      "type": "MetronomeTimeSignature",
+      "required": false,
+      "description": "Time signature (controlled). The top number is the clicks in a bar."
+    },
+    {
+      "name": "defaultTimeSignature",
+      "type": "MetronomeTimeSignature",
+      "required": false,
+      "defaultValue": "'4/4'",
+      "description": "Initial time signature when uncontrolled."
+    },
+    {
+      "name": "onTimeSignatureChange",
+      "type": "(signature: MetronomeTimeSignature) => void",
+      "required": false
+    },
+    {
+      "name": "accent",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Play the first beat of each bar higher and louder."
+    },
+    {
+      "name": "onBeat",
+      "type": "(beat: number) => void",
+      "required": false,
+      "description": "Called on every beat as it sounds, with its 1-based position in the bar."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Metronome'",
+      "description": "Accessible name for the whole control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

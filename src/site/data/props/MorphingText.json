@@ -1,0 +1,44 @@
+{
+  "props": [
+    {
+      "name": "words",
+      "type": "string[]",
+      "required": true,
+      "description": "The words to cycle through, in order. The first one is what reduced motion shows."
+    },
+    {
+      "name": "interval",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2200",
+      "description": "Milliseconds each word rests before morphing into the next."
+    },
+    {
+      "name": "morphDuration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "900",
+      "description": "Milliseconds the morph itself takes."
+    },
+    {
+      "name": "accessibleText",
+      "type": "MorphingTextAccessibleText",
+      "required": false,
+      "defaultValue": "'list'",
+      "description": "What assistive tech reads in place of the animation: every word as one list, or only the first. It is read once, where it sits, and never repeated."
+    },
+    {
+      "name": "announce",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Also announce each new word through a polite live region. Off by default, because a phrase that talks every two seconds is noise."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins. Size and weight come from here or the surrounding text."
+    }
+  ]
+}

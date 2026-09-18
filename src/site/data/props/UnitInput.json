@@ -1,0 +1,120 @@
+{
+  "props": [
+    {
+      "name": "units",
+      "type": "UnitInputUnit[]",
+      "required": true,
+      "description": "The units on offer, in order."
+    },
+    {
+      "name": "value",
+      "type": "number | null",
+      "required": false,
+      "description": "The number, when controlled. null is empty."
+    },
+    {
+      "name": "defaultValue",
+      "type": "number | null",
+      "required": false,
+      "defaultValue": "null",
+      "description": "Starting number when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: number | null) => void",
+      "required": false,
+      "description": "Called when a number is committed — Enter, blur, an arrow key, or a converted unit change."
+    },
+    {
+      "name": "unit",
+      "type": "string",
+      "required": false,
+      "description": "The unit, when controlled."
+    },
+    {
+      "name": "defaultUnit",
+      "type": "string",
+      "required": false,
+      "description": "Starting unit when uncontrolled. Defaults to the first."
+    },
+    {
+      "name": "onUnitChange",
+      "type": "(unit: string) => void",
+      "required": false,
+      "description": "Called when the unit changes."
+    },
+    {
+      "name": "convert",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Convert the number when the unit changes, where both units have a factor."
+    },
+    {
+      "name": "precision",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2",
+      "description": "Decimal places kept after a conversion."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the number."
+    },
+    {
+      "name": "unitLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Unit'",
+      "description": "Accessible name for the unit selector."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "size",
+      "type": "UnitInputSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Marks the control invalid. Field sets this."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Goes on the number input, so a Field label points at it."
+    },
+    {
+      "name": "'aria-describedby'",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the wrapper."
+    }
+  ]
+}

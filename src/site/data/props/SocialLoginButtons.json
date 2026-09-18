@@ -1,0 +1,62 @@
+{
+  "props": [
+    {
+      "name": "providers",
+      "type": "SocialLoginButtonsProvider[]",
+      "required": false,
+      "defaultValue": "['google', 'github', 'microsoft', 'apple']",
+      "description": "Which providers to offer, in order."
+    },
+    {
+      "name": "layout",
+      "type": "SocialLoginButtonsLayout",
+      "required": false,
+      "defaultValue": "'stack'",
+      "description": "stack is full-width labelled buttons; row is a line of square marks that keep their names for assistive tech."
+    },
+    {
+      "name": "onSelect",
+      "type": "(provider: SocialLoginButtonsProvider) => void | Promise<void>",
+      "required": false,
+      "description": "Start sign-in. Return a promise to show that provider as pending until it settles."
+    },
+    {
+      "name": "onError",
+      "type": "(provider: SocialLoginButtonsProvider, reason: unknown) => void",
+      "required": false,
+      "description": "Called with the reason when `onSelect` rejects."
+    },
+    {
+      "name": "loadingProvider",
+      "type": "SocialLoginButtonsProvider | null",
+      "required": false,
+      "description": "Controlled pending provider — for redirects that never resolve a promise."
+    },
+    {
+      "name": "lastUsed",
+      "type": "SocialLoginButtonsProvider | null",
+      "required": false,
+      "description": "The provider this browser used last time. It gets a quiet hint."
+    },
+    {
+      "name": "verb",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Continue with'",
+      "description": "The words before the provider name."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks every button."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

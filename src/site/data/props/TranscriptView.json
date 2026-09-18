@@ -1,0 +1,62 @@
+{
+  "props": [
+    {
+      "name": "lines",
+      "type": "TranscriptViewLine[]",
+      "required": true,
+      "description": "The transcript, in time order."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the transcript list."
+    },
+    {
+      "name": "currentTime",
+      "type": "number",
+      "required": false,
+      "description": "Playback position in seconds. The line it falls in is highlighted and followed."
+    },
+    {
+      "name": "onSeek",
+      "type": "(time: number, line: TranscriptViewLine) => void",
+      "required": false,
+      "description": "Called when a line is clicked or activated with Enter, with that line’s start time."
+    },
+    {
+      "name": "searchable",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the search field above the transcript."
+    },
+    {
+      "name": "autoScroll",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Keep the current line in view as playback moves. Pauses while the reader scrolls."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "360",
+      "description": "Height of the scrolling list in pixels."
+    },
+    {
+      "name": "formatTime",
+      "type": "(seconds: number) => string",
+      "required": false,
+      "defaultValue": "clock",
+      "description": "Format a start time. Defaults to m:ss, or h:mm:ss past the hour."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

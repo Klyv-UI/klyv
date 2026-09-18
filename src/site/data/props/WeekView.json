@@ -1,0 +1,113 @@
+{
+  "props": [
+    {
+      "name": "events",
+      "type": "WeekViewEvent[]",
+      "required": true
+    },
+    {
+      "name": "date",
+      "type": "Date",
+      "required": false,
+      "description": "Any day in the week shown, controlled."
+    },
+    {
+      "name": "defaultDate",
+      "type": "Date",
+      "required": false,
+      "description": "Any day in the starting week, when uncontrolled. Defaults to today."
+    },
+    {
+      "name": "onDateChange",
+      "type": "(date: Date) => void",
+      "required": false,
+      "description": "Called with the first day of the new week after previous, next or today."
+    },
+    {
+      "name": "weekStartsOn",
+      "type": "0 | 1",
+      "required": false,
+      "defaultValue": "1",
+      "description": "0 for Sunday, 1 for Monday."
+    },
+    {
+      "name": "startHour",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "First hour drawn, 0 to 23."
+    },
+    {
+      "name": "endHour",
+      "type": "number",
+      "required": false,
+      "defaultValue": "24",
+      "description": "Last hour drawn, 1 to 24."
+    },
+    {
+      "name": "scrollToHour",
+      "type": "number",
+      "required": false,
+      "defaultValue": "8",
+      "description": "Hour scrolled into view on mount."
+    },
+    {
+      "name": "hourHeight",
+      "type": "number",
+      "required": false,
+      "defaultValue": "44",
+      "description": "Pixels per hour."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "440",
+      "description": "Height of the scrolling grid, in pixels."
+    },
+    {
+      "name": "slotMinutes",
+      "type": "15 | 30 | 60",
+      "required": false,
+      "defaultValue": "30",
+      "description": "Minutes an empty-slot click snaps to, and the length of the slot it reports."
+    },
+    {
+      "name": "onEventSelect",
+      "type": "(event: WeekViewEvent) => void",
+      "required": false,
+      "description": "Called when an event is activated."
+    },
+    {
+      "name": "onSlotCreate",
+      "type": "(start: Date, end: Date) => void",
+      "required": false,
+      "description": "Called with the slot under an empty-grid click — the place to open a “New event” form."
+    },
+    {
+      "name": "now",
+      "type": "Date",
+      "required": false,
+      "description": "The current moment, for the now line. Defaults to the clock, updated each minute."
+    },
+    {
+      "name": "locale",
+      "type": "string",
+      "required": false,
+      "description": "BCP 47 locale for day and time labels."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Week'",
+      "description": "Names the calendar region."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "props": [
+    {
+      "name": "statements",
+      "type": "LikertScaleStatement[]",
+      "required": true,
+      "description": "Rows: one radio group each."
+    },
+    {
+      "name": "options",
+      "type": "LikertScaleOption[]",
+      "required": false,
+      "defaultValue": "AGREEMENT",
+      "description": "Columns, from one end of the scale to the other. Defaults to five-point agreement."
+    },
+    {
+      "name": "value",
+      "type": "Record<string, string>",
+      "required": false,
+      "description": "Controlled answers, keyed by statement id."
+    },
+    {
+      "name": "defaultValue",
+      "type": "Record<string, string>",
+      "required": false,
+      "defaultValue": "{}",
+      "description": "Starting answers when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: Record<string, string>) => void",
+      "required": false,
+      "description": "Called with every answer after one changes."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Names the whole matrix, such as the survey question."
+    },
+    {
+      "name": "showProgress",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the answered count and bar."
+    },
+    {
+      "name": "showErrors",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Mark unanswered required statements as errors — set it after a submit attempt."
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "Form field name prefix; each row submits as `${name}[statementId]`."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the matrix."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

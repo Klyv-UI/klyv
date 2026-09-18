@@ -1,0 +1,78 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The new element the beacon is attached to. It stays fully usable on its own."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "Name of the feature — the popover's heading and part of the beacon's accessible name."
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": true,
+      "description": "One or two sentences on what it does and why it helps."
+    },
+    {
+      "name": "dismissLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Got it'",
+      "description": "Label on the acknowledging button."
+    },
+    {
+      "name": "action",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Optional extra link or action, placed before the dismiss button."
+    },
+    {
+      "name": "dismissed",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the feature has already been acknowledged. When true only the children render."
+    },
+    {
+      "name": "onDismiss",
+      "type": "() => void",
+      "required": false,
+      "description": "Called on \"Got it\". Persist it — a beacon that comes back on every visit is noise."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Accessible name for the beacon button. Defaults to \"New: {title}\"."
+    },
+    {
+      "name": "corner",
+      "type": "FeatureBeaconCorner",
+      "required": false,
+      "defaultValue": "'top-end'",
+      "description": "Which corner of the children the dot sits on."
+    },
+    {
+      "name": "placement",
+      "type": "PopoverPlacement",
+      "required": false,
+      "defaultValue": "'bottom'"
+    },
+    {
+      "name": "align",
+      "type": "PopoverAlign",
+      "required": false,
+      "defaultValue": "'start'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the popover panel."
+    }
+  ]
+}

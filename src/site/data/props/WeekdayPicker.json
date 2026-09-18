@@ -1,0 +1,73 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "WeekdayPickerDay[]",
+      "required": false,
+      "description": "Selected days, when controlled."
+    },
+    {
+      "name": "defaultValue",
+      "type": "WeekdayPickerDay[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Starting selection when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: WeekdayPickerDay[]) => void",
+      "required": false,
+      "description": "Called with the new selection, sorted Sunday-first as `getDay()` numbers."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "The group’s visible name — \"Repeat on\"."
+    },
+    {
+      "name": "hideLabel",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Hide the label visually, keeping it as the group’s name."
+    },
+    {
+      "name": "locale",
+      "type": "string",
+      "required": false,
+      "description": "Locale for day names and, unless overridden, the first day of the week."
+    },
+    {
+      "name": "weekStartsOn",
+      "type": "WeekdayPickerDay",
+      "required": false,
+      "description": "Override the first day of the week."
+    },
+    {
+      "name": "presets",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show Weekdays, Weekends and Every day shortcuts."
+    },
+    {
+      "name": "size",
+      "type": "WeekdayPickerSize",
+      "required": false,
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "What sliding does — \"Slide to pay $42.00\". Also the slider's accessible name."
+    },
+    {
+      "name": "onConfirm",
+      "type": "() => void | Promise<void>",
+      "required": true,
+      "description": "Runs once the thumb reaches the end. Return a promise to show pending until it settles."
+    },
+    {
+      "name": "pendingLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Confirming…'",
+      "description": "Label while the promise is pending."
+    },
+    {
+      "name": "doneLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Confirmed'",
+      "description": "Label once confirmed."
+    },
+    {
+      "name": "status",
+      "type": "SwipeToConfirmStatus",
+      "required": false,
+      "description": "Controlled status, for when the confirmation is tracked elsewhere."
+    },
+    {
+      "name": "resetAfter",
+      "type": "number",
+      "required": false,
+      "description": "Milliseconds after done before the track resets. Leave it out to stay done."
+    },
+    {
+      "name": "holdDuration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "900",
+      "description": "Milliseconds Enter or Space must be held to confirm from the keyboard."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

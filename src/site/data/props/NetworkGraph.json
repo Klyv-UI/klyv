@@ -1,0 +1,60 @@
+{
+  "props": [
+    {
+      "name": "nodes",
+      "type": "NetworkGraphNode[]",
+      "required": true
+    },
+    {
+      "name": "links",
+      "type": "NetworkGraphLink[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the graph."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "380",
+      "description": "Height in viewBox pixels. The width fills the container."
+    },
+    {
+      "name": "ticks",
+      "type": "number",
+      "required": false,
+      "defaultValue": "300",
+      "description": "Simulation steps before the layout settles. More untangles bigger graphs, at a cost."
+    },
+    {
+      "name": "linkDistance",
+      "type": "number",
+      "required": false,
+      "defaultValue": "60",
+      "description": "Resting length of a link, in viewBox pixels."
+    },
+    {
+      "name": "showLabels",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Print each node’s label under it."
+    },
+    {
+      "name": "onNodeSelect",
+      "type": "(id: string) => void",
+      "required": false,
+      "description": "Called when a node is clicked or chosen with Enter."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

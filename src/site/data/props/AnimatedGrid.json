@@ -1,0 +1,52 @@
+{
+  "props": [
+    {
+      "name": "variant",
+      "type": "AnimatedGridVariant",
+      "required": false,
+      "defaultValue": "'lines'",
+      "description": "Grid lines, or a dot at every intersection."
+    },
+    {
+      "name": "cellSize",
+      "type": "number",
+      "required": false,
+      "defaultValue": "36",
+      "description": "Size of one cell in pixels."
+    },
+    {
+      "name": "lit",
+      "type": "number",
+      "required": false,
+      "defaultValue": "10",
+      "description": "Cells lit at any moment."
+    },
+    {
+      "name": "interval",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1400",
+      "description": "Milliseconds between changes. Each change swaps a few cells, not all of them."
+    },
+    {
+      "name": "fade",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Fade the grid out towards the edges, so it sits behind a heading rather than boxing it in."
+    },
+    {
+      "name": "paused",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Freeze the pattern."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins. Place the layer inside a positioned container."
+    }
+  ]
+}

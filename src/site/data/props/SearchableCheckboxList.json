@@ -1,0 +1,62 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "SearchableCheckboxListItem[]",
+      "required": true,
+      "description": "Every option. Thousands are fine: only the rows in view are rendered."
+    },
+    {
+      "name": "value",
+      "type": "string[]",
+      "required": false,
+      "description": "Controlled ticked ids."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Starting ticked ids when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string[]) => void",
+      "required": false,
+      "description": "Called with the ticked ids, in item order, after every change."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Names the list and its filter, such as “Countries”."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Filter'",
+      "description": "Placeholder of the filter field."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "280",
+      "description": "Height of the scrolling list, in pixels."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

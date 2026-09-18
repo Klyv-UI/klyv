@@ -1,0 +1,72 @@
+{
+  "props": [
+    {
+      "name": "versions",
+      "type": "VersionHistoryVersion[]",
+      "required": true,
+      "description": "Every version, in any order. The newest is treated as the current one."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Selected version id (controlled). Selecting is previewing."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "description": "Initially selected version id when uncontrolled. Defaults to the current version."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(id: string) => void",
+      "required": false,
+      "description": "Called when a version is selected — load its preview here."
+    },
+    {
+      "name": "compare",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the preview shows changes against the current version (controlled)."
+    },
+    {
+      "name": "defaultCompare",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Initial compare state when uncontrolled."
+    },
+    {
+      "name": "onCompareChange",
+      "type": "(compare: boolean) => void",
+      "required": false
+    },
+    {
+      "name": "onRestore",
+      "type": "(id: string) => void | Promise<void>",
+      "required": true,
+      "description": "Restore a version. Return a promise to hold the confirmation open until it settles."
+    },
+    {
+      "name": "defaultNamedOnly",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Start with only named versions shown."
+    },
+    {
+      "name": "now",
+      "type": "Date",
+      "required": false,
+      "defaultValue": "new Date()",
+      "description": "Today, for the Today and Yesterday headings."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "props": [
+    {
+      "name": "items",
+      "type": "RoadmapBoardItem[]",
+      "required": true
+    },
+    {
+      "name": "columns",
+      "type": "RoadmapBoardColumn[]",
+      "required": false,
+      "defaultValue": "DEFAULT_COLUMNS",
+      "description": "Defaults to Planned, In progress and Shipped."
+    },
+    {
+      "name": "onVote",
+      "type": "(id: string, voted: boolean) => void | Promise<void>",
+      "required": false,
+      "description": "Called after a vote is toggled; the count updates at once. Reject to roll it back."
+    },
+    {
+      "name": "defaultSort",
+      "type": "RoadmapBoardSort",
+      "required": false,
+      "defaultValue": "'votes'",
+      "description": "Starting sort."
+    },
+    {
+      "name": "suggest",
+      "type": "ReactNode",
+      "required": false,
+      "description": "A slot above the board — usually a “Suggest a feature” button."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

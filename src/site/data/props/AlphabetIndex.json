@@ -1,0 +1,69 @@
+{
+  "props": [
+    {
+      "name": "letters",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "AZ",
+      "description": "The letters on the bar, in order. Defaults to A–Z; pass your own for other alphabets or a leading \"#\"."
+    },
+    {
+      "name": "available",
+      "type": "string[]",
+      "required": false,
+      "description": "Letters that have entries. The rest are shown but disabled. Omit to enable every letter."
+    },
+    {
+      "name": "targetIdPrefix",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'letter-'",
+      "description": "Where each letter’s group heading is: the element with id `${targetIdPrefix}${letter}`. The heading receives focus, so give it `tabIndex={-1}` (it is added if missing)."
+    },
+    {
+      "name": "getTarget",
+      "type": "(letter: string) => HTMLElement | null",
+      "required": false,
+      "description": "Finds the heading for a letter, instead of the id convention."
+    },
+    {
+      "name": "onJump",
+      "type": "(letter: string) => void",
+      "required": false,
+      "description": "Called after a jump, with the letter."
+    },
+    {
+      "name": "current",
+      "type": "string",
+      "required": false,
+      "description": "The letter to mark as current — for example the group scrolled into view."
+    },
+    {
+      "name": "orientation",
+      "type": "AlphabetIndexOrientation",
+      "required": false,
+      "defaultValue": "'vertical'",
+      "description": "vertical is the rail beside a contact list; horizontal sits above a directory."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Jump to letter'",
+      "description": "Accessible name for the bar."
+    },
+    {
+      "name": "scrub",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Let touch and pen users scrub along the bar to jump as they drag."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

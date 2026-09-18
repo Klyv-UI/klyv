@@ -1,0 +1,79 @@
+{
+  "props": [
+    {
+      "name": "resource",
+      "type": "string",
+      "required": true,
+      "description": "What the reader tried to open — \"Q3 board deck\"."
+    },
+    {
+      "name": "resourceType",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'page'",
+      "description": "What kind of thing it is, for the sentence — \"document\", \"project\"."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'You need access'",
+      "description": "Headline."
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Replaces the default explanation."
+    },
+    {
+      "name": "owner",
+      "type": "AccessDeniedStateOwner",
+      "required": false,
+      "description": "Who can grant access."
+    },
+    {
+      "name": "onRequestAccess",
+      "type": "() => void | Promise<void>",
+      "required": false,
+      "description": "Sends the request. Return a promise to show it pending; a rejection shows its message. Omit to hide the button."
+    },
+    {
+      "name": "requestStatus",
+      "type": "AccessDeniedStateRequestStatus",
+      "required": false,
+      "description": "Controlled request status — pass sent when a request already exists."
+    },
+    {
+      "name": "account",
+      "type": "string",
+      "required": false,
+      "description": "The account the reader is signed in with."
+    },
+    {
+      "name": "switchAccountHref",
+      "type": "string",
+      "required": false,
+      "description": "Where switching account goes."
+    },
+    {
+      "name": "onSwitchAccount",
+      "type": "() => void",
+      "required": false,
+      "description": "Called when switching account is chosen, for an app that handles it in place."
+    },
+    {
+      "name": "headingLevel",
+      "type": "AccessDeniedStateHeadingLevel",
+      "required": false,
+      "defaultValue": "'h1'",
+      "description": "The title's heading level."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

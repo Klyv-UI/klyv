@@ -1,0 +1,72 @@
+{
+  "props": [
+    {
+      "name": "event",
+      "type": "AddToCalendarEvent",
+      "required": true
+    },
+    {
+      "name": "providers",
+      "type": "AddToCalendarProvider[]",
+      "required": false,
+      "defaultValue": "['google', 'outlook', 'office365', 'yahoo', 'ics']",
+      "description": "Which options to list, in order."
+    },
+    {
+      "name": "label",
+      "type": "ReactNode",
+      "required": false,
+      "defaultValue": "'Add to calendar'",
+      "description": "The trigger’s text."
+    },
+    {
+      "name": "variant",
+      "type": "ButtonVariant",
+      "required": false,
+      "defaultValue": "'outline'"
+    },
+    {
+      "name": "size",
+      "type": "ButtonSize",
+      "required": false,
+      "defaultValue": "'sm'"
+    },
+    {
+      "name": "fileName",
+      "type": "string",
+      "required": false,
+      "description": "The .ics file name, without the extension. Defaults to a slug of the title."
+    },
+    {
+      "name": "showSummary",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the title, time and place above the options."
+    },
+    {
+      "name": "placement",
+      "type": "PopoverPlacement",
+      "required": false,
+      "defaultValue": "'bottom'"
+    },
+    {
+      "name": "align",
+      "type": "PopoverAlign",
+      "required": false,
+      "defaultValue": "'start'"
+    },
+    {
+      "name": "onSelect",
+      "type": "(provider: AddToCalendarProvider) => void",
+      "required": false,
+      "description": "Called after an option is chosen."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the trigger button."
+    }
+  ]
+}

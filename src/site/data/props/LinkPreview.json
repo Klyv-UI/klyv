@@ -1,0 +1,63 @@
+{
+  "props": [
+    {
+      "name": "href",
+      "type": "string",
+      "required": true,
+      "description": "Where the link goes. It is always a normal link: click, middle-click and copy all work."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Link text."
+    },
+    {
+      "name": "data",
+      "type": "LinkPreviewData",
+      "required": false,
+      "description": "The preview, when it is already known."
+    },
+    {
+      "name": "load",
+      "type": "(href: string) => Promise<LinkPreviewData>",
+      "required": false,
+      "description": "Fetches the preview on first hover or focus. Results are cached per href for the session."
+    },
+    {
+      "name": "openDelay",
+      "type": "number",
+      "required": false,
+      "defaultValue": "500",
+      "description": "Milliseconds of hover or focus before the card opens."
+    },
+    {
+      "name": "closeDelay",
+      "type": "number",
+      "required": false,
+      "defaultValue": "200",
+      "description": "Grace period before closing, so the pointer can travel onto the card."
+    },
+    {
+      "name": "placement",
+      "type": "PopoverPlacement",
+      "required": false,
+      "defaultValue": "'bottom'"
+    },
+    {
+      "name": "align",
+      "type": "PopoverAlign",
+      "required": false,
+      "defaultValue": "'start'"
+    },
+    {
+      "name": "cardClassName",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the card."
+    }
+  ],
+  "inherits": [
+    "Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'children'>"
+  ]
+}

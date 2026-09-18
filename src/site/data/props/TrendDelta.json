@@ -1,0 +1,97 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "number",
+      "required": true,
+      "description": "The change itself: 12.4 for +12.4%, -3 for −3. Sign carries the direction."
+    },
+    {
+      "name": "format",
+      "type": "TrendDeltaFormat",
+      "required": false,
+      "defaultValue": "'percent'",
+      "description": "Percent adds a % and reads “percent”; number reads the figure as it is."
+    },
+    {
+      "name": "decimals",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1",
+      "description": "Most fraction digits shown. Trailing zeros are dropped."
+    },
+    {
+      "name": "unit",
+      "type": "string",
+      "required": false,
+      "description": "Unit after a number delta, such as “pts” or “ms”. Read out as written."
+    },
+    {
+      "name": "inverse",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Down is good for this metric — churn, latency, cost. Flips the colour, not the arrow."
+    },
+    {
+      "name": "tone",
+      "type": "TrendDeltaTone",
+      "required": false,
+      "defaultValue": "'auto'",
+      "description": "Overrides the colour worked out from the sign."
+    },
+    {
+      "name": "flatThreshold",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Changes whose size is at or below this count as flat."
+    },
+    {
+      "name": "context",
+      "type": "string",
+      "required": false,
+      "description": "Comparison shown after the figure and read with it, such as “vs last week”."
+    },
+    {
+      "name": "showContext",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the context text. When false it is still read out — for a strip that states the comparison once."
+    },
+    {
+      "name": "showArrow",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the arrow glyph."
+    },
+    {
+      "name": "size",
+      "type": "TrendDeltaSize",
+      "required": false,
+      "defaultValue": "'sm'",
+      "description": "12px or 13px text."
+    },
+    {
+      "name": "variant",
+      "type": "TrendDeltaVariant",
+      "required": false,
+      "defaultValue": "'text'",
+      "description": "Plain coloured text, or a tinted pill."
+    },
+    {
+      "name": "locale",
+      "type": "string",
+      "required": false,
+      "description": "BCP 47 locale for the figure. Defaults to the reader’s."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

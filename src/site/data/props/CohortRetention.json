@@ -1,0 +1,68 @@
+{
+  "props": [
+    {
+      "name": "cohorts",
+      "type": "CohortRetentionCohort[]",
+      "required": true,
+      "description": "One row per cohort, oldest first."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the grid, also the table caption."
+    },
+    {
+      "name": "periodLabel",
+      "type": "(period: number) => string",
+      "required": false,
+      "defaultValue": "(period) => `Month ${period}`",
+      "description": "Column heading for a period index."
+    },
+    {
+      "name": "mode",
+      "type": "CohortRetentionMode",
+      "required": false,
+      "description": "Show shares or head counts. Omit for uncontrolled."
+    },
+    {
+      "name": "defaultMode",
+      "type": "CohortRetentionMode",
+      "required": false,
+      "defaultValue": "'percent'",
+      "description": "Starting mode when uncontrolled."
+    },
+    {
+      "name": "onModeChange",
+      "type": "(mode: CohortRetentionMode) => void",
+      "required": false
+    },
+    {
+      "name": "showModeToggle",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the percent / count switch above the grid."
+    },
+    {
+      "name": "showAverage",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Add a weighted average row under the cohorts."
+    },
+    {
+      "name": "formatCount",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "(value) => value.toLocaleString()",
+      "description": "Format head counts in the size column and in count mode."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

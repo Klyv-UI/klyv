@@ -1,0 +1,56 @@
+{
+  "props": [
+    {
+      "name": "data",
+      "type": "SunburstChartNode",
+      "required": true,
+      "description": "The root. Its label is printed in the centre until you zoom in."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "depth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "3",
+      "description": "Rings drawn outward from the node in focus. Deeper levels appear as you zoom."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "320",
+      "description": "Largest rendered size in pixels. The chart shrinks with its container."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format values in the centre, tooltip and hidden list."
+    },
+    {
+      "name": "valueLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Value'",
+      "description": "What a value measures, for the tooltip — “Spend”, “Size”."
+    },
+    {
+      "name": "onZoom",
+      "type": "(id: string) => void",
+      "required": false,
+      "description": "Called when the chart zooms, with the id of the node now in the centre."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

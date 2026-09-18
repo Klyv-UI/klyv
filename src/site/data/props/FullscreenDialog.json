@@ -1,0 +1,100 @@
+{
+  "props": [
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "name": "onClose",
+      "type": "() => void",
+      "required": true,
+      "description": "Called when the dialog should close — after the discard question, if there are unsaved changes."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "Visible title in the header. Becomes the accessible name."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The scrollable body."
+    },
+    {
+      "name": "actionLabel",
+      "type": "string",
+      "required": false,
+      "description": "Label on the header's primary action — \"Save\", \"Send\". Omit for no action."
+    },
+    {
+      "name": "onAction",
+      "type": "() => void",
+      "required": false,
+      "description": "Runs the primary action."
+    },
+    {
+      "name": "actionDisabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Blocks the primary action, e.g. while the form is invalid."
+    },
+    {
+      "name": "actionLoading",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Shows the primary action as working."
+    },
+    {
+      "name": "mode",
+      "type": "FullscreenDialogMode",
+      "required": false,
+      "defaultValue": "'responsive'",
+      "description": "responsive fills the screen below 640px and is a tall centred sheet above; always fills it everywhere."
+    },
+    {
+      "name": "dirty",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "There are unsaved changes. Closing asks before throwing them away."
+    },
+    {
+      "name": "discardTitle",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Discard changes?'",
+      "description": "Title of the discard question."
+    },
+    {
+      "name": "discardDescription",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'You have changes that have not been saved. They will be lost.'",
+      "description": "Body of the discard question."
+    },
+    {
+      "name": "discardLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Discard'",
+      "description": "Label on the button that throws the changes away."
+    },
+    {
+      "name": "footer",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Optional footer, pinned under the body."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the dialog panel."
+    }
+  ]
+}

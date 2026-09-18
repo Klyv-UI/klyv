@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from 'react'
+import { useEffect, useId, useRef, useState, type KeyboardEvent, type ReactNode } from 'react'
 import { cn } from '../../lib/cn'
 import { Text } from '../Text'
 import { Popover, type PopoverAlign, type PopoverPlacement } from '../Popover'
@@ -106,12 +106,15 @@ export function Select<T extends string = string>({
     }
   }
 
+  const listId = useId()
+
   return (
     <Popover
       open={open}
       onOpenChange={(next) => !disabled && setOpen(next)}
       placement={placement}
       align={align}
+      label={label}
       className={cn('max-h-[280px] min-w-[180px] overflow-y-auto p-1', className)}
       trigger={
         <button
@@ -120,6 +123,7 @@ export function Select<T extends string = string>({
           role="combobox"
           aria-haspopup="listbox"
           aria-expanded={open}
+          aria-controls={open ? listId : undefined}
           aria-label={label}
           aria-invalid={invalid || undefined}
           disabled={disabled}
@@ -143,6 +147,7 @@ export function Select<T extends string = string>({
     >
       <div
         ref={listRef}
+        id={listId}
         role="listbox"
         aria-label={label}
         onKeyDown={onKeyDown}

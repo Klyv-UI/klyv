@@ -1,4 +1,8 @@
 {
+  "AccessDeniedState": [
+    "alert",
+    "status"
+  ],
   "AchievementPop": [
     "alert"
   ],
@@ -13,6 +17,10 @@
     "option",
     "status"
   ],
+  "AddToCalendar": [
+    "menu",
+    "menuitem"
+  ],
   "AgendaList": [
     "region"
   ],
@@ -21,6 +29,9 @@
   ],
   "AlertDialog": [
     "alertdialog"
+  ],
+  "AlphabetIndex": [
+    "toolbar"
   ],
   "AnnouncementBar": [
     "region"
@@ -48,6 +59,9 @@
     "alert",
     "group",
     "status"
+  ],
+  "BeeswarmChart": [
+    "img"
   ],
   "BoxPlot": [
     "img"
@@ -101,6 +115,9 @@
     "tab",
     "tablist",
     "tabpanel"
+  ],
+  "CohortRetention": [
+    "grid"
   ],
   "ColorPicker": [
     "group"
@@ -156,6 +173,9 @@
     "group"
   ],
   "CubeCarousel": [
+    "group"
+  ],
+  "DashboardGrid": [
     "group"
   ],
   "DataFreshness": [
@@ -238,6 +258,9 @@
     "gridcell",
     "row"
   ],
+  "FaqSection": [
+    "status"
+  ],
   "FeatureFlags": [
     "status"
   ],
@@ -259,6 +282,17 @@
   ],
   "FlipBook": [
     "group"
+  ],
+  "FloatingPanel": [
+    "dialog",
+    "modal"
+  ],
+  "FlowField": [
+    "img"
+  ],
+  "FullscreenDialog": [
+    "dialog",
+    "modal"
   ],
   "GameOfLife": [
     "application",
@@ -331,6 +365,13 @@
     "modal",
     "status"
   ],
+  "LikertScale": [
+    "group",
+    "radiogroup"
+  ],
+  "LinkPreview": [
+    "tooltip"
+  ],
   "LiveChart": [
     "status"
   ],
@@ -343,9 +384,19 @@
   "LogoCloud": [
     "img"
   ],
+  "LogViewer": [
+    "group",
+    "list",
+    "listitem",
+    "region",
+    "status"
+  ],
   "MagicTabs": [
     "tab",
     "tablist"
+  ],
+  "MaintenanceNotice": [
+    "status"
   ],
   "MarkdownEditor": [
     "toolbar"
@@ -393,6 +444,12 @@
     "radio",
     "radiogroup"
   ],
+  "Metronome": [
+    "combobox",
+    "group",
+    "listbox",
+    "status"
+  ],
   "MiniMap": [
     "group"
   ],
@@ -408,8 +465,20 @@
     "dialog",
     "modal"
   ],
+  "MorphingText": [
+    "status"
+  ],
   "MultiSelect": [
     "listbox"
+  ],
+  "NavigationProgress": [
+    "progressbar"
+  ],
+  "NetworkGraph": [
+    "img"
+  ],
+  "NewsletterSignup": [
+    "status"
   ],
   "NotificationCenter": [
     "status"
@@ -422,6 +491,10 @@
   ],
   "OrbitRing": [
     "group"
+  ],
+  "OrgChart": [
+    "tree",
+    "treeitem"
   ],
   "Pagination": [
     "status"
@@ -478,6 +551,9 @@
   "QRCode": [
     "img"
   ],
+  "QuestionQueue": [
+    "status"
+  ],
   "QuickActions": [
     "list"
   ],
@@ -502,6 +578,13 @@
   "ReactionBar": [
     "group"
   ],
+  "RecentItems": [
+    "status"
+  ],
+  "RecurrenceEditor": [
+    "group",
+    "radiogroup"
+  ],
   "ReleaseNotesModal": [
     "status"
   ],
@@ -518,6 +601,9 @@
   "ReviewSummary": [
     "img"
   ],
+  "RoadmapBoard": [
+    "status"
+  ],
   "RotatingWord": [
     "status"
   ],
@@ -533,11 +619,21 @@
   "ScatterChart": [
     "img"
   ],
+  "ScopedSearch": [
+    "combobox",
+    "listbox",
+    "option",
+    "search",
+    "status"
+  ],
   "ScrollArea": [
     "region"
   ],
   "ScrollProgress": [
     "progressbar"
+  ],
+  "SearchableCheckboxList": [
+    "group"
   ],
   "SeatSelector": [
     "status"
@@ -567,8 +663,14 @@
     "menuitem",
     "status"
   ],
+  "SharePermissions": [
+    "status"
+  ],
   "ShortcutRecorder": [
     "status"
+  ],
+  "SignalStrength": [
+    "img"
   ],
   "SignaturePad": [
     "img",
@@ -579,6 +681,9 @@
   ],
   "SlotReels": [
     "status"
+  ],
+  "SocialLoginButtons": [
+    "group"
   ],
   "SortableList": [
     "status"
@@ -594,6 +699,10 @@
   "Spinner": [
     "status"
   ],
+  "SpinWheel": [
+    "img",
+    "status"
+  ],
   "SplitPane": [
     "separator"
   ],
@@ -606,11 +715,21 @@
   "StoryProgress": [
     "progressbar"
   ],
+  "StreamGraph": [
+    "img"
+  ],
   "SuccessMark": [
     "status"
   ],
+  "SunburstChart": [
+    "img"
+  ],
   "SwipeDeck": [
     "group"
+  ],
+  "SwipeToConfirm": [
+    "slider",
+    "status"
   ],
   "Switch": [
     "switch"
@@ -626,13 +745,25 @@
   "TestimonialCard": [
     "img"
   ],
+  "TextLink": [
+    "link"
+  ],
   "Ticker": [
+    "status"
+  ],
+  "TicTacToe": [
+    "grid",
+    "gridcell",
+    "row",
     "status"
   ],
   "TimePicker": [
     "combobox",
     "listbox",
     "option"
+  ],
+  "TimeRangePicker": [
+    "group"
   ],
   "TimeSlotPicker": [
     "group",
@@ -654,6 +785,9 @@
   ],
   "Tooltip": [
     "tooltip"
+  ],
+  "TranscriptView": [
+    "status"
   ],
   "TransferList": [
     "group",
@@ -684,6 +818,18 @@
     "menuitem",
     "status"
   ],
+  "UnitInput": [
+    "spinbutton"
+  ],
+  "UnsavedChangesBar": [
+    "alert",
+    "dialog",
+    "region",
+    "status"
+  ],
+  "UpdateAvailable": [
+    "status"
+  ],
   "UploadQueue": [
     "status"
   ],
@@ -692,6 +838,9 @@
   ],
   "UsageMeter": [
     "progressbar"
+  ],
+  "UsagePricingCalculator": [
+    "status"
   ],
   "UserMenu": [
     "menu",
@@ -718,11 +867,21 @@
     "listitem",
     "presentation"
   ],
+  "VoteButtons": [
+    "group"
+  ],
   "WaterfallChart": [
     "img"
   ],
   "Waveform": [
     "img"
+  ],
+  "WeekdayPicker": [
+    "group"
+  ],
+  "WeekView": [
+    "group",
+    "region"
   ],
   "WorkspaceSwitcher": [
     "listbox",

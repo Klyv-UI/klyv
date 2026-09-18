@@ -1,0 +1,65 @@
+{
+  "props": [
+    {
+      "name": "dimensions",
+      "type": "UsagePricingCalculatorDimension[]",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "UsagePricingCalculatorValue",
+      "required": false,
+      "description": "Controlled usage, by dimension id."
+    },
+    {
+      "name": "defaultValue",
+      "type": "UsagePricingCalculatorValue",
+      "required": false,
+      "description": "Starting usage when uncontrolled. Falls back to each dimension’s defaultValue."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: UsagePricingCalculatorValue) => void",
+      "required": false
+    },
+    {
+      "name": "basePrice",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "A flat monthly platform fee."
+    },
+    {
+      "name": "annualDiscount",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.2",
+      "description": "Share taken off when billed annually — 0.2 for 20%."
+    },
+    {
+      "name": "defaultPeriod",
+      "type": "BillingPeriod",
+      "required": false,
+      "defaultValue": "'monthly'",
+      "description": "Starting billing period."
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'$'"
+    },
+    {
+      "name": "salesAction",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Shown in place of the total when any dimension passes its sales threshold — a link or button to contact sales."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

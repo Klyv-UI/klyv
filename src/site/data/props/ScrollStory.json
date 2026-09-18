@@ -1,0 +1,47 @@
+{
+  "props": [
+    {
+      "name": "steps",
+      "type": "ScrollStoryStep[]",
+      "required": true
+    },
+    {
+      "name": "renderVisual",
+      "type": "(index: number, step: ScrollStoryStep) => ReactNode",
+      "required": true,
+      "description": "Draws the visual for a step. Called with the active step in the sticky layout, and once per step when stacked."
+    },
+    {
+      "name": "visualSide",
+      "type": "ScrollStorySide",
+      "required": false,
+      "defaultValue": "'right'",
+      "description": "Which side the sticky visual sits on."
+    },
+    {
+      "name": "onStepChange",
+      "type": "(index: number, step: ScrollStoryStep) => void",
+      "required": false,
+      "description": "Called when a different step becomes active."
+    },
+    {
+      "name": "stickyTop",
+      "type": "number",
+      "required": false,
+      "defaultValue": "80",
+      "description": "Distance from the top of the viewport the visual sticks at — clear a fixed header here."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the whole story."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

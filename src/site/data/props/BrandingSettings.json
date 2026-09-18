@@ -1,0 +1,63 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "BrandingSettingsValue",
+      "required": true,
+      "description": "The saved branding. Edits are a draft against this until saved."
+    },
+    {
+      "name": "onSave",
+      "type": "(value: BrandingSettingsValue) => void | Promise<void>",
+      "required": true,
+      "description": "Persist the draft. Return a promise to show the saving state; reject to show its message."
+    },
+    {
+      "name": "onLogoUpload",
+      "type": "(file: File) => string | Promise<string>",
+      "required": false,
+      "description": "Receive a chosen logo file and return the URL to store. Defaults to a local object URL."
+    },
+    {
+      "name": "defaultColor",
+      "type": "string",
+      "required": false,
+      "defaultValue": "ACCENT_PRESETS[0].hex",
+      "description": "Where Reset returns the colour to. Defaults to the library’s first accent preset."
+    },
+    {
+      "name": "swatches",
+      "type": "{ value: string; label: string }[]",
+      "required": false,
+      "defaultValue": "PRESET_SWATCHES",
+      "description": "Named colours offered in the picker. Defaults to the accent presets."
+    },
+    {
+      "name": "workspaceName",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Workspace'",
+      "description": "Shown in the preview."
+    },
+    {
+      "name": "minContrast",
+      "type": "number",
+      "required": false,
+      "defaultValue": "4.5",
+      "description": "Label contrast below this ratio raises a warning. 4.5 is WCAG AA; 7 is AAA."
+    },
+    {
+      "name": "maxLogoSize",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2 * 1024 * 1024",
+      "description": "Largest logo accepted, in bytes."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

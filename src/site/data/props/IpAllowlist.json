@@ -1,0 +1,52 @@
+{
+  "props": [
+    {
+      "name": "entries",
+      "type": "IpAllowlistEntry[]",
+      "required": false,
+      "description": "Controlled list."
+    },
+    {
+      "name": "defaultEntries",
+      "type": "IpAllowlistEntry[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Starting list when uncontrolled."
+    },
+    {
+      "name": "onEntriesChange",
+      "type": "(entries: IpAllowlistEntry[]) => void",
+      "required": false
+    },
+    {
+      "name": "enabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled enforcement."
+    },
+    {
+      "name": "defaultEnabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Starting enforcement when uncontrolled."
+    },
+    {
+      "name": "onEnabledChange",
+      "type": "(enabled: boolean) => void",
+      "required": false
+    },
+    {
+      "name": "currentIp",
+      "type": "string",
+      "required": false,
+      "description": "The address this admin is connecting from, used to warn before they lock themselves out."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

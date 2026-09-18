@@ -1,0 +1,66 @@
+{
+  "props": [
+    {
+      "name": "app",
+      "type": "OAuthConsentApp",
+      "required": true
+    },
+    {
+      "name": "account",
+      "type": "OAuthConsentAccount",
+      "required": true,
+      "description": "The signed-in account access is being granted for."
+    },
+    {
+      "name": "scopes",
+      "type": "OAuthConsentScope[]",
+      "required": true
+    },
+    {
+      "name": "redirectUri",
+      "type": "string",
+      "required": true,
+      "description": "Where the person is sent afterwards. Only the host is shown."
+    },
+    {
+      "name": "productName",
+      "type": "string",
+      "required": false,
+      "description": "Your product, as in “wants access to your Acme account”."
+    },
+    {
+      "name": "onAllow",
+      "type": "() => void | Promise<void>",
+      "required": true
+    },
+    {
+      "name": "onCancel",
+      "type": "() => void",
+      "required": true
+    },
+    {
+      "name": "onSwitchAccount",
+      "type": "() => void",
+      "required": false,
+      "description": "Sign in as someone else. Without it, the switch link is hidden."
+    },
+    {
+      "name": "privacyUrl",
+      "type": "string",
+      "required": false,
+      "description": "The app’s privacy policy."
+    },
+    {
+      "name": "termsUrl",
+      "type": "string",
+      "required": false,
+      "description": "The app’s terms of service."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

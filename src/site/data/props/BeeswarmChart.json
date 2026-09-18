@@ -1,0 +1,73 @@
+{
+  "props": [
+    {
+      "name": "points",
+      "type": "BeeswarmChartPoint[]",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "groups",
+      "type": "string[]",
+      "required": false,
+      "description": "Row order, top to bottom. Defaults to the order groups first appear."
+    },
+    {
+      "name": "valueLabel",
+      "type": "string",
+      "required": false,
+      "description": "Name of the measure, printed under the axis."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format values on the axis and in the tooltip."
+    },
+    {
+      "name": "radius",
+      "type": "number",
+      "required": false,
+      "defaultValue": "4",
+      "description": "Dot radius in viewBox pixels."
+    },
+    {
+      "name": "rowHeight",
+      "type": "number",
+      "required": false,
+      "defaultValue": "64",
+      "description": "Height of each row in viewBox pixels."
+    },
+    {
+      "name": "showMedian",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Mark each row’s median with a short line."
+    },
+    {
+      "name": "selected",
+      "type": "string | null",
+      "required": false,
+      "description": "Id of the highlighted point. Omit to let the chart track it."
+    },
+    {
+      "name": "onSelect",
+      "type": "(id: string | null) => void",
+      "required": false,
+      "description": "Called when a point is clicked or chosen with Enter; null when the selection is cleared."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

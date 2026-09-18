@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The thing to draw the eye to — a form, a PIN field, a card."
+    },
+    {
+      "name": "trigger",
+      "type": "unknown",
+      "required": false,
+      "description": "Any value. Each time it changes the nudge plays; the first render never plays. A submit counter or the latest error message both work."
+    },
+    {
+      "name": "variant",
+      "type": "AttentionShakeVariant",
+      "required": false,
+      "defaultValue": "'shake'",
+      "description": "shake says no, pulse says look here, bounce says something arrived."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "description": "Milliseconds the nudge lasts."
+    },
+    {
+      "name": "flashColor",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-danger)'",
+      "description": "Colour of the outline flash that replaces movement under reduced motion. Any CSS colour or token."
+    },
+    {
+      "name": "onComplete",
+      "type": "() => void",
+      "required": false,
+      "description": "Called when the nudge finishes."
+    },
+    {
+      "name": "as",
+      "type": "'div' | 'span'",
+      "required": false,
+      "defaultValue": "'div'",
+      "description": "span for inline content such as a single field; div otherwise."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

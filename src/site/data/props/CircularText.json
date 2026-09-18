@@ -1,0 +1,71 @@
+{
+  "props": [
+    {
+      "name": "text",
+      "type": "string",
+      "required": true,
+      "description": "The words to set around the ring. Read once, as written, by assistive tech."
+    },
+    {
+      "name": "repeat",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2",
+      "description": "How many times the text goes around. Repeats are decoration and are not read out."
+    },
+    {
+      "name": "separator",
+      "type": "string",
+      "required": false,
+      "defaultValue": "' • '",
+      "description": "Drawn between repeats, and after the last one so the join is invisible."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "160",
+      "description": "Outer diameter in pixels."
+    },
+    {
+      "name": "fontSize",
+      "type": "number",
+      "required": false,
+      "defaultValue": "13",
+      "description": "Letter size in pixels."
+    },
+    {
+      "name": "rotate",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Turn slowly. Pauses while hovered or focused, and never runs under reduced motion."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "defaultValue": "18",
+      "description": "Seconds per full turn."
+    },
+    {
+      "name": "reverse",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Turn anticlockwise instead."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Centre slot — an icon, a logo, or a round button. Stays upright while the ring turns."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

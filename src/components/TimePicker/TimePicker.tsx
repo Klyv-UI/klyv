@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, type KeyboardEvent } from 'react'
+import { useId, useState, type KeyboardEvent } from 'react'
 import { cn } from '../../lib/cn'
 import { Input } from '../Input'
 import { Text } from '../Text'
@@ -78,6 +78,7 @@ export function TimePicker({
   className,
 }: TimePickerProps) {
   const [open, setOpen] = useState(false)
+  const listId = useId()
   const times = buildTimes(step).filter((time) => (!min || time >= min) && (!max || time <= max))
 
   return (
@@ -96,6 +97,7 @@ export function TimePicker({
           role="combobox"
           aria-haspopup="listbox"
           aria-expanded={open}
+          aria-controls={open ? listId : undefined}
           aria-label={label}
           value={value ?? ''}
           placeholder={placeholder}
@@ -108,7 +110,7 @@ export function TimePicker({
         />
       }
     >
-      <div role="listbox" aria-label={label} className="flex flex-col" onKeyDown={moveThroughOptions}>
+      <div id={listId} role="listbox" aria-label={label} className="flex flex-col" onKeyDown={moveThroughOptions}>
         {times.map((time) => (
           <button
             key={time}

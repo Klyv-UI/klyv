@@ -1,0 +1,102 @@
+{
+  "props": [
+    {
+      "name": "available",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether a new version is waiting. Set it when the service worker or version check reports one."
+    },
+    {
+      "name": "onReload",
+      "type": "() => void",
+      "required": true,
+      "description": "Reloads onto the new version — usually `registration.waiting.postMessage` then `location.reload()`."
+    },
+    {
+      "name": "version",
+      "type": "string",
+      "required": false,
+      "description": "The waiting version, shown after the title. A new version string brings a dismissed prompt back."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'A new version is available'",
+      "description": "Headline."
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false,
+      "defaultValue": "'Reload to get the latest fixes. Anything you have not saved on this page will be lost.'",
+      "description": "One line on why reloading is worth it."
+    },
+    {
+      "name": "whatsNewHref",
+      "type": "string",
+      "required": false,
+      "description": "Where the release notes live."
+    },
+    {
+      "name": "whatsNewLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'What’s new'",
+      "description": "Label on the release notes link."
+    },
+    {
+      "name": "reloadLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Reload now'",
+      "description": "Label on the reload button."
+    },
+    {
+      "name": "onLater",
+      "type": "() => void",
+      "required": false,
+      "description": "Called when the reader chooses to finish what they are doing first."
+    },
+    {
+      "name": "snoozeMinutes",
+      "type": "number",
+      "required": false,
+      "defaultValue": "60",
+      "description": "Minutes a snooze hides the prompt for. Pass 0 to leave the snooze out."
+    },
+    {
+      "name": "onSnooze",
+      "type": "(until: Date) => void",
+      "required": false,
+      "description": "Called with the moment the snoozed prompt will return."
+    },
+    {
+      "name": "reloading",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Shows the reload as in progress — the new worker is activating."
+    },
+    {
+      "name": "variant",
+      "type": "UpdateAvailableVariant",
+      "required": false,
+      "defaultValue": "'toast'",
+      "description": "toast floats as a card; banner is a full-width strip."
+    },
+    {
+      "name": "fixed",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Pin to the viewport — bottom corner for a toast, top edge for a banner — instead of sitting in the flow."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

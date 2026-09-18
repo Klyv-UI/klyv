@@ -1,0 +1,61 @@
+{
+  "props": [
+    {
+      "name": "series",
+      "type": "StreamGraphSeries[]",
+      "required": true
+    },
+    {
+      "name": "categories",
+      "type": "string[]",
+      "required": true,
+      "description": "Labels along the x axis, one per value."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the chart."
+    },
+    {
+      "name": "offset",
+      "type": "StreamGraphOffset",
+      "required": false,
+      "defaultValue": "'wiggle'",
+      "description": "`wiggle` minimises how much the streams slope; `silhouette` centres the stack on a flat line."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "defaultValue": "260",
+      "description": "Plot height in viewBox pixels. The width fills the container."
+    },
+    {
+      "name": "format",
+      "type": "(value: number) => string",
+      "required": false,
+      "defaultValue": "formatTick",
+      "description": "Format values in the tooltip and the hidden table."
+    },
+    {
+      "name": "defaultHidden",
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Series ids hidden on first render."
+    },
+    {
+      "name": "onHiddenChange",
+      "type": "(hidden: string[]) => void",
+      "required": false,
+      "description": "Called when the legend shows or hides a series, with the ids now hidden."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

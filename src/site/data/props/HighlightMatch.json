@@ -1,0 +1,42 @@
+{
+  "props": [
+    {
+      "name": "text",
+      "type": "string",
+      "required": true,
+      "description": "The text to render."
+    },
+    {
+      "name": "query",
+      "type": "string | string[]",
+      "required": true,
+      "description": "What to find. A string is split into words unless `splitWords` is false; an array is used term by term."
+    },
+    {
+      "name": "splitWords",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Split a string query on whitespace so each word matches on its own, in any order."
+    },
+    {
+      "name": "wordStart",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Only match at the start of a word — “an” finds “Anna” but not “Joanna”."
+    },
+    {
+      "name": "markClassName",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto every `<mark>`."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the wrapping span."
+    }
+  ]
+}

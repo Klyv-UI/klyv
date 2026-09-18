@@ -1,0 +1,59 @@
+{
+  "props": [
+    {
+      "name": "tone",
+      "type": "TextLinkTone",
+      "required": false,
+      "defaultValue": "'default'",
+      "description": "Colour treatment."
+    },
+    {
+      "name": "underline",
+      "type": "TextLinkUnderline",
+      "required": false,
+      "defaultValue": "'always'",
+      "description": "`always` for links inside running text, where colour alone would not mark them; `hover` for navigation lists."
+    },
+    {
+      "name": "external",
+      "type": "boolean",
+      "required": false,
+      "description": "Opens in a new tab: adds `target=\"_blank\"`, `rel=\"noopener noreferrer\"`, an arrow glyph, and the words below for screen readers. Defaults to true when `target=\"_blank\"` is passed."
+    },
+    {
+      "name": "newTabLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'(opens in new tab)'",
+      "description": "Hidden text read after an external link’s name."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Renders plain text marked as a disabled link — nothing to click, nothing to tab to."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The link text."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    },
+    {
+      "name": "as",
+      "type": "E",
+      "required": false,
+      "description": "Render as another component — usually a router link: `as={Link} to=\"/billing\"`."
+    }
+  ],
+  "inherits": [
+    "Omit<ComponentPropsWithoutRef<E>, keyof TextLinkOwnProps | 'as'>"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "type": "DashboardGridItem[]",
+      "required": false,
+      "description": "Controlled layout: widget ids in reading order, with their spans."
+    },
+    {
+      "name": "defaultValue",
+      "type": "DashboardGridItem[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": "Starting layout when uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(layout: DashboardGridItem[]) => void",
+      "required": false,
+      "description": "Called with the whole new layout after every move or resize."
+    },
+    {
+      "name": "widgetTitle",
+      "type": "(item: DashboardGridItem) => string",
+      "required": true,
+      "description": "The widget’s name — its heading, and what move and resize announcements call it."
+    },
+    {
+      "name": "renderWidget",
+      "type": "(item: DashboardGridItem) => ReactNode",
+      "required": true,
+      "description": "The widget’s body."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the grid."
+    },
+    {
+      "name": "locked",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Hide the move handles and size buttons — a read-only view of the same layout."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged onto the grid."
+    }
+  ]
+}
