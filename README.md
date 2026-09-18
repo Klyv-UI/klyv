@@ -88,24 +88,42 @@ through them, rather than each keeping a copy that goes stale.
 
 ## What is in it
 
-526 components in thirteen groups. The grouping describes what a component is
+522 components in thirteen groups. The grouping describes what a component is
 **for** — the only question anyone browsing a library arrives with.
 
 | Group | Count | |
 | --- | --- | --- |
 | Foundations | 20 | the type scale, container recipes, utilities |
-| Layout | 30 | structure, disclosure, stacks and scrolling |
+| Layout | 29 | structure, disclosure, stacks and scrolling |
 | Navigation | 30 | bars, shells, tabs, steps, menus, search |
-| Actions | 24 | buttons, and the richer controls built on them |
+| Actions | 23 | buttons, and the richer controls built on them |
 | Forms & Inputs | 74 | text, choice, ranges, dates, rich input |
 | Data Display | 62 | identity, lists, tables, metrics, records |
 | Charts | 45 | plots, gauges, distribution, flow, activity |
-| Feedback | 37 | status, messages, empty states, celebration |
+| Feedback | 36 | status, messages, empty states, celebration |
 | Overlays | 23 | dialogs, popovers, guidance |
 | Motion & Effects | 45 | entrances, kinetic type, light and surfaces |
 | Interaction | 38 | touch and drag, presence, trust and workflow |
 | Canvas & Play | 30 | generative, audio, physics, toys |
-| SaaS | 68 | marketing, pricing, auth, billing, team, settings, developer, data views, engagement, security |
+| SaaS | 67 | marketing, pricing, auth, billing, team, settings, developer, data views, engagement, security |
+
+### Merged
+
+Four pairs turned out to be one component twice, and are now one:
+
+- **UptimeBar → StatusStrip.** Intervals take a declared `status`, `incidents`,
+  `downtimeMinutes` and a `date` as well as a measured `uptime`; the strip gained
+  `uptime`, `showLegend` and a one-tab-stop, arrow-key cursor.
+- **SpeedDial → RadialMenu** `layout="stack"`, with `direction`, `labels` and
+  `defaultOpen`; both layouts share the menu-button keyboard model.
+- **ScrollList → ScrollArea** `scrollbar="hidden"`. ScrollList stays as a
+  deprecated wrapper, because it shipped in 1.0.
+- **AnnouncementBar → Banner** `layout="strip"`, with `badge`, `href` and a
+  `storageKey` that remembers dismissal. AnnouncementBar stays as a deprecated
+  wrapper (`tone="muted"` is Banner's `neutral`).
+
+ScrollProgress's `backToTop` is deprecated too: it now renders BackToTop with
+`showProgress`, which moves focus, respects reduced motion and hides properly.
 
 ### New: seventy components with mechanics the library did not have
 
@@ -171,18 +189,18 @@ DomainSetup · LocaleSettings.
 
 ### Forty more components
 
-Forty components that fill gaps across the library.
+Forty components that fill gaps across the library (thirty-eight since the merges below).
 
 **Layout** — AspectRatio · ScrollArea · Masonry.
 **Navigation** — Menubar · MegaMenu · BackToTop.
-**Actions** — ToggleButton · SpeedDial · ShareMenu.
+**Actions** — ToggleButton · ShareMenu.
 **Forms & Inputs** — PhoneInput · CreditCardInput · ChoiceCardGroup · TransferList ·
 MonthPicker · TimeSlotPicker · InputGroup · EmojiPicker.
 **Data Display** — ProfileCard · FileList · ReviewSummary · ProductCard ·
 OrderTracker · ImageGallery.
 **Charts** — ScatterChart · WaterfallChart · Histogram · BoxPlot · BulletChart ·
 CandlestickChart.
-**Feedback** — UptimeBar · IncidentTimeline.
+**Feedback** — IncidentTimeline.
 **Overlays** — ConfirmPopover · Toggletip.
 **Interaction** — ChatThread · MessageComposer · CommentThread.
 **SaaS** — NotificationPreferences · FeatureFlags · ReferralCard · NpsSurvey.
@@ -207,7 +225,7 @@ owner) · InviteMembers · RolePermissions.
 ApiKeyManager (secret shown once) · IntegrationCard · ChangelogList · HelpPanel ·
 WebhookEndpoints · WebhookDeliveries.
 **Data & views** — FilterBuilder (+ `matchesFilters`) · SavedViews.
-**Engagement** — AnnouncementBar · FeedbackWidget · CookieBanner.
+**Engagement** — FeedbackWidget · CookieBanner (announcement strips are Banner with `layout="strip"`).
 **Security** — TwoFactorSetup · SessionList · SsoSetup (enforcement locked until
 a test passes).
 

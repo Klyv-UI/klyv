@@ -157,7 +157,7 @@ export const blocks: BlockEntry[] = [
     category: 'Marketing',
     blurb:
       'A whole SaaS homepage: announcement, header, hero with the product, logos, features, pricing with a comparison, testimonials, FAQ, closing ask and footer.',
-    uses: ['AnnouncementBar', 'SiteHeader', 'HeroSection', 'LogoCloud', 'SectionHeading', 'FeatureGrid', 'PricingTable', 'FeatureComparison', 'TestimonialCard', 'Accordion', 'CtaSection', 'SiteFooter'],
+    uses: ['Banner', 'SiteHeader', 'HeroSection', 'LogoCloud', 'SectionHeading', 'FeatureGrid', 'PricingTable', 'FeatureComparison', 'TestimonialCard', 'Accordion', 'CtaSection', 'SiteFooter'],
     wide: true,
   },
   {

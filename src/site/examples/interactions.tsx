@@ -1,14 +1,18 @@
 import { useRef, useState } from 'react'
 import {
   ArrowLeftRight,
+  Camera,
   Check,
   CreditCard,
   Download,
+  FolderPlus,
   Gift,
   Plus,
   QrCode,
   Send,
+  Share2,
   Trash2,
+  Upload,
   X,
 } from 'lucide-react'
 import {
@@ -21,11 +25,13 @@ import {
   RadialMenu,
   ScratchCard,
   ScrollProgress,
+  SegmentedControl,
   Sparkline,
   Surface,
   SwipeDeck,
   Tag,
   Text,
+  type RadialMenuDirection,
 } from 'klyv'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
@@ -219,6 +225,65 @@ function RadialMenuExample() {
   )
 }
 
+function RadialStackExample() {
+  const [direction, setDirection] = useState<RadialMenuDirection>('up')
+  const [labels, setLabels] = useState<'visible' | 'hover'>('visible')
+  const [log, setLog] = useState('Nothing chosen yet')
+  const anchor: Record<RadialMenuDirection, string> = {
+    up: 'bottom-5 right-5',
+    down: 'top-5 right-5',
+    left: 'bottom-5 right-5',
+    right: 'bottom-5 left-5',
+  }
+  return (
+    <div className="flex w-full flex-col gap-3">
+      <div className="flex flex-wrap gap-2">
+        <SegmentedControl
+          label="Direction"
+          size="sm"
+          value={direction}
+          onValueChange={setDirection}
+          options={[
+            { value: 'up', label: 'Up' },
+            { value: 'down', label: 'Down' },
+            { value: 'left', label: 'Left' },
+            { value: 'right', label: 'Right' },
+          ]}
+        />
+        <SegmentedControl
+          label="Labels"
+          size="sm"
+          value={labels}
+          onValueChange={setLabels}
+          options={[
+            { value: 'visible', label: 'Visible' },
+            { value: 'hover', label: 'On hover' },
+          ]}
+        />
+      </div>
+      <div className="relative h-[340px] w-full rounded-[var(--radius-card)] border border-line bg-app">
+        <Text size="caption" tone="faint" className="p-4" aria-live="polite">
+          Last action: {log}
+        </Text>
+        <RadialMenu
+          key={direction}
+          layout="stack"
+          label="Create"
+          direction={direction}
+          labels={labels}
+          className={`absolute ${anchor[direction]}`}
+          actions={[
+            { id: 'folder', label: 'New folder', icon: FolderPlus, onSelect: () => setLog('New folder') },
+            { id: 'upload', label: 'Upload file', icon: Upload, onSelect: () => setLog('Upload file') },
+            { id: 'scan', label: 'Scan document', icon: Camera, onSelect: () => setLog('Scan document') },
+            { id: 'share', label: 'Share link', icon: Share2, onSelect: () => setLog('Share link') },
+          ]}
+        />
+      </div>
+    </div>
+  )
+}
+
 function SwipeDeckExample() {
   const [decided, setDecided] = useState<{ approved: number; declined: number }>({
     approved: 0,
@@ -353,14 +418,13 @@ function ScrollProgressExample() {
           target={scroller}
           variant="ring"
           fixed={false}
-          backToTop
           showValue
           hideUntil={0.08}
           className="absolute bottom-4 right-4"
         />
       </div>
       <Text size="caption" tone="faint">
-        Scroll the panel. The ring appears past 8% and scrolls back to the top when clicked.
+        Scroll the panel. The ring appears past 8%. For a button that also takes the reader back up, use BackToTop with showProgress.
       </Text>
     </div>
   )
@@ -425,7 +489,7 @@ export const demos: ExampleModule = {
 
   'radial-menu': {
     description:
-      'Actions fanned out on an arc around their trigger. The arc is not decoration: on a radial layout every action is the same distance from the pointer, so no item is cheaper to reach than another. A vertical menu always favours its first item.',
+      'Actions fanned out from a trigger — on an arc around it, or stacked in one direction as a floating action button’s speed dial. The arc is not decoration: on a radial layout every action is the same distance from the pointer, so no item is cheaper to reach than another. Both layouts are the same menu button: arrow keys walk the actions, Escape closes and returns focus, and every action is named even when its label only shows on hover.',
     sections: [
       {
         title: 'Example',
@@ -434,18 +498,31 @@ export const demos: ExampleModule = {
         Content: RadialMenuExample,
         note: motionNote('the items appear in place, still on the arc.'),
       },
+      {
+        title: 'Stack layout',
+        description:
+          'layout="stack" is the speed dial: an accent trigger that turns a plus into a cross, with labelled actions in a line. Arrow keys in the direction of travel open it from the trigger and walk outward.',
+        bare: true,
+        Content: RadialStackExample,
+        note: motionNote('actions appear and the trigger turns without transitions.'),
+      },
       rationale(
-        'A floating action button with three to six verbs behind it is a mobile staple, and it is normally built as a list that grows upward — which puts the last item furthest from the thumb.',
-        'A transform per item keeps the open composited, and the arc equalises the reach. It is still a real menu: Escape, outside click, arrow keys and a focusable trigger.',
-        'A floating action button, a canvas or editor tool, a compact row of verbs on a touch screen.',
-        ['Text', 'IconComponent', 'shadow tokens', 'motion tokens'],
+        'A floating action button with three to six verbs behind it is a mobile staple, and giving each its own floating button crowds the content.',
+        'A transform per item keeps the open composited, and the arc equalises the reach; the stack keeps labels attached to each action. Either is a real menu button, with a keyboard model people already know. Past five actions it should be a Menu.',
+        'A floating action button, a canvas or editor tool, mobile-first file managers, a compact row of verbs on a touch screen.',
+        ['Text', 'IconComponent', 'internal glyphs', 'shadow tokens', 'motion tokens'],
       ),
     ],
     props: [
-      { name: 'actions', type: 'RadialAction[]', description: 'id, label, icon, onSelect, disabled, tone.' },
+      { name: 'actions', type: 'RadialAction[]', description: 'id, label, icon, onSelect, disabled, tone. Nearest the trigger first.' },
+      { name: 'label', type: 'string', description: 'Accessible name for the trigger and the menu.' },
+      { name: 'icon', type: 'IconComponent', defaultValue: 'plus', description: 'Trigger glyph; turns while open.' },
+      { name: 'layout', type: "'arc' | 'stack'", defaultValue: "'arc'", description: 'Fan the actions around the trigger, or stack them in a line.' },
+      { name: 'direction', type: "'up' | 'down' | 'left' | 'right'", defaultValue: "'up'", description: 'Which way a stack fans out. Stack only.' },
+      { name: 'labels', type: "'visible' | 'hover'", defaultValue: "'visible' (stack) / 'hover' (arc)", description: 'Print labels, or show them on hover and focus.' },
       { name: 'radius / startAngle / sweep', type: 'number', defaultValue: '92 / -90 / 180', description: 'Geometry of the arc. 360 makes a full wheel.' },
-      { name: 'icon / label', type: 'IconComponent / string', description: 'The trigger glyph and its accessible name.' },
-      { name: 'open / onOpenChange', type: 'boolean / fn', description: 'Controlled visibility. Omit for uncontrolled.' },
+      { name: 'open / defaultOpen / onOpenChange', type: 'boolean / boolean / (open) => void', description: 'Controlled or uncontrolled open state.' },
+      { name: 'className', type: 'string', description: 'Merged onto the root. Position a stack here.' },
     ],
   },
 
@@ -516,16 +593,16 @@ export const demos: ExampleModule = {
       },
       rationale(
         'A long page gives no sense of how much is left, and the back-to-top button that usually solves the second half of that problem says nothing about the first.',
-        'One component answers both, because the control that tells you how far down you are is exactly the control you want when you decide you have gone far enough.',
+        'A bar or ring tracks the reader once a frame and reports it as a progressbar. The way back up is BackToTop with showProgress, which draws the same ring on a button that moves focus and respects reduced motion.',
         'A statement, an article, terms and conditions, a long settings page, a report.',
-        ['Text', 'requestAnimationFrame', 'accent tokens'],
+        ['Text', 'BackToTop', 'requestAnimationFrame', 'accent tokens'],
       ),
     ],
     props: [
       { name: 'target', type: 'RefObject<HTMLElement>', description: 'The scrolling element. Omit to track the window.' },
       { name: 'variant', type: "'bar' | 'ring'", defaultValue: "'bar'", description: 'A rule across an edge, or a dial.' },
       { name: 'fixed / position', type: "boolean / 'top' | 'bottom'", defaultValue: "true / 'top'", description: 'Pin to the viewport, or place it in a container.' },
-      { name: 'backToTop', type: 'boolean', defaultValue: 'false', description: 'Ring variant: clicking scrolls back to the start.' },
+      { name: 'backToTop', type: 'boolean', defaultValue: 'false', description: 'Deprecated. Ring variant only: renders BackToTop with showProgress, passing target, fixed and className. Use BackToTop directly.' },
       { name: 'hideUntil / showValue', type: 'number / boolean', defaultValue: '0 / false', description: 'Appear past a threshold, and show the percentage.' },
     ],
   },

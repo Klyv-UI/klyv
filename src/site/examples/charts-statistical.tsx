@@ -8,11 +8,9 @@ import {
   IncidentTimeline,
   ScatterChart,
   SegmentedControl,
-  UptimeBar,
   WaterfallChart,
   type BoxPlotOrientation,
   type CandlestickChartCandle,
-  type UptimeBarDay,
 } from 'klyv'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
@@ -104,53 +102,6 @@ const CANDLES: CandlestickChartCandle[] = (() => {
     }
   })
 })()
-
-const TODAY = new Date(2026, 8, 17)
-
-function uptimeDays(seed: number, events: Record<number, Partial<UptimeBarDay>>, missing = 0): UptimeBarDay[] {
-  const random = seeded(seed)
-  return Array.from({ length: 90 }, (_, index) => {
-    const date = new Date(TODAY)
-    date.setDate(TODAY.getDate() - (89 - index))
-    if (index < missing) return { date, status: 'unknown' as const }
-    const event = events[index]
-    if (event) return { date, status: 'operational' as const, ...event }
-    return random() > 0.985
-      ? { date, status: 'degraded' as const, downtimeMinutes: 3, incidents: ['Brief spike in response times'] }
-      : { date, status: 'operational' as const }
-  })
-}
-
-const SERVICES = [
-  {
-    label: 'API',
-    days: uptimeDays(3, {
-      41: { status: 'outage', downtimeMinutes: 47, incidents: ['Elevated 5xx rates on write endpoints'] },
-      42: { status: 'degraded', downtimeMinutes: 6, incidents: ['Elevated 5xx rates on write endpoints (monitoring)'] },
-      77: { status: 'degraded', downtimeMinutes: 12, incidents: ['Slow responses from us-east-1'] },
-    }),
-  },
-  {
-    label: 'Dashboard',
-    days: uptimeDays(4, {
-      63: { status: 'degraded', downtimeMinutes: 0, incidents: ['Charts loading slowly for some workspaces'] },
-    }),
-  },
-  {
-    label: 'Webhooks',
-    days: uptimeDays(
-      5,
-      {
-        88: {
-          status: 'outage',
-          downtimeMinutes: 92,
-          incidents: ['Delayed webhook deliveries', 'Retry queue backlog'],
-        },
-      },
-      12,
-    ),
-  },
-]
 
 const at = (day: number, hour: number, minute: number) => new Date(2026, 8, day, hour, minute)
 
@@ -368,23 +319,6 @@ function CandlestickExample() {
           formatVolume={(value) => `${(value / 1_000_000).toFixed(2)}M`}
           label="ACME daily prices over six weeks, from 182.00 to the most recent close"
         />
-      </div>
-    </Card>
-  )
-}
-
-function UptimeExample() {
-  return (
-    <Card title="System status" className="w-full">
-      <div className="mt-4 flex flex-col gap-6">
-        {SERVICES.map((service, index) => (
-          <UptimeBar
-            key={service.label}
-            label={service.label}
-            days={service.days}
-            showLegend={index === SERVICES.length - 1}
-          />
-        ))}
       </div>
     </Card>
   )
@@ -619,39 +553,6 @@ export const demos: ExampleModule = {
       ...CHART_BASE,
       { name: 'showVolume', type: 'boolean', defaultValue: 'true', description: 'Volume pane, when candles carry volume.' },
       { name: 'format / formatVolume', type: '(value: number) => string', description: 'Formatters for prices and volume.' },
-    ],
-  },
-
-  'uptime-bar': {
-    description:
-      'A status-page row: one thin bar per day coloured by its declared status — operational, degraded, outage, or no data — with the incidents behind each day in its tooltip and the uptime for the period beside the name. Days with no data are left out of the percentage rather than counted as up or down.',
-    sections: [
-      {
-        title: 'Status page',
-        description: 'Ninety days per service. Hover a bar, or tab to a row and use the arrow keys. Webhooks has no data for its first twelve days.',
-        bare: true,
-        Content: UptimeExample,
-        note: (
-          <>
-            {KEYBOARD} {motionNote('bars appear at full height instead of rising in sequence.')}
-          </>
-        ),
-      },
-      rationale(
-        'A single uptime figure hides whether the lost minutes were one bad afternoon or a week of flakiness, and says nothing about what happened.',
-        'One bar per day shows the pattern, and attaching incidents to days lets the row answer “what was that red bar?” without leaving the page. Where StatusStrip colours by a measured ratio, this shows the status that was published.',
-        'Public status pages, internal service catalogues, vendor dashboards, SLA reports.',
-        ['Legend', 'Text', 'VisuallyHidden', 'status tokens'],
-      ),
-    ],
-    props: [
-      { name: 'days', type: 'UptimeBarDay[]', description: 'date, status, incidents?, downtimeMinutes?. Oldest first.' },
-      { name: 'label', type: 'string', description: 'The service or component name.' },
-      { name: 'uptime', type: 'number', description: 'Percentage to print. Computed from days when omitted.' },
-      { name: 'from / to', type: 'string', defaultValue: "'N days ago' / 'Today'", description: 'Captions under each end.' },
-      { name: 'showLegend', type: 'boolean', defaultValue: 'false', description: 'Status key — show it once under a stack of rows.' },
-      { name: 'height', type: 'number', defaultValue: '32', description: 'Bar height in pixels.' },
-      { name: 'className', type: 'string', description: 'Merged last, so it wins.' },
     ],
   },
 

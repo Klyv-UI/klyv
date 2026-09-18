@@ -1,37 +1,22 @@
-import type { ReactNode } from 'react'
 import { cn } from '../../lib/cn'
+import { ScrollArea, type ScrollAreaProps } from '../ScrollArea'
 
-export interface ScrollListProps {
-  /** The rows, usually List or ListItem. */
-  children: ReactNode
-  /** Fade the last row out instead of clipping it, as both list cards do. */
-  fade?: boolean
-  /** Any CSS length. Omit inside a flex parent that already bounds the height. */
-  maxHeight?: number | string
-  /** Merged last, so it wins. */
-  className?: string
+/**
+ * @deprecated Use `ScrollArea` with `scrollbar="hidden"`. `label` is optional here only
+ * for compatibility; give the region a name that says what it holds.
+ */
+export type ScrollListProps = Omit<ScrollAreaProps, 'label'> & {
+  /** Accessible name for the scrolling region. */
+  label?: string
 }
 
 /**
- * Scrolling container for a List. The fade is the detail that makes a cut-off
- * list read as continuing rather than as ending on a half-drawn row.
+ * Scrolling container for a List, kept for code written against 1.0.
+ *
+ * @deprecated Use `ScrollArea` with `scrollbar="hidden"`. ScrollList is now that and
+ * nothing more: a named, focusable region with a hidden scrollbar, whose fade
+ * shows only while there is more past the edge rather than always.
  */
-export function ScrollList({ children, fade = true, maxHeight, className }: ScrollListProps) {
-  return (
-    <div
-      style={{ maxHeight }}
-      // Rows are often plain text with nothing focusable in them, which would
-      // leave the overflow reachable by mouse and by nothing else. Taking focus
-      // itself makes the arrow keys work and keeps the scrollbar hidden.
-      tabIndex={0}
-      className={cn(
-        'no-scrollbar -mx-2.5 min-h-0 flex-1 overflow-y-auto',
-        'focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent-strong',
-        fade && 'list-fade',
-        className,
-      )}
-    >
-      {children}
-    </div>
-  )
+export function ScrollList({ label = 'Scrollable list', className, ...rest }: ScrollListProps) {
+  return <ScrollArea label={label} scrollbar="hidden" className={cn('-mx-2.5 flex-1', className)} {...rest} />
 }

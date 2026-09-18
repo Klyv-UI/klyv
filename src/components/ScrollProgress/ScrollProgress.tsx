@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type RefObject } from 'react'
 import { cn } from '../../lib/cn'
+import { BackToTop } from '../BackToTop'
 import { Text } from '../Text'
 
 export type ScrollProgressVariant = 'bar' | 'ring'
@@ -18,7 +19,14 @@ export interface ScrollProgressProps {
   position?: 'top' | 'bottom'
   /** Show the percentage inside the ring. */
   showValue?: boolean
-  /** Clicking the ring scrolls back to the start. */
+  /**
+   * Render the ring as a back-to-top button.
+   *
+   * @deprecated Use `<BackToTop showProgress />`, which this now renders: it moves focus
+   * to the top of the page, jumps instead of animating under reduced motion, and leaves
+   * the tab order while hidden. `target`, `fixed` and `className` are passed on; the ring's
+   * size, colours, `showValue` and `hideUntil` are not.
+   */
   backToTop?: boolean
   /** Hide the ring until there is something to show. */
   hideUntil?: number
@@ -42,23 +50,29 @@ export interface ScrollProgressProps {
  * available to a screen reader without being announced on every pixel of
  * scroll — the ring itself is decorative and marked so.
  *
- * The ring variant doubles as back-to-top. That pairing is deliberate: the
- * control that tells you how far down you are is exactly the control you want
- * when you decide you have gone far enough.
+ * It is an indicator, not a control. For a button that takes the reader back
+ * up — with the ring as its progress — use BackToTop with `showProgress`; the
+ * deprecated `backToTop` prop renders exactly that.
  */
-export function ScrollProgress({
+export function ScrollProgress({ backToTop = false, ...props }: ScrollProgressProps) {
+  if (backToTop && props.variant === 'ring') {
+    return <BackToTop showProgress target={props.target} fixed={props.fixed} className={props.className} />
+  }
+  return <ScrollProgressIndicator {...props} />
+}
+
+function ScrollProgressIndicator({
   target,
   variant = 'bar',
   size = variant === 'bar' ? 3 : 44,
   fixed = true,
   position = 'top',
   showValue = false,
-  backToTop = false,
   hideUntil = 0,
   color = 'var(--color-accent-strong)',
   trackColor = 'transparent',
   className,
-}: ScrollProgressProps) {
+}: Omit<ScrollProgressProps, 'backToTop'>) {
   const [progress, setProgress] = useState(0)
   const frame = useRef(0)
 
@@ -126,12 +140,6 @@ export function ScrollProgress({
   const circumference = 2 * Math.PI * radius
   const visible = percent >= hideUntil * 100
 
-  const scrollToTop = () => {
-    const node = target?.current
-    if (node) node.scrollTo({ top: 0, behavior: 'smooth' })
-    else window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
   const ring = (
     <>
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} aria-hidden="true" className="-rotate-90">
@@ -174,19 +182,6 @@ export function ScrollProgress({
     visible ? 'opacity-100' : 'pointer-events-none opacity-0',
     className,
   )
-
-  if (backToTop) {
-    return (
-      <button
-        type="button"
-        onClick={scrollToTop}
-        aria-label={`Back to top — ${percent}% read`}
-        className={cn(shell, 'hover:bg-surface-muted')}
-      >
-        {ring}
-      </button>
-    )
-  }
 
   return (
     <div

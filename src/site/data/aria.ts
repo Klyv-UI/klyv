@@ -56,9 +56,6 @@ export const ariaRoles: Record<string, string[]> = {
   "AlphabetIndex": [
     "toolbar"
   ],
-  "AnnouncementBar": [
-    "region"
-  ],
   "ApiKeyManager": [
     "status"
   ],
@@ -85,6 +82,9 @@ export const ariaRoles: Record<string, string[]> = {
     "alert",
     "group",
     "status"
+  ],
+  "Banner": [
+    "region"
   ],
   "BeeswarmChart": [
     "img"
@@ -727,7 +727,8 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "RadialMenu": [
     "menu",
-    "menuitem"
+    "menuitem",
+    "none"
   ],
   "RateLimitMeter": [
     "progressbar",
@@ -911,11 +912,6 @@ export const ariaRoles: Record<string, string[]> = {
     "textbox",
     "tree"
   ],
-  "SpeedDial": [
-    "menu",
-    "menuitem",
-    "none"
-  ],
   "SpinWheel": [
     "img",
     "status"
@@ -1071,9 +1067,6 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "UploadQueue": [
     "status"
-  ],
-  "UptimeBar": [
-    "img"
   ],
   "UsageMeter": [
     "progressbar"

@@ -167,11 +167,10 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "axe": true
   },
   "AnnouncementBar": {
-    "serverSafe": false,
+    "serverSafe": true,
     "tokenColours": true,
     "animates": false,
-    "reducedMotion": false,
-    "axe": true
+    "reducedMotion": false
   },
   "ApiKeyManager": {
     "serverSafe": false,
@@ -2683,8 +2682,7 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "serverSafe": true,
     "tokenColours": true,
     "animates": false,
-    "reducedMotion": false,
-    "axe": true
+    "reducedMotion": false
   },
   "ScrollProgress": {
     "serverSafe": false,
@@ -2989,13 +2987,6 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "axe": true
   },
   "SpatialNavigation": {
-    "serverSafe": false,
-    "tokenColours": true,
-    "animates": false,
-    "reducedMotion": false,
-    "axe": true
-  },
-  "SpeedDial": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
@@ -3518,13 +3509,6 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "axe": true
   },
   "UploadQueue": {
-    "serverSafe": false,
-    "tokenColours": true,
-    "animates": false,
-    "reducedMotion": false,
-    "axe": true
-  },
-  "UptimeBar": {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,

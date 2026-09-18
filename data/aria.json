@@ -51,9 +51,6 @@
   "AlphabetIndex": [
     "toolbar"
   ],
-  "AnnouncementBar": [
-    "region"
-  ],
   "ApiKeyManager": [
     "status"
   ],
@@ -80,6 +77,9 @@
     "alert",
     "group",
     "status"
+  ],
+  "Banner": [
+    "region"
   ],
   "BeeswarmChart": [
     "img"
@@ -722,7 +722,8 @@
   ],
   "RadialMenu": [
     "menu",
-    "menuitem"
+    "menuitem",
+    "none"
   ],
   "RateLimitMeter": [
     "progressbar",
@@ -906,11 +907,6 @@
     "textbox",
     "tree"
   ],
-  "SpeedDial": [
-    "menu",
-    "menuitem",
-    "none"
-  ],
   "Spinner": [
     "status"
   ],
@@ -1066,9 +1062,6 @@
   ],
   "UploadQueue": [
     "status"
-  ],
-  "UptimeBar": [
-    "img"
   ],
   "UsageMeter": [
     "progressbar"

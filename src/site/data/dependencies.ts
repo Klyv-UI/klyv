@@ -372,11 +372,10 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "components/AnnouncementBar/AnnouncementBar.tsx",
       "components/AnnouncementBar/index.ts"
     ],
-    "internal": [],
-    "shared": [
-      "components/internal/icons.tsx",
-      "lib/cn.ts"
+    "internal": [
+      "Banner"
     ],
+    "shared": [],
     "external": [
       "react"
     ]
@@ -5707,6 +5706,7 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "Text"
     ],
     "shared": [
+      "components/internal/icons.tsx",
       "lib/cn.ts",
       "lib/types.ts"
     ],
@@ -6274,13 +6274,13 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "components/ScrollList/ScrollList.tsx",
       "components/ScrollList/index.ts"
     ],
-    "internal": [],
+    "internal": [
+      "ScrollArea"
+    ],
     "shared": [
       "lib/cn.ts"
     ],
-    "external": [
-      "react"
-    ]
+    "external": []
   },
   "ScrollProgress": {
     "files": [
@@ -6288,6 +6288,7 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "components/ScrollProgress/index.ts"
     ],
     "internal": [
+      "BackToTop",
       "Text"
     ],
     "shared": [
@@ -6985,21 +6986,6 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
-  "SpeedDial": {
-    "files": [
-      "components/SpeedDial/SpeedDial.tsx",
-      "components/SpeedDial/index.ts"
-    ],
-    "internal": [],
-    "shared": [
-      "components/internal/icons.tsx",
-      "lib/cn.ts",
-      "lib/types.ts"
-    ],
-    "external": [
-      "react"
-    ]
-  },
   "SpinWheel": {
     "files": [
       "components/SpinWheel/SpinWheel.tsx",
@@ -7240,12 +7226,14 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "components/StatusStrip/index.ts"
     ],
     "internal": [
+      "Legend",
       "Text",
-      "Tooltip",
       "VisuallyHidden"
     ],
     "shared": [
-      "lib/cn.ts"
+      "components/internal/plot.tsx",
+      "lib/cn.ts",
+      "lib/format.ts"
     ],
     "external": [
       "react"
@@ -8153,25 +8141,6 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "components/internal/icons.tsx",
       "lib/cn.ts",
       "lib/types.ts"
-    ],
-    "external": [
-      "react"
-    ]
-  },
-  "UptimeBar": {
-    "files": [
-      "components/UptimeBar/UptimeBar.tsx",
-      "components/UptimeBar/index.ts"
-    ],
-    "internal": [
-      "Legend",
-      "Text",
-      "VisuallyHidden"
-    ],
-    "shared": [
-      "components/internal/plot.tsx",
-      "lib/cn.ts",
-      "lib/format.ts"
     ],
     "external": [
       "react"

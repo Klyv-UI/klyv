@@ -55,6 +55,18 @@ export const releases: Release[] = [
     status: 'unreleased',
     changes: [
       {
+        category: 'improvement',
+        title: 'Four duplicate pairs merged, and ScrollProgress hands back-to-top to BackToTop',
+        description:
+          'UptimeBar is now StatusStrip: intervals take a declared status, incidents, downtime minutes and a date as well as a measured uptime, and the strip gains an uptime override, a legend and a one-tab-stop arrow-key cursor. SpeedDial is now RadialMenu with layout="stack", direction, labels and defaultOpen, and both layouts share the menu-button keyboard model. ScrollList is now ScrollArea with scrollbar="hidden", and AnnouncementBar is now Banner with layout="strip", badge, href and a storageKey that remembers dismissal; ScrollList and AnnouncementBar shipped in 1.0, so both stay as deprecated wrappers. ScrollProgress backToTop is deprecated and renders BackToTop with showProgress, so it moves focus, respects reduced motion and hides properly.',
+        links: [
+          { label: 'StatusStrip', to: '/components/status-strip' },
+          { label: 'RadialMenu', to: '/components/radial-menu' },
+          { label: 'ScrollArea', to: '/components/scroll-area' },
+          { label: 'Banner', to: '/components/banner' },
+        ],
+      },
+      {
         category: 'feature',
         title: 'Seventy components with mechanics the library did not have, now the ones marked New',
         description:
@@ -77,7 +89,7 @@ export const releases: Release[] = [
         category: 'feature',
         title: 'Forty more components',
         description:
-          'AspectRatio, ScrollArea, Masonry, Menubar, MegaMenu, BackToTop, ToggleButton, SpeedDial, ShareMenu, PhoneInput, CreditCardInput, ChoiceCardGroup, TransferList, MonthPicker, TimeSlotPicker, InputGroup, EmojiPicker, ProfileCard, FileList, ReviewSummary, ProductCard, OrderTracker, ImageGallery, ScatterChart, WaterfallChart, Histogram, BoxPlot, BulletChart, CandlestickChart, UptimeBar, IncidentTimeline, ConfirmPopover, Toggletip, ChatThread, MessageComposer, CommentThread, NotificationPreferences, FeatureFlags, ReferralCard and NpsSurvey.',
+          'AspectRatio, ScrollArea, Masonry, Menubar, MegaMenu, BackToTop, ToggleButton, ShareMenu, PhoneInput, CreditCardInput, ChoiceCardGroup, TransferList, MonthPicker, TimeSlotPicker, InputGroup, EmojiPicker, ProfileCard, FileList, ReviewSummary, ProductCard, OrderTracker, ImageGallery, ScatterChart, WaterfallChart, Histogram, BoxPlot, BulletChart, CandlestickChart, IncidentTimeline, ConfirmPopover, Toggletip, ChatThread, MessageComposer, CommentThread, NotificationPreferences, FeatureFlags, ReferralCard and NpsSurvey.',
       },
       {
         category: 'feature',

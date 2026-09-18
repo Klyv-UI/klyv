@@ -1,7 +1,7 @@
 import { Mail, Rss, ShieldCheck, Sparkles, Users, Workflow, Zap, BarChart3 } from 'lucide-react'
 import {
   Accordion,
-  AnnouncementBar,
+  Banner,
   Button,
   CtaSection,
   FeatureComparison,
@@ -80,9 +80,9 @@ function ProductShot() {
 export default function SaasLandingBlock() {
   return (
     <div className="w-full overflow-hidden rounded-[var(--radius-window)] border border-line bg-app">
-      <AnnouncementBar badge="New" href="#changelog">
+      <Banner layout="strip" tone="ink" badge="New" href="#changelog">
         Workflows can now post to any webhook.
-      </AnnouncementBar>
+      </Banner>
       <SiteHeader
         brand={BRAND}
         sticky={false}

@@ -143,10 +143,10 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "AnnouncementBar": {
-    "bytes": 7478,
-    "gzip": 2318,
-    "files": 5,
-    "dependencies": 0
+    "bytes": 15681,
+    "gzip": 4490,
+    "files": 13,
+    "dependencies": 4
   },
   "ApiKeyManager": {
     "bytes": 53914,
@@ -269,8 +269,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "Banner": {
-    "bytes": 12137,
-    "gzip": 3663,
+    "bytes": 15332,
+    "gzip": 4412,
     "files": 11,
     "dependencies": 3
   },
@@ -2081,9 +2081,9 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 2
   },
   "RadialMenu": {
-    "bytes": 8146,
-    "gzip": 2700,
-    "files": 6,
+    "bytes": 17956,
+    "gzip": 5096,
+    "files": 7,
     "dependencies": 1
   },
   "Radio": {
@@ -2285,22 +2285,22 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 1
   },
   "ScrollArea": {
-    "bytes": 3427,
-    "gzip": 1382,
+    "bytes": 3519,
+    "gzip": 1412,
     "files": 3,
     "dependencies": 0
   },
   "ScrollList": {
-    "bytes": 973,
-    "gzip": 515,
-    "files": 3,
-    "dependencies": 0
-  },
-  "ScrollProgress": {
-    "bytes": 7461,
-    "gzip": 2544,
+    "bytes": 3922,
+    "gzip": 1508,
     "files": 5,
     "dependencies": 1
+  },
+  "ScrollProgress": {
+    "bytes": 13084,
+    "gzip": 3843,
+    "files": 8,
+    "dependencies": 2
   },
   "ScrollSequence": {
     "bytes": 9212,
@@ -2560,12 +2560,6 @@ export const sizes: Record<string, ComponentSize> = {
     "files": 2,
     "dependencies": 0
   },
-  "SpeedDial": {
-    "bytes": 11839,
-    "gzip": 3427,
-    "files": 5,
-    "dependencies": 0
-  },
   "SpinWheel": {
     "bytes": 13066,
     "gzip": 4331,
@@ -2657,10 +2651,10 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 1
   },
   "StatusStrip": {
-    "bytes": 20142,
-    "gzip": 5530,
-    "files": 19,
-    "dependencies": 6
+    "bytes": 17023,
+    "gzip": 5326,
+    "files": 11,
+    "dependencies": 3
   },
   "StepLoader": {
     "bytes": 19323,
@@ -3010,12 +3004,6 @@ export const sizes: Record<string, ComponentSize> = {
     "files": 15,
     "dependencies": 5
   },
-  "UptimeBar": {
-    "bytes": 16093,
-    "gzip": 5148,
-    "files": 11,
-    "dependencies": 3
-  },
   "UsageMeter": {
     "bytes": 13177,
     "gzip": 4087,
@@ -3186,9 +3174,9 @@ export function sizeOf(component: string): ComponentSize | undefined {
 
 /** The whole package, once, plus the extremes. */
 export const library = {
-  "gzip": 672043,
-  "modules": 549,
-  "median": 3240,
+  "gzip": 671871,
+  "modules": 547,
+  "median": 3260,
   "lightest": {
     "name": "VisuallyHidden",
     "gzip": 190

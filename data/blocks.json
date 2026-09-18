@@ -337,7 +337,7 @@
       "category": "Marketing",
       "blurb": "A whole SaaS homepage: announcement, header, hero with the product, logos, features, pricing with a comparison, testimonials, FAQ, closing ask and footer.",
       "uses": [
-        "AnnouncementBar",
+        "Banner",
         "SiteHeader",
         "HeroSection",
         "LogoCloud",
@@ -362,7 +362,7 @@
       "file": "src/site/blocks/SaasLandingBlock.tsx",
       "components": [
         "Accordion",
-        "AnnouncementBar",
+        "Banner",
         "Button",
         "CtaSection",
         "FeatureComparison",

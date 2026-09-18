@@ -14,7 +14,6 @@ import {
   List,
   ListItem,
   Metric,
-  ScrollList,
   Sparkline,
   StatCard,
   Surface,
@@ -157,32 +156,6 @@ function StatCardExample() {
         trend="down"
         onClick={() => undefined}
       />
-    </div>
-  )
-}
-
-function ScrollListExample() {
-  const [fade, setFade] = useState(true)
-  return (
-    <div className="flex w-full flex-col items-start gap-3">
-      <Card title="Recent transactions" className="h-[240px] w-full max-w-[380px]">
-        <ScrollList fade={fade} className="mt-2">
-          <List>
-            {[...ROWS, ...ROWS].map((row, index) => (
-              <ListItem
-                key={`${row.id}-${index}`}
-                leading={<IconTile icon={row.icon} />}
-                title={row.name}
-                subtitle="Monthly Plan"
-                value={row.price}
-              />
-            ))}
-          </List>
-        </ScrollList>
-      </Card>
-      <Button size="sm" variant="outline" onClick={() => setFade((previous) => !previous)}>
-        {fade ? 'Turn the fade off' : 'Turn the fade on'}
-      </Button>
     </div>
   )
 }
@@ -777,22 +750,6 @@ export const demos: ExampleModule = {
       { name: 'highlighted', type: 'boolean', defaultValue: 'false', description: 'Tints the row.' },
       { name: 'onClick', type: '() => void', description: 'Makes the row a button, with hover and keyboard access.' },
       { name: 'valueTone', type: "'default' | 'success' | 'danger'", defaultValue: "'default'", description: 'Colour for the value.' },
-    ],
-  },
-  'scroll-list': {
-    description:
-      'The scrolling container for a List. The fade is the detail that makes a cut-off list read as continuing rather than as ending on a half-drawn row — it is the single most-copied piece of CSS in most codebases, which is why it is a component.',
-    sections: [
-      {
-        title: 'Fade',
-        description: 'Toggle it to see what the mask is doing. The scrollbar is hidden either way.',
-        bare: true,
-        Content: ScrollListExample,
-      },
-    ],
-    props: [
-      { name: 'fade', type: 'boolean', defaultValue: 'true', description: 'Mask the last row out instead of clipping it.' },
-      { name: 'maxHeight', type: 'number | string', description: 'Omit inside a flex parent that already bounds the height.' },
     ],
   },
 }

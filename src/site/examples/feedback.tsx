@@ -11,12 +11,45 @@ import {
   Input,
   Label,
   LoadingOverlay,
+  SegmentedControl,
   Skeleton,
   SuccessMark,
   Surface,
   Text,
+  type BannerTone,
 } from 'klyv'
 import type { ExampleModule } from './types'
+import { rationale } from './shared'
+
+function BannerStripExample() {
+  const [tone, setTone] = useState<BannerTone>('ink')
+  const [key, setKey] = useState(0)
+  return (
+    <div className="flex w-full flex-col gap-3">
+      <SegmentedControl
+        label="Tone"
+        size="sm"
+        value={tone}
+        onValueChange={setTone}
+        className="self-start"
+        options={[
+          { value: 'ink', label: 'Ink' },
+          { value: 'accent', label: 'Accent' },
+          { value: 'neutral', label: 'Neutral' },
+        ]}
+      />
+      <div className="overflow-hidden rounded-[var(--radius-card)] border border-line">
+        <Banner key={key} layout="strip" tone={tone} badge="New" href="#changelog" onDismiss={() => undefined}>
+          Workflows can now post to any webhook.
+        </Banner>
+        <div className="h-20 bg-app" />
+      </div>
+      <Button size="sm" variant="ghost" className="self-start" onClick={() => setKey((value) => value + 1)}>
+        Show it again
+      </Button>
+    </div>
+  )
+}
 
 function LoadingOverlayExample() {
   const [busy, setBusy] = useState(true)
@@ -258,7 +291,7 @@ export const demos: ExampleModule = {
 
   banner: {
     description:
-      'A full-width announcement across the top of a region. Distinct from Alert: Alert reports the state of something on the page, a Banner announces something about the product, and it fills its container edge to edge.',
+      'A full-width announcement about the product — a launch, a webinar, maintenance, a demo account — as a rounded block with a heading or as the thin strip across the top of a site. Distinct from Alert: Alert reports the state of something on the page, a Banner announces something about the product. Dismissal can be remembered per announcement.',
     sections: [
       {
         title: 'Tones',
@@ -304,11 +337,29 @@ export const demos: ExampleModule = {
           },
         ],
       },
+      {
+        title: 'Strip',
+        description:
+          'layout="strip" is the thin centred bar across the very top of a site or app. Dismiss it, then show it again; with storageKey the dismissal would be remembered in this browser.',
+        bare: true,
+        Content: BannerStripExample,
+      },
+      rationale(
+        'Announcement strips are either undismissable or dismissed forever for every future message by one global flag.',
+        'The caller keys the dismissal, so closing last month’s launch does not hide next week’s outage notice; a storage failure just shows it again. Accent text uses accent-ink so any brand colour stays legible.',
+        'Above SiteHeader or an app header, at the top of a dashboard region, on a status page.',
+        ['Text', 'IconButton', 'internal glyphs', 'accent-ink'],
+      ),
     ],
     props: [
       { name: 'tone', type: "'accent' | 'neutral' | 'ink'", defaultValue: "'accent'", description: 'Surface treatment.' },
-      { name: 'title / children', type: 'string / ReactNode', description: 'Heading and body.' },
-      { name: 'action / onDismiss', type: 'ReactNode / () => void', description: 'Affordance and dismissal.' },
+      { name: 'layout', type: "'block' | 'strip'", defaultValue: "'block'", description: 'A rounded panel with a heading, or the thin centred bar across the top of a site.' },
+      { name: 'title / children', type: 'string / ReactNode', description: 'Heading and body. Both optional; a strip is usually one sentence of children.' },
+      { name: 'icon', type: 'IconComponent', description: 'Glyph before the message.' },
+      { name: 'badge / href / linkLabel', type: 'string', defaultValue: "— / — / 'Learn more'", description: 'A qualifier in front, and a link after the message.' },
+      { name: 'action', type: 'ReactNode', description: 'Right-aligned affordance, usually a Button.' },
+      { name: 'onDismiss / storageKey', type: '() => void / string', description: 'Either adds the dismiss button; storageKey remembers the dismissal in this browser.' },
+      { name: 'className', type: 'string', description: 'Merged last, so it wins.' },
     ],
   },
 

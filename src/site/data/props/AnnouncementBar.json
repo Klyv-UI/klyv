@@ -15,24 +15,26 @@
     {
       "name": "href",
       "type": "string",
-      "required": false
+      "required": false,
+      "description": "Where the announcement leads."
     },
     {
       "name": "linkLabel",
       "type": "string",
       "required": false,
-      "defaultValue": "'Learn more'"
+      "description": "Text of the `href` link."
     },
     {
       "name": "tone",
       "type": "AnnouncementTone",
       "required": false,
-      "defaultValue": "'ink'"
+      "description": "Surface colour. `muted` maps to Banner's `neutral`."
     },
     {
       "name": "onDismiss",
       "type": "() => void",
-      "required": false
+      "required": false,
+      "description": "Called when the bar is dismissed."
     },
     {
       "name": "storageKey",
@@ -43,7 +45,8 @@
     {
       "name": "className",
       "type": "string",
-      "required": false
+      "required": false,
+      "description": "Merged last, so it wins."
     }
   ]
 }

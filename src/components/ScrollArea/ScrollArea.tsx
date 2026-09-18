@@ -23,6 +23,12 @@ export interface ScrollAreaProps {
   fade?: boolean
   /** Length of the fade, in pixels. */
   fadeSize?: number
+  /**
+   * `thin` keeps a slim scrollbar; `hidden` removes it, for short lists inside a card
+   * where the fade already says there is more. The region still scrolls by wheel,
+   * touch and keyboard.
+   */
+  scrollbar?: 'thin' | 'hidden'
   /** Merged last, so it wins. */
   className?: string
 }
@@ -51,8 +57,9 @@ function edgeMask(start: boolean, end: boolean, size: number, direction: string)
  * edge fades only while there is content past it, and stops fading once you
  * reach the end, so the fade itself is the "keep going" signal.
  *
- * The scrollbars are thinned rather than hidden. Hiding them takes away the
- * one control a mouse user without a wheel has.
+ * The scrollbars are thinned rather than hidden by default. Hiding them takes
+ * away the one control a mouse user without a wheel has, so `scrollbar="hidden"`
+ * is for short lists in a card, where the fade carries the signal.
  *
  * The region is focusable and named, because content that is only text leaves
  * nothing inside to tab to — without a focus stop of its own, the overflow can
@@ -66,6 +73,7 @@ export function ScrollArea({
   maxWidth,
   fade = true,
   fadeSize = 28,
+  scrollbar = 'thin',
   className,
 }: ScrollAreaProps) {
   const ref = useRef<HTMLDivElement>(null)
@@ -133,9 +141,13 @@ export function ScrollArea({
         'min-h-0 overscroll-contain',
         vertical ? 'overflow-y-auto' : 'overflow-y-hidden',
         horizontal ? 'overflow-x-auto' : 'overflow-x-hidden',
-        '[scrollbar-width:thin] [scrollbar-color:var(--color-line-strong)_transparent]',
-        '[&::-webkit-scrollbar]:size-2 [&::-webkit-scrollbar-track]:bg-transparent',
-        '[&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-line-strong',
+        scrollbar === 'hidden'
+          ? 'no-scrollbar'
+          : cn(
+              '[scrollbar-width:thin] [scrollbar-color:var(--color-line-strong)_transparent]',
+              '[&::-webkit-scrollbar]:size-2 [&::-webkit-scrollbar-track]:bg-transparent',
+              '[&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-line-strong',
+            ),
         'focus-visible:outline-offset-[-2px]',
         className,
       )}

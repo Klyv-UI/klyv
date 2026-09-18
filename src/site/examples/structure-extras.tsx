@@ -2,39 +2,41 @@ import { useRef, useState, type ComponentProps } from 'react'
 import {
   BookOpen,
   Bold,
-  Camera,
   ChartLine,
   Code,
   FileText,
-  FolderPlus,
+  Gamepad2,
   Italic,
   LifeBuoy,
   Megaphone,
-  Share2,
+  Music,
   ShieldCheck,
   Star,
   Underline,
-  Upload,
   Users,
   Volume2,
   VolumeX,
   Workflow,
+  Zap,
 } from 'lucide-react'
 import {
   AspectRatio,
   BackToTop,
   Badge,
+  Button,
+  Card,
+  IconTile,
+  List,
+  ListItem,
   Masonry,
   MegaMenu,
   Menubar,
   ScrollArea,
   SegmentedControl,
-  SpeedDial,
   Surface,
   Text,
   ToggleButton,
   type MenubarMenu,
-  type SpeedDialDirection,
 } from 'klyv'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
@@ -98,6 +100,40 @@ const RELEASES = [
   ['2.5.1', 'Audit log filters remember your last choice.'],
   ['2.5.0', 'Team spaces with their own permissions.'],
 ]
+
+const BILLS = [
+  { id: 'apple', name: 'Apple Music', icon: Music, price: '$8,99' },
+  { id: 'home', name: 'Smart Home Security', icon: Zap, price: '$79,99' },
+  { id: 'gum', name: 'GumZone', icon: Gamepad2, price: '$35,00' },
+  { id: 'water', name: 'Water Bill', icon: Zap, price: '$24,50' },
+  { id: 'power', name: 'Electricity', icon: Zap, price: '$63,69' },
+]
+
+function ScrollAreaHiddenExample() {
+  const [fade, setFade] = useState(true)
+  return (
+    <div className="flex w-full flex-col items-start gap-3">
+      <Card title="Recent transactions" className="h-[240px] w-full max-w-[380px]">
+        <ScrollArea label="Recent transactions" scrollbar="hidden" fade={fade} className="-mx-2.5 mt-2 flex-1">
+          <List>
+            {[...BILLS, ...BILLS].map((row, index) => (
+              <ListItem
+                key={`${row.id}-${index}`}
+                leading={<IconTile icon={row.icon} />}
+                title={row.name}
+                subtitle="Monthly Plan"
+                value={row.price}
+              />
+            ))}
+          </List>
+        </ScrollArea>
+      </Card>
+      <Button size="sm" variant="outline" onClick={() => setFade((previous) => !previous)}>
+        {fade ? 'Turn the fade off' : 'Turn the fade on'}
+      </Button>
+    </div>
+  )
+}
 
 function ScrollAreaExample() {
   const [orientation, setOrientation] = useState<'vertical' | 'horizontal' | 'both'>('vertical')
@@ -418,66 +454,6 @@ function ToggleButtonExample() {
   )
 }
 
-/* -------------------------------------------------------------- speed-dial */
-
-function SpeedDialExample() {
-  const [direction, setDirection] = useState<SpeedDialDirection>('up')
-  const [labels, setLabels] = useState<'visible' | 'hover'>('visible')
-  const [log, setLog] = useState('Nothing chosen yet')
-  const anchor: Record<SpeedDialDirection, string> = {
-    up: 'bottom-5 right-5',
-    down: 'top-5 right-5',
-    left: 'bottom-5 right-5',
-    right: 'bottom-5 left-5',
-  }
-  return (
-    <div className="flex w-full flex-col gap-3">
-      <div className="flex flex-wrap gap-2">
-        <SegmentedControl
-          label="Direction"
-          size="sm"
-          value={direction}
-          onValueChange={setDirection}
-          options={[
-            { value: 'up', label: 'Up' },
-            { value: 'down', label: 'Down' },
-            { value: 'left', label: 'Left' },
-            { value: 'right', label: 'Right' },
-          ]}
-        />
-        <SegmentedControl
-          label="Labels"
-          size="sm"
-          value={labels}
-          onValueChange={setLabels}
-          options={[
-            { value: 'visible', label: 'Visible' },
-            { value: 'hover', label: 'On hover' },
-          ]}
-        />
-      </div>
-      <Frame className="h-[340px]">
-        <Text size="caption" tone="faint" className="p-4" aria-live="polite">
-          Last action: {log}
-        </Text>
-        <SpeedDial
-          key={direction}
-          label="Create"
-          direction={direction}
-          labels={labels}
-          className={`absolute ${anchor[direction]}`}
-          actions={[
-            { id: 'folder', label: 'New folder', icon: FolderPlus, onSelect: () => setLog('New folder') },
-            { id: 'upload', label: 'Upload file', icon: Upload, onSelect: () => setLog('Upload file') },
-            { id: 'scan', label: 'Scan document', icon: Camera, onSelect: () => setLog('Scan document') },
-            { id: 'share', label: 'Share link', icon: Share2, onSelect: () => setLog('Share link') },
-          ]}
-        />
-      </Frame>
-    </div>
-  )
-}
-
 /* ------------------------------------------------------------------ module */
 
 export const demos: ExampleModule = {
@@ -502,9 +478,16 @@ export const demos: ExampleModule = {
 
   'scroll-area': {
     description:
-      'A scroll container with thin scrollbars and edges that fade only while there is more content past them. It is a named, focusable region, so overflow made of plain text can still be scrolled from the keyboard.',
+      'A scroll container with thin or hidden scrollbars and edges that fade only while there is more content past them. It is a named, focusable region, so overflow made of plain text can still be scrolled from the keyboard.',
     sections: [
       { title: 'Example', Content: ScrollAreaExample, note: 'Tab into the box and use the arrow keys; the fade on each edge disappears when you reach it.' },
+      {
+        title: 'Hidden scrollbar',
+        description:
+          'scrollbar="hidden" for a short list inside a card, where the fade already says there is more. Toggle the fade to see what the mask is doing. This is what ScrollList, now deprecated, renders.',
+        bare: true,
+        Content: ScrollAreaHiddenExample,
+      },
       rationale(
         'Overlay scrollbars hide until you scroll, so a box cut off at a line break looks finished, and text-only overflow has nothing to tab to.',
         'An edge fades only while there is more beyond it, which makes the fade itself the signal; the region takes focus and carries a label so keyboard and screen-reader users can reach it.',
@@ -518,6 +501,8 @@ export const demos: ExampleModule = {
       { name: 'maxHeight / maxWidth', type: 'number | string', description: 'Bounds, when the parent does not provide them.' },
       { name: 'fade', type: 'boolean', defaultValue: 'true', description: 'Fade edges that have more content beyond them.' },
       { name: 'fadeSize', type: 'number', defaultValue: '28', description: 'Length of the fade in pixels.' },
+      { name: 'scrollbar', type: "'thin' | 'hidden'", defaultValue: "'thin'", description: 'Hide the scrollbar for short lists in a card; the fade carries the signal.' },
+      { name: 'className', type: 'string', description: 'Merged last, so it wins.' },
     ],
   },
 
@@ -652,33 +637,6 @@ export const demos: ExampleModule = {
       { name: 'size', type: "'sm' | 'md'", defaultValue: 'md', description: 'Same heights as Button.' },
       { name: 'icon / pressedIcon', type: 'IconComponent', description: 'Glyph, and the one shown while pressed.' },
       { name: 'iconOnly', type: 'boolean', defaultValue: 'false', description: 'Hide the label visually; it is still announced.' },
-    ],
-  },
-
-  'speed-dial': {
-    description:
-      'A floating action button that opens into a short list of labelled secondary actions. It is a menu button: arrow keys walk the actions in the direction they fan out, Escape closes and returns focus, and every action is named even when its label only shows on hover.',
-    sections: [
-      {
-        title: 'Example',
-        bare: true,
-        Content: SpeedDialExample,
-        note: motionNote('actions appear and the trigger turns without transitions.'),
-      },
-      rationale(
-        'A screen with one obvious primary action often has a few close relatives, and giving each its own floating button crowds the content.',
-        'The menu-button pattern gives it a keyboard model people already know; labels stay attached to each action, so icon-only is never unnamed. Past five actions it should be a Menu.',
-        'Mobile-first file managers, notes apps, map tools, content dashboards.',
-        ['internal glyphs'],
-      ),
-    ],
-    props: [
-      { name: 'actions', type: 'SpeedDialAction[]', description: '{ id, label, icon, onSelect?, disabled? }, nearest first.' },
-      { name: 'label', type: 'string', description: 'Accessible name for the trigger.' },
-      { name: 'icon', type: 'IconComponent', defaultValue: 'plus', description: 'Trigger glyph; turns 45° while open.' },
-      { name: 'direction', type: "'up' | 'down' | 'left' | 'right'", defaultValue: 'up', description: 'Which way the actions fan out.' },
-      { name: 'labels', type: "'visible' | 'hover'", defaultValue: 'visible', description: 'Print labels, or show them on hover and focus.' },
-      { name: 'open / defaultOpen / onOpenChange', type: 'boolean / boolean / (open) => void', description: 'Controlled or uncontrolled open state.' },
     ],
   },
 }

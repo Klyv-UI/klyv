@@ -9,35 +9,30 @@
     {
       "name": "variant",
       "type": "ScrollProgressVariant",
-      "required": false,
-      "defaultValue": "'bar'"
+      "required": false
     },
     {
       "name": "size",
       "type": "number",
       "required": false,
-      "defaultValue": "variant === 'bar' ? 3 : 44",
       "description": "Bar thickness, or ring diameter, in pixels."
     },
     {
       "name": "fixed",
       "type": "boolean",
       "required": false,
-      "defaultValue": "true",
       "description": "Pin to the viewport. Turn it off to place it inside a container."
     },
     {
       "name": "position",
       "type": "'top' | 'bottom'",
       "required": false,
-      "defaultValue": "'top'",
       "description": "Which edge it pins to when fixed."
     },
     {
       "name": "showValue",
       "type": "boolean",
       "required": false,
-      "defaultValue": "false",
       "description": "Show the percentage inside the ring."
     },
     {
@@ -45,27 +40,24 @@
       "type": "boolean",
       "required": false,
       "defaultValue": "false",
-      "description": "Clicking the ring scrolls back to the start."
+      "description": "Render the ring as a back-to-top button. @deprecated Use `<BackToTop showProgress />`, which this now renders: it moves focus to the top of the page, jumps instead of animating under reduced motion, and leaves the tab order while hidden. `target`, `fixed` and `className` are passed on; the ring's size, colours, `showValue` and `hideUntil` are not."
     },
     {
       "name": "hideUntil",
       "type": "number",
       "required": false,
-      "defaultValue": "0",
       "description": "Hide the ring until there is something to show."
     },
     {
       "name": "color",
       "type": "string",
       "required": false,
-      "defaultValue": "'var(--color-accent-strong)'",
       "description": "Any CSS colour for the filled portion. Defaults to the accent."
     },
     {
       "name": "trackColor",
       "type": "string",
       "required": false,
-      "defaultValue": "'transparent'",
       "description": "Any CSS colour for the portion not yet read."
     },
     {

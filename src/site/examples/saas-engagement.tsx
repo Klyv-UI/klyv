@@ -1,47 +1,14 @@
 import { useState } from 'react'
 import {
-  AnnouncementBar,
   Button,
   ConsentManager,
   CookieBanner,
   FeedbackWidget,
   Modal,
-  SegmentedControl,
   Text,
-  type AnnouncementTone,
 } from 'klyv'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
-
-function AnnouncementExample() {
-  const [tone, setTone] = useState<AnnouncementTone>('ink')
-  const [key, setKey] = useState(0)
-  return (
-    <div className="flex w-full flex-col gap-3">
-      <SegmentedControl
-        label="Tone"
-        size="sm"
-        value={tone}
-        onValueChange={setTone}
-        className="self-start"
-        options={[
-          { value: 'ink', label: 'Ink' },
-          { value: 'accent', label: 'Accent' },
-          { value: 'muted', label: 'Muted' },
-        ]}
-      />
-      <div className="overflow-hidden rounded-[var(--radius-card)] border border-line">
-        <AnnouncementBar key={key} tone={tone} badge="New" href="#changelog" onDismiss={() => undefined}>
-          Workflows can now post to any webhook.
-        </AnnouncementBar>
-        <div className="h-20 bg-app" />
-      </div>
-      <Button size="sm" variant="ghost" className="self-start" onClick={() => setKey((value) => value + 1)}>
-        Show it again
-      </Button>
-    </div>
-  )
-}
 
 function FeedbackExample() {
   const [last, setLast] = useState<string>()
@@ -112,26 +79,6 @@ function CookieExample() {
 }
 
 export const demos: ExampleModule = {
-  'announcement-bar': {
-    description:
-      'The thin strip across the top of a site or app — a launch, a webinar, scheduled maintenance. Dismissal is remembered per announcement, so closing last month’s launch does not hide next week’s outage notice.',
-    sections: [
-      { title: 'Example', bare: true, Content: AnnouncementExample },
-      rationale(
-        'Announcement strips are either undismissable or dismissed forever for every future message by one global flag.',
-        'The caller keys the dismissal; a storage failure just shows it again. Accent text uses accent-ink so any brand colour stays legible.',
-        'Above SiteHeader, above an app header, on a status page.',
-        ['internal glyphs', 'accent-ink'],
-      ),
-    ],
-    props: [
-      { name: 'children', type: 'ReactNode', description: 'One sentence.' },
-      { name: 'badge / href / linkLabel', type: 'string', description: 'Qualifier and the link.' },
-      { name: 'tone', type: "'ink' | 'accent' | 'muted'", defaultValue: 'ink', description: 'Ground colour.' },
-      { name: 'storageKey / onDismiss', type: 'string / fn', description: 'Remember the dismissal under this key.' },
-    ],
-  },
-
   'feedback-widget': {
     description:
       '“How is it going?” behind a small button: a face, a sentence, and send. Either half is enough, and the thanks replaces the form so nobody wonders whether it went.',

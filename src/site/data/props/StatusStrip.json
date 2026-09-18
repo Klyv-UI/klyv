@@ -3,7 +3,8 @@
     {
       "name": "intervals",
       "type": "StatusInterval[]",
-      "required": true
+      "required": true,
+      "description": "Oldest first. Each carries a measured `uptime`, a declared `status`, or both."
     },
     {
       "name": "label",
@@ -15,7 +16,7 @@
       "name": "from",
       "type": "string",
       "required": false,
-      "description": "Caption at each end of the strip."
+      "description": "Caption at the left-hand end of the strip."
     },
     {
       "name": "to",
@@ -28,20 +29,34 @@
       "type": "number",
       "required": false,
       "defaultValue": "0.995",
-      "description": "Below this counts as degraded; below `down` counts as an outage."
+      "description": "Below this counts as degraded; below `down` counts as an outage. Ignored where a status is declared."
     },
     {
       "name": "down",
       "type": "number",
       "required": false,
       "defaultValue": "0.9",
-      "description": "Ratio at or above which an interval counts as down."
+      "description": "Ratio below which an interval counts as down. Ignored where a status is declared."
+    },
+    {
+      "name": "uptime",
+      "type": "number",
+      "required": false,
+      "description": "Uptime to print, 0 to 1. Averaged from the measured intervals when omitted."
+    },
+    {
+      "name": "showLegend",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Show the status key under the strip — once under a stack of strips is enough."
     },
     {
       "name": "height",
       "type": "number",
       "required": false,
-      "defaultValue": "34"
+      "defaultValue": "34",
+      "description": "Bar height in pixels. Widths are flexible."
     },
     {
       "name": "className",

@@ -46,6 +46,13 @@
       "description": "Length of the fade, in pixels."
     },
     {
+      "name": "scrollbar",
+      "type": "'thin' | 'hidden'",
+      "required": false,
+      "defaultValue": "'thin'",
+      "description": "`thin` keeps a slim scrollbar; `hidden` removes it, for short lists inside a card where the fade already says there is more. The region still scrolls by wheel, touch and keyboard."
+    },
+    {
       "name": "className",
       "type": "string",
       "required": false,

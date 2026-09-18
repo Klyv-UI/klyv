@@ -7,22 +7,48 @@
       "defaultValue": "'accent'"
     },
     {
+      "name": "layout",
+      "type": "'block' | 'strip'",
+      "required": false,
+      "defaultValue": "'block'",
+      "description": "`block` is a rounded panel with a heading; `strip` is the thin centred bar across the very top of a site."
+    },
+    {
       "name": "title",
       "type": "string",
-      "required": true,
-      "description": "Heading for the message."
+      "required": false,
+      "description": "Heading for the message. Usually omitted in a strip, where the message is one sentence."
     },
     {
       "name": "children",
       "type": "ReactNode",
       "required": false,
-      "description": "The message body."
+      "description": "The message body — in a strip, the one sentence."
     },
     {
       "name": "icon",
       "type": "IconComponent",
       "required": false,
       "description": "Glyph before the message."
+    },
+    {
+      "name": "badge",
+      "type": "string",
+      "required": false,
+      "description": "Short qualifier in front — \"New\"."
+    },
+    {
+      "name": "href",
+      "type": "string",
+      "required": false,
+      "description": "Where the message leads. Rendered as a link after it."
+    },
+    {
+      "name": "linkLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Learn more'",
+      "description": "Text of the `href` link."
     },
     {
       "name": "action",
@@ -33,7 +59,14 @@
     {
       "name": "onDismiss",
       "type": "() => void",
-      "required": false
+      "required": false,
+      "description": "Called when the banner is dismissed. Its presence, or `storageKey`, adds the dismiss button."
+    },
+    {
+      "name": "storageKey",
+      "type": "string",
+      "required": false,
+      "description": "Remember the dismissal in this browser under this key. Change the key for the next announcement."
     },
     {
       "name": "className",

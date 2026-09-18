@@ -357,11 +357,10 @@
         "components/AnnouncementBar/AnnouncementBar.tsx",
         "components/AnnouncementBar/index.ts"
       ],
-      "internal": [],
-      "shared": [
-        "components/internal/icons.tsx",
-        "lib/cn.ts"
+      "internal": [
+        "Banner"
       ],
+      "shared": [],
       "external": [
         "react"
       ]
@@ -5692,6 +5691,7 @@
         "Text"
       ],
       "shared": [
+        "components/internal/icons.tsx",
         "lib/cn.ts",
         "lib/types.ts"
       ],
@@ -6259,13 +6259,13 @@
         "components/ScrollList/ScrollList.tsx",
         "components/ScrollList/index.ts"
       ],
-      "internal": [],
+      "internal": [
+        "ScrollArea"
+      ],
       "shared": [
         "lib/cn.ts"
       ],
-      "external": [
-        "react"
-      ]
+      "external": []
     },
     "ScrollProgress": {
       "files": [
@@ -6273,6 +6273,7 @@
         "components/ScrollProgress/index.ts"
       ],
       "internal": [
+        "BackToTop",
         "Text"
       ],
       "shared": [
@@ -6970,21 +6971,6 @@
         "react"
       ]
     },
-    "SpeedDial": {
-      "files": [
-        "components/SpeedDial/SpeedDial.tsx",
-        "components/SpeedDial/index.ts"
-      ],
-      "internal": [],
-      "shared": [
-        "components/internal/icons.tsx",
-        "lib/cn.ts",
-        "lib/types.ts"
-      ],
-      "external": [
-        "react"
-      ]
-    },
     "Spinner": {
       "files": [
         "components/Spinner/Spinner.tsx",
@@ -7225,12 +7211,14 @@
         "components/StatusStrip/index.ts"
       ],
       "internal": [
+        "Legend",
         "Text",
-        "Tooltip",
         "VisuallyHidden"
       ],
       "shared": [
-        "lib/cn.ts"
+        "components/internal/plot.tsx",
+        "lib/cn.ts",
+        "lib/format.ts"
       ],
       "external": [
         "react"
@@ -8143,25 +8131,6 @@
         "react"
       ]
     },
-    "UptimeBar": {
-      "files": [
-        "components/UptimeBar/UptimeBar.tsx",
-        "components/UptimeBar/index.ts"
-      ],
-      "internal": [
-        "Legend",
-        "Text",
-        "VisuallyHidden"
-      ],
-      "shared": [
-        "components/internal/plot.tsx",
-        "lib/cn.ts",
-        "lib/format.ts"
-      ],
-      "external": [
-        "react"
-      ]
-    },
     "UsageMeter": {
       "files": [
         "components/UsageMeter/UsageMeter.tsx",
@@ -8915,12 +8884,6 @@
       "section": "Stacks & scrolling",
       "blurb": "Looping horizontal scroller."
     },
-    "ScrollList": {
-      "slug": "scroll-list",
-      "group": "Layout",
-      "section": "Stacks & scrolling",
-      "blurb": "A scrolling list with masked edges, so a cut-off row fades instead of ending mid-pixel."
-    },
     "StackedCards": {
       "slug": "stacked-cards",
       "group": "Layout",
@@ -9087,7 +9050,7 @@
       "slug": "radial-menu",
       "group": "Navigation",
       "section": "Menus & search",
-      "blurb": "Actions fanned on an arc, where every item is the same distance from the pointer. A vertical menu always favours its first item."
+      "blurb": "Actions fanned on an arc, equally far from the pointer, or stacked as a speed dial off a floating button, with menu-button keyboard support."
     },
     "Menubar": {
       "slug": "menubar",
@@ -9232,12 +9195,6 @@
       "group": "Actions",
       "section": "Composed",
       "blurb": "A primary action with its alternatives beside it - two buttons with two names, not one button with a hot zone."
-    },
-    "SpeedDial": {
-      "slug": "speed-dial",
-      "group": "Actions",
-      "section": "Composed",
-      "blurb": "A floating action button that opens into labelled secondary actions, with menu-button keyboard support, four directions, and labels shown or on hover."
     },
     "ShareMenu": {
       "slug": "share-menu",
@@ -10323,7 +10280,7 @@
       "slug": "status-strip",
       "group": "Charts",
       "section": "Time & activity",
-      "blurb": "The uptime strip, with missing data drawn as its own state rather than as an outage."
+      "blurb": "The uptime strip, from measured ratios or declared statuses with incidents, and missing data drawn as its own state rather than as an outage."
     },
     "CandlestickChart": {
       "slug": "candlestick-chart",
@@ -10409,12 +10366,6 @@
       "section": "Status",
       "blurb": "A token-coloured circle."
     },
-    "UptimeBar": {
-      "slug": "uptime-bar",
-      "group": "Feedback",
-      "section": "Status",
-      "blurb": "A 90-day status-page row with an incident tooltip per day and an uptime percentage that leaves out days with no data."
-    },
     "UploadQueue": {
       "slug": "upload-queue",
       "group": "Feedback",
@@ -10437,7 +10388,7 @@
       "slug": "banner",
       "group": "Feedback",
       "section": "Messages",
-      "blurb": "Full-width Alert with a dismiss action."
+      "blurb": "A product announcement as a block or a thin strip across the top, with a badge, a link, and dismissal remembered per announcement."
     },
     "InlineMessage": {
       "slug": "inline-message",
@@ -10743,7 +10694,7 @@
       "slug": "scroll-progress",
       "group": "Motion & Effects",
       "section": "Entrance & scroll",
-      "blurb": "How far through a page or a container the reader is, coalesced to one measurement a frame, doubling as back-to-top."
+      "blurb": "How far through a page or container the reader is, measured once a frame and reported as a progressbar. Pair it with BackToTop for the way up."
     },
     "ScrollVelocity": {
       "slug": "scroll-velocity",
@@ -11734,12 +11685,6 @@
       "group": "SaaS",
       "section": "Data & views",
       "blurb": "An A/B/n readout with Wilson intervals, lift, p-values, the sample size for your minimum lift, and a one-sentence recommendation."
-    },
-    "AnnouncementBar": {
-      "slug": "announcement-bar",
-      "group": "SaaS",
-      "section": "Engagement",
-      "blurb": "The strip across the top for a launch or maintenance, with dismissal remembered per announcement rather than globally."
     },
     "CookieBanner": {
       "slug": "cookie-banner",

@@ -39,6 +39,60 @@ const INTERVALS: StatusInterval[] = Array.from({ length: 60 }, (_, index) => {
   return { id: `${day} days ago`, uptime: 1 }
 })
 
+/** Seeded so every render, test run and screenshot shows the same strip. */
+function seeded(seed: number) {
+  let state = seed >>> 0
+  return () => {
+    state = (state + 0x6d2b79f5) >>> 0
+    let t = state
+    t = Math.imul(t ^ (t >>> 15), t | 1)
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61)
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+  }
+}
+
+const TODAY = new Date(2026, 8, 17)
+
+function statusDays(seed: number, events: Record<number, Partial<StatusInterval>>, missing = 0): StatusInterval[] {
+  const random = seeded(seed)
+  return Array.from({ length: 90 }, (_, index) => {
+    const date = new Date(TODAY)
+    date.setDate(TODAY.getDate() - (89 - index))
+    const id = `day-${index}`
+    if (index < missing) return { id, date, status: 'unknown' as const }
+    const event = events[index]
+    if (event) return { id, date, status: 'operational' as const, ...event }
+    return random() > 0.985
+      ? { id, date, status: 'degraded' as const, downtimeMinutes: 3, incidents: ['Brief spike in response times'] }
+      : { id, date, status: 'operational' as const }
+  })
+}
+
+const SERVICES = [
+  {
+    label: 'API',
+    intervals: statusDays(3, {
+      41: { status: 'outage', downtimeMinutes: 47, incidents: ['Elevated 5xx rates on write endpoints'] },
+      42: { status: 'degraded', downtimeMinutes: 6, incidents: ['Elevated 5xx rates on write endpoints (monitoring)'] },
+      77: { status: 'degraded', downtimeMinutes: 12, incidents: ['Slow responses from us-east-1'] },
+    }),
+  },
+  {
+    label: 'Dashboard',
+    intervals: statusDays(4, {
+      63: { status: 'degraded', downtimeMinutes: 0, incidents: ['Charts loading slowly for some workspaces'] },
+    }),
+  },
+  {
+    label: 'Webhooks',
+    intervals: statusDays(
+      5,
+      { 88: { status: 'outage', downtimeMinutes: 92, incidents: ['Delayed webhook deliveries', 'Retry queue backlog'] } },
+      12,
+    ),
+  },
+]
+
 const AGENDA: ScheduleEvent[] = [
   { id: '1', title: 'Month-end close', start: '09:00', end: '11:30', detail: 'Finance', color: 'var(--color-accent-soft)' },
   { id: '2', title: 'Standup', start: '09:30', end: '09:45', detail: 'Team' },
@@ -146,6 +200,24 @@ function StatusExample() {
   )
 }
 
+function DeclaredStatusExample() {
+  return (
+    <Surface variant="card" padding="lg" className="w-full gap-6">
+      {SERVICES.map((service, index) => (
+        <StatusStrip
+          key={service.label}
+          label={service.label}
+          intervals={service.intervals}
+          from="90 days ago"
+          to="Today"
+          height={32}
+          showLegend={index === SERVICES.length - 1}
+        />
+      ))}
+    </Surface>
+  )
+}
+
 function ScheduleExample() {
   const [opened, setOpened] = useState<string | null>(null)
 
@@ -171,6 +243,9 @@ function ScheduleExample() {
 }
 
 /* ---------------------------------------------------------------- demos */
+
+const STRIP_KEYBOARD =
+  'The strip is one tab stop. Arrow keys step through the intervals and show the tip, Home and End jump to either end, Escape clears. Every value is also in a visually hidden table.'
 
 export const demos: ExampleModule = {
   'live-chart': {
@@ -202,27 +277,57 @@ export const demos: ExampleModule = {
 
   'status-strip': {
     description:
-      'The uptime strip from a status page: one bar per interval, coloured by how much of it was healthy. Missing data is its own state, never an outage — the distinction between “we were down” and “we were not watching” is the one a status page exists to make.',
+      'The uptime strip from a status page: one bar per interval, coloured by how much of it was healthy — a ratio from a monitor — or by the status a person declared, with the incidents behind it. A declared status wins over any ratio. Missing data is its own state, never an outage — the distinction between “we were down” and “we were not watching” is the one a status page exists to make.',
     sections: [
       {
         title: 'Two services',
-        description: 'Hover any bar. The first four intervals have no data at all.',
+        description: 'Measured ratios. Hover any bar, or tab to a strip and use the arrow keys. The first four intervals have no data at all.',
         bare: true,
         Content: StatusExample,
-        note: motionNote('unchanged — the strip is static and the tips appear on hover.'),
+        note: (
+          <>
+            {STRIP_KEYBOARD} {motionNote('bars appear at full height instead of rising in sequence.')}
+          </>
+        ),
+      },
+      {
+        title: 'Declared status & incidents',
+        description:
+          'Ninety days per service, each with the status that was published and the incidents behind it. Uptime comes from the downtime minutes. Webhooks has no data for its first twelve days, and those days are left out of the percentage.',
+        bare: true,
+        Content: DeclaredStatusExample,
+        note: (
+          <>
+            {STRIP_KEYBOARD} {motionNote('bars appear at full height instead of rising in sequence.')}
+          </>
+        ),
       },
       rationale(
         'Uptime is normally reported as a single percentage, which hides whether the missing 0.4% was one bad afternoon or a slow leak over a month.',
-        'A bar per interval shows the shape, and every figure is in a tooltip and a hidden table, so colour is never the only carrier.',
+        'A bar per interval shows the shape, and attaching incidents to intervals lets the strip answer “what was that red bar?” without leaving the page. Every figure is in the tip, a live region and a hidden table, so colour is never the only carrier.',
         'A status page, an operations dashboard, an SLA report, a service detail panel.',
-        ['Tooltip', 'VisuallyHidden', 'status tokens'],
+        ['Legend', 'Text', 'VisuallyHidden', 'status tokens'],
       ),
     ],
     props: [
-      { name: 'intervals', type: 'StatusInterval[]', description: 'id, uptime 0–1, optional detail, and `missing` for no data.' },
-      { name: 'degraded / down', type: 'number / number', defaultValue: '0.995 / 0.9', description: 'Thresholds for the two unhealthy states.' },
+      {
+        name: 'intervals',
+        type: 'StatusInterval[]',
+        description:
+          'Oldest first. id plus uptime 0–1 or status (operational, degraded, outage, unknown), with optional incidents, downtimeMinutes, date, detail, and `missing` for no data.',
+      },
+      { name: 'label', type: 'string', description: 'The service name. Also the accessible name.' },
+      { name: 'uptime', type: 'number', description: 'Uptime to print, 0–1. Averaged from the measured intervals when omitted.' },
+      {
+        name: 'degraded / down',
+        type: 'number / number',
+        defaultValue: '0.995 / 0.9',
+        description: 'Thresholds for the two unhealthy states. A declared status beats them.',
+      },
       { name: 'from / to', type: 'string / string', description: 'Captions at each end of the strip.' },
+      { name: 'showLegend', type: 'boolean', defaultValue: 'false', description: 'Status key — show it once under a stack of strips.' },
       { name: 'height', type: 'number', defaultValue: '34', description: 'Bar height. Widths are flexible.' },
+      { name: 'className', type: 'string', description: 'Merged last, so it wins.' },
     ],
   },
 

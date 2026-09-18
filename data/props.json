@@ -1180,24 +1180,26 @@
       {
         "name": "href",
         "type": "string",
-        "required": false
+        "required": false,
+        "description": "Where the announcement leads."
       },
       {
         "name": "linkLabel",
         "type": "string",
         "required": false,
-        "defaultValue": "'Learn more'"
+        "description": "Text of the `href` link."
       },
       {
         "name": "tone",
         "type": "AnnouncementTone",
         "required": false,
-        "defaultValue": "'ink'"
+        "description": "Surface colour. `muted` maps to Banner's `neutral`."
       },
       {
         "name": "onDismiss",
         "type": "() => void",
-        "required": false
+        "required": false,
+        "description": "Called when the bar is dismissed."
       },
       {
         "name": "storageKey",
@@ -1208,7 +1210,8 @@
       {
         "name": "className",
         "type": "string",
-        "required": false
+        "required": false,
+        "description": "Merged last, so it wins."
       }
     ]
   },
@@ -2179,22 +2182,48 @@
         "defaultValue": "'accent'"
       },
       {
+        "name": "layout",
+        "type": "'block' | 'strip'",
+        "required": false,
+        "defaultValue": "'block'",
+        "description": "`block` is a rounded panel with a heading; `strip` is the thin centred bar across the very top of a site."
+      },
+      {
         "name": "title",
         "type": "string",
-        "required": true,
-        "description": "Heading for the message."
+        "required": false,
+        "description": "Heading for the message. Usually omitted in a strip, where the message is one sentence."
       },
       {
         "name": "children",
         "type": "ReactNode",
         "required": false,
-        "description": "The message body."
+        "description": "The message body — in a strip, the one sentence."
       },
       {
         "name": "icon",
         "type": "IconComponent",
         "required": false,
         "description": "Glyph before the message."
+      },
+      {
+        "name": "badge",
+        "type": "string",
+        "required": false,
+        "description": "Short qualifier in front — \"New\"."
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Where the message leads. Rendered as a link after it."
+      },
+      {
+        "name": "linkLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Learn more'",
+        "description": "Text of the `href` link."
       },
       {
         "name": "action",
@@ -2205,7 +2234,14 @@
       {
         "name": "onDismiss",
         "type": "() => void",
-        "required": false
+        "required": false,
+        "description": "Called when the banner is dismissed. Its presence, or `storageKey`, adds the dismiss button."
+      },
+      {
+        "name": "storageKey",
+        "type": "string",
+        "required": false,
+        "description": "Remember the dismissal in this browser under this key. Change the key for the next announcement."
       },
       {
         "name": "className",
@@ -18437,56 +18473,86 @@
       {
         "name": "actions",
         "type": "RadialAction[]",
-        "required": true
+        "required": true,
+        "description": "The actions, nearest the trigger (or first around the arc) first."
       },
       {
         "name": "label",
         "type": "string",
         "required": true,
-        "description": "Accessible name for the trigger."
+        "description": "Accessible name for the trigger — \"Create\"."
       },
       {
         "name": "icon",
         "type": "IconComponent",
-        "required": true,
-        "description": "Trigger glyph."
+        "required": false,
+        "description": "Trigger glyph. Turned while open, so a plus becomes a cross."
+      },
+      {
+        "name": "layout",
+        "type": "'arc' | 'stack'",
+        "required": false,
+        "defaultValue": "'arc'",
+        "description": "`arc` fans the actions around the trigger; `stack` lines them up as a floating action button’s speed dial."
+      },
+      {
+        "name": "direction",
+        "type": "RadialMenuDirection",
+        "required": false,
+        "defaultValue": "'up'",
+        "description": "Which way a stack fans out. Ignored by the arc."
+      },
+      {
+        "name": "labels",
+        "type": "'visible' | 'hover'",
+        "required": false,
+        "description": "`visible` prints each label beside its action; `hover` shows it on hover and focus only. Defaults to `visible` for a stack and `hover` for an arc."
       },
       {
         "name": "radius",
         "type": "number",
         "required": false,
         "defaultValue": "92",
-        "description": "Distance from the centre to each action, in pixels."
+        "description": "Distance from the centre to each action on the arc, in pixels."
       },
       {
         "name": "startAngle",
         "type": "number",
         "required": false,
         "defaultValue": "-90",
-        "description": "Degrees. 0 points right, -90 points up."
+        "description": "Degrees. 0 points right, -90 points up. Arc only."
       },
       {
         "name": "sweep",
         "type": "number",
         "required": false,
         "defaultValue": "180",
-        "description": "Degrees the actions are spread across. 360 makes a full wheel."
+        "description": "Degrees the arc is spread across. 360 makes a full wheel."
       },
       {
         "name": "open",
         "type": "boolean",
-        "required": false
+        "required": false,
+        "description": "Controlled open state."
+      },
+      {
+        "name": "defaultOpen",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Starting state when uncontrolled."
       },
       {
         "name": "onOpenChange",
         "type": "(open: boolean) => void",
-        "required": false
+        "required": false,
+        "description": "Called when it opens or closes."
       },
       {
         "name": "className",
         "type": "string",
         "required": false,
-        "description": "Merged last, so it wins."
+        "description": "Merged onto the root, last, so it wins. Position a stack here — `fixed bottom-6 right-6`."
       }
     ]
   },
@@ -20334,6 +20400,13 @@
         "description": "Length of the fade, in pixels."
       },
       {
+        "name": "scrollbar",
+        "type": "'thin' | 'hidden'",
+        "required": false,
+        "defaultValue": "'thin'",
+        "description": "`thin` keeps a slim scrollbar; `hidden` removes it, for short lists inside a card where the fade already says there is more. The region still scrolls by wheel, touch and keyboard."
+      },
+      {
         "name": "className",
         "type": "string",
         "required": false,
@@ -20344,30 +20417,15 @@
   "ScrollList": {
     "props": [
       {
-        "name": "children",
-        "type": "ReactNode",
-        "required": true,
-        "description": "The rows, usually List or ListItem."
-      },
-      {
-        "name": "fade",
-        "type": "boolean",
-        "required": false,
-        "defaultValue": "true",
-        "description": "Fade the last row out instead of clipping it, as both list cards do."
-      },
-      {
-        "name": "maxHeight",
-        "type": "number | string",
-        "required": false,
-        "description": "Any CSS length. Omit inside a flex parent that already bounds the height."
-      },
-      {
-        "name": "className",
+        "name": "label",
         "type": "string",
         "required": false,
-        "description": "Merged last, so it wins."
+        "defaultValue": "'Scrollable list'",
+        "description": "Accessible name for the scrolling region."
       }
+    ],
+    "inherits": [
+      "Omit<ScrollAreaProps, 'label'>"
     ]
   },
   "ScrollProgress": {
@@ -20381,35 +20439,30 @@
       {
         "name": "variant",
         "type": "ScrollProgressVariant",
-        "required": false,
-        "defaultValue": "'bar'"
+        "required": false
       },
       {
         "name": "size",
         "type": "number",
         "required": false,
-        "defaultValue": "variant === 'bar' ? 3 : 44",
         "description": "Bar thickness, or ring diameter, in pixels."
       },
       {
         "name": "fixed",
         "type": "boolean",
         "required": false,
-        "defaultValue": "true",
         "description": "Pin to the viewport. Turn it off to place it inside a container."
       },
       {
         "name": "position",
         "type": "'top' | 'bottom'",
         "required": false,
-        "defaultValue": "'top'",
         "description": "Which edge it pins to when fixed."
       },
       {
         "name": "showValue",
         "type": "boolean",
         "required": false,
-        "defaultValue": "false",
         "description": "Show the percentage inside the ring."
       },
       {
@@ -20417,27 +20470,24 @@
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": "Clicking the ring scrolls back to the start."
+        "description": "Render the ring as a back-to-top button. @deprecated Use `<BackToTop showProgress />`, which this now renders: it moves focus to the top of the page, jumps instead of animating under reduced motion, and leaves the tab order while hidden. `target`, `fixed` and `className` are passed on; the ring's size, colours, `showValue` and `hideUntil` are not."
       },
       {
         "name": "hideUntil",
         "type": "number",
         "required": false,
-        "defaultValue": "0",
         "description": "Hide the ring until there is something to show."
       },
       {
         "name": "color",
         "type": "string",
         "required": false,
-        "defaultValue": "'var(--color-accent-strong)'",
         "description": "Any CSS colour for the filled portion. Defaults to the accent."
       },
       {
         "name": "trackColor",
         "type": "string",
         "required": false,
-        "defaultValue": "'transparent'",
         "description": "Any CSS colour for the portion not yet read."
       },
       {
@@ -22768,67 +22818,6 @@
       }
     ]
   },
-  "SpeedDial": {
-    "props": [
-      {
-        "name": "actions",
-        "type": "SpeedDialAction[]",
-        "required": true,
-        "description": "The secondary actions, nearest the trigger first."
-      },
-      {
-        "name": "label",
-        "type": "string",
-        "required": true,
-        "description": "Accessible name for the trigger — \"Create\"."
-      },
-      {
-        "name": "icon",
-        "type": "IconComponent",
-        "required": false,
-        "description": "Trigger glyph. Rotated an eighth of a turn while open, so a plus becomes a cross."
-      },
-      {
-        "name": "direction",
-        "type": "SpeedDialDirection",
-        "required": false,
-        "defaultValue": "'up'",
-        "description": "Which way the actions fan out from the trigger."
-      },
-      {
-        "name": "labels",
-        "type": "'visible' | 'hover'",
-        "required": false,
-        "defaultValue": "'visible'",
-        "description": "`visible` prints each label beside its action; `hover` shows it on hover and focus only."
-      },
-      {
-        "name": "open",
-        "type": "boolean",
-        "required": false,
-        "description": "Controlled open state."
-      },
-      {
-        "name": "defaultOpen",
-        "type": "boolean",
-        "required": false,
-        "defaultValue": "false",
-        "description": "Starting state when uncontrolled."
-      },
-      {
-        "name": "onOpenChange",
-        "type": "(open: boolean) => void",
-        "required": false,
-        "description": "Called when it opens or closes."
-      },
-      {
-        "name": "className",
-        "type": "string",
-        "required": false,
-        "description": "Merged onto the root. Position it here — `fixed bottom-6 right-6`."
-      }
-    ]
-  },
   "SpinWheel": {
     "props": [
       {
@@ -23567,7 +23556,8 @@
       {
         "name": "intervals",
         "type": "StatusInterval[]",
-        "required": true
+        "required": true,
+        "description": "Oldest first. Each carries a measured `uptime`, a declared `status`, or both."
       },
       {
         "name": "label",
@@ -23579,7 +23569,7 @@
         "name": "from",
         "type": "string",
         "required": false,
-        "description": "Caption at each end of the strip."
+        "description": "Caption at the left-hand end of the strip."
       },
       {
         "name": "to",
@@ -23592,20 +23582,34 @@
         "type": "number",
         "required": false,
         "defaultValue": "0.995",
-        "description": "Below this counts as degraded; below `down` counts as an outage."
+        "description": "Below this counts as degraded; below `down` counts as an outage. Ignored where a status is declared."
       },
       {
         "name": "down",
         "type": "number",
         "required": false,
         "defaultValue": "0.9",
-        "description": "Ratio at or above which an interval counts as down."
+        "description": "Ratio below which an interval counts as down. Ignored where a status is declared."
+      },
+      {
+        "name": "uptime",
+        "type": "number",
+        "required": false,
+        "description": "Uptime to print, 0 to 1. Averaged from the measured intervals when omitted."
+      },
+      {
+        "name": "showLegend",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Show the status key under the strip — once under a stack of strips is enough."
       },
       {
         "name": "height",
         "type": "number",
         "required": false,
-        "defaultValue": "34"
+        "defaultValue": "34",
+        "description": "Bar height in pixels. Widths are flexible."
       },
       {
         "name": "className",
@@ -26650,61 +26654,6 @@
         "type": "() => void",
         "required": false,
         "description": "Removes finished rows. Without it, the button is not shown."
-      },
-      {
-        "name": "className",
-        "type": "string",
-        "required": false,
-        "description": "Merged last, so it wins."
-      }
-    ]
-  },
-  "UptimeBar": {
-    "props": [
-      {
-        "name": "days",
-        "type": "UptimeBarDay[]",
-        "required": true,
-        "description": "Oldest first — usually the last 90 days."
-      },
-      {
-        "name": "label",
-        "type": "string",
-        "required": true,
-        "description": "The service or component this row describes."
-      },
-      {
-        "name": "uptime",
-        "type": "number",
-        "required": false,
-        "description": "Uptime percentage to print, 0 to 100. Computed from `days` when omitted."
-      },
-      {
-        "name": "from",
-        "type": "string",
-        "required": false,
-        "description": "Caption under the left end of the row. Defaults to \"N days ago\"."
-      },
-      {
-        "name": "to",
-        "type": "string",
-        "required": false,
-        "defaultValue": "'Today'",
-        "description": "Caption under the right end of the row."
-      },
-      {
-        "name": "showLegend",
-        "type": "boolean",
-        "required": false,
-        "defaultValue": "false",
-        "description": "Show the status key under the row."
-      },
-      {
-        "name": "height",
-        "type": "number",
-        "required": false,
-        "defaultValue": "32",
-        "description": "Bar height in pixels."
       },
       {
         "name": "className",
