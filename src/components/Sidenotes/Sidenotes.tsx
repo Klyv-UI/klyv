@@ -224,7 +224,7 @@ export function Sidenote({ note, children }: SidenoteProps) {
               tabIndex={-1}
               data-active={active ? '' : undefined}
               className={cn(
-                'absolute inset-x-0 flex gap-2 rounded-[10px] p-1.5 text-[12.5px] leading-[1.5] text-ink-soft outline-none transition-colors',
+                'absolute inset-x-0 flex gap-2 rounded-[var(--radius-10)] p-1.5 text-[12.5px] leading-[1.5] text-ink-soft outline-none transition-colors',
                 active && 'bg-[color-mix(in_oklab,var(--color-accent)_14%,transparent)] text-ink',
               )}
             >
@@ -257,7 +257,7 @@ export function Sidenote({ note, children }: SidenoteProps) {
         id={noteId}
         role="note"
         hidden={!open}
-        className="my-2 block rounded-[10px] border border-line bg-surface-muted px-3 py-2 text-[12.5px] leading-[1.5] text-ink-soft"
+        className="my-2 block rounded-[var(--radius-10)] border border-line bg-surface-muted px-3 py-2 text-[12.5px] leading-[1.5] text-ink-soft"
       >
         {note}
       </span>

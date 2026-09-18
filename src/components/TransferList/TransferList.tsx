@@ -242,13 +242,13 @@ function Pane({ title, list, total, marked, setMarked, onMove, filterable, heigh
                 onClick={(event) => onClick(event, index)}
                 onDoubleClick={() => onMove([item.id])}
                 className={cn(
-                  'flex cursor-pointer select-none items-center gap-2.5 rounded-[10px] px-2.5 py-1.5',
+                  'flex cursor-pointer select-none items-center gap-2.5 rounded-[var(--radius-10)] px-2.5 py-1.5',
                   index === active && 'group-focus-visible:ring-1 group-focus-visible:ring-ink-faint',
                   on ? 'bg-accent-soft' : 'hover:bg-surface-sunken',
                   item.disabled && 'cursor-not-allowed opacity-40',
                 )}
               >
-                <span aria-hidden="true" className={cn('flex size-4 shrink-0 items-center justify-center rounded-[5px] border', on ? 'border-accent-strong bg-accent-strong text-accent-ink' : 'border-line-strong')}>
+                <span aria-hidden="true" className={cn('flex size-4 shrink-0 items-center justify-center rounded-[var(--radius-5)] border', on ? 'border-accent-strong bg-accent-strong text-accent-ink' : 'border-line-strong')}>
                   {on && <svg viewBox="0 0 16 16" className="size-3" fill="none" stroke="currentColor" strokeWidth={2.5}><path d="M3.5 8.5l3 3 6-6.5" /></svg>}
                 </span>
                 <span className="flex min-w-0 flex-col">

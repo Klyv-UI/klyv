@@ -208,7 +208,7 @@ export function LanguageSwitcher({
               aria-selected={selected}
               onClick={() => choose(option.value)}
               className={cn(
-                'flex items-center gap-2 rounded-[10px] px-2.5 py-2 text-left transition-colors',
+                'flex items-center gap-2 rounded-[var(--radius-10)] px-2.5 py-2 text-left transition-colors',
                 selected ? 'bg-surface-muted text-ink' : 'text-ink-soft hover:bg-surface-muted hover:text-ink',
               )}
             >

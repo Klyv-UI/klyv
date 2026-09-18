@@ -119,7 +119,7 @@ export function ContextMenu({ children, items, label, className }: ContextMenuPr
                         setPoint(null)
                       }}
                       className={cn(
-                        'flex items-center gap-2.5 rounded-[10px] px-2.5 py-2 text-left text-[13px] font-semibold transition-colors',
+                        'flex items-center gap-2.5 rounded-[var(--radius-10)] px-2.5 py-2 text-left text-[13px] font-semibold transition-colors',
                         'disabled:pointer-events-none disabled:opacity-40',
                         item.destructive
                           ? 'text-danger hover:bg-danger/10'

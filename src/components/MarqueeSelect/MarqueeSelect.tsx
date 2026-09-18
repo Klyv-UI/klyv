@@ -154,7 +154,7 @@ export function MarqueeSelect({
       {marquee && (
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute z-10 rounded-[3px] border border-accent-strong bg-accent/20"
+          className="pointer-events-none absolute z-10 rounded-[var(--radius-3)] border border-accent-strong bg-accent/20"
           style={marquee}
         />
       )}

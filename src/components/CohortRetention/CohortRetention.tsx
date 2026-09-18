@@ -197,7 +197,7 @@ export function CohortRetention({
                     scope="row"
                     {...cellProps(rowIndex, 0)}
                     className={cn(
-                      'whitespace-nowrap rounded-[6px] px-2 py-1.5 text-left font-bold text-ink',
+                      'whitespace-nowrap rounded-[var(--radius-6)] px-2 py-1.5 text-left font-bold text-ink',
                       isAverage && 'border-t border-line text-ink-soft',
                     )}
                   >
@@ -205,7 +205,7 @@ export function CohortRetention({
                   </th>
                   <td
                     {...cellProps(rowIndex, 1)}
-                    className="whitespace-nowrap rounded-[6px] px-2 py-1.5 text-right font-semibold tabular-nums text-ink-soft"
+                    className="whitespace-nowrap rounded-[var(--radius-6)] px-2 py-1.5 text-right font-semibold tabular-nums text-ink-soft"
                   >
                     {isAverage ? `~${formatCount(row.size)}` : formatCount(row.size)}
                   </td>
@@ -217,7 +217,7 @@ export function CohortRetention({
                         key={period}
                         {...cellProps(rowIndex, period + 2)}
                         className={cn(
-                          'min-w-[52px] rounded-[6px] px-1 py-1.5 text-center tabular-nums transition-opacity',
+                          'min-w-[52px] rounded-[var(--radius-6)] px-1 py-1.5 text-center tabular-nums transition-opacity',
                           DRAW_IN_CLASS,
                           cell ? (share >= 0.5 ? 'font-bold text-accent-ink' : 'font-semibold text-ink') : 'text-ink-faint',
                           isAverage && 'shadow-[inset_0_0_0_1px_var(--color-line-strong)]',

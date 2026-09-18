@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { ArrowRight, ChevronDown } from 'lucide-react'
 import { Popover, Text, cn } from 'klyv'
 import { AccentPicker } from './AccentPicker'
 import { useAccent } from './useTheme'
@@ -61,6 +62,14 @@ export function AccentMenu({ className }: { className?: string }) {
         <Text size="micro" tone="faint" leading="normal">
           One hue repaints every component on the page.
         </Text>
+        <Link
+          to="/themes"
+          onClick={() => setOpen(false)}
+          className="flex items-center justify-between gap-2 rounded-[var(--radius-10)] border border-line px-2.5 py-2 text-[12px] font-bold text-ink transition-colors hover:bg-surface-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        >
+          Base, radius, font and style
+          <ArrowRight size={13} aria-hidden className="text-ink-faint" />
+        </Link>
       </div>
     </Popover>
   )

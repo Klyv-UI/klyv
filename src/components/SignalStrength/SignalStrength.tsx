@@ -70,7 +70,7 @@ export function SignalStrength({
         {[1, 2, 3, 4].map((bar) => (
           <span
             key={bar}
-            className={cn('rounded-[1.5px] transition-colors', spec.bar, bar <= bars ? lit : 'bg-track')}
+            className={cn('rounded-[var(--radius-hair)] transition-colors', spec.bar, bar <= bars ? lit : 'bg-track')}
             style={{ height: `${25 * bar}%` }}
           />
         ))}

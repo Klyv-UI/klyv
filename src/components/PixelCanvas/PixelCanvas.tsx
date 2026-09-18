@@ -175,7 +175,7 @@ export function PixelCanvas({
             aria-pressed={colour === index}
             onClick={() => setColour(index)}
             className={cn(
-              'h-6 w-6 rounded-[6px] border transition-transform hover:scale-110',
+              'h-6 w-6 rounded-[var(--radius-6)] border transition-transform hover:scale-110',
               colour === index ? 'border-ink ring-2 ring-ink/20' : 'border-black/10',
               index === 0 && 'bg-[repeating-conic-gradient(#eceeea_0_25%,#ffffff_0_50%)] bg-[length:8px_8px]',
             )}

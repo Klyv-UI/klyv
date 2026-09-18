@@ -90,7 +90,7 @@ export function PromoBanner({
 /** Marks the emphasised phrase inside a PromoBanner headline. */
 export function PromoHighlight({ children }: { children: ReactNode }) {
   return (
-    <span className="box-decoration-clone rounded-[5px] bg-[color-mix(in_oklab,var(--color-accent-ink)_13%,var(--color-accent))] px-1.5 py-0.5">
+    <span className="box-decoration-clone rounded-[var(--radius-5)] bg-[color-mix(in_oklab,var(--color-accent-ink)_13%,var(--color-accent))] px-1.5 py-0.5">
       {children}
     </span>
   )

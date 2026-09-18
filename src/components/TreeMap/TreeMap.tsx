@@ -186,7 +186,7 @@ export function TreeMap({
               onBlur={() => setActive(null)}
               aria-label={`${tile.label}, ${format(tile.value)}`}
               className={cn(
-                'absolute overflow-hidden rounded-[3px] p-2 text-left transition-opacity duration-[var(--duration-fast)]',
+                'absolute overflow-hidden rounded-[var(--radius-3)] p-2 text-left transition-opacity duration-[var(--duration-fast)]',
                 active && active !== tile.id ? 'opacity-55' : 'opacity-100',
               )}
               style={{

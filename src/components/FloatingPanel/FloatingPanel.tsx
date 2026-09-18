@@ -192,7 +192,7 @@ export function FloatingPanel({
               event.preventDefault()
               commit({ x: positionRef.current.x + move[0], y: positionRef.current.y + move[1] })
             }}
-            className="inline-flex size-7 cursor-grab items-center justify-center rounded-[8px] text-ink-faint hover:bg-surface-muted hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent-strong"
+            className="inline-flex size-7 cursor-grab items-center justify-center rounded-[var(--radius-8)] text-ink-faint hover:bg-surface-muted hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent-strong"
           >
             <svg viewBox="0 0 16 16" width={14} height={14} fill="currentColor" aria-hidden="true">
               {[4, 8, 12].flatMap((y) => [6, 10].map((x) => <circle key={`${x}-${y}`} cx={x} cy={y} r={1.25} />))}

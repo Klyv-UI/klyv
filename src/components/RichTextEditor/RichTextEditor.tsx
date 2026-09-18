@@ -400,7 +400,7 @@ export function RichTextEditor({
               onFocus={() => setActiveTool(index)}
               onClick={() => !unavailable && tool.run()}
               className={cn(
-                'flex h-8 min-w-8 items-center justify-center rounded-[8px] px-1.5 text-[13px] font-bold text-ink-soft transition-colors hover:bg-surface-muted hover:text-ink',
+                'flex h-8 min-w-8 items-center justify-center rounded-[var(--radius-8)] px-1.5 text-[13px] font-bold text-ink-soft transition-colors hover:bg-surface-muted hover:text-ink',
                 tool.format && formats.has(tool.format) && 'bg-accent-soft text-ink hover:bg-accent-soft',
                 unavailable && 'cursor-not-allowed opacity-40 hover:bg-transparent',
                 (index === 4 || index === 9) && 'ml-1.5',

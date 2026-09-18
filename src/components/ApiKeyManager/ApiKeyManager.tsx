@@ -188,7 +188,7 @@ export function ApiKeyManager({
                   {key.name}
                 </Text>
                 <span className="flex flex-wrap items-center gap-1.5">
-                  <code className="rounded-[6px] bg-surface-muted px-1.5 py-0.5 font-mono text-[11px] font-semibold text-ink-soft">
+                  <code className="rounded-[var(--radius-6)] bg-surface-muted px-1.5 py-0.5 font-mono text-[11px] font-semibold text-ink-soft">
                     {key.prefix}
                     <span aria-hidden="true">••••••••</span>
                     <VisuallyHidden>, rest hidden</VisuallyHidden>

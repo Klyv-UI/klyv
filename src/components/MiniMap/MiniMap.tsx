@@ -115,7 +115,7 @@ export function MiniMap({
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute rounded-[3px] border-2 border-accent-strong bg-accent/15"
+        className="pointer-events-none absolute rounded-[var(--radius-3)] border-2 border-accent-strong bg-accent/15"
         style={{
           left: Math.max(0, outline.left),
           top: Math.max(0, outline.top),

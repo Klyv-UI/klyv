@@ -205,7 +205,7 @@ export function DurationInput({
               onPaste={onPaste}
               onFocus={(event) => event.currentTarget.select()}
               style={{ width: `${unit === 'h' ? Math.max(2, String(parts.h).length) + 0.5 : 2.5}ch` }}
-              className="tabular rounded-[6px] bg-transparent text-right outline-none focus:bg-accent-soft disabled:cursor-not-allowed"
+              className="tabular rounded-[var(--radius-6)] bg-transparent text-right outline-none focus:bg-accent-soft disabled:cursor-not-allowed"
             />
             <span aria-hidden="true" className="pl-0.5 pr-1 text-ink-faint">
               {unit}

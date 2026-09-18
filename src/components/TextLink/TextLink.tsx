@@ -76,7 +76,7 @@ export function TextLink<E extends ElementType = 'a'>({
   const opensNewTab = external ?? rest.target === '_blank'
 
   const classes = cn(
-    'rounded-[4px] font-semibold decoration-2 underline-offset-[0.22em] transition-colors',
+    'rounded-[var(--radius-4)] font-semibold decoration-2 underline-offset-[0.22em] transition-colors',
     underline === 'always' ? 'underline' : 'no-underline hover:underline',
     TONES[tone],
     'visited:decoration-ink-faint',

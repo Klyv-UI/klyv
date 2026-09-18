@@ -175,7 +175,7 @@ export function AgendaList({
                     </span>
                   </>
                 )
-                const row = 'flex w-full items-start gap-3 rounded-[10px] px-1 py-2 text-left'
+                const row = 'flex w-full items-start gap-3 rounded-[var(--radius-10)] px-1 py-2 text-left'
                 return (
                   <Fragment key={event.id}>
                     {index === nowIndex && <NowLine now={now} />}

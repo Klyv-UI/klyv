@@ -168,7 +168,7 @@ export function EmojiPicker({
                 }}
                 onKeyDown={(event) => onTabKey(event, index)}
                 className={cn(
-                  'flex size-8 items-center justify-center rounded-[10px] text-[17px] transition-colors',
+                  'flex size-8 items-center justify-center rounded-[var(--radius-10)] text-[17px] transition-colors',
                   selected ? 'bg-accent-soft' : 'opacity-70 grayscale hover:bg-surface-muted hover:opacity-100 hover:grayscale-0',
                 )}
               >
@@ -203,7 +203,7 @@ export function EmojiPicker({
                           setPreview(entry)
                         }}
                         onMouseEnter={() => setPreview(entry)}
-                        className="flex aspect-square w-full items-center justify-center rounded-[10px] text-[22px] leading-none transition-colors hover:bg-surface-muted focus-visible:bg-accent-soft focus-visible:outline-offset-[-2px]"
+                        className="flex aspect-square w-full items-center justify-center rounded-[var(--radius-10)] text-[22px] leading-none transition-colors hover:bg-surface-muted focus-visible:bg-accent-soft focus-visible:outline-offset-[-2px]"
                       >
                         <span aria-hidden="true">{entry.emoji}</span>
                       </button>

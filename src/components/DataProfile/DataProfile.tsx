@@ -249,7 +249,7 @@ export function DataProfile({ data, columns, maxCategories = 12, bins = 12, head
               {column.flags.length > 0 && (
                 <ul className="flex flex-col gap-1" aria-label={`Warnings for ${column.name}`}>
                   {column.flags.map((flag) => (
-                    <li key={flag} className="rounded-[8px] bg-[color-mix(in_oklab,var(--color-warning)_16%,transparent)] px-2 py-1 text-[11px] font-semibold text-[color-mix(in_oklab,var(--color-warning)_40%,var(--color-ink))]">
+                    <li key={flag} className="rounded-[var(--radius-8)] bg-[color-mix(in_oklab,var(--color-warning)_16%,transparent)] px-2 py-1 text-[11px] font-semibold text-[color-mix(in_oklab,var(--color-warning)_40%,var(--color-ink))]">
                       {flag}
                     </li>
                   ))}

@@ -90,7 +90,7 @@ export function PaymentMethodCard({
     >
       <span
         aria-hidden="true"
-        className="inline-flex h-8 w-12 shrink-0 items-center justify-center rounded-[7px] bg-ink text-[9px] font-extrabold tracking-[0.08em] text-ink-inverse"
+        className="inline-flex h-8 w-12 shrink-0 items-center justify-center rounded-[var(--radius-7)] bg-ink text-[9px] font-extrabold tracking-[0.08em] text-ink-inverse"
       >
         {mark}
       </span>

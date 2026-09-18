@@ -49,7 +49,7 @@ export interface MenubarProps {
 type MenubarEdge = 'first' | 'last' | null
 
 const ITEM =
-  'flex w-full items-center gap-2.5 rounded-[10px] px-2.5 py-1.5 text-left text-[13px] font-semibold text-ink-soft outline-none transition-colors ' +
+  'flex w-full items-center gap-2.5 rounded-[var(--radius-10)] px-2.5 py-1.5 text-left text-[13px] font-semibold text-ink-soft outline-none transition-colors ' +
   'hover:bg-surface-muted hover:text-ink focus:bg-surface-muted focus:text-ink aria-disabled:pointer-events-none aria-disabled:opacity-40 aria-expanded:bg-surface-muted'
 
 interface PanelProps {

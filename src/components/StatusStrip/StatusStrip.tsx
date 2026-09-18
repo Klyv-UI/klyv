@@ -156,7 +156,7 @@ export function StatusStrip({
         <div
           // Grid rather than flex: bars are equal tracks, so ninety of them
           // compress on a phone and stretch on a monitor without a breakpoint.
-          className="grid auto-cols-fr grid-flow-col gap-[3px] rounded-[3px] outline-offset-4"
+          className="grid auto-cols-fr grid-flow-col gap-[3px] rounded-[var(--radius-3)] outline-offset-4"
           style={{ height }}
           role="img"
           aria-label={`${label}: ${printed} over ${intervals.length} intervals. Use arrow keys to step through them.`}
@@ -171,7 +171,7 @@ export function StatusStrip({
                 key={interval.id}
                 onPointerEnter={() => setActive(index)}
                 className={cn(
-                  'block h-full w-full rounded-[2px] transition-transform',
+                  'block h-full w-full rounded-[var(--radius-2)] transition-transform',
                   DRAW_IN_CLASS,
                   TONES[tone].className,
                   tone === 'missing' && 'opacity-60',

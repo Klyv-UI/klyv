@@ -79,7 +79,7 @@ export function AnchorNav({
                   go(item.id)
                 }}
                 className={cn(
-                  'block rounded-[8px] px-2.5 py-1.5 text-[12px] transition-colors',
+                  'block rounded-[var(--radius-8)] px-2.5 py-1.5 text-[12px] transition-colors',
                   orientation === 'vertical' && 'border-l-2 pl-3',
                   current
                     ? cn('font-bold text-ink', orientation === 'vertical' ? 'border-l-accent-strong' : 'bg-surface-muted')

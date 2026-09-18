@@ -86,14 +86,58 @@ none fall below 4.5:1 for the label or for text on either wash.
 changes from anywhere — every picker on the docs site shares one source of truth
 through them, rather than each keeping a copy that goes stale.
 
+### The whole theme
+
+The accent is one of five settings. `applyTheme` takes any of them and merges
+with the theme in force:
+
+```ts
+import { applyTheme, saveTheme, restoreTheme, THEME_PRESETS } from 'klyv'
+
+applyTheme({
+  accent: '#8b5cf6',
+  base: 'slate',      // or { hue: 250, chroma: 0.01 } in OKLCH
+  radius: 'lg',       // or a multiplier: 0.8
+  font: 'inter',      // or { family: "'My Font', sans-serif" }
+  style: 'elevated',  // soft | flat | outline | elevated
+})
+applyTheme(THEME_PRESETS[1].theme) // nine complete themes; the first is the default
+saveTheme()                        // restoreTheme() before first paint
+```
+
+| Setting | Presets | What it writes |
+| --- | --- | --- |
+| `base` | `sage` (the default), `neutral`, `zinc`, `slate`, `stone`, `gray`, `mauve`, `olive`, `sand`, `tinted` (the accent's hue) | every neutral, light and dark |
+| `radius` | `none` 0, `sm` 0.5, `md` 0.75, `default` 1, `lg` 1.25, `xl` 1.5 | `--radius-scale`; pills stay pills |
+| `font` | `plus-jakarta`, `inter`, `geist`, `dm-sans`, `manrope`, `figtree`, `ibm-plex-sans`, `space-grotesk`, `outfit`, `system`, `newsreader` | `--font-sans` |
+| `style` | `soft`, `flat` (no shadows), `outline` (no shadows, firm lines), `elevated` (deeper shadows, softer lines) | shadows and line weight |
+
+Bases other than `sage` are derived in OKLCH by `deriveBase(hue, chroma)`, and
+every text colour is stepped until it clears its target on every background, in
+both modes: `ink-soft` and `ink-faint` at 4.5:1 or better, `ink` at 12:1. A test
+checks that across every preset and a sweep of 192 hue and chroma pairs.
+
+Fonts are never fetched for you. `fontStylesheetUrl(font)` returns the Google
+Fonts URL to link; `loadFont(font)` adds it once, if you want that.
+
+On the root, `applyTheme` writes both modes at once, so switching to dark needs
+nothing reapplied. For one section, wrap it in `<ThemeScope theme={{ accent:
+'#f43f5e', radius: 'none' }}>`: it applies the difference to its own element and
+re-applies it when the mode or the page's theme changes.
+
+No runtime at all: `themeToCss(theme)` prints a `:root` block and the two dark
+blocks that set only what differs from the default. Paste it into any stylesheet;
+order does not matter. `serializeTheme` and `parseTheme` turn a theme into a
+short URL-safe string (`8b5cf6.zinc.lg.geist.elevated`) for a share link.
+
 ## What is in it
 
-522 components in thirteen groups. The grouping describes what a component is
+523 components in thirteen groups. The grouping describes what a component is
 **for** — the only question anyone browsing a library arrives with.
 
 | Group | Count | |
 | --- | --- | --- |
-| Foundations | 20 | the type scale, container recipes, utilities |
+| Foundations | 21 | the type scale, container recipes, utilities |
 | Layout | 29 | structure, disclosure, stacks and scrolling |
 | Navigation | 30 | bars, shells, tabs, steps, menus, search |
 | Actions | 23 | buttons, and the richer controls built on them |
@@ -555,7 +599,7 @@ real page does, where every timeout lands on its own task.
 
 ## Rules the build enforces
 
-Two of the house rules below are checkable, so they are checked. Both run in
+Three of the house rules below are checkable, so they are checked. All run in
 `npm run generate`, which `predev` and `prebuild` call — a stated rule that
 nothing enforces is a rule that decays.
 
@@ -574,6 +618,10 @@ regardless. All three now carry `motion-safe-only`.
 failure. The allowlist is components whose colour is physical rather than
 thematic — a piano's keys, a terminal's traffic lights, per-person cursor
 identity, the swatches inside a colour picker — each listed with why.
+
+**No hard-coded radius.** A class like `rounded-[10px]` stays put when a theme
+changes the radius scale, so every pixel radius fails. Use the token of the same
+size: `rounded-[var(--radius-10)]`, `rounded-[var(--radius-card)]`.
 
 ```bash
 npm run rules

@@ -7638,6 +7638,19 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "ThemeScope": {
+    "files": [
+      "components/ThemeScope/ThemeScope.tsx",
+      "components/ThemeScope/index.ts"
+    ],
+    "internal": [],
+    "shared": [
+      "lib/layout-effect.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "TicTacToe": {
     "files": [
       "components/TicTacToe/TicTacToe.tsx",

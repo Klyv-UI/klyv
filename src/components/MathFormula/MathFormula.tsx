@@ -363,10 +363,10 @@ export function MathFormula({ tex, display = false, render: mode = 'auto', onErr
 
   if (result.error) {
     return (
-      <span className={cn('inline-flex flex-wrap items-baseline gap-x-1.5 rounded-[6px] bg-[color-mix(in_oklab,var(--color-danger)_10%,transparent)] px-1.5 py-0.5 text-[12px] font-medium text-danger', display && 'flex', className)}>
+      <span className={cn('inline-flex flex-wrap items-baseline gap-x-1.5 rounded-[var(--radius-6)] bg-[color-mix(in_oklab,var(--color-danger)_10%,transparent)] px-1.5 py-0.5 text-[12px] font-medium text-danger', display && 'flex', className)}>
         <code className="font-mono">
           {tex.slice(0, result.error.at)}
-          <mark className="rounded-[3px] bg-danger px-px text-ink-inverse">{tex.slice(result.error.at, result.error.at + 1) || '␣'}</mark>
+          <mark className="rounded-[var(--radius-3)] bg-danger px-px text-ink-inverse">{tex.slice(result.error.at, result.error.at + 1) || '␣'}</mark>
           {tex.slice(result.error.at + 1)}
         </code>
         <span>{result.error.message}.</span>

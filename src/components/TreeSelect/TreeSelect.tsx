@@ -260,7 +260,7 @@ export function TreeSelect({
             }
           }}
           className={cn(
-            'flex min-h-10 w-full min-w-[220px] items-center gap-2 rounded-[20px] border border-line bg-surface py-1.5 pl-3 pr-3 text-left text-[13px] font-medium text-ink transition-colors',
+            'flex min-h-10 w-full min-w-[220px] items-center gap-2 rounded-[var(--radius-card)] border border-line bg-surface py-1.5 pl-3 pr-3 text-left text-[13px] font-medium text-ink transition-colors',
             'hover:border-line-strong disabled:cursor-not-allowed disabled:opacity-40',
             invalid && 'border-danger',
             className,
@@ -334,7 +334,7 @@ export function TreeSelect({
               onClick={() => choose(node)}
               style={{ paddingLeft: depth * 16 + 4 }}
               className={cn(
-                'flex cursor-pointer items-center gap-1.5 rounded-[10px] py-1.5 pr-2.5 text-[13px] font-semibold text-ink-soft outline-none transition-colors',
+                'flex cursor-pointer items-center gap-1.5 rounded-[var(--radius-10)] py-1.5 pr-2.5 text-[13px] font-semibold text-ink-soft outline-none transition-colors',
                 'hover:bg-surface-sunken focus-visible:bg-surface-muted focus-visible:text-ink focus-visible:ring-1 focus-visible:ring-ink-faint',
                 !multiple && check === true && 'bg-surface-muted text-ink',
                 node.disabled && 'cursor-not-allowed opacity-40',
@@ -348,7 +348,7 @@ export function TreeSelect({
                     event.stopPropagation()
                     toggle(node.id)
                   }}
-                  className="flex size-5 shrink-0 items-center justify-center rounded-[6px] text-ink-faint hover:bg-line-strong"
+                  className="flex size-5 shrink-0 items-center justify-center rounded-[var(--radius-6)] text-ink-faint hover:bg-line-strong"
                 >
                   <ChevronRightIcon size={12} className={cn('transition-transform motion-reduce:transition-none', isOpen && 'rotate-90')} />
                 </span>
@@ -359,7 +359,7 @@ export function TreeSelect({
                 <span
                   aria-hidden="true"
                   className={cn(
-                    'flex size-4 shrink-0 items-center justify-center rounded-[5px] border text-accent-ink',
+                    'flex size-4 shrink-0 items-center justify-center rounded-[var(--radius-5)] border text-accent-ink',
                     check ? 'border-accent-strong bg-accent-strong' : 'border-line-strong bg-surface',
                   )}
                 >

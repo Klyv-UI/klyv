@@ -258,20 +258,20 @@ export function SeatMap({
       <ul aria-label="Legend" className="flex flex-wrap gap-x-4 gap-y-1.5 text-[12px] font-medium text-ink-soft">
         {tiers.map((tier, index) => (
           <li key={tier.id} className="flex items-center gap-1.5">
-            <span aria-hidden="true" className={cn('size-3 rounded-[4px]', TIER_BG[index % 4])} />
+            <span aria-hidden="true" className={cn('size-3 rounded-[var(--radius-4)]', TIER_BG[index % 4])} />
             {tier.label} <span className="font-semibold tabular-nums text-ink">{price(tier.price)}</span>
           </li>
         ))}
         <li className="flex items-center gap-1.5">
-          <span aria-hidden="true" className="size-3 rounded-[4px] bg-ink" />
+          <span aria-hidden="true" className="size-3 rounded-[var(--radius-4)] bg-ink" />
           Your seats
         </li>
         <li className="flex items-center gap-1.5">
-          <span aria-hidden="true" className="size-3 rounded-[4px] bg-line-strong" />
+          <span aria-hidden="true" className="size-3 rounded-[var(--radius-4)] bg-line-strong" />
           Taken
         </li>
         <li className="flex items-center gap-1.5">
-          <span aria-hidden="true" className="size-3 rounded-[4px] border border-dashed border-ink-faint" />
+          <span aria-hidden="true" className="size-3 rounded-[var(--radius-4)] border border-dashed border-ink-faint" />
           On hold
         </li>
       </ul>

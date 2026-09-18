@@ -312,7 +312,7 @@ export function EmailViewer({
               .map((file) => {
                 const body = (
                   <>
-                    <span className="flex size-8 shrink-0 items-center justify-center rounded-[8px] bg-surface-muted font-mono text-[9px] font-bold uppercase text-ink-soft">
+                    <span className="flex size-8 shrink-0 items-center justify-center rounded-[var(--radius-8)] bg-surface-muted font-mono text-[9px] font-bold uppercase text-ink-soft">
                       {(file.name.split('.').pop() ?? 'file').slice(0, 4)}
                     </span>
                     <span className="flex min-w-0 flex-col">

@@ -180,7 +180,7 @@ export function DaySchedule({
               key={event.id}
               {...(onSelect ? { type: 'button' as const, onClick: () => onSelect(event) } : {})}
               className={cn(
-                'absolute overflow-hidden rounded-[8px] px-2 py-1 text-left transition-shadow',
+                'absolute overflow-hidden rounded-[var(--radius-8)] px-2 py-1 text-left transition-shadow',
                 event.tentative
                   ? 'border border-dashed border-line-strong bg-surface'
                   : 'border border-transparent',

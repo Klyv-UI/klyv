@@ -164,7 +164,7 @@ export function UndoStack({
                 onUndo(index + 1)
                 setOpen(false)
               }}
-              className="flex w-full items-baseline justify-between gap-3 rounded-[10px] px-2 py-1.5 text-left transition-colors hover:bg-surface-muted"
+              className="flex w-full items-baseline justify-between gap-3 rounded-[var(--radius-10)] px-2 py-1.5 text-left transition-colors hover:bg-surface-muted"
             >
               <Text as="span" size="caption" truncate>
                 {entry.label}

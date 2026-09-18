@@ -81,7 +81,7 @@ export function UserMenu({
     const index = actions.indexOf(item)
     const Icon = item.icon
     const style = cn(
-      'flex w-full items-center gap-2.5 rounded-[10px] px-2.5 py-2 text-left text-[13px] font-semibold outline-none transition-colors',
+      'flex w-full items-center gap-2.5 rounded-[var(--radius-10)] px-2.5 py-2 text-left text-[13px] font-semibold outline-none transition-colors',
       destructive
         ? 'text-danger hover:bg-danger/10 focus-visible:bg-danger/10'
         : 'text-ink hover:bg-surface-muted focus-visible:bg-surface-muted',

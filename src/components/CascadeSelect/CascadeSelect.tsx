@@ -272,7 +272,7 @@ export function CascadeSelect({
                       activate(depth, option)
                     }}
                     className={cn(
-                      'flex cursor-pointer items-center gap-2 rounded-[10px] px-2.5 py-1.5 text-[13px] font-semibold transition-colors',
+                      'flex cursor-pointer items-center gap-2 rounded-[var(--radius-10)] px-2.5 py-1.5 text-[13px] font-semibold transition-colors',
                       inTrail ? 'bg-surface-muted text-ink' : 'text-ink-soft hover:bg-surface-sunken hover:text-ink',
                       inTrail && depth === focusColumn && 'ring-1 ring-ink-faint',
                       option.disabled && 'cursor-not-allowed opacity-40',

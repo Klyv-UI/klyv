@@ -182,7 +182,7 @@ export function PriorityNav({
                     {renderLink(
                       item,
                       cn(
-                        'flex w-full rounded-[10px] px-2.5 py-2 text-[13px] font-semibold transition-colors',
+                        'flex w-full rounded-[var(--radius-10)] px-2.5 py-2 text-[13px] font-semibold transition-colors',
                         item.id === currentId
                           ? 'bg-[color-mix(in_oklab,var(--color-accent)_24%,transparent)] text-ink'
                           : 'text-ink-soft hover:bg-surface-muted hover:text-ink',

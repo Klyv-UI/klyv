@@ -20,6 +20,19 @@ const GROUPS = [
   { prefix: '--font-', group: 'font', type: 'fontFamily' },
 ]
 
+/**
+ * The value a token has in the default theme. Neutrals and shadows read a
+ * runtime hook first (`var(--base-light-canvas, #f4f7f0)`) and radii are
+ * multiplied by `--radius-scale`; the JSON carries what they resolve to when
+ * no theme is applied, which is the fallback.
+ */
+function defaultOf(value) {
+  const hook = value.match(/^var\(--(?:base|style)-[\w-]+,\s*([\s\S]+)\)$/)
+  if (hook) return defaultOf(hook[1].trim())
+  const scaled = value.match(/^calc\((.+?) \* var\(--radius-scale, 1\)\)$/)
+  return scaled ? scaled[1] : value
+}
+
 const tokens = {}
 let count = 0
 
@@ -34,7 +47,7 @@ for (const line of theme.split('\n')) {
   const key = name.slice(group.prefix.length)
   tokens[group.group] ??= {}
   tokens[group.group][key] = {
-    $value: rawValue.trim(),
+    $value: defaultOf(rawValue.trim()),
     $type: group.type,
     ...(comment ? { $description: comment } : {}),
   }
@@ -48,7 +61,7 @@ const dark = {}
 for (const line of darkBlock.split('\n')) {
   const match = line.match(/^\s*(--color-[\w-]+):\s*([^;]+);/)
   if (!match) continue
-  dark[match[1].slice('--color-'.length)] = match[2].trim()
+  dark[match[1].slice('--color-'.length)] = defaultOf(match[2].trim())
   if (line.includes('}')) break
 }
 

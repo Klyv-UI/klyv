@@ -17,8 +17,8 @@ export interface ComponentSize {
 
 export const sizes: Record<string, ComponentSize> = {
   "A11yInspector": {
-    "bytes": 22472,
-    "gzip": 7197,
+    "bytes": 22484,
+    "gzip": 7198,
     "files": 14,
     "dependencies": 5
   },
@@ -29,13 +29,13 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 5
   },
   "AccessExplainer": {
-    "bytes": 36837,
-    "gzip": 10058,
+    "bytes": 36849,
+    "gzip": 10060,
     "files": 25,
     "dependencies": 8
   },
   "AccessRequests": {
-    "bytes": 54633,
+    "bytes": 54657,
     "gzip": 13571,
     "files": 50,
     "dependencies": 20
@@ -65,26 +65,26 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 8
   },
   "ActivityHeatmap": {
-    "bytes": 21665,
+    "bytes": 21701,
     "gzip": 6189,
     "files": 19,
     "dependencies": 6
   },
   "AddToCalendar": {
-    "bytes": 29846,
-    "gzip": 8862,
+    "bytes": 29858,
+    "gzip": 8865,
     "files": 21,
     "dependencies": 6
   },
   "AddressInput": {
-    "bytes": 21553,
-    "gzip": 5904,
+    "bytes": 21565,
+    "gzip": 5905,
     "files": 15,
     "dependencies": 5
   },
   "AgendaList": {
-    "bytes": 9895,
-    "gzip": 3248,
+    "bytes": 9907,
+    "gzip": 3258,
     "files": 7,
     "dependencies": 2
   },
@@ -107,14 +107,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "AmountField": {
-    "bytes": 28041,
-    "gzip": 7674,
+    "bytes": 28053,
+    "gzip": 7675,
     "files": 21,
     "dependencies": 6
   },
   "AnchorNav": {
-    "bytes": 2775,
-    "gzip": 1164,
+    "bytes": 2787,
+    "gzip": 1173,
     "files": 3,
     "dependencies": 0
   },
@@ -149,7 +149,7 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 4
   },
   "ApiKeyManager": {
-    "bytes": 53914,
+    "bytes": 53938,
     "gzip": 13207,
     "files": 53,
     "dependencies": 22
@@ -197,14 +197,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "AudioPlayer": {
-    "bytes": 46125,
-    "gzip": 11414,
+    "bytes": 46161,
+    "gzip": 11417,
     "files": 34,
     "dependencies": 13
   },
   "AudioTrimmer": {
-    "bytes": 18861,
-    "gzip": 6103,
+    "bytes": 18873,
+    "gzip": 6104,
     "files": 10,
     "dependencies": 3
   },
@@ -245,8 +245,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 2
   },
   "AvatarUpload": {
-    "bytes": 24103,
-    "gzip": 6890,
+    "bytes": 24115,
+    "gzip": 6891,
     "files": 11,
     "dependencies": 3
   },
@@ -341,8 +341,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 9
   },
   "Breadcrumb": {
-    "bytes": 9399,
-    "gzip": 2849,
+    "bytes": 9423,
+    "gzip": 2857,
     "files": 7,
     "dependencies": 1
   },
@@ -383,8 +383,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 2
   },
   "CameraCapture": {
-    "bytes": 35057,
-    "gzip": 9704,
+    "bytes": 35069,
+    "gzip": 9708,
     "files": 23,
     "dependencies": 7
   },
@@ -431,8 +431,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 4
   },
   "CascadeSelect": {
-    "bytes": 26204,
-    "gzip": 7255,
+    "bytes": 26216,
+    "gzip": 7257,
     "files": 17,
     "dependencies": 4
   },
@@ -455,20 +455,20 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 1
   },
   "ChatThread": {
-    "bytes": 19727,
-    "gzip": 5791,
+    "bytes": 19775,
+    "gzip": 5793,
     "files": 15,
     "dependencies": 4
   },
   "Checkbox": {
-    "bytes": 2774,
-    "gzip": 1105,
+    "bytes": 2786,
+    "gzip": 1113,
     "files": 3,
     "dependencies": 0
   },
   "CheckboxGroup": {
-    "bytes": 8636,
-    "gzip": 2731,
+    "bytes": 8648,
+    "gzip": 2737,
     "files": 9,
     "dependencies": 3
   },
@@ -491,8 +491,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 1
   },
   "ChoiceCardGroup": {
-    "bytes": 8461,
-    "gzip": 2449,
+    "bytes": 8473,
+    "gzip": 2447,
     "files": 7,
     "dependencies": 2
   },
@@ -545,8 +545,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 9
   },
   "CohortRetention": {
-    "bytes": 15618,
-    "gzip": 4875,
+    "bytes": 15654,
+    "gzip": 4883,
     "files": 9,
     "dependencies": 2
   },
@@ -575,13 +575,13 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "Combobox": {
-    "bytes": 31024,
-    "gzip": 7999,
+    "bytes": 31048,
+    "gzip": 8001,
     "files": 21,
     "dependencies": 6
   },
   "CommandPalette": {
-    "bytes": 26007,
+    "bytes": 26031,
     "gzip": 7132,
     "files": 23,
     "dependencies": 8
@@ -635,8 +635,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "ContextMenu": {
-    "bytes": 23142,
-    "gzip": 5911,
+    "bytes": 23166,
+    "gzip": 5914,
     "files": 20,
     "dependencies": 6
   },
@@ -671,14 +671,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "CreditCardInput": {
-    "bytes": 7811,
-    "gzip": 2622,
+    "bytes": 7823,
+    "gzip": 2631,
     "files": 3,
     "dependencies": 0
   },
   "Cropper": {
-    "bytes": 6647,
-    "gzip": 2055,
+    "bytes": 6659,
+    "gzip": 2054,
     "files": 3,
     "dependencies": 0
   },
@@ -713,20 +713,20 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 13
   },
   "DashboardGrid": {
-    "bytes": 19693,
+    "bytes": 19705,
     "gzip": 5545,
     "files": 11,
     "dependencies": 3
   },
   "DataExplorer": {
-    "bytes": 45375,
-    "gzip": 10790,
+    "bytes": 45411,
+    "gzip": 10789,
     "files": 45,
     "dependencies": 20
   },
   "DataExportPanel": {
-    "bytes": 54961,
-    "gzip": 13990,
+    "bytes": 54985,
+    "gzip": 13991,
     "files": 39,
     "dependencies": 14
   },
@@ -737,14 +737,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 4
   },
   "DataProfile": {
-    "bytes": 14104,
+    "bytes": 14116,
     "gzip": 4512,
     "files": 7,
     "dependencies": 2
   },
   "DataTable": {
-    "bytes": 25272,
-    "gzip": 6761,
+    "bytes": 25284,
+    "gzip": 6760,
     "files": 21,
     "dependencies": 8
   },
@@ -755,20 +755,20 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 9
   },
   "DateRangePicker": {
-    "bytes": 37449,
-    "gzip": 9928,
+    "bytes": 37461,
+    "gzip": 9930,
     "files": 29,
     "dependencies": 10
   },
   "DateTimePicker": {
-    "bytes": 44377,
-    "gzip": 11600,
+    "bytes": 44389,
+    "gzip": 11601,
     "files": 31,
     "dependencies": 11
   },
   "DaySchedule": {
-    "bytes": 9147,
-    "gzip": 2971,
+    "bytes": 9159,
+    "gzip": 2972,
     "files": 7,
     "dependencies": 2
   },
@@ -779,8 +779,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 1
   },
   "DiceRoller": {
-    "bytes": 7353,
-    "gzip": 2558,
+    "bytes": 7367,
+    "gzip": 2564,
     "files": 7,
     "dependencies": 2
   },
@@ -851,8 +851,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 4
   },
   "DropdownMenu": {
-    "bytes": 22639,
-    "gzip": 6295,
+    "bytes": 22651,
+    "gzip": 6297,
     "files": 24,
     "dependencies": 8
   },
@@ -863,8 +863,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 4
   },
   "DurationInput": {
-    "bytes": 6845,
-    "gzip": 2527,
+    "bytes": 6857,
+    "gzip": 2535,
     "files": 3,
     "dependencies": 0
   },
@@ -875,8 +875,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 6
   },
   "EditableTable": {
-    "bytes": 10671,
-    "gzip": 3106,
+    "bytes": 10695,
+    "gzip": 3107,
     "files": 5,
     "dependencies": 1
   },
@@ -887,14 +887,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 6
   },
   "EmailViewer": {
-    "bytes": 19312,
+    "bytes": 19324,
     "gzip": 6374,
     "files": 13,
     "dependencies": 5
   },
   "EmojiPicker": {
-    "bytes": 20437,
-    "gzip": 7785,
+    "bytes": 20461,
+    "gzip": 7795,
     "files": 8,
     "dependencies": 1
   },
@@ -923,7 +923,7 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 3
   },
   "EventCalendar": {
-    "bytes": 43008,
+    "bytes": 43032,
     "gzip": 10996,
     "files": 27,
     "dependencies": 9
@@ -989,8 +989,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 1
   },
   "FileList": {
-    "bytes": 34170,
-    "gzip": 9355,
+    "bytes": 34206,
+    "gzip": 9357,
     "files": 31,
     "dependencies": 11
   },
@@ -1007,8 +1007,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 5
   },
   "FilterBuilder": {
-    "bytes": 42220,
-    "gzip": 10705,
+    "bytes": 42232,
+    "gzip": 10709,
     "files": 31,
     "dependencies": 11
   },
@@ -1037,7 +1037,7 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "FloatingPanel": {
-    "bytes": 18413,
+    "bytes": 18425,
     "gzip": 5343,
     "files": 13,
     "dependencies": 4
@@ -1067,8 +1067,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 1
   },
   "FormulaEditor": {
-    "bytes": 18148,
-    "gzip": 5988,
+    "bytes": 18160,
+    "gzip": 5992,
     "files": 3,
     "dependencies": 0
   },
@@ -1145,14 +1145,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 2
   },
   "HexViewer": {
-    "bytes": 21993,
+    "bytes": 22005,
     "gzip": 6525,
     "files": 16,
     "dependencies": 6
   },
   "HighlightMatch": {
-    "bytes": 2853,
-    "gzip": 1229,
+    "bytes": 2865,
+    "gzip": 1234,
     "files": 3,
     "dependencies": 0
   },
@@ -1199,8 +1199,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "ImageAnnotator": {
-    "bytes": 18963,
-    "gzip": 5360,
+    "bytes": 18975,
+    "gzip": 5361,
     "files": 13,
     "dependencies": 4
   },
@@ -1217,14 +1217,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 5
   },
   "ImageGallery": {
-    "bytes": 28478,
-    "gzip": 7729,
+    "bytes": 28490,
+    "gzip": 7730,
     "files": 25,
     "dependencies": 9
   },
   "ImportMapper": {
-    "bytes": 30250,
-    "gzip": 8247,
+    "bytes": 30262,
+    "gzip": 8249,
     "files": 21,
     "dependencies": 6
   },
@@ -1283,8 +1283,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 7
   },
   "InviteMembers": {
-    "bytes": 66145,
-    "gzip": 16050,
+    "bytes": 66157,
+    "gzip": 16052,
     "files": 57,
     "dependencies": 23
   },
@@ -1319,14 +1319,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 5
   },
   "Kbd": {
-    "bytes": 914,
-    "gzip": 507,
+    "bytes": 926,
+    "gzip": 514,
     "files": 3,
     "dependencies": 0
   },
   "KeyboardShortcutsDialog": {
-    "bytes": 30211,
-    "gzip": 8514,
+    "bytes": 30223,
+    "gzip": 8518,
     "files": 27,
     "dependencies": 10
   },
@@ -1355,8 +1355,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 1
   },
   "LanguageSwitcher": {
-    "bytes": 23896,
-    "gzip": 6522,
+    "bytes": 23908,
+    "gzip": 6524,
     "files": 15,
     "dependencies": 3
   },
@@ -1373,8 +1373,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "Leaderboard": {
-    "bytes": 8522,
-    "gzip": 2601,
+    "bytes": 8552,
+    "gzip": 2614,
     "files": 7,
     "dependencies": 2
   },
@@ -1397,7 +1397,7 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "LikertScale": {
-    "bytes": 6611,
+    "bytes": 6623,
     "gzip": 2034,
     "files": 3,
     "dependencies": 0
@@ -1409,8 +1409,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 5
   },
   "LinkPreview": {
-    "bytes": 21048,
-    "gzip": 5866,
+    "bytes": 21096,
+    "gzip": 5867,
     "files": 17,
     "dependencies": 5
   },
@@ -1451,14 +1451,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 2
   },
   "LocaleSettings": {
-    "bytes": 44832,
-    "gzip": 11371,
+    "bytes": 44856,
+    "gzip": 11376,
     "files": 33,
     "dependencies": 12
   },
   "LogViewer": {
-    "bytes": 18727,
-    "gzip": 5442,
+    "bytes": 18763,
+    "gzip": 5444,
     "files": 10,
     "dependencies": 2
   },
@@ -1469,8 +1469,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 2
   },
   "MagicTabs": {
-    "bytes": 9310,
-    "gzip": 2923,
+    "bytes": 9322,
+    "gzip": 2930,
     "files": 7,
     "dependencies": 1
   },
@@ -1493,8 +1493,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 3
   },
   "MarkdownEditor": {
-    "bytes": 18488,
-    "gzip": 5615,
+    "bytes": 18524,
+    "gzip": 5616,
     "files": 7,
     "dependencies": 1
   },
@@ -1511,8 +1511,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "MarqueeSelect": {
-    "bytes": 4491,
-    "gzip": 1642,
+    "bytes": 4503,
+    "gzip": 1649,
     "files": 5,
     "dependencies": 1
   },
@@ -1529,14 +1529,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "MasterDetail": {
-    "bytes": 12668,
+    "bytes": 12680,
     "gzip": 3897,
     "files": 10,
     "dependencies": 2
   },
   "MathFormula": {
-    "bytes": 16462,
-    "gzip": 5696,
+    "bytes": 16486,
+    "gzip": 5702,
     "files": 3,
     "dependencies": 0
   },
@@ -1559,8 +1559,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "MemberList": {
-    "bytes": 54158,
-    "gzip": 13550,
+    "bytes": 54170,
+    "gzip": 13552,
     "files": 49,
     "dependencies": 19
   },
@@ -1571,20 +1571,20 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 3
   },
   "MentionInput": {
-    "bytes": 12713,
-    "gzip": 4262,
+    "bytes": 12725,
+    "gzip": 4263,
     "files": 12,
     "dependencies": 4
   },
   "Menu": {
-    "bytes": 18447,
-    "gzip": 5285,
+    "bytes": 18459,
+    "gzip": 5287,
     "files": 18,
     "dependencies": 5
   },
   "Menubar": {
-    "bytes": 14592,
-    "gzip": 3934,
+    "bytes": 14604,
+    "gzip": 3935,
     "files": 5,
     "dependencies": 0
   },
@@ -1619,8 +1619,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 8
   },
   "Metronome": {
-    "bytes": 46536,
-    "gzip": 12024,
+    "bytes": 46548,
+    "gzip": 12025,
     "files": 34,
     "dependencies": 12
   },
@@ -1637,8 +1637,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 4
   },
   "MiniMap": {
-    "bytes": 2863,
-    "gzip": 1086,
+    "bytes": 2875,
+    "gzip": 1085,
     "files": 3,
     "dependencies": 0
   },
@@ -1649,8 +1649,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 7
   },
   "MonthPicker": {
-    "bytes": 13744,
-    "gzip": 4228,
+    "bytes": 13756,
+    "gzip": 4229,
     "files": 9,
     "dependencies": 2
   },
@@ -1667,8 +1667,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "MultiSelect": {
-    "bytes": 32425,
-    "gzip": 8207,
+    "bytes": 32461,
+    "gzip": 8206,
     "files": 25,
     "dependencies": 8
   },
@@ -1679,8 +1679,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 9
   },
   "Navbar": {
-    "bytes": 23419,
-    "gzip": 6093,
+    "bytes": 23457,
+    "gzip": 6095,
     "files": 25,
     "dependencies": 10
   },
@@ -1703,14 +1703,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 4
   },
   "NewsletterSignup": {
-    "bytes": 20249,
-    "gzip": 5891,
+    "bytes": 20261,
+    "gzip": 5894,
     "files": 18,
     "dependencies": 7
   },
   "NodeEditor": {
-    "bytes": 53995,
-    "gzip": 13500,
+    "bytes": 54007,
+    "gzip": 13503,
     "files": 29,
     "dependencies": 10
   },
@@ -1727,8 +1727,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 16
   },
   "NotificationPreferences": {
-    "bytes": 38964,
-    "gzip": 10144,
+    "bytes": 38988,
+    "gzip": 10145,
     "files": 31,
     "dependencies": 11
   },
@@ -1763,8 +1763,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 6
   },
   "OpenApiReference": {
-    "bytes": 35887,
-    "gzip": 9781,
+    "bytes": 35911,
+    "gzip": 9782,
     "files": 14,
     "dependencies": 4
   },
@@ -1781,8 +1781,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 7
   },
   "OrgChart": {
-    "bytes": 25654,
-    "gzip": 6994,
+    "bytes": 25668,
+    "gzip": 6992,
     "files": 15,
     "dependencies": 5
   },
@@ -1871,7 +1871,7 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "PaymentMethodCard": {
-    "bytes": 11359,
+    "bytes": 11371,
     "gzip": 3500,
     "files": 13,
     "dependencies": 5
@@ -1895,8 +1895,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "PianoKeys": {
-    "bytes": 9017,
-    "gzip": 3095,
+    "bytes": 9029,
+    "gzip": 3096,
     "files": 5,
     "dependencies": 1
   },
@@ -1919,14 +1919,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 4
   },
   "PivotTable": {
-    "bytes": 38580,
-    "gzip": 10273,
+    "bytes": 38592,
+    "gzip": 10274,
     "files": 25,
     "dependencies": 8
   },
   "PixelCanvas": {
-    "bytes": 8929,
-    "gzip": 3021,
+    "bytes": 8941,
+    "gzip": 3019,
     "files": 7,
     "dependencies": 2
   },
@@ -1955,7 +1955,7 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "PresenceBar": {
-    "bytes": 21971,
+    "bytes": 21983,
     "gzip": 6267,
     "files": 21,
     "dependencies": 7
@@ -1985,8 +1985,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 10
   },
   "PriorityNav": {
-    "bytes": 22149,
-    "gzip": 6363,
+    "bytes": 22161,
+    "gzip": 6364,
     "files": 15,
     "dependencies": 3
   },
@@ -1997,8 +1997,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 6
   },
   "ProductVariantPicker": {
-    "bytes": 9355,
-    "gzip": 3030,
+    "bytes": 9367,
+    "gzip": 3029,
     "files": 3,
     "dependencies": 0
   },
@@ -2027,8 +2027,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "PromoBanner": {
-    "bytes": 5080,
-    "gzip": 1739,
+    "bytes": 5092,
+    "gzip": 1741,
     "files": 5,
     "dependencies": 1
   },
@@ -2051,14 +2051,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "QuestionQueue": {
-    "bytes": 49311,
-    "gzip": 12495,
+    "bytes": 49335,
+    "gzip": 12496,
     "files": 41,
     "dependencies": 15
   },
   "QuickActions": {
-    "bytes": 22624,
-    "gzip": 6266,
+    "bytes": 22648,
+    "gzip": 6267,
     "files": 24,
     "dependencies": 8
   },
@@ -2081,8 +2081,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 2
   },
   "RadialMenu": {
-    "bytes": 17956,
-    "gzip": 5096,
+    "bytes": 17968,
+    "gzip": 5102,
     "files": 7,
     "dependencies": 1
   },
@@ -2123,8 +2123,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 1
   },
   "ReadAloud": {
-    "bytes": 34400,
-    "gzip": 9562,
+    "bytes": 34424,
+    "gzip": 9566,
     "files": 23,
     "dependencies": 7
   },
@@ -2135,13 +2135,13 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "RecentItems": {
-    "bytes": 17534,
-    "gzip": 5184,
+    "bytes": 17558,
+    "gzip": 5193,
     "files": 10,
     "dependencies": 2
   },
   "RecurrenceEditor": {
-    "bytes": 53928,
+    "bytes": 53940,
     "gzip": 13178,
     "files": 35,
     "dependencies": 13
@@ -2159,14 +2159,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "ReleaseNotesModal": {
-    "bytes": 30814,
-    "gzip": 8431,
+    "bytes": 30826,
+    "gzip": 8430,
     "files": 27,
     "dependencies": 10
   },
   "RemoteSelections": {
-    "bytes": 9120,
-    "gzip": 3104,
+    "bytes": 9144,
+    "gzip": 3105,
     "files": 4,
     "dependencies": 0
   },
@@ -2195,14 +2195,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "ReviewSummary": {
-    "bytes": 14908,
-    "gzip": 4629,
+    "bytes": 14920,
+    "gzip": 4630,
     "files": 10,
     "dependencies": 2
   },
   "RichTextEditor": {
-    "bytes": 46653,
-    "gzip": 12646,
+    "bytes": 46665,
+    "gzip": 12650,
     "files": 33,
     "dependencies": 13
   },
@@ -2219,13 +2219,13 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "RoadmapBoard": {
-    "bytes": 40968,
-    "gzip": 10594,
+    "bytes": 40980,
+    "gzip": 10596,
     "files": 28,
     "dependencies": 9
   },
   "RolePermissions": {
-    "bytes": 15293,
+    "bytes": 15305,
     "gzip": 4441,
     "files": 13,
     "dependencies": 4
@@ -2267,14 +2267,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 4
   },
   "SchemaForm": {
-    "bytes": 54302,
-    "gzip": 13692,
+    "bytes": 54326,
+    "gzip": 13695,
     "files": 37,
     "dependencies": 14
   },
   "ScopedSearch": {
-    "bytes": 28757,
-    "gzip": 7803,
+    "bytes": 28769,
+    "gzip": 7805,
     "files": 19,
     "dependencies": 5
   },
@@ -2333,14 +2333,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 3
   },
   "SearchableCheckboxList": {
-    "bytes": 18851,
-    "gzip": 4921,
+    "bytes": 18875,
+    "gzip": 4922,
     "files": 11,
     "dependencies": 3
   },
   "SeatMap": {
-    "bytes": 18507,
-    "gzip": 5477,
+    "bytes": 18555,
+    "gzip": 5478,
     "files": 11,
     "dependencies": 4
   },
@@ -2363,8 +2363,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 1
   },
   "Select": {
-    "bytes": 23792,
-    "gzip": 6684,
+    "bytes": 23804,
+    "gzip": 6686,
     "files": 17,
     "dependencies": 4
   },
@@ -2411,14 +2411,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "ShareMenu": {
-    "bytes": 25177,
-    "gzip": 7310,
+    "bytes": 25189,
+    "gzip": 7311,
     "files": 21,
     "dependencies": 6
   },
   "SharePermissions": {
-    "bytes": 50600,
-    "gzip": 12473,
+    "bytes": 50624,
+    "gzip": 12475,
     "files": 40,
     "dependencies": 15
   },
@@ -2435,7 +2435,7 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "ShortcutRecorder": {
-    "bytes": 7277,
+    "bytes": 7289,
     "gzip": 2601,
     "files": 7,
     "dependencies": 2
@@ -2447,26 +2447,26 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 2
   },
   "Sidebar": {
-    "bytes": 6018,
-    "gzip": 2031,
+    "bytes": 6030,
+    "gzip": 2041,
     "files": 10,
     "dependencies": 3
   },
   "SidebarRail": {
-    "bytes": 18146,
+    "bytes": 18170,
     "gzip": 5137,
     "files": 20,
     "dependencies": 6
   },
   "Sidenotes": {
-    "bytes": 8470,
-    "gzip": 2743,
+    "bytes": 8494,
+    "gzip": 2750,
     "files": 4,
     "dependencies": 0
   },
   "SignalStrength": {
-    "bytes": 2148,
-    "gzip": 1000,
+    "bytes": 2161,
+    "gzip": 1009,
     "files": 3,
     "dependencies": 0
   },
@@ -2489,8 +2489,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "Skeleton": {
-    "bytes": 1450,
-    "gzip": 683,
+    "bytes": 1474,
+    "gzip": 684,
     "files": 3,
     "dependencies": 0
   },
@@ -2543,7 +2543,7 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 1
   },
   "SortableTree": {
-    "bytes": 21796,
+    "bytes": 21808,
     "gzip": 5994,
     "files": 9,
     "dependencies": 2
@@ -2573,14 +2573,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "SplitButton": {
-    "bytes": 27455,
-    "gzip": 7502,
+    "bytes": 27467,
+    "gzip": 7504,
     "files": 25,
     "dependencies": 8
   },
   "SplitFlap": {
-    "bytes": 4078,
-    "gzip": 1611,
+    "bytes": 4090,
+    "gzip": 1619,
     "files": 6,
     "dependencies": 1
   },
@@ -2597,8 +2597,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "SsoSetup": {
-    "bytes": 45157,
-    "gzip": 11556,
+    "bytes": 45169,
+    "gzip": 11559,
     "files": 41,
     "dependencies": 16
   },
@@ -2651,8 +2651,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 1
   },
   "StatusStrip": {
-    "bytes": 17023,
-    "gzip": 5326,
+    "bytes": 17047,
+    "gzip": 5330,
     "files": 11,
     "dependencies": 3
   },
@@ -2711,8 +2711,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 4
   },
   "SunburstChart": {
-    "bytes": 27862,
-    "gzip": 8226,
+    "bytes": 27874,
+    "gzip": 8227,
     "files": 13,
     "dependencies": 3
   },
@@ -2795,8 +2795,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "TextLink": {
-    "bytes": 7292,
-    "gzip": 2386,
+    "bytes": 7304,
+    "gzip": 2392,
     "files": 5,
     "dependencies": 0
   },
@@ -2815,6 +2815,12 @@ export const sizes: Record<string, ComponentSize> = {
   "Textarea": {
     "bytes": 1307,
     "gzip": 669,
+    "files": 3,
+    "dependencies": 0
+  },
+  "ThemeScope": {
+    "bytes": 1732,
+    "gzip": 715,
     "files": 3,
     "dependencies": 0
   },
@@ -2837,14 +2843,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "TimePicker": {
-    "bytes": 18754,
-    "gzip": 5676,
+    "bytes": 18766,
+    "gzip": 5677,
     "files": 17,
     "dependencies": 5
   },
   "TimeRangePicker": {
-    "bytes": 23855,
-    "gzip": 6893,
+    "bytes": 23867,
+    "gzip": 6894,
     "files": 21,
     "dependencies": 7
   },
@@ -2861,8 +2867,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 3
   },
   "TimezonePlanner": {
-    "bytes": 47401,
-    "gzip": 12501,
+    "bytes": 47425,
+    "gzip": 12504,
     "files": 31,
     "dependencies": 11
   },
@@ -2897,37 +2903,37 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "Tooltip": {
-    "bytes": 13852,
+    "bytes": 13864,
     "gzip": 3974,
     "files": 13,
     "dependencies": 3
   },
   "TrackChanges": {
-    "bytes": 13163,
-    "gzip": 4154,
+    "bytes": 13175,
+    "gzip": 4155,
     "files": 7,
     "dependencies": 2
   },
   "TranscriptView": {
-    "bytes": 23408,
-    "gzip": 6476,
+    "bytes": 23432,
+    "gzip": 6479,
     "files": 16,
     "dependencies": 5
   },
   "TransferList": {
-    "bytes": 17046,
-    "gzip": 4857,
+    "bytes": 17070,
+    "gzip": 4856,
     "files": 7,
     "dependencies": 1
   },
   "TreeMap": {
-    "bytes": 8698,
+    "bytes": 8710,
     "gzip": 2944,
     "files": 7,
     "dependencies": 2
   },
   "TreeSelect": {
-    "bytes": 32003,
+    "bytes": 32053,
     "gzip": 8426,
     "files": 17,
     "dependencies": 4
@@ -2939,8 +2945,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 2
   },
   "TreeView": {
-    "bytes": 12195,
-    "gzip": 3705,
+    "bytes": 12207,
+    "gzip": 3715,
     "files": 7,
     "dependencies": 1
   },
@@ -2951,8 +2957,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "TwoFactorSetup": {
-    "bytes": 30678,
-    "gzip": 8005,
+    "bytes": 30702,
+    "gzip": 8004,
     "files": 27,
     "dependencies": 11
   },
@@ -2969,7 +2975,7 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 1
   },
   "UndoStack": {
-    "bytes": 10460,
+    "bytes": 10484,
     "gzip": 3230,
     "files": 11,
     "dependencies": 4
@@ -2981,8 +2987,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "UnsavedChangesBar": {
-    "bytes": 25849,
-    "gzip": 7127,
+    "bytes": 25861,
+    "gzip": 7128,
     "files": 25,
     "dependencies": 9
   },
@@ -3017,8 +3023,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 11
   },
   "UserMenu": {
-    "bytes": 27293,
-    "gzip": 7709,
+    "bytes": 27305,
+    "gzip": 7710,
     "files": 26,
     "dependencies": 8
   },
@@ -3041,8 +3047,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 10
   },
   "VersionSwitcher": {
-    "bytes": 22962,
-    "gzip": 6379,
+    "bytes": 22974,
+    "gzip": 6383,
     "files": 17,
     "dependencies": 4
   },
@@ -3053,8 +3059,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 2
   },
   "VideoPlayer": {
-    "bytes": 37003,
-    "gzip": 9802,
+    "bytes": 37015,
+    "gzip": 9803,
     "files": 30,
     "dependencies": 11
   },
@@ -3065,8 +3071,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "VisionSimulator": {
-    "bytes": 27007,
-    "gzip": 7655,
+    "bytes": 27019,
+    "gzip": 7657,
     "files": 19,
     "dependencies": 5
   },
@@ -3077,8 +3083,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "VoiceRecorder": {
-    "bytes": 47667,
-    "gzip": 12571,
+    "bytes": 47679,
+    "gzip": 12573,
     "files": 33,
     "dependencies": 12
   },
@@ -3125,8 +3131,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 17
   },
   "WeekView": {
-    "bytes": 19479,
-    "gzip": 5668,
+    "bytes": 19503,
+    "gzip": 5667,
     "files": 9,
     "dependencies": 2
   },
@@ -3137,8 +3143,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "Whiteboard": {
-    "bytes": 53664,
-    "gzip": 14268,
+    "bytes": 53676,
+    "gzip": 14263,
     "files": 30,
     "dependencies": 11
   },
@@ -3149,14 +3155,14 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 3
   },
   "Wordmark": {
-    "bytes": 1666,
-    "gzip": 769,
+    "bytes": 1704,
+    "gzip": 778,
     "files": 3,
     "dependencies": 0
   },
   "WorkspaceSwitcher": {
-    "bytes": 33196,
-    "gzip": 8926,
+    "bytes": 33244,
+    "gzip": 8929,
     "files": 28,
     "dependencies": 9
   },
@@ -3174,8 +3180,8 @@ export function sizeOf(component: string): ComponentSize | undefined {
 
 /** The whole package, once, plus the extremes. */
 export const library = {
-  "gzip": 671871,
-  "modules": 547,
+  "gzip": 680853,
+  "modules": 550,
   "median": 3260,
   "lightest": {
     "name": "VisuallyHidden",
@@ -3183,6 +3189,6 @@ export const library = {
   },
   "heaviest": {
     "name": "InviteMembers",
-    "gzip": 16050
+    "gzip": 16052
   }
 }

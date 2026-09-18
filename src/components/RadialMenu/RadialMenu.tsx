@@ -300,7 +300,7 @@ export function RadialMenu({
                 <span
                   aria-hidden="true"
                   className={cn(
-                    'pointer-events-none absolute whitespace-nowrap rounded-[10px] bg-ink px-2.5 py-1.5 text-[11px] font-semibold leading-none text-ink-inverse shadow-[var(--shadow-float)]',
+                    'pointer-events-none absolute whitespace-nowrap rounded-[var(--radius-10)] bg-ink px-2.5 py-1.5 text-[11px] font-semibold leading-none text-ink-inverse shadow-[var(--shadow-float)]',
                     'transition-opacity duration-150 motion-reduce:transition-none',
                     orientation === 'vertical' ? 'right-full mr-3' : 'bottom-full mb-2',
                     showLabels && open

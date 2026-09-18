@@ -177,7 +177,7 @@ export function MonthPicker(props: MonthPickerProps) {
                     onClick={() => choose(id)}
                     onFocus={() => setFocused(id)}
                     className={cn(
-                      'flex h-10 w-full items-center justify-center rounded-[10px] text-[13px] transition-colors',
+                      'flex h-10 w-full items-center justify-center rounded-[var(--radius-10)] text-[13px] transition-colors',
                       selected
                         ? 'bg-accent font-bold text-accent-ink'
                         : between

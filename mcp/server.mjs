@@ -130,9 +130,23 @@ the tinted near-black where it reads, otherwise white, otherwise whichever of
 pure black or white is stronger. Across 22,680 swept hues none falls below
 4.5:1. Call \`applyAccent('#8b5cf6')\` to retheme everything at runtime.
 
+## Theming beyond the accent
+\`applyTheme({ accent, base, radius, font, style })\` sets any part of the theme
+and merges with the rest. \`base\` is a neutral family (\`sage\` default,
+\`neutral\`, \`zinc\`, \`slate\`, \`stone\`, \`gray\`, \`mauve\`, \`olive\`, \`sand\`,
+\`tinted\`, or \`{ hue, chroma }\` in OKLCH), derived so text clears 4.5:1 on every
+background in both modes. \`radius\` is \`none | sm | md | default | lg | xl\` or a
+multiplier; \`font\` a preset id or \`{ family }\` (never fetched — see
+\`fontStylesheetUrl\`/\`loadFont\`); \`style\` is \`soft | flat | outline | elevated\`.
+\`THEME_PRESETS\` holds nine complete themes. \`themeToCss(theme)\` prints CSS that
+needs no runtime; \`serializeTheme\`/\`parseTheme\` make share strings. Theme one
+section with \`<ThemeScope theme={{ ... }}>\`, which re-applies on mode changes.
+
 ## The rules every component obeys
 1. No new tokens. Colour, radius, shadow and type come from one file. A
    component that needs a new value is a component that breaks the system.
+   Radii are tokens too — \`rounded-[var(--radius-10)]\`, never
+   \`rounded-[10px]\` — so they follow the theme's radius scale.
 2. Reduced motion is a real state, not the animation with the movement
    deleted — the still frame still has to say what the component means.
 3. Every gesture has a key. Swipe, drag, hold and pinch each have a keyboard
@@ -173,6 +187,10 @@ npm install klyv
 import { Button, DataTable, applyAccent } from 'klyv'
 import 'klyv/styles.css'
 \`\`\`
+
+Theme it with \`applyTheme({ accent: '#8b5cf6', base: 'slate', radius: 'lg' })\`,
+or paste the output of \`themeToCss(theme)\` into a stylesheet to theme it with
+no runtime. \`<ThemeScope theme={...}>\` themes one section.
 
 \`klyv/styles.css\` is prebuilt (~14.7 KB gzipped) and contains the tokens,
 the base layer and exactly the utilities the library uses — Tailwind is not

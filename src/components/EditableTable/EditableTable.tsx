@@ -229,7 +229,7 @@ export function EditableTable<T extends { id: string }>({
                 const standing = column.validate?.(item[column.key], item)
                 const errorId = `${baseId}-${r}-${c}-error`
                 const editorClass = cn(
-                  'h-full w-full rounded-[6px] bg-surface px-2 py-1.5 text-[13px] font-medium text-ink outline-2 outline-focus',
+                  'h-full w-full rounded-[var(--radius-6)] bg-surface px-2 py-1.5 text-[13px] font-medium text-ink outline-2 outline-focus',
                   end && 'text-right tabular-nums',
                   editing?.error && 'outline-danger',
                 )
@@ -295,7 +295,7 @@ export function EditableTable<T extends { id: string }>({
                             id={errorId}
                             role="alert"
                             className={cn(
-                              'absolute left-1 z-[var(--z-raised)] whitespace-nowrap rounded-[8px] bg-danger px-2 py-1 text-left text-[11px] font-bold text-ink-inverse shadow-[var(--shadow-float)]',
+                              'absolute left-1 z-[var(--z-raised)] whitespace-nowrap rounded-[var(--radius-8)] bg-danger px-2 py-1 text-left text-[11px] font-bold text-ink-inverse shadow-[var(--shadow-float)]',
                               // The last row's message opens upwards, so the scroll container does not clip it.
                               r === rows.length - 1 && r > 0 ? 'bottom-full mb-1' : 'top-full mt-1',
                             )}

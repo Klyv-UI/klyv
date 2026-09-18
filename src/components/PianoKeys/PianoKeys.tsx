@@ -176,7 +176,7 @@ export function PianoKeys({
                 onPointerUp={() => release(note.midi)}
                 onPointerLeave={() => release(note.midi)}
                 className={cn(
-                  'absolute top-0 z-10 flex items-end justify-center rounded-b-[6px] pb-1.5 transition-colors',
+                  'absolute top-0 z-10 flex items-end justify-center rounded-b-[var(--radius-6)] pb-1.5 transition-colors',
                   down ? 'bg-accent-strong text-accent-ink' : 'bg-[#16181a] text-white/50',
                 )}
                 style={{

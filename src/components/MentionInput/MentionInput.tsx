@@ -236,7 +236,7 @@ export function MentionInput({
               onClick={() => insert(option)}
               onPointerEnter={() => setActive(index)}
               className={cn(
-                'flex w-full items-center gap-2.5 rounded-[10px] px-2 py-1.5 text-left transition-colors',
+                'flex w-full items-center gap-2.5 rounded-[var(--radius-10)] px-2 py-1.5 text-left transition-colors',
                 index === active ? 'bg-surface-muted' : 'hover:bg-surface-muted',
               )}
             >

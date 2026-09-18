@@ -1,4 +1,7 @@
-import { ACCENT_PRESETS, CodeBlock, Reveal, Surface, Text, applyAccent, deriveAccent, saveAccent, systemMode } from 'klyv'
+import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
+import { ACCENT_PRESETS, Button, CodeBlock, Reveal, Surface, Text, deriveAccent, systemMode } from 'klyv'
+import { chooseAccent } from '../../lib/theme'
 import { ContrastReadout } from '../../components/ContrastReadout'
 import { useAccent, useMode } from '../../components/useTheme'
 import { brand } from '../../brand'
@@ -16,10 +19,7 @@ export function Theming() {
   const family = deriveAccent(hex)
   const dark = mode === 'dark' || (mode === 'system' && systemMode() === 'dark')
 
-  const pick = (next: string) => {
-    applyAccent(next)
-    saveAccent(next)
-  }
+  const pick = (next: string) => chooseAccent(next)
 
   return (
     <LandingSection
@@ -85,6 +85,13 @@ export function Theming() {
               language="ts"
               code={`import { applyAccent, applyMode } from '${brand.pkg}'\n\napplyAccent('${hex}')\napplyMode('system') // light, dark, or follow the OS`}
             />
+            <Text size="body" weight="medium" tone="soft" className="leading-relaxed">
+              The accent is one of five choices. Base colour, radius, font and depth are themeable the same way.
+            </Text>
+            <Button as={Link} to="/themes" variant="outline" size="sm" className="self-start">
+              Try the theme customiser
+              <ArrowRight size={14} aria-hidden />
+            </Button>
           </Surface>
         </Reveal>
       </div>

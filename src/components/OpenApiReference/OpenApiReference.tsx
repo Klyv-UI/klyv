@@ -206,7 +206,7 @@ function SchemaView({ document, schema: input, trail, depth }: SchemaViewProps) 
           <li key={name} className="flex flex-col gap-1 py-2">
             {nested || child.circular ? (
               <details open={depth < 1} className="group flex flex-col gap-1">
-                <summary className="flex cursor-pointer list-none items-center gap-1.5 rounded-[6px] [&::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer list-none items-center gap-1.5 rounded-[var(--radius-6)] [&::-webkit-details-marker]:hidden">
                   <ChevronRightIcon size={12} className="shrink-0 text-ink-faint transition-transform group-open:rotate-90 motion-reduce:transition-none" />
                   {summary}
                 </summary>
@@ -291,7 +291,7 @@ function OperationView({ document, operation, baseUrl, open, onToggle }: { docum
           onClick={onToggle}
           className="flex w-full items-center gap-3 rounded-[var(--radius-tile)] px-3 py-2.5 text-left hover:bg-surface-muted"
         >
-          <span className={cn('w-16 shrink-0 rounded-[6px] py-1 text-center font-mono text-[11px] font-bold uppercase', METHOD_TONE[method] ?? 'bg-surface-muted text-ink-soft')}>
+          <span className={cn('w-16 shrink-0 rounded-[var(--radius-6)] py-1 text-center font-mono text-[11px] font-bold uppercase', METHOD_TONE[method] ?? 'bg-surface-muted text-ink-soft')}>
             {method}
           </span>
           <Mono className={cn('min-w-0 break-all text-ink', node.deprecated === true && 'line-through')}>{path}</Mono>

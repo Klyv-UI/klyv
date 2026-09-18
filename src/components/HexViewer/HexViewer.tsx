@@ -236,7 +236,7 @@ export function HexViewer({
                 role="gridcell"
                 aria-selected={index >= start && index <= end}
                 aria-label={`${hex(baseOffset + index, digits)}: ${hex(byte)}`}
-                className={cn('rounded-[3px] px-[1px]', column > 0 && column % 8 === 0 && 'ml-[1ch]', cell(index), byte === 0 && 'text-ink-faint')}
+                className={cn('rounded-[var(--radius-3)] px-[1px]', column > 0 && column % 8 === 0 && 'ml-[1ch]', cell(index), byte === 0 && 'text-ink-faint')}
                 {...pointer(index)}
               >
                 {hex(byte)}

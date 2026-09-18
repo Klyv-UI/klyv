@@ -4,9 +4,9 @@ import { cn } from '../../lib/cn'
 export type WordmarkSize = 'sm' | 'md' | 'lg'
 
 const SIZES: Record<WordmarkSize, { mark: number; radius: string; text: string; gap: string }> = {
-  sm: { mark: 28, radius: 'rounded-[9px]', text: 'text-[15px]', gap: 'gap-2' },
-  md: { mark: 34, radius: 'rounded-[11px]', text: 'text-[18px]', gap: 'gap-2.5' },
-  lg: { mark: 44, radius: 'rounded-[14px]', text: 'text-[24px]', gap: 'gap-3' },
+  sm: { mark: 28, radius: 'rounded-[var(--radius-9)]', text: 'text-[15px]', gap: 'gap-2' },
+  md: { mark: 34, radius: 'rounded-[var(--radius-11)]', text: 'text-[18px]', gap: 'gap-2.5' },
+  lg: { mark: 44, radius: 'rounded-[var(--radius-tile)]', text: 'text-[24px]', gap: 'gap-3' },
 }
 
 export interface WordmarkProps {

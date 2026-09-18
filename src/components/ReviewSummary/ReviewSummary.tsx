@@ -124,7 +124,7 @@ export function ReviewSummary({
                     aria-label={`${name}. Show only these`}
                     onClick={() => choose(level)}
                     className={cn(
-                      'flex w-full items-center gap-3 rounded-[8px] px-2 py-1.5 transition-colors hover:bg-surface-muted',
+                      'flex w-full items-center gap-3 rounded-[var(--radius-8)] px-2 py-1.5 transition-colors hover:bg-surface-muted',
                       filter === level && 'bg-accent-soft hover:bg-accent-soft',
                     )}
                   >

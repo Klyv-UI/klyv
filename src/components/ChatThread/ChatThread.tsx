@@ -186,7 +186,7 @@ export function ChatThread({
                       key={message.id}
                       className={cn(
                         'whitespace-pre-wrap break-words px-3.5 py-2 text-[13px] font-medium leading-normal',
-                        own ? 'rounded-[18px] rounded-tr-[6px] bg-accent text-accent-ink' : 'rounded-[18px] rounded-tl-[6px] bg-surface-muted text-ink',
+                        own ? 'rounded-[var(--radius-18)] rounded-tr-[var(--radius-6)] bg-accent text-accent-ink' : 'rounded-[var(--radius-18)] rounded-tl-[var(--radius-6)] bg-surface-muted text-ink',
                         message.status === 'sending' && 'opacity-60',
                       )}
                     >

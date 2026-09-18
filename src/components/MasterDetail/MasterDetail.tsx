@@ -173,7 +173,7 @@ export function MasterDetail<T>({
             <Heading
               ref={headingRef}
               tabIndex={-1}
-              className="rounded-[6px] text-[18px] font-extrabold tracking-[-0.02em] text-ink outline-none focus-visible:outline-2"
+              className="rounded-[var(--radius-6)] text-[18px] font-extrabold tracking-[-0.02em] text-ink outline-none focus-visible:outline-2"
             >
               {itemLabel(selected)}
             </Heading>

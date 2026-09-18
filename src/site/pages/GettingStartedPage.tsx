@@ -130,6 +130,14 @@ export default function GettingStartedPage() {
             pass stays readable. Use <Code>text-accent-ink</Code> for your own labels on an accent fill rather than
             picking black or white yourself.
           </Note>
+          <Text size="caption" tone="soft" leading="normal" className="max-w-[72ch]">
+            The accent is one of five theme choices: base colour, radius, font and style work the same way, through{' '}
+            <Code>applyTheme</Code>.{' '}
+            <Link to="/themes" className="font-bold text-ink underline underline-offset-2">
+              Try the theme customiser
+            </Link>{' '}
+            to pick all five and copy the result.
+          </Text>
         </Step>
 
         <Step

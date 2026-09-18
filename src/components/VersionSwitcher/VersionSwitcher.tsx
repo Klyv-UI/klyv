@@ -154,7 +154,7 @@ export function VersionSwitcher({
               aria-selected={selected}
               onClick={() => choose(version.value)}
               className={cn(
-                'flex items-center gap-2 rounded-[10px] px-2.5 py-2 text-left text-[13px] font-semibold transition-colors',
+                'flex items-center gap-2 rounded-[var(--radius-10)] px-2.5 py-2 text-left text-[13px] font-semibold transition-colors',
                 selected ? 'bg-surface-muted text-ink' : 'text-ink-soft hover:bg-surface-muted hover:text-ink',
               )}
             >

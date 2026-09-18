@@ -30,7 +30,7 @@ function inline(text: string, key: string): ReactNode[] {
     const k = `${key}-${match.index}`
     if (code) {
       out.push(
-        <code key={k} className="rounded-[5px] bg-surface-muted px-1 py-0.5 font-mono text-[0.92em]">
+        <code key={k} className="rounded-[var(--radius-5)] bg-surface-muted px-1 py-0.5 font-mono text-[0.92em]">
           {token.slice(1, -1)}
         </code>,
       )
@@ -80,7 +80,7 @@ export function renderMarkdown(source: string, headingLevel: 2 | 3 | 4 = 3): Rea
       const code = collect((candidate) => !candidate.startsWith('```'))
       index += 1
       blocks.push(
-        <pre key={key} className="my-2 overflow-x-auto rounded-[10px] bg-surface-muted px-3 py-2 font-mono text-[12px]">
+        <pre key={key} className="my-2 overflow-x-auto rounded-[var(--radius-10)] bg-surface-muted px-3 py-2 font-mono text-[12px]">
           <code>{code.join('\n')}</code>
         </pre>,
       )

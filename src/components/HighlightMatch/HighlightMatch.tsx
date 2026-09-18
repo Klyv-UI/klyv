@@ -91,7 +91,7 @@ export function HighlightMatch({ text, query, splitWords = true, wordStart = fal
       <mark
         key={start}
         className={cn(
-          'rounded-[3px] bg-[color-mix(in_oklab,var(--color-accent)_55%,transparent)] px-px text-inherit [box-decoration-break:clone]',
+          'rounded-[var(--radius-3)] bg-[color-mix(in_oklab,var(--color-accent)_55%,transparent)] px-px text-inherit [box-decoration-break:clone]',
           markClassName,
         )}
       >

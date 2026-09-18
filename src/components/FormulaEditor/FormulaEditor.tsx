@@ -423,7 +423,7 @@ export function FormulaEditor({
                 onMouseDown={(event) => event.preventDefault()}
                 onClick={() => complete(fn)}
                 onMouseMove={() => setActive(index)}
-                className={cn('flex cursor-pointer items-baseline gap-2 rounded-[10px] px-2.5 py-1.5', index === current ? 'bg-surface-muted' : '')}
+                className={cn('flex cursor-pointer items-baseline gap-2 rounded-[var(--radius-10)] px-2.5 py-1.5', index === current ? 'bg-surface-muted' : '')}
               >
                 <span className="font-mono text-[12px] font-bold text-ink">{fn.name}</span>
                 {fn.description && <span className="truncate text-[12px] font-medium text-ink-faint">{fn.description}</span>}

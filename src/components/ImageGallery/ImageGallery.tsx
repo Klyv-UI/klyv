@@ -141,7 +141,7 @@ export function ImageGallery({
               tabIndex={at === index ? 0 : -1}
               onClick={() => go(at)}
               className={cn(
-                'size-16 shrink-0 overflow-hidden rounded-[10px] border-2 transition-colors',
+                'size-16 shrink-0 overflow-hidden rounded-[var(--radius-10)] border-2 transition-colors',
                 at === index ? 'border-ink' : 'border-transparent opacity-70 hover:opacity-100',
               )}
             >

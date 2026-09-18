@@ -344,7 +344,7 @@ export function A11yInspector({ target, rules = ALL, autoRun = true, defaultShow
             {rects.map((rect, index) =>
               rect.width + rect.height === 0 ? null : (
                 <div key={index} className="absolute" style={{ left: rect.left, top: rect.top, width: rect.width, height: rect.height }}>
-                  <span className={cn('absolute inset-0 rounded-[3px] outline-2 outline-offset-1 outline-danger', active === index ? 'outline' : 'outline-dashed')} />
+                  <span className={cn('absolute inset-0 rounded-[var(--radius-3)] outline-2 outline-offset-1 outline-danger', active === index ? 'outline' : 'outline-dashed')} />
                   <span className={cn('absolute -left-2 -top-2 flex size-5 items-center justify-center rounded-full bg-danger text-[10px] font-bold text-white shadow-[var(--shadow-float)]', active === index && 'ring-2 ring-ink')}>
                     {index + 1}
                   </span>

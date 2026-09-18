@@ -51,7 +51,7 @@ export function SidebarRail<T extends string = string>({
         shape="square"
         selected={item.value === value}
         onClick={() => onValueChange(item.value)}
-        className="size-[42px] rounded-[13px]"
+        className="size-[42px] rounded-[var(--radius-13)]"
       />
     )
     return (

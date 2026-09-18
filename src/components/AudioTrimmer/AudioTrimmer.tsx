@@ -285,7 +285,7 @@ export function AudioTrimmer({
       aria-valuetext={clock(range[which])}
       onKeyDown={onKeyDown(which)}
       style={{ left: pct(range[which]) }}
-      className="absolute inset-y-0 z-10 -ml-2 flex w-4 cursor-ew-resize touch-none justify-center rounded-[4px] outline-offset-2"
+      className="absolute inset-y-0 z-10 -ml-2 flex w-4 cursor-ew-resize touch-none justify-center rounded-[var(--radius-4)] outline-offset-2"
     >
       <span data-handle={which} className="h-full w-1 rounded-full bg-accent-strong shadow-[var(--shadow-float)]" />
     </div>

@@ -68,6 +68,30 @@ applyMode('dark')        // 'light' | 'dark' | 'system'
 contrast, so any hue stays readable without a second setting. Do not hard-code
 a label colour on an accent surface; use `text-accent-ink`.
 
+The full theme is five settings, any subset of which `applyTheme` merges in:
+
+```ts
+import { applyTheme, themeToCss, THEME_PRESETS, ThemeScope } from 'klyv'
+
+applyTheme({ accent: '#8b5cf6', base: 'slate', radius: 'lg', font: 'inter', style: 'flat' })
+applyTheme(THEME_PRESETS.find((preset) => preset.id === 'ledger')!.theme)
+const css = themeToCss({ base: 'sand', radius: 'sm' }) // paste-able, no runtime
+```
+
+- `base`: `sage` (default), `neutral`, `zinc`, `slate`, `stone`, `gray`, `mauve`,
+  `olive`, `sand`, `tinted`, or `{ hue, chroma }` in OKLCH. Derived text always
+  clears 4.5:1 on every background, in both modes.
+- `radius`: `none`, `sm`, `md`, `default`, `lg`, `xl`, or a multiplier.
+- `font`: `plus-jakarta`, `inter`, `geist`, `dm-sans`, `manrope`, `figtree`,
+  `ibm-plex-sans`, `space-grotesk`, `outfit`, `system`, `newsreader`, or
+  `{ family }`. Nothing is fetched; use `fontStylesheetUrl` or `loadFont`.
+- `style`: `soft` (default), `flat`, `outline`, `elevated`.
+
+For one section use `<ThemeScope theme={{ accent: '#f43f5e' }}>`, not
+`applyTheme` on a div: it re-applies on mode changes. Radii in components come
+from tokens (`rounded-[var(--radius-10)]`, `rounded-[var(--radius-card)]`) so
+they follow the radius setting; never write `rounded-[10px]`.
+
 ## Writing components with it
 
 - **Surfaces stack, they do not tint.** `canvas` → `shell` → `app` → `surface`

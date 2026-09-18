@@ -290,7 +290,7 @@ export function OrgChart({
                     select(person.id)
                   }}
                   className={cn(
-                    'absolute flex cursor-pointer items-center gap-2.5 rounded-[14px] border bg-surface px-3',
+                    'absolute flex cursor-pointer items-center gap-2.5 rounded-[var(--radius-tile)] border bg-surface px-3',
                     'shadow-[var(--shadow-tile)] transition-colors',
                     isSelected
                       ? 'border-accent-strong bg-[color-mix(in_oklab,var(--color-accent)_16%,var(--color-surface))]'

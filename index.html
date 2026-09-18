@@ -21,25 +21,67 @@
       rel="stylesheet"
     />
     <script>
-      // Runs before the stylesheet paints, so a reader who chose dark never
-      // sees a white flash first. Deliberately inline and dependency-free:
-      // anything deferred is already too late.
+      // Runs before the stylesheet paints, so a reader who chose dark, or a
+      // theme of their own, never sees the default flash first. Deliberately
+      // inline and dependency-free: anything deferred is already too late.
       try {
+        var root = document.documentElement
         var mode = localStorage.getItem('klyv:mode')
         if (mode === 'dark' || mode === 'light') {
-          document.documentElement.dataset.theme = mode
+          root.dataset.theme = mode
         }
+
+        // The saved theme. saveTheme keeps five choices, e.g.
+        // `8b5cf6.zinc.lg.geist.elevated`; the site also keeps the custom
+        // properties the engine resolved them to (src/site/lib/theme.ts),
+        // because deriving a base colour takes maths this script cannot carry.
+        // They are written back only when they belong to the saved string.
+        var saved = localStorage.getItem('klyv:theme') || ''
+        var parts = saved.split('.')
+        var boot = null
+        try {
+          boot = JSON.parse(localStorage.getItem('klyv-site:theme-boot') || 'null')
+        } catch (error) {
+          boot = null
+        }
+        var props = {}
+        if (boot && boot.theme === saved && boot.props && boot.props.length) {
+          for (var i = 0; i < boot.props.length; i++) {
+            root.style.setProperty(boot.props[i][0], boot.props[i][1])
+            props[boot.props[i][0]] = boot.props[i][1]
+          }
+          if (boot.font && /^https:\/\/fonts\.googleapis\.com\//.test(boot.font)) {
+            var link = document.createElement('link')
+            link.rel = 'stylesheet'
+            link.href = boot.font
+            link.setAttribute('data-klyv-font', '')
+            document.head.appendChild(link)
+          }
+        } else if (parts.length === 5) {
+          // No resolved copy: the radius needs no maths, so it still lands
+          // before paint. The rest follows from restoreTheme in main.tsx.
+          var scales = { none: 0, sm: 0.5, md: 0.75, lg: 1.25, xl: 1.5 }
+          var custom = /^x(\d{1,3})$/.exec(parts[2])
+          var scale = parts[2] in scales ? scales[parts[2]] : custom ? Math.min(3, custom[1] / 100) : null
+          if (scale !== null) root.style.setProperty('--radius-scale', String(scale))
+        }
+        if (props['--base-light-canvas']) root.style.setProperty('--boot-canvas-light', props['--base-light-canvas'])
+        if (props['--base-dark-canvas']) root.style.setProperty('--boot-canvas-dark', props['--base-dark-canvas'])
+        if (props['--font-sans']) root.style.setProperty('--boot-font', props['--font-sans'])
+
         // The boot screen wears the remembered accent too, with whichever of
-        // near-black or white reads on it.
-        var accent = localStorage.getItem('klyv:accent')
+        // near-black or white reads on it. The theme's accent wins over one
+        // saved by the older accent-only API.
+        var accent = /^[0-9a-f]{6}$/i.test(parts[0]) && parts.length === 5 ? '#' + parts[0] : null
+        accent = localStorage.getItem('klyv:accent') || accent
         if (accent && /^#[0-9a-f]{6}$/i.test(accent)) {
           var channel = function (i) {
             var c = parseInt(accent.slice(i, i + 2), 16) / 255
             return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4)
           }
           var luminance = 0.2126 * channel(1) + 0.7152 * channel(3) + 0.0722 * channel(5)
-          document.documentElement.style.setProperty('--boot-accent', accent)
-          document.documentElement.style.setProperty('--boot-ink', luminance > 0.18 ? '#16200c' : '#ffffff')
+          root.style.setProperty('--boot-accent', accent)
+          root.style.setProperty('--boot-ink', luminance > 0.18 ? '#16200c' : '#ffffff')
         }
       } catch (error) {
         /* storage denied - fall through to the system preference */
@@ -58,14 +100,14 @@
         align-items: center;
         justify-content: center;
         gap: 18px;
-        background: #f4f7f0;
+        background: var(--boot-canvas-light, #f4f7f0);
       }
       :root[data-theme='dark'] .boot {
-        background: #0b0d0a;
+        background: var(--boot-canvas-dark, #0b0d0a);
       }
       @media (prefers-color-scheme: dark) {
         :root:not([data-theme='light']) .boot {
-          background: #0b0d0a;
+          background: var(--boot-canvas-dark, #0b0d0a);
         }
       }
       .boot-mark {
@@ -73,10 +115,10 @@
         place-items: center;
         width: 44px;
         height: 44px;
-        border-radius: 14px;
+        border-radius: calc(14px * var(--radius-scale, 1));
         background: var(--boot-accent, #c8f24e);
         color: var(--boot-ink, #16200c);
-        font: 800 20px/1 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+        font: 800 20px/1 var(--boot-font, 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif);
       }
       .boot-track {
         width: 112px;

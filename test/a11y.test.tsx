@@ -18,6 +18,7 @@ import ReleasePage from '../src/site/pages/ReleasePage'
 import BuiltWithPage from '../src/site/pages/BuiltWithPage'
 import FindPage from '../src/site/pages/FindPage'
 import SavedPage from '../src/site/pages/SavedPage'
+import ThemesPage from '../src/site/pages/ThemesPage'
 import { blocks } from '../src/site/data/blocks'
 import { catalog } from '../src/site/data/catalog'
 
@@ -250,7 +251,7 @@ describe('block pages pass axe', () => {
 
 /**
  * The platform pages — templates, recipes, integrations, the changelog, Built
- * With, Find My UI and Saved — rendered inside a main, as the site renders
+ * With, Find My UI, Saved and Themes — rendered inside a main, as the site renders
  * them. The Composer is not here: its canvas is an iframe, which jsdom does
  * not lay out, so it is audited in the browser instead.
  */
@@ -267,6 +268,8 @@ const PLATFORM_PAGES: { url: string; path: string; Page: ComponentType }[] = [
   { url: '/find', path: '/find', Page: FindPage },
   { url: '/find?type=saas&needs=billing,authentication&step=results', path: '/find', Page: FindPage },
   { url: '/saved', path: '/saved', Page: SavedPage },
+  { url: '/themes', path: '/themes', Page: ThemesPage },
+  { url: '/themes?theme=8b5cf6.zinc.lg.geist.elevated', path: '/themes', Page: ThemesPage },
 ]
 
 describe('platform pages pass axe', () => {

@@ -53,7 +53,7 @@ function highlight(text: string, query: string): ReactNode {
   const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   return text.split(new RegExp(`(${escaped})`, 'gi')).map((part, index) =>
     index % 2 === 1 ? (
-      <mark key={index} className="rounded-[3px] bg-accent px-0.5 text-accent-ink">
+      <mark key={index} className="rounded-[var(--radius-3)] bg-accent px-0.5 text-accent-ink">
         {part}
       </mark>
     ) : (
@@ -237,7 +237,7 @@ export function TranscriptView({
                     onSeek?.(line.start, line)
                   }}
                   className={cn(
-                    'grid w-full grid-cols-[52px_1fr] gap-x-2 rounded-[10px] px-2 py-1.5 text-left transition-colors',
+                    'grid w-full grid-cols-[52px_1fr] gap-x-2 rounded-[var(--radius-10)] px-2 py-1.5 text-left transition-colors',
                     isCurrent
                       ? 'bg-[color-mix(in_oklab,var(--color-accent)_28%,transparent)]'
                       : 'hover:bg-surface-sunken',

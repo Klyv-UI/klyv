@@ -188,7 +188,7 @@ export function EventCalendar({
         onChosen?.()
       }}
       className={cn(
-        'relative flex w-full min-w-0 items-center gap-1 overflow-hidden rounded-[6px] py-0.5 pl-2 pr-1.5 text-left text-[11px] font-semibold leading-tight',
+        'relative flex w-full min-w-0 items-center gap-1 overflow-hidden rounded-[var(--radius-6)] py-0.5 pl-2 pr-1.5 text-left text-[11px] font-semibold leading-tight',
         'before:absolute before:inset-y-0.5 before:left-0.5 before:w-[3px] before:rounded-full',
         'transition-[filter] hover:brightness-95',
         TONES[event.tone ?? 'accent'],
@@ -282,7 +282,7 @@ export function EventCalendar({
                             tabIndex={active ? 0 : -1}
                             aria-haspopup="dialog"
                             aria-expanded={openDay === iso}
-                            className="rounded-[6px] px-1.5 py-0.5 text-left text-[11px] font-bold text-ink-soft hover:bg-surface-muted hover:text-ink"
+                            className="rounded-[var(--radius-6)] px-1.5 py-0.5 text-left text-[11px] font-bold text-ink-soft hover:bg-surface-muted hover:text-ink"
                           >
                             +{overflow} more
                             <VisuallyHidden> events on {longDate(iso)}</VisuallyHidden>

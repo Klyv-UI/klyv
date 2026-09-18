@@ -119,7 +119,7 @@ export function DateRangePicker({
                   onValueChange(preset.range)
                   setOpen(false)
                 }}
-                className="rounded-[10px] px-2.5 py-1.5 text-left text-[12px] font-semibold text-ink-soft transition-colors hover:bg-surface-muted hover:text-ink"
+                className="rounded-[var(--radius-10)] px-2.5 py-1.5 text-left text-[12px] font-semibold text-ink-soft transition-colors hover:bg-surface-muted hover:text-ink"
               >
                 {preset.label}
               </button>

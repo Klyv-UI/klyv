@@ -147,7 +147,7 @@ export function MagicTabs({
         aria-hidden="true"
         className={cn(
           'motion-safe-only pointer-events-none absolute -z-10 transition-all duration-[var(--duration-fast)] ease-out',
-          isPill ? 'rounded-full bg-surface/70' : 'rounded-[8px] bg-surface-muted',
+          isPill ? 'rounded-full bg-surface/70' : 'rounded-[var(--radius-8)] bg-surface-muted',
           hover ? 'opacity-100' : 'opacity-0',
         )}
         style={{

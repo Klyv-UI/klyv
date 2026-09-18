@@ -39,6 +39,7 @@ export const catalog: CatalogEntry[] = [
   { name: 'HighlightMatch', slug: 'highlight-match', group: 'Foundations', section: 'Utilities', blurb: 'Wraps search matches in accent-tinted marks, ignoring case and accents, matching each word on its own and treating regex characters literally.' },
   { name: 'ErrorBoundary', slug: 'error-boundary', group: 'Foundations', section: 'Utilities', blurb: 'Catches a render error in its subtree and shows a fallback, with retry, resetKeys that clear it when the input changes, and an onError hook.' },
   { name: 'Hotkeys', slug: 'hotkeys', group: 'Foundations', section: 'Utilities', blurb: 'An app-wide shortcut registry: useHotkey with a platform-aware mod key, sequences like g i, scopes a dialog can take over, conflict warnings and a live list.' },
+  { name: 'ThemeScope', slug: 'theme-scope', group: 'Foundations', section: 'Utilities', blurb: 'Puts one section on a theme of its own: accent, base colour, radius, font and style, reapplied as the mode or the page’s theme changes.' },
   { name: 'LazyMount', slug: 'lazy-mount', group: 'Foundations', section: 'Utilities', blurb: 'Mounts children only when they near the viewport, holding their space until then; can unmount again when far away, and mounts at once without support.' },
   { name: 'VisionSimulator', slug: 'vision-simulator', group: 'Foundations', section: 'Utilities', blurb: 'Shows content as seen with protanopia, deuteranopia, tritanopia, achromatopsia, blur or low contrast, using Machado 2009 matrices in SVG filters.' },
   { name: 'SpatialNavigation', slug: 'spatial-navigation', group: 'Foundations', section: 'Utilities', blurb: 'Arrow keys move focus to the nearest focusable element in that direction by on-screen geometry, leaving inputs and sliders their own keys.' },
@@ -608,6 +609,7 @@ export const catalog: CatalogEntry[] = [
  * parsed by the metadata generator in one exact shape.
  */
 export const NEW_COMPONENTS: ReadonlySet<string> = new Set([
+  'ThemeScope',
   'ErrorBoundary',
   'Hotkeys',
   'LazyMount',

@@ -252,7 +252,7 @@ export function ImageAnnotator({
                       placeholder="What should change here?"
                       onFocus={() => setSelected(pin.id)}
                       onChange={(event) => update(pin.id, { note: event.target.value })}
-                      className="min-h-0 flex-1 rounded-[10px] px-2.5 py-1.5"
+                      className="min-h-0 flex-1 rounded-[var(--radius-10)] px-2.5 py-1.5"
                     />
                   )}
                   {!readOnly && (

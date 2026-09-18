@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { ACCENT_PRESETS, Badge, Button, Text, VisuallyHidden, applyAccent, cn, saveAccent } from 'klyv'
+import { ACCENT_PRESETS, Badge, Button, Text, VisuallyHidden, cn } from 'klyv'
+import { chooseAccent } from '../../lib/theme'
 import { useAccent } from '../../components/useTheme'
 import { blockCount } from '../../data/blocks'
 import { componentCount } from '../../data/catalog'
@@ -138,10 +139,7 @@ function AccentSwatches() {
             type="button"
             aria-pressed={active}
             title={preset.name}
-            onClick={() => {
-              applyAccent(preset.hex)
-              saveAccent(preset.hex)
-            }}
+            onClick={() => chooseAccent(preset.hex)}
             className={cn(
               'size-6 rounded-full border border-black/10 transition-transform duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong focus-visible:ring-offset-2 focus-visible:ring-offset-canvas motion-reduce:transition-none motion-reduce:hover:scale-100 sm:size-6',
               active && 'ring-2 ring-ink ring-offset-2 ring-offset-canvas',

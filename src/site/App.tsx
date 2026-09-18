@@ -60,6 +60,7 @@ const router = createBrowserRouter([
       { path: 'components/:slug', lazy: page(() => import('./pages/ComponentPage')), handle: componentHandle },
       { path: 'foundations', lazy: page(() => import('./pages/FoundationsPage')) },
       { path: 'tokens', lazy: page(() => import('./pages/TokensPage')) },
+      { path: 'themes', lazy: page(() => import('./pages/ThemesPage')) },
       { path: 'playground', lazy: page(() => import('./pages/PlaygroundPage')) },
       { path: 'getting-started', lazy: page(() => import('./pages/GettingStartedPage')) },
       { path: 'blocks', lazy: page(() => import('./pages/BlocksPage')) },

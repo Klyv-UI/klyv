@@ -127,7 +127,7 @@ export function AudioPlayer({
       </div>
 
       {waveform?.length ? (
-        <div className="relative rounded-[6px] focus-within:outline-2 focus-within:outline-offset-4 focus-within:outline-focus">
+        <div className="relative rounded-[var(--radius-6)] focus-within:outline-2 focus-within:outline-offset-4 focus-within:outline-focus">
           <Waveform label="Waveform" values={waveform} progress={duration ? time / duration : 0} height={40} barWidth={3} gap={2} className="w-full justify-between" />
           <input
             type="range"
@@ -178,7 +178,7 @@ export function AudioPlayer({
                   if (audio.current?.paused) toggle()
                 }}
                 className={cn(
-                  'flex w-full items-center gap-3 rounded-[10px] px-1.5 py-1.5 text-left text-[12px] transition-colors hover:bg-surface-muted',
+                  'flex w-full items-center gap-3 rounded-[var(--radius-10)] px-1.5 py-1.5 text-left text-[12px] transition-colors hover:bg-surface-muted',
                   index === currentChapter ? 'font-bold text-ink' : 'font-medium text-ink-soft',
                 )}
               >

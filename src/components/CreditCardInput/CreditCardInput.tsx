@@ -239,7 +239,7 @@ function CardGlyph({ brand }: { brand: CreditCardInputBrand }) {
     <span
       aria-hidden="true"
       className={cn(
-        'flex h-5 w-8 shrink-0 items-center justify-center rounded-[4px] border text-[8px] font-extrabold tracking-wide transition-colors',
+        'flex h-5 w-8 shrink-0 items-center justify-center rounded-[var(--radius-4)] border text-[8px] font-extrabold tracking-wide transition-colors',
         brand === 'unknown' ? 'border-line-strong text-ink-faint' : 'border-accent-strong bg-accent text-accent-ink',
       )}
     >

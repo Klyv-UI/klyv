@@ -7,29 +7,42 @@
 @theme {
   --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system,
     'Segoe UI', Roboto, sans-serif;
+  /* Tailwind's own monospace stack, restated so it is a Klyv token a theme can
+     set like any other rather than a default nobody owns. */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+
+  /* Neutrals.
+   *
+   * Every neutral reads a `--base-light-*` hook here and a `--base-dark-*`
+   * hook in the dark blocks below, the pattern `--color-accent-soft` already
+   * uses. Nothing defines the hooks, so each value falls back to the literal
+   * beside it and the default theme is exactly these colours. applyTheme —
+   * or a pasted themeToCss() block — sets them to swap the whole base colour
+   * in both modes at once, without a rebuild. */
 
   /* Surfaces */
-  --color-canvas: #f4f7f0; /* page behind the app window */
-  --color-shell: #ffffff; /* the app window itself */
-  --color-app: #f6f7f4; /* content area inside the window */
-  --color-surface: #ffffff; /* cards */
-  --color-surface-muted: #f4f5f5; /* inner fields / inactive icon tiles */
-  --color-surface-sunken: #fafafa; /* rate rows, row hover */
+  --color-canvas: var(--base-light-canvas, #f4f7f0); /* page behind the app window */
+  --color-shell: var(--base-light-shell, #ffffff); /* the app window itself */
+  --color-app: var(--base-light-app, #f6f7f4); /* content area inside the window */
+  --color-surface: var(--base-light-surface, #ffffff); /* cards */
+  --color-surface-muted: var(--base-light-surface-muted, #f4f5f5); /* inner fields / inactive icon tiles */
+  --color-surface-sunken: var(--base-light-surface-sunken, #fafafa); /* rate rows, row hover */
 
   /* Lines */
-  --color-line: #eeefee;
-  --color-line-strong: #e3e5e3;
-  --color-track: #edefea; /* unfilled meter pips */
+  --color-line: var(--base-light-line, #eeefee);
+  --color-line-strong: var(--base-light-line-strong, #e3e5e3);
+  --color-track: var(--base-light-track, #edefea); /* unfilled meter pips */
 
   /* Text */
   /* Three steps, each of which clears 4.5:1 on `surface`. The original
      secondary and tertiary greys were 4.4:1 and 2.61:1 — legible enough to
      pass a glance and not enough to pass a reader, which is the failure mode
      this scale exists to prevent. */
-  --color-ink: #17191c; /* primary       — 16.9:1 */
-  --color-ink-inverse: #ffffff; /* text *on* ink — flips with the theme */
-  --color-ink-soft: #5c6165; /* secondary    — 6.2:1 */
-  --color-ink-faint: #6a7075; /* tertiary     — 5.0:1 on surface, 4.6:1 on canvas */
+  --color-ink: var(--base-light-ink, #17191c); /* primary       — 16.9:1 */
+  --color-ink-inverse: var(--base-light-ink-inverse, #ffffff); /* text *on* ink — flips with the theme */
+  --color-ink-soft: var(--base-light-ink-soft, #5c6165); /* secondary    — 6.2:1 */
+  --color-ink-faint: var(--base-light-ink-faint, #6a7075); /* tertiary     — 5.0:1 on surface, 4.6:1 on canvas */
 
   /* The keyboard focus ring. Ink, not the accent: a ring has to reach 3:1
      against whatever it surrounds (WCAG 1.4.11), and accent-strong on white
@@ -53,23 +66,64 @@
   --color-warning: #f5a524;
   --color-danger: #c42630;
 
-  /* Radii */
-  --radius-glyph: 12px; /* icon tiles, rate rows */
-  --radius-tile: 14px; /* inner tiles, menus */
-  --radius-field: 16px; /* exchange fields */
-  --radius-card: 20px; /* cards */
-  --radius-banner: 24px; /* hero banner */
-  --radius-window: 32px; /* app window */
+  /* Radii.
+   *
+   * Each one is its pixel value times `--radius-scale`, which nothing defines:
+   * the fallback of 1 is the default look, and a theme sets the scale to round
+   * everything more, less or not at all. `rounded-full` is not on the scale, so
+   * a pill stays a pill at any setting. */
+  --radius-glyph: calc(12px * var(--radius-scale, 1)); /* icon tiles, rate rows */
+  --radius-tile: calc(14px * var(--radius-scale, 1)); /* inner tiles, menus */
+  --radius-field: calc(16px * var(--radius-scale, 1)); /* exchange fields */
+  --radius-card: calc(20px * var(--radius-scale, 1)); /* cards */
+  --radius-banner: calc(24px * var(--radius-scale, 1)); /* hero banner */
+  --radius-window: calc(32px * var(--radius-scale, 1)); /* app window */
+
+  /* Small radii, for the parts inside those containers: option rows, chips,
+     checkboxes, swatches, bars. Named by their size at scale 1. */
+  --radius-hair: calc(1.5px * var(--radius-scale, 1)); /* signal bars */
+  --radius-2: calc(2px * var(--radius-scale, 1)); /* handles, heat cells */
+  --radius-3: calc(3px * var(--radius-scale, 1)); /* swatches, grid cells */
+  --radius-4: calc(4px * var(--radius-scale, 1)); /* inline marks, keys */
+  --radius-5: calc(5px * var(--radius-scale, 1)); /* inline code, small checks */
+  --radius-6: calc(6px * var(--radius-scale, 1)); /* checkboxes, chips, crumbs */
+  --radius-7: calc(7px * var(--radius-scale, 1)); /* card brand plate */
+  --radius-8: calc(8px * var(--radius-scale, 1)); /* compact controls */
+  --radius-9: calc(9px * var(--radius-scale, 1)); /* small wordmark */
+  --radius-10: calc(10px * var(--radius-scale, 1)); /* option rows in menus and lists */
+  --radius-11: calc(11px * var(--radius-scale, 1)); /* medium wordmark */
+  --radius-13: calc(13px * var(--radius-scale, 1)); /* rail logo */
+  --radius-18: calc(18px * var(--radius-scale, 1)); /* chat bubbles */
+
+  /* Tailwind's radius scale, at its own values, on the same multiplier — so
+     `rounded`, `rounded-sm`, `rounded-md` and the rest follow a theme too. */
+  --radius: calc(0.25rem * var(--radius-scale, 1));
+  --radius-xs: calc(0.125rem * var(--radius-scale, 1));
+  --radius-sm: calc(0.25rem * var(--radius-scale, 1));
+  --radius-md: calc(0.375rem * var(--radius-scale, 1));
+  --radius-lg: calc(0.5rem * var(--radius-scale, 1));
+  --radius-xl: calc(0.75rem * var(--radius-scale, 1));
+  --radius-2xl: calc(1rem * var(--radius-scale, 1));
+  --radius-3xl: calc(1.5rem * var(--radius-scale, 1));
+  --radius-4xl: calc(2rem * var(--radius-scale, 1));
 
   /* Overlay behind a modal, drawer or palette. Dark in both themes: a scrim
      that inverted would light the page up instead of pushing it back. */
-  --color-scrim: rgba(20, 24, 18, 0.28);
+  --color-scrim: var(--base-light-scrim, rgba(20, 24, 18, 0.28));
 
-  /* Elevation */
-  --shadow-card: 0 1px 2px rgba(20, 27, 15, 0.04), 0 8px 24px -12px rgba(20, 27, 15, 0.08);
-  --shadow-tile: 0 1px 2px rgba(20, 27, 15, 0.05);
-  --shadow-float: 0 4px 16px -4px rgba(20, 27, 15, 0.14), 0 1px 3px rgba(20, 27, 15, 0.06);
-  --shadow-window: 0 40px 90px -30px rgba(31, 44, 20, 0.28);
+  /* Elevation.
+   *
+   * Each shadow reads `--style-shadow-*`, which the blocks below point at the
+   * `--style-light-*` or `--style-dark-*` hook for the mode in force. Nothing
+   * sets the hooks by default, so the fallback literal stands. The indirection
+   * exists because Tailwind copies a shadow token's value into the
+   * `shadow-card` utility at build time instead of referring to it: the
+   * utility carries `var(--style-shadow-card, …)`, and a mode-aware property
+   * is the only thing that can still reach it. A style preset sets the hooks. */
+  --shadow-card: var(--style-shadow-card, 0 1px 2px rgba(20, 27, 15, 0.04), 0 8px 24px -12px rgba(20, 27, 15, 0.08));
+  --shadow-tile: var(--style-shadow-tile, 0 1px 2px rgba(20, 27, 15, 0.05));
+  --shadow-float: var(--style-shadow-float, 0 4px 16px -4px rgba(20, 27, 15, 0.14), 0 1px 3px rgba(20, 27, 15, 0.06));
+  --shadow-window: var(--style-shadow-window, 0 40px 90px -30px rgba(31, 44, 20, 0.28));
 }
 
 :root {
@@ -77,6 +131,13 @@
      library never hard-codes a duration. */
   --duration-fast: 150ms;
   --duration-slow: 250ms;
+
+  /* The style hooks for the light theme; see Elevation above. An unset hook
+     leaves these unset too, which is what lets each shadow fall back. */
+  --style-shadow-card: var(--style-light-shadow-card);
+  --style-shadow-tile: var(--style-light-shadow-tile);
+  --style-shadow-float: var(--style-light-shadow-float);
+  --style-shadow-window: var(--style-light-shadow-window);
 
   /* Syntax palette for CodeBlock. Deliberately outside @theme: these are not
      design tokens and nothing but code highlighting may use them. They are
@@ -122,33 +183,37 @@
   :root:not([data-theme='light']) {
     color-scheme: dark;
 
-    --color-canvas: #0b0d0a;
-    --color-shell: #121511;
-    --color-app: #101310;
-    --color-surface: #161a14;
-    --color-surface-muted: #1e231b;
-    --color-surface-sunken: #12160f;
+    --color-canvas: var(--base-dark-canvas, #0b0d0a);
+    --color-shell: var(--base-dark-shell, #121511);
+    --color-app: var(--base-dark-app, #101310);
+    --color-surface: var(--base-dark-surface, #161a14);
+    --color-surface-muted: var(--base-dark-surface-muted, #1e231b);
+    --color-surface-sunken: var(--base-dark-surface-sunken, #12160f);
 
-    --color-line: #262c22;
-    --color-line-strong: #333a2d;
-    --color-track: #232820;
+    --color-line: var(--base-dark-line, #262c22);
+    --color-line-strong: var(--base-dark-line-strong, #333a2d);
+    --color-track: var(--base-dark-track, #232820);
 
-    --color-ink: #edf0e8;
-    --color-ink-soft: #a3aa9b;
-    --color-ink-faint: #868d80;
-    --color-ink-inverse: #0b0d0a;
+    --color-ink: var(--base-dark-ink, #edf0e8);
+    --color-ink-soft: var(--base-dark-ink-soft, #a3aa9b);
+    --color-ink-faint: var(--base-dark-ink-faint, #868d80);
+    --color-ink-inverse: var(--base-dark-ink-inverse, #0b0d0a);
 
-    --color-scrim: rgba(0, 0, 0, 0.62);
+    --color-scrim: var(--base-dark-scrim, rgba(0, 0, 0, 0.62));
 
     --color-accent-soft: var(--accent-soft-dark, #1f2a10);
     --color-success: #56b863;
     --color-warning: #f7b23f;
     --color-danger: #f2686c;
 
-    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.45), 0 8px 24px -12px rgba(0, 0, 0, 0.65);
-    --shadow-tile: 0 1px 2px rgba(0, 0, 0, 0.45);
-    --shadow-float: 0 4px 16px -4px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.45);
-    --shadow-window: 0 40px 90px -30px rgba(0, 0, 0, 0.85);
+    --style-shadow-card: var(--style-dark-shadow-card);
+    --shadow-card: var(--style-shadow-card, 0 1px 2px rgba(0, 0, 0, 0.45), 0 8px 24px -12px rgba(0, 0, 0, 0.65));
+    --style-shadow-tile: var(--style-dark-shadow-tile);
+    --shadow-tile: var(--style-shadow-tile, 0 1px 2px rgba(0, 0, 0, 0.45));
+    --style-shadow-float: var(--style-dark-shadow-float);
+    --shadow-float: var(--style-shadow-float, 0 4px 16px -4px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.45));
+    --style-shadow-window: var(--style-dark-shadow-window);
+    --shadow-window: var(--style-shadow-window, 0 40px 90px -30px rgba(0, 0, 0, 0.85));
 
     --syntax-comment: #7c8877;
     --syntax-keyword: #e879c8;
@@ -163,33 +228,37 @@
 :root[data-theme='dark'] {
   color-scheme: dark;
 
-  --color-canvas: #0b0d0a;
-  --color-shell: #121511;
-  --color-app: #101310;
-  --color-surface: #161a14;
-  --color-surface-muted: #1e231b;
-  --color-surface-sunken: #12160f;
+  --color-canvas: var(--base-dark-canvas, #0b0d0a);
+  --color-shell: var(--base-dark-shell, #121511);
+  --color-app: var(--base-dark-app, #101310);
+  --color-surface: var(--base-dark-surface, #161a14);
+  --color-surface-muted: var(--base-dark-surface-muted, #1e231b);
+  --color-surface-sunken: var(--base-dark-surface-sunken, #12160f);
 
-  --color-line: #262c22;
-  --color-line-strong: #333a2d;
-  --color-track: #232820;
+  --color-line: var(--base-dark-line, #262c22);
+  --color-line-strong: var(--base-dark-line-strong, #333a2d);
+  --color-track: var(--base-dark-track, #232820);
 
-  --color-ink: #edf0e8;
-  --color-ink-soft: #a3aa9b;
-  --color-ink-faint: #868d80;
-  --color-ink-inverse: #0b0d0a;
+  --color-ink: var(--base-dark-ink, #edf0e8);
+  --color-ink-soft: var(--base-dark-ink-soft, #a3aa9b);
+  --color-ink-faint: var(--base-dark-ink-faint, #868d80);
+  --color-ink-inverse: var(--base-dark-ink-inverse, #0b0d0a);
 
-  --color-scrim: rgba(0, 0, 0, 0.62);
+  --color-scrim: var(--base-dark-scrim, rgba(0, 0, 0, 0.62));
 
   --color-accent-soft: var(--accent-soft-dark, #1f2a10);
   --color-success: #56b863;
   --color-warning: #f7b23f;
   --color-danger: #f2686c;
 
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.45), 0 8px 24px -12px rgba(0, 0, 0, 0.65);
-  --shadow-tile: 0 1px 2px rgba(0, 0, 0, 0.45);
-  --shadow-float: 0 4px 16px -4px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.45);
-  --shadow-window: 0 40px 90px -30px rgba(0, 0, 0, 0.85);
+  --style-shadow-card: var(--style-dark-shadow-card);
+  --shadow-card: var(--style-shadow-card, 0 1px 2px rgba(0, 0, 0, 0.45), 0 8px 24px -12px rgba(0, 0, 0, 0.65));
+  --style-shadow-tile: var(--style-dark-shadow-tile);
+  --shadow-tile: var(--style-shadow-tile, 0 1px 2px rgba(0, 0, 0, 0.45));
+  --style-shadow-float: var(--style-dark-shadow-float);
+  --shadow-float: var(--style-shadow-float, 0 4px 16px -4px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.45));
+  --style-shadow-window: var(--style-dark-shadow-window);
+  --shadow-window: var(--style-shadow-window, 0 40px 90px -30px rgba(0, 0, 0, 0.85));
 
   --syntax-comment: #7c8877;
   --syntax-keyword: #e879c8;

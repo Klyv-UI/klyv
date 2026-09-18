@@ -140,7 +140,7 @@ export function ActivityHeatmap({
                       role="gridcell"
                       tabIndex={-1}
                       className={cn(
-                        'size-3 rounded-[3px] transition-transform hover:scale-125',
+                        'size-3 rounded-[var(--radius-3)] transition-transform hover:scale-125',
                         RAMP[bucketOf(cell.value)],
                       )}
                     >
@@ -165,7 +165,7 @@ export function ActivityHeatmap({
             Less
           </Text>
           {RAMP.map((tone) => (
-            <span key={tone} className={cn('size-3 rounded-[3px]', tone)} aria-hidden="true" />
+            <span key={tone} className={cn('size-3 rounded-[var(--radius-3)]', tone)} aria-hidden="true" />
           ))}
           <Text as="span" size="caption" tone="faint">
             More

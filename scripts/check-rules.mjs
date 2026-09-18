@@ -6,6 +6,7 @@
 //
 //   1. Anything that animates has a reduced-motion answer.
 //   2. Colour comes from tokens, not from hex literals.
+//   3. Radius comes from tokens, not from pixel literals.
 //
 // Run with `--fix-none`; there is nothing to fix automatically, because both
 // failures need a person to decide what the right value or fallback is.
@@ -109,8 +110,18 @@ const FIXED_COLOUR = new Set([
 
 const HEX = /#[0-9a-fA-F]{3,8}\b/g
 
+/* ------------------------------------------------------------------ rule 3 */
+
+// Every radius scales with the theme's `--radius-scale`, so a class like
+// `rounded-[10px]` is a corner that stays put while everything around it
+// rounds or squares off. Use the token of the same size instead —
+// `rounded-[var(--radius-10)]`, `rounded-[var(--radius-card)]` — or add one to
+// tokens.css. Relative values (`em`, `%`, `inherit`) and `rounded-full` pass.
+const PX_RADIUS = /\brounded(?:-[trblse]{1,2})?-\[\s*-?\d*\.?\d+px\s*\]/g
+
 const motionFailures = []
 const colourFailures = []
+const radiusFailures = []
 
 for (const name of readdirSync(COMPONENTS).filter((entry) => /^[A-Z]/.test(entry))) {
   const dir = join(COMPONENTS, name)
@@ -133,13 +144,16 @@ for (const name of readdirSync(COMPONENTS).filter((entry) => /^[A-Z]/.test(entry
         colourFailures.push(`${where} hard-codes ${literals.slice(0, 4).join(', ')}`)
       }
     }
+
+    const radii = [...new Set(source.match(PX_RADIUS) ?? [])]
+    if (radii.length) radiusFailures.push(`${where} hard-codes ${radii.slice(0, 4).join(', ')}`)
   }
 }
 
-const failures = [...motionFailures, ...colourFailures]
+const failures = [...motionFailures, ...colourFailures, ...radiusFailures]
 
 if (failures.length === 0) {
-  console.log('rules: motion and colour checks pass')
+  console.log('rules: motion, colour and radius checks pass')
   process.exit(0)
 }
 
@@ -151,5 +165,10 @@ if (colourFailures.length) {
   console.error(`rules: ${colourFailures.length} file(s) hard-code a colour instead of using a token`)
   for (const failure of colourFailures) console.error(`  ${failure}`)
   console.error('  If the colour is deliberately fixed, add the component to FIXED_COLOUR here.')
+}
+if (radiusFailures.length) {
+  console.error(`rules: ${radiusFailures.length} file(s) hard-code a pixel radius instead of using a token`)
+  for (const failure of radiusFailures) console.error(`  ${failure}`)
+  console.error('  Use rounded-[var(--radius-…)] so the corner follows the radius scale.')
 }
 process.exit(1)

@@ -203,7 +203,7 @@ export function SearchableCheckboxList({
               >
                 <label
                   className={cn(
-                    'flex h-full cursor-pointer items-center gap-2.5 rounded-[10px] px-2 hover:bg-surface-sunken',
+                    'flex h-full cursor-pointer items-center gap-2.5 rounded-[var(--radius-10)] px-2 hover:bg-surface-sunken',
                     item.disabled && 'cursor-not-allowed opacity-50',
                   )}
                 >

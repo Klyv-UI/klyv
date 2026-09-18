@@ -8,6 +8,7 @@ import {
   Layers,
   LayoutGrid,
   LayoutTemplate,
+  Paintbrush,
   Palette,
   PanelsTopLeft,
   Plug,
@@ -75,6 +76,7 @@ export const SITE_SECTIONS: SiteSection[] = [
     pages: [
       { to: '/foundations', label: 'Foundations', icon: Layers, description: 'The six rules behind the tokens.', keywords: ['principles', 'rules'] },
       { to: '/tokens', label: 'Design Tokens', icon: Palette, description: 'Every colour, radius, shadow and type step.', keywords: ['colors', 'colours', 'theme', 'variables'] },
+      { to: '/themes', label: 'Themes', icon: Paintbrush, description: 'Customise accent, base colour, radius, font and style, and copy the theme.', keywords: ['theme', 'customize', 'customise', 'customizer', 'presets', 'font', 'radius', 'base colour', 'color', 'style', 'dark mode'] },
     ],
   },
   {
@@ -117,5 +119,10 @@ export const DOC_ENTRIES: { label: string; to: string; page: string; keywords?: 
   { label: 'Interaction is a colour change', to: '/foundations', page: 'Foundations', keywords: ['hover', 'states'] },
   { label: 'Focus is global and visible', to: '/foundations', page: 'Foundations', keywords: ['focus', 'keyboard', 'accessibility', 'a11y'] },
   { label: 'Theme switcher', to: '/tokens#theme', page: 'Design Tokens', keywords: ['dark', 'light', 'accent'] },
+  { label: 'Theme presets', to: '/themes', page: 'Themes', keywords: ['theme', 'preset', 'palette'] },
+  { label: 'Change the font', to: '/themes', page: 'Themes', keywords: ['font', 'typeface', 'typography', 'google fonts'] },
+  { label: 'Corner radius', to: '/themes', page: 'Themes', keywords: ['radius', 'rounded', 'corners', 'square'] },
+  { label: 'Copy theme CSS', to: '/themes', page: 'Themes', keywords: ['themeToCss', 'css', 'export', 'applyTheme'] },
+  { label: 'Share a theme link', to: '/themes', page: 'Themes', keywords: ['share', 'url', 'serializeTheme', 'link'] },
   { label: 'Accessibility, audited', to: '/foundations', page: 'Foundations', keywords: ['a11y', 'axe', 'screen reader', 'wcag'] },
 ]

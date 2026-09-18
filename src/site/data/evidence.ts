@@ -3296,6 +3296,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "ThemeScope": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
+    "axe": true
+  },
   "TicTacToe": {
     "serverSafe": false,
     "tokenColours": true,
@@ -3715,11 +3722,13 @@ export const siteComponents: string[] = [
   "AvatarGroup",
   "Badge",
   "Banner",
+  "BarChart",
   "Button",
   "Card",
   "Checkbox",
   "Chip",
   "CodeBlock",
+  "ColorPicker",
   "CommandPalette",
   "ConfirmDialog",
   "CopyButton",
@@ -3751,6 +3760,7 @@ export const siteComponents: string[] = [
   "SearchField",
   "SectionHeading",
   "SegmentedControl",
+  "Select",
   "Skeleton",
   "Spinner",
   "StatCard",
@@ -3758,11 +3768,13 @@ export const siteComponents: string[] = [
   "Stepper",
   "Surface",
   "Switch",
+  "Table",
   "Tabs",
   "Tag",
   "Terminal",
   "Text",
   "Textarea",
+  "ThemeScope",
   "Tooltip",
   "VisuallyHidden"
 ]

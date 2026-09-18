@@ -331,7 +331,7 @@ export function TimezonePlanner({
               >
                 {slots > 0 && (
                   <span
-                    className="pointer-events-none absolute inset-y-0 rounded-[6px] border-2 border-ink bg-[color-mix(in_oklab,var(--color-ink)_8%,transparent)]"
+                    className="pointer-events-none absolute inset-y-0 rounded-[var(--radius-6)] border-2 border-ink bg-[color-mix(in_oklab,var(--color-ink)_8%,transparent)]"
                     style={{ left: `${(first / slots) * 100}%`, width: `${(span / slots) * 100}%` }}
                   />
                 )}

@@ -60,7 +60,7 @@ function highlight(text: string, needle: string): ReactNode {
   const parts: ReactNode[] = []
   let from = 0
   for (let at = lower.indexOf(needle); at !== -1; at = lower.indexOf(needle, from)) {
-    parts.push(text.slice(from, at), <mark key={at} className="rounded-[3px] bg-accent text-accent-ink">{text.slice(at, at + needle.length)}</mark>)
+    parts.push(text.slice(from, at), <mark key={at} className="rounded-[var(--radius-3)] bg-accent text-accent-ink">{text.slice(at, at + needle.length)}</mark>)
     from = at + needle.length
   }
   parts.push(text.slice(from))
@@ -229,7 +229,7 @@ export function LogViewer({
                   {index + 1}
                 </span>
                 <span className="shrink-0 text-ink-faint tabular-nums">{clock(line.timestamp)}</span>
-                <span className={cn('mt-[3px] w-11 shrink-0 rounded-[4px] text-center text-[10px] font-bold uppercase leading-4', CHIP[line.level])}>{line.level}</span>
+                <span className={cn('mt-[3px] w-11 shrink-0 rounded-[var(--radius-4)] text-center text-[10px] font-bold uppercase leading-4', CHIP[line.level])}>{line.level}</span>
                 <span className="min-w-0 text-ink">
                   {line.source && <span className="text-ink-soft">[{highlight(line.source, needle)}] </span>}
                   {highlight(line.message, needle)}
@@ -238,7 +238,7 @@ export function LogViewer({
                   type="button"
                   aria-label={`Copy line ${index + 1}`}
                   onClick={() => copy(line, index + 1)}
-                  className="sticky right-1 ml-auto mt-[1px] flex size-5 shrink-0 items-center justify-center rounded-[5px] bg-surface text-ink-soft opacity-0 shadow-[var(--shadow-tile)] hover:text-ink focus-visible:opacity-100 group-hover:opacity-100"
+                  className="sticky right-1 ml-auto mt-[1px] flex size-5 shrink-0 items-center justify-center rounded-[var(--radius-5)] bg-surface text-ink-soft opacity-0 shadow-[var(--shadow-tile)] hover:text-ink focus-visible:opacity-100 group-hover:opacity-100"
                 >
                   <CopyIcon size={12} />
                 </button>

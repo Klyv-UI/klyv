@@ -120,7 +120,7 @@ export function Leaderboard({
         key={entry.id}
         aria-current={mine ? 'true' : undefined}
         className={cn(
-          'flex items-center gap-3 rounded-[12px] px-3 py-2',
+          'flex items-center gap-3 rounded-[var(--radius-glyph)] px-3 py-2',
           mine ? 'bg-accent-soft' : 'hover:bg-surface-sunken',
         )}
       >
@@ -168,7 +168,7 @@ export function Leaderboard({
                 <span
                   aria-hidden="true"
                   className={cn(
-                    'flex w-full items-start justify-center rounded-t-[12px] pt-2 text-[18px] font-extrabold',
+                    'flex w-full items-start justify-center rounded-t-[var(--radius-glyph)] pt-2 text-[18px] font-extrabold',
                     slot.height,
                     index === 0 ? 'bg-accent text-accent-ink' : 'bg-surface-muted text-ink-soft',
                   )}

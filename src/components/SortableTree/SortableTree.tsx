@@ -319,7 +319,7 @@ export function SortableTree({
             }}
             style={{ paddingLeft: 4 + depth * indentation }}
             className={cn(
-              'flex h-9 select-none items-center gap-1 rounded-[10px] pr-2 text-[13px] font-semibold text-ink outline-none',
+              'flex h-9 select-none items-center gap-1 rounded-[var(--radius-10)] pr-2 text-[13px] font-semibold text-ink outline-none',
               'focus-visible:ring-2 focus-visible:ring-[var(--color-focus)]',
               active
                 ? 'bg-[color-mix(in_oklab,var(--color-accent)_22%,var(--color-surface))] shadow-[var(--shadow-float)]'

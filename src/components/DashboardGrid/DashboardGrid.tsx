@@ -231,7 +231,7 @@ export function DashboardGrid({
                     onPointerUp={() => endDrag(false)}
                     onPointerCancel={() => endDrag(true)}
                     className={cn(
-                      'grid size-7 shrink-0 touch-none place-items-center rounded-[8px] text-ink-faint transition-colors',
+                      'grid size-7 shrink-0 touch-none place-items-center rounded-[var(--radius-8)] text-ink-faint transition-colors',
                       'cursor-grab hover:bg-surface-muted hover:text-ink aria-pressed:bg-accent aria-pressed:text-accent-ink',
                       dragging === item.id && 'cursor-grabbing',
                     )}

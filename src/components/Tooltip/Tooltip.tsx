@@ -104,7 +104,7 @@ export function Tooltip({
               zIndex: 'var(--z-tooltip)' as unknown as number,
             }}
             className={cn(
-              'pointer-events-none max-w-[240px] rounded-[10px] bg-ink px-2.5 py-1.5',
+              'pointer-events-none max-w-[240px] rounded-[var(--radius-10)] bg-ink px-2.5 py-1.5',
               'text-[11px] font-semibold leading-tight text-ink-inverse shadow-[var(--shadow-float)]',
               position ? 'opacity-100' : 'opacity-0',
               className,

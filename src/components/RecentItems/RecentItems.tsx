@@ -202,10 +202,10 @@ export function RecentItems({
         <ul ref={listRef} className="flex flex-col">
           {rows.map((item) => {
             const at = new Date(item.viewedAt)
-            const primary = 'flex min-w-0 flex-1 items-center gap-3 rounded-[10px] px-2 py-2 text-left transition-colors hover:bg-surface-muted'
+            const primary = 'flex min-w-0 flex-1 items-center gap-3 rounded-[var(--radius-10)] px-2 py-2 text-left transition-colors hover:bg-surface-muted'
             const body = (
               <>
-                <span className="flex size-8 shrink-0 items-center justify-center rounded-[10px] bg-surface-muted text-ink-soft">
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-[var(--radius-10)] bg-surface-muted text-ink-soft">
                   {item.icon ?? (
                     <svg viewBox="0 0 16 16" width={15} height={15} fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinejoin="round" strokeLinecap="round" aria-hidden="true">
                       {ICON_PATHS[item.kind ?? 'doc']}

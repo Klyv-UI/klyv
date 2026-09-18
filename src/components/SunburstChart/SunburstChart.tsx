@@ -243,7 +243,7 @@ export function SunburstChart({
                 <button
                   type="button"
                   onClick={() => zoomTo(node.id)}
-                  className="rounded-[6px] px-1 font-medium text-ink-soft transition-colors hover:text-ink"
+                  className="rounded-[var(--radius-6)] px-1 font-medium text-ink-soft transition-colors hover:text-ink"
                 >
                   {node.label}
                 </button>

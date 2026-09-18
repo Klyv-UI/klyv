@@ -239,7 +239,7 @@ export function AddressInput({
                   choose(suggestion)
                 }}
                 onMouseEnter={() => setActive(index)}
-                className={cn('flex cursor-pointer flex-col rounded-[10px] px-3 py-2', index === active && 'bg-surface-muted')}
+                className={cn('flex cursor-pointer flex-col rounded-[var(--radius-10)] px-3 py-2', index === active && 'bg-surface-muted')}
               >
                 <span className="text-[13px] font-semibold text-ink">{suggestion.label}</span>
                 {suggestion.description && <span className="text-[12px] font-medium text-ink-faint">{suggestion.description}</span>}

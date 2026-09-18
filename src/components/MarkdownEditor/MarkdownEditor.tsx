@@ -232,7 +232,7 @@ export function MarkdownEditor({
                 setActiveTool(index)
                 run(action)
               }}
-              className="flex size-8 items-center justify-center rounded-[8px] text-ink-soft transition-colors hover:bg-surface-muted hover:text-ink disabled:opacity-40"
+              className="flex size-8 items-center justify-center rounded-[var(--radius-8)] text-ink-soft transition-colors hover:bg-surface-muted hover:text-ink disabled:opacity-40"
             >
               {icon}
             </button>

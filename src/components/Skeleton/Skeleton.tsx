@@ -28,7 +28,7 @@ export function Skeleton({ shape = 'text', width, height, lines = 1, className }
         {Array.from({ length: lines }, (_, index) => (
           <span
             key={index}
-            className={cn(base, 'block h-3 rounded-[6px]')}
+            className={cn(base, 'block h-3 rounded-[var(--radius-6)]')}
             style={{ width: index === lines - 1 ? '70%' : '100%' }}
           />
         ))}
@@ -44,7 +44,7 @@ export function Skeleton({ shape = 'text', width, height, lines = 1, className }
         'block',
         shape === 'circle' && 'rounded-full',
         shape === 'rect' && 'rounded-[var(--radius-glyph)]',
-        shape === 'text' && 'h-3 rounded-[6px]',
+        shape === 'text' && 'h-3 rounded-[var(--radius-6)]',
         className,
       )}
       style={{ width, height }}

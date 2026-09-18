@@ -172,7 +172,7 @@ export function Combobox<T extends string = string>({
                 onMouseEnter={() => setActive(index)}
                 onClick={() => choose(option)}
                 className={cn(
-                  'flex cursor-pointer items-center gap-2 rounded-[10px] px-2.5 py-2 text-[13px] font-semibold transition-colors',
+                  'flex cursor-pointer items-center gap-2 rounded-[var(--radius-10)] px-2.5 py-2 text-[13px] font-semibold transition-colors',
                   index === active ? 'bg-surface-muted text-ink' : 'text-ink-soft',
                   option.disabled && 'pointer-events-none opacity-40',
                 )}

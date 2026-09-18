@@ -198,7 +198,7 @@ export function TrackChanges({ original, suggested, onValueChange, label = 'Sugg
               onClick={() => setActive(s.id)}
               onFocus={() => setActive(s.id)}
               onKeyDown={(event) => onKeyDown(event, s.id)}
-              className={cn('cursor-pointer rounded-[4px] px-px', s.id === current?.id && 'ring-1 ring-ink-faint')}
+              className={cn('cursor-pointer rounded-[var(--radius-4)] px-px', s.id === current?.id && 'ring-1 ring-ink-faint')}
             >
               {decision === 'accepted' ? (
                 <span className="underline decoration-success decoration-dotted decoration-2 underline-offset-4">{s.inserted}</span>

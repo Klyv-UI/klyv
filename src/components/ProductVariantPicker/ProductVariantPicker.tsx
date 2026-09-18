@@ -171,7 +171,7 @@ export function ProductVariantPicker({
                     onClick={() => state.ok && choose(option.name, choice.value)}
                     className={cn(
                       'relative flex items-center justify-center overflow-hidden border text-[13px] font-semibold transition-colors',
-                      choice.swatch ? 'size-9 rounded-full p-0.5' : 'h-9 min-w-11 rounded-[10px] px-3',
+                      choice.swatch ? 'size-9 rounded-full p-0.5' : 'h-9 min-w-11 rounded-[var(--radius-10)] px-3',
                       checked ? 'border-ink ring-1 ring-ink' : 'border-line-strong hover:border-ink-faint',
                       !choice.swatch && (checked ? 'bg-surface-muted text-ink' : 'bg-surface text-ink-soft'),
                       !state.ok && 'cursor-not-allowed opacity-50 hover:border-line-strong',

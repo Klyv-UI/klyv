@@ -2,7 +2,7 @@ import { Suspense, lazy, memo, useCallback, useEffect, useMemo, useState, type R
 import { Link, NavLink, Outlet, ScrollRestoration, useLocation, useMatches } from 'react-router-dom'
 import { PageSkeleton } from '../components/PageSkeleton'
 import { RouteProgress } from '../components/RouteProgress'
-import { ChevronRight, Heart, Menu as MenuIcon } from 'lucide-react'
+import { ChevronRight, Heart, Menu as MenuIcon, Paintbrush } from 'lucide-react'
 import { createStore, sessionStorageAdapter, useStoreValue } from '../lib/store'
 import { AccentMenu } from '../components/AccentMenu'
 import { PlatformLinks } from '../components/PlatformLinks'
@@ -232,12 +232,39 @@ const SiteHeader = memo(function SiteHeader({
               search already fill the row, and one more tool ran 6px over. */}
           <PlatformLinks only={['github']} className="hidden min-[1360px]:flex" />
           <ThemeToggle className="hidden sm:flex md:hidden lg:flex" />
+          <ThemeLink />
           <AccentMenu />
         </div>
       </div>
     </header>
   )
 })
+
+/**
+ * The way into the theme customiser. The accent menu beside it stays for a
+ * quick change of hue; this is for the other four choices. It carries its
+ * label from 1280px, where the header has the room, and is an icon below.
+ */
+function ThemeLink() {
+  return (
+    <NavLink
+      to="/themes"
+      aria-label="Customise theme"
+      title="Customise theme"
+      className={({ isActive }) =>
+        cn(
+          'flex h-9 shrink-0 items-center gap-1.5 rounded-full border px-2.5 text-[12px] font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent xl:px-3',
+          isActive ? 'border-line-strong bg-surface-muted text-ink' : 'border-line bg-surface text-ink-soft hover:border-line-strong hover:text-ink',
+        )
+      }
+    >
+      <Paintbrush size={14} aria-hidden />
+      <span aria-hidden className="hidden xl:inline">
+        Theme
+      </span>
+    </NavLink>
+  )
+}
 
 /** Saved, as an icon with its count — its own subscriber, so saving re-renders only this. */
 function SavedLink() {
@@ -634,7 +661,7 @@ function SiteFooter() {
               that is one call wide.
             </Text>
             <div className="flex flex-wrap items-center gap-3">
-              <AccentPicker compact />
+              <AccentPicker compact customiseLink />
               <ThemeToggle />
             </div>
             <PlatformLinks />

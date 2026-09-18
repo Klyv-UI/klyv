@@ -288,7 +288,7 @@ export function ScopedSearch({
                 onMouseDown={(event) => event.preventDefault()}
                 onClick={() => choose(item)}
                 className={cn(
-                  'flex cursor-pointer items-center gap-2.5 rounded-[10px] px-2.5 py-2 text-[13px] font-semibold transition-colors',
+                  'flex cursor-pointer items-center gap-2.5 rounded-[var(--radius-10)] px-2.5 py-2 text-[13px] font-semibold transition-colors',
                   index === activeIndex ? 'bg-surface-muted text-ink' : 'text-ink-soft',
                 )}
               >

@@ -37,7 +37,7 @@ function WorkspaceMark({ workspace, size = 28 }: { workspace: Workspace; size?: 
   return (
     <span
       aria-hidden="true"
-      className="inline-flex shrink-0 items-center justify-center overflow-hidden rounded-[8px] bg-accent text-[12px] font-extrabold text-accent-ink [&_img]:size-full [&_img]:object-cover [&_svg]:size-[60%]"
+      className="inline-flex shrink-0 items-center justify-center overflow-hidden rounded-[var(--radius-8)] bg-accent text-[12px] font-extrabold text-accent-ink [&_img]:size-full [&_img]:object-cover [&_svg]:size-[60%]"
       style={{ width: size, height: size }}
     >
       {workspace.logo ?? workspace.name.trim().charAt(0).toUpperCase()}
@@ -189,7 +189,7 @@ export function WorkspaceSwitcher({
                       choose(workspace.id)
                     }
                   }}
-                  className="flex cursor-pointer items-center gap-2.5 rounded-[10px] px-2 py-1.5 outline-none transition-colors hover:bg-surface-muted focus-visible:bg-surface-muted"
+                  className="flex cursor-pointer items-center gap-2.5 rounded-[var(--radius-10)] px-2 py-1.5 outline-none transition-colors hover:bg-surface-muted focus-visible:bg-surface-muted"
                 >
                   <WorkspaceMark workspace={workspace} size={24} />
                   <span className="flex min-w-0 flex-1 flex-col gap-0.5">
@@ -218,9 +218,9 @@ export function WorkspaceSwitcher({
                 close(false)
                 onCreate()
               }}
-              className="flex items-center gap-2.5 rounded-[10px] px-2 py-2 text-left text-[12px] font-semibold text-ink-soft transition-colors hover:bg-surface-muted hover:text-ink"
+              className="flex items-center gap-2.5 rounded-[var(--radius-10)] px-2 py-2 text-left text-[12px] font-semibold text-ink-soft transition-colors hover:bg-surface-muted hover:text-ink"
             >
-              <span className="inline-flex size-6 items-center justify-center rounded-[8px] border border-dashed border-line-strong">
+              <span className="inline-flex size-6 items-center justify-center rounded-[var(--radius-8)] border border-dashed border-line-strong">
                 <PlusIcon size={12} />
               </span>
               {createLabel}

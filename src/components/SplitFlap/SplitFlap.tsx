@@ -82,7 +82,7 @@ export function SplitFlap({
           key={index}
           aria-hidden="true"
           className={cn(
-            'tabular flex items-center justify-center rounded-[4px] bg-ink font-bold text-ink-inverse',
+            'tabular flex items-center justify-center rounded-[var(--radius-4)] bg-ink font-bold text-ink-inverse',
             'shadow-[inset_0_-1px_0_rgba(255,255,255,0.12)]',
             SIZES[size],
           )}

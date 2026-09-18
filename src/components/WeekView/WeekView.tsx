@@ -222,7 +222,7 @@ export function WeekView({
                   <span className={cn('tabular-nums', sameDay(day, now) && 'rounded-full bg-accent px-1.5 text-accent-ink')}>{day.getDate()}</span>
                 </span>
                 {allDay[index].map((event) => (
-                  <span key={event.id} className="truncate rounded-[6px] px-1.5 py-0.5 text-[11px] font-semibold text-ink" style={{ background: event.color ?? 'var(--color-accent-soft)' }}>
+                  <span key={event.id} className="truncate rounded-[var(--radius-6)] px-1.5 py-0.5 text-[11px] font-semibold text-ink" style={{ background: event.color ?? 'var(--color-accent-soft)' }}>
                     {event.title}
                   </span>
                 ))}
@@ -273,7 +273,7 @@ export function WeekView({
                           aria-label={`${event.title}, ${dayName(day)}, ${time(event.start)} to ${time(event.end)}${event.detail ? `, ${event.detail}` : ''}`}
                           onFocus={() => setActive(index)}
                           onClick={() => onEventSelect?.(event)}
-                          className="absolute overflow-hidden rounded-[8px] border border-surface px-1.5 py-1 text-left hover:shadow-[var(--shadow-float)] focus-visible:z-10"
+                          className="absolute overflow-hidden rounded-[var(--radius-8)] border border-surface px-1.5 py-1 text-left hover:shadow-[var(--shadow-float)] focus-visible:z-10"
                           style={{ top, height: tall, left: `${(column / count) * 100}%`, width: `${100 / count}%`, background: event.color ?? 'var(--color-accent-soft)' }}
                         >
                           <span className="block truncate text-[11px] font-bold leading-tight text-ink">{event.title}</span>

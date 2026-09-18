@@ -7623,6 +7623,19 @@
         "react"
       ]
     },
+    "ThemeScope": {
+      "files": [
+        "components/ThemeScope/ThemeScope.tsx",
+        "components/ThemeScope/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/layout-effect.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "Ticker": {
       "files": [
         "components/Ticker/Ticker.tsx",
@@ -8721,6 +8734,12 @@
       "group": "Foundations",
       "section": "Utilities",
       "blurb": "An app-wide shortcut registry: useHotkey with a platform-aware mod key, sequences like g i, scopes a dialog can take over, conflict warnings and a live list."
+    },
+    "ThemeScope": {
+      "slug": "theme-scope",
+      "group": "Foundations",
+      "section": "Utilities",
+      "blurb": "Puts one section on a theme of its own: accent, base colour, radius, font and style, reapplied as the mode or the page’s theme changes."
     },
     "LazyMount": {
       "slug": "lazy-mount",

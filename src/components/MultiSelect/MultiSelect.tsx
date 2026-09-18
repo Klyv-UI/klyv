@@ -103,7 +103,7 @@ export function MultiSelect<T extends string = string>({
             <label
               key={option.value}
               className={cn(
-                'flex cursor-pointer items-center gap-2.5 rounded-[10px] px-2.5 py-2 transition-colors',
+                'flex cursor-pointer items-center gap-2.5 rounded-[var(--radius-10)] px-2.5 py-2 transition-colors',
                 'hover:bg-surface-muted',
                 option.disabled && 'pointer-events-none opacity-40',
               )}

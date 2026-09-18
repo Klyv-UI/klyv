@@ -146,7 +146,7 @@ export function TreeView({
             }}
             style={{ paddingLeft: depth * 16 + 8 }}
             className={cn(
-              'flex cursor-pointer items-center gap-2 rounded-[10px] py-1.5 pr-2.5 transition-colors',
+              'flex cursor-pointer items-center gap-2 rounded-[var(--radius-10)] py-1.5 pr-2.5 transition-colors',
               node.id === selected ? 'bg-surface-muted' : 'hover:bg-surface-sunken',
             )}
           >

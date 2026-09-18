@@ -1,10 +1,15 @@
-import { ACCENT_PRESETS, applyAccent, deriveAccent, saveAccent, Text, Tooltip, cn } from 'klyv'
+import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
+import { ACCENT_PRESETS, deriveAccent, Text, Tooltip, cn } from 'klyv'
+import { chooseAccent } from '../lib/theme'
 import { useAccent } from './useTheme'
 import { ContrastReadout } from './ContrastReadout'
 
 interface AccentPickerProps {
   /** Swatches only, for the header. */
   compact?: boolean
+  /** Adds a link to the full theme customiser after the swatches. */
+  customiseLink?: boolean
   className?: string
 }
 
@@ -16,15 +21,14 @@ interface AccentPickerProps {
  * emphasis in 223 components resolves back to this one hue. That is the claim
  * the tokens page makes, and this is the control that proves it.
  */
-export function AccentPicker({ compact = false, className }: AccentPickerProps) {
+export function AccentPicker({ compact = false, customiseLink = false, className }: AccentPickerProps) {
   // Shared with every other picker on the page, so choosing a hue anywhere
   // moves this one's selection too.
   const hex = useAccent()
 
-  const choose = (next: string) => {
-    applyAccent(next)
-    saveAccent(next)
-  }
+  // Through the theme engine rather than applyAccent, so a base tinted by the
+  // accent follows it, and the choice is saved with the rest of the theme.
+  const choose = (next: string) => chooseAccent(next)
 
   const active = hex.toLowerCase()
   const family = deriveAccent(hex)
@@ -70,6 +74,16 @@ export function AccentPicker({ compact = false, className }: AccentPickerProps) 
             className="absolute inset-0 cursor-pointer opacity-0"
           />
         </label>
+
+        {customiseLink && (
+          <Link
+            to="/themes"
+            className="ml-1 inline-flex items-center gap-1 rounded-full text-[12px] font-bold text-ink-soft underline-offset-2 transition-colors hover:text-ink hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          >
+            Customise theme
+            <ArrowRight size={12} aria-hidden />
+          </Link>
+        )}
       </div>
 
       {!compact && (

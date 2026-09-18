@@ -243,7 +243,7 @@ export function RemoteSelections({
               {box.ranges.map((range, rangeIndex) => (
                 <span
                   key={rangeIndex}
-                  className="absolute rounded-[2px]"
+                  className="absolute rounded-[var(--radius-2)]"
                   style={{
                     ...range,
                     background: `color-mix(in oklab, ${swatch.fill} 28%, transparent)`,
@@ -255,7 +255,7 @@ export function RemoteSelections({
                 style={{ left: box.caret.left - 1, top: box.caret.top, width: 2, height: box.caret.height, background: swatch.fill }}
               >
                 <span
-                  className="absolute left-0 whitespace-nowrap rounded-[4px] px-1.5 py-px text-[10px] font-bold leading-4"
+                  className="absolute left-0 whitespace-nowrap rounded-[var(--radius-4)] px-1.5 py-px text-[10px] font-bold leading-4"
                   style={{
                     background: swatch.fill,
                     color: swatch.ink,

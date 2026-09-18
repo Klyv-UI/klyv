@@ -164,7 +164,7 @@ export function LinkPreview({
           onBlur?.(event)
         }}
         className={cn(
-          'rounded-[4px] font-semibold text-ink underline decoration-line-strong underline-offset-2 hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus',
+          'rounded-[var(--radius-4)] font-semibold text-ink underline decoration-line-strong underline-offset-2 hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus',
           className,
         )}
         {...rest}
@@ -198,7 +198,7 @@ export function LinkPreview({
               <span className="flex items-center gap-2">
                 <span
                   aria-hidden="true"
-                  className="inline-flex size-4 items-center justify-center rounded-[4px] bg-surface-muted text-[9px] font-extrabold uppercase text-ink-soft"
+                  className="inline-flex size-4 items-center justify-center rounded-[var(--radius-4)] bg-surface-muted text-[9px] font-extrabold uppercase text-ink-soft"
                 >
                   {domain.charAt(0)}
                 </span>

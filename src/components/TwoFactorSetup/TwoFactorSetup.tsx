@@ -142,7 +142,7 @@ export function TwoFactorSetup({
               {qrCode ? 'Can’t scan it? Enter this key instead' : 'Enter this key in your authenticator app'}
             </Text>
             <div className="flex flex-wrap items-center gap-2">
-              <code className="break-all rounded-[6px] bg-surface-muted px-2 py-1 font-mono text-[12px] font-bold text-ink">{grouped}</code>
+              <code className="break-all rounded-[var(--radius-6)] bg-surface-muted px-2 py-1 font-mono text-[12px] font-bold text-ink">{grouped}</code>
               <CopyButton value={secret} label="Copy key" copiedLabel="Key copied" />
             </div>
             <a

@@ -214,7 +214,7 @@ export function Cropper({
             onPointerDown={(event) => start(event, handle.id)}
             onKeyDown={(event) => onKeyDown(event, handle.id)}
             className={cn(
-              'absolute h-3 w-3 touch-none rounded-[2px] border border-ink/20 bg-white shadow-[var(--shadow-tile)]',
+              'absolute h-3 w-3 touch-none rounded-[var(--radius-2)] border border-ink/20 bg-white shadow-[var(--shadow-tile)]',
               handle.className,
             )}
             style={{ cursor: handle.cursor }}

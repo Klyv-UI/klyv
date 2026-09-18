@@ -227,7 +227,7 @@ export function ReadAloud({ text, targetRef, lang, defaultRate = 1, label = 'Rea
           {word && !canHighlight() ? (
             <>
               {text.slice(0, word.start)}
-              <mark className="rounded-[3px] bg-[color-mix(in_oklab,var(--color-accent)_55%,transparent)] text-ink">{text.slice(word.start, word.end)}</mark>
+              <mark className="rounded-[var(--radius-3)] bg-[color-mix(in_oklab,var(--color-accent)_55%,transparent)] text-ink">{text.slice(word.start, word.end)}</mark>
               {text.slice(word.end)}
             </>
           ) : (

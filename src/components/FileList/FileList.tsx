@@ -88,7 +88,7 @@ function FileGlyph({ name }: { name: string }) {
         ? 'bg-accent-soft text-ink'
         : 'bg-surface-muted text-ink-soft'
   return (
-    <span aria-hidden="true" className={cn('relative flex h-10 w-9 shrink-0 flex-col items-center justify-end rounded-[8px] pb-1', tint)}>
+    <span aria-hidden="true" className={cn('relative flex h-10 w-9 shrink-0 flex-col items-center justify-end rounded-[var(--radius-8)] pb-1', tint)}>
       <svg viewBox="0 0 16 16" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinejoin="round" className="absolute top-1.5">
         <path d="M4 1.75h5l3 3v9.5H4z" />
         <path d="M9 1.75v3h3" />

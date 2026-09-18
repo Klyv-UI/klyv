@@ -69,7 +69,7 @@ export function Sidebar<T extends string = string>({
                       aria-current={selected ? 'page' : undefined}
                       onClick={() => onValueChange(item.value)}
                       className={cn(
-                        'flex w-full items-center gap-2.5 rounded-[10px] px-2.5 py-2 text-[13px] transition-colors',
+                        'flex w-full items-center gap-2.5 rounded-[var(--radius-10)] px-2.5 py-2 text-[13px] transition-colors',
                         'disabled:pointer-events-none disabled:opacity-40',
                         selected
                           ? 'bg-accent font-bold text-accent-ink'

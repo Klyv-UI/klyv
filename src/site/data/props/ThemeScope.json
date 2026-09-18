@@ -1,0 +1,13 @@
+{
+  "props": [
+    {
+      "name": "theme",
+      "type": "Partial<ThemeConfig>",
+      "required": true,
+      "description": "What differs inside this section: any of `accent`, `base`, `radius`, `font` and `style`. Everything left out follows the page's theme, and keeps following it when the page's theme changes."
+    }
+  ],
+  "inherits": [
+    "HTMLAttributes<HTMLDivElement>"
+  ]
+}

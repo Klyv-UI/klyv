@@ -156,7 +156,7 @@ export function LikertScale({
                   <label
                     key={option.value}
                     className={cn(
-                      'flex cursor-pointer items-center gap-2.5 rounded-[10px] px-2 py-1.5 @xl:justify-center @xl:py-2',
+                      'flex cursor-pointer items-center gap-2.5 rounded-[var(--radius-10)] px-2 py-1.5 @xl:justify-center @xl:py-2',
                       checked ? 'bg-accent-soft @xl:bg-transparent' : 'hover:bg-surface-muted',
                       disabled && 'cursor-not-allowed',
                     )}

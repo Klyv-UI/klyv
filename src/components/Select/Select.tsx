@@ -169,7 +169,7 @@ export function Select<T extends string = string>({
                 setOpen(false)
               }}
               className={cn(
-                'flex items-center gap-2 rounded-[10px] px-2.5 py-2 text-left text-[13px] font-semibold transition-colors',
+                'flex items-center gap-2 rounded-[var(--radius-10)] px-2.5 py-2 text-left text-[13px] font-semibold transition-colors',
                 'disabled:pointer-events-none disabled:opacity-40',
                 isSelected ? 'bg-surface-muted text-ink' : 'text-ink-soft hover:bg-surface-muted hover:text-ink',
               )}

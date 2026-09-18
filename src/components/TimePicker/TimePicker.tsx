@@ -122,7 +122,7 @@ export function TimePicker({
               setOpen(false)
             }}
             className={cn(
-              'tabular rounded-[10px] px-2.5 py-2 text-left text-[13px] font-semibold transition-colors',
+              'tabular rounded-[var(--radius-10)] px-2.5 py-2 text-left text-[13px] font-semibold transition-colors',
               time === value ? 'bg-surface-muted text-ink' : 'text-ink-soft hover:bg-surface-muted hover:text-ink',
             )}
           >
