@@ -9,6 +9,7 @@ import {
   Layers,
   LayoutGrid,
   LayoutTemplate,
+  Map,
   Paintbrush,
   Palette,
   PanelsTopLeft,
@@ -56,6 +57,7 @@ export const SITE_SECTIONS: SiteSection[] = [
     label: 'Explore',
     pages: [
       { to: '/components', label: 'All components', icon: LayoutGrid, end: true, description: 'The catalogue, filterable by group.', keywords: ['catalogue', 'catalog', 'library'] },
+      { to: '/atlas', label: 'Atlas', icon: Map, description: 'The whole library on one canvas, running as you zoom in.', keywords: ['map', 'canvas', 'all', 'overview', 'zoom'] },
       { to: '/blocks', label: 'Blocks', icon: LayoutTemplate, end: true, description: 'Whole screens built only from the library.', keywords: ['screens', 'sections'] },
       { to: '/templates', label: 'Templates', icon: PanelsTopLeft, description: 'Sets of blocks that make a product together.', keywords: ['starter', 'kit'] },
       { to: '/recipes', label: 'Recipes', icon: ChefHat, description: 'How to build one common thing, step by step.', keywords: ['guide', 'how to', 'tutorial'] },

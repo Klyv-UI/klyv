@@ -58,6 +58,7 @@ const router = createBrowserRouter([
       { index: true, lazy: page(() => import('./pages/LandingPage')) },
       { path: 'components', lazy: page(() => import('./pages/ComponentsPage')) },
       { path: 'components/:slug', lazy: page(() => import('./pages/ComponentPage')), handle: componentHandle },
+      { path: 'atlas', lazy: page(() => import('./pages/AtlasPage')), handle: fullBleed },
       { path: 'foundations', lazy: page(() => import('./pages/FoundationsPage')) },
       { path: 'tokens', lazy: page(() => import('./pages/TokensPage')) },
       { path: 'themes', lazy: page(() => import('./pages/ThemesPage')) },

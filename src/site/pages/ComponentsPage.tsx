@@ -1,6 +1,6 @@
 import { useMemo, useState, type ReactNode } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { LayoutGrid, List, Sparkles, X } from 'lucide-react'
+import { LayoutGrid, List, Map as MapIcon, Sparkles, X } from 'lucide-react'
 import { Button, SearchField, Surface, Text, cn } from 'klyv'
 import { PageIntro } from '../components/PageIntro'
 import { NEW_COMPONENTS, SHOWPIECE_COMPONENTS, catalog, componentCount, isNewComponent, isShowpiece, type CatalogEntry } from '../data/catalog'
@@ -122,9 +122,15 @@ export default function ComponentsPage() {
               ]
         }
         actions={
-          <Button as={Link} to="/composer" size="sm" variant="outline">
-            Compose with them
-          </Button>
+          <>
+            <Button as={Link} to="/atlas" size="sm" variant="outline">
+              <MapIcon size={14} aria-hidden />
+              See them all at once
+            </Button>
+            <Button as={Link} to="/composer" size="sm" variant="outline">
+              Compose with them
+            </Button>
+          </>
         }
       >
         {active ? active.tagline : `All ${componentCount} of them, grouped by what they are for. Every one is typed, themed by the accent, and copyable as source.`}
