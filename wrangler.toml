@@ -8,6 +8,11 @@
 name = "klyv"
 compatibility_date = "2026-09-21"
 
+routes = [
+  { pattern = "klyvui.xyz", custom_domain = true },
+  { pattern = "www.klyvui.xyz", custom_domain = true },
+]
+
 [assets]
 directory = "./dist-site"
 not_found_handling = "single-page-application"
