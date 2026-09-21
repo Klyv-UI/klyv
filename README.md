@@ -1,6 +1,6 @@
 # Klyv
 
-**An accent-led React component library.** 600+ components that take their entire
+**An accent-led React component library.** 610+ components that take their entire
 personality from a single colour — pick a hue and the whole set repaints:
 buttons, charts, selection washes, and the page behind them.
 
@@ -132,7 +132,7 @@ short URL-safe string (`8b5cf6.zinc.lg.geist.elevated`) for a share link.
 
 ## What is in it
 
-603 components in thirteen groups. The grouping describes what a component is
+613 components in thirteen groups. The grouping describes what a component is
 **for** — the only question anyone browsing a library arrives with.
 
 | Group | Count | |
@@ -146,9 +146,9 @@ short URL-safe string (`8b5cf6.zinc.lg.geist.elevated`) for a share link.
 | Charts | 57 | plots, gauges, distribution, flow, activity |
 | Feedback | 37 | status, messages, empty states, celebration |
 | Overlays | 23 | dialogs, popovers, guidance |
-| Motion & Effects | 51 | entrances, kinetic type, light and surfaces |
+| Motion & Effects | 53 | entrances, kinetic type, light and surfaces |
 | Interaction | 49 | touch and drag, presence, trust and workflow |
-| Canvas & Play | 41 | generative, audio, physics, toys |
+| Canvas & Play | 49 | generative, audio, physics, toys |
 | SaaS | 79 | marketing, pricing, auth, billing, team, settings, developer, data views, engagement, security |
 
 ### Merged
@@ -171,7 +171,7 @@ ScrollProgress's `backToTop` is deprecated too: it now renders BackToTop with
 
 ### The showpieces
 
-Ten components whose whole point is the moment you first see them. They carry
+Twenty components whose whole point is the moment you first see them. They carry
 their own **Showpiece** tag rather than New, so it stays true after the next
 release, and `/components?showpiece=1` collects them.
 
@@ -185,6 +185,19 @@ release, and `/components?showpiece=1` collects them.
 **PopUpCard** — fold linkages solved from the opening angle, so paper figures stand up.
 **ParallaxPortal** — an off-axis window into a room behind the screen.
 **InfiniteZoom** — each scene holds the next and the last holds the first, forever.
+
+And ten more, added after them:
+
+**Ferrofluid** — a magnetic drop that grows real Rosensweig spikes towards your finger.
+**FallingSand** — a headline that is made of sand, and crumbles grain by grain.
+**PaperMarbling** — every drop pushes the ink already on the bath; nothing is painted.
+**IronFilings** — drag a magnet and thousands of filings turn to the field they sit in.
+**PrismLight** — Snell's law per wavelength, so white light fans into a real spectrum.
+**PendulumWave** — fifteen tuned pendulums that fan, snake and return to one line.
+**OrbitSandbox** — fling a planet into orbit; the integrator is not allowed to lose energy.
+**SnowDrift** — snow that settles on the page's own headings and avalanches off them.
+**Tesseract** — a four-dimensional solid turned in two planes at once.
+**VoxelTerrain** — Comanche column casting over a heightmap that never ends.
 
 ### New: seventy more, each a mechanic the library lacked
 

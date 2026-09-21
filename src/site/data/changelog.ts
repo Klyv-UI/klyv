@@ -56,6 +56,13 @@ export const releases: Release[] = [
     changes: [
       {
         category: 'feature',
+        title: 'Ten more showpieces: sand, magnets, spectra and a fourth dimension',
+        description:
+          'Ferrofluid, FallingSand, PaperMarbling, IronFilings, PrismLight, PendulumWave, OrbitSandbox, SnowDrift, Tesseract and VoxelTerrain. Rosensweig spikes that stand up under a magnet, a headline made of sand that crumbles, Jaffer’s exact marbling operators, filings that turn to a dipole field, Snell’s law per wavelength, fifteen tuned pendulums returning to one line, symplectic n-body orbits, snow that settles on the page’s own headings, real 4D rotation, and Comanche column casting over an endless heightmap. Tagged Showpiece alongside the first ten.',
+        links: [{ label: 'Showpieces', to: '/components?showpiece=1' }],
+      },
+      {
+        category: 'feature',
         title: 'Ten showpieces, with a tag of their own',
         description:
           'FluidCanvas, ReactionDiffusion, ClothPanel, ShatterDismiss, ChladniPlate, LightCaster, RainGlass, PopUpCard, ParallaxPortal and InfiniteZoom: real fluid, cloth with working buttons on it, shattering glass, sand finding the nodal lines, cast shadows, refracting rain, pop-up folds, a window into a room, and a zoom that never ends. They are tagged Showpiece rather than New, so the tag stays true after the next release.',

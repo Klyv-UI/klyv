@@ -1,0 +1,140 @@
+{
+  "props": [
+    {
+      "name": "count",
+      "type": "number",
+      "required": false,
+      "defaultValue": "15",
+      "description": "Number of pendulums, 2–48."
+    },
+    {
+      "name": "cycle",
+      "type": "number",
+      "required": false,
+      "defaultValue": "60",
+      "description": "Seconds for the pattern to go through every figure and come back to one line."
+    },
+    {
+      "name": "baseCycles",
+      "type": "number",
+      "required": false,
+      "description": "Swings the slowest pendulum makes per cycle; each next one makes one more. Defaults to the cycle in seconds, so the slowest swings once a second."
+    },
+    {
+      "name": "amplitude",
+      "type": "number",
+      "required": false,
+      "description": "Controlled release angle of the longest pendulum, in degrees. The rest are pulled back level with it."
+    },
+    {
+      "name": "defaultAmplitude",
+      "type": "number",
+      "required": false,
+      "description": "Uncontrolled starting release angle. Defaults to `tuning`, where the cycle closes exactly."
+    },
+    {
+      "name": "onAmplitudeChange",
+      "type": "(degrees: number) => void",
+      "required": false,
+      "description": "Called when the release-angle slider moves."
+    },
+    {
+      "name": "tuning",
+      "type": "number",
+      "required": false,
+      "defaultValue": "12",
+      "description": "The release angle the strings are cut for, in degrees. Released from anything else, the row no longer returns to a perfect line. 0 is the small-angle textbook cut."
+    },
+    {
+      "name": "damping",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Amplitude decay rate per second. 0 swings for ever; 0.01 loses about 45% of the swing in a minute."
+    },
+    {
+      "name": "view",
+      "type": "PendulumWaveView",
+      "required": false,
+      "description": "Controlled view: the apparatus from the side, or the row from above, where the waves read best."
+    },
+    {
+      "name": "defaultView",
+      "type": "PendulumWaveView",
+      "required": false,
+      "defaultValue": "'side'",
+      "description": "Uncontrolled starting view."
+    },
+    {
+      "name": "onViewChange",
+      "type": "(view: PendulumWaveView) => void",
+      "required": false,
+      "description": "Called when the view control changes."
+    },
+    {
+      "name": "trails",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Fading after-images of the last third of a second."
+    },
+    {
+      "name": "sound",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Offer the chime: a soft sine ping as each bob passes the bottom, at its own frequency moved up by octaves."
+    },
+    {
+      "name": "defaultMuted",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Start muted. Sound only ever begins from a click on the sound button."
+    },
+    {
+      "name": "playing",
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled swinging state."
+    },
+    {
+      "name": "defaultPlaying",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Uncontrolled starting state."
+    },
+    {
+      "name": "onPlayingChange",
+      "type": "(playing: boolean) => void",
+      "required": false,
+      "description": "Called when the play button, or the handle, starts or stops it."
+    },
+    {
+      "name": "stillPhase",
+      "type": "number",
+      "required": false,
+      "description": "Under reduced motion, the moment drawn as a still, as a fraction of the cycle. Defaults to the row forming one full wave."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Accessible name. Without it the drawing is decorative and hidden; the status line still announces the figures."
+    },
+    {
+      "name": "controls",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the transport, view, cycle ruler and release-angle controls."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

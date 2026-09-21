@@ -1,0 +1,127 @@
+{
+  "props": [
+    {
+      "name": "seedText",
+      "type": "string",
+      "required": false,
+      "description": "A headline drawn into the grid in the theme font, as `seedMaterial`. Use `\\n` for a second line."
+    },
+    {
+      "name": "seedMaterial",
+      "type": "'packed' | 'sand'",
+      "required": false,
+      "defaultValue": "'packed'",
+      "description": "What the headline is made of. Packed sand holds its shape until something touches it; sand falls at once."
+    },
+    {
+      "name": "materials",
+      "type": "FallingSandMaterial[]",
+      "required": false,
+      "defaultValue": "DEFAULT_MATERIALS",
+      "description": "The materials offered in the picker, in order. `'empty'` is the eraser."
+    },
+    {
+      "name": "palette",
+      "type": "Partial<Record<FallingSandMaterial, string>>",
+      "required": false,
+      "description": "Colour overrides per material, as any CSS colour — tokens, `color-mix()`. `empty` is the background."
+    },
+    {
+      "name": "brush",
+      "type": "FallingSandMaterial",
+      "required": false,
+      "description": "Controlled brush material."
+    },
+    {
+      "name": "defaultBrush",
+      "type": "FallingSandMaterial",
+      "required": false,
+      "description": "Uncontrolled starting brush material."
+    },
+    {
+      "name": "onBrushChange",
+      "type": "(material: FallingSandMaterial) => void",
+      "required": false,
+      "description": "Called when the picker changes the brush."
+    },
+    {
+      "name": "brushSize",
+      "type": "number",
+      "required": false,
+      "description": "Controlled brush radius, in cells."
+    },
+    {
+      "name": "defaultBrushSize",
+      "type": "number",
+      "required": false,
+      "defaultValue": "4",
+      "description": "Uncontrolled starting brush radius, in cells."
+    },
+    {
+      "name": "onBrushSizeChange",
+      "type": "(size: number) => void",
+      "required": false,
+      "description": "Called when the slider changes the brush radius."
+    },
+    {
+      "name": "pour",
+      "type": "boolean | FallingSandMaterial",
+      "required": false,
+      "defaultValue": "false",
+      "description": "A source that drips from the top without stopping: `true` for sand, or a material."
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "required": false,
+      "defaultValue": "2",
+      "description": "Automaton steps per frame, 1–6. Each step moves a falling grain one cell."
+    },
+    {
+      "name": "cellSize",
+      "type": "number",
+      "required": false,
+      "defaultValue": "4",
+      "description": "CSS pixels per cell. Smaller is finer and costs more; the grid is capped at 150,000 cells whatever this says."
+    },
+    {
+      "name": "paused",
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled pause. Painting still works and shows at once; nothing moves."
+    },
+    {
+      "name": "defaultPaused",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Uncontrolled starting pause state."
+    },
+    {
+      "name": "onPausedChange",
+      "type": "(paused: boolean) => void",
+      "required": false,
+      "description": "Called when the pause button toggles."
+    },
+    {
+      "name": "controls",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the material picker, brush slider and buttons."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Falling sand'",
+      "description": "Accessible name for the sand box."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins. A height here is shared between the box and the controls."
+    }
+  ]
+}

@@ -403,6 +403,11 @@
   "ExperimentResults": [
     "status"
   ],
+  "FallingSand": [
+    "group",
+    "img",
+    "status"
+  ],
   "FaqSection": [
     "status"
   ],
@@ -410,6 +415,11 @@
     "status"
   ],
   "FeedbackWidget": [
+    "status"
+  ],
+  "Ferrofluid": [
+    "group",
+    "img",
     "status"
   ],
   "FileList": [
@@ -559,6 +569,11 @@
   ],
   "InputOTP": [
     "group"
+  ],
+  "IronFilings": [
+    "img",
+    "slider",
+    "status"
   ],
   "Joystick": [
     "application"
@@ -767,6 +782,11 @@
   "OrbitRing": [
     "group"
   ],
+  "OrbitSandbox": [
+    "group",
+    "img",
+    "status"
+  ],
   "OrgChart": [
     "tree",
     "treeitem"
@@ -783,6 +803,10 @@
   ],
   "PanZoom": [
     "application"
+  ],
+  "PaperMarbling": [
+    "img",
+    "status"
   ],
   "ParallaxPortal": [
     "group"
@@ -814,6 +838,10 @@
   "PeerLink": [
     "alert",
     "log",
+    "status"
+  ],
+  "PendulumWave": [
+    "img",
     "status"
   ],
   "PermissionGate": [
@@ -857,6 +885,10 @@
     "status"
   ],
   "PricingTable": [
+    "status"
+  ],
+  "PrismLight": [
+    "img",
     "status"
   ],
   "ProductCard": [
@@ -1105,6 +1137,10 @@
   "SnapGuides": [
     "group"
   ],
+  "SnowDrift": [
+    "img",
+    "status"
+  ],
   "SocialLoginButtons": [
     "group"
   ],
@@ -1207,6 +1243,11 @@
     "tabpanel"
   ],
   "TagInput": [
+    "status"
+  ],
+  "Tesseract": [
+    "group",
+    "img",
     "status"
   ],
   "TestimonialCard": [
@@ -1371,6 +1412,10 @@
   ],
   "VoteButtons": [
     "group"
+  ],
+  "VoxelTerrain": [
+    "img",
+    "status"
   ],
   "WaterfallChart": [
     "img"
