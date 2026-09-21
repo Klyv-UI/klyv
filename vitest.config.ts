@@ -19,6 +19,8 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: ['./test/setup.ts'],
+    // Joins the a11y shards' reports into test/a11y-report.json after a run.
+    globalSetup: ['./test/a11y/merge.ts'],
     include: ['test/**/*.test.tsx'],
     testTimeout: 60_000,
   },
