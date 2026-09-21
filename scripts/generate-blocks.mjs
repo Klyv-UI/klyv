@@ -31,7 +31,7 @@ const { blocks } = await import(
  * what the catalogue, the CLI and the page all mean by a component.
  */
 const OWNER = new Map()
-for (const folder of readdirSync(COMPONENTS)) {
+for (const folder of readdirSync(COMPONENTS).sort()) {
   const index = join(COMPONENTS, folder, 'index.ts')
   if (!existsSync(index)) continue
   const file = ts.createSourceFile('index.ts', readFileSync(index, 'utf8'), ts.ScriptTarget.Latest, true)

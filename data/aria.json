@@ -29,15 +29,15 @@
     "gridcell",
     "row"
   ],
+  "AddToCalendar": [
+    "menu",
+    "menuitem"
+  ],
   "AddressInput": [
     "combobox",
     "listbox",
     "option",
     "status"
-  ],
-  "AddToCalendar": [
-    "menu",
-    "menuitem"
   ],
   "AgendaList": [
     "region"
@@ -475,15 +475,15 @@
     "application",
     "status"
   ],
-  "FullscreenDialog": [
-    "dialog",
-    "modal"
-  ],
   "FullTextSearch": [
     "combobox",
     "listbox",
     "option",
     "status"
+  ],
+  "FullscreenDialog": [
+    "dialog",
+    "modal"
   ],
   "FuzzyFinder": [
     "combobox",
@@ -512,9 +512,6 @@
   "HelpPanel": [
     "status"
   ],
-  "HexbinChart": [
-    "img"
-  ],
   "HexViewer": [
     "alert",
     "grid",
@@ -524,6 +521,9 @@
     "rowgroup",
     "rowheader",
     "status"
+  ],
+  "HexbinChart": [
+    "img"
   ],
   "Histogram": [
     "img"
@@ -637,15 +637,15 @@
   "LocaleSettings": [
     "status"
   ],
-  "LogoCloud": [
-    "img"
-  ],
   "LogViewer": [
     "group",
     "list",
     "listitem",
     "region",
     "status"
+  ],
+  "LogoCloud": [
+    "img"
   ],
   "LoudnessMeter": [
     "alert",
@@ -801,12 +801,12 @@
   "PairwiseRanker": [
     "group"
   ],
+  "PanZoom": [
+    "application"
+  ],
   "PanoramaViewer": [
     "application",
     "status"
-  ],
-  "PanZoom": [
-    "application"
   ],
   "PaperMarbling": [
     "img",
@@ -878,11 +878,11 @@
   "PixelCanvas": [
     "group"
   ],
-  "Popover": [
-    "dialog"
-  ],
   "PopUpCard": [
     "slider"
+  ],
+  "Popover": [
+    "dialog"
   ],
   "PresenceBar": [
     "group",
@@ -958,11 +958,11 @@
   "ReactionDiffusion": [
     "img"
   ],
-  "ReadabilityMeter": [
-    "status"
-  ],
   "ReadAloud": [
     "group"
+  ],
+  "ReadabilityMeter": [
+    "status"
   ],
   "RecentItems": [
     "status"
@@ -1015,10 +1015,10 @@
   "SankeyFlow": [
     "img"
   ],
-  "SavedViews": [
+  "SaveIndicator": [
     "status"
   ],
-  "SaveIndicator": [
+  "SavedViews": [
     "status"
   ],
   "ScatterChart": [
@@ -1181,11 +1181,11 @@
     "textbox",
     "tree"
   ],
-  "Spinner": [
-    "status"
-  ],
   "SpinWheel": [
     "img",
+    "status"
+  ],
+  "Spinner": [
     "status"
   ],
   "SplitPane": [
@@ -1264,13 +1264,13 @@
     "group",
     "status"
   ],
-  "Ticker": [
-    "status"
-  ],
   "TicTacToe": [
     "grid",
     "gridcell",
     "row",
+    "status"
+  ],
+  "Ticker": [
     "status"
   ],
   "TimePicker": [
@@ -1430,12 +1430,12 @@
   "WebVitals": [
     "status"
   ],
-  "WeekdayPicker": [
-    "group"
-  ],
   "WeekView": [
     "group",
     "region"
+  ],
+  "WeekdayPicker": [
+    "group"
   ],
   "Whiteboard": [
     "application",
