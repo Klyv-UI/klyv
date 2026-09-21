@@ -27,21 +27,33 @@ jobs:
       - run: npm ci
 
       - name: Types
+        id: types
         run: npm run lint
 
       # The preset compiled to nothing for a while and nothing failed, because
       # an empty stylesheet is a valid stylesheet. See scripts/check-preset.mjs.
       - name: Preset compiles to real utilities
+        id: preset
         run: npm run check:preset
 
       # `generate` rewrites data/ from the source. If the committed copies
       # differ, the docs, the CLI and the MCP server are describing a library
       # that no longer exists.
       - name: Generated data is current
+        id: generated
         run: |
           npm run generate
           git diff --exit-code -- data src/site/data \
             || { echo '::error::data/ is stale — run `npm run generate` and commit the result'; exit 1; }
+
+      - name: Summary
+        if: always()
+        run: node scripts/ci-summary.mjs checks
+        env:
+          OUTCOMES: |
+            Types=${{ steps.types.outcome }}
+            Preset compiles to real utilities=${{ steps.preset.outcome }}
+            Generated data is current=${{ steps.generated.outcome }}
 
   test:
     name: Unit, interaction and accessibility
@@ -54,7 +66,15 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm test
+      - name: Tests
+        id: tests
+        run: npm test
+      - name: Summary
+        if: always()
+        run: node scripts/ci-summary.mjs a11y
+        env:
+          OUTCOMES: |
+            Preset, interaction, platform, axe and MCP suites=${{ steps.tests.outcome }}
       - name: Accessibility report
         if: always()
         uses: actions/upload-artifact@v6
@@ -74,15 +94,26 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run build:lib
+      - name: Build the package
+        id: build
+        run: npm run build:lib
 
       # What the package actually resolves to for a consumer: entry points,
       # types, exports map. Reporting only for now — the exports map has known
       # gaps (no `require` condition), and a job that is red on day one teaches
       # people to ignore it. Make it gating once those are closed.
       - name: Package entry points
+        id: publint
         continue-on-error: true
         run: npx --yes publint@latest run .
+
+      - name: Summary
+        if: always()
+        run: node scripts/ci-summary.mjs package
+        env:
+          OUTCOMES: |
+            Build the package=${{ steps.build.outcome }}
+            Entry points (publint, reporting only)=${{ steps.publint.outcome }}
 
       - uses: actions/upload-artifact@v6
         with:
@@ -107,7 +138,16 @@ jobs:
       # run. They need regenerating in this container before visual.spec.ts can
       # join in — until then, running it here would only teach people to ignore
       # a red job.
-      - run: npx playwright test e2e/contrast.spec.ts
+      - name: Contrast
+        id: contrast
+        run: npx playwright test e2e/contrast.spec.ts
+      - name: Summary
+        if: always()
+        run: node scripts/ci-summary.mjs steps
+        env:
+          TITLE: Browser checks
+          OUTCOMES: |
+            Contrast=${{ steps.contrast.outcome }}
       - uses: actions/upload-artifact@v6
         if: failure()
         with:
