@@ -1,10 +1,11 @@
 import { Component, useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Crosshair, Maximize2, Minus, Plus, Search } from 'lucide-react'
-import { Badge, Input, Text, VisuallyHidden, cn } from 'klyv'
+import { Badge, Input, SegmentedControl, Text, VisuallyHidden, cn } from 'klyv'
 import { loadExamples } from '../examples'
 import { componentCount, isNewComponent, isShowpiece } from '../data/catalog'
 import { TILE, atlas, tilesIn } from '../lib/atlas'
+import { Constellation } from './atlas/Constellation'
 
 /**
  * The atlas: the whole library on one canvas, alive.
@@ -22,7 +23,11 @@ import { TILE, atlas, tilesIn } from '../lib/atlas'
  * it, with a cap on how many run at once — the nearest to the middle of the
  * screen win. Everything below that is a card with a name, which is also what a
  * visitor who never zooms in gets.
+ *
+ * The same library has a second shape — what imports what — which the
+ * constellation view draws instead.
  */
+type Mode = 'map' | 'graph'
 const LIVE_SCALE = 0.62
 const LIVE_LIMIT = 18
 // Low enough that the whole width still fits on a narrow window, where the
@@ -41,6 +46,7 @@ export default function AtlasPage() {
   const [view, setView] = useState<View>({ x: 0, y: 0, scale: 0.34 })
   const [size, setSize] = useState({ width: 1200, height: 700 })
   const [query, setQuery] = useState('')
+  const [mode, setMode] = useState<Mode>('map')
   const [live, setLive] = useState(true)
   const dragging = useRef<{ x: number; y: number; viewX: number; viewY: number } | null>(null)
   const tween = useRef(0)
@@ -202,11 +208,22 @@ export default function AtlasPage() {
             Atlas
           </Text>
           <Text size="caption" tone="soft">
-            Every one of the {componentCount} components on one canvas. Drag to move, pinch or ⌘-scroll to zoom — and
-            they start running as you get close.
+            {mode === 'map'
+              ? `Every one of the ${componentCount} components on one canvas. Drag to move, pinch or ⌘-scroll to zoom — and they start running as you get close.`
+              : `All ${componentCount} of them as a graph of what imports what, settled by physics. Hover a star to light everything it brings with it.`}
           </Text>
         </div>
         <div className="flex flex-wrap items-center gap-2">
+          <SegmentedControl<Mode>
+            label="How to see the library"
+            size="sm"
+            value={mode}
+            onValueChange={setMode}
+            options={[
+              { value: 'map', label: 'Map' },
+              { value: 'graph', label: 'Constellation' },
+            ]}
+          />
           <span className="relative">
             <Search size={14} aria-hidden className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-ink-faint" />
             <Input
@@ -233,109 +250,120 @@ export default function AtlasPage() {
               </button>
             )}
           </span>
-          <label className="flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5">
-            <input type="checkbox" checked={live} onChange={(event) => setLive(event.target.checked)} className="accent-[var(--color-accent)]" />
-            <Text as="span" size="caption" weight="semibold">
-              Live tiles
-            </Text>
-          </label>
+          {mode === 'map' && (
+            <label className="flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5">
+              <input type="checkbox" checked={live} onChange={(event) => setLive(event.target.checked)} className="accent-[var(--color-accent)]" />
+              <Text as="span" size="caption" weight="semibold">
+                Live tiles
+              </Text>
+            </label>
+          )}
         </div>
       </header>
 
-      <div
-        ref={frameRef}
-        className={cn(
-          'relative flex-1 touch-none overflow-hidden rounded-[var(--radius-window)] border border-line bg-surface-sunken',
-          dragging.current ? 'cursor-grabbing' : 'cursor-grab',
-        )}
-        onPointerDown={(event) => {
-          // A press on a tile or on the controls belongs to them: capturing the
-          // pointer for a pan would retarget the click away from the button and
-          // nothing would ever fire.
-          if ((event.target as Element).closest('[data-tile], [data-controls]')) return
-          dragging.current = { x: event.clientX, y: event.clientY, viewX: view.x, viewY: view.y }
-          event.currentTarget.setPointerCapture(event.pointerId)
-        }}
-        onPointerMove={(event) => {
-          const start = dragging.current
-          if (!start) return
-          setView((current) => ({ ...current, x: start.viewX + (event.clientX - start.x), y: start.viewY + (event.clientY - start.y) }))
-        }}
-        onPointerUp={() => {
-          dragging.current = null
-        }}
-        onPointerCancel={() => {
-          dragging.current = null
-        }}
-      >
-        <div aria-hidden className="landing-dots pointer-events-none absolute inset-0 opacity-60" />
-
+      {mode === 'graph' ? (
+        <div className="relative flex-1 select-none overflow-hidden rounded-[var(--radius-window)] border border-line bg-surface-sunken">
+          <Constellation query={query} />
+        </div>
+      ) : (
         <div
-          className="absolute left-0 top-0 origin-top-left will-change-transform"
-          style={{ transform: `translate3d(${view.x}px, ${view.y}px, 0) scale(${view.scale})`, width: atlas.width, height: atlas.height }}
+          ref={frameRef}
+          className={cn(
+            'relative flex-1 touch-none select-none overflow-hidden rounded-[var(--radius-window)] border border-line bg-surface-sunken',
+            dragging.current ? 'cursor-grabbing' : 'cursor-grab',
+          )}
+          onPointerDown={(event) => {
+            // A press on a tile or on the controls belongs to them: capturing the
+            // pointer for a pan would retarget the click away from the button and
+            // nothing would ever fire.
+            if ((event.target as Element).closest('[data-tile], [data-controls]')) return
+            // Without this a drag across the map sweeps a text selection
+            // through every tile it crosses.
+            event.preventDefault()
+            dragging.current = { x: event.clientX, y: event.clientY, viewX: view.x, viewY: view.y }
+            event.currentTarget.setPointerCapture(event.pointerId)
+          }}
+          onPointerMove={(event) => {
+            const start = dragging.current
+            if (!start) return
+            setView((current) => ({ ...current, x: start.viewX + (event.clientX - start.x), y: start.viewY + (event.clientY - start.y) }))
+          }}
+          onPointerUp={() => {
+            dragging.current = null
+          }}
+          onPointerCancel={() => {
+            dragging.current = null
+          }}
         >
-          {atlas.groups.map((group) => (
-            <div key={group.id} className="absolute" style={{ left: group.x, top: group.y, width: group.width }}>
-              <span className="flex items-baseline gap-3 pb-4">
-                <span className="text-[30px] font-extrabold tracking-[-0.03em] text-ink">{group.id}</span>
-                <span className="font-mono text-[18px] font-bold tabular-nums text-ink-faint">{group.count}</span>
+          <div aria-hidden className="landing-dots pointer-events-none absolute inset-0 opacity-60" />
+
+          <div
+            className="absolute left-0 top-0 origin-top-left will-change-transform"
+            style={{ transform: `translate3d(${view.x}px, ${view.y}px, 0) scale(${view.scale})`, width: atlas.width, height: atlas.height }}
+          >
+            {atlas.groups.map((group) => (
+              <div key={group.id} className="absolute" style={{ left: group.x, top: group.y, width: group.width }}>
+                <span className="flex items-baseline gap-3 pb-4">
+                  <span className="text-[30px] font-extrabold tracking-[-0.03em] text-ink">{group.id}</span>
+                  <span className="font-mono text-[18px] font-bold tabular-nums text-ink-faint">{group.count}</span>
+                </span>
+              </div>
+            ))}
+
+            {visible.map((tile) => (
+              <Tile
+                key={tile.entry.slug}
+                x={tile.x}
+                y={tile.y}
+                name={tile.entry.name}
+                blurb={tile.entry.blurb}
+                slug={tile.entry.slug}
+                scale={view.scale}
+                live={running.has(tile.entry.slug)}
+                dimmed={matches ? !matches.has(tile.entry.slug) : false}
+                onOpen={() => navigate(`/components/${tile.entry.slug}`)}
+              />
+            ))}
+          </div>
+
+          {/* Controls, and a map of the map. */}
+          <div data-controls className="pointer-events-none absolute inset-x-3 bottom-3 flex items-end justify-between gap-3">
+            <div className="pointer-events-auto flex items-center gap-1 rounded-full border border-line bg-[color-mix(in_oklab,var(--color-surface)_92%,transparent)] p-1 shadow-[var(--shadow-float)] backdrop-blur-md">
+              <ControlButton label="Zoom out" onClick={() => zoomAt(1 / 1.35, size.width / 2, size.height / 2)}>
+                <Minus size={15} aria-hidden />
+              </ControlButton>
+              <span className="min-w-[52px] text-center font-mono text-[12px] font-bold tabular-nums text-ink-soft">
+                {Math.round(view.scale * 100)}%
               </span>
+              <ControlButton label="Zoom in" onClick={() => zoomAt(1.35, size.width / 2, size.height / 2)}>
+                <Plus size={15} aria-hidden />
+              </ControlButton>
+              <ControlButton label="Fit the width of the library" onClick={fit}>
+                <Maximize2 size={14} aria-hidden />
+              </ControlButton>
+              <ControlButton
+                label="Fly somewhere at random"
+                onClick={() => {
+                  const tile = atlas.tiles[Math.floor(Math.random() * atlas.tiles.length)]
+                  flyTo(tile.x + TILE.width / 2, tile.y + TILE.height / 2, 0.9)
+                }}
+              >
+                <Crosshair size={14} aria-hidden />
+              </ControlButton>
             </div>
-          ))}
 
-          {visible.map((tile) => (
-            <Tile
-              key={tile.entry.slug}
-              x={tile.x}
-              y={tile.y}
-              name={tile.entry.name}
-              blurb={tile.entry.blurb}
-              slug={tile.entry.slug}
-              scale={view.scale}
-              live={running.has(tile.entry.slug)}
-              dimmed={matches ? !matches.has(tile.entry.slug) : false}
-              onOpen={() => navigate(`/components/${tile.entry.slug}`)}
-            />
-          ))}
-        </div>
-
-        {/* Controls, and a map of the map. */}
-        <div data-controls className="pointer-events-none absolute inset-x-3 bottom-3 flex items-end justify-between gap-3">
-          <div className="pointer-events-auto flex items-center gap-1 rounded-full border border-line bg-[color-mix(in_oklab,var(--color-surface)_92%,transparent)] p-1 shadow-[var(--shadow-float)] backdrop-blur-md">
-            <ControlButton label="Zoom out" onClick={() => zoomAt(1 / 1.35, size.width / 2, size.height / 2)}>
-              <Minus size={15} aria-hidden />
-            </ControlButton>
-            <span className="min-w-[52px] text-center font-mono text-[12px] font-bold tabular-nums text-ink-soft">
-              {Math.round(view.scale * 100)}%
-            </span>
-            <ControlButton label="Zoom in" onClick={() => zoomAt(1.35, size.width / 2, size.height / 2)}>
-              <Plus size={15} aria-hidden />
-            </ControlButton>
-            <ControlButton label="Fit the width of the library" onClick={fit}>
-              <Maximize2 size={14} aria-hidden />
-            </ControlButton>
-            <ControlButton
-              label="Fly somewhere at random"
-              onClick={() => {
-                const tile = atlas.tiles[Math.floor(Math.random() * atlas.tiles.length)]
-                flyTo(tile.x + TILE.width / 2, tile.y + TILE.height / 2, 0.9)
-              }}
-            >
-              <Crosshair size={14} aria-hidden />
-            </ControlButton>
+            <Minimap view={view} size={size} onJump={(x, y) => flyTo(x, y, view.scale)} />
           </div>
 
-          <Minimap view={view} size={size} onJump={(x, y) => flyTo(x, y, view.scale)} />
+          {view.scale < LIVE_SCALE && (
+            <div className="pointer-events-none absolute left-1/2 top-3 -translate-x-1/2 rounded-full border border-line bg-[color-mix(in_oklab,var(--color-surface)_92%,transparent)] px-3 py-1.5 shadow-[var(--shadow-tile)] backdrop-blur-md">
+              <Text as="span" size="caption" tone="soft" className="text-[12px]">
+                Zoom in and the components start running
+              </Text>
+            </div>
+          )}
         </div>
-
-        {view.scale < LIVE_SCALE && (
-          <div className="pointer-events-none absolute left-1/2 top-3 -translate-x-1/2 rounded-full border border-line bg-[color-mix(in_oklab,var(--color-surface)_92%,transparent)] px-3 py-1.5 shadow-[var(--shadow-tile)] backdrop-blur-md">
-            <Text as="span" size="caption" tone="soft" className="text-[12px]">
-              Zoom in and the components start running
-            </Text>
-          </div>
-        )}
-      </div>
+      )}
 
       <VisuallyHidden>
         <p>
