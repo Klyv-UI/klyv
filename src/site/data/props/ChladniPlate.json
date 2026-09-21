@@ -1,0 +1,109 @@
+{
+  "props": [
+    {
+      "name": "shape",
+      "type": "ChladniPlateShape",
+      "required": false,
+      "defaultValue": "'square'",
+      "description": "Square plate (cos·cos modes) or circular plate (Bessel modes)."
+    },
+    {
+      "name": "frequency",
+      "type": "number",
+      "required": false,
+      "description": "Controlled drive frequency in hertz. The nearest eigenmode sets the figure."
+    },
+    {
+      "name": "defaultFrequency",
+      "type": "number",
+      "required": false,
+      "description": "Uncontrolled starting frequency. Defaults to the tenth mode."
+    },
+    {
+      "name": "onFrequencyChange",
+      "type": "(frequency: number) => void",
+      "required": false,
+      "description": "Called when the slider, the mode buttons or bowing change the frequency."
+    },
+    {
+      "name": "playing",
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled drive state. Paused, the plate falls quiet and the sand stays where it is."
+    },
+    {
+      "name": "defaultPlaying",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Uncontrolled starting drive state."
+    },
+    {
+      "name": "onPlayingChange",
+      "type": "(playing: boolean) => void",
+      "required": false,
+      "description": "Called when the play button toggles."
+    },
+    {
+      "name": "defaultMuted",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Start muted. Sound only ever begins from a click on the sound button."
+    },
+    {
+      "name": "defaultVolume",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.4",
+      "description": "Starting volume, 0–1."
+    },
+    {
+      "name": "grains",
+      "type": "number",
+      "required": false,
+      "defaultValue": "12000",
+      "description": "Number of grains. 5,000–20,000 reads best."
+    },
+    {
+      "name": "tone",
+      "type": "ChladniPlateTone",
+      "required": false,
+      "defaultValue": "'ink'",
+      "description": "Grain colour: the ink token or the accent."
+    },
+    {
+      "name": "intensity",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1",
+      "description": "Multiplies how far grains hop. Higher forms figures faster and blurrier."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "460",
+      "description": "Maximum width in pixels. The plate is square and fills its container up to this."
+    },
+    {
+      "name": "controls",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the transport, frequency and sound controls."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Chladni plate'",
+      "description": "Accessible name for the plate."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

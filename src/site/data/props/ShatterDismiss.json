@@ -1,0 +1,129 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The content that shatters. It stays mounted while dismissed, so its state survives an undo."
+    },
+    {
+      "name": "shattered",
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled dismissed state. `false` after `true` plays the undo."
+    },
+    {
+      "name": "defaultShattered",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Uncontrolled starting state."
+    },
+    {
+      "name": "onShatteredChange",
+      "type": "(shattered: boolean) => void",
+      "required": false,
+      "description": "Called when the close button, `shatter()` or `restore()` asks for a change."
+    },
+    {
+      "name": "onShattered",
+      "type": "() => void",
+      "required": false,
+      "description": "Fires once the last shard has faded."
+    },
+    {
+      "name": "onRestored",
+      "type": "() => void",
+      "required": false,
+      "description": "Fires once the real element is back."
+    },
+    {
+      "name": "shards",
+      "type": "number",
+      "required": false,
+      "defaultValue": "28",
+      "description": "Roughly how many shards."
+    },
+    {
+      "name": "force",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1",
+      "description": "Multiplies the blast."
+    },
+    {
+      "name": "gravity",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1",
+      "description": "Multiplies gravity."
+    },
+    {
+      "name": "floor",
+      "type": "number | false",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Pixels below the element where shards land and bounce; `false` lets them fall away."
+    },
+    {
+      "name": "edges",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Hairline highlights on the shard edges, like cut glass."
+    },
+    {
+      "name": "collapse",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Close the gap the element leaves, and reopen it before an undo."
+    },
+    {
+      "name": "closeButton",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the built-in close button in the top-right corner."
+    },
+    {
+      "name": "closeLabel",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Dismiss'",
+      "description": "Accessible name of the close button."
+    },
+    {
+      "name": "focusTarget",
+      "type": "RefObject<HTMLElement | null> | (() => HTMLElement | null | undefined)",
+      "required": false,
+      "description": "Where focus goes when the element is dismissed while it holds focus."
+    },
+    {
+      "name": "announcement",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Dismissed. Undo available.'",
+      "description": "Announced politely on dismissal."
+    },
+    {
+      "name": "restoredAnnouncement",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Restored.'",
+      "description": "Announced politely once restored."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Classes for the outer wrapper."
+    },
+    {
+      "name": "contentClassName",
+      "type": "string",
+      "required": false,
+      "description": "Classes for the element that shatters."
+    }
+  ]
+}

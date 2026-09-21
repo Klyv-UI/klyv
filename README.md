@@ -1,6 +1,6 @@
 # Klyv
 
-**An accent-led React component library.** 590+ components that take their entire
+**An accent-led React component library.** 600+ components that take their entire
 personality from a single colour — pick a hue and the whole set repaints:
 buttons, charts, selection washes, and the page behind them.
 
@@ -132,7 +132,7 @@ short URL-safe string (`8b5cf6.zinc.lg.geist.elevated`) for a share link.
 
 ## What is in it
 
-593 components in thirteen groups. The grouping describes what a component is
+603 components in thirteen groups. The grouping describes what a component is
 **for** — the only question anyone browsing a library arrives with.
 
 | Group | Count | |
@@ -146,9 +146,9 @@ short URL-safe string (`8b5cf6.zinc.lg.geist.elevated`) for a share link.
 | Charts | 57 | plots, gauges, distribution, flow, activity |
 | Feedback | 37 | status, messages, empty states, celebration |
 | Overlays | 23 | dialogs, popovers, guidance |
-| Motion & Effects | 45 | entrances, kinetic type, light and surfaces |
+| Motion & Effects | 51 | entrances, kinetic type, light and surfaces |
 | Interaction | 49 | touch and drag, presence, trust and workflow |
-| Canvas & Play | 37 | generative, audio, physics, toys |
+| Canvas & Play | 41 | generative, audio, physics, toys |
 | SaaS | 79 | marketing, pricing, auth, billing, team, settings, developer, data views, engagement, security |
 
 ### Merged
@@ -168,6 +168,23 @@ Four pairs turned out to be one component twice, and are now one:
 
 ScrollProgress's `backToTop` is deprecated too: it now renders BackToTop with
 `showProgress`, which moves focus, respects reduced motion and hides properly.
+
+### The showpieces
+
+Ten components whose whole point is the moment you first see them. They carry
+their own **Showpiece** tag rather than New, so it stays true after the next
+release, and `/components?showpiece=1` collects them.
+
+**FluidCanvas** — stir real GPU fluid and the smoke keeps swirling after you let go.
+**ReactionDiffusion** — Gray–Scott chemistry growing coral and fingerprints, seeded by a headline.
+**ClothPanel** — the real card, text and buttons and all, hanging and tearing like fabric.
+**ShatterDismiss** — the live element breaks into glass shards where you hit it; undo flies them back.
+**ChladniPlate** — sand hops until it finds the still lines, so the figure forms itself.
+**LightCaster** — a lamp you drag, and the page's real elements cast true soft shadows.
+**RainGlass** — drops merge and run, each one a lens on the scene behind.
+**PopUpCard** — fold linkages solved from the opening angle, so paper figures stand up.
+**ParallaxPortal** — an off-axis window into a room behind the screen.
+**InfiniteZoom** — each scene holds the next and the last holds the first, forever.
 
 ### New: seventy more, each a mechanic the library lacked
 

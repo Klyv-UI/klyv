@@ -1,5 +1,5 @@
 import { catalog } from './catalog'
-import { isNewComponent } from './catalog'
+import { isNewComponent, isShowpiece } from './catalog'
 import { groupOf } from './groups'
 import { blocks } from './blocks'
 import { templates } from './templates'
@@ -58,6 +58,8 @@ export interface LibraryItem {
   /** Components only. See data/health.ts. */
   status?: ComponentStatus
   isNew?: boolean
+  /** One of the showpieces — tagged instead of New. See SHOWPIECE_COMPONENTS. */
+  isShowpiece?: boolean
   isFeatured?: boolean
   /** Templates and recipes name the kinds of product they suit outright. */
   projectTypes?: string[]
@@ -105,10 +107,12 @@ const componentItems: LibraryItem[] = catalog.map((entry) => {
       entry.section,
       entry.group,
       group.slug,
+      ...(isShowpiece(entry.name) ? ['showpiece', 'wow', 'showcase'] : []),
     ]),
     to: `/components/${entry.slug}`,
     status: statusOf(entry.name),
     isNew: isNewComponent(entry.name),
+    isShowpiece: isShowpiece(entry.name),
     isFeatured: FEATURED.has(id),
   }
 })

@@ -1,0 +1,71 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name of the view."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "`ParallaxPortalLayer`s, placed in the room by their `depth`."
+    },
+    {
+      "name": "walls",
+      "type": "ParallaxPortalWalls",
+      "required": false,
+      "defaultValue": "{}",
+      "description": "What is painted on each surface of the room. Any surface left out gets a lined panel."
+    },
+    {
+      "name": "depth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "520",
+      "description": "How deep the room goes behind the frame, px."
+    },
+    {
+      "name": "perspective",
+      "type": "number",
+      "required": false,
+      "defaultValue": "760",
+      "description": "Distance from the eye to the frame, px. Smaller exaggerates depth."
+    },
+    {
+      "name": "intensity",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.7",
+      "description": "How far the eye may travel, as a fraction of half the frame."
+    },
+    {
+      "name": "idle",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Drift slowly on its own while nobody is pointing at it."
+    },
+    {
+      "name": "tilt",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Offer a button to steer with the phone’s tilt, where the device has one."
+    },
+    {
+      "name": "paused",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Hold the view still."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins. Give it a height."
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import { Surface, Text, cn } from 'klyv'
 import { itemTypeLabel, type LibraryItem } from '../data/library'
 import { FavoriteButton } from './SaveControls'
 import { NewBadge } from './NewBadge'
+import { ShowpieceBadge } from './ShowpieceBadge'
 
 /**
  * One library item as a card — the same tile the catalogue uses, for any kind
@@ -54,7 +55,7 @@ export function ItemCard({
                 {item.name}
               </Link>
             </Heading>
-            {item.isNew && <NewBadge />}
+            {item.isShowpiece ? <ShowpieceBadge /> : item.isNew && <NewBadge />}
           </span>
         </div>
         <FavoriteButton itemId={item.id} name={item.name} variant="icon" className="relative z-10 -mr-1 -mt-1" />

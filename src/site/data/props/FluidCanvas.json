@@ -1,0 +1,91 @@
+{
+  "props": [
+    {
+      "name": "colors",
+      "type": "'accent' | string[]",
+      "required": false,
+      "defaultValue": "'accent'",
+      "description": "Dye colours: up to four CSS colours or tokens, or `'accent'` for a set derived from the theme accent."
+    },
+    {
+      "name": "dissipation",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.4",
+      "description": "How fast the dye fades, per second. 0 keeps it forever; 3 clears a splat in about a second."
+    },
+    {
+      "name": "curl",
+      "type": "number",
+      "required": false,
+      "defaultValue": "24",
+      "description": "Vorticity confinement: how hard small swirls are kept alive. 0 is laminar; 40 is turbulent."
+    },
+    {
+      "name": "splatRadius",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.22",
+      "description": "Splat size, as a fraction of the shorter side."
+    },
+    {
+      "name": "quality",
+      "type": "FluidCanvasQuality",
+      "required": false,
+      "defaultValue": "'medium'",
+      "description": "Simulation and dye resolution. Low for backgrounds on weak devices, high for a showpiece."
+    },
+    {
+      "name": "glow",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.5",
+      "description": "Bloom strength, 0–1. Brightest in dark mode, a soft halo in light mode. Off at low quality."
+    },
+    {
+      "name": "idle",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "After a few seconds untouched, keep the fluid moving with gentle random splats."
+    },
+    {
+      "name": "paused",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Freeze the simulation on its current frame."
+    },
+    {
+      "name": "captureTouch",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Let touch drags stir the fluid instead of scrolling the page. Leave off for a hero the reader scrolls past."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Describe the image for assistive tech. Without it the canvas is decorative and hidden."
+    },
+    {
+      "name": "onStatusChange",
+      "type": "(status: FluidCanvasStatus) => void",
+      "required": false,
+      "description": "Called when the simulation starts, or when it falls back."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Content drawn on top of the fluid."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins. Give the component a size here."
+    }
+  ]
+}

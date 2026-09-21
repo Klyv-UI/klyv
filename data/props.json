@@ -4242,6 +4242,115 @@
       "Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onSelect'>"
     ]
   },
+  "ChladniPlate": {
+    "props": [
+      {
+        "name": "shape",
+        "type": "ChladniPlateShape",
+        "required": false,
+        "defaultValue": "'square'",
+        "description": "Square plate (cos·cos modes) or circular plate (Bessel modes)."
+      },
+      {
+        "name": "frequency",
+        "type": "number",
+        "required": false,
+        "description": "Controlled drive frequency in hertz. The nearest eigenmode sets the figure."
+      },
+      {
+        "name": "defaultFrequency",
+        "type": "number",
+        "required": false,
+        "description": "Uncontrolled starting frequency. Defaults to the tenth mode."
+      },
+      {
+        "name": "onFrequencyChange",
+        "type": "(frequency: number) => void",
+        "required": false,
+        "description": "Called when the slider, the mode buttons or bowing change the frequency."
+      },
+      {
+        "name": "playing",
+        "type": "boolean",
+        "required": false,
+        "description": "Controlled drive state. Paused, the plate falls quiet and the sand stays where it is."
+      },
+      {
+        "name": "defaultPlaying",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Uncontrolled starting drive state."
+      },
+      {
+        "name": "onPlayingChange",
+        "type": "(playing: boolean) => void",
+        "required": false,
+        "description": "Called when the play button toggles."
+      },
+      {
+        "name": "defaultMuted",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Start muted. Sound only ever begins from a click on the sound button."
+      },
+      {
+        "name": "defaultVolume",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.4",
+        "description": "Starting volume, 0–1."
+      },
+      {
+        "name": "grains",
+        "type": "number",
+        "required": false,
+        "defaultValue": "12000",
+        "description": "Number of grains. 5,000–20,000 reads best."
+      },
+      {
+        "name": "tone",
+        "type": "ChladniPlateTone",
+        "required": false,
+        "defaultValue": "'ink'",
+        "description": "Grain colour: the ink token or the accent."
+      },
+      {
+        "name": "intensity",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1",
+        "description": "Multiplies how far grains hop. Higher forms figures faster and blurrier."
+      },
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "defaultValue": "460",
+        "description": "Maximum width in pixels. The plate is square and fills its container up to this."
+      },
+      {
+        "name": "controls",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Show the transport, frequency and sound controls."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Chladni plate'",
+        "description": "Accessible name for the plate."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
   "ChoiceCardGroup": {
     "props": [],
     "inherits": [
@@ -4524,6 +4633,146 @@
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "ClothPanel": {
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The panel itself: real text, real buttons. It is what hangs."
+      },
+      {
+        "name": "pins",
+        "type": "ClothPanelPins",
+        "required": false,
+        "defaultValue": "'top'",
+        "description": "Where the cloth is held: the whole top edge, its two top corners, the left edge (a flag), or nowhere."
+      },
+      {
+        "name": "cols",
+        "type": "number",
+        "required": false,
+        "defaultValue": "10",
+        "description": "Points across. Kept under the clone budget of 140 triangles together with `rows`."
+      },
+      {
+        "name": "rows",
+        "type": "number",
+        "required": false,
+        "defaultValue": "7",
+        "description": "Points down."
+      },
+      {
+        "name": "gravity",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.32",
+        "description": "Downward pull, in px per step²."
+      },
+      {
+        "name": "damping",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.985",
+        "description": "Velocity kept each step. Lower is more damped."
+      },
+      {
+        "name": "iterations",
+        "type": "number",
+        "required": false,
+        "defaultValue": "8",
+        "description": "Constraint passes per step. More is stiffer and less stretchy."
+      },
+      {
+        "name": "wind",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0",
+        "description": "Wind strength, 0 (still) to 1 (a gale)."
+      },
+      {
+        "name": "windDirection",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0",
+        "description": "Direction the wind blows towards, in degrees: 0 is right, 90 is down."
+      },
+      {
+        "name": "gusts",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Blow in gusts with calm spells between them, rather than steadily."
+      },
+      {
+        "name": "tearable",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Let links break when stretched past `tearLimit`."
+      },
+      {
+        "name": "tearLimit",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1.9",
+        "description": "Stretch ratio at which a link breaks."
+      },
+      {
+        "name": "onTear",
+        "type": "(broken: number) => void",
+        "required": false,
+        "description": "Called with the running count of broken links whenever the cloth tears."
+      },
+      {
+        "name": "onMotionChange",
+        "type": "(moving: boolean) => void",
+        "required": false,
+        "description": "Called with true when the clones take over, and false when the real content is back."
+      },
+      {
+        "name": "calmOnHover",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Drop the wind while a pointer is over the panel, so it settles and can be used."
+      },
+      {
+        "name": "shading",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1",
+        "description": "How strongly folds are shaded, 0 to 1."
+      },
+      {
+        "name": "bleed",
+        "type": "number",
+        "required": false,
+        "defaultValue": "24",
+        "description": "Extra room, in px, drawn around each edge so a shadow or border travels with the cloth."
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Freeze the simulation where it is."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'panel'",
+        "description": "Names the panel in the handle’s accessible label, as in “Shake the offer”."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last onto the outer element, so it wins."
       }
     ]
   },
@@ -10329,6 +10578,97 @@
       }
     ]
   },
+  "FluidCanvas": {
+    "props": [
+      {
+        "name": "colors",
+        "type": "'accent' | string[]",
+        "required": false,
+        "defaultValue": "'accent'",
+        "description": "Dye colours: up to four CSS colours or tokens, or `'accent'` for a set derived from the theme accent."
+      },
+      {
+        "name": "dissipation",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.4",
+        "description": "How fast the dye fades, per second. 0 keeps it forever; 3 clears a splat in about a second."
+      },
+      {
+        "name": "curl",
+        "type": "number",
+        "required": false,
+        "defaultValue": "24",
+        "description": "Vorticity confinement: how hard small swirls are kept alive. 0 is laminar; 40 is turbulent."
+      },
+      {
+        "name": "splatRadius",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.22",
+        "description": "Splat size, as a fraction of the shorter side."
+      },
+      {
+        "name": "quality",
+        "type": "FluidCanvasQuality",
+        "required": false,
+        "defaultValue": "'medium'",
+        "description": "Simulation and dye resolution. Low for backgrounds on weak devices, high for a showpiece."
+      },
+      {
+        "name": "glow",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.5",
+        "description": "Bloom strength, 0–1. Brightest in dark mode, a soft halo in light mode. Off at low quality."
+      },
+      {
+        "name": "idle",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "After a few seconds untouched, keep the fluid moving with gentle random splats."
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Freeze the simulation on its current frame."
+      },
+      {
+        "name": "captureTouch",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Let touch drags stir the fluid instead of scrolling the page. Leave off for a hero the reader scrolls past."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Describe the image for assistive tech. Without it the canvas is decorative and hidden."
+      },
+      {
+        "name": "onStatusChange",
+        "type": "(status: FluidCanvasStatus) => void",
+        "required": false,
+        "description": "Called when the simulation starts, or when it falls back."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Content drawn on top of the fluid."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins. Give the component a size here."
+      }
+    ]
+  },
   "FocusTrap": {
     "props": [
       {
@@ -12629,6 +12969,56 @@
       }
     ]
   },
+  "InfiniteZoom": {
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name of the view."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "`InfiniteZoomScene`s, outermost first."
+      },
+      {
+        "name": "autoplay",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Dive on its own when it first appears. Ignored under reduced motion."
+      },
+      {
+        "name": "speed",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.12",
+        "description": "Scenes per second while diving."
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Freeze the camera."
+      },
+      {
+        "name": "controls",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Show the depth indicator, scrub bar and buttons."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins. Give it a height or an aspect ratio."
+      }
+    ]
+  },
   "InlineCompletion": {
     "props": [
       {
@@ -14102,6 +14492,104 @@
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "LightCaster": {
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The region’s content. Its elements are the occluders, measured from the live layout."
+      },
+      {
+        "name": "lights",
+        "type": "LightCasterLight[]",
+        "required": false,
+        "description": "Controlled lights. Positions are fractions of the region, so they survive resizes."
+      },
+      {
+        "name": "defaultLights",
+        "type": "LightCasterLight[]",
+        "required": false,
+        "defaultValue": "DEFAULT_LIGHTS",
+        "description": "Lights for uncontrolled use."
+      },
+      {
+        "name": "onLightsChange",
+        "type": "(lights: LightCasterLight[]) => void",
+        "required": false,
+        "description": "Called with the new lights whenever one is dragged, nudged with the keyboard or follows the pointer."
+      },
+      {
+        "name": "ambient",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.42",
+        "description": "Light that reaches everywhere, shadow included, from 0 (black shadows) to 1 (no shadows). Darker on dark themes."
+      },
+      {
+        "name": "softness",
+        "type": "number",
+        "required": false,
+        "defaultValue": "14",
+        "description": "Size in pixels of the light’s body: it sets how wide the soft penumbra at a shadow’s edge is. 0 is a point."
+      },
+      {
+        "name": "samples",
+        "type": "number",
+        "required": false,
+        "defaultValue": "6",
+        "description": "Jittered positions per light used to build the penumbra, from 1 to 8. More is smoother and costs more."
+      },
+      {
+        "name": "layer",
+        "type": "LightCasterLayer",
+        "required": false,
+        "defaultValue": "'over'",
+        "description": "Whether the light falls on the content (`over`) or only on the floor beneath it (`under`)."
+      },
+      {
+        "name": "occluders",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'[data-occluder]'",
+        "description": "Selector for the elements that cast shadows. When nothing matches, every direct child casts one."
+      },
+      {
+        "name": "followPointer",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "The first light follows the pointer while it is over the region."
+      },
+      {
+        "name": "motion",
+        "type": "LightCasterMotion",
+        "required": false,
+        "defaultValue": "'none'",
+        "description": "Motion of the lights on their own. Ignored under reduced motion; dragging always works."
+      },
+      {
+        "name": "speed",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1",
+        "description": "Multiplier for `motion`."
+      },
+      {
+        "name": "showHandles",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Show the draggable, focusable handles. Without them the lights can only be set by props or `followPointer`."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins. The region needs a size and usually a background for shadows to fall on."
       }
     ]
   },
@@ -18469,6 +18957,77 @@
       }
     ]
   },
+  "ParallaxPortal": {
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name of the view."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "`ParallaxPortalLayer`s, placed in the room by their `depth`."
+      },
+      {
+        "name": "walls",
+        "type": "ParallaxPortalWalls",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "What is painted on each surface of the room. Any surface left out gets a lined panel."
+      },
+      {
+        "name": "depth",
+        "type": "number",
+        "required": false,
+        "defaultValue": "520",
+        "description": "How deep the room goes behind the frame, px."
+      },
+      {
+        "name": "perspective",
+        "type": "number",
+        "required": false,
+        "defaultValue": "760",
+        "description": "Distance from the eye to the frame, px. Smaller exaggerates depth."
+      },
+      {
+        "name": "intensity",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.7",
+        "description": "How far the eye may travel, as a fraction of half the frame."
+      },
+      {
+        "name": "idle",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Drift slowly on its own while nobody is pointing at it."
+      },
+      {
+        "name": "tilt",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Offer a button to steer with the phone’s tilt, where the device has one."
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Hold the view still."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins. Give it a height."
+      }
+    ]
+  },
   "ParallelCoordinates": {
     "props": [
       {
@@ -19640,6 +20199,120 @@
         "name": "className",
         "type": "string",
         "required": false
+      }
+    ]
+  },
+  "PopUpCard": {
+    "props": [
+      {
+        "name": "pieces",
+        "type": "PopUpCardPiece[]",
+        "required": true,
+        "description": "The pop-up pieces, drawn in order."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name of the card."
+      },
+      {
+        "name": "angle",
+        "type": "number",
+        "required": false,
+        "description": "Opening angle in degrees, 0 (shut) to 180 (flat). Omit for uncontrolled."
+      },
+      {
+        "name": "defaultAngle",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0",
+        "description": "Starting angle when uncontrolled."
+      },
+      {
+        "name": "onAngleChange",
+        "type": "(angle: number) => void",
+        "required": false
+      },
+      {
+        "name": "openAngle",
+        "type": "number",
+        "required": false,
+        "defaultValue": "100",
+        "description": "Angle a click or Enter opens to. 90 stands parallel folds straight up."
+      },
+      {
+        "name": "openOnView",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Open by itself the first time it scrolls into view."
+      },
+      {
+        "name": "width",
+        "type": "number",
+        "required": false,
+        "defaultValue": "460",
+        "description": "Width of the card along its fold, px."
+      },
+      {
+        "name": "depth",
+        "type": "number",
+        "required": false,
+        "defaultValue": "250",
+        "description": "Depth of each page from the fold, px."
+      },
+      {
+        "name": "pitch",
+        "type": "number",
+        "required": false,
+        "defaultValue": "24",
+        "description": "Camera elevation in degrees."
+      },
+      {
+        "name": "yaw",
+        "type": "number",
+        "required": false,
+        "defaultValue": "-14",
+        "description": "Camera turn in degrees. Drag sideways to look around it."
+      },
+      {
+        "name": "cover",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Printed on the outside, seen while the card is shut."
+      },
+      {
+        "name": "inside",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Printed on the inside of the back page."
+      },
+      {
+        "name": "base",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Printed on the base page, under the pieces."
+      },
+      {
+        "name": "paper",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'var(--color-surface)'",
+        "description": "Paper of the pages."
+      },
+      {
+        "name": "coverPaper",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'var(--color-accent)'",
+        "description": "Paper of the cover."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
       }
     ]
   },
@@ -21228,6 +21901,83 @@
       }
     ]
   },
+  "RainGlass": {
+    "props": [
+      {
+        "name": "background",
+        "type": "RainGlassScene | string | HTMLCanvasElement",
+        "required": false,
+        "defaultValue": "'city'",
+        "description": "What is behind the glass: `city` or `bokeh` (drawn in code), an image URL, or a canvas. The glass refracts this image — not the live page underneath it."
+      },
+      {
+        "name": "intensity",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.5",
+        "description": "How hard it is raining, from 0 (dry: the drops already there stay put) to 1 (a downpour)."
+      },
+      {
+        "name": "dropSize",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1",
+        "description": "Multiplier for the size of the drops."
+      },
+      {
+        "name": "fog",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.75",
+        "description": "How strongly the glass fogs, from 0 (clear) to 1 (frosted)."
+      },
+      {
+        "name": "fogReturn",
+        "type": "number",
+        "required": false,
+        "defaultValue": "14",
+        "description": "Seconds for a wiped patch to fog over again."
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Freeze the rain. Wiping still works."
+      },
+      {
+        "name": "wipe",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Let pointer drags wipe the fog like a finger. Sets `touch-action: none` on the pane."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Describe the scene for assistive tech. Without it the pane is decorative and hidden."
+      },
+      {
+        "name": "onStatusChange",
+        "type": "(status: RainGlassStatus) => void",
+        "required": false,
+        "description": "Called when rendering starts, or when it falls back."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Content drawn on top of the glass."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins. Give the component a size here."
+      }
+    ]
+  },
   "RangeSlider": {
     "props": [
       {
@@ -21457,6 +22207,94 @@
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "ReactionDiffusion": {
+    "props": [
+      {
+        "name": "preset",
+        "type": "ReactionDiffusionPreset",
+        "required": false,
+        "defaultValue": "'coral'",
+        "description": "Feed and kill rates known to grow a recognisable pattern. Changing it morphs smoothly to the new pair."
+      },
+      {
+        "name": "feed",
+        "type": "number",
+        "required": false,
+        "description": "Feed rate of chemical A. Overrides the preset’s. Useful range 0.01–0.1."
+      },
+      {
+        "name": "kill",
+        "type": "number",
+        "required": false,
+        "description": "Kill rate of chemical B. Overrides the preset’s. Useful range 0.045–0.07."
+      },
+      {
+        "name": "speed",
+        "type": "number",
+        "required": false,
+        "defaultValue": "12",
+        "description": "Simulation steps per frame. Higher grows faster and costs more."
+      },
+      {
+        "name": "seedText",
+        "type": "string",
+        "required": false,
+        "description": "Text drawn into the seed in the theme font, so it grows into the pattern. Use `\\n` for a second line."
+      },
+      {
+        "name": "contain",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "With `seedText`, keep the pattern inside the letters so the words stay readable."
+      },
+      {
+        "name": "emboss",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.6",
+        "description": "Pseudo-3D lighting on the concentration field, 0–1."
+      },
+      {
+        "name": "brushSize",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.03",
+        "description": "Brush radius for painting chemical B, as a fraction of the shorter side."
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Freeze the simulation on its current frame."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Describe the image for assistive tech. Without it the canvas is decorative and hidden."
+      },
+      {
+        "name": "onStatusChange",
+        "type": "(status: ReactionDiffusionStatus) => void",
+        "required": false,
+        "description": "Called when the simulation starts, or when it falls back."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Content drawn on top."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins. Give the component a size here."
       }
     ]
   },
@@ -24691,6 +25529,135 @@
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "ShatterDismiss": {
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The content that shatters. It stays mounted while dismissed, so its state survives an undo."
+      },
+      {
+        "name": "shattered",
+        "type": "boolean",
+        "required": false,
+        "description": "Controlled dismissed state. `false` after `true` plays the undo."
+      },
+      {
+        "name": "defaultShattered",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Uncontrolled starting state."
+      },
+      {
+        "name": "onShatteredChange",
+        "type": "(shattered: boolean) => void",
+        "required": false,
+        "description": "Called when the close button, `shatter()` or `restore()` asks for a change."
+      },
+      {
+        "name": "onShattered",
+        "type": "() => void",
+        "required": false,
+        "description": "Fires once the last shard has faded."
+      },
+      {
+        "name": "onRestored",
+        "type": "() => void",
+        "required": false,
+        "description": "Fires once the real element is back."
+      },
+      {
+        "name": "shards",
+        "type": "number",
+        "required": false,
+        "defaultValue": "28",
+        "description": "Roughly how many shards."
+      },
+      {
+        "name": "force",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1",
+        "description": "Multiplies the blast."
+      },
+      {
+        "name": "gravity",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1",
+        "description": "Multiplies gravity."
+      },
+      {
+        "name": "floor",
+        "type": "number | false",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Pixels below the element where shards land and bounce; `false` lets them fall away."
+      },
+      {
+        "name": "edges",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Hairline highlights on the shard edges, like cut glass."
+      },
+      {
+        "name": "collapse",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Close the gap the element leaves, and reopen it before an undo."
+      },
+      {
+        "name": "closeButton",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Show the built-in close button in the top-right corner."
+      },
+      {
+        "name": "closeLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Dismiss'",
+        "description": "Accessible name of the close button."
+      },
+      {
+        "name": "focusTarget",
+        "type": "RefObject<HTMLElement | null> | (() => HTMLElement | null | undefined)",
+        "required": false,
+        "description": "Where focus goes when the element is dismissed while it holds focus."
+      },
+      {
+        "name": "announcement",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Dismissed. Undo available.'",
+        "description": "Announced politely on dismissal."
+      },
+      {
+        "name": "restoredAnnouncement",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Restored.'",
+        "description": "Announced politely once restored."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Classes for the outer wrapper."
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Classes for the element that shatters."
       }
     ]
   },

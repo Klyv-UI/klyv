@@ -1346,6 +1346,28 @@
         "react"
       ]
     },
+    "ChladniPlate": {
+      "files": [
+        "components/ChladniPlate/ChladniPlate.tsx",
+        "components/ChladniPlate/index.ts",
+        "components/ChladniPlate/modes.ts"
+      ],
+      "internal": [
+        "Button",
+        "IconButton",
+        "Slider"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts",
+        "lib/image-data.ts",
+        "lib/motion.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "ChoiceCardGroup": {
       "files": [
         "components/ChoiceCardGroup/ChoiceCardGroup.tsx",
@@ -1424,6 +1446,21 @@
       "shared": [
         "components/internal/plot.tsx",
         "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ClothPanel": {
+      "files": [
+        "components/ClothPanel/ClothPanel.tsx",
+        "components/ClothPanel/cloth.ts",
+        "components/ClothPanel/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
       ],
       "external": [
         "react"
@@ -3236,6 +3273,22 @@
         "react"
       ]
     },
+    "FluidCanvas": {
+      "files": [
+        "components/FluidCanvas/FluidCanvas.tsx",
+        "components/FluidCanvas/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "components/internal/gl-sim.ts",
+        "lib/cn.ts",
+        "lib/image-data.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "FocusTrap": {
       "files": [
         "components/FocusTrap/FocusTrap.tsx",
@@ -3897,6 +3950,24 @@
         "react"
       ]
     },
+    "InfiniteZoom": {
+      "files": [
+        "components/InfiniteZoom/InfiniteZoom.tsx",
+        "components/InfiniteZoom/index.ts"
+      ],
+      "internal": [
+        "IconButton"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts",
+        "lib/motion.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "InlineCompletion": {
       "files": [
         "components/InlineCompletion/InlineCompletion.tsx",
@@ -4401,6 +4472,21 @@
         "components/internal/icons.tsx",
         "lib/cn.ts",
         "lib/overlay.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "LightCaster": {
+      "files": [
+        "components/LightCaster/LightCaster.tsx",
+        "components/LightCaster/index.ts",
+        "components/LightCaster/visibility.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
       ],
       "external": [
         "react"
@@ -5745,6 +5831,20 @@
         "react"
       ]
     },
+    "ParallaxPortal": {
+      "files": [
+        "components/ParallaxPortal/ParallaxPortal.tsx",
+        "components/ParallaxPortal/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "ParallelCoordinates": {
       "files": [
         "components/ParallelCoordinates/ParallelCoordinates.tsx",
@@ -6096,6 +6196,20 @@
       "shared": [
         "lib/cn.ts",
         "lib/overlay.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "PopUpCard": {
+      "files": [
+        "components/PopUpCard/PopUpCard.tsx",
+        "components/PopUpCard/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
       ],
       "external": [
         "react"
@@ -6540,6 +6654,22 @@
         "react"
       ]
     },
+    "RainGlass": {
+      "files": [
+        "components/RainGlass/RainGlass.tsx",
+        "components/RainGlass/index.ts",
+        "components/RainGlass/scene.ts",
+        "components/RainGlass/simulation.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "RangeSlider": {
       "files": [
         "components/RangeSlider/RangeSlider.tsx",
@@ -6608,6 +6738,22 @@
       ],
       "shared": [
         "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ReactionDiffusion": {
+      "files": [
+        "components/ReactionDiffusion/ReactionDiffusion.tsx",
+        "components/ReactionDiffusion/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "components/internal/gl-sim.ts",
+        "lib/cn.ts",
+        "lib/image-data.ts",
+        "lib/motion.ts"
       ],
       "external": [
         "react"
@@ -7556,6 +7702,25 @@
         "components/internal/icons.tsx",
         "lib/cn.ts",
         "lib/format.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "ShatterDismiss": {
+      "files": [
+        "components/ShatterDismiss/ShatterDismiss.tsx",
+        "components/ShatterDismiss/fracture.ts",
+        "components/ShatterDismiss/index.ts"
+      ],
+      "internal": [
+        "IconButton"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts",
+        "lib/layout-effect.ts",
+        "lib/motion.ts"
       ],
       "external": [
         "react"
@@ -9861,11 +10026,12 @@
       "lib/contrast.ts",
       "theme/accent.ts"
     ],
+    "lib/image-data.ts": [],
     "lib/overlay.ts": [
       "lib/layout-effect.ts"
     ],
     "components/internal/StatusPill.tsx": [],
-    "lib/image-data.ts": [],
+    "components/internal/gl-sim.ts": [],
     "lib/oklch.ts": [],
     "lib/roving.ts": []
   },
@@ -12222,6 +12388,18 @@
       "section": "Entrance & scroll",
       "blurb": "Preloads frames and scrubs them on a pinned canvas as you scroll, with object-fit maths, a loading bar and a still frame under reduced motion."
     },
+    "PopUpCard": {
+      "slug": "pop-up-card",
+      "group": "Motion & Effects",
+      "section": "Entrance & scroll",
+      "blurb": "A card that opens like a pop-up book: parallel folds and V-folds solved from the opening angle, so paper figures rise and stand in real 3D."
+    },
+    "InfiniteZoom": {
+      "slug": "infinite-zoom",
+      "group": "Motion & Effects",
+      "section": "Entrance & scroll",
+      "blurb": "Zoom forever: each scene holds the next and the last holds the first, on a log-scale camera that wraps by the scale factor, so the dive never ends or drifts."
+    },
     "GlitchText": {
       "slug": "glitch-text",
       "group": "Motion & Effects",
@@ -12372,6 +12550,24 @@
       "section": "Surfaces & light",
       "blurb": "A WebGL fragment shader background fed the theme’s colours, time and pointer; pauses off screen, reports compile errors, falls back to a gradient."
     },
+    "LightCaster": {
+      "slug": "light-caster",
+      "group": "Motion & Effects",
+      "section": "Surfaces & light",
+      "blurb": "Drag a lamp across the page and the real elements cast true shadows, computed as a visibility polygon with a soft penumbra from jittered sample lights."
+    },
+    "RainGlass": {
+      "slug": "rain-glass",
+      "group": "Motion & Effects",
+      "section": "Surfaces & light",
+      "blurb": "Rain beads, merges and runs down the pane, wiping the fog; every drop is a little lens showing the scene behind it upside down."
+    },
+    "ParallaxPortal": {
+      "slug": "parallax-portal",
+      "group": "Motion & Effects",
+      "section": "Surfaces & light",
+      "blurb": "The frame becomes a window into a room behind the screen: off-axis projection shifts the view as you move, and props lean out through the frame."
+    },
     "AnimatedNumber": {
       "slug": "animated-number",
       "group": "Motion & Effects",
@@ -12437,6 +12633,12 @@
       "group": "Motion & Effects",
       "section": "Micro-interaction",
       "blurb": "Shakes, pulses or bounces its child when a trigger value changes, or from a ref; under reduced motion it flashes an outline instead."
+    },
+    "ShatterDismiss": {
+      "slug": "shatter-dismiss",
+      "group": "Motion & Effects",
+      "section": "Micro-interaction",
+      "blurb": "Dismiss and the live element breaks into Voronoi shards that spin and fall where you hit it; undo flies every shard back and hands the real thing back."
     },
     "ImageCompare": {
       "slug": "image-compare",
@@ -12780,6 +12982,18 @@
       "section": "Generative",
       "blurb": "Mandelbrot and Julia sets on a canvas, rendered in cancellable chunks across frames; drag, wheel and keys to fly, and a click picks the Julia constant."
     },
+    "FluidCanvas": {
+      "slug": "fluid-canvas",
+      "group": "Canvas & Play",
+      "section": "Generative",
+      "blurb": "Real-time stable fluids on the GPU: push the dye with a finger and the smoke keeps swirling after you let go, in colours drawn from the accent."
+    },
+    "ReactionDiffusion": {
+      "slug": "reaction-diffusion",
+      "group": "Canvas & Play",
+      "section": "Generative",
+      "blurb": "Gray–Scott chemistry on feedback textures: coral, fingerprints and dividing cells grow across the canvas, and a headline can be the seed they grow from."
+    },
     "AudioVisualizer": {
       "slug": "audio-visualizer",
       "group": "Canvas & Play",
@@ -12834,6 +13048,12 @@
       "section": "Audio",
       "blurb": "Offline tempo detection: spectral-flux onsets from an STFT, autocorrelation with octave checks, beats drawn on the waveform and tap-to-verify."
     },
+    "ChladniPlate": {
+      "slug": "chladni-plate",
+      "group": "Canvas & Play",
+      "section": "Audio",
+      "blurb": "Sand on a ringing plate: nothing draws the figure — each grain hops as hard as the plate moves beneath it, so the pattern forms itself and re-forms on a new note."
+    },
     "DiceRoller": {
       "slug": "dice-roller",
       "group": "Canvas & Play",
@@ -12863,6 +13083,12 @@
       "group": "Canvas & Play",
       "section": "Physics",
       "blurb": "A prize or decision wheel that picks the winner first, by weight or from the server, then slows onto it; announced, and instant under reduced motion."
+    },
+    "ClothPanel": {
+      "slug": "cloth-panel",
+      "group": "Canvas & Play",
+      "section": "Physics",
+      "blurb": "The real card — its own text and working buttons — hung on a verlet mesh: it drapes, ripples in the wind, and tears if you pull too hard."
     },
     "FlipBook": {
       "slug": "flip-book",

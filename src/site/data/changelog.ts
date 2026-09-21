@@ -56,6 +56,13 @@ export const releases: Release[] = [
     changes: [
       {
         category: 'feature',
+        title: 'Ten showpieces, with a tag of their own',
+        description:
+          'FluidCanvas, ReactionDiffusion, ClothPanel, ShatterDismiss, ChladniPlate, LightCaster, RainGlass, PopUpCard, ParallaxPortal and InfiniteZoom: real fluid, cloth with working buttons on it, shattering glass, sand finding the nodal lines, cast shadows, refracting rain, pop-up folds, a window into a room, and a zoom that never ends. They are tagged Showpiece rather than New, so the tag stays true after the next release.',
+        links: [{ label: 'Showpieces', to: '/components?showpiece=1' }],
+      },
+      {
+        category: 'feature',
         title: 'Seventy more components, each a mechanic the library lacked, now the ones marked New',
         description:
           'Proposed with their core mechanic checked against the source, then independently reviewed: 47 of 110 candidates were rejected as duplicates, variants, compositions or too thin. MessageFormat, JustifiedText, TabCoordinator, UrlState, DraftRecovery, FuzzyFinder, FullTextSearch, QueryBar, DockLayout, PairwiseRanker, GeoCoordinateInput, CronEditor, RegexTester, CsvImport, JsonDiff, JsonQuery, AnsiOutput, CurlConverter, SemverRange, CspEvaluator, PathEditor, ImageAdjust, SmartCrop, DocumentScanner, PaletteExtractor, ModelViewer, ExifViewer, ZipBrowser, GifRecorder, MeasureTool, TimeSeriesExplorer, ForecastChart, ControlChart, KaplanMeierChart, TraceWaterfall, ContourPlot, ViolinPlot, HexbinChart, FlameGraph, ErrorBudget, FlowDiagram, Dendrogram, MindMap, ResourceScheduler, TournamentBracket, SlaTimer, TransformBox, SnapGuides, StrokeGestures, RankedChoiceResults, CommentAnchors, CollaborativeText, PeerLink, SlideDeck, ThreeWayMerge, Redactor, ReadabilityMeter, ExpenseSplitter, SqlBuilder, JwtInspector, LogPatterns, RecordMerge, SpacedRepetition, Equalizer, LoudnessMeter, BpmDetector, ChessBoard, Game2048, WordGuess and Solitaire. The previous seventy are no longer tagged New.',

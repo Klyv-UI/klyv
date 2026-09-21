@@ -74,7 +74,9 @@ for (const name of readdirSync(COMPONENTS).filter(isComponentDir)) {
       } else if (spec.startsWith('../../lib/')) {
         shared.add(`lib/${spec.slice('../../lib/'.length)}.ts`)
       } else if (spec.startsWith('../internal/')) {
-        shared.add(`components/internal/${spec.slice('../internal/'.length)}.tsx`)
+        // Either extension: the icon set is .tsx, the WebGL helpers are .ts.
+        const base = `components/internal/${spec.slice('../internal/'.length)}`
+        shared.add(existsSync(join(ROOT, 'src', `${base}.tsx`)) ? `${base}.tsx` : `${base}.ts`)
       } else if (spec.startsWith('../../theme/')) {
         shared.add(`theme/${spec.slice('../../theme/'.length)}.ts`)
       } else if (!spec.startsWith('.')) {

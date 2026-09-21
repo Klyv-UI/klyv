@@ -508,6 +508,12 @@ export const sizes: Record<string, ComponentSize> = {
     "files": 5,
     "dependencies": 1
   },
+  "ChladniPlate": {
+    "bytes": 37836,
+    "gzip": 10548,
+    "files": 16,
+    "dependencies": 4
+  },
   "ChoiceCardGroup": {
     "bytes": 8473,
     "gzip": 2447,
@@ -537,6 +543,12 @@ export const sizes: Record<string, ComponentSize> = {
     "gzip": 6792,
     "files": 10,
     "dependencies": 3
+  },
+  "ClothPanel": {
+    "bytes": 37405,
+    "gzip": 10114,
+    "files": 5,
+    "dependencies": 0
   },
   "CoachTour": {
     "bytes": 17877,
@@ -737,7 +749,7 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 2
   },
   "CspEvaluator": {
-    "bytes": 19784,
+    "bytes": 19783,
     "gzip": 5927,
     "files": 6,
     "dependencies": 1
@@ -1043,8 +1055,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "ExpenseSplitter": {
-    "bytes": 52853,
-    "gzip": 13257,
+    "bytes": 53017,
+    "gzip": 13284,
     "files": 33,
     "dependencies": 12
   },
@@ -1172,6 +1184,12 @@ export const sizes: Record<string, ComponentSize> = {
     "bytes": 7936,
     "gzip": 2631,
     "files": 4,
+    "dependencies": 0
+  },
+  "FluidCanvas": {
+    "bytes": 36624,
+    "gzip": 10125,
+    "files": 6,
     "dependencies": 0
   },
   "FocusTrap": {
@@ -1414,6 +1432,12 @@ export const sizes: Record<string, ComponentSize> = {
     "files": 9,
     "dependencies": 3
   },
+  "InfiniteZoom": {
+    "bytes": 22433,
+    "gzip": 6640,
+    "files": 10,
+    "dependencies": 2
+  },
   "InlineCompletion": {
     "bytes": 7094,
     "gzip": 2576,
@@ -1487,8 +1511,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 3
   },
   "JsonQuery": {
-    "bytes": 29178,
-    "gzip": 8315,
+    "bytes": 29177,
+    "gzip": 8310,
     "files": 8,
     "dependencies": 1
   },
@@ -1505,8 +1529,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "JwtInspector": {
-    "bytes": 45493,
-    "gzip": 12415,
+    "bytes": 45526,
+    "gzip": 12419,
     "files": 28,
     "dependencies": 9
   },
@@ -1587,6 +1611,12 @@ export const sizes: Record<string, ComponentSize> = {
     "gzip": 1437,
     "files": 5,
     "dependencies": 1
+  },
+  "LightCaster": {
+    "bytes": 24250,
+    "gzip": 7004,
+    "files": 5,
+    "dependencies": 0
   },
   "Lightbox": {
     "bytes": 23836,
@@ -2080,6 +2110,12 @@ export const sizes: Record<string, ComponentSize> = {
     "files": 4,
     "dependencies": 0
   },
+  "ParallaxPortal": {
+    "bytes": 13111,
+    "gzip": 3944,
+    "files": 4,
+    "dependencies": 0
+  },
   "ParallelCoordinates": {
     "bytes": 25812,
     "gzip": 7631,
@@ -2199,6 +2235,12 @@ export const sizes: Record<string, ComponentSize> = {
     "gzip": 6504,
     "files": 25,
     "dependencies": 9
+  },
+  "PopUpCard": {
+    "bytes": 14576,
+    "gzip": 4921,
+    "files": 4,
+    "dependencies": 0
   },
   "Popover": {
     "bytes": 11343,
@@ -2368,6 +2410,12 @@ export const sizes: Record<string, ComponentSize> = {
     "files": 11,
     "dependencies": 4
   },
+  "RainGlass": {
+    "bytes": 37634,
+    "gzip": 10673,
+    "files": 6,
+    "dependencies": 0
+  },
   "RangeSlider": {
     "bytes": 2795,
     "gzip": 982,
@@ -2397,6 +2445,12 @@ export const sizes: Record<string, ComponentSize> = {
     "gzip": 2147,
     "files": 5,
     "dependencies": 1
+  },
+  "ReactionDiffusion": {
+    "bytes": 30854,
+    "gzip": 8946,
+    "files": 6,
+    "dependencies": 0
   },
   "ReadAloud": {
     "bytes": 34424,
@@ -2733,6 +2787,12 @@ export const sizes: Record<string, ComponentSize> = {
     "gzip": 12475,
     "files": 40,
     "dependencies": 15
+  },
+  "ShatterDismiss": {
+    "bytes": 30802,
+    "gzip": 8822,
+    "files": 12,
+    "dependencies": 2
   },
   "ShimmerButton": {
     "bytes": 4003,
@@ -3191,8 +3251,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 0
   },
   "ThreeWayMerge": {
-    "bytes": 28681,
-    "gzip": 7928,
+    "bytes": 28680,
+    "gzip": 7924,
     "files": 19,
     "dependencies": 7
   },
@@ -3600,9 +3660,9 @@ export function sizeOf(component: string): ComponentSize | undefined {
 
 /** The whole package, once, plus the extremes. */
 export const library = {
-  "gzip": 984989,
-  "modules": 646,
-  "median": 3935,
+  "gzip": 1046886,
+  "modules": 663,
+  "median": 4002,
   "lightest": {
     "name": "VisuallyHidden",
     "gzip": 190

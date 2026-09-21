@@ -448,6 +448,8 @@ export const catalog: CatalogEntry[] = [
   { name: 'AnimatedList', slug: 'animated-list', group: 'Motion & Effects', section: 'Entrance & scroll', blurb: 'Rows animate in when added and fold away when removed, matched by key. Focus moves off a leaving row, and nothing animates under reduced motion.' },
   { name: 'ScrollStory', slug: 'scroll-story', group: 'Motion & Effects', section: 'Entrance & scroll', blurb: 'Scrollytelling: text steps scroll past a sticky visual that follows the step being read, stacking on narrow screens and under reduced motion.' },
   { name: 'ScrollSequence', slug: 'scroll-sequence', group: 'Motion & Effects', section: 'Entrance & scroll', blurb: 'Preloads frames and scrubs them on a pinned canvas as you scroll, with object-fit maths, a loading bar and a still frame under reduced motion.' },
+  { name: 'PopUpCard', slug: 'pop-up-card', group: 'Motion & Effects', section: 'Entrance & scroll', blurb: 'A card that opens like a pop-up book: parallel folds and V-folds solved from the opening angle, so paper figures rise and stand in real 3D.' },
+  { name: 'InfiniteZoom', slug: 'infinite-zoom', group: 'Motion & Effects', section: 'Entrance & scroll', blurb: 'Zoom forever: each scene holds the next and the last holds the first, on a log-scale camera that wraps by the scale factor, so the dive never ends or drifts.' },
   // Motion & Effects / Text
   { name: 'GlitchText', slug: 'glitch-text', group: 'Motion & Effects', section: 'Text', blurb: 'RGB channel tear that is clean ninety per cent of the time — and only one of the three copies is readable.' },
   { name: 'GradientText', slug: 'gradient-text', group: 'Motion & Effects', section: 'Text', blurb: 'A gradient sliding across live text. Duplicated end to end so the loop has no seam, and the glyphs stay selectable throughout.' },
@@ -475,6 +477,9 @@ export const catalog: CatalogEntry[] = [
   { name: 'Meteors', slug: 'meteors', group: 'Motion & Effects', section: 'Surfaces & light', blurb: 'Decorative streaks falling diagonally behind content, pausing off screen and becoming faint fixed streaks under reduced motion.' },
   { name: 'AnimatedGrid', slug: 'animated-grid', group: 'Motion & Effects', section: 'Surfaces & light', blurb: 'A background grid or dot pattern with a few cells softly lighting up in the accent, faded at the edges, and static under reduced motion.' },
   { name: 'ShaderCanvas', slug: 'shader-canvas', group: 'Motion & Effects', section: 'Surfaces & light', blurb: 'A WebGL fragment shader background fed the theme’s colours, time and pointer; pauses off screen, reports compile errors, falls back to a gradient.' },
+  { name: 'LightCaster', slug: 'light-caster', group: 'Motion & Effects', section: 'Surfaces & light', blurb: 'Drag a lamp across the page and the real elements cast true shadows, computed as a visibility polygon with a soft penumbra from jittered sample lights.' },
+  { name: 'RainGlass', slug: 'rain-glass', group: 'Motion & Effects', section: 'Surfaces & light', blurb: 'Rain beads, merges and runs down the pane, wiping the fog; every drop is a little lens showing the scene behind it upside down.' },
+  { name: 'ParallaxPortal', slug: 'parallax-portal', group: 'Motion & Effects', section: 'Surfaces & light', blurb: 'The frame becomes a window into a room behind the screen: off-axis projection shifts the view as you move, and props lean out through the frame.' },
   // Motion & Effects / Numbers
   { name: 'AnimatedNumber', slug: 'animated-number', group: 'Motion & Effects', section: 'Numbers', blurb: 'Tweens between two values. Owns an animation frame loop.' },
   { name: 'CountUp', slug: 'count-up', group: 'Motion & Effects', section: 'Numbers', blurb: 'AnimatedNumber triggered on entering the viewport.' },
@@ -488,6 +493,7 @@ export const catalog: CatalogEntry[] = [
   { name: 'Ripple', slug: 'ripple', group: 'Motion & Effects', section: 'Micro-interaction', blurb: 'Pointer-origin ripple wrapper. Owns transient state.' },
   { name: 'TiltCard', slug: 'tilt-card', group: 'Motion & Effects', section: 'Micro-interaction', blurb: 'Pointer-tilted Card.' },
   { name: 'AttentionShake', slug: 'attention-shake', group: 'Motion & Effects', section: 'Micro-interaction', blurb: 'Shakes, pulses or bounces its child when a trigger value changes, or from a ref; under reduced motion it flashes an outline instead.' },
+  { name: 'ShatterDismiss', slug: 'shatter-dismiss', group: 'Motion & Effects', section: 'Micro-interaction', blurb: 'Dismiss and the live element breaks into Voronoi shards that spin and fall where you hit it; undo flies every shard back and hands the real thing back.' },
   // Interaction / Touch & drag
   { name: 'ImageCompare', slug: 'image-compare', group: 'Interaction', section: 'Touch & drag', blurb: 'Two states split by a handle. The top layer is clipped, not resized, so nothing reflows during the drag.' },
   { name: 'MarqueeSelect', slug: 'marquee-select', group: 'Interaction', section: 'Touch & drag', blurb: 'Drag a rectangle to select. Items are found by attribute and measured once, at the start of the drag.' },
@@ -549,6 +555,8 @@ export const catalog: CatalogEntry[] = [
   { name: 'FlowField', slug: 'flow-field', group: 'Canvas & Play', section: 'Generative', blurb: 'Particles drift along a seeded noise current and leave trails in theme colours, pausing off screen and holding a still frame under reduced motion.' },
   { name: 'VoronoiField', slug: 'voronoi-field', group: 'Canvas & Play', section: 'Generative', blurb: 'Drifting seeds and their exact Voronoi cells on canvas, tinted from the accent and drawn towards the pointer; a still frame under reduced motion.' },
   { name: 'FractalExplorer', slug: 'fractal-explorer', group: 'Canvas & Play', section: 'Generative', blurb: 'Mandelbrot and Julia sets on a canvas, rendered in cancellable chunks across frames; drag, wheel and keys to fly, and a click picks the Julia constant.' },
+  { name: 'FluidCanvas', slug: 'fluid-canvas', group: 'Canvas & Play', section: 'Generative', blurb: 'Real-time stable fluids on the GPU: push the dye with a finger and the smoke keeps swirling after you let go, in colours drawn from the accent.' },
+  { name: 'ReactionDiffusion', slug: 'reaction-diffusion', group: 'Canvas & Play', section: 'Generative', blurb: 'Gray–Scott chemistry on feedback textures: coral, fingerprints and dividing cells grow across the canvas, and a headline can be the seed they grow from.' },
   // Canvas & Play / Audio
   { name: 'AudioVisualizer', slug: 'audio-visualizer', group: 'Canvas & Play', section: 'Audio', blurb: 'A real FFT from a real element or the microphone, trimmed to the part of the spectrum with anything in it.' },
   { name: 'PianoKeys', slug: 'piano-keys', group: 'Canvas & Play', section: 'Audio', blurb: 'One oscillator per note with a ramped envelope, because a gain that jumps to 1 is a click.' },
@@ -559,12 +567,14 @@ export const catalog: CatalogEntry[] = [
   { name: 'Equalizer', slug: 'equalizer', group: 'Canvas & Play', section: 'Audio', blurb: 'A parametric EQ of real biquad filters: draggable bands, the combined curve from getFrequencyResponse, a live spectrum, presets and bypass.' },
   { name: 'LoudnessMeter', slug: 'loudness-meter', group: 'Canvas & Play', section: 'Audio', blurb: 'BS.1770-4 loudness: K-weighted momentary, short-term and gated integrated LUFS, true peak and loudness range, with meters and a history.' },
   { name: 'BpmDetector', slug: 'bpm-detector', group: 'Canvas & Play', section: 'Audio', blurb: 'Offline tempo detection: spectral-flux onsets from an STFT, autocorrelation with octave checks, beats drawn on the waveform and tap-to-verify.' },
+  { name: 'ChladniPlate', slug: 'chladni-plate', group: 'Canvas & Play', section: 'Audio', blurb: 'Sand on a ringing plate: nothing draws the figure — each grain hops as hard as the plate moves beneath it, so the pattern forms itself and re-forms on a new note.' },
   // Canvas & Play / Physics
   { name: 'DiceRoller', slug: 'dice-roller', group: 'Canvas & Play', section: 'Physics', blurb: 'The result is decided first and the tumble is arranged to arrive at it, not read off wherever it stopped.' },
   { name: 'GravityTags', slug: 'gravity-tags', group: 'Canvas & Play', section: 'Physics', blurb: 'Real elements that fall and stack, separated along the smaller overlap so the pile does not slide apart.' },
   { name: 'RopeCursor', slug: 'rope-cursor', group: 'Canvas & Play', section: 'Physics', blurb: 'Verlet integration: velocity is implied by position, which is what makes the constraint pass so simple.' },
   { name: 'SlotReels', slug: 'slot-reels', group: 'Canvas & Play', section: 'Physics', blurb: 'Reels that land on a chosen result and stop left to right, because the stagger is the whole drama.' },
   { name: 'SpinWheel', slug: 'spin-wheel', group: 'Canvas & Play', section: 'Physics', blurb: 'A prize or decision wheel that picks the winner first, by weight or from the server, then slows onto it; announced, and instant under reduced motion.' },
+  { name: 'ClothPanel', slug: 'cloth-panel', group: 'Canvas & Play', section: 'Physics', blurb: 'The real card — its own text and working buttons — hung on a verlet mesh: it drapes, ripples in the wind, and tears if you pull too hard.' },
   // Canvas & Play / Toys
   { name: 'FlipBook', slug: 'flip-book', group: 'Canvas & Play', section: 'Toys', blurb: 'Leaves with two faces, the back mirrored, and z-index taken from distance to the current spread.' },
   { name: 'PixelCanvas', slug: 'pixel-canvas', group: 'Canvas & Play', section: 'Toys', blurb: 'A grid of buttons with interpolated strokes, storing palette indices rather than colours.' },
@@ -750,6 +760,30 @@ export const NEW_COMPONENTS: ReadonlySet<string> = new Set([
   'WordGuess',
   'Solitaire',
 ])
+
+/**
+ * The showpieces: components whose whole point is the moment a visitor sees
+ * them — real fluid, cloth, shattering glass, light that casts shadows. They
+ * carry their own tag rather than New, so it stays true after the next release
+ * moves New on, and so a visitor looking for something to be amazed by can go
+ * straight to them.
+ */
+export const SHOWPIECE_COMPONENTS: ReadonlySet<string> = new Set([
+  'FluidCanvas',
+  'ClothPanel',
+  'ShatterDismiss',
+  'LightCaster',
+  'RainGlass',
+  'PopUpCard',
+  'ParallaxPortal',
+  'InfiniteZoom',
+  'ChladniPlate',
+  'ReactionDiffusion',
+])
+
+export function isShowpiece(name: string): boolean {
+  return SHOWPIECE_COMPONENTS.has(name)
+}
 
 export function isNewComponent(name: string): boolean {
   return NEW_COMPONENTS.has(name)

@@ -1,0 +1,88 @@
+{
+  "props": [
+    {
+      "name": "preset",
+      "type": "ReactionDiffusionPreset",
+      "required": false,
+      "defaultValue": "'coral'",
+      "description": "Feed and kill rates known to grow a recognisable pattern. Changing it morphs smoothly to the new pair."
+    },
+    {
+      "name": "feed",
+      "type": "number",
+      "required": false,
+      "description": "Feed rate of chemical A. Overrides the preset’s. Useful range 0.01–0.1."
+    },
+    {
+      "name": "kill",
+      "type": "number",
+      "required": false,
+      "description": "Kill rate of chemical B. Overrides the preset’s. Useful range 0.045–0.07."
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "required": false,
+      "defaultValue": "12",
+      "description": "Simulation steps per frame. Higher grows faster and costs more."
+    },
+    {
+      "name": "seedText",
+      "type": "string",
+      "required": false,
+      "description": "Text drawn into the seed in the theme font, so it grows into the pattern. Use `\\n` for a second line."
+    },
+    {
+      "name": "contain",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "With `seedText`, keep the pattern inside the letters so the words stay readable."
+    },
+    {
+      "name": "emboss",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.6",
+      "description": "Pseudo-3D lighting on the concentration field, 0–1."
+    },
+    {
+      "name": "brushSize",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.03",
+      "description": "Brush radius for painting chemical B, as a fraction of the shorter side."
+    },
+    {
+      "name": "paused",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Freeze the simulation on its current frame."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Describe the image for assistive tech. Without it the canvas is decorative and hidden."
+    },
+    {
+      "name": "onStatusChange",
+      "type": "(status: ReactionDiffusionStatus) => void",
+      "required": false,
+      "description": "Called when the simulation starts, or when it falls back."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Content drawn on top."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins. Give the component a size here."
+    }
+  ]
+}

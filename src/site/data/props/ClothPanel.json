@@ -1,0 +1,140 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The panel itself: real text, real buttons. It is what hangs."
+    },
+    {
+      "name": "pins",
+      "type": "ClothPanelPins",
+      "required": false,
+      "defaultValue": "'top'",
+      "description": "Where the cloth is held: the whole top edge, its two top corners, the left edge (a flag), or nowhere."
+    },
+    {
+      "name": "cols",
+      "type": "number",
+      "required": false,
+      "defaultValue": "10",
+      "description": "Points across. Kept under the clone budget of 140 triangles together with `rows`."
+    },
+    {
+      "name": "rows",
+      "type": "number",
+      "required": false,
+      "defaultValue": "7",
+      "description": "Points down."
+    },
+    {
+      "name": "gravity",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.32",
+      "description": "Downward pull, in px per step²."
+    },
+    {
+      "name": "damping",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.985",
+      "description": "Velocity kept each step. Lower is more damped."
+    },
+    {
+      "name": "iterations",
+      "type": "number",
+      "required": false,
+      "defaultValue": "8",
+      "description": "Constraint passes per step. More is stiffer and less stretchy."
+    },
+    {
+      "name": "wind",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Wind strength, 0 (still) to 1 (a gale)."
+    },
+    {
+      "name": "windDirection",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Direction the wind blows towards, in degrees: 0 is right, 90 is down."
+    },
+    {
+      "name": "gusts",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Blow in gusts with calm spells between them, rather than steadily."
+    },
+    {
+      "name": "tearable",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Let links break when stretched past `tearLimit`."
+    },
+    {
+      "name": "tearLimit",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1.9",
+      "description": "Stretch ratio at which a link breaks."
+    },
+    {
+      "name": "onTear",
+      "type": "(broken: number) => void",
+      "required": false,
+      "description": "Called with the running count of broken links whenever the cloth tears."
+    },
+    {
+      "name": "onMotionChange",
+      "type": "(moving: boolean) => void",
+      "required": false,
+      "description": "Called with true when the clones take over, and false when the real content is back."
+    },
+    {
+      "name": "calmOnHover",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Drop the wind while a pointer is over the panel, so it settles and can be used."
+    },
+    {
+      "name": "shading",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1",
+      "description": "How strongly folds are shaded, 0 to 1."
+    },
+    {
+      "name": "bleed",
+      "type": "number",
+      "required": false,
+      "defaultValue": "24",
+      "description": "Extra room, in px, drawn around each edge so a shadow or border travels with the cloth."
+    },
+    {
+      "name": "paused",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Freeze the simulation where it is."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'panel'",
+      "description": "Names the panel in the handle’s accessible label, as in “Shake the offer”."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last onto the outer element, so it wins."
+    }
+  ]
+}

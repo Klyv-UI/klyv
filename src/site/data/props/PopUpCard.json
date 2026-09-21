@@ -1,0 +1,114 @@
+{
+  "props": [
+    {
+      "name": "pieces",
+      "type": "PopUpCardPiece[]",
+      "required": true,
+      "description": "The pop-up pieces, drawn in order."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Accessible name of the card."
+    },
+    {
+      "name": "angle",
+      "type": "number",
+      "required": false,
+      "description": "Opening angle in degrees, 0 (shut) to 180 (flat). Omit for uncontrolled."
+    },
+    {
+      "name": "defaultAngle",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Starting angle when uncontrolled."
+    },
+    {
+      "name": "onAngleChange",
+      "type": "(angle: number) => void",
+      "required": false
+    },
+    {
+      "name": "openAngle",
+      "type": "number",
+      "required": false,
+      "defaultValue": "100",
+      "description": "Angle a click or Enter opens to. 90 stands parallel folds straight up."
+    },
+    {
+      "name": "openOnView",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Open by itself the first time it scrolls into view."
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "required": false,
+      "defaultValue": "460",
+      "description": "Width of the card along its fold, px."
+    },
+    {
+      "name": "depth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "250",
+      "description": "Depth of each page from the fold, px."
+    },
+    {
+      "name": "pitch",
+      "type": "number",
+      "required": false,
+      "defaultValue": "24",
+      "description": "Camera elevation in degrees."
+    },
+    {
+      "name": "yaw",
+      "type": "number",
+      "required": false,
+      "defaultValue": "-14",
+      "description": "Camera turn in degrees. Drag sideways to look around it."
+    },
+    {
+      "name": "cover",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Printed on the outside, seen while the card is shut."
+    },
+    {
+      "name": "inside",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Printed on the inside of the back page."
+    },
+    {
+      "name": "base",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Printed on the base page, under the pieces."
+    },
+    {
+      "name": "paper",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-surface)'",
+      "description": "Paper of the pages."
+    },
+    {
+      "name": "coverPaper",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'var(--color-accent)'",
+      "description": "Paper of the cover."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

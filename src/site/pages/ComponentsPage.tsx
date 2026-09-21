@@ -1,10 +1,11 @@
 import { useMemo, useState, type ReactNode } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { LayoutGrid, List, X } from 'lucide-react'
+import { LayoutGrid, List, Sparkles, X } from 'lucide-react'
 import { Button, SearchField, Surface, Text, cn } from 'klyv'
 import { PageIntro } from '../components/PageIntro'
-import { NEW_COMPONENTS, catalog, componentCount, isNewComponent, type CatalogEntry } from '../data/catalog'
+import { NEW_COMPONENTS, SHOWPIECE_COMPONENTS, catalog, componentCount, isNewComponent, isShowpiece, type CatalogEntry } from '../data/catalog'
 import { NewBadge } from '../components/NewBadge'
+import { ShowpieceBadge } from '../components/ShowpieceBadge'
 import { Count, FilterChip } from '../components/FilterChip'
 import { findGroupBySlug, groups } from '../data/groups'
 import { dependenciesOf } from '../data/dependencies'
@@ -43,6 +44,13 @@ export default function ComponentsPage() {
     else next.set('new', '1')
     setParams(next, { replace: true })
   }
+  const onlyShowpiece = params.get('showpiece') === '1'
+  const toggleShowpiece = () => {
+    const next = new URLSearchParams(params)
+    if (onlyShowpiece) next.delete('showpiece')
+    else next.set('showpiece', '1')
+    setParams(next, { replace: true })
+  }
 
   /** Measured once for the whole catalogue rather than per card on every render. */
   const facts = useMemo(() => {
@@ -61,6 +69,7 @@ export default function ComponentsPage() {
     const matched = catalog.filter((entry) => {
       if (active && entry.group !== active.id) return false
       if (onlyNew && !isNewComponent(entry.name)) return false
+      if (onlyShowpiece && !isShowpiece(entry.name)) return false
       if (!needle) return true
       const fields = [entry.name, entry.slug, entry.blurb, entry.section, entry.group]
       if (fields.some((field) => field.toLowerCase().includes(needle))) return true
@@ -83,7 +92,7 @@ export default function ComponentsPage() {
   }, [active, query, sort, facts])
 
   const visibleGroups = groups.filter((group) => results.some((entry) => entry.group === group.id))
-  const filtered = Boolean(active) || onlyNew || query.trim().length > 0
+  const filtered = Boolean(active) || onlyNew || onlyShowpiece || query.trim().length > 0
 
   const setGroup = (slug: string | null) => {
     const next = new URLSearchParams(params)
@@ -109,6 +118,7 @@ export default function ComponentsPage() {
                 { value: componentCount, label: 'components' },
                 { value: groups.length, label: 'groups' },
                 { value: NEW_COMPONENTS.size, label: 'new in the latest release' },
+                { value: SHOWPIECE_COMPONENTS.size, label: 'showpieces' },
               ]
         }
         actions={
@@ -165,6 +175,11 @@ export default function ComponentsPage() {
           <FilterChip active={onlyNew} onClick={toggleNew}>
             New
             <Count>{NEW_COMPONENTS.size}</Count>
+          </FilterChip>
+          <FilterChip active={onlyShowpiece} onClick={toggleShowpiece}>
+            <Sparkles size={12} aria-hidden className="text-accent" />
+            Showpiece
+            <Count>{SHOWPIECE_COMPONENTS.size}</Count>
           </FilterChip>
           {groups.map((group) => (
             <FilterChip
@@ -317,7 +332,7 @@ function ComponentCard({
             <Text size="body" weight="bold" truncate>
               {entry.name}
             </Text>
-            {isNewComponent(entry.name) && <NewBadge />}
+            {isShowpiece(entry.name) ? <ShowpieceBadge /> : isNewComponent(entry.name) && <NewBadge />}
           </span>
           {showGroup && (
             <Text size="micro" weight="semibold" tone="faint" truncate>
@@ -356,7 +371,7 @@ function ComponentRow({
         <Text size="caption" weight="bold" truncate>
           {entry.name}
         </Text>
-        {isNewComponent(entry.name) && <NewBadge />}
+        {isShowpiece(entry.name) ? <ShowpieceBadge /> : isNewComponent(entry.name) && <NewBadge />}
       </span>
       <Text size="caption" tone="faint" truncate className="min-w-0 flex-1">
         {entry.blurb}

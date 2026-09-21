@@ -1361,6 +1361,28 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "ChladniPlate": {
+    "files": [
+      "components/ChladniPlate/ChladniPlate.tsx",
+      "components/ChladniPlate/index.ts",
+      "components/ChladniPlate/modes.ts"
+    ],
+    "internal": [
+      "Button",
+      "IconButton",
+      "Slider"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts",
+      "lib/image-data.ts",
+      "lib/motion.ts",
+      "lib/types.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "ChoiceCardGroup": {
     "files": [
       "components/ChoiceCardGroup/ChoiceCardGroup.tsx",
@@ -1439,6 +1461,21 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "shared": [
       "components/internal/plot.tsx",
       "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "ClothPanel": {
+    "files": [
+      "components/ClothPanel/ClothPanel.tsx",
+      "components/ClothPanel/cloth.ts",
+      "components/ClothPanel/index.ts"
+    ],
+    "internal": [],
+    "shared": [
+      "lib/cn.ts",
+      "lib/motion.ts"
     ],
     "external": [
       "react"
@@ -3251,6 +3288,22 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "FluidCanvas": {
+    "files": [
+      "components/FluidCanvas/FluidCanvas.tsx",
+      "components/FluidCanvas/index.ts"
+    ],
+    "internal": [],
+    "shared": [
+      "components/internal/gl-sim.ts",
+      "lib/cn.ts",
+      "lib/image-data.ts",
+      "lib/motion.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "FocusTrap": {
     "files": [
       "components/FocusTrap/FocusTrap.tsx",
@@ -3912,6 +3965,24 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "InfiniteZoom": {
+    "files": [
+      "components/InfiniteZoom/InfiniteZoom.tsx",
+      "components/InfiniteZoom/index.ts"
+    ],
+    "internal": [
+      "IconButton"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts",
+      "lib/motion.ts",
+      "lib/types.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "InlineCompletion": {
     "files": [
       "components/InlineCompletion/InlineCompletion.tsx",
@@ -4397,6 +4468,21 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "lib/cn.ts"
     ],
     "external": []
+  },
+  "LightCaster": {
+    "files": [
+      "components/LightCaster/LightCaster.tsx",
+      "components/LightCaster/index.ts",
+      "components/LightCaster/visibility.ts"
+    ],
+    "internal": [],
+    "shared": [
+      "lib/cn.ts",
+      "lib/motion.ts"
+    ],
+    "external": [
+      "react"
+    ]
   },
   "Lightbox": {
     "files": [
@@ -5760,6 +5846,20 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "ParallaxPortal": {
+    "files": [
+      "components/ParallaxPortal/ParallaxPortal.tsx",
+      "components/ParallaxPortal/index.ts"
+    ],
+    "internal": [],
+    "shared": [
+      "lib/cn.ts",
+      "lib/motion.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "ParallelCoordinates": {
     "files": [
       "components/ParallelCoordinates/ParallelCoordinates.tsx",
@@ -6092,6 +6192,20 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "components/internal/StatusPill.tsx",
       "lib/cn.ts",
       "lib/format.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "PopUpCard": {
+    "files": [
+      "components/PopUpCard/PopUpCard.tsx",
+      "components/PopUpCard/index.ts"
+    ],
+    "internal": [],
+    "shared": [
+      "lib/cn.ts",
+      "lib/motion.ts"
     ],
     "external": [
       "react"
@@ -6555,6 +6669,22 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "RainGlass": {
+    "files": [
+      "components/RainGlass/RainGlass.tsx",
+      "components/RainGlass/index.ts",
+      "components/RainGlass/scene.ts",
+      "components/RainGlass/simulation.ts"
+    ],
+    "internal": [],
+    "shared": [
+      "lib/cn.ts",
+      "lib/motion.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "RangeSlider": {
     "files": [
       "components/RangeSlider/RangeSlider.tsx",
@@ -6623,6 +6753,22 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "shared": [
       "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "ReactionDiffusion": {
+    "files": [
+      "components/ReactionDiffusion/ReactionDiffusion.tsx",
+      "components/ReactionDiffusion/index.ts"
+    ],
+    "internal": [],
+    "shared": [
+      "components/internal/gl-sim.ts",
+      "lib/cn.ts",
+      "lib/image-data.ts",
+      "lib/motion.ts"
     ],
     "external": [
       "react"
@@ -7571,6 +7717,25 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "components/internal/icons.tsx",
       "lib/cn.ts",
       "lib/format.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "ShatterDismiss": {
+    "files": [
+      "components/ShatterDismiss/ShatterDismiss.tsx",
+      "components/ShatterDismiss/fracture.ts",
+      "components/ShatterDismiss/index.ts"
+    ],
+    "internal": [
+      "IconButton"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts",
+      "lib/layout-effect.ts",
+      "lib/motion.ts"
     ],
     "external": [
       "react"
@@ -9878,11 +10043,12 @@ export const sharedDependencies: Record<string, string[]> = {
     "lib/contrast.ts",
     "theme/accent.ts"
   ],
+  "lib/image-data.ts": [],
   "lib/overlay.ts": [
     "lib/layout-effect.ts"
   ],
   "components/internal/StatusPill.tsx": [],
-  "lib/image-data.ts": [],
+  "components/internal/gl-sim.ts": [],
   "lib/oklch.ts": [],
   "lib/roving.ts": []
 }

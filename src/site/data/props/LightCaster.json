@@ -1,0 +1,98 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The region’s content. Its elements are the occluders, measured from the live layout."
+    },
+    {
+      "name": "lights",
+      "type": "LightCasterLight[]",
+      "required": false,
+      "description": "Controlled lights. Positions are fractions of the region, so they survive resizes."
+    },
+    {
+      "name": "defaultLights",
+      "type": "LightCasterLight[]",
+      "required": false,
+      "defaultValue": "DEFAULT_LIGHTS",
+      "description": "Lights for uncontrolled use."
+    },
+    {
+      "name": "onLightsChange",
+      "type": "(lights: LightCasterLight[]) => void",
+      "required": false,
+      "description": "Called with the new lights whenever one is dragged, nudged with the keyboard or follows the pointer."
+    },
+    {
+      "name": "ambient",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.42",
+      "description": "Light that reaches everywhere, shadow included, from 0 (black shadows) to 1 (no shadows). Darker on dark themes."
+    },
+    {
+      "name": "softness",
+      "type": "number",
+      "required": false,
+      "defaultValue": "14",
+      "description": "Size in pixels of the light’s body: it sets how wide the soft penumbra at a shadow’s edge is. 0 is a point."
+    },
+    {
+      "name": "samples",
+      "type": "number",
+      "required": false,
+      "defaultValue": "6",
+      "description": "Jittered positions per light used to build the penumbra, from 1 to 8. More is smoother and costs more."
+    },
+    {
+      "name": "layer",
+      "type": "LightCasterLayer",
+      "required": false,
+      "defaultValue": "'over'",
+      "description": "Whether the light falls on the content (`over`) or only on the floor beneath it (`under`)."
+    },
+    {
+      "name": "occluders",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'[data-occluder]'",
+      "description": "Selector for the elements that cast shadows. When nothing matches, every direct child casts one."
+    },
+    {
+      "name": "followPointer",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "The first light follows the pointer while it is over the region."
+    },
+    {
+      "name": "motion",
+      "type": "LightCasterMotion",
+      "required": false,
+      "defaultValue": "'none'",
+      "description": "Motion of the lights on their own. Ignored under reduced motion; dragging always works."
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1",
+      "description": "Multiplier for `motion`."
+    },
+    {
+      "name": "showHandles",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the draggable, focusable handles. Without them the lights can only be set by props or `followPointer`."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins. The region needs a size and usually a background for shadows to fall on."
+    }
+  ]
+}

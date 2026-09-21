@@ -147,6 +147,10 @@
     "row",
     "status"
   ],
+  "ChladniPlate": [
+    "img",
+    "status"
+  ],
   "ChordDiagram": [
     "img"
   ],
@@ -249,7 +253,7 @@
     "status"
   ],
   "CspEvaluator": [
-    "region",
+    "group",
     "status"
   ],
   "CsvImport": [
@@ -393,6 +397,9 @@
     "alert",
     "status"
   ],
+  "ExpenseSplitter": [
+    "group"
+  ],
   "ExperimentResults": [
     "status"
   ],
@@ -436,6 +443,9 @@
     "img"
   ],
   "FlowField": [
+    "img"
+  ],
+  "FluidCanvas": [
     "img"
   ],
   "ForecastChart": [
@@ -538,6 +548,9 @@
   "InfiniteScroll": [
     "status"
   ],
+  "InfiniteZoom": [
+    "group"
+  ],
   "InlineCompletion": [
     "status"
   ],
@@ -555,11 +568,11 @@
   ],
   "JsonQuery": [
     "group",
-    "region",
     "status"
   ],
   "JwtInspector": [
     "alert",
+    "group",
     "status"
   ],
   "KanbanBoard": [
@@ -771,6 +784,9 @@
   "PanZoom": [
     "application"
   ],
+  "ParallaxPortal": [
+    "group"
+  ],
   "ParallelCoordinates": [
     "group",
     "img"
@@ -833,6 +849,9 @@
   "Popover": [
     "dialog"
   ],
+  "PopUpCard": [
+    "slider"
+  ],
   "PresenceBar": [
     "group",
     "status"
@@ -886,6 +905,9 @@
     "menuitem",
     "none"
   ],
+  "RainGlass": [
+    "img"
+  ],
   "RateLimitMeter": [
     "progressbar",
     "status"
@@ -896,6 +918,9 @@
   ],
   "ReactionBar": [
     "group"
+  ],
+  "ReactionDiffusion": [
+    "img"
   ],
   "ReadabilityMeter": [
     "status"
@@ -1033,6 +1058,9 @@
     "status"
   ],
   "SharePermissions": [
+    "status"
+  ],
+  "ShatterDismiss": [
     "status"
   ],
   "ShortcutRecorder": [
@@ -1189,7 +1217,6 @@
   ],
   "ThreeWayMerge": [
     "group",
-    "region",
     "status"
   ],
   "Ticker": [

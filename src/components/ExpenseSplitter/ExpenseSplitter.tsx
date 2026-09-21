@@ -215,7 +215,11 @@ export function ExpenseSplitter({ people, expenses, defaultExpenses = [], onExpe
   return (
     <div className={cn('grid w-full grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]', className)}>
       <div className="flex min-w-0 flex-col gap-4">
-        <form onSubmit={add} role="group" aria-label="Add an expense" className="flex flex-col gap-3 rounded-[var(--radius-card)] border border-line bg-surface p-4">
+        {/* The fieldset carries the name, not the form: a named form is a landmark,
+            and two splitters on one page would then offer two identical ones. */}
+        <form onSubmit={add} className="contents">
+          <fieldset className="flex flex-col gap-3 rounded-[var(--radius-card)] border border-line bg-surface p-4">
+            <legend className="sr-only">Add an expense</legend>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-[minmax(0,1fr)_120px]">
             <Input aria-label="Description" placeholder="What was it for?" value={description} onChange={(event) => setDescription(event.target.value)} />
             <Input aria-label={`Amount in ${currency}`} inputMode="decimal" placeholder="0.00" value={amountText} onChange={(event) => setAmountText(event.target.value)} />
@@ -280,7 +284,8 @@ export function ExpenseSplitter({ people, expenses, defaultExpenses = [], onExpe
             <Button size="sm" type="submit" disabled={Boolean(problem)}>
               Add expense
             </Button>
-          </div>
+            </div>
+          </fieldset>
         </form>
 
         <div role="group" aria-label="Expenses" className="flex flex-col gap-2">

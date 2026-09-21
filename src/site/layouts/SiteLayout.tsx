@@ -12,8 +12,9 @@ import { SearchTrigger, loadSearchPalette, useSearchPalette } from '../component
 import { ThemeToggle } from '../components/ThemeToggle'
 import { brand } from '../brand'
 import { blocks } from '../data/blocks'
-import { catalog, componentCount, isNewComponent, type CatalogEntry } from '../data/catalog'
+import { catalog, componentCount, isNewComponent, isShowpiece, type CatalogEntry } from '../data/catalog'
 import { NewBadge } from '../components/NewBadge'
+import { ShowpieceBadge } from '../components/ShowpieceBadge'
 import { groups } from '../data/groups'
 import { SITE_PAGES, SITE_SECTIONS, type SitePage } from '../data/pages'
 import { rememberVisit } from '../lib/history'
@@ -629,7 +630,7 @@ const NavItem = memo(function NavItem({ entry }: { entry: CatalogEntry }) {
   return (
     <NavLink to={`/components/${entry.slug}`} className={leafClass}>
       <span className="min-w-0 flex-1 truncate">{entry.name}</span>
-      {isNewComponent(entry.name) && <NewBadge />}
+      {isShowpiece(entry.name) ? <ShowpieceBadge /> : isNewComponent(entry.name) && <NewBadge />}
     </NavLink>
   )
 })

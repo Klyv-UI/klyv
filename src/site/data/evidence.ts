@@ -592,6 +592,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "ChladniPlate": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": true,
+    "reducedMotion": true,
+    "axe": true
+  },
   "ChoiceCardGroup": {
     "serverSafe": false,
     "tokenColours": true,
@@ -625,6 +632,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
+    "axe": true
+  },
+  "ClothPanel": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": true,
+    "reducedMotion": true,
     "axe": true
   },
   "CoachTour": {
@@ -862,7 +876,8 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
-    "reducedMotion": false
+    "reducedMotion": false,
+    "axe": true
   },
   "CsvImport": {
     "serverSafe": false,
@@ -1219,7 +1234,8 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
-    "reducedMotion": false
+    "reducedMotion": false,
+    "axe": true
   },
   "ExperimentResults": {
     "serverSafe": false,
@@ -1366,6 +1382,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": true,
     "reducedMotion": true,
+    "axe": true
+  },
+  "FluidCanvas": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
     "axe": true
   },
   "FocusTrap": {
@@ -1649,6 +1672,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "InfiniteZoom": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": true,
+    "reducedMotion": true,
+    "axe": true
+  },
   "InlineCompletion": {
     "serverSafe": false,
     "tokenColours": true,
@@ -1738,7 +1768,8 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
-    "reducedMotion": false
+    "reducedMotion": false,
+    "axe": true
   },
   "JsonViewer": {
     "serverSafe": false,
@@ -1758,7 +1789,8 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
-    "reducedMotion": false
+    "reducedMotion": false,
+    "axe": true
   },
   "KanbanBoard": {
     "serverSafe": false,
@@ -1849,6 +1881,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
+    "axe": true
+  },
+  "LightCaster": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": true,
+    "reducedMotion": true,
     "axe": true
   },
   "Lightbox": {
@@ -2428,6 +2467,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "ParallaxPortal": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": true,
+    "reducedMotion": true,
+    "axe": true
+  },
   "ParallelCoordinates": {
     "serverSafe": false,
     "tokenColours": true,
@@ -2567,6 +2613,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
+    "axe": true
+  },
+  "PopUpCard": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": true,
+    "reducedMotion": true,
     "axe": true
   },
   "Popover": {
@@ -2765,6 +2818,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "reducedMotion": false,
     "axe": true
   },
+  "RainGlass": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": true,
+    "reducedMotion": true,
+    "axe": true
+  },
   "RangeSlider": {
     "serverSafe": false,
     "tokenColours": true,
@@ -2798,6 +2858,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": true,
     "reducedMotion": true,
+    "axe": true
+  },
+  "ReactionDiffusion": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": false,
+    "reducedMotion": false,
     "axe": true
   },
   "ReadAloud": {
@@ -3190,6 +3257,13 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "tokenColours": true,
     "animates": false,
     "reducedMotion": false,
+    "axe": true
+  },
+  "ShatterDismiss": {
+    "serverSafe": false,
+    "tokenColours": true,
+    "animates": true,
+    "reducedMotion": true,
     "axe": true
   },
   "ShimmerButton": {
@@ -3730,7 +3804,8 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "serverSafe": false,
     "tokenColours": true,
     "animates": false,
-    "reducedMotion": false
+    "reducedMotion": false,
+    "axe": true
   },
   "TicTacToe": {
     "serverSafe": false,

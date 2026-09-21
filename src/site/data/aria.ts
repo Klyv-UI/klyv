@@ -152,6 +152,10 @@ export const ariaRoles: Record<string, string[]> = {
     "row",
     "status"
   ],
+  "ChladniPlate": [
+    "img",
+    "status"
+  ],
   "ChordDiagram": [
     "img"
   ],
@@ -254,7 +258,7 @@ export const ariaRoles: Record<string, string[]> = {
     "status"
   ],
   "CspEvaluator": [
-    "region",
+    "group",
     "status"
   ],
   "CsvImport": [
@@ -398,6 +402,9 @@ export const ariaRoles: Record<string, string[]> = {
     "alert",
     "status"
   ],
+  "ExpenseSplitter": [
+    "group"
+  ],
   "ExperimentResults": [
     "status"
   ],
@@ -441,6 +448,9 @@ export const ariaRoles: Record<string, string[]> = {
     "img"
   ],
   "FlowField": [
+    "img"
+  ],
+  "FluidCanvas": [
     "img"
   ],
   "ForecastChart": [
@@ -543,6 +553,9 @@ export const ariaRoles: Record<string, string[]> = {
   "InfiniteScroll": [
     "status"
   ],
+  "InfiniteZoom": [
+    "group"
+  ],
   "InlineCompletion": [
     "status"
   ],
@@ -560,11 +573,11 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "JsonQuery": [
     "group",
-    "region",
     "status"
   ],
   "JwtInspector": [
     "alert",
+    "group",
     "status"
   ],
   "KanbanBoard": [
@@ -776,6 +789,9 @@ export const ariaRoles: Record<string, string[]> = {
     "application",
     "status"
   ],
+  "ParallaxPortal": [
+    "group"
+  ],
   "ParallelCoordinates": [
     "group",
     "img"
@@ -835,6 +851,9 @@ export const ariaRoles: Record<string, string[]> = {
   "PixelCanvas": [
     "group"
   ],
+  "PopUpCard": [
+    "slider"
+  ],
   "Popover": [
     "dialog"
   ],
@@ -891,6 +910,9 @@ export const ariaRoles: Record<string, string[]> = {
     "menuitem",
     "none"
   ],
+  "RainGlass": [
+    "img"
+  ],
   "RateLimitMeter": [
     "progressbar",
     "status"
@@ -901,6 +923,9 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "ReactionBar": [
     "group"
+  ],
+  "ReactionDiffusion": [
+    "img"
   ],
   "ReadAloud": [
     "group"
@@ -1038,6 +1063,9 @@ export const ariaRoles: Record<string, string[]> = {
     "status"
   ],
   "SharePermissions": [
+    "status"
+  ],
+  "ShatterDismiss": [
     "status"
   ],
   "ShortcutRecorder": [
@@ -1194,7 +1222,6 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "ThreeWayMerge": [
     "group",
-    "region",
     "status"
   ],
   "TicTacToe": [
