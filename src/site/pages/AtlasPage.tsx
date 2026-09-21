@@ -25,7 +25,9 @@ import { TILE, atlas, tilesIn } from '../lib/atlas'
  */
 const LIVE_SCALE = 0.62
 const LIVE_LIMIT = 18
-const MIN_SCALE = 0.12
+// Low enough that the whole width still fits on a narrow window, where the
+// map is a map rather than something to read.
+const MIN_SCALE = 0.08
 const MAX_SCALE = 1.8
 
 interface View {
@@ -247,7 +249,10 @@ export default function AtlasPage() {
           dragging.current ? 'cursor-grabbing' : 'cursor-grab',
         )}
         onPointerDown={(event) => {
-          if ((event.target as Element).closest('[data-tile]')) return
+          // A press on a tile or on the controls belongs to them: capturing the
+          // pointer for a pan would retarget the click away from the button and
+          // nothing would ever fire.
+          if ((event.target as Element).closest('[data-tile], [data-controls]')) return
           dragging.current = { x: event.clientX, y: event.clientY, viewX: view.x, viewY: view.y }
           event.currentTarget.setPointerCapture(event.pointerId)
         }}
@@ -295,7 +300,7 @@ export default function AtlasPage() {
         </div>
 
         {/* Controls, and a map of the map. */}
-        <div className="pointer-events-none absolute inset-x-3 bottom-3 flex items-end justify-between gap-3">
+        <div data-controls className="pointer-events-none absolute inset-x-3 bottom-3 flex items-end justify-between gap-3">
           <div className="pointer-events-auto flex items-center gap-1 rounded-full border border-line bg-[color-mix(in_oklab,var(--color-surface)_92%,transparent)] p-1 shadow-[var(--shadow-float)] backdrop-blur-md">
             <ControlButton label="Zoom out" onClick={() => zoomAt(1 / 1.35, size.width / 2, size.height / 2)}>
               <Minus size={15} aria-hidden />

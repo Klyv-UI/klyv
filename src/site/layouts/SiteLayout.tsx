@@ -141,15 +141,17 @@ export function SiteLayout() {
  * Seven links and the search do not fit a tablet, and `nowrap` alone just moved
  * the overflow off the right edge. The paths a newcomer needs first stay at
  * every width; the rest arrive as room does. Nothing is lost below that — the
- * sidebar, the footer and ⌘K all reach every page.
+ * sidebar, the footer and ⌘K all reach every page, which is why Foundations
+ * gave up its place here when the Atlas earned one: it is a reference someone
+ * goes looking for, not a door they arrive through.
  */
 const TOP_LINKS: { to: string; label: string; from: 'md' | 'lg' | 'xl' }[] = [
   { to: '/getting-started', label: 'Get started', from: 'md' },
   { to: '/components', label: 'Components', from: 'md' },
-  { to: '/blocks', label: 'Blocks', from: 'md' },
+  { to: '/atlas', label: 'Atlas', from: 'md' },
+  { to: '/blocks', label: 'Blocks', from: 'lg' },
   { to: '/templates', label: 'Templates', from: 'lg' },
-  { to: '/composer', label: 'Composer', from: 'lg' },
-  { to: '/foundations', label: 'Foundations', from: 'xl' },
+  { to: '/composer', label: 'Composer', from: 'xl' },
   { to: '/agents', label: 'AI agents', from: 'xl' },
 ]
 
