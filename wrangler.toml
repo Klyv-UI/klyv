@@ -1,0 +1,10 @@
+# Cloudflare Pages: the docs site at klyvui.xyz.
+#
+# `npm run build` writes the site to dist-site/. With no 404.html there, Pages
+# serves index.html for unknown paths, which is what the client-side router needs.
+#
+#   npm run build
+#   wrangler pages deploy
+name = "klyv"
+pages_build_output_dir = "dist-site"
+compatibility_date = "2026-09-21"
