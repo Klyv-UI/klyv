@@ -1220,8 +1220,7 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "serverSafe": false,
     "tokenColours": false,
     "animates": true,
-    "reducedMotion": true,
-    "axe": true
+    "reducedMotion": true
   },
   "ExifViewer": {
     "serverSafe": false,
@@ -4373,10 +4372,12 @@ export const siteComponents: string[] = [
   "ConfirmDialog",
   "CopyButton",
   "CronEditor",
+  "DataTable",
   "Divider",
   "Drawer",
   "EmptyState",
   "ErrorBudget",
+  "EventHorizon",
   "Field",
   "FitText",
   "FlameGraph",
@@ -4405,6 +4406,7 @@ export const siteComponents: string[] = [
   "PageHeader",
   "PaletteExtractor",
   "PasswordInput",
+  "PivotTable",
   "Popover",
   "Progress",
   "ProgressRing",
@@ -4422,6 +4424,7 @@ export const siteComponents: string[] = [
   "ShimmerText",
   "Skeleton",
   "Slider",
+  "Sparkline",
   "Spinner",
   "StatCard",
   "StatusDot",
