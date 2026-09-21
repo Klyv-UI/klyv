@@ -2,7 +2,7 @@ import { Suspense, lazy, memo, useCallback, useEffect, useMemo, useState, type R
 import { Link, NavLink, Outlet, ScrollRestoration, useLocation, useMatches } from 'react-router-dom'
 import { PageSkeleton } from '../components/PageSkeleton'
 import { RouteProgress } from '../components/RouteProgress'
-import { ChevronRight, Heart, Menu as MenuIcon, Paintbrush } from 'lucide-react'
+import { ChevronRight, Heart, Menu as MenuIcon, Paintbrush, Sparkles } from 'lucide-react'
 import { createStore, sessionStorageAdapter, useStoreValue } from '../lib/store'
 import { AccentMenu } from '../components/AccentMenu'
 import { PlatformLinks } from '../components/PlatformLinks'
@@ -224,6 +224,7 @@ const SiteHeader = memo(function SiteHeader({
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
+          <AssistantLink />
           <SearchTrigger onOpen={onOpenSearch} />
           {/* Between md and lg the section links take the room these need, so
               they step out there; the drawer and the footer still reach both. */}
@@ -240,6 +241,37 @@ const SiteHeader = memo(function SiteHeader({
     </header>
   )
 })
+
+/**
+ * The component assistant, marked in the header as the thing coming next.
+ *
+ * It is not a page yet, so it points at the preview on the front page rather
+ * than at a route — which is why it is a plain `Link` rather than a `NavLink`:
+ * there is no path for the router to call current.
+ *
+ * It is a glyph and a dot rather than a labelled pill because the header has
+ * no room for one: the section links and the search already fill the row, and
+ * a 146px pill pushed the tools past the right edge at every width the track
+ * is shown at. The dot is the whole "not yet" message, so the accessible name
+ * carries it in words, and the title repeats it for a pointer.
+ *
+ * From 1360px, for the same reason PlatformLinks is: below that the seven
+ * section links and the wide search have the row, and one more tool runs over
+ * the edge. The front page's own badge is what marks the feature below this.
+ */
+function AssistantLink() {
+  return (
+    <Link
+      to="/#assistant"
+      aria-label="Component assistant, coming soon"
+      title="Component assistant — coming soon"
+      className="relative hidden size-9 shrink-0 place-items-center rounded-full border border-line bg-surface text-ink-soft transition-colors hover:border-line-strong hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent min-[1360px]:grid"
+    >
+      <Sparkles size={15} aria-hidden />
+      <span aria-hidden className="absolute -right-0.5 -top-0.5 size-2.5 rounded-full border-2 border-canvas bg-accent" />
+    </Link>
+  )
+}
 
 /**
  * The way into the theme customiser. The accent menu beside it stays for a

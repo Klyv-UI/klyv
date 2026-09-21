@@ -40,13 +40,13 @@ export function Hero() {
         <div className="mx-auto grid w-full max-w-[1400px] items-center gap-12 px-6 py-14 sm:px-10 sm:py-20 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-8 lg:px-14 lg:py-24">
           <div className="flex min-w-0 flex-col items-start">
             <a
-              href="#platform"
+              href="#assistant"
               style={enter(0)}
               className="landing-enter group inline-flex max-w-full items-center gap-2 rounded-full border border-line bg-surface py-1 pl-1 pr-3 transition-colors hover:border-line-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
-              <Badge>New</Badge>
+              <Badge>Next</Badge>
               <Text as="span" size="label" weight="semibold" tone="soft" truncate className="text-[11px] sm:text-[12px]">
-                Composer, smart search<span className="hidden sm:inline"> and a personal workspace</span>
+                Describe a screen<span className="hidden sm:inline">, and the assistant finds the components</span>
               </Text>
               <ArrowRight size={13} aria-hidden className="shrink-0 text-ink-faint transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
             </a>

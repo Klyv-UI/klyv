@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { HoloCard, JsonViewer, Marquee, Reveal, Surface, Terminal, Text, cn } from 'klyv'
+import { CommitGraph, FlameGraph, HoloCard, JsonViewer, LazyMount, Marquee, Reveal, Surface, SunburstChart, Terminal, Text, cn } from 'klyv'
 import { catalog, componentCount } from '../../data/catalog'
 import { groups } from '../../data/groups'
 import { LandingSection, SectionLink } from './primitives'
@@ -27,8 +27,8 @@ export function Parts() {
       index={5}
       eyebrow="Components"
       title="Everyday parts,"
-      tail="and the ones nobody expects to find built"
-      lede="The workbench above is the everyday end of the range. Here is the rest — every tile the component you would import, running."
+      tail="and the ones you would otherwise build yourself"
+      lede="The workbench above is the everyday end of the range. Here is how far it goes — a git graph, a zoomable sunburst, a profiler's flame graph. Every tile is the component you would import, running."
       action={<SectionLink to="/components">All {componentCount} components</SectionLink>}
     >
       {/* The names roll past as texture, so they are hidden from assistive
@@ -85,6 +85,37 @@ export function Parts() {
 
         <ShowcaseTile name="JsonViewer" slug="json-viewer" bare>
           <JsonViewer label="Webhook payload" data={WEBHOOK} className="h-[240px] rounded-none" />
+        </ShowcaseTile>
+
+        {/* The second row is the newer end of the catalogue — a git graph with
+            its lanes worked out from parent hashes, a zoomable sunburst, and a
+            flame graph read from collapsed stacks. They mount only once the row
+            nears the viewport, which is LazyMount, which is also one of them. */}
+        <ShowcaseTile name="CommitGraph" slug="commit-graph" bare>
+          <LazyMount minHeight={240}>
+            <CommitGraph commits={COMMITS} label="Recent history" maxHeight={240} />
+          </LazyMount>
+        </ShowcaseTile>
+
+        <ShowcaseTile name="SunburstChart" slug="sunburst-chart">
+          <LazyMount minHeight={240}>
+            <SunburstChart
+              data={BUNDLE}
+              label="Bundle by folder"
+              valueLabel="Size"
+              size={240}
+              format={(value) => `${value} kB`}
+              className="mx-auto"
+            />
+          </LazyMount>
+        </ShowcaseTile>
+
+        <ShowcaseTile name="FlameGraph" slug="flame-graph" bare>
+          <LazyMount minHeight={240}>
+            <div className="h-[240px] overflow-y-auto p-4">
+              <FlameGraph profile={PROFILE} label="Request profile" unit="samples" showControls={false} rowHeight={19} />
+            </div>
+          </LazyMount>
         </ShowcaseTile>
       </div>
 
@@ -157,6 +188,67 @@ function Belt({ names, speed }: { names: string[]; speed: number }) {
       ))}
     </Marquee>
   )
+}
+
+/** A short history with a merge in it, so the lanes have something to draw. */
+const COMMITS = [
+  { hash: 'c15b9a7f', parents: ['4564ef60', '9a1e9d51'], message: 'Merge branch “showpieces”', author: 'Mara Lindqvist', date: 'Sep 21', refs: ['main'] },
+  { hash: '9a1e9d51', parents: ['647f4e02'], message: 'Cloth, fluid and light, tagged as showpieces', author: 'Ade Okonkwo', date: 'Sep 20' },
+  { hash: '4564ef60', parents: ['647f4e02'], message: 'Seventy components the library did not have', author: 'Mara Lindqvist', date: 'Sep 19' },
+  { hash: '647f4e02', parents: ['aabb1c63'], message: 'A theme engine, and a customiser for it', author: 'Jonas Field', date: 'Sep 18', tags: ['v1.0.0'] },
+  { hash: 'aabb1c63', parents: [], message: 'Merge four components that repeated each other', author: 'Ade Okonkwo', date: 'Sep 17' },
+]
+
+/**
+ * One request, as collapsed stacks — the format `stackcollapse` emits, which
+ * is what FlameGraph reads. Samples, so the widths are the time each frame
+ * held the stack.
+ */
+const PROFILE = [
+  'server;route;auth;verifyToken 38',
+  'server;route;auth;loadSession;redis.get 64',
+  'server;route;handler;parseBody 41',
+  'server;route;handler;query;planner 96',
+  'server;route;handler;query;execute;scan 214',
+  'server;route;handler;query;execute;sort 73',
+  'server;route;handler;serialize 57',
+  'server;route;render;template 88',
+  'server;route;render;hydrate 35',
+  'server;gc 29',
+].join('\n')
+
+/** A bundle, by folder — the tree a sunburst was made for. */
+const BUNDLE = {
+  id: 'bundle',
+  label: 'bundle',
+  children: [
+    {
+      id: 'app',
+      label: 'app',
+      children: [
+        { id: 'routes', label: 'routes', value: 82 },
+        { id: 'state', label: 'state', value: 41 },
+        { id: 'forms', label: 'forms', value: 28 },
+      ],
+    },
+    {
+      id: 'ui',
+      label: 'ui',
+      children: [
+        { id: 'charts', label: 'charts', value: 64 },
+        { id: 'tables', label: 'tables', value: 37 },
+        { id: 'overlays', label: 'overlays', value: 22 },
+      ],
+    },
+    {
+      id: 'vendor',
+      label: 'vendor',
+      children: [
+        { id: 'react', label: 'react', value: 46 },
+        { id: 'router', label: 'router', value: 18 },
+      ],
+    },
+  ],
 }
 
 const WEBHOOK = {
