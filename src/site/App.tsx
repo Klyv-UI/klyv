@@ -77,6 +77,7 @@ const router = createBrowserRouter([
       { path: 'find', lazy: page(() => import('./pages/FindPage')) },
       { path: 'saved', lazy: page(() => import('./pages/SavedPage')) },
       { path: 'composer', lazy: page(() => import('./pages/ComposerPage')), handle: fullBleed },
+      { path: 'migrate', lazy: page(() => import('./pages/MigratePage')) },
       { path: 'agents', lazy: page(() => import('./pages/AgentsPage')) },
       { path: '*', element: <NotFound /> },
     ],
