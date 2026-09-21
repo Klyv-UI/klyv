@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Text, VisuallyHidden, cn } from 'klyv'
-import { buildConstellation, starAt, step, type Constellation as Graph } from '../../lib/constellation'
+import { HUB, buildConstellation, starAt, step, type Constellation as Graph } from '../../lib/constellation'
 import { sizes } from '../../data/sizes'
 
 /**
@@ -29,6 +29,8 @@ export function Constellation({ query }: { query: string }) {
   const [hover, setHover] = useState<number | null>(null)
   const [settled, setSettled] = useState(false)
   const view = useRef({ x: 0, y: 0, scale: 1 })
+  /** Until the reader pans or zooms, the view keeps the whole constellation in frame. */
+  const adjusted = useRef(false)
   // The simulation effect owns the drawing; everything else asks for a frame
   // through this rather than reaching into the canvas itself.
   const drawRef = useRef<() => void>(() => {})
@@ -109,10 +111,39 @@ export function Constellation({ query }: { query: string }) {
       const { x, y, scale } = view.current
       const lit = hoverRef.current
       const brought = lit === null ? null : new Set(graph.brings.get(lit) ?? [])
+      // The other direction: everything that imports it. For a hub this is
+      // the whole story — Text imports nothing and is used by 248.
+      const users = lit === null ? null : new Set(graph.usedBy.get(lit) ?? [])
       const found = matchRef.current
 
       const ink = resolve('--color-ink', '#17191c')
       const accent = resolve('--color-accent-strong', '#b9e93a')
+
+      // Fit what is there, until someone takes the view over.
+      if (!adjusted.current) {
+        let minX = Infinity
+        let maxX = -Infinity
+        let minY = Infinity
+        let maxY = -Infinity
+        for (const star of graph.stars) {
+          if (star.x < minX) minX = star.x
+          if (star.x > maxX) maxX = star.x
+          if (star.y < minY) minY = star.y
+          if (star.y > maxY) maxY = star.y
+        }
+        // The group names sit outside the stars, so the fit takes them in too.
+        for (const home of graph.anchors.values()) {
+          const length = Math.hypot(home.x, home.y) || 1
+          const labelX = home.x + (home.x / length) * 150
+          const labelY = home.y + (home.y / length) * 150
+          minX = Math.min(minX, labelX - 70)
+          maxX = Math.max(maxX, labelX + 70)
+          minY = Math.min(minY, labelY - 20)
+          maxY = Math.max(maxY, labelY + 20)
+        }
+        const fit = Math.max(0.2, Math.min(1.4, Math.min(width / (maxX - minX + 80), height / (maxY - minY + 80))))
+        view.current = { scale: fit, x: -((minX + maxX) / 2) * fit, y: -((minY + maxY) / 2) * fit }
+      }
 
       context.clearRect(0, 0, width, height)
       context.save()
@@ -124,10 +155,12 @@ export function Constellation({ query }: { query: string }) {
       for (const edge of graph.edges) {
         const from = graph.stars[edge.from]
         const to = graph.stars[edge.to]
-        const involved = lit !== null && (edge.from === lit || brought!.has(edge.from)) && (brought!.has(edge.to) || edge.to === lit)
-        if (lit !== null && !involved) continue
-        context.strokeStyle = lit === null ? ink : accent
-        context.globalAlpha = lit === null ? 0.1 : 0.55
+        const downstream = lit !== null && (edge.from === lit || brought!.has(edge.from)) && (brought!.has(edge.to) || edge.to === lit)
+        const upstream = lit !== null && edge.to === lit && users!.has(edge.from)
+        if (lit !== null && !downstream && !upstream) continue
+        if (lit === null && (from.imported >= HUB || to.imported >= HUB)) continue
+        context.strokeStyle = lit === null ? ink : downstream ? accent : ink
+        context.globalAlpha = lit === null ? 0.05 : downstream ? 0.6 : 0.16
         context.beginPath()
         context.moveTo(from.x, from.y)
         context.lineTo(to.x, to.y)
@@ -139,34 +172,63 @@ export function Constellation({ query }: { query: string }) {
         const star = graph.stars[index]
         const isLit = index === lit
         const isBrought = brought?.has(index) ?? false
+        const isUser = users?.has(index) ?? false
         const isMatch = found?.has(index) ?? false
         let alphaFor = 1
-        if (lit !== null && !isLit && !isBrought) alphaFor = 0.12
+        if (lit !== null && !isLit && !isBrought && !isUser) alphaFor = 0.1
         else if (found && !isMatch && lit === null) alphaFor = 0.12
 
         context.globalAlpha = alphaFor
-        const highlighted = isLit || isBrought || isMatch
+        const isHub = star.imported >= HUB
+        const highlighted = isLit || isBrought || isMatch || (isHub && lit === null && !found)
         context.fillStyle = highlighted ? accent : ink
-        if (!highlighted) context.globalAlpha = alphaFor * 0.45
+        if (!highlighted) context.globalAlpha = isUser ? 0.85 : alphaFor * 0.4
+        if (isHub && lit === null && !found) {
+          context.globalAlpha = 0.18
+          context.beginPath()
+          context.arc(star.x, star.y, star.radius + 10, 0, Math.PI * 2)
+          context.fill()
+          context.globalAlpha = alphaFor
+        }
         context.beginPath()
-        context.arc(star.x, star.y, star.radius + (isLit ? 2.5 : 0), 0, Math.PI * 2)
+        context.arc(star.x, star.y, star.radius + (isLit ? 2.5 : isHub ? 2 : 0), 0, Math.PI * 2)
         context.fill()
       }
 
-      // Names, only where they can be read: the hovered star, what it brings,
-      // and the components many others import.
-      context.globalAlpha = 1
-      context.font = `${11 / scale}px ui-monospace, SFMono-Regular, Menlo, monospace`
-      context.fillStyle = ink
+      // Each group's name over the middle of its own stars, so the regions
+      // can be read as the library's sections.
       context.textAlign = 'center'
-      for (let index = 0; index < graph.stars.length; index++) {
+      context.fillStyle = ink
+      context.font = `700 ${15 / scale}px ui-sans-serif, system-ui, sans-serif`
+      context.globalAlpha = lit === null ? 0.5 : 0.18
+      // Pushed outward from the home, past the region, so the name sits at
+      // the region's outer edge rather than on top of its stars.
+      for (const [group, home] of graph.anchors) {
+        const length = Math.hypot(home.x, home.y) || 1
+        const out = 150
+        context.fillText(group, home.x + (home.x / length) * out, home.y + (home.y / length) * out)
+      }
+
+      // Star names, only where they can be read: the hovered star and what it
+      // brings, or at rest the hubs — each one only if it does not land on a
+      // name already drawn, which is what turned the middle into mush.
+      context.font = `${11 / scale}px ui-monospace, SFMono-Regular, Menlo, monospace`
+      const placed: { x: number; y: number; w: number }[] = []
+      const clear = (x: number, y: number, w: number) =>
+        placed.every((box) => Math.abs(box.x - x) > (box.w + w) / 2 || Math.abs(box.y - y) > 14 / scale)
+      const order = [...graph.stars.keys()].sort((a, b) => graph.stars[b].imported - graph.stars[a].imported)
+      for (const index of order) {
         const star = graph.stars[index]
         const isLit = index === lit
         const isBrought = brought?.has(index) ?? false
-        const isHub = star.imported >= 24
-        if (!isLit && !isBrought && !(isHub && lit === null && scale > 0.55)) continue
-        context.globalAlpha = isLit ? 1 : 0.75
-        context.fillText(star.name, star.x, star.y - star.radius - 5 / scale)
+        const isHub = star.imported >= HUB
+        if (!isLit && !isBrought && !(isHub && lit === null)) continue
+        const y = star.y - star.radius - 5 / scale
+        const w = context.measureText(star.name).width
+        if (!isLit && !clear(star.x, y, w)) continue
+        placed.push({ x: star.x, y, w })
+        context.globalAlpha = isLit ? 1 : 0.8
+        context.fillText(star.name, star.x, y)
       }
 
       context.restore()
@@ -207,6 +269,7 @@ export function Constellation({ query }: { query: string }) {
 
   const hovered = hover === null ? null : graph.stars[hover]
   const broughtCount = hover === null ? 0 : (graph.brings.get(hover)?.length ?? 0)
+  const userCount = hover === null ? 0 : (graph.usedBy.get(hover)?.length ?? 0)
 
   return (
     <div
@@ -222,6 +285,7 @@ export function Constellation({ query }: { query: string }) {
         if (drag) {
           const moved = Math.hypot(event.clientX - drag.x, event.clientY - drag.y)
           if (moved > 3) {
+            adjusted.current = true
             view.current.x = drag.viewX + (event.clientX - drag.x)
             view.current.y = drag.viewY + (event.clientY - drag.y)
             repaint()
@@ -249,6 +313,7 @@ export function Constellation({ query }: { query: string }) {
       }}
       onWheel={(event) => {
         const scale = Math.max(0.3, Math.min(3, view.current.scale * Math.exp(-event.deltaY * 0.0015)))
+        adjusted.current = true
         view.current.scale = scale
         repaint()
       }}
@@ -271,10 +336,20 @@ export function Constellation({ query }: { query: string }) {
           <Text as="span" size="caption" tone="soft" className="text-[12px]">
             {hovered.group} · {kB(sizes[hovered.name]?.gzip ?? 0)} gzipped
           </Text>
-          <Text as="span" size="caption" tone="faint" className="text-[12px]">
-            {broughtCount === 0 ? 'Imports nothing else' : `Brings ${broughtCount} component${broughtCount === 1 ? '' : 's'} with it`}
-            {hovered.imported > 0 && ` · imported by ${hovered.imported}`}
-          </Text>
+          <span className="mt-1 flex flex-col gap-1">
+            <span className="flex items-center gap-2">
+              <span aria-hidden className="size-2 rounded-full bg-accent-strong" />
+              <Text as="span" size="caption" className="text-[12px]">
+                {broughtCount === 0 ? 'Brings nothing with it' : `Brings ${broughtCount} component${broughtCount === 1 ? '' : 's'} with it`}
+              </Text>
+            </span>
+            <span className="flex items-center gap-2">
+              <span aria-hidden className="size-2 rounded-full bg-ink" />
+              <Text as="span" size="caption" className="text-[12px]">
+                {userCount === 0 ? 'Nothing imports it' : `Used by ${userCount} component${userCount === 1 ? '' : 's'}`}
+              </Text>
+            </span>
+          </span>
         </div>
       )}
 

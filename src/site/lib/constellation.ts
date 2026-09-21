@@ -38,12 +38,12 @@ export interface Edge {
   to: number
 }
 
-const REPULSION = 190
-const SPRING = 0.012
+const REPULSION = 260
+const SPRING = 0.03
 const SPRING_LENGTH = 34
 const GRAVITY = 0.0016
 const DAMPING = 0.86
-const CELL = 46
+const CELL = 58
 /**
  * Ceilings on one step.
  *
@@ -63,7 +63,29 @@ export interface Constellation {
   index: Map<string, number>
   /** Transitive imports of each star, by index — what lights up on hover. */
   brings: Map<number, number[]>
+  /** The stars that import each one directly: the other half of the hover. */
+  usedBy: Map<number, number[]>
+  /** Links touching each star, both directions: what scales its springs down. */
+  degree: number[]
+  /** Where each group lives on the ring, by group id. */
+  anchors: Map<GroupId, { x: number; y: number }>
 }
+
+/**
+ * Imported by at least this many components: a hub.
+ *
+ * Hubs are left out of the layout's springs. Nearly everything imports Text,
+ * Button or VisuallyHidden, so their links say "this is a component" rather
+ * than "these two belong together" — and with them in, every star was pulled
+ * into one knot around them. They still sit in their group, still light up
+ * with everything that uses them on hover, and are drawn in the accent.
+ */
+export const HUB = 30
+
+/** Radius of the ring the groups sit on. */
+const RING = 520
+/** How hard a star is drawn to its group's home. Gentle: imports still win. */
+const GROUP_PULL = 0.06
 
 /** Build the graph, with every star placed on its group's arc to start with. */
 export function buildConstellation(): Constellation {
@@ -124,7 +146,26 @@ export function buildConstellation(): Constellation {
     brings.set(from, [...seen])
   }
 
-  return { stars, edges, index, brings }
+  const usedBy = new Map<number, number[]>()
+  for (const edge of edges) {
+    const list = usedBy.get(edge.to) ?? []
+    list.push(edge.from)
+    usedBy.set(edge.to, list)
+  }
+
+  const degree = stars.map(() => 0)
+  for (const edge of edges) {
+    degree[edge.from]++
+    degree[edge.to]++
+  }
+
+  const anchors = new Map<GroupId, { x: number; y: number }>()
+  GROUP_IDS.forEach((id, position) => {
+    const angle = (position / GROUP_IDS.length) * Math.PI * 2 - Math.PI / 2
+    anchors.set(id, { x: Math.cos(angle) * RING, y: Math.sin(angle) * RING })
+  })
+
+  return { stars, edges, index, brings, usedBy, degree, anchors }
 }
 
 /**
@@ -178,14 +219,21 @@ export function step(constellation: Constellation, alpha: number, pinned: number
     }
   }
 
-  // Springs along the real imports.
+  // Springs along the real imports, each scaled down by how connected its
+  // better-connected end is. Unscaled, Text — imported by 248 components —
+  // pulled with 248 springs at once and dragged the entire library into one
+  // knot around itself. Dividing by the smaller degree (d3's default for the
+  // same problem) lets a hub stay central without swallowing everything.
+  const { degree } = constellation
   for (const edge of edges) {
     const from = stars[edge.from]
     const to = stars[edge.to]
+    if (from.imported >= HUB || to.imported >= HUB) continue
     const deltaX = to.x - from.x
     const deltaY = to.y - from.y
     const distance = Math.max(0.01, Math.hypot(deltaX, deltaY))
-    const force = (distance - SPRING_LENGTH) * SPRING * alpha
+    const strength = SPRING / Math.max(1, Math.min(degree[edge.from], degree[edge.to]))
+    const force = (distance - SPRING_LENGTH) * strength * alpha
     const fx = (deltaX / distance) * force
     const fy = (deltaY / distance) * force
     from.vx += fx
@@ -203,8 +251,13 @@ export function step(constellation: Constellation, alpha: number, pinned: number
       star.vy = 0
       continue
     }
-    star.vx -= star.x * GRAVITY * alpha
-    star.vy -= star.y * GRAVITY * alpha
+    // Home: each group has a place on a ring, so the library reads as regions
+    // you can name. The pull is gentle — imports still decide where a star
+    // sits inside its region, and a component that imports across groups is
+    // drawn out towards them.
+    const home = constellation.anchors.get(star.group)!
+    star.vx += (home.x - star.x) * GROUP_PULL * alpha - star.x * GRAVITY * 0.25 * alpha
+    star.vy += (home.y - star.y) * GROUP_PULL * alpha - star.y * GRAVITY * 0.25 * alpha
     star.vx *= DAMPING
     star.vy *= DAMPING
     const speed = Math.hypot(star.vx, star.vy)

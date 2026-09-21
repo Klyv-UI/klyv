@@ -210,7 +210,7 @@ export default function AtlasPage() {
           <Text size="caption" tone="soft">
             {mode === 'map'
               ? `Every one of the ${componentCount} components on one canvas. Drag to move, pinch or ⌘-scroll to zoom — and they start running as you get close.`
-              : `All ${componentCount} of them as a graph of what imports what, settled by physics. Hover a star to light everything it brings with it.`}
+              : `All ${componentCount} of them as a graph of what imports what, settled by physics. Hover a star to light what it brings, and what uses it.`}
           </Text>
         </div>
         <div className="flex flex-wrap items-center gap-2">
