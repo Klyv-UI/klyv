@@ -1,0 +1,18 @@
+# Cloudflare Workers static assets: the docs site at klyvui.xyz.
+#
+# `npm run build` writes the site to dist-site/. Unknown paths fall back to
+# index.html, which is what the client-side router needs.
+#
+#   npm run build
+#   wrangler deploy
+name = "klyv"
+compatibility_date = "2026-09-21"
+
+routes = [
+  { pattern = "klyvui.xyz", custom_domain = true },
+  { pattern = "www.klyvui.xyz", custom_domain = true },
+]
+
+[assets]
+directory = "./dist-site"
+not_found_handling = "single-page-application"

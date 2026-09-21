@@ -17,3 +17,6 @@ marketing/
 .claude/
 check-ink.mjs
 check-terminal.mjs
+
+# Wrangler local state
+.wrangler/
