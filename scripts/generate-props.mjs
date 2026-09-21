@@ -129,7 +129,7 @@ let propCount = 0
 let documented = 0
 const missing = []
 
-for (const name of readdirSync(COMPONENTS).filter((entry) => /^[A-Z]/.test(entry))) {
+for (const name of readdirSync(COMPONENTS).filter((entry) => /^[A-Z]/.test(entry)).sort()) {
   const dir = join(COMPONENTS, name)
   if (!statSync(dir).isDirectory()) continue
 
@@ -302,7 +302,7 @@ function checkRows(component, rows, where) {
 }
 
 // Hand-written pages: propNotes={[ … ]}
-for (const file of readdirSync(join(SITE, 'pages', 'components'))) {
+for (const file of readdirSync(join(SITE, 'pages', 'components')).sort()) {
   if (!file.endsWith('Page.tsx')) continue
   const component = file.replace(/Page\.tsx$/, '')
   const full = join(SITE, 'pages', 'components', file)
@@ -323,7 +323,7 @@ for (const file of readdirSync(join(SITE, 'pages', 'components'))) {
 }
 
 // Example modules: '<slug>': { … props: [ … ] }
-for (const file of readdirSync(join(SITE, 'examples'))) {
+for (const file of readdirSync(join(SITE, 'examples')).sort()) {
   if (!file.endsWith('.tsx')) continue
   const full = join(SITE, 'examples', file)
   const source = ts.createSourceFile(full, readFileSync(full, 'utf8'), ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX)

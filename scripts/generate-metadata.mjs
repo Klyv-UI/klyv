@@ -52,7 +52,9 @@ function rolesOf(source) {
   return [...roles].sort()
 }
 
-for (const name of readdirSync(COMPONENTS).filter(isComponentDir)) {
+// Sorted: readdir order is alphabetical on Windows but arbitrary on Linux, and
+// aria.json and components.json are written in this order, so CI would see churn.
+for (const name of readdirSync(COMPONENTS).filter(isComponentDir).sort()) {
   const dir = join(COMPONENTS, name)
   if (!statSync(dir).isDirectory()) continue
 

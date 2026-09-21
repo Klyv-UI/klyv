@@ -45,7 +45,7 @@ const PRESSES_KEYS = /\buser\.(?:keyboard|tab)\(|\bfireEvent\.key(?:Down|Up)\(/
 
 const keyboard = {}
 if (existsSync(INTERACTION)) {
-  for (const file of readdirSync(INTERACTION).filter((name) => name.endsWith('.test.tsx'))) {
+  for (const file of readdirSync(INTERACTION).filter((name) => name.endsWith('.test.tsx')).sort()) {
     const source = readFileSync(join(INTERACTION, file), 'utf8')
     const blocks = [...source.matchAll(/\bdescribe\(\s*'([A-Z][A-Za-z0-9]*)'/g)]
     blocks.forEach((match, index) => {
@@ -103,7 +103,7 @@ const SKIP = [join(SITE, 'examples'), join(SITE, 'blocks'), join(SITE, 'pages', 
 const siteComponents = new Set()
 
 function walk(dir) {
-  for (const entry of readdirSync(dir)) {
+  for (const entry of readdirSync(dir).sort()) {
     const path = join(dir, entry)
     if (SKIP.includes(path)) continue
     if (statSync(path).isDirectory()) walk(path)
