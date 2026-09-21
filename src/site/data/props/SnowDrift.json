@@ -1,0 +1,92 @@
+{
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The content it snows on. Its elements are the ground, measured from the live layout."
+    },
+    {
+      "name": "selector",
+      "type": "string",
+      "required": false,
+      "defaultValue": "DEFAULT_SELECTOR",
+      "description": "Selector for the elements snow settles on, searched inside the region. Their top edges are the ground, and the region’s bottom is the floor. When nothing matches, every direct child is a surface."
+    },
+    {
+      "name": "intensity",
+      "type": "number",
+      "required": false,
+      "defaultValue": "110",
+      "description": "Flakes per second across the whole region. 0 stops new snow; what is already falling still lands."
+    },
+    {
+      "name": "wind",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.12",
+      "description": "Steady wind, from −1 (hard left) to 1 (hard right). Its strength also stirs the turbulence."
+    },
+    {
+      "name": "accumulate",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Let flakes settle. Off, they fall past everything and nothing piles up."
+    },
+    {
+      "name": "melt",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.25",
+      "description": "How fast the piles sink, in pixels a second, so a page left open does not fill up. 0 keeps every flake."
+    },
+    {
+      "name": "depth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0",
+      "description": "Snow already settled when it first appears, in pixels. Under reduced motion there is always some."
+    },
+    {
+      "name": "maxDepth",
+      "type": "number",
+      "required": false,
+      "defaultValue": "36",
+      "description": "The deepest a pile can get, in pixels."
+    },
+    {
+      "name": "tone",
+      "type": "SnowDriftTone",
+      "required": false,
+      "defaultValue": "'snow'",
+      "description": "Colour of the snow. Every tone is read from theme tokens and repaints when the theme or accent changes."
+    },
+    {
+      "name": "interactive",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Sweeping the pointer gusts the air and blows settled snow back up. Nothing is captured, so links still work."
+    },
+    {
+      "name": "paused",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Freeze the falling flakes where they are. Settled snow stays."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Describe the scene for assistive tech. Without it the snow is decorative and hidden."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins. Layout classes here lay out the children directly."
+    }
+  ]
+}

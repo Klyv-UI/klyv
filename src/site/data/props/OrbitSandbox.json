@@ -1,0 +1,104 @@
+{
+  "props": [
+    {
+      "name": "bodies",
+      "type": "OrbitBodyInput[]",
+      "required": false,
+      "description": "Starting bodies, in world units (the default view spans about seventy). Overrides `preset`."
+    },
+    {
+      "name": "preset",
+      "type": "OrbitPreset",
+      "required": false,
+      "defaultValue": "'solar'",
+      "description": "The arrangement to start from when `bodies` is not given. The scene picker changes it after."
+    },
+    {
+      "name": "gravity",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1",
+      "description": "The gravitational constant G. Presets are built for it, so their circular orbits stay circular."
+    },
+    {
+      "name": "softening",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.25",
+      "description": "Plummer softening length ε in world units: how far gravity is smeared to avoid the r = 0 singularity."
+    },
+    {
+      "name": "collisions",
+      "type": "OrbitCollisionMode",
+      "required": false,
+      "defaultValue": "'merge'",
+      "description": "Touching bodies merge (conserving mass and momentum), bounce elastically, or pass through."
+    },
+    {
+      "name": "trails",
+      "type": "boolean | number",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Fading trails: `true` for 20 units of simulated time, a number for that many, `false` for none."
+    },
+    {
+      "name": "timeScale",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1",
+      "description": "Simulated time per real second, relative to the default. The speed slider starts here."
+    },
+    {
+      "name": "paused",
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled pause. Omit to let the play button own it."
+    },
+    {
+      "name": "onPausedChange",
+      "type": "(paused: boolean) => void",
+      "required": false,
+      "description": "Called when the play button, the space key or the handle changes the pause state."
+    },
+    {
+      "name": "showVectors",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Draw each body's velocity as an arrow."
+    },
+    {
+      "name": "showBarycentre",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Mark the system's centre of mass. It should never move: momentum is conserved."
+    },
+    {
+      "name": "launchMass",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1",
+      "description": "Mass of a body launched by dragging or from the keyboard. The mass slider starts here."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Accessible name for the drawing. Without it the canvas is decorative and the status line carries the state."
+    },
+    {
+      "name": "controls",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the transport, scene picker, switches and sliders."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

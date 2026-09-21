@@ -1,0 +1,132 @@
+{
+  "props": [
+    {
+      "name": "shape",
+      "type": "TesseractShape",
+      "required": false,
+      "description": "Which regular 4-polytope to draw. The built-in control can change it; `onShapeChange` reports that."
+    },
+    {
+      "name": "onShapeChange",
+      "type": "(shape: TesseractShape) => void",
+      "required": false,
+      "description": "Called when the built-in shape control picks another polytope."
+    },
+    {
+      "name": "projection",
+      "type": "TesseractProjection",
+      "required": false,
+      "description": "4D → 3D projection: a perspective eye on the w axis, or stereographic from the 3-sphere's pole, which bends edges into arcs."
+    },
+    {
+      "name": "onProjectionChange",
+      "type": "(projection: TesseractProjection) => void",
+      "required": false,
+      "description": "Called when the built-in projection control changes."
+    },
+    {
+      "name": "rotation",
+      "type": "Partial<TesseractAngles>",
+      "required": false,
+      "description": "Controlled orientation, radians per plane. When set, the component draws exactly this and reports turns through `onRotationChange`."
+    },
+    {
+      "name": "defaultRotation",
+      "type": "Partial<TesseractAngles>",
+      "required": false,
+      "description": "Uncontrolled starting orientation, radians per plane. Planes left out take the built-in three-quarter view."
+    },
+    {
+      "name": "onRotationChange",
+      "type": "(angles: TesseractAngles) => void",
+      "required": false,
+      "description": "Called when a drag, key, wheel or slider turns it. Not called for the automatic spin."
+    },
+    {
+      "name": "spin",
+      "type": "Partial<TesseractAngles>",
+      "required": false,
+      "defaultValue": "DEFAULT_SPIN",
+      "description": "Spin speed per plane, radians per second. Defaults to xw and yw in the golden ratio, plus a slow xz drift."
+    },
+    {
+      "name": "autoRotate",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Spin on its own. Ignored under reduced motion and when `rotation` is controlled."
+    },
+    {
+      "name": "paused",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Freeze the spin and any momentum. Dragging still turns it."
+    },
+    {
+      "name": "eye",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1.8",
+      "description": "Perspective only: distance of the 4D eye along w, in circumradii (above 1). Closer exaggerates it — the inner cell shrinks."
+    },
+    {
+      "name": "cells",
+      "type": "boolean",
+      "required": false,
+      "description": "Fill the 2-faces (the squares of the tesseract's eight cubes, and so on) as translucent polygons, sorted back to front."
+    },
+    {
+      "name": "vertices",
+      "type": "boolean",
+      "required": false,
+      "description": "Draw a dot on every vertex, sized by nearness in w."
+    },
+    {
+      "name": "interactive",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Drag, arrow keys and (while focused) the wheel turn it."
+    },
+    {
+      "name": "dragPlanes",
+      "type": "TesseractDragPlanes",
+      "required": false,
+      "description": "What a plain drag turns. Shift swaps to the other pair while held."
+    },
+    {
+      "name": "tone",
+      "type": "TesseractTone",
+      "required": false,
+      "defaultValue": "'duo'",
+      "description": "Edge colour: ink far in w blending to accent near (`duo`), or a single token."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "defaultValue": "480",
+      "description": "Maximum width in pixels. The view is square and fills its container up to this."
+    },
+    {
+      "name": "controls",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the shape, projection and display controls, and the per-plane sliders whenever it is still."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Four-dimensional polytope'",
+      "description": "Accessible name, followed by a generated description of the shape and its orientation. An empty string makes the picture decorative."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

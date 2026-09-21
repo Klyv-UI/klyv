@@ -1,0 +1,111 @@
+{
+  "props": [
+    {
+      "name": "elements",
+      "type": "PrismLightElement[]",
+      "required": false,
+      "description": "Controlled optical elements. Positions are fractions of the bench, so they survive resizes."
+    },
+    {
+      "name": "defaultElements",
+      "type": "PrismLightElement[]",
+      "required": false,
+      "defaultValue": "DEFAULT_ELEMENTS",
+      "description": "Elements for uncontrolled use. Defaults to one equilateral prism."
+    },
+    {
+      "name": "onElementsChange",
+      "type": "(elements: PrismLightElement[]) => void",
+      "required": false,
+      "description": "Called with the new elements whenever one is dragged, turned or nudged from the keyboard."
+    },
+    {
+      "name": "beam",
+      "type": "PrismLightBeam",
+      "required": false,
+      "description": "Controlled beam: source position, direction, width and light."
+    },
+    {
+      "name": "defaultBeam",
+      "type": "PrismLightBeam",
+      "required": false,
+      "defaultValue": "DEFAULT_BEAM",
+      "description": "Beam for uncontrolled use."
+    },
+    {
+      "name": "onBeamChange",
+      "type": "(beam: PrismLightBeam) => void",
+      "required": false,
+      "description": "Called when the slider, a drag across the bench or the source’s handle changes the beam."
+    },
+    {
+      "name": "glass",
+      "type": "PrismLightGlass",
+      "required": false,
+      "defaultValue": "'flint'",
+      "description": "Dense flint (n_d 1.767, Abbe 30), crown (n_d 1.517, Abbe 64 — about half the spread), or a fixed index with no dispersion at all. Flint is the default because it is what a dispersing prism is actually made of: crown is the reference glass, but its 1.4° fan is a few pixels of colour at the edges of a white beam, where flint’s 11° is a spectrum."
+    },
+    {
+      "name": "rays",
+      "type": "number",
+      "required": false,
+      "defaultValue": "32",
+      "description": "Wavelengths sampled across 380–700 nm for white light, 3–64. More is a smoother spectrum and costs more."
+    },
+    {
+      "name": "fresnel",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Split every ray at every face by the Fresnel equations, so the faint partial reflections appear."
+    },
+    {
+      "name": "interactive",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Let the pointer and keyboard move and turn the elements and aim the beam."
+    },
+    {
+      "name": "sweep",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Swing the beam ±5° back and forth, so the fan moves, until the first touch. Ignored under reduced motion."
+    },
+    {
+      "name": "paused",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Hold the sweep, and any glide towards a new angle, where they are."
+    },
+    {
+      "name": "aspectRatio",
+      "type": "number",
+      "required": false,
+      "defaultValue": "16 / 9",
+      "description": "Width over height of the bench."
+    },
+    {
+      "name": "controls",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the beam-angle slider and the buttons under the bench."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Optical bench'",
+      "description": "Accessible name of the bench. An empty string makes the drawing decorative."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}

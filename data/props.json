@@ -9506,6 +9506,133 @@
       }
     ]
   },
+  "FallingSand": {
+    "props": [
+      {
+        "name": "seedText",
+        "type": "string",
+        "required": false,
+        "description": "A headline drawn into the grid in the theme font, as `seedMaterial`. Use `\\n` for a second line."
+      },
+      {
+        "name": "seedMaterial",
+        "type": "'packed' | 'sand'",
+        "required": false,
+        "defaultValue": "'packed'",
+        "description": "What the headline is made of. Packed sand holds its shape until something touches it; sand falls at once."
+      },
+      {
+        "name": "materials",
+        "type": "FallingSandMaterial[]",
+        "required": false,
+        "defaultValue": "DEFAULT_MATERIALS",
+        "description": "The materials offered in the picker, in order. `'empty'` is the eraser."
+      },
+      {
+        "name": "palette",
+        "type": "Partial<Record<FallingSandMaterial, string>>",
+        "required": false,
+        "description": "Colour overrides per material, as any CSS colour — tokens, `color-mix()`. `empty` is the background."
+      },
+      {
+        "name": "brush",
+        "type": "FallingSandMaterial",
+        "required": false,
+        "description": "Controlled brush material."
+      },
+      {
+        "name": "defaultBrush",
+        "type": "FallingSandMaterial",
+        "required": false,
+        "description": "Uncontrolled starting brush material."
+      },
+      {
+        "name": "onBrushChange",
+        "type": "(material: FallingSandMaterial) => void",
+        "required": false,
+        "description": "Called when the picker changes the brush."
+      },
+      {
+        "name": "brushSize",
+        "type": "number",
+        "required": false,
+        "description": "Controlled brush radius, in cells."
+      },
+      {
+        "name": "defaultBrushSize",
+        "type": "number",
+        "required": false,
+        "defaultValue": "4",
+        "description": "Uncontrolled starting brush radius, in cells."
+      },
+      {
+        "name": "onBrushSizeChange",
+        "type": "(size: number) => void",
+        "required": false,
+        "description": "Called when the slider changes the brush radius."
+      },
+      {
+        "name": "pour",
+        "type": "boolean | FallingSandMaterial",
+        "required": false,
+        "defaultValue": "false",
+        "description": "A source that drips from the top without stopping: `true` for sand, or a material."
+      },
+      {
+        "name": "speed",
+        "type": "number",
+        "required": false,
+        "defaultValue": "2",
+        "description": "Automaton steps per frame, 1–6. Each step moves a falling grain one cell."
+      },
+      {
+        "name": "cellSize",
+        "type": "number",
+        "required": false,
+        "defaultValue": "4",
+        "description": "CSS pixels per cell. Smaller is finer and costs more; the grid is capped at 150,000 cells whatever this says."
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "required": false,
+        "description": "Controlled pause. Painting still works and shows at once; nothing moves."
+      },
+      {
+        "name": "defaultPaused",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Uncontrolled starting pause state."
+      },
+      {
+        "name": "onPausedChange",
+        "type": "(paused: boolean) => void",
+        "required": false,
+        "description": "Called when the pause button toggles."
+      },
+      {
+        "name": "controls",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Show the material picker, brush slider and buttons."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Falling sand'",
+        "description": "Accessible name for the sand box."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins. A height here is shared between the box and the controls."
+      }
+    ]
+  },
   "FaqSection": {
     "props": [
       {
@@ -9781,6 +9908,84 @@
         "name": "className",
         "type": "string",
         "required": false
+      }
+    ]
+  },
+  "Ferrofluid": {
+    "props": [
+      {
+        "name": "magnets",
+        "type": "number | FerrofluidMagnet[]",
+        "required": false,
+        "description": "A number of magnets to start with (uncontrolled, 0–6), or the magnets themselves (controlled). Two is the default and the arrangement that reads best: a horseshoe’s north and south ends either side of the drop, which comb both rims into spikes before anyone touches it."
+      },
+      {
+        "name": "onMagnetsChange",
+        "type": "(magnets: FerrofluidMagnet[]) => void",
+        "required": false,
+        "description": "Called with the new magnets whenever one is dragged, follows the pointer or is nudged with the keyboard."
+      },
+      {
+        "name": "strength",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1.3",
+        "description": "Field strength multiplier for every magnet. Higher raises spikes from further away. At 1 the field reaches critical half the stage’s shorter side from a pole."
+      },
+      {
+        "name": "viscosity",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.35",
+        "description": "0–1. Low rings and wobbles for a long time; high is syrup, with no overshoot."
+      },
+      {
+        "name": "spikes",
+        "type": "number",
+        "required": false,
+        "defaultValue": "19",
+        "description": "Most spikes the drop can grow, 1–60. It also sets the lattice spacing, and with it their length: fewer spikes, a coarser and taller comb."
+      },
+      {
+        "name": "tone",
+        "type": "FerrofluidTone",
+        "required": false,
+        "defaultValue": "'ink'",
+        "description": "Fluid colour: the ink token or the accent. The side facing the field always catches the accent."
+      },
+      {
+        "name": "interactive",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Pointer and keyboard control. Off, it is a picture driven only by props and the ref."
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Freeze on the current frame."
+      },
+      {
+        "name": "controls",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Show the pulse and reset buttons and a readout under the stage."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Ferrofluid'",
+        "description": "Accessible name. An empty string makes the whole thing decorative."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins. The stage is 16:10 unless you give it another aspect ratio."
       }
     ]
   },
@@ -13555,6 +13760,104 @@
         "type": "string",
         "required": false,
         "description": "The address this admin is connecting from, used to warn before they lock themselves out."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "IronFilings": {
+    "props": [
+      {
+        "name": "magnets",
+        "type": "IronFilingsMagnet[]",
+        "required": false,
+        "description": "Controlled magnets. Positions are fractions of the frame, so they survive a resize."
+      },
+      {
+        "name": "defaultMagnets",
+        "type": "IronFilingsMagnet[]",
+        "required": false,
+        "defaultValue": "DEFAULT_MAGNETS",
+        "description": "Magnets for uncontrolled use. Defaults to two bars with their north ends facing, which shows a neutral point."
+      },
+      {
+        "name": "onMagnetsChange",
+        "type": "(magnets: IronFilingsMagnet[]) => void",
+        "required": false,
+        "description": "Called with the new magnets whenever one is dragged, turned or moved with the keyboard."
+      },
+      {
+        "name": "filings",
+        "type": "number",
+        "required": false,
+        "defaultValue": "3200",
+        "description": "Number of filings. 2,000–5,000 reads best; capped at 12,000."
+      },
+      {
+        "name": "showFilings",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Draw the filings. The built-in toggles change it locally; a new prop value wins."
+      },
+      {
+        "name": "showFieldLines",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Draw field lines traced from the poles. The built-in toggles change it locally; a new prop value wins."
+      },
+      {
+        "name": "showStrength",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Shade the frame by field strength. The built-in toggles change it locally; a new prop value wins."
+      },
+      {
+        "name": "interactive",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Magnets can be dragged, turned and moved with the keyboard. Off, they are part of the picture."
+      },
+      {
+        "name": "tone",
+        "type": "IronFilingsTone",
+        "required": false,
+        "defaultValue": "'ink'",
+        "description": "Filing colour: the ink token or the accent."
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Freeze the filings where they are. Magnets still move, and lines and shading still follow them."
+      },
+      {
+        "name": "aspectRatio",
+        "type": "number",
+        "required": false,
+        "defaultValue": "16 / 10",
+        "description": "Width over height of the frame."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Accessible name of the picture. Without it the canvas is decorative and hidden."
+      },
+      {
+        "name": "controls",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Show the layer toggles, the pause switch and the shake button."
       },
       {
         "name": "className",
@@ -18415,6 +18718,110 @@
       }
     ]
   },
+  "OrbitSandbox": {
+    "props": [
+      {
+        "name": "bodies",
+        "type": "OrbitBodyInput[]",
+        "required": false,
+        "description": "Starting bodies, in world units (the default view spans about seventy). Overrides `preset`."
+      },
+      {
+        "name": "preset",
+        "type": "OrbitPreset",
+        "required": false,
+        "defaultValue": "'solar'",
+        "description": "The arrangement to start from when `bodies` is not given. The scene picker changes it after."
+      },
+      {
+        "name": "gravity",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1",
+        "description": "The gravitational constant G. Presets are built for it, so their circular orbits stay circular."
+      },
+      {
+        "name": "softening",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.25",
+        "description": "Plummer softening length ε in world units: how far gravity is smeared to avoid the r = 0 singularity."
+      },
+      {
+        "name": "collisions",
+        "type": "OrbitCollisionMode",
+        "required": false,
+        "defaultValue": "'merge'",
+        "description": "Touching bodies merge (conserving mass and momentum), bounce elastically, or pass through."
+      },
+      {
+        "name": "trails",
+        "type": "boolean | number",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Fading trails: `true` for 20 units of simulated time, a number for that many, `false` for none."
+      },
+      {
+        "name": "timeScale",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1",
+        "description": "Simulated time per real second, relative to the default. The speed slider starts here."
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "required": false,
+        "description": "Controlled pause. Omit to let the play button own it."
+      },
+      {
+        "name": "onPausedChange",
+        "type": "(paused: boolean) => void",
+        "required": false,
+        "description": "Called when the play button, the space key or the handle changes the pause state."
+      },
+      {
+        "name": "showVectors",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Draw each body's velocity as an arrow."
+      },
+      {
+        "name": "showBarycentre",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Mark the system's centre of mass. It should never move: momentum is conserved."
+      },
+      {
+        "name": "launchMass",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1",
+        "description": "Mass of a body launched by dragging or from the keyboard. The mass slider starts here."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Accessible name for the drawing. Without it the canvas is decorative and the status line carries the state."
+      },
+      {
+        "name": "controls",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Show the transport, scene picker, switches and sliders."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
   "OrderTracker": {
     "props": [
       {
@@ -18925,6 +19332,108 @@
         "required": false,
         "defaultValue": "360",
         "description": "Viewer height in pixels."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "PaperMarbling": {
+    "props": [
+      {
+        "name": "palette",
+        "type": "'accent' | string[]",
+        "required": false,
+        "defaultValue": "'accent'",
+        "description": "Ink colours: CSS colours or tokens, or `'accent'` for four inks mixed from the accent and the ink token."
+      },
+      {
+        "name": "dropSize",
+        "type": "number",
+        "required": false,
+        "description": "Controlled drop radius, as a fraction of the paper’s height."
+      },
+      {
+        "name": "defaultDropSize",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.1",
+        "description": "Uncontrolled starting drop radius."
+      },
+      {
+        "name": "onDropSizeChange",
+        "type": "(size: number) => void",
+        "required": false,
+        "description": "Called when the drop-size slider moves."
+      },
+      {
+        "name": "pattern",
+        "type": "PaperMarblingPattern",
+        "required": false,
+        "description": "Controlled pattern. Changing it empties the bath and makes the new pattern from its recipe."
+      },
+      {
+        "name": "defaultPattern",
+        "type": "PaperMarblingPattern",
+        "required": false,
+        "defaultValue": "'bouquet'",
+        "description": "Uncontrolled starting pattern."
+      },
+      {
+        "name": "onPatternChange",
+        "type": "(pattern: PaperMarblingPattern) => void",
+        "required": false,
+        "description": "Called when the pattern control changes."
+      },
+      {
+        "name": "autoplay",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Play the recipe step by step when the paper first scrolls into view. Off, the finished pattern is shown at once."
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Hold the recipe where it is. Clicks and drags still work."
+      },
+      {
+        "name": "speed",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1",
+        "description": "Recipe playback speed. 1 makes a bouquet in about ten seconds."
+      },
+      {
+        "name": "aspectRatio",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1.5",
+        "description": "Width over height of the paper."
+      },
+      {
+        "name": "controls",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Show the recipe, ink, size and edit controls."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Accessible name. The canvas is described with the pattern and its operations; without a label it is decorative."
+      },
+      {
+        "name": "onStatusChange",
+        "type": "(status: PaperMarblingStatus) => void",
+        "required": false,
+        "description": "Called when a recipe starts playing and when it ends or is stopped."
       },
       {
         "name": "className",
@@ -19545,6 +20054,146 @@
         "type": "(text: string) => void",
         "required": false,
         "description": "Called with each text message the other peer sends."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "PendulumWave": {
+    "props": [
+      {
+        "name": "count",
+        "type": "number",
+        "required": false,
+        "defaultValue": "15",
+        "description": "Number of pendulums, 2–48."
+      },
+      {
+        "name": "cycle",
+        "type": "number",
+        "required": false,
+        "defaultValue": "60",
+        "description": "Seconds for the pattern to go through every figure and come back to one line."
+      },
+      {
+        "name": "baseCycles",
+        "type": "number",
+        "required": false,
+        "description": "Swings the slowest pendulum makes per cycle; each next one makes one more. Defaults to the cycle in seconds, so the slowest swings once a second."
+      },
+      {
+        "name": "amplitude",
+        "type": "number",
+        "required": false,
+        "description": "Controlled release angle of the longest pendulum, in degrees. The rest are pulled back level with it."
+      },
+      {
+        "name": "defaultAmplitude",
+        "type": "number",
+        "required": false,
+        "description": "Uncontrolled starting release angle. Defaults to `tuning`, where the cycle closes exactly."
+      },
+      {
+        "name": "onAmplitudeChange",
+        "type": "(degrees: number) => void",
+        "required": false,
+        "description": "Called when the release-angle slider moves."
+      },
+      {
+        "name": "tuning",
+        "type": "number",
+        "required": false,
+        "defaultValue": "12",
+        "description": "The release angle the strings are cut for, in degrees. Released from anything else, the row no longer returns to a perfect line. 0 is the small-angle textbook cut."
+      },
+      {
+        "name": "damping",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0",
+        "description": "Amplitude decay rate per second. 0 swings for ever; 0.01 loses about 45% of the swing in a minute."
+      },
+      {
+        "name": "view",
+        "type": "PendulumWaveView",
+        "required": false,
+        "description": "Controlled view: the apparatus from the side, or the row from above, where the waves read best."
+      },
+      {
+        "name": "defaultView",
+        "type": "PendulumWaveView",
+        "required": false,
+        "defaultValue": "'side'",
+        "description": "Uncontrolled starting view."
+      },
+      {
+        "name": "onViewChange",
+        "type": "(view: PendulumWaveView) => void",
+        "required": false,
+        "description": "Called when the view control changes."
+      },
+      {
+        "name": "trails",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Fading after-images of the last third of a second."
+      },
+      {
+        "name": "sound",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Offer the chime: a soft sine ping as each bob passes the bottom, at its own frequency moved up by octaves."
+      },
+      {
+        "name": "defaultMuted",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Start muted. Sound only ever begins from a click on the sound button."
+      },
+      {
+        "name": "playing",
+        "type": "boolean",
+        "required": false,
+        "description": "Controlled swinging state."
+      },
+      {
+        "name": "defaultPlaying",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Uncontrolled starting state."
+      },
+      {
+        "name": "onPlayingChange",
+        "type": "(playing: boolean) => void",
+        "required": false,
+        "description": "Called when the play button, or the handle, starts or stops it."
+      },
+      {
+        "name": "stillPhase",
+        "type": "number",
+        "required": false,
+        "description": "Under reduced motion, the moment drawn as a still, as a fraction of the cycle. Defaults to the row forming one full wave."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Accessible name. Without it the drawing is decorative and hidden; the status line still announces the figures."
+      },
+      {
+        "name": "controls",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Show the transport, view, cycle ruler and release-angle controls."
       },
       {
         "name": "className",
@@ -20754,6 +21403,117 @@
         "type": "string",
         "required": false,
         "description": "Merged onto the nav."
+      }
+    ]
+  },
+  "PrismLight": {
+    "props": [
+      {
+        "name": "elements",
+        "type": "PrismLightElement[]",
+        "required": false,
+        "description": "Controlled optical elements. Positions are fractions of the bench, so they survive resizes."
+      },
+      {
+        "name": "defaultElements",
+        "type": "PrismLightElement[]",
+        "required": false,
+        "defaultValue": "DEFAULT_ELEMENTS",
+        "description": "Elements for uncontrolled use. Defaults to one equilateral prism."
+      },
+      {
+        "name": "onElementsChange",
+        "type": "(elements: PrismLightElement[]) => void",
+        "required": false,
+        "description": "Called with the new elements whenever one is dragged, turned or nudged from the keyboard."
+      },
+      {
+        "name": "beam",
+        "type": "PrismLightBeam",
+        "required": false,
+        "description": "Controlled beam: source position, direction, width and light."
+      },
+      {
+        "name": "defaultBeam",
+        "type": "PrismLightBeam",
+        "required": false,
+        "defaultValue": "DEFAULT_BEAM",
+        "description": "Beam for uncontrolled use."
+      },
+      {
+        "name": "onBeamChange",
+        "type": "(beam: PrismLightBeam) => void",
+        "required": false,
+        "description": "Called when the slider, a drag across the bench or the source’s handle changes the beam."
+      },
+      {
+        "name": "glass",
+        "type": "PrismLightGlass",
+        "required": false,
+        "defaultValue": "'flint'",
+        "description": "Dense flint (n_d 1.767, Abbe 30), crown (n_d 1.517, Abbe 64 — about half the spread), or a fixed index with no dispersion at all. Flint is the default because it is what a dispersing prism is actually made of: crown is the reference glass, but its 1.4° fan is a few pixels of colour at the edges of a white beam, where flint’s 11° is a spectrum."
+      },
+      {
+        "name": "rays",
+        "type": "number",
+        "required": false,
+        "defaultValue": "32",
+        "description": "Wavelengths sampled across 380–700 nm for white light, 3–64. More is a smoother spectrum and costs more."
+      },
+      {
+        "name": "fresnel",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Split every ray at every face by the Fresnel equations, so the faint partial reflections appear."
+      },
+      {
+        "name": "interactive",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Let the pointer and keyboard move and turn the elements and aim the beam."
+      },
+      {
+        "name": "sweep",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Swing the beam ±5° back and forth, so the fan moves, until the first touch. Ignored under reduced motion."
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Hold the sweep, and any glide towards a new angle, where they are."
+      },
+      {
+        "name": "aspectRatio",
+        "type": "number",
+        "required": false,
+        "defaultValue": "16 / 9",
+        "description": "Width over height of the bench."
+      },
+      {
+        "name": "controls",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Show the beam-angle slider and the buttons under the bench."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Optical bench'",
+        "description": "Accessible name of the bench. An empty string makes the drawing decorative."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
       }
     ]
   },
@@ -26737,6 +27497,98 @@
       }
     ]
   },
+  "SnowDrift": {
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The content it snows on. Its elements are the ground, measured from the live layout."
+      },
+      {
+        "name": "selector",
+        "type": "string",
+        "required": false,
+        "defaultValue": "DEFAULT_SELECTOR",
+        "description": "Selector for the elements snow settles on, searched inside the region. Their top edges are the ground, and the region’s bottom is the floor. When nothing matches, every direct child is a surface."
+      },
+      {
+        "name": "intensity",
+        "type": "number",
+        "required": false,
+        "defaultValue": "110",
+        "description": "Flakes per second across the whole region. 0 stops new snow; what is already falling still lands."
+      },
+      {
+        "name": "wind",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.12",
+        "description": "Steady wind, from −1 (hard left) to 1 (hard right). Its strength also stirs the turbulence."
+      },
+      {
+        "name": "accumulate",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Let flakes settle. Off, they fall past everything and nothing piles up."
+      },
+      {
+        "name": "melt",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.25",
+        "description": "How fast the piles sink, in pixels a second, so a page left open does not fill up. 0 keeps every flake."
+      },
+      {
+        "name": "depth",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0",
+        "description": "Snow already settled when it first appears, in pixels. Under reduced motion there is always some."
+      },
+      {
+        "name": "maxDepth",
+        "type": "number",
+        "required": false,
+        "defaultValue": "36",
+        "description": "The deepest a pile can get, in pixels."
+      },
+      {
+        "name": "tone",
+        "type": "SnowDriftTone",
+        "required": false,
+        "defaultValue": "'snow'",
+        "description": "Colour of the snow. Every tone is read from theme tokens and repaints when the theme or accent changes."
+      },
+      {
+        "name": "interactive",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Sweeping the pointer gusts the air and blows settled snow back up. Nothing is captured, so links still work."
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Freeze the falling flakes where they are. Settled snow stays."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Describe the scene for assistive tech. Without it the snow is decorative and hidden."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins. Layout classes here lay out the children directly."
+      }
+    ]
+  },
   "SocialLoginButtons": {
     "props": [
       {
@@ -29007,6 +29859,138 @@
         "type": "string",
         "required": false,
         "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "Tesseract": {
+    "props": [
+      {
+        "name": "shape",
+        "type": "TesseractShape",
+        "required": false,
+        "description": "Which regular 4-polytope to draw. The built-in control can change it; `onShapeChange` reports that."
+      },
+      {
+        "name": "onShapeChange",
+        "type": "(shape: TesseractShape) => void",
+        "required": false,
+        "description": "Called when the built-in shape control picks another polytope."
+      },
+      {
+        "name": "projection",
+        "type": "TesseractProjection",
+        "required": false,
+        "description": "4D → 3D projection: a perspective eye on the w axis, or stereographic from the 3-sphere's pole, which bends edges into arcs."
+      },
+      {
+        "name": "onProjectionChange",
+        "type": "(projection: TesseractProjection) => void",
+        "required": false,
+        "description": "Called when the built-in projection control changes."
+      },
+      {
+        "name": "rotation",
+        "type": "Partial<TesseractAngles>",
+        "required": false,
+        "description": "Controlled orientation, radians per plane. When set, the component draws exactly this and reports turns through `onRotationChange`."
+      },
+      {
+        "name": "defaultRotation",
+        "type": "Partial<TesseractAngles>",
+        "required": false,
+        "description": "Uncontrolled starting orientation, radians per plane. Planes left out take the built-in three-quarter view."
+      },
+      {
+        "name": "onRotationChange",
+        "type": "(angles: TesseractAngles) => void",
+        "required": false,
+        "description": "Called when a drag, key, wheel or slider turns it. Not called for the automatic spin."
+      },
+      {
+        "name": "spin",
+        "type": "Partial<TesseractAngles>",
+        "required": false,
+        "defaultValue": "DEFAULT_SPIN",
+        "description": "Spin speed per plane, radians per second. Defaults to xw and yw in the golden ratio, plus a slow xz drift."
+      },
+      {
+        "name": "autoRotate",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Spin on its own. Ignored under reduced motion and when `rotation` is controlled."
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Freeze the spin and any momentum. Dragging still turns it."
+      },
+      {
+        "name": "eye",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1.8",
+        "description": "Perspective only: distance of the 4D eye along w, in circumradii (above 1). Closer exaggerates it — the inner cell shrinks."
+      },
+      {
+        "name": "cells",
+        "type": "boolean",
+        "required": false,
+        "description": "Fill the 2-faces (the squares of the tesseract's eight cubes, and so on) as translucent polygons, sorted back to front."
+      },
+      {
+        "name": "vertices",
+        "type": "boolean",
+        "required": false,
+        "description": "Draw a dot on every vertex, sized by nearness in w."
+      },
+      {
+        "name": "interactive",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Drag, arrow keys and (while focused) the wheel turn it."
+      },
+      {
+        "name": "dragPlanes",
+        "type": "TesseractDragPlanes",
+        "required": false,
+        "description": "What a plain drag turns. Shift swaps to the other pair while held."
+      },
+      {
+        "name": "tone",
+        "type": "TesseractTone",
+        "required": false,
+        "defaultValue": "'duo'",
+        "description": "Edge colour: ink far in w blending to accent near (`duo`), or a single token."
+      },
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "defaultValue": "480",
+        "description": "Maximum width in pixels. The view is square and fills its container up to this."
+      },
+      {
+        "name": "controls",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Show the shape, projection and display controls, and the per-plane sliders whenever it is still."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Four-dimensional polytope'",
+        "description": "Accessible name, followed by a generated description of the shape and its orientation. An empty string makes the picture decorative."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
       }
     ]
   },
@@ -32269,6 +33253,137 @@
         "required": false,
         "defaultValue": "false",
         "description": "Blocks voting — your own post, a locked thread."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Merged last, so it wins."
+      }
+    ]
+  },
+  "VoxelTerrain": {
+    "props": [
+      {
+        "name": "seed",
+        "type": "number",
+        "required": false,
+        "description": "The terrain's seed. The same seed always makes the same map; changing it generates a new one."
+      },
+      {
+        "name": "onSeedChange",
+        "type": "(seed: number) => void",
+        "required": false,
+        "description": "Called with the new seed when the map is regenerated from the button or the handle."
+      },
+      {
+        "name": "roughness",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.5",
+        "description": "0–1. Low rolls like downland; high is all crags. Sets the Hurst exponent of the diamond–square noise."
+      },
+      {
+        "name": "waterLevel",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.26",
+        "description": "0–1. The fraction of the height range under water."
+      },
+      {
+        "name": "tone",
+        "type": "VoxelTerrainTone",
+        "required": false,
+        "defaultValue": "'terrain'",
+        "description": "`terrain` bands water, sand, grass, rock and snow from the accent and ink; `accent` is one hue; `ink` is greyscale."
+      },
+      {
+        "name": "fog",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0.35",
+        "description": "Distance fog, 0–1. At 0 only the far edge fades, so the draw distance never shows as a line."
+      },
+      {
+        "name": "speed",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1",
+        "description": "Multiplies the flight speed. 1 is a steady cruise."
+      },
+      {
+        "name": "quality",
+        "type": "VoxelTerrainQuality",
+        "required": false,
+        "description": "Controlled quality: internal resolution, draw distance and how fine the far samples are."
+      },
+      {
+        "name": "defaultQuality",
+        "type": "VoxelTerrainQuality",
+        "required": false,
+        "defaultValue": "'medium'",
+        "description": "Uncontrolled starting quality."
+      },
+      {
+        "name": "onQualityChange",
+        "type": "(quality: VoxelTerrainQuality) => void",
+        "required": false,
+        "description": "Called when the quality buttons change it."
+      },
+      {
+        "name": "interactive",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Steer by dragging and, when focused, with the keyboard. Off, it is a picture that flies itself."
+      },
+      {
+        "name": "autoFly",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Fly on its own along a weaving, terrain-following path. Off, the camera hovers until steered. Ignored under reduced motion."
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Hold the flight still. The view can still be turned by hand."
+      },
+      {
+        "name": "map",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Show the overview map with your position and heading."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Voxel terrain flyover'",
+        "description": "Accessible name for the view. An empty string on a non-interactive terrain makes it decorative."
+      },
+      {
+        "name": "controls",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Show the pause, regenerate and quality controls under the view."
+      },
+      {
+        "name": "aspectRatio",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'16 / 9'",
+        "description": "CSS aspect ratio of the view."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Content drawn on top — a headline in the sky. It does not take the pointer unless it asks for it."
       },
       {
         "name": "className",

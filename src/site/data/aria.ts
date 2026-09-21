@@ -408,6 +408,11 @@ export const ariaRoles: Record<string, string[]> = {
   "ExperimentResults": [
     "status"
   ],
+  "FallingSand": [
+    "group",
+    "img",
+    "status"
+  ],
   "FaqSection": [
     "status"
   ],
@@ -415,6 +420,11 @@ export const ariaRoles: Record<string, string[]> = {
     "status"
   ],
   "FeedbackWidget": [
+    "status"
+  ],
+  "Ferrofluid": [
+    "group",
+    "img",
     "status"
   ],
   "FileList": [
@@ -564,6 +574,11 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "InputOTP": [
     "group"
+  ],
+  "IronFilings": [
+    "img",
+    "slider",
+    "status"
   ],
   "Joystick": [
     "application"
@@ -772,6 +787,11 @@ export const ariaRoles: Record<string, string[]> = {
   "OrbitRing": [
     "group"
   ],
+  "OrbitSandbox": [
+    "group",
+    "img",
+    "status"
+  ],
   "OrgChart": [
     "tree",
     "treeitem"
@@ -787,6 +807,10 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "PanoramaViewer": [
     "application",
+    "status"
+  ],
+  "PaperMarbling": [
+    "img",
     "status"
   ],
   "ParallaxPortal": [
@@ -819,6 +843,10 @@ export const ariaRoles: Record<string, string[]> = {
   "PeerLink": [
     "alert",
     "log",
+    "status"
+  ],
+  "PendulumWave": [
+    "img",
     "status"
   ],
   "PermissionGate": [
@@ -862,6 +890,10 @@ export const ariaRoles: Record<string, string[]> = {
     "status"
   ],
   "PricingTable": [
+    "status"
+  ],
+  "PrismLight": [
+    "img",
     "status"
   ],
   "ProductCard": [
@@ -1110,6 +1142,10 @@ export const ariaRoles: Record<string, string[]> = {
   "SnapGuides": [
     "group"
   ],
+  "SnowDrift": [
+    "img",
+    "status"
+  ],
   "SocialLoginButtons": [
     "group"
   ],
@@ -1212,6 +1248,11 @@ export const ariaRoles: Record<string, string[]> = {
     "tabpanel"
   ],
   "TagInput": [
+    "status"
+  ],
+  "Tesseract": [
+    "group",
+    "img",
     "status"
   ],
   "TestimonialCard": [
@@ -1376,6 +1417,10 @@ export const ariaRoles: Record<string, string[]> = {
   ],
   "VoteButtons": [
     "group"
+  ],
+  "VoxelTerrain": [
+    "img",
+    "status"
   ],
   "WaterfallChart": [
     "img"

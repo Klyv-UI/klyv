@@ -2915,6 +2915,27 @@
         "react"
       ]
     },
+    "FallingSand": {
+      "files": [
+        "components/FallingSand/FallingSand.tsx",
+        "components/FallingSand/index.ts",
+        "components/FallingSand/sand.ts"
+      ],
+      "internal": [
+        "Button",
+        "SegmentedControl",
+        "Slider"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/image-data.ts",
+        "lib/motion.ts",
+        "lib/types.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "FaqSection": {
       "files": [
         "components/FaqSection/FaqSection.tsx",
@@ -3028,6 +3049,24 @@
       ],
       "shared": [
         "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Ferrofluid": {
+      "files": [
+        "components/Ferrofluid/Ferrofluid.tsx",
+        "components/Ferrofluid/field.ts",
+        "components/Ferrofluid/index.ts"
+      ],
+      "internal": [
+        "Button"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/image-data.ts",
+        "lib/motion.ts"
       ],
       "external": [
         "react"
@@ -4142,6 +4181,26 @@
       "shared": [
         "components/internal/icons.tsx",
         "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "IronFilings": {
+      "files": [
+        "components/IronFilings/IronFilings.tsx",
+        "components/IronFilings/field.ts",
+        "components/IronFilings/index.ts"
+      ],
+      "internal": [
+        "Button",
+        "Switch",
+        "ToggleGroup"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/image-data.ts",
+        "lib/motion.ts"
       ],
       "external": [
         "react"
@@ -5649,6 +5708,29 @@
         "react"
       ]
     },
+    "OrbitSandbox": {
+      "files": [
+        "components/OrbitSandbox/OrbitSandbox.tsx",
+        "components/OrbitSandbox/index.ts",
+        "components/OrbitSandbox/nbody.ts"
+      ],
+      "internal": [
+        "Button",
+        "IconButton",
+        "SegmentedControl",
+        "Slider",
+        "Switch"
+      ],
+      "shared": [
+        "components/internal/icons.tsx",
+        "lib/cn.ts",
+        "lib/image-data.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "OrderTracker": {
       "files": [
         "components/OrderTracker/OrderTracker.tsx",
@@ -5812,6 +5894,27 @@
       "internal": [],
       "shared": [
         "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "PaperMarbling": {
+      "files": [
+        "components/PaperMarbling/PaperMarbling.tsx",
+        "components/PaperMarbling/index.ts",
+        "components/PaperMarbling/marbling.ts"
+      ],
+      "internal": [
+        "Button",
+        "SegmentedControl",
+        "Slider"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/image-data.ts",
+        "lib/motion.ts",
+        "lib/types.ts"
       ],
       "external": [
         "react"
@@ -6011,6 +6114,29 @@
       "shared": [
         "components/internal/StatusPill.tsx",
         "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "PendulumWave": {
+      "files": [
+        "components/PendulumWave/PendulumWave.tsx",
+        "components/PendulumWave/draw.ts",
+        "components/PendulumWave/index.ts",
+        "components/PendulumWave/pendulums.ts"
+      ],
+      "internal": [
+        "Button",
+        "IconButton",
+        "SegmentedControl",
+        "Slider"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/image-data.ts",
+        "lib/motion.ts",
+        "lib/types.ts"
       ],
       "external": [
         "react"
@@ -6337,6 +6463,25 @@
         "components/internal/icons.tsx",
         "lib/cn.ts",
         "lib/layout-effect.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "PrismLight": {
+      "files": [
+        "components/PrismLight/PrismLight.tsx",
+        "components/PrismLight/index.ts",
+        "components/PrismLight/optics.ts"
+      ],
+      "internal": [
+        "Button",
+        "Slider"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/image-data.ts",
+        "lib/motion.ts"
       ],
       "external": [
         "react"
@@ -8054,6 +8199,24 @@
         "react"
       ]
     },
+    "SnowDrift": {
+      "files": [
+        "components/SnowDrift/SnowDrift.tsx",
+        "components/SnowDrift/drift.ts",
+        "components/SnowDrift/index.ts"
+      ],
+      "internal": [
+        "Button"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/image-data.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "SocialLoginButtons": {
       "files": [
         "components/SocialLoginButtons/SocialLoginButtons.tsx",
@@ -8776,6 +8939,27 @@
       "internal": [],
       "shared": [
         "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "Tesseract": {
+      "files": [
+        "components/Tesseract/Tesseract.tsx",
+        "components/Tesseract/index.ts",
+        "components/Tesseract/polytopes.ts"
+      ],
+      "internal": [
+        "Button",
+        "SegmentedControl",
+        "Slider",
+        "Switch"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/image-data.ts",
+        "lib/motion.ts"
       ],
       "external": [
         "react"
@@ -9753,6 +9937,27 @@
       "internal": [],
       "shared": [
         "lib/cn.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
+    "VoxelTerrain": {
+      "files": [
+        "components/VoxelTerrain/VoxelTerrain.tsx",
+        "components/VoxelTerrain/index.ts",
+        "components/VoxelTerrain/terrain.ts"
+      ],
+      "internal": [
+        "Button",
+        "IconButton",
+        "SegmentedControl"
+      ],
+      "shared": [
+        "lib/cn.ts",
+        "lib/image-data.ts",
+        "lib/motion.ts",
+        "lib/types.ts"
       ],
       "external": [
         "react"
@@ -12568,6 +12773,18 @@
       "section": "Surfaces & light",
       "blurb": "The frame becomes a window into a room behind the screen: off-axis projection shifts the view as you move, and props lean out through the frame."
     },
+    "PrismLight": {
+      "slug": "prism-light",
+      "group": "Motion & Effects",
+      "section": "Surfaces & light",
+      "blurb": "A beam through glass you can turn: Snell’s law per wavelength with Cauchy dispersion, so white light fans into a real spectrum, and past the critical angle the beam reflects instead."
+    },
+    "SnowDrift": {
+      "slug": "snow-drift",
+      "group": "Motion & Effects",
+      "section": "Surfaces & light",
+      "blurb": "Snow that lands on the page’s own elements: every flake settles on the heightfield above the real headings and cards, piles up, avalanches when the slope is too steep, and blows off when you sweep the pointer."
+    },
     "AnimatedNumber": {
       "slug": "animated-number",
       "group": "Motion & Effects",
@@ -12994,6 +13211,18 @@
       "section": "Generative",
       "blurb": "Gray–Scott chemistry on feedback textures: coral, fingerprints and dividing cells grow across the canvas, and a headline can be the seed they grow from."
     },
+    "PaperMarbling": {
+      "slug": "paper-marbling",
+      "group": "Canvas & Play",
+      "section": "Generative",
+      "blurb": "Ebru marbling done exactly: every drop pushes the ink already on the bath outwards by the closed-form circle map, and a tine drag shifts it along a decaying wake, so no pattern is ever painted — it is displaced."
+    },
+    "VoxelTerrain": {
+      "slug": "voxel-terrain",
+      "group": "Canvas & Play",
+      "section": "Generative",
+      "blurb": "Voxel-space terrain flown from a heightmap generated by diamond–square: back-to-front column casting with a y-buffer, so a ridge line resolves per pixel with no polygons at all."
+    },
     "AudioVisualizer": {
       "slug": "audio-visualizer",
       "group": "Canvas & Play",
@@ -13090,6 +13319,30 @@
       "section": "Physics",
       "blurb": "The real card — its own text and working buttons — hung on a verlet mesh: it drapes, ripples in the wind, and tears if you pull too hard."
     },
+    "Ferrofluid": {
+      "slug": "ferrofluid",
+      "group": "Canvas & Play",
+      "section": "Physics",
+      "blurb": "A drop of magnetic fluid that grows Rosensweig spikes towards the pointer: a metaball field whose surface tension loses to the field, so the spikes stand, wobble and merge back."
+    },
+    "FallingSand": {
+      "slug": "falling-sand",
+      "group": "Canvas & Play",
+      "section": "Physics",
+      "blurb": "A falling-sand cellular automaton where a headline is the sand: letters crumble grain by grain, water finds its level, fire eats wood, and a sweep of the pointer pours more."
+    },
+    "IronFilings": {
+      "slug": "iron-filings",
+      "group": "Canvas & Play",
+      "section": "Physics",
+      "blurb": "Drag magnets across the page and thousands of filings turn to the dipole field they actually sit in, with field lines traced by Runge–Kutta from the poles."
+    },
+    "PendulumWave": {
+      "slug": "pendulum-wave",
+      "group": "Canvas & Play",
+      "section": "Physics",
+      "blurb": "Fifteen pendulums whose lengths are tuned so the slowest swings sixty times a minute and each next one once more: they fan, snake, split into two waves and return to one line, on a cycle that closes exactly."
+    },
     "FlipBook": {
       "slug": "flip-book",
       "group": "Canvas & Play",
@@ -13179,6 +13432,18 @@
       "group": "Canvas & Play",
       "section": "Toys",
       "blurb": "Klondike with draw one or three, undo, scoring, a timer, auto-send and finish, drag or full keyboard play, and every card named in full."
+    },
+    "OrbitSandbox": {
+      "slug": "orbit-sandbox",
+      "group": "Canvas & Play",
+      "section": "Toys",
+      "blurb": "Fling a planet and watch it fall into orbit: velocity Verlet n-body gravity with real conic trails, collisions that merge and conserve momentum, and a readout of the energy it is not allowed to lose."
+    },
+    "Tesseract": {
+      "slug": "tesseract",
+      "group": "Canvas & Play",
+      "section": "Toys",
+      "blurb": "A four-dimensional solid turned in two planes at once: rotate in xw and yw, watch the inner cube swell through the outer as it passes, and switch the projection from perspective to stereographic."
     },
     "CtaSection": {
       "slug": "cta-section",

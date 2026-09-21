@@ -2930,6 +2930,27 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "FallingSand": {
+    "files": [
+      "components/FallingSand/FallingSand.tsx",
+      "components/FallingSand/index.ts",
+      "components/FallingSand/sand.ts"
+    ],
+    "internal": [
+      "Button",
+      "SegmentedControl",
+      "Slider"
+    ],
+    "shared": [
+      "lib/cn.ts",
+      "lib/image-data.ts",
+      "lib/motion.ts",
+      "lib/types.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "FaqSection": {
     "files": [
       "components/FaqSection/FaqSection.tsx",
@@ -3043,6 +3064,24 @@ export const dependencies: Record<string, ComponentDependencies> = {
     ],
     "shared": [
       "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "Ferrofluid": {
+    "files": [
+      "components/Ferrofluid/Ferrofluid.tsx",
+      "components/Ferrofluid/field.ts",
+      "components/Ferrofluid/index.ts"
+    ],
+    "internal": [
+      "Button"
+    ],
+    "shared": [
+      "lib/cn.ts",
+      "lib/image-data.ts",
+      "lib/motion.ts"
     ],
     "external": [
       "react"
@@ -4157,6 +4196,26 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "shared": [
       "components/internal/icons.tsx",
       "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "IronFilings": {
+    "files": [
+      "components/IronFilings/IronFilings.tsx",
+      "components/IronFilings/field.ts",
+      "components/IronFilings/index.ts"
+    ],
+    "internal": [
+      "Button",
+      "Switch",
+      "ToggleGroup"
+    ],
+    "shared": [
+      "lib/cn.ts",
+      "lib/image-data.ts",
+      "lib/motion.ts"
     ],
     "external": [
       "react"
@@ -5664,6 +5723,29 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "OrbitSandbox": {
+    "files": [
+      "components/OrbitSandbox/OrbitSandbox.tsx",
+      "components/OrbitSandbox/index.ts",
+      "components/OrbitSandbox/nbody.ts"
+    ],
+    "internal": [
+      "Button",
+      "IconButton",
+      "SegmentedControl",
+      "Slider",
+      "Switch"
+    ],
+    "shared": [
+      "components/internal/icons.tsx",
+      "lib/cn.ts",
+      "lib/image-data.ts",
+      "lib/motion.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "OrderTracker": {
     "files": [
       "components/OrderTracker/OrderTracker.tsx",
@@ -5825,6 +5907,27 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "shared": [
       "components/internal/icons.tsx",
       "lib/cn.ts",
+      "lib/motion.ts",
+      "lib/types.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "PaperMarbling": {
+    "files": [
+      "components/PaperMarbling/PaperMarbling.tsx",
+      "components/PaperMarbling/index.ts",
+      "components/PaperMarbling/marbling.ts"
+    ],
+    "internal": [
+      "Button",
+      "SegmentedControl",
+      "Slider"
+    ],
+    "shared": [
+      "lib/cn.ts",
+      "lib/image-data.ts",
       "lib/motion.ts",
       "lib/types.ts"
     ],
@@ -6026,6 +6129,29 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "shared": [
       "components/internal/StatusPill.tsx",
       "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "PendulumWave": {
+    "files": [
+      "components/PendulumWave/PendulumWave.tsx",
+      "components/PendulumWave/draw.ts",
+      "components/PendulumWave/index.ts",
+      "components/PendulumWave/pendulums.ts"
+    ],
+    "internal": [
+      "Button",
+      "IconButton",
+      "SegmentedControl",
+      "Slider"
+    ],
+    "shared": [
+      "lib/cn.ts",
+      "lib/image-data.ts",
+      "lib/motion.ts",
+      "lib/types.ts"
     ],
     "external": [
       "react"
@@ -6352,6 +6478,25 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "components/internal/icons.tsx",
       "lib/cn.ts",
       "lib/layout-effect.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "PrismLight": {
+    "files": [
+      "components/PrismLight/PrismLight.tsx",
+      "components/PrismLight/index.ts",
+      "components/PrismLight/optics.ts"
+    ],
+    "internal": [
+      "Button",
+      "Slider"
+    ],
+    "shared": [
+      "lib/cn.ts",
+      "lib/image-data.ts",
+      "lib/motion.ts"
     ],
     "external": [
       "react"
@@ -8069,6 +8214,24 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "SnowDrift": {
+    "files": [
+      "components/SnowDrift/SnowDrift.tsx",
+      "components/SnowDrift/drift.ts",
+      "components/SnowDrift/index.ts"
+    ],
+    "internal": [
+      "Button"
+    ],
+    "shared": [
+      "lib/cn.ts",
+      "lib/image-data.ts",
+      "lib/motion.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "SocialLoginButtons": {
     "files": [
       "components/SocialLoginButtons/SocialLoginButtons.tsx",
@@ -8791,6 +8954,27 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "internal": [],
     "shared": [
       "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "Tesseract": {
+    "files": [
+      "components/Tesseract/Tesseract.tsx",
+      "components/Tesseract/index.ts",
+      "components/Tesseract/polytopes.ts"
+    ],
+    "internal": [
+      "Button",
+      "SegmentedControl",
+      "Slider",
+      "Switch"
+    ],
+    "shared": [
+      "lib/cn.ts",
+      "lib/image-data.ts",
+      "lib/motion.ts"
     ],
     "external": [
       "react"
@@ -9768,6 +9952,27 @@ export const dependencies: Record<string, ComponentDependencies> = {
     "internal": [],
     "shared": [
       "lib/cn.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
+  "VoxelTerrain": {
+    "files": [
+      "components/VoxelTerrain/VoxelTerrain.tsx",
+      "components/VoxelTerrain/index.ts",
+      "components/VoxelTerrain/terrain.ts"
+    ],
+    "internal": [
+      "Button",
+      "IconButton",
+      "SegmentedControl"
+    ],
+    "shared": [
+      "lib/cn.ts",
+      "lib/image-data.ts",
+      "lib/motion.ts",
+      "lib/types.ts"
     ],
     "external": [
       "react"

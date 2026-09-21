@@ -1,0 +1,131 @@
+{
+  "props": [
+    {
+      "name": "seed",
+      "type": "number",
+      "required": false,
+      "description": "The terrain's seed. The same seed always makes the same map; changing it generates a new one."
+    },
+    {
+      "name": "onSeedChange",
+      "type": "(seed: number) => void",
+      "required": false,
+      "description": "Called with the new seed when the map is regenerated from the button or the handle."
+    },
+    {
+      "name": "roughness",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.5",
+      "description": "0–1. Low rolls like downland; high is all crags. Sets the Hurst exponent of the diamond–square noise."
+    },
+    {
+      "name": "waterLevel",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.26",
+      "description": "0–1. The fraction of the height range under water."
+    },
+    {
+      "name": "tone",
+      "type": "VoxelTerrainTone",
+      "required": false,
+      "defaultValue": "'terrain'",
+      "description": "`terrain` bands water, sand, grass, rock and snow from the accent and ink; `accent` is one hue; `ink` is greyscale."
+    },
+    {
+      "name": "fog",
+      "type": "number",
+      "required": false,
+      "defaultValue": "0.35",
+      "description": "Distance fog, 0–1. At 0 only the far edge fades, so the draw distance never shows as a line."
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "required": false,
+      "defaultValue": "1",
+      "description": "Multiplies the flight speed. 1 is a steady cruise."
+    },
+    {
+      "name": "quality",
+      "type": "VoxelTerrainQuality",
+      "required": false,
+      "description": "Controlled quality: internal resolution, draw distance and how fine the far samples are."
+    },
+    {
+      "name": "defaultQuality",
+      "type": "VoxelTerrainQuality",
+      "required": false,
+      "defaultValue": "'medium'",
+      "description": "Uncontrolled starting quality."
+    },
+    {
+      "name": "onQualityChange",
+      "type": "(quality: VoxelTerrainQuality) => void",
+      "required": false,
+      "description": "Called when the quality buttons change it."
+    },
+    {
+      "name": "interactive",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Steer by dragging and, when focused, with the keyboard. Off, it is a picture that flies itself."
+    },
+    {
+      "name": "autoFly",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Fly on its own along a weaving, terrain-following path. Off, the camera hovers until steered. Ignored under reduced motion."
+    },
+    {
+      "name": "paused",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Hold the flight still. The view can still be turned by hand."
+    },
+    {
+      "name": "map",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the overview map with your position and heading."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'Voxel terrain flyover'",
+      "description": "Accessible name for the view. An empty string on a non-interactive terrain makes it decorative."
+    },
+    {
+      "name": "controls",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Show the pause, regenerate and quality controls under the view."
+    },
+    {
+      "name": "aspectRatio",
+      "type": "string",
+      "required": false,
+      "defaultValue": "'16 / 9'",
+      "description": "CSS aspect ratio of the view."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Content drawn on top — a headline in the sky. It does not take the pointer unless it asks for it."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "Merged last, so it wins."
+    }
+  ]
+}
