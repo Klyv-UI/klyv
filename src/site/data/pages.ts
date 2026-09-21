@@ -4,6 +4,7 @@ import {
   Bot,
   ChefHat,
   Compass,
+  Gauge,
   Heart,
   History,
   Layers,
@@ -70,6 +71,7 @@ export const SITE_SECTIONS: SiteSection[] = [
     pages: [
       { to: '/composer', label: 'Composer', icon: WandSparkles, description: 'Compose a screen from real components and copy the code.', keywords: ['builder', 'canvas', 'editor', 'visual'] },
       { to: '/playground', label: 'Playground', icon: SlidersHorizontal, description: 'Change props on live primitives side by side.', keywords: ['props', 'sandbox'] },
+      { to: '/proving-ground', label: 'Proving ground', icon: Gauge, description: 'Mount a component a thousand times and measure it on your own machine.', keywords: ['benchmark', 'performance', 'fps', 'speed', 'stress', 'perf'] },
       { to: '/migrate', label: 'Migrate', icon: ArrowLeftRight, description: 'Paste a file from another library and get this one back.', keywords: ['shadcn', 'mui', 'chakra', 'convert', 'codemod', 'port', 'switch'] },
       { to: '/find', label: 'Find My UI', icon: Compass, description: 'Two questions, then what to use.', keywords: ['recommend', 'wizard', 'discover', 'quiz'] },
     ],

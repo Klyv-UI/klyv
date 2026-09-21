@@ -57,7 +57,12 @@ export function Quality() {
       title="Standards you can check,"
       tail="not adjectives"
       lede="Each number is produced by a test or a build step in the repository, and shown on every component’s own page as its health."
-      action={<SectionLink to="/components/data-table">See a component’s health</SectionLink>}
+      action={
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          <SectionLink to="/components/data-table">See a component’s health</SectionLink>
+          <SectionLink to="/proving-ground">Measure one on your machine</SectionLink>
+        </div>
+      }
     >
       <Reveal>
         <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-[var(--radius-card)] border border-line bg-line shadow-[var(--shadow-card)] sm:grid-cols-2 lg:grid-cols-3">
