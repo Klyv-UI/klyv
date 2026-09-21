@@ -12,3 +12,9 @@ test-results
 
 # Intermediate product captures for marketing/, rebuilt by marketing/capture.mjs
 marketing/captures/
+
+# Local-only: not part of the library or its docs site
+marketing/
+.claude/
+check-ink.mjs
+check-terminal.mjs
