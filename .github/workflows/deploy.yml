@@ -1,8 +1,8 @@
-# Deploys the docs site to Cloudflare Pages (klyvui.xyz) on every merge to main.
+# Deploys the docs site to Cloudflare Workers (klyvui.xyz) on every merge to main.
 #
 # Needs two repository secrets:
-#   CLOUDFLARE_API_TOKEN   a token with the "Cloudflare Pages: Edit" permission
-#   CLOUDFLARE_ACCOUNT_ID  the account that owns the `klyv` Pages project
+#   CLOUDFLARE_API_TOKEN   a token from the "Edit Cloudflare Workers" template
+#   CLOUDFLARE_ACCOUNT_ID  the account that owns the `klyv` Worker
 name: Deploy
 
 on:
@@ -12,7 +12,7 @@ on:
 
 # One deploy at a time; a newer merge replaces a queued one rather than racing it.
 concurrency:
-  group: deploy-pages
+  group: deploy-site
   cancel-in-progress: false
 
 permissions:
@@ -36,5 +36,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy --branch=main
+          command: deploy
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
