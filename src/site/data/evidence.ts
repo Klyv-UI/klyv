@@ -1220,7 +1220,8 @@ export const componentEvidence: Record<string, ComponentEvidence> = {
     "serverSafe": false,
     "tokenColours": false,
     "animates": true,
-    "reducedMotion": true
+    "reducedMotion": true,
+    "axe": true
   },
   "ExifViewer": {
     "serverSafe": false,

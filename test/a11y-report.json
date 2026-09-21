@@ -1,14 +1,4 @@
 {
   "crashes": [],
-  "findings": [
-    {
-      "slug": "event-horizon",
-      "rule": "label",
-      "impact": "critical",
-      "nodes": 4,
-      "help": "Form elements must have labels",
-      "target": "input[min=\"30\"]",
-      "why": "Fix any of the following: Element does not have an implicit (wrapped) <label> Element does not have an explicit <label> aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do no"
-    }
-  ]
+  "findings": []
 }

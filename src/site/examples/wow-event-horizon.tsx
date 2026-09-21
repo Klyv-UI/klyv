@@ -181,7 +181,7 @@ function EventHorizonPlaygroundExample() {
 /** A labelled slider row, the shape this page repeats. */
 function Field({ label, value, children }: { label: string; value: string; children: ReactNode }) {
   return (
-    <div className="flex flex-col gap-1">
+    <label className="flex flex-col gap-1">
       <div className="flex items-baseline justify-between">
         <Text as="span" size="label" weight="semibold">
           {label}
@@ -191,7 +191,7 @@ function Field({ label, value, children }: { label: string; value: string; child
         </Text>
       </div>
       {children}
-    </div>
+    </label>
   )
 }
 
