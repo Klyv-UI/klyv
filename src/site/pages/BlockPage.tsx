@@ -1,9 +1,11 @@
 import { Suspense, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { ScanSearch } from 'lucide-react'
 import { Badge, Button, CodeBlock, Skeleton, Surface, Text } from 'klyv'
 import { Preview, Section } from '../components/Doc'
 import { PageIntro } from '../components/PageIntro'
 import { SaveControls } from '../components/SaveControls'
+import { Xray } from '../components/Xray'
 import { brand } from '../brand'
 import { blocks, findBlock } from '../data/blocks'
 import { blockSource } from '../data/source'
@@ -18,6 +20,7 @@ import { blockComponent } from '../lib/blocks'
  */
 export default function BlockPage() {
   const { slug } = useParams()
+  const [xray, setXray] = useState(false)
   const block = findBlock(slug)
   const Block = block ? blockComponent(block.file) : undefined
 
@@ -61,18 +64,33 @@ export default function BlockPage() {
         {block.blurb}
       </PageIntro>
 
-      <Section title="Screen" description="Live, and interactive — try it rather than reading it.">
-        <Preview frame="canvas" className="p-0">
-          <Suspense
-            fallback={
-              <div aria-busy="true" className="p-3 sm:p-5">
-                <Skeleton shape="rect" height={420} className="w-full rounded-[var(--radius-card)]" />
-              </div>
-            }
-          >
-            <Block embedded />
-          </Suspense>
-        </Preview>
+      <Section
+        title="Screen"
+        description={
+          xray
+            ? 'X-ray is on: point at anything to see which component drew it. Clicks inspect rather than operate.'
+            : 'Live, and interactive — try it rather than reading it.'
+        }
+      >
+        <div className="flex justify-end">
+          <Button size="sm" variant={xray ? 'accent' : 'outline'} aria-pressed={xray} onClick={() => setXray((on) => !on)}>
+            <ScanSearch size={14} aria-hidden />
+            {xray ? 'X-ray on' : 'X-ray this screen'}
+          </Button>
+        </div>
+        <Xray enabled={xray} onExit={() => setXray(false)}>
+          <Preview frame="canvas" className="p-0">
+            <Suspense
+              fallback={
+                <div aria-busy="true" className="p-3 sm:p-5">
+                  <Skeleton shape="rect" height={420} className="w-full rounded-[var(--radius-card)]" />
+                </div>
+              }
+            >
+              <Block embedded />
+            </Suspense>
+          </Preview>
+        </Xray>
       </Section>
 
       <Section

@@ -16,5 +16,8 @@ export default defineConfig({
   },
   // The package owns dist/; the site builds beside it.
   build: { outDir: 'dist-site' },
+  // X-ray names the component under the pointer from the rendered function's
+  // own name, so the build has to keep those names rather than mangling them.
+  esbuild: { keepNames: true },
   server: { port: Number(process.env.PORT) || 5173 },
 })
