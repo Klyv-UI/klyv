@@ -238,6 +238,9 @@ export const EventHorizon = forwardRef<EventHorizonHandle, EventHorizonProps>(fu
     // A control inside the field is still a control: pressing a button there
     // presses the button rather than grabbing the hole.
     if ((event.target as Element | null)?.closest('button, a, input, select, textarea, [role="button"], [contenteditable="true"]')) return
+    // A drag across the field moves the hole; without this it also swept a
+    // text selection through every card it passed over.
+    event.preventDefault()
     setHeld(true)
     event.currentTarget.setPointerCapture(event.pointerId)
     pointerTo(event)
@@ -274,7 +277,7 @@ export const EventHorizon = forwardRef<EventHorizonHandle, EventHorizonProps>(fu
   return (
     <div
       ref={fieldRef}
-      className={cn('relative isolate overflow-hidden', !reducedMotion && (held ? 'cursor-grabbing' : 'cursor-grab'), className)}
+      className={cn('relative isolate overflow-hidden', !reducedMotion && (held ? 'cursor-grabbing select-none' : 'cursor-grab'), className)}
       style={style}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}

@@ -380,7 +380,8 @@ export default function ProvingGroundPage() {
               series={[{ id: 'frame', label: 'Frame time', values: result.frames.frames.map((value) => Math.round(value * 10) / 10) }]}
               categories={result.frames.frames.map((_, index) => String(index + 1))}
               label={`Frame durations while ${result.count} copies of ${result.name} were mounted`}
-              format={(value) => `${value} ms`}
+              // Axis ticks are computed, so they arrive as 25.049999999999997.
+              format={(value) => `${Math.round(value * 10) / 10} ms`}
               height={200}
               showLegend={false}
             />

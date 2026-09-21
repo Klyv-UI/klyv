@@ -480,10 +480,19 @@ function LiveTile({ slug }: { slug: string }) {
   }, [slug])
 
   if (failed) return null
+  // The scaled layer is positioned against the tile, not placed in a grid.
+  // A grid's automatic track is sized by its content, so a percentage width
+  // inside one resolved against the content itself — and a component that
+  // measures its container to size itself (GanttChart does) grew, measured
+  // itself, and grew again, until the tile was 426,000 pixels wide and the page
+  // froze. An absolutely positioned layer takes its size from the tile, which
+  // nothing inside can change.
   return (
-    <span aria-hidden className="pointer-events-none absolute inset-0 grid place-items-center overflow-hidden p-2">
-      <span className="w-[calc(100%/0.72)] origin-center scale-[0.72]">
-        <TileBoundary>{node}</TileBoundary>
+    <span aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+      <span className="absolute left-0 top-0 flex h-[calc(100%/0.72)] w-[calc(100%/0.72)] origin-top-left scale-[0.72] items-center justify-center p-3">
+        <span className="block max-h-full w-full min-w-0 overflow-hidden">
+          <TileBoundary>{node}</TileBoundary>
+        </span>
       </span>
     </span>
   )
