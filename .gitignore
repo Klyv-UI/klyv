@@ -9,3 +9,6 @@ tsconfig.tsbuildinfo
 test/a11y-report.json
 playwright-report
 test-results
+
+# Intermediate product captures for marketing/, rebuilt by marketing/capture.mjs
+marketing/captures/
