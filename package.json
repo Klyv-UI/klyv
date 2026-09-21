@@ -76,7 +76,7 @@
     "klyv": "node cli/klyv.mjs",
     "directives": "node scripts/client-directives.mjs",
     "rules": "node scripts/check-rules.mjs",
-    "test:a11y": "vitest run test/a11y.test.tsx --reporter=dot",
+    "test:a11y": "vitest run test/a11y --reporter=dot",
     "mcp": "node mcp/server.mjs",
     "test:mcp": "node --test test/mcp.test.mjs",
     "test:interaction": "vitest run test/interaction --reporter=dot",

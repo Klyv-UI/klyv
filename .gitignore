@@ -20,3 +20,6 @@ check-terminal.mjs
 
 # Wrangler local state
 .wrangler/
+
+# a11y shard reports, joined into test/a11y-report.json after a run
+test/a11y/.reports/
