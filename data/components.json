@@ -2844,6 +2844,21 @@
         "react"
       ]
     },
+    "EventHorizon": {
+      "files": [
+        "components/EventHorizon/EventHorizon.tsx",
+        "components/EventHorizon/gravity.ts",
+        "components/EventHorizon/index.ts"
+      ],
+      "internal": [],
+      "shared": [
+        "lib/cn.ts",
+        "lib/motion.ts"
+      ],
+      "external": [
+        "react"
+      ]
+    },
     "ExifViewer": {
       "files": [
         "components/ExifViewer/ExifViewer.tsx",
@@ -13318,6 +13333,12 @@
       "group": "Canvas & Play",
       "section": "Physics",
       "blurb": "The real card — its own text and working buttons — hung on a verlet mesh: it drapes, ripples in the wind, and tears if you pull too hard."
+    },
+    "EventHorizon": {
+      "slug": "event-horizon",
+      "group": "Canvas & Play",
+      "section": "Physics",
+      "blurb": "A black hole you drag across a working interface: real elements fall toward it on an inverse-square pull, stretch along the line to it, turn with its spin and are swallowed at the horizon — then spring back, still interactive, when it moves on."
     },
     "Ferrofluid": {
       "slug": "ferrofluid",

@@ -2,17 +2,17 @@ import { Suspense, lazy, memo, useCallback, useEffect, useMemo, useState, type R
 import { Link, NavLink, Outlet, ScrollRestoration, useLocation, useMatches } from 'react-router-dom'
 import { PageSkeleton } from '../components/PageSkeleton'
 import { RouteProgress } from '../components/RouteProgress'
-import { ChevronRight, Heart, Menu as MenuIcon, Paintbrush, Sparkles } from 'lucide-react'
+import { ArrowRight, ArrowUp, ChevronRight, Heart, Menu as MenuIcon, Paintbrush, Sparkles } from 'lucide-react'
 import { createStore, sessionStorageAdapter, useStoreValue } from '../lib/store'
 import { AccentMenu } from '../components/AccentMenu'
 import { PlatformLinks } from '../components/PlatformLinks'
-import { Drawer, IconButton, SearchField, Text, cn } from 'klyv'
+import { Drawer, FitText, IconButton, SearchField, Text, cn } from 'klyv'
 import { AccentPicker } from '../components/AccentPicker'
 import { SearchTrigger, loadSearchPalette, useSearchPalette } from '../components/SearchTrigger'
 import { ThemeToggle } from '../components/ThemeToggle'
 import { brand } from '../brand'
 import { blocks } from '../data/blocks'
-import { catalog, componentCount, isNewComponent, isShowpiece, type CatalogEntry } from '../data/catalog'
+import { catalog, componentCount, componentsInGroup, isNewComponent, isShowpiece, type CatalogEntry } from '../data/catalog'
 import { NewBadge } from '../components/NewBadge'
 import { ShowpieceBadge } from '../components/ShowpieceBadge'
 import { groups } from '../data/groups'
@@ -674,24 +674,42 @@ const RESOURCES = SITE_PAGES.filter((page) => page.to !== '/' && page.to !== '/s
 
 function SiteFooter() {
   return (
-    <footer className="mt-16 border-t border-line bg-surface">
-      <div className="mx-auto w-full max-w-[1400px] px-5 pt-14 lg:px-8">
-        <div className="grid gap-10 pb-12 md:grid-cols-[1.4fr_1fr_1fr] lg:gap-16">
-          <div className="flex flex-col items-start gap-4">
-            <Link to="/" className="flex items-center gap-2.5 rounded-full">
-              <span
-                aria-hidden
-                className="grid h-8 w-8 place-items-center rounded-[10px] bg-accent text-accent-ink"
-              >
-                <span className="text-[15px] font-extrabold leading-none">{brand.name[0]}</span>
+    <footer className="mt-20 border-t border-line bg-surface">
+      <div className="mx-auto w-full max-w-[1400px] px-5 lg:px-8">
+        {/* The statement: the footer opens on the library's one idea, set
+            large, with the two ways in beside it. */}
+        <div className="grid gap-8 border-b border-line py-16 lg:grid-cols-12 lg:items-end lg:gap-12 lg:py-24">
+          <Text
+            as="p"
+            size="title"
+            className="text-balance text-[40px] leading-[0.98] tracking-[-0.055em] sm:text-[56px] lg:col-span-8 lg:text-[76px]"
+          >
+            Every component.{' '}
+            <span className="text-ink-faint">One colour. Yours to ship.</span>
+          </Text>
+          <div className="flex flex-col gap-1 lg:col-span-4">
+            <FooterCta to="/getting-started">Get started</FooterCta>
+            <FooterCta to="/components">Browse {componentCount} components</FooterCta>
+            <FooterCta to="/composer">Open the Composer</FooterCta>
+          </div>
+        </div>
+
+        <div className="grid gap-12 py-14 md:grid-cols-2 lg:grid-cols-[1.2fr_1.3fr_1.3fr] lg:gap-16 lg:py-16">
+          <div className="flex flex-col items-start gap-5">
+            <Link
+              to="/"
+              className="flex items-center gap-3 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              <span aria-hidden className="grid size-11 place-items-center rounded-[13px] bg-accent text-accent-ink">
+                <span className="text-[20px] font-extrabold leading-none">{brand.name[0]}</span>
               </span>
-              <Text size="heading" weight="extrabold" className="tracking-[-0.02em]">
+              <Text as="span" size="title" className="text-[26px] tracking-[-0.04em]">
                 {brand.name}
               </Text>
             </Link>
-            <Text size="caption" tone="soft" leading="normal" className="max-w-[42ch]">
-              {brand.tagline} {componentCount} components, two runtime dependencies, and a theme
-              that is one call wide.
+            <Text size="body" tone="soft" leading="normal" className="max-w-[40ch] text-[15px] leading-relaxed">
+              {brand.tagline} {componentCount} components, two runtime dependencies, and a theme that is one call
+              wide.
             </Text>
             <div className="flex flex-wrap items-center gap-3">
               <AccentPicker compact customiseLink />
@@ -700,70 +718,134 @@ function SiteFooter() {
             <PlatformLinks />
           </div>
 
-          <nav aria-label="Resources" className="flex flex-col gap-2.5">
-            <Text size="micro" weight="bold" tone="faint" className="uppercase tracking-[0.16em]">
-              Documentation
-            </Text>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-2.5">
+          <nav aria-label="Resources" className="flex flex-col gap-5">
+            <FooterLabel>Documentation</FooterLabel>
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-3">
               {RESOURCES.map((page) => (
-                <Link
-                  key={page.to}
-                  to={page.to}
-                  className="text-[12.5px] font-semibold text-ink-soft transition-colors hover:text-ink"
-                >
-                  {page.label}
-                </Link>
+                <li key={page.to}>
+                  <FooterLink to={page.to}>{page.label}</FooterLink>
+                </li>
               ))}
-            </div>
+            </ul>
           </nav>
 
-          <nav aria-label="Groups" className="flex flex-col gap-2.5">
-            <Text size="micro" weight="bold" tone="faint" className="uppercase tracking-[0.16em]">
-              Groups
-            </Text>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-2.5">
+          <nav aria-label="Groups" className="flex flex-col gap-5">
+            <FooterLabel>Components</FooterLabel>
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-3">
               {groups.map((group) => (
-                <Link
-                  key={group.id}
-                  to={`/components?group=${group.slug}`}
-                  className="text-[12.5px] font-semibold text-ink-soft transition-colors hover:text-ink"
-                >
-                  {group.id}
-                </Link>
+                <li key={group.id}>
+                  <FooterLink to={`/components?group=${group.slug}`} count={componentsInGroup(group.id).length}>
+                    {group.id}
+                  </FooterLink>
+                </li>
               ))}
-            </div>
+            </ul>
           </nav>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line py-5">
-          <Text size="caption" tone="faint">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line py-6">
+          <Text size="body" tone="faint" className="text-[14px]">
             Built with the library it documents.
           </Text>
-          <Text size="caption" tone="faint" tabular>
+          <Text size="body" tone="faint" tabular className="text-[14px]">
             {componentCount} components · v1.0
           </Text>
         </div>
       </div>
 
-      {/* The wordmark, centred on its own small stage: a dot field that fades out
-          toward the edges and the accent rising from the page floor behind it.
-          Every colour is a token, so the stage repaints with the accent and
-          flips with the theme. The descender is never clipped: the y's tail is
-          what tells it from a v. */}
-      <div className="relative isolate overflow-hidden border-t border-line" aria-hidden>
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(color-mix(in_oklab,var(--color-ink)_14%,transparent)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(ellipse_60%_70%_at_50%_45%,black,transparent)]" />
-        <div className="absolute inset-x-0 bottom-0 -z-10 h-[75%] bg-[radial-gradient(ellipse_55%_80%_at_50%_100%,color-mix(in_oklab,var(--color-accent)_42%,transparent),transparent_70%)]" />
-
-        <div className="mx-auto flex max-w-[1400px] flex-col items-center px-5 pt-12 lg:px-8 lg:pt-16">
-          <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/70 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-ink-soft backdrop-blur">
-            <span className="size-1.5 rounded-full bg-accent" />
-            One colour · every component
-          </span>
-          <span className="block select-none bg-gradient-to-b from-ink from-30% to-[color-mix(in_oklab,var(--color-accent)_65%,var(--color-ink))] bg-clip-text pb-[0.22em] text-center text-[clamp(4.5rem,30vw,26rem)] font-extrabold leading-[1.02] tracking-[-0.045em] text-transparent">
-            {brand.name}
-          </span>
+      {/* The sign-off: the wordmark fitted to the full width of the column,
+          in ink that softens toward the bottom, over a low glow of the
+          accent. Every colour is a token, so it repaints with the accent and
+          flips with the theme. The softening stops well short of transparent
+          and the block is padded below the line, so the y's tail stays
+          plainly visible — without it the y reads as a v and the word as
+          "Klvv". Tracking stays loose enough that the y's arm never touches
+          the v. */}
+      <div className="relative isolate overflow-hidden">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[80%] bg-[radial-gradient(ellipse_50%_75%_at_50%_100%,color-mix(in_oklab,var(--color-accent)_32%,transparent),transparent_72%)]"
+        />
+        <div className="mx-auto w-full max-w-[1400px] px-5 lg:px-8">
+          <div className="flex flex-wrap items-center justify-between gap-4 pt-10">
+            <span className="inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.18em] text-ink-soft">
+              <span aria-hidden className="size-1.5 rounded-full bg-accent-strong" />
+              One colour · every component
+            </span>
+            <BackToTopButton />
+          </div>
+          <div aria-hidden className="select-none pb-8 pt-2 sm:pb-10">
+            <FitText
+              max={1200}
+              min={72}
+              className="bg-[linear-gradient(to_bottom,var(--color-ink)_40%,color-mix(in_oklab,var(--color-ink)_62%,transparent)_100%)] bg-clip-text font-extrabold leading-none tracking-[-0.02em] text-transparent"
+            >
+              {brand.name}
+            </FitText>
+          </div>
         </div>
       </div>
     </footer>
+  )
+}
+
+/** Back to the top of the page — smoothly, unless motion is unwelcome. */
+function BackToTopButton() {
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        window.scrollTo({ top: 0, behavior: still ? 'auto' : 'smooth' })
+      }}
+      className="group inline-flex items-center gap-2 rounded-full border border-line bg-surface py-1.5 pl-4 pr-1.5 text-[13px] font-bold text-ink-soft transition-colors hover:border-line-strong hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+    >
+      Back to top
+      <span className="grid size-7 place-items-center rounded-full bg-surface-muted text-ink transition-[background-color,color,transform] group-hover:-translate-y-0.5 group-hover:bg-accent group-hover:text-accent-ink motion-reduce:transition-none motion-reduce:group-hover:translate-y-0">
+        <ArrowUp size={14} strokeWidth={2.5} aria-hidden />
+      </span>
+    </button>
+  )
+}
+
+/** A column heading: small capitals, marked with the accent. */
+function FooterLabel({ children }: { children: ReactNode }) {
+  return (
+    <span className="inline-flex items-center gap-2">
+      <span aria-hidden className="size-1.5 rounded-full bg-accent-strong" />
+      <Text as="span" size="micro" weight="bold" tone="soft" className="text-[12px] uppercase tracking-[0.16em]">
+        {children}
+      </Text>
+    </span>
+  )
+}
+
+/** One footer link, at reading size, with an optional count after it. */
+function FooterLink({ to, count, children }: { to: string; count?: number; children: ReactNode }) {
+  return (
+    <Link
+      to={to}
+      className="group inline-flex items-baseline gap-2 rounded-md text-[15px] font-semibold text-ink-soft transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+    >
+      <span className="underline-offset-4 group-hover:underline">{children}</span>
+      {count !== undefined && (
+        <span className="font-mono text-[11px] font-bold tabular-nums text-ink-faint">{count}</span>
+      )}
+    </Link>
+  )
+}
+
+/** A large call to action: a full-width row with an arrow that answers the pointer. */
+function FooterCta({ to, children }: { to: string; children: ReactNode }) {
+  return (
+    <Link
+      to={to}
+      className="group flex items-center justify-between gap-4 border-b border-line py-3.5 text-[20px] font-bold tracking-[-0.02em] text-ink transition-colors last:border-b-0 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:text-[22px]"
+    >
+      {children}
+      <span className="grid size-10 shrink-0 place-items-center rounded-full border border-line text-ink-soft transition-[background-color,border-color,color,transform] group-hover:border-transparent group-hover:bg-accent group-hover:text-accent-ink group-hover:-rotate-45 motion-reduce:transition-none motion-reduce:group-hover:rotate-0">
+        <ArrowRight size={17} aria-hidden />
+      </span>
+    </Link>
   )
 }

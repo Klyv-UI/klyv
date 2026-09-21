@@ -105,7 +105,7 @@ export function Developer() {
   return (
     <LandingSection
       id="developers"
-      index={9}
+      index={11}
       eyebrow="Developer experience"
       title="Read the example,"
       tail="and you know how to use it"

@@ -80,12 +80,17 @@ export function HowItWorks() {
       tail="in four steps"
       lede="Each step is a tool on this site, built from the same design system as the components themselves."
     >
-      <ol className="relative grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-6 xl:grid-cols-4">
-        {/* The rail that joins the steps on wide screens. */}
-        <span aria-hidden className="absolute left-5 right-5 top-5 hidden h-px bg-line-strong xl:block" />
+      <ol className="relative grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
+        {/* The rail that joins the steps on wide screens, at the height of the
+            step icons: the cards cover it, so it shows only in the gaps, as a
+            connector from one step to the next. */}
+        <span aria-hidden className="absolute left-5 right-5 top-11 hidden h-px bg-line-strong xl:block" />
         {STEPS.map((step, index) => (
           <li key={step.title} className="relative">
-            <Reveal delay={index * 80} className="flex h-full flex-col gap-4">
+            <Reveal
+              delay={index * 80}
+              className="landing-card flex h-full flex-col gap-4 rounded-[var(--radius-card)] border border-line bg-surface p-6 shadow-[var(--shadow-tile)]"
+            >
               <div className="flex items-center gap-3">
                 <span className="relative grid size-10 shrink-0 place-items-center rounded-full border border-line-strong bg-surface text-ink">
                   <step.icon size={17} aria-hidden />

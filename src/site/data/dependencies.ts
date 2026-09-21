@@ -2859,6 +2859,21 @@ export const dependencies: Record<string, ComponentDependencies> = {
       "react"
     ]
   },
+  "EventHorizon": {
+    "files": [
+      "components/EventHorizon/EventHorizon.tsx",
+      "components/EventHorizon/gravity.ts",
+      "components/EventHorizon/index.ts"
+    ],
+    "internal": [],
+    "shared": [
+      "lib/cn.ts",
+      "lib/motion.ts"
+    ],
+    "external": [
+      "react"
+    ]
+  },
   "ExifViewer": {
     "files": [
       "components/ExifViewer/ExifViewer.tsx",

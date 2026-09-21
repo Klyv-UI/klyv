@@ -5,6 +5,7 @@ import {
   Badge,
   Button,
   ClothPanel,
+  EventHorizon,
   FluidCanvas,
   LazyMount,
   LightCaster,
@@ -54,6 +55,14 @@ const SPECIMENS = [
     caption: 'A light source with the shadows worked out from the live layout — drag the lamp, and every card casts a soft penumbra.',
   },
   {
+    value: 'hole',
+    label: 'Gravity',
+    slug: 'event-horizon',
+    name: 'EventHorizon',
+    caption:
+      'A singularity dragged across a working dashboard. The cards are real components: pulled in, stretched toward it, swallowed at the horizon — and still clickable on the way down.',
+  },
+  {
     value: 'shatter',
     label: 'Glass',
     slug: 'shatter-dismiss',
@@ -70,11 +79,11 @@ export function Showpieces() {
   return (
     <LandingSection
       id="showpieces"
-      index={6}
+      index={8}
       eyebrow="Showpieces"
       title="And then there are the ones"
       tail="that have no business being in a component library"
-      lede={`${SHOWPIECE_COMPONENTS.size} of them carry a tag of their own: real fluid, real cloth, real light casting real shadows, glass that actually breaks. Every one of them takes its colour from the same accent as the buttons.`}
+      lede={`${SHOWPIECE_COMPONENTS.size} of them carry a tag of their own: real fluid, real cloth, real light casting real shadows, glass that actually breaks, a black hole that eats the layout. Every one of them takes its colour from the same accent as the buttons.`}
       action={<SectionLink to="/components?showpiece=1">See all {SHOWPIECE_COMPONENTS.size} showpieces</SectionLink>}
     >
       <LazyMount rootMargin="400px" minHeight={520}>
@@ -92,6 +101,7 @@ export function Showpieces() {
                   {entry.value === 'fluid' && <FluidStage />}
                   {entry.value === 'cloth' && <ClothStage />}
                   {entry.value === 'light' && <LightStage />}
+                  {entry.value === 'hole' && <HoleStage />}
                   {entry.value === 'shatter' && <ShatterStage />}
                 </div>
                 <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1.5">
@@ -180,6 +190,46 @@ function ClothStage() {
     </div>
   )
 }
+
+/** The hole, over a dashboard of real cards. */
+function HoleStage() {
+  return (
+    <EventHorizon
+      bodies=":scope > div > div"
+      horizon={64}
+      reach={380}
+      className="landing-dots h-[420px] bg-surface-sunken"
+      label="A singularity over a dashboard — drag it across the cards"
+    >
+      <div className="grid h-full grid-cols-2 content-center gap-3 p-6 sm:grid-cols-3">
+        {HOLE_CARDS.map(([title, value, note]) => (
+          <div key={title} className="flex">
+            <Surface variant="card" padding="md" className="w-full gap-1.5">
+              <Text as="span" size="caption" tone="soft">
+                {title}
+              </Text>
+              <Text as="span" size="title" tabular className="text-[24px] tracking-[-0.04em]">
+                {value}
+              </Text>
+              <Text as="span" size="micro" tone="faint">
+                {note}
+              </Text>
+            </Surface>
+          </div>
+        ))}
+      </div>
+    </EventHorizon>
+  )
+}
+
+const HOLE_CARDS = [
+  ['Monthly revenue', '$48,290', 'Against August'],
+  ['Active seats', '1,284', '+86 this month'],
+  ['Churn', '1.9%', '−0.3 pts'],
+  ['Open tickets', '37', '−11 this week'],
+  ['NPS', '62', '+4'],
+  ['Uptime', '99.98%', 'Last 30 days'],
+] as const
 
 const METRICS = [
   ['Monthly revenue', '$48,210', '+12.4%'],

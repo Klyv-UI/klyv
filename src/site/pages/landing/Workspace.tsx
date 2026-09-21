@@ -51,7 +51,7 @@ export function Workspace() {
     <LandingSection
       id="workspace"
       eyebrow="Your workspace"
-      index={10}
+      index={13}
       title="Keep what you use,"
       tail="as documents you own"
       lede="Favourites, collections and Composer drafts — a personal, document-based workspace that comes with Klyv. No account, no extra install, nothing to set up."

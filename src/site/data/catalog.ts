@@ -579,6 +579,7 @@ export const catalog: CatalogEntry[] = [
   { name: 'SlotReels', slug: 'slot-reels', group: 'Canvas & Play', section: 'Physics', blurb: 'Reels that land on a chosen result and stop left to right, because the stagger is the whole drama.' },
   { name: 'SpinWheel', slug: 'spin-wheel', group: 'Canvas & Play', section: 'Physics', blurb: 'A prize or decision wheel that picks the winner first, by weight or from the server, then slows onto it; announced, and instant under reduced motion.' },
   { name: 'ClothPanel', slug: 'cloth-panel', group: 'Canvas & Play', section: 'Physics', blurb: 'The real card — its own text and working buttons — hung on a verlet mesh: it drapes, ripples in the wind, and tears if you pull too hard.' },
+  { name: 'EventHorizon', slug: 'event-horizon', group: 'Canvas & Play', section: 'Physics', blurb: 'A black hole you drag across a working interface: real elements fall toward it on an inverse-square pull, stretch along the line to it, turn with its spin and are swallowed at the horizon — then spring back, still interactive, when it moves on.' },
   { name: 'Ferrofluid', slug: 'ferrofluid', group: 'Canvas & Play', section: 'Physics', blurb: 'A drop of magnetic fluid that grows Rosensweig spikes towards the pointer: a metaball field whose surface tension loses to the field, so the spikes stand, wobble and merge back.' },
   { name: 'FallingSand', slug: 'falling-sand', group: 'Canvas & Play', section: 'Physics', blurb: 'A falling-sand cellular automaton where a headline is the sand: letters crumble grain by grain, water finds its level, fire eats wood, and a sweep of the pointer pours more.' },
   { name: 'IronFilings', slug: 'iron-filings', group: 'Canvas & Play', section: 'Physics', blurb: 'Drag magnets across the page and thousands of filings turn to the dipole field they actually sit in, with field lines traced by Runge–Kutta from the poles.' },
@@ -699,6 +700,7 @@ export const catalog: CatalogEntry[] = [
  * parsed by the metadata generator in one exact shape.
  */
 export const NEW_COMPONENTS: ReadonlySet<string> = new Set([
+  'EventHorizon',
   'MessageFormat',
   'JustifiedText',
   'TabCoordinator',
@@ -779,6 +781,7 @@ export const NEW_COMPONENTS: ReadonlySet<string> = new Set([
  * straight to them.
  */
 export const SHOWPIECE_COMPONENTS: ReadonlySet<string> = new Set([
+  'EventHorizon',
   'FluidCanvas',
   'ClothPanel',
   'ShatterDismiss',

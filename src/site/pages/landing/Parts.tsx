@@ -24,7 +24,7 @@ export function Parts() {
   return (
     <LandingSection
       id="components"
-      index={5}
+      index={6}
       eyebrow="Components"
       title="Everyday parts,"
       tail="and the ones you would otherwise build yourself"

@@ -84,6 +84,7 @@ const FIXED_COLOUR = new Set([
   'Marquee', // mask gradient stops
   'MatrixRain',
   'NeonSign',
+  'EventHorizon', // a black hole is black in either theme; ink would turn it white
   'PianoKeys', // a piano is black and white
   'PixelCanvas', // the palette is the content
   'PresenceCursors', // per-person identity colours

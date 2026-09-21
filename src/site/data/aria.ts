@@ -398,6 +398,10 @@ export const ariaRoles: Record<string, string[]> = {
     "gridcell",
     "row"
   ],
+  "EventHorizon": [
+    "button",
+    "img"
+  ],
   "ExifViewer": [
     "alert",
     "status"

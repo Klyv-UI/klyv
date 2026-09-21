@@ -393,6 +393,10 @@
     "gridcell",
     "row"
   ],
+  "EventHorizon": [
+    "button",
+    "img"
+  ],
   "ExifViewer": [
     "alert",
     "status"

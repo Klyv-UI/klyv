@@ -39,9 +39,13 @@ export function SectionLink({ to, children, className }: { to: string; children:
 
 /**
  * One section: eyebrow, heading, a short lede and an optional link, centred
- * over the content. `band` gives it a lifted
- * full-width ground, which is how the page alternates without resorting to
- * gradients.
+ * over the content, at the content width.
+ *
+ * Odd-numbered sections sit in a rounded panel and even-numbered ones sit
+ * open on the page, so the page alternates — one contained, one not — and
+ * separates its sections without boxing every one of them in. Both share the
+ * same width and inner padding, so content lines up whichever it is. `band`
+ * lifts a panel a shade and lights its top edge with the accent.
  *
  * The heading scale steps down once from the hero — 64–70px there, 44px here,
  * 16px on a card — and the lede and card copy share one reading size, so every
@@ -72,44 +76,53 @@ export function LandingSection({
   children: ReactNode
 }) {
   const titleId = `${id}-title`
+  const panel = index === undefined || index % 2 === 1
   return (
-    <section id={id} aria-labelledby={titleId} className={cn('scroll-mt-20 lg:scroll-mt-36', band && 'landing-band border-y border-line')}>
-      <div className="mx-auto w-full max-w-[1400px] px-5 py-16 sm:py-20 lg:px-8 lg:py-24">
-        <Reveal>
-          <header className="mx-auto mb-10 flex max-w-[860px] flex-col items-center text-center lg:mb-14">
-            <div className="flex flex-col items-center">
-              <Eyebrow>
-                {index !== undefined && (
-                  <span aria-hidden className="mr-2 tabular-nums text-ink-faint">
-                    {String(index).padStart(2, '0')} /
-                  </span>
-                )}
-                {eyebrow}
-              </Eyebrow>
-              <Text
-                as="h2"
-                id={titleId}
-                size="title"
-                className="mt-4 max-w-[24ch] text-balance text-[32px] leading-[1.04] tracking-[-0.045em] sm:text-[44px] lg:text-[52px]"
-              >
-                {title}
-                {tail && <span className="text-ink-faint"> {tail}</span>}
-              </Text>
-              {lede && (
+    <section id={id} aria-labelledby={titleId} className="scroll-mt-20 px-3 py-1.5 sm:px-4 lg:scroll-mt-36 lg:px-5">
+      <div
+        className={cn(
+          'mx-auto w-full max-w-[1400px]',
+          panel && 'landing-panel rounded-[var(--radius-window)] border border-line',
+          panel && band && 'landing-panel-band',
+        )}
+      >
+        <div className="px-5 py-14 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
+          <Reveal>
+            <header className="mx-auto mb-10 flex max-w-[860px] flex-col items-center text-center lg:mb-14">
+              <div className="flex flex-col items-center">
+                <Eyebrow>
+                  {index !== undefined && (
+                    <span aria-hidden className="mr-2 tabular-nums text-ink-faint">
+                      {String(index).padStart(2, '0')} /
+                    </span>
+                  )}
+                  {eyebrow}
+                </Eyebrow>
                 <Text
-                  size="body"
-                  weight="medium"
-                  tone="soft"
-                  className="mt-5 max-w-[60ch] text-balance text-[15px] leading-relaxed sm:text-[17px]"
+                  as="h2"
+                  id={titleId}
+                  size="title"
+                  className="mt-4 max-w-[24ch] text-balance text-[32px] leading-[1.04] tracking-[-0.045em] sm:text-[44px] lg:text-[52px]"
                 >
-                  {lede}
+                  {title}
+                  {tail && <span className="text-ink-faint"> {tail}</span>}
                 </Text>
-              )}
-            </div>
-            {action && <div className="mt-5">{action}</div>}
-          </header>
-        </Reveal>
-        {children}
+                {lede && (
+                  <Text
+                    size="body"
+                    weight="medium"
+                    tone="soft"
+                    className="mt-5 max-w-[60ch] text-balance text-[15px] leading-relaxed sm:text-[17px]"
+                  >
+                    {lede}
+                  </Text>
+                )}
+              </div>
+              {action && <div className="mt-5">{action}</div>}
+            </header>
+          </Reveal>
+          {children}
+        </div>
       </div>
     </section>
   )

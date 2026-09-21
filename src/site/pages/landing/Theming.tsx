@@ -25,7 +25,7 @@ export function Theming() {
     <LandingSection
       id="theming"
       eyebrow="Theming"
-      index={8}
+      index={10}
       title="Pick a hue."
       tail="Everything follows."
       lede="Four custom properties are derived from one colour. Nothing else in the library names a colour, so the whole page repaints — this one included — and the text on the accent is chosen by contrast, not by guesswork."

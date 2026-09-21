@@ -9325,6 +9325,96 @@
       }
     ]
   },
+  "EventHorizon": {
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The interface to warp. Ordinary markup — it stays interactive."
+      },
+      {
+        "name": "bodies",
+        "type": "string",
+        "required": false,
+        "defaultValue": "':scope > *'",
+        "description": "What gets pulled. Every element matching this inside the field is a body; everything else rides with its parent. The default takes the children of the field, which is usually a grid of cards."
+      },
+      {
+        "name": "horizon",
+        "type": "number",
+        "required": false,
+        "defaultValue": "76",
+        "description": "Radius of the event horizon in pixels. Inside it, a body is gone."
+      },
+      {
+        "name": "reach",
+        "type": "number",
+        "required": false,
+        "defaultValue": "420",
+        "description": "How far the pull is felt, in pixels."
+      },
+      {
+        "name": "strength",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1",
+        "description": "Overall strength, 1 being the tuned default."
+      },
+      {
+        "name": "spin",
+        "type": "number",
+        "required": false,
+        "defaultValue": "60",
+        "description": "Degrees a body is turned at full pull, as the hole's spin drags it round."
+      },
+      {
+        "name": "origin",
+        "type": "[number, number]",
+        "required": false,
+        "defaultValue": "[0.5, 0.5]",
+        "description": "Where the hole starts, as a fraction of the field: `[0.5, 0.5]` is the middle."
+      },
+      {
+        "name": "followPointer",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Follow the pointer over the field rather than waiting to be dragged."
+      },
+      {
+        "name": "tone",
+        "type": "EventHorizonTone",
+        "required": false,
+        "defaultValue": "'ink'",
+        "description": "The disc's colour: the page's ink, or the accent."
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Stop the spin and hold everything where it is."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'A singularity warping the interface around it'",
+        "description": "Accessible name for the hole, which is a figure in its own right."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "required": false
+      }
+    ]
+  },
   "ExifViewer": {
     "props": [
       {

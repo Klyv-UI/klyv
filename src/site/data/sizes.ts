@@ -1042,6 +1042,12 @@ export const sizes: Record<string, ComponentSize> = {
     "files": 27,
     "dependencies": 9
   },
+  "EventHorizon": {
+    "bytes": 12046,
+    "gzip": 3649,
+    "files": 5,
+    "dependencies": 0
+  },
   "ExifViewer": {
     "bytes": 30366,
     "gzip": 8814,
@@ -1065,6 +1071,12 @@ export const sizes: Record<string, ComponentSize> = {
     "gzip": 6768,
     "files": 12,
     "dependencies": 4
+  },
+  "FallingSand": {
+    "bytes": 49924,
+    "gzip": 14291,
+    "files": 17,
+    "dependencies": 5
   },
   "FaqSection": {
     "bytes": 28566,
@@ -1101,6 +1113,12 @@ export const sizes: Record<string, ComponentSize> = {
     "gzip": 8038,
     "files": 30,
     "dependencies": 11
+  },
+  "Ferrofluid": {
+    "bytes": 41850,
+    "gzip": 12081,
+    "files": 10,
+    "dependencies": 2
   },
   "Field": {
     "bytes": 5849,
@@ -1497,6 +1515,12 @@ export const sizes: Record<string, ComponentSize> = {
     "gzip": 11391,
     "files": 37,
     "dependencies": 15
+  },
+  "IronFilings": {
+    "bytes": 46137,
+    "gzip": 12700,
+    "files": 15,
+    "dependencies": 4
   },
   "Joystick": {
     "bytes": 9678,
@@ -2044,6 +2068,12 @@ export const sizes: Record<string, ComponentSize> = {
     "files": 3,
     "dependencies": 0
   },
+  "OrbitSandbox": {
+    "bytes": 74353,
+    "gzip": 19867,
+    "files": 22,
+    "dependencies": 7
+  },
   "OrderTracker": {
     "bytes": 21886,
     "gzip": 6270,
@@ -2103,6 +2133,12 @@ export const sizes: Record<string, ComponentSize> = {
     "gzip": 6728,
     "files": 10,
     "dependencies": 2
+  },
+  "PaperMarbling": {
+    "bytes": 40196,
+    "gzip": 11327,
+    "files": 17,
+    "dependencies": 5
   },
   "Parallax": {
     "bytes": 2903,
@@ -2175,6 +2211,12 @@ export const sizes: Record<string, ComponentSize> = {
     "gzip": 9432,
     "files": 24,
     "dependencies": 9
+  },
+  "PendulumWave": {
+    "bytes": 52217,
+    "gzip": 14339,
+    "files": 20,
+    "dependencies": 6
   },
   "PermissionGate": {
     "bytes": 8670,
@@ -2294,6 +2336,12 @@ export const sizes: Record<string, ComponentSize> = {
     "bytes": 22161,
     "gzip": 6364,
     "files": 15,
+    "dependencies": 3
+  },
+  "PrismLight": {
+    "bytes": 47720,
+    "gzip": 13747,
+    "files": 12,
     "dependencies": 3
   },
   "ProductCard": {
@@ -2926,6 +2974,12 @@ export const sizes: Record<string, ComponentSize> = {
     "files": 4,
     "dependencies": 0
   },
+  "SnowDrift": {
+    "bytes": 41528,
+    "gzip": 12092,
+    "files": 10,
+    "dependencies": 2
+  },
   "SocialLoginButtons": {
     "bytes": 7099,
     "gzip": 2765,
@@ -3207,6 +3261,12 @@ export const sizes: Record<string, ComponentSize> = {
     "gzip": 2144,
     "files": 3,
     "dependencies": 0
+  },
+  "Tesseract": {
+    "bytes": 51368,
+    "gzip": 14179,
+    "files": 19,
+    "dependencies": 6
   },
   "TestimonialCard": {
     "bytes": 12678,
@@ -3568,6 +3628,12 @@ export const sizes: Record<string, ComponentSize> = {
     "files": 3,
     "dependencies": 0
   },
+  "VoxelTerrain": {
+    "bytes": 47588,
+    "gzip": 13704,
+    "files": 17,
+    "dependencies": 5
+  },
   "WaterfallChart": {
     "bytes": 20127,
     "gzip": 6009,
@@ -3660,15 +3726,15 @@ export function sizeOf(component: string): ComponentSize | undefined {
 
 /** The whole package, once, plus the extremes. */
 export const library = {
-  "gzip": 1046886,
-  "modules": 663,
-  "median": 4002,
+  "gzip": 1153040,
+  "modules": 686,
+  "median": 4155,
   "lightest": {
     "name": "VisuallyHidden",
     "gzip": 190
   },
   "heaviest": {
-    "name": "SqlBuilder",
-    "gzip": 16273
+    "name": "OrbitSandbox",
+    "gzip": 19867
   }
 }

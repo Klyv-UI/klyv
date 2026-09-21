@@ -118,27 +118,35 @@
   background-position: center;
 }
 
-/* The alternate ground for banded sections: the surface, half let through, so
+/* Every section's panel: the surface, half mixed into the canvas — the same
+   ground as the hero's stage — so white cards inside it still separate, and
    the canvas's tint survives instead of turning to flat grey. */
-.landing-band {
+.landing-panel {
   position: relative;
-  background-color: color-mix(in oklab, var(--color-surface) 50%, transparent);
+  isolation: isolate;
+  background-color: color-mix(in oklab, var(--color-surface) 55%, var(--color-canvas));
+  box-shadow: var(--shadow-card);
 }
 
-/* …with a hairline of the accent across its top edge, brightest at the
-   middle and gone before the gutters. */
-.landing-band::before {
+/* Banded sections sit a shade lighter… */
+.landing-panel-band {
+  background-color: color-mix(in oklab, var(--color-surface) 80%, var(--color-canvas));
+}
+
+/* …with a hairline of the accent across the panel's top edge, brightest at
+   the middle and gone before the corners. */
+.landing-panel-band::before {
   content: '';
   position: absolute;
-  inset-inline: 0;
+  inset-inline: 10%;
   top: -1px;
   height: 1px;
   pointer-events: none;
   background: linear-gradient(
     90deg,
-    transparent 10%,
+    transparent,
     color-mix(in oklab, var(--color-accent-strong) 65%, transparent) 50%,
-    transparent 90%
+    transparent
   );
 }
 
@@ -156,4 +164,59 @@
      and the lines only gather towards the corners. */
   mask-image: radial-gradient(ellipse 62% 72% at 50% 50%, transparent 58%, #000 100%);
   -webkit-mask-image: radial-gradient(ellipse 62% 72% at 50% 50%, transparent 58%, #000 100%);
+}
+
+/* The growth band's words sit in a clear pool of the page's own ground, so
+   the pattern growing behind them never costs the heading its contrast. */
+.landing-stage-scrim {
+  background: radial-gradient(
+    ellipse 55% 60% at 50% 50%,
+    color-mix(in oklab, var(--color-canvas) 88%, transparent) 0%,
+    color-mix(in oklab, var(--color-canvas) 60%, transparent) 60%,
+    transparent 100%
+  );
+}
+
+/* The anatomy section's exploded view. The stage gives depth; the scene and,
+   while apart, everything in it keep their children in 3D. Clipping would
+   flatten the layers, so overflow is let out only while it is apart. */
+.anatomy-stage {
+  perspective: 1600px;
+}
+
+.anatomy-scene,
+.anatomy-scene.is-apart * {
+  transform-style: preserve-3d;
+}
+
+.anatomy-scene.is-apart * {
+  overflow: visible !important;
+}
+
+/* Each named component lifts off the one it sits in. */
+.anatomy-layer {
+  position: relative;
+  translate: 0 0 calc(var(--anatomy-e, 0) * 56px);
+}
+
+.anatomy-scene.is-apart .anatomy-layer {
+  outline: 1px dashed color-mix(in oklab, var(--color-accent-strong) 80%, var(--color-ink));
+  outline-offset: 5px;
+  border-radius: var(--radius-10);
+}
+
+/* Its name, on its top edge, fading in as it comes apart. */
+.anatomy-scene.is-apart .anatomy-layer::after {
+  content: attr(data-layer);
+  position: absolute;
+  left: -5px;
+  top: -30px;
+  padding: 2px 7px;
+  border-radius: var(--radius-6);
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  font: 700 11px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: clamp(0, calc(var(--anatomy-e, 0) * 2 - 0.4), 1);
 }

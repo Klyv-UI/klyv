@@ -41,7 +41,7 @@ export function Platform() {
     <LandingSection
       id="platform"
       eyebrow="The platform"
-      index={4}
+      index={5}
       title="Everything between an idea"
       tail="and a production screen"
       lede="The components are the start. Around them: a Composer, search that understands what you mean, recommendations, starters, recipes and setup guides — all built from the same system and the same data."

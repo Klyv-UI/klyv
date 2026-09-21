@@ -1,9 +1,13 @@
 import { useEffect } from 'react'
 import { AnchorNav } from 'klyv'
+import { Anatomy } from './landing/Anatomy'
 import { Assistant } from './landing/Assistant'
+import { BrandDrop } from './landing/BrandDrop'
 import { Closing } from './landing/Closing'
 import { Developer } from './landing/Developer'
+import { GrowthBand } from './landing/GrowthBand'
 import { Hero } from './landing/Hero'
+import { KitBuilder } from './landing/KitBuilder'
 import { HowItWorks } from './landing/HowItWorks'
 import { Parts } from './landing/Parts'
 import { Platform } from './landing/Platform'
@@ -12,6 +16,7 @@ import { Quality } from './landing/Quality'
 import { Screens } from './landing/Screens'
 import { Showpieces } from './landing/Showpieces'
 import { Theming } from './landing/Theming'
+import { Toolkit } from './landing/Toolkit'
 import { Why } from './landing/Why'
 import { Workspace } from './landing/Workspace'
 import './landing/landing.css'
@@ -21,10 +26,11 @@ import './landing/landing.css'
  *
  * It answers a visitor's questions in the order they ask them: what is this
  * (a centred statement, and a workbench of real components the reader can
- * repaint), why this one, how would I use it, can it build a real screen,
- * what else comes with it, what is in the range, how far does the range go,
- * how will I find the right part in it, can I make it mine, how does it feel
- * in code, can I trust it in production — and then one command to start.
+ * repaint — or rebrand, by dropping their own logo anywhere on the page), why this one, how would I use it, can it build a real screen, how
+ * deep does one part of a screen go, what else comes with it, what is in the
+ * range, how far does the range go, how will I find the right part in it, can
+ * I make it mine, how does it feel in code, can I trust it in production — and
+ * then one command to start.
  *
  * Every specimen on it is a real component, running — not a screenshot and not
  * a mock. That is the entire argument the page is making, so faking any part
@@ -65,6 +71,7 @@ export default function LandingPage() {
     <>
       <Hero />
       <Proof />
+      <BrandDrop />
       {/* The numbered sections share one wrapper, so the section pill starts
           where they start, sticks for exactly that stretch, and no further. */}
       <div>
@@ -72,12 +79,16 @@ export default function LandingPage() {
         <Why />
         <HowItWorks />
         <Screens />
+        <Toolkit />
         <Platform />
         <Parts />
+        <Anatomy />
         <Showpieces />
+        <GrowthBand />
         <Assistant />
         <Theming />
         <Developer />
+        <KitBuilder />
         <Workspace />
         <Quality />
         <Closing />
@@ -91,12 +102,15 @@ const ON_THIS_PAGE = [
   { id: 'why', label: 'Why' },
   { id: 'how-it-works', label: 'How' },
   { id: 'screens', label: 'Screens' },
+  { id: 'toolkit', label: 'In depth' },
   { id: 'platform', label: 'Platform' },
   { id: 'components', label: 'Components' },
+  { id: 'anatomy', label: 'Anatomy' },
   { id: 'showpieces', label: 'Showpieces' },
   { id: 'assistant', label: 'Assistant' },
   { id: 'theming', label: 'Theming' },
   { id: 'developers', label: 'Code' },
+  { id: 'kit', label: 'Kit' },
   { id: 'workspace', label: 'Workspace' },
   { id: 'quality', label: 'Quality' },
 ]

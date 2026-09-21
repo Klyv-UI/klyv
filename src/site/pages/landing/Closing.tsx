@@ -8,12 +8,12 @@ import { InstallCommand } from './primitives'
 /** The last ask: one command, and the two places to go next. */
 export function Closing() {
   return (
-    <section aria-labelledby="closing-title" className="mx-auto w-full max-w-[1400px] px-5 pb-10 pt-6 sm:pb-14 lg:px-8">
+    <section aria-labelledby="closing-title" className="px-3 pb-10 pt-1.5 sm:px-4 sm:pb-14 lg:px-5">
       <Reveal>
         <Surface
           variant="card"
           padding="lg"
-          className="relative isolate items-center gap-6 overflow-hidden border-transparent bg-accent px-6 py-16 text-center sm:py-24"
+          className="relative isolate mx-auto w-full max-w-[1400px] items-center gap-6 overflow-hidden border-transparent bg-accent px-6 py-16 text-center sm:py-24"
         >
           {/* Hairlines in the ink that sits on the accent, fading out behind the
               words: a texture on the slab, never a second colour. */}

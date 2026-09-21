@@ -150,7 +150,7 @@ export function Assistant() {
   return (
     <LandingSection
       id="assistant"
-      index={7}
+      index={9}
       eyebrow="Component assistant"
       title="Say what you are building."
       tail="Get the components that fit."

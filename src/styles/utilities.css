@@ -381,3 +381,10 @@
     transform: scale(1) rotate(0deg);
   }
 }
+
+/* EventHorizon's accretion disc, turning once every nine seconds. */
+@keyframes event-horizon-spin {
+  to {
+    rotate: 360deg;
+  }
+}

@@ -28,16 +28,16 @@ export function Proof() {
   ]
 
   return (
-    // The strip's own ground matches its cells, so the row reads as one band
-    // edge to edge — a shade lighter than the hero, so the two separate.
-    <section aria-label="At a glance" className="border-y border-line bg-[color-mix(in_oklab,var(--color-surface)_45%,var(--color-canvas))]">
+    // A panel of its own, the same width as every section after it, so
+    // the numbers read as one container rather than a stripe across the page.
+    <section aria-label="At a glance" className="px-3 py-1.5 sm:px-4 lg:px-5">
       {/* A one-pixel gap over a line-coloured ground draws the hairlines, so the
           dividers stay right at every column count. */}
-      <dl className="mx-auto grid w-full max-w-[1400px] grid-cols-2 gap-px bg-line sm:grid-cols-3 lg:grid-cols-6">
+      <dl className="mx-auto grid w-full max-w-[1400px] grid-cols-2 gap-px overflow-hidden rounded-[var(--radius-card)] border border-line bg-line shadow-[var(--shadow-card)] sm:grid-cols-3 lg:grid-cols-6">
         {facts.map((fact) => (
           <div
             key={fact.label}
-            className="flex flex-col gap-1.5 bg-[color-mix(in_oklab,var(--color-surface)_45%,var(--color-canvas))] px-5 py-6 sm:py-7 lg:px-8"
+            className="flex flex-col gap-1.5 bg-surface px-5 py-6 sm:py-7 lg:px-8"
           >
             <dt className="order-2">
               <Text as="span" size="label" weight="semibold" tone="faint">
