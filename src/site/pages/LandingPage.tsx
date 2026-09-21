@@ -4,6 +4,7 @@ import { Anatomy } from './landing/Anatomy'
 import { Assistant } from './landing/Assistant'
 import { BrandDrop } from './landing/BrandDrop'
 import { Closing } from './landing/Closing'
+import { DataPaste } from './landing/DataPaste'
 import { Developer } from './landing/Developer'
 import { GrowthBand } from './landing/GrowthBand'
 import { Hero } from './landing/Hero'
@@ -89,6 +90,7 @@ export default function LandingPage() {
         <Theming />
         <Developer />
         <KitBuilder />
+        <DataPaste />
         <Workspace />
         <Quality />
         <Closing />
@@ -111,6 +113,7 @@ const ON_THIS_PAGE = [
   { id: 'theming', label: 'Theming' },
   { id: 'developers', label: 'Code' },
   { id: 'kit', label: 'Kit' },
+  { id: 'your-data', label: 'Your data' },
   { id: 'workspace', label: 'Workspace' },
   { id: 'quality', label: 'Quality' },
 ]

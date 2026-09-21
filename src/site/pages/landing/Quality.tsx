@@ -53,7 +53,7 @@ export function Quality() {
     <LandingSection
       id="quality"
       eyebrow="Production-ready"
-      index={14}
+      index={15}
       title="Standards you can check,"
       tail="not adjectives"
       lede="Each number is produced by a test or a build step in the repository, and shown on every component’s own page as its health."
