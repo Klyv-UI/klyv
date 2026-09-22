@@ -86,3 +86,26 @@ Playwright checks locally.
   on close`.
 
 By contributing you agree your work is released under the [MIT License](LICENSE).
+
+## Releasing
+
+Maintainers only. Publishing runs from CI, so nobody needs npm credentials on
+their machine.
+
+```bash
+git switch -c release/1.0.1
+npm version patch        # or minor, or major — commits and tags
+```
+
+Open a pull request, merge it once CI is green, then push the tag and create a
+GitHub release on it. The [Release workflow](.github/workflows/release.yml)
+type-checks, runs the full suite, builds the package and publishes it to npm.
+
+It refuses to publish if the release tag and the version in `package.json`
+disagree, because a published version can never be replaced. Running the
+workflow by hand from the Actions tab does everything except publish, which is
+a useful dry run.
+
+Authentication is npm's trusted publishing, so there is no token in this
+repository, and every release carries provenance linking it to the commit and
+the workflow run it came from.

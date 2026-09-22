@@ -7,6 +7,7 @@
 //   node scripts/ci-summary.mjs a11y     the axe report: crashes and findings
 //   node scripts/ci-summary.mjs package  the built package's size, from data/sizes.json
 //   node scripts/ci-summary.mjs site     the docs site's largest chunks, and where it went
+//   node scripts/ci-summary.mjs release  what was published, or that it was a dry run
 //
 // Step outcomes arrive in OUTCOMES, one `Step name=outcome` per line in the
 // order the steps run, so a job reports the steps that failed as well as the
@@ -37,6 +38,22 @@ const reports = {
   // Just the step outcomes, under the heading in TITLE.
   steps() {
     return [`## ${process.env.TITLE ?? 'Steps'}`, '', ...outcomes()]
+  },
+
+  release() {
+    const { name, version } = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8'))
+    const lines = ['## Release', '', ...outcomes()]
+    if (process.env.RELEASE_TAG) {
+      lines.push(
+        `Published **${name}@${version}** — https://www.npmjs.com/package/${name}`,
+        '',
+        `Install it with \`npm install ${name}@${version}\`.`,
+        '',
+      )
+    } else {
+      lines.push(`Dry run for **${name}@${version}**. Nothing was published.`, '')
+    }
+    return lines
   },
 
   checks() {
