@@ -1043,8 +1043,8 @@ export const sizes: Record<string, ComponentSize> = {
     "dependencies": 9
   },
   "EventHorizon": {
-    "bytes": 12046,
-    "gzip": 3649,
+    "bytes": 12086,
+    "gzip": 3656,
     "files": 5,
     "dependencies": 0
   },
@@ -3726,7 +3726,7 @@ export function sizeOf(component: string): ComponentSize | undefined {
 
 /** The whole package, once, plus the extremes. */
 export const library = {
-  "gzip": 1153040,
+  "gzip": 1153138,
   "modules": 686,
   "median": 4155,
   "lightest": {
