@@ -199,7 +199,7 @@ test('blocks are listed, found by slug or name, and come with their source', asy
   const dashboard = payload(out.get(2))
   assert.equal(dashboard.slug, 'dashboard')
   assert.ok(dashboard.components.includes('AppShell'), 'components are read off the imports')
-  assert.ok(dashboard.packages.includes('klyv'))
+  assert.ok(dashboard.packages.includes('klyvui'))
   assert.match(dashboard.source, /export default function DashboardBlock/, 'the real file comes back')
 
   assert.equal(payload(out.get(3)).slug, 'authentication', 'the display name resolves too')
