@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Search } from 'lucide-react'
-import { Kbd, Text } from 'klyv'
+import { Kbd, Text } from 'klyvui'
 
 /**
  * The palette itself — the library's CommandPalette and everything it brings —

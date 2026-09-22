@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { CommitGraph, FlameGraph, HoloCard, JsonViewer, LazyMount, Marquee, Reveal, Surface, SunburstChart, Terminal, Text, cn } from 'klyv'
+import { CommitGraph, FlameGraph, HoloCard, JsonViewer, LazyMount, Marquee, Reveal, Surface, SunburstChart, Terminal, Text, cn } from 'klyvui'
 import { catalog, componentCount } from '../../data/catalog'
 import { groups } from '../../data/groups'
 import { LandingSection, SectionLink } from './primitives'

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { CopyButton, InlineEdit, PasswordStrength } from 'klyv'
+import { CopyButton, InlineEdit, PasswordStrength } from 'klyvui'
 
 afterEach(cleanup)
 
@@ -87,10 +87,10 @@ describe('CopyButton', () => {
     const writeText = vi.fn().mockResolvedValue(undefined)
     Object.defineProperty(navigator, 'clipboard', { value: { writeText }, configurable: true })
 
-    render(<CopyButton value="npm i klyv" label="Copy command" />)
+    render(<CopyButton value="npm i klyvui" label="Copy command" />)
 
     await user.click(screen.getByRole('button', { name: /Copy command/ }))
-    expect(writeText).toHaveBeenCalledWith('npm i klyv')
+    expect(writeText).toHaveBeenCalledWith('npm i klyvui')
 
     // Shown and spoken: a glyph turning into a tick is invisible to a reader.
     const copied = await screen.findByRole('button', { name: /Copied/ })

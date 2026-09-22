@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { Compass, Palette, Rocket, WandSparkles } from 'lucide-react'
-import { ACCENT_PRESETS, Kbd, Reveal, Text } from 'klyv'
+import { ACCENT_PRESETS, Kbd, Reveal, Text } from 'klyvui'
 import { brand } from '../../brand'
 import { LandingSection, SectionLink } from './primitives'
 

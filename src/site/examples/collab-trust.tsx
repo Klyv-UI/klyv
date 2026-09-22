@@ -22,7 +22,7 @@ import {
   type ExpenseSplitterExpense,
   type SqlBuilderQuery,
   type SqlBuilderTable,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 

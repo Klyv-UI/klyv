@@ -30,7 +30,7 @@ import {
   Text,
   Timeline,
   type DataTableColumn,
-} from 'klyv'
+} from 'klyvui'
 
 /**
  * A freight operations console.

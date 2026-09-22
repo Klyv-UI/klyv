@@ -1,4 +1,4 @@
-import { SkipLink, Surface, Text, Wordmark } from 'klyv'
+import { SkipLink, Surface, Text, Wordmark } from 'klyvui'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 
 export default function SkipLinkPage() {

@@ -57,7 +57,7 @@ function importsOf(code) {
     if (from.startsWith('.') || statement.importClause?.isTypeOnly) continue
     packages.add(from.startsWith('@') ? from.split('/').slice(0, 2).join('/') : from.split('/')[0])
 
-    if (from !== 'klyv') continue
+    if (from !== 'klyvui') continue
     const bindings = statement.importClause?.namedBindings
     if (!bindings || !ts.isNamedImports(bindings)) continue
     for (const element of bindings.elements) {

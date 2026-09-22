@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { GraduationCap } from 'lucide-react'
-import { IconTile, ProgressRing, Surface, Text } from 'klyv'
+import { IconTile, ProgressRing, Surface, Text } from 'klyvui'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { NumberControl, Playground, SelectControl } from '../../components/Playground'
 

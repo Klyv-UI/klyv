@@ -1,5 +1,5 @@
 import { Link, useSearchParams } from 'react-router-dom'
-import { EmptyState, Surface, Text } from 'klyv'
+import { EmptyState, Surface, Text } from 'klyvui'
 import { BlockThumbnail } from '../components/BlockThumbnail'
 import { Note } from '../components/Doc'
 import { Count, FilterChip } from '../components/FilterChip'

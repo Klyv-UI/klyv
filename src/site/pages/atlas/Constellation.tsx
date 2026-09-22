@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Text, VisuallyHidden, cn } from 'klyv'
+import { Text, VisuallyHidden, cn } from 'klyvui'
 import { HUB, buildConstellation, starAt, step, type Constellation as Graph } from '../../lib/constellation'
 import { sizes } from '../../data/sizes'
 

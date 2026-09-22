@@ -10,7 +10,7 @@ import {
   StatusDot,
   Text,
   Toolbar,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 
 function SegmentedExample() {

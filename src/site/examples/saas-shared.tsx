@@ -32,7 +32,7 @@ import {
   type RoleOption,
   type UsageItem,
   type Workspace,
-} from 'klyv'
+} from 'klyvui'
 
 /**
  * Fixture data shared by the SaaS Kit demos and the templates page. Every

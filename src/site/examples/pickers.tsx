@@ -8,7 +8,7 @@ import {
   Surface,
   Text,
   type UploadFile,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 
 function ColorPickerExample() {

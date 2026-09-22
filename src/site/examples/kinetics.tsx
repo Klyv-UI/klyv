@@ -7,7 +7,7 @@ import {
   RippleSurface,
   SegmentedControl,
   Text,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

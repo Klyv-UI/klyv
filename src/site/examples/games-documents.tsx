@@ -17,7 +17,7 @@ import {
   type PagedDocumentBlock,
   type PagedDocumentSize,
   type TimezonePlannerSelection,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 

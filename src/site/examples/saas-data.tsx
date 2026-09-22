@@ -11,7 +11,7 @@ import {
   type FilterField,
   type FilterMatch,
   type SavedView,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 

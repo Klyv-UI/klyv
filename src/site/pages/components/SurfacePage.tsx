@@ -7,7 +7,7 @@ import {
   Text,
   type SurfacePadding,
   type SurfaceVariant,
-} from 'klyv'
+} from 'klyvui'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, SelectControl, ToggleControl } from '../../components/Playground'
 

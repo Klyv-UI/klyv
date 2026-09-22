@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { Button, FallingSand, SegmentedControl, Slider, Switch, Text, type FallingSandHandle, type FallingSandMaterial } from 'klyv'
+import { Button, FallingSand, SegmentedControl, Slider, Switch, Text, type FallingSandHandle, type FallingSandMaterial } from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

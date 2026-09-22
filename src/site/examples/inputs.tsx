@@ -7,7 +7,7 @@ import {
   Tag,
   Text,
   type MentionOption,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

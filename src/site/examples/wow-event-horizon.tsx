@@ -11,7 +11,7 @@ import {
   Text,
   type EventHorizonHandle,
   type EventHorizonTone,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

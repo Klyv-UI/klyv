@@ -39,7 +39,7 @@ export const recipes: RecipeEntry[] = [
       {
         title: 'Start from the blocks',
         body: 'Both screens exist as blocks. Take them with the CLI and change the copy, or read on to see how they are put together.',
-        code: 'npx klyv add block login authentication',
+        code: 'npx klyvui add block login authentication',
         language: 'bash',
       },
       {
@@ -122,7 +122,7 @@ export const recipes: RecipeEntry[] = [
       {
         title: 'Begin at sign-up',
         body: 'The Signup block holds the password strength meter and the terms that must be accepted before the button submits.',
-        code: 'npx klyv add block signup saas-dashboard',
+        code: 'npx klyvui add block signup saas-dashboard',
         language: 'bash',
       },
       {
@@ -234,7 +234,7 @@ export const recipes: RecipeEntry[] = [
       {
         title: 'Take the Dashboard block',
         body: 'It already has live KPIs, a sortable table with selection, two charts and an event feed, laid out inside an AppShell.',
-        code: 'npx klyv add block dashboard',
+        code: 'npx klyvui add block dashboard',
         language: 'bash',
       },
       {

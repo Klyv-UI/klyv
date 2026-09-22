@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Text } from 'klyv'
+import { Text } from 'klyvui'
 
 /**
  * The small label above a heading, marked with the accent. One component, so

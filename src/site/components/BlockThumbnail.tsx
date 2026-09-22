@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useRef, useState } from 'react'
-import { cn } from 'klyv'
+import { cn } from 'klyvui'
 import { findBlock } from '../data/blocks'
 import { blockComponent } from '../lib/blocks'
 

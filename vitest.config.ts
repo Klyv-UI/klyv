@@ -13,7 +13,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
-      klyv: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
+      klyvui: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
     },
   },
   test: {

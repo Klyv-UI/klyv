@@ -26,19 +26,19 @@
 ## Install
 
 ```bash
-npm install klyv
+npm install klyvui
 ```
 
 ```tsx
-import { Button, DataTable, applyAccent } from 'klyv'
-import 'klyv/styles.css'
+import { Button, DataTable, applyAccent } from 'klyvui'
+import 'klyvui/styles.css'
 ```
 
-That's the whole setup. `klyv/styles.css` is prebuilt, so **you don't need Tailwind**. If you already use Tailwind, import the preset instead so utilities aren't shipped twice:
+That's the whole setup. `klyvui/styles.css` is prebuilt, so **you don't need Tailwind**. If you already use Tailwind, import the preset instead so utilities aren't shipped twice:
 
 ```css
 @import 'tailwindcss';
-@import 'klyv/preset.css';
+@import 'klyvui/preset.css';
 ```
 
 - **Small footprint:** ESM only, one module per component, `sideEffects` declared, so bundlers drop what you don't use.
@@ -53,7 +53,7 @@ That's the whole setup. `klyv/styles.css` is prebuilt, so **you don't need Tailw
 Nothing in the library hard-codes a colour. One call derives the accent, its press state, a soft wash and the text colour on top, and every component repaints without a rebuild.
 
 ```ts
-import { applyAccent, applyTheme, applyMode } from 'klyv'
+import { applyAccent, applyTheme, applyMode } from 'klyvui'
 
 applyAccent('#8b5cf6')   // text on the accent always clears 4.5:1 contrast
 
@@ -92,10 +92,10 @@ Plus **11 blocks**, finished screens such as a dashboard, an admin panel and a S
 Prefer to own the code? The CLI copies a component with everything it depends on into your project:
 
 ```bash
-npx klyv add data-table      # the component and its dependencies
-npx klyv add block dashboard # a whole screen
-npx klyv list drag           # search by name, group or description
-npx klyv info combobox       # see what it would bring with it
+npx klyvui add data-table      # the component and its dependencies
+npx klyvui add block dashboard # a whole screen
+npx klyvui list drag           # search by name, group or description
+npx klyvui info combobox       # see what it would bring with it
 ```
 
 Imports are relative and folders are flat, so the copied files work without rewriting any imports. Add `--dry` to preview the files, or `--dest <dir>` to choose where they go.
@@ -113,7 +113,7 @@ Imports are relative and folders are flat, so the copied files work without rewr
 An MCP server ships with the package, so coding agents can search components, read props and source, and fetch blocks and tokens:
 
 ```bash
-claude mcp add klyv -- npx -y klyv mcp
+claude mcp add klyv -- npx -y klyvui mcp
 ```
 
 There's also an Agent Skill in [`skills/klyv`](skills/klyv/SKILL.md). See [`mcp/README.md`](mcp/README.md) or the [Agents page](https://klyvui.xyz/agents).

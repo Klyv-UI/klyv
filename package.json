@@ -1,5 +1,5 @@
 {
-  "name": "klyv",
+  "name": "klyvui",
   "version": "1.0.0",
   "type": "module",
   "description": "An accent-led React component library. 614 accessible components that take their entire personality from a single colour.",
@@ -47,8 +47,8 @@
     "./tokens.json": "./dist/tokens.json"
   },
   "bin": {
-    "klyv": "cli/klyv.mjs",
-    "klyv-mcp": "mcp/server.mjs"
+    "klyvui": "cli/klyv.mjs",
+    "klyvui-mcp": "mcp/server.mjs"
   },
   "files": [
     "dist",
@@ -80,7 +80,7 @@
     "preview": "vite preview --outDir dist-site --port 4173",
     "lint": "tsc -b --noEmit",
     "check:preset": "node scripts/check-preset.mjs",
-    "klyv": "node cli/klyv.mjs",
+    "klyvui": "node cli/klyv.mjs",
     "directives": "node scripts/client-directives.mjs",
     "rules": "node scripts/check-rules.mjs",
     "test:a11y": "vitest run test/a11y --reporter=dot",

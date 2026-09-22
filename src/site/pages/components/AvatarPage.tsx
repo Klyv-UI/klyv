@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Avatar, Surface, Text, type AvatarSize } from 'klyv'
+import { Avatar, Surface, Text, type AvatarSize } from 'klyvui'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, SelectControl, TextControl, ToggleControl } from '../../components/Playground'
 

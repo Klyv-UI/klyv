@@ -28,7 +28,7 @@ import {
   type SharePermissionsPerson,
   type SharePermissionsRole,
   type VersionHistoryVersion,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

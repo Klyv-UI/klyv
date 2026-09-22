@@ -14,7 +14,7 @@ import {
   Plug,
   X,
 } from 'lucide-react'
-import { CommandPalette, type Command, type IconComponent } from 'klyv'
+import { CommandPalette, type Command, type IconComponent } from 'klyvui'
 import { useStore } from '../lib/store'
 import { forgetSearches, recentSearches, recentVisits, rememberSearch } from '../lib/history'
 import type { SearchEntry, SearchGroup } from '../lib/search'

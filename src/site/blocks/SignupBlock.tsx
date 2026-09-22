@@ -11,7 +11,7 @@ import {
   PasswordStrength,
   Surface,
   Text,
-} from 'klyv'
+} from 'klyvui'
 
 /**
  * Account creation.

@@ -19,7 +19,7 @@ import {
   type CascadeSelectOption,
   type ColorSwatchPickerSwatch,
   type TreeSelectNode,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 

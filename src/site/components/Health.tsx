@@ -1,5 +1,5 @@
 import { Check } from 'lucide-react'
-import { StatusDot, Text, type StatusDotTone } from 'klyv'
+import { StatusDot, Text, type StatusDotTone } from 'klyvui'
 import { STATUS_LABELS, healthOf, type ComponentStatus } from '../data/health'
 
 const STATUS_TONES: Record<ComponentStatus, StatusDotTone> = {

@@ -31,7 +31,7 @@ import {
   cn,
   useToast,
   type DataTableColumn,
-} from 'klyv'
+} from 'klyvui'
 
 /* ------------------------------------------------------------------- data */
 

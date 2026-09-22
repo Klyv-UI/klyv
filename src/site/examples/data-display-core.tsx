@@ -25,7 +25,7 @@ import {
   TableRow,
   Text,
   Timeline,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 
 const ROWS = [

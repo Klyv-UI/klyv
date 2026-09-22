@@ -28,7 +28,7 @@ import {
   type SortableTreeItem,
   type WhiteboardExportFormat,
   type WhiteboardShape,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

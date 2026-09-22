@@ -10,7 +10,7 @@ import {
   Surface,
   Text,
   Timeline,
-} from 'klyv'
+} from 'klyvui'
 
 /**
  * A person's profile.

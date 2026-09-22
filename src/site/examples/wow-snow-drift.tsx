@@ -10,7 +10,7 @@ import {
   Text,
   type SnowDriftHandle,
   type SnowDriftTone,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

@@ -4,7 +4,7 @@ import type {
   FormulaEditorValue,
   HexbinChartPoint,
   TraceWaterfallSpan,
-} from 'klyv'
+} from 'klyvui'
 
 /**
  * The data the front page's specimens run on. Seeded, so every visitor and

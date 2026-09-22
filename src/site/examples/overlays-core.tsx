@@ -14,7 +14,7 @@ import {
   Sparkline,
   Text,
   Tooltip,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 
 const ACTIONS = [

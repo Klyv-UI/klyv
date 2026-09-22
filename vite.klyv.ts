@@ -8,7 +8,7 @@ import type { Plugin } from 'vite'
  *
  * Import statements are found with the TypeScript parser rather than a regex:
  * the docs are full of copy-paste snippets, and a string that reads
- * `import { Button } from 'klyv'` must be left exactly as written.
+ * `import { Button } from 'klyvui'` must be left exactly as written.
  */
 
 const SRC = fileURLToPath(new URL('./src', import.meta.url))
@@ -29,7 +29,7 @@ interface KlyvImport {
 }
 
 function klyvImports(code: string, id: string): KlyvImport[] {
-  if (!code.includes('klyv')) return []
+  if (!code.includes('klyvui')) return []
   const path = id.replace(/\?.*$/, '')
   if (path.includes('/node_modules/') || !/\.(ts|tsx)$/.test(path)) return []
 
@@ -39,7 +39,7 @@ function klyvImports(code: string, id: string): KlyvImport[] {
 
   for (const statement of file.statements) {
     if (!ts.isImportDeclaration(statement)) continue
-    if (!ts.isStringLiteral(statement.moduleSpecifier) || statement.moduleSpecifier.text !== 'klyv') continue
+    if (!ts.isStringLiteral(statement.moduleSpecifier) || statement.moduleSpecifier.text !== 'klyvui') continue
     const clause = statement.importClause
     const bindings = clause?.namedBindings
     if (!clause || clause.name || !bindings || !ts.isNamedImports(bindings)) continue
@@ -139,7 +139,7 @@ function exportMap(): Map<string, string> {
  * file in the library — about six hundred requests on every load and every
  * reload, on every page.
  *
- * So `import { Tabs, Text } from 'klyv'` becomes one import from
+ * So `import { Tabs, Text } from 'klyvui'` becomes one import from
  * `@/components/Tabs` and one from `@/components/Text`. Those are the modules
  * the barrel re-exports, so nothing changes but the request count. A name the
  * map does not know (a component added while the server runs) stays on the
@@ -163,7 +163,7 @@ export function directImports(): Plugin {
       for (const statement of [...statements].reverse()) {
         const groups = new Map<string, string[]>()
         for (const { name, local, typeOnly } of statement.specifiers) {
-          const target = map.get(name) ?? 'klyv'
+          const target = map.get(name) ?? 'klyvui'
           const text = `${typeOnly ? 'type ' : ''}${name}${local === name ? '' : ` as ${local}`}`
           groups.set(target, [...(groups.get(target) ?? []), text])
         }

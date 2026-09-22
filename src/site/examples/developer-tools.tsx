@@ -22,7 +22,7 @@ import {
   type PasskeyManagerCreated,
   type PasskeyManagerPasskey,
   type WebVitalsMetric,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 

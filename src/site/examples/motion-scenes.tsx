@@ -18,7 +18,7 @@ import {
   Text,
   TextScramble,
   TiltCard,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 
 function Replay({ children }: { children: (key: number) => React.ReactNode }) {

@@ -30,7 +30,7 @@ import {
   ToggleGroup,
   type LightboxImage,
   type MenuItem,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 
 /* ------------------------------------------------------------- copy button */
@@ -359,9 +359,9 @@ export const demos: ExampleModule = {
       {
         title: 'Variants',
         specimens: [
-          { label: 'with label', node: <CopyButton value="npm i klyv" /> },
-          { label: 'iconOnly', hint: 'The label is still the name', node: <CopyButton value="npm i klyv" label="Copy command" iconOnly /> },
-          { label: 'md', node: <CopyButton value="npm i klyv" size="md" label="Copy command" /> },
+          { label: 'with label', node: <CopyButton value="npm i klyvui" /> },
+          { label: 'iconOnly', hint: 'The label is still the name', node: <CopyButton value="npm i klyvui" label="Copy command" iconOnly /> },
+          { label: 'md', node: <CopyButton value="npm i klyvui" size="md" label="Copy command" /> },
         ],
       },
       { title: 'Example', description: 'An API key with its copy action beside it.', stack: true, Content: ApiKeyExample },

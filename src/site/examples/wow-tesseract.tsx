@@ -10,7 +10,7 @@ import {
   type TesseractHandle,
   type TesseractProjection,
   type TesseractTone,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

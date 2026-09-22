@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ChevronDown } from 'lucide-react'
-import { Popover, Text, cn } from 'klyv'
+import { Popover, Text, cn } from 'klyvui'
 import { AccentPicker } from './AccentPicker'
 import { useAccent } from './useTheme'
 

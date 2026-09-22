@@ -20,7 +20,7 @@ import {
   ThreeWayMerge,
   TraceWaterfall,
   VisuallyHidden,
-} from 'klyv'
+} from 'klyvui'
 import {
   BUDGET_WINDOW,
   COMMITS,

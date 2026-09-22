@@ -8,7 +8,7 @@ import {
   Slider,
   Text,
   type PopUpCardPiece,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

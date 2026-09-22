@@ -9,7 +9,7 @@ import {
   ListItem,
   Meter,
   Text,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 
 const ROWS = [

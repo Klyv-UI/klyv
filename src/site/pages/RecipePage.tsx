@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { CodeBlock, Text } from 'klyv'
+import { CodeBlock, Text } from 'klyvui'
 import { Section } from '../components/Doc'
 import { ItemCard } from '../components/ItemCard'
 import { ComponentLinks, DocLink, Missing } from '../components/Links'

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Badge, CodeBlock, Text } from 'klyv'
+import { Badge, CodeBlock, Text } from 'klyvui'
 import { Note, Section } from '../components/Doc'
 import { ComponentLinks, DocLink, Missing } from '../components/Links'
 import { PageIntro } from '../components/PageIntro'

@@ -6,7 +6,7 @@ import {
   Surface,
   Terminal,
   Text,
-} from 'klyv'
+} from 'klyvui'
 import { componentCount } from '../data/catalog'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'

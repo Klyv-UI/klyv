@@ -1,4 +1,4 @@
-import { Badge, cn } from 'klyv'
+import { Badge, cn } from 'klyvui'
 
 /**
  * The marker for components in the latest release. It is the library's own

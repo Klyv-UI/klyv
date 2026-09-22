@@ -10,7 +10,7 @@ import { componentCountRounded } from './data/catalog'
 export const brand = {
   name: 'Klyv',
   /** Used in code samples and the package name. */
-  pkg: 'klyv',
+  pkg: 'klyvui',
   /** Where the docs site is served. */
   url: 'https://klyvui.xyz',
   tagline: 'An accent-led React component library.',
@@ -25,8 +25,8 @@ export const brand = {
    * both read this list, so nothing else needs to change.
    */
   links: [
-    { id: 'github', label: 'GitHub', href: 'https://github.com/your-org/klyv' },
-    { id: 'npm', label: 'npm', href: 'https://www.npmjs.com/package/klyv' },
+    { id: 'github', label: 'GitHub', href: 'https://github.com/Klyv-UI/klyv' },
+    { id: 'npm', label: 'npm', href: 'https://www.npmjs.com/package/klyvui' },
     { id: 'discord', label: 'Discord', href: 'https://discord.gg/your-invite' },
     { id: 'x', label: 'X', href: 'https://x.com/your-handle' },
   ],

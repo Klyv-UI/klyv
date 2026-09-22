@@ -21,7 +21,7 @@ import {
   WebhookEndpoints,
   type ApiKey,
   type Member,
-} from 'klyv'
+} from 'klyvui'
 
 /**
  * A SaaS admin area: workspace settings, the team, billing, security and

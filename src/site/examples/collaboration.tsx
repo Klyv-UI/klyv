@@ -8,7 +8,7 @@ import {
   TypingIndicator,
   type Participant,
   type RemoteCursor,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

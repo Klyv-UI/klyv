@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { Badge, Button, ClothPanel, Slider, Text, type ClothPanelRef } from 'klyv'
+import { Badge, Button, ClothPanel, Slider, Text, type ClothPanelRef } from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

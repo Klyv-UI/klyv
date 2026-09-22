@@ -12,7 +12,7 @@ import {
   TreeView,
   type DataTableColumn,
   type KanbanColumn,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 
 interface Row {

@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Package, X } from 'lucide-react'
-import { CodeBlock, FuzzyFinder, Text, VisuallyHidden, cn, type FuzzyFinderItem } from 'klyv'
+import { CodeBlock, FuzzyFinder, Text, VisuallyHidden, cn, type FuzzyFinderItem } from 'klyvui'
 import { brand } from '../../brand'
 import { catalog, findComponentByName } from '../../data/catalog'
 import { dependenciesOf } from '../../data/dependencies'

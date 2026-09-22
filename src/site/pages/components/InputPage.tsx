@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Search, X } from 'lucide-react'
-import { IconButton, Input, Surface, Text, type InputSize, type InputVariant } from 'klyv'
+import { IconButton, Input, Surface, Text, type InputSize, type InputVariant } from 'klyvui'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, SelectControl, TextControl, ToggleControl } from '../../components/Playground'
 

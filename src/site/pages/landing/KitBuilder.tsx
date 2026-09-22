@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react'
-import { LazyMount, Skeleton } from 'klyv'
+import { LazyMount, Skeleton } from 'klyvui'
 import { LandingSection } from './primitives'
 
 /**

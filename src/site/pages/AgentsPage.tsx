@@ -1,4 +1,4 @@
-import { CodeBlock, Surface, Text } from 'klyv'
+import { CodeBlock, Surface, Text } from 'klyvui'
 import { Code, Note, Section } from '../components/Doc'
 import { PageIntro } from '../components/PageIntro'
 import { brand } from '../brand'

@@ -14,7 +14,7 @@ import {
   Tabs,
   Tag,
   Text,
-} from 'klyv'
+} from 'klyvui'
 import { SHOWPIECE_COMPONENTS } from '../../data/catalog'
 import { LandingSection, SectionLink } from './primitives'
 

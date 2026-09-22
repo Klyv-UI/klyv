@@ -12,7 +12,7 @@ import {
   type LightCasterLayer,
   type LightCasterLight,
   type RainGlassHandle,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

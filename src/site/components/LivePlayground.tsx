@@ -1,5 +1,5 @@
 import { Component, createElement, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
-import { Button, CodeBlock, Text } from 'klyv'
+import { Button, CodeBlock, Text } from 'klyvui'
 import { Section } from './Doc'
 import { NumberControl, Playground, SelectControl, TextControl, ToggleControl } from './Playground'
 import { cachedProps, type GeneratedProp } from '../data/props'

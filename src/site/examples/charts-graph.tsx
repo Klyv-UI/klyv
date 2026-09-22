@@ -24,7 +24,7 @@ import {
   type StreamGraphOffset,
   type SunburstChartNode,
   type TranscriptViewLine,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

@@ -14,7 +14,7 @@ import {
   Tag,
   Text,
   cn,
-} from 'klyv'
+} from 'klyvui'
 import { enter } from './primitives'
 
 /**

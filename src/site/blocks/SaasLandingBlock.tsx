@@ -16,7 +16,7 @@ import {
   StatCard,
   TestimonialCard,
   Wordmark,
-} from 'klyv'
+} from 'klyvui'
 
 /**
  * A SaaS homepage, top to bottom, from library components only.

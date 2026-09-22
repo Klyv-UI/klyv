@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { Surface, Text, cn } from 'klyv'
+import { Surface, Text, cn } from 'klyvui'
 import { itemTypeLabel, type LibraryItem } from '../data/library'
 import { FavoriteButton } from './SaveControls'
 import { NewBadge } from './NewBadge'

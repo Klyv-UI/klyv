@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Surface, Text, resolveToken, tokenGroups, type TokenEntry, type TokenGroup } from 'klyv'
+import { Surface, Text, resolveToken, tokenGroups, type TokenEntry, type TokenGroup } from 'klyvui'
 import { Code, Note, Section } from '../components/Doc'
 import { AccentPicker } from '../components/AccentPicker'
 import { PageIntro } from '../components/PageIntro'

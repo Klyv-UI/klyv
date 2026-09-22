@@ -13,7 +13,7 @@ import {
   Switch,
   Text,
   cn,
-} from 'klyv'
+} from 'klyvui'
 import { LandingSection } from './primitives'
 
 /**

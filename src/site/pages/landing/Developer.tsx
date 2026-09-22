@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Check } from 'lucide-react'
-import { CodeBlock, Metric, Reveal, Surface, Tabs, Text } from 'klyv'
+import { CodeBlock, Metric, Reveal, Surface, Tabs, Text } from 'klyvui'
 import { brand } from '../../brand'
 import { componentCount } from '../../data/catalog'
 import { componentEvidence } from '../../data/evidence'

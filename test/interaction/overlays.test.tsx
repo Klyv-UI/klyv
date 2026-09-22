@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { Lightbox, Modal, type LightboxImage } from 'klyv'
+import { Lightbox, Modal, type LightboxImage } from 'klyvui'
 
 /**
  * What overlays promise, exercised through the keyboard.

@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { ExternalLink } from 'lucide-react'
-import { Surface, Text } from 'klyv'
+import { Surface, Text } from 'klyvui'
 import { findComponentByName } from '../data/catalog'
 
 const chip =

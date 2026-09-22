@@ -14,7 +14,7 @@ import {
   type FieldChange,
   type FieldError,
   type UndoEntry,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

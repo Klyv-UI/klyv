@@ -1,5 +1,5 @@
 import { Gauge, Route, ShieldCheck, Zap } from 'lucide-react'
-import { Badge, Button, Metric, Surface, Text } from 'klyv'
+import { Badge, Button, Metric, Surface, Text } from 'klyvui'
 
 /**
  * A marketing landing section.

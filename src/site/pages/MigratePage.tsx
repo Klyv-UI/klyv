@@ -1,7 +1,7 @@
 import { useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Check, Copy, FileCode2, Upload } from 'lucide-react'
-import { Badge, Button, CodeBlock, SegmentedControl, Tag, Text, Textarea, VisuallyHidden, cn } from 'klyv'
+import { Badge, Button, CodeBlock, SegmentedControl, Tag, Text, Textarea, VisuallyHidden, cn } from 'klyvui'
 import { PageIntro } from '../components/PageIntro'
 import { Note, Section } from '../components/Doc'
 import { SOURCES, detectSource, migrate, type MigrateNote, type MigrateSource } from '../lib/migrate'

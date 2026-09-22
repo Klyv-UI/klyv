@@ -13,7 +13,7 @@ import {
   Text,
   type CropRect,
   type PanZoomView,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

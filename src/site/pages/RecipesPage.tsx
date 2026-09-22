@@ -1,4 +1,4 @@
-import { Text } from 'klyv'
+import { Text } from 'klyvui'
 import { ItemCard } from '../components/ItemCard'
 import { PageIntro } from '../components/PageIntro'
 import { findItem } from '../data/library'

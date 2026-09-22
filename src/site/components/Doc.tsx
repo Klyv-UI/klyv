@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Surface, Text, cn } from 'klyv'
+import { Button, Surface, Text, cn } from 'klyvui'
 import { catalog, findComponentByName, isNewComponent, isShowpiece, type CatalogEntry } from '../data/catalog'
 import { isComposable } from '../composer/registry'
 import { HealthSummary } from './Health'

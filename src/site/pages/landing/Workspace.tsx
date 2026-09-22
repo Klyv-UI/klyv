@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { FolderOpen, Heart, WandSparkles } from 'lucide-react'
-import { Button, JsonViewer, Reveal, Surface, Tag, Text } from 'klyv'
+import { Button, JsonViewer, Reveal, Surface, Tag, Text } from 'klyvui'
 import { useSaved } from '../../lib/saved'
 import { LandingSection } from './primitives'
 

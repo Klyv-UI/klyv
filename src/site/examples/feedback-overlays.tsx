@@ -22,7 +22,7 @@ import {
   type ChecklistPopoverItem,
   type FloatingPanelPosition,
   type LinkPreviewData,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 

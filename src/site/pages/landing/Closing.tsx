@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { Button, Reveal, Surface, Text } from 'klyv'
+import { Button, Reveal, Surface, Text } from 'klyvui'
 import { blockCount } from '../../data/blocks'
 import { componentCountRounded } from '../../data/catalog'
 import { InstallCommand } from './primitives'
