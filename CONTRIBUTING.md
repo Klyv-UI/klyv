@@ -29,20 +29,39 @@ starts the docs site on Vite.
 - `scripts/` — generators and the rule checks.
 - `test/`, `e2e/` — vitest suites and Playwright browser checks.
 
-See the **Project layout** section of the README for more.
+Component folders are flat and named after the component, not filed under the
+browsing groups. The groups live in `src/site/data/catalog.ts` and can change
+without moving a file. Internal imports are relative, which is what lets
+`klyv add` copy a component into another project unchanged.
 
 ## House rules
 
-Every component follows these (the README explains each):
+Every component follows these:
 
-1. No new tokens — colour, radius, shadow and type come from the token files.
-2. Reduced motion is a real state, not the animation with the movement deleted.
-3. Every gesture has a keyboard path and the matching ARIA pattern.
-4. No React render per animation frame.
-5. Decoration is `aria-hidden`.
+1. **No new tokens.** Colour, radius, shadow and type come from the token files.
+   A component that needs a new value is a component that breaks the system.
+2. **Reduced motion is a real state**, not the animation with the movement
+   deleted. The still frame still has to say what the component means.
+3. **Every gesture has a key.** Swipe, drag, hold and pinch each have a keyboard
+   path beside them, and the ARIA pattern that makes them announceable.
+4. **No React render per animation frame.** Animation writes to CSS custom
+   properties or node styles inside one `requestAnimationFrame`.
+5. **Decoration is `aria-hidden`.** Anything that carries no meaning is hidden
+   from assistive technology rather than described to it.
 
-`npm run rules` enforces the checkable ones: reduced motion, no hard-coded
-colour, no hard-coded radius.
+`npm run rules` enforces the checkable ones, and `npm run generate` runs it:
+
+- **Reduced motion:** anything that animates must opt out under the preference.
+  Motion that is the point of the component (a spinner) is exempt by name, with
+  a reason.
+- **No hard-coded colour:** every hex literal outside an explicit allowlist fails.
+  The allowlist is for colour that is physical, not thematic: a piano's keys, a
+  terminal's traffic lights.
+- **No hard-coded radius:** use the token of the same size, such as
+  `rounded-[var(--radius-10)]`, never `rounded-[10px]`.
+
+Every module that can't run on the server carries `'use client'`, and every
+module that can doesn't. `npm run directives` fixes them to match the code.
 
 ## Before you open a pull request
 
