@@ -52,7 +52,7 @@ jobs:
         id: generated
         run: |
           npm run generate
-          git diff --exit-code -- data src/site/data \
+          git diff --exit-code -- data src/site/data public \
             || { echo '::error::data/ is stale — run `npm run generate` and commit the result'; exit 1; }
 
       - name: Summary
