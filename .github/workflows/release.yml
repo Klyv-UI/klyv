@@ -1,0 +1,78 @@
+# Publishes klyvui to npm when a GitHub release is published.
+#
+# Authentication is npm's trusted publishing (OIDC): no token is stored here.
+# Configure it once at npmjs.com/package/klyvui/access → Trusted publisher,
+# naming this repository and `release.yml`. Publishes made this way carry
+# provenance, so npm shows the commit and the run the package was built from.
+#
+# Releasing:
+#   1. npm version patch | minor | major   (commits and tags on a branch)
+#   2. open a pull request, merge it once CI is green
+#   3. create a GitHub release on that tag — this workflow does the rest
+name: Release
+
+on:
+  release:
+    types: [published]
+  # A dry run: builds and packs, publishes nothing.
+  workflow_dispatch:
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # trusted publishing and provenance
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          registry-url: https://registry.npmjs.org
+      - run: npm ci
+
+      # A release tag that disagrees with package.json publishes a version
+      # nobody asked for, and a version can never be republished.
+      - name: Tag matches package.json
+        if: github.event_name == 'release'
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          pkg="$(node -p "require('./package.json').version")"
+          echo "tag $tag, package.json $pkg"
+          [ "$tag" = "$pkg" ] || { echo "::error::tag $tag does not match package.json $pkg"; exit 1; }
+
+      - name: Types
+        id: lint
+        run: npm run lint
+
+      - name: Tests
+        id: tests
+        run: npm test
+
+      # Builds the package first, through prepack.
+      - name: Publish
+        id: publish
+        if: github.event_name == 'release'
+        run: npm publish
+
+      - name: Pack only (dry run)
+        id: pack
+        if: github.event_name != 'release'
+        run: npm pack --dry-run
+
+      - name: Summary
+        if: always()
+        run: node scripts/ci-summary.mjs release
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          OUTCOMES: |
+            Types=${{ steps.lint.outcome }}
+            Tests=${{ steps.tests.outcome }}
+            Publish=${{ steps.publish.outcome }}
+            Pack only (dry run)=${{ steps.pack.outcome }}
