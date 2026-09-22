@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { CodeBlock, CopyButton, Text } from 'klyv'
+import { CodeBlock, CopyButton, Text } from 'klyvui'
 import { ComponentLinks } from '../components/Links'
 import { generate } from './codegen'
 import type { ComposerDoc } from './model'

@@ -28,7 +28,7 @@ import {
   Tag,
   Text,
   Textarea,
-} from 'klyv'
+} from 'klyvui'
 
 /**
  * Three screens built only from the library, so every theme setting has

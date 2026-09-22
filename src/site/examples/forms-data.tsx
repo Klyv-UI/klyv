@@ -23,7 +23,7 @@ import {
   type SearchableCheckboxListItem,
   type TimeRangePickerValue,
   type WeekViewEvent,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 

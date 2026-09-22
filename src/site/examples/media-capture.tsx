@@ -28,7 +28,7 @@ import {
   type CaptionEditorCue,
   type PitchTunerReading,
   type VoiceRecorderResult,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

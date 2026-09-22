@@ -13,7 +13,7 @@ import {
   Tabs,
   Text,
   Textarea,
-} from 'klyv'
+} from 'klyvui'
 
 /**
  * A settings screen.

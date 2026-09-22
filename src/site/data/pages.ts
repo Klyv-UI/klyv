@@ -20,7 +20,7 @@ import {
   Sparkles,
   WandSparkles,
 } from 'lucide-react'
-import type { IconComponent } from 'klyv'
+import type { IconComponent } from 'klyvui'
 
 /**
  * The site's own map: every top-level page, grouped by what someone came to

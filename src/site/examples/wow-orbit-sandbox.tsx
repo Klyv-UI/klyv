@@ -8,7 +8,7 @@ import {
   Text,
   type OrbitCollisionMode,
   type OrbitSandboxHandle,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

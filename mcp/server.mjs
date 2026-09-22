@@ -80,8 +80,8 @@ function describe(name) {
     group: entry.group,
     section: entry.section,
     summary: entry.blurb,
-    import: `import { ${name} } from 'klyv'`,
-    cli: entry.slug ? `npx klyv add ${entry.slug}` : undefined,
+    import: `import { ${name} } from 'klyvui'`,
+    cli: entry.slug ? `npx klyvui add ${entry.slug}` : undefined,
     props: props[name]?.props ?? [],
     inherits: props[name]?.inherits ?? [],
     ariaRoles: aria[name] ?? [],
@@ -173,28 +173,28 @@ dark variant or a \`dark:\` class. Set it with \`applyMode('dark' | 'light' |
 'system')\`.
 
 ## Two ways to take a component
-Install the package and import, or run \`npx klyv add <slug>\` to copy the
+Install the package and import, or run \`npx klyvui add <slug>\` to copy the
 source — the folders are flat and the imports relative, so the copy compiles
 with no rewriting.`
 
 const USAGE = `# Using Klyv
 
 \`\`\`bash
-npm install klyv
+npm install klyvui
 \`\`\`
 
 \`\`\`tsx
-import { Button, DataTable, applyAccent } from 'klyv'
-import 'klyv/styles.css'
+import { Button, DataTable, applyAccent } from 'klyvui'
+import 'klyvui/styles.css'
 \`\`\`
 
 Theme it with \`applyTheme({ accent: '#8b5cf6', base: 'slate', radius: 'lg' })\`,
 or paste the output of \`themeToCss(theme)\` into a stylesheet to theme it with
 no runtime. \`<ThemeScope theme={...}>\` themes one section.
 
-\`klyv/styles.css\` is prebuilt (~14.7 KB gzipped) and contains the tokens,
+\`klyvui/styles.css\` is prebuilt (~14.7 KB gzipped) and contains the tokens,
 the base layer and exactly the utilities the library uses — Tailwind is not
-required. If you already run Tailwind, import \`klyv/preset.css\` instead so
+required. If you already run Tailwind, import \`klyvui/preset.css\` instead so
 those utilities land in your build rather than shipping twice.
 
 ESM only, one module per component with \`sideEffects\` declared, so bundlers
@@ -207,7 +207,7 @@ Icons are a structural type, not an import: any component taking \`size\`,
 Server components: modules that can run on a server boundary do, and the rest
 carry \`'use client'\`. Nothing to configure.
 
-Whole screens are blocks: \`npx klyv add block dashboard\` copies one into
+Whole screens are blocks: \`npx klyvui add block dashboard\` copies one into
 \`src/blocks\`, and the \`list_blocks\` and \`get_block\` tools return them with
 their full source.`
 
@@ -255,7 +255,7 @@ export const TOOLS = [
   {
     name: 'get_component_source',
     description:
-      'The real source of a component. With withDependencies, also returns every sibling component and shared module it imports, in the order they should be written — which is exactly what `klyv add` copies.',
+      'The real source of a component. With withDependencies, also returns every sibling component and shared module it imports, in the order they should be written — which is exactly what `klyvui add` copies.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -302,7 +302,7 @@ export const TOOLS = [
         category: block.category,
         summary: block.blurb,
         builtFrom: block.components.length,
-        cli: `npx klyv add block ${block.slug}`,
+        cli: `npx klyvui add block ${block.slug}`,
       })),
   },
   {
@@ -325,7 +325,7 @@ export const TOOLS = [
         summary: block.blurb,
         components: block.components,
         packages: block.packages,
-        cli: `npx klyv add block ${block.slug}`,
+        cli: `npx klyvui add block ${block.slug}`,
         note: 'Imports come from the klyv package. If you copied components with `klyv add` instead of installing it, point the imports at those copies — the names are the same.',
         file: block.file,
         source: existsSync(path) ? readFileSync(path, 'utf8') : null,

@@ -10,7 +10,7 @@ import {
   TimePicker,
   toISODate,
   type DateRange,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 
 const today = toISODate(new Date())

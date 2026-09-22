@@ -11,7 +11,7 @@ import {
   type KeyboardEvent,
   type ReactNode,
 } from 'react'
-import { Text, cn } from 'klyv'
+import { Text, cn } from 'klyvui'
 import { findBlock } from '../data/blocks'
 import { blockComponent } from '../lib/blocks'
 import { createNode, definitions, nodeLabel } from './definitions'

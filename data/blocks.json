@@ -34,7 +34,7 @@
         "Text"
       ],
       "packages": [
-        "klyv",
+        "klyvui",
         "lucide-react",
         "react"
       ]
@@ -73,7 +73,7 @@
         "Text"
       ],
       "packages": [
-        "klyv",
+        "klyvui",
         "lucide-react",
         "react"
       ]
@@ -108,7 +108,7 @@
         "Text"
       ],
       "packages": [
-        "klyv",
+        "klyvui",
         "lucide-react",
         "react"
       ]
@@ -163,7 +163,7 @@
         "Toast"
       ],
       "packages": [
-        "klyv",
+        "klyvui",
         "lucide-react",
         "react"
       ]
@@ -212,7 +212,7 @@
         "Timeline"
       ],
       "packages": [
-        "klyv",
+        "klyvui",
         "lucide-react",
         "react"
       ]
@@ -256,7 +256,7 @@
         "Textarea"
       ],
       "packages": [
-        "klyv",
+        "klyvui",
         "lucide-react",
         "react"
       ]
@@ -296,7 +296,7 @@
         "Timeline"
       ],
       "packages": [
-        "klyv",
+        "klyvui",
         "lucide-react"
       ]
     },
@@ -327,7 +327,7 @@
         "Text"
       ],
       "packages": [
-        "klyv",
+        "klyvui",
         "lucide-react"
       ]
     },
@@ -378,7 +378,7 @@
         "Wordmark"
       ],
       "packages": [
-        "klyv",
+        "klyvui",
         "lucide-react"
       ]
     },
@@ -427,7 +427,7 @@
         "WorkspaceSwitcher"
       ],
       "packages": [
-        "klyv",
+        "klyvui",
         "lucide-react",
         "react"
       ]
@@ -483,7 +483,7 @@
         "WebhookEndpoints"
       ],
       "packages": [
-        "klyv",
+        "klyvui",
         "react"
       ]
     }

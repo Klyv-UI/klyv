@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FolderPlus, Heart } from 'lucide-react'
-import { Button, Checkbox, IconButton, Input, Popover, Text, cn, type IconComponent } from 'klyv'
+import { Button, Checkbox, IconButton, Input, Popover, Text, cn, type IconComponent } from 'klyvui'
 import { saved, useIsFavorite, useSaved } from '../lib/saved'
 
 /** Lucide's heart, filled — so "saved" is a shape change, not only a colour. */

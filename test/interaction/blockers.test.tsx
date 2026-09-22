@@ -12,7 +12,7 @@ import {
   TreeView,
   applyAccent,
   cn,
-} from 'klyv'
+} from 'klyvui'
 import { chartScale, formatTick } from '../../src/lib/chart'
 
 /**

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { Badge, Button, CodeBlock, Surface, Text } from 'klyv'
+import { Badge, Button, CodeBlock, Surface, Text } from 'klyvui'
 import { Code, Note, Preview, Section, Specimen, Step } from '../components/Doc'
 import { PageIntro } from '../components/PageIntro'
 import { brand } from '../brand'

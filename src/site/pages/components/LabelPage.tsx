@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Checkbox, Input, Label, Surface, Text } from 'klyv'
+import { Checkbox, Input, Label, Surface, Text } from 'klyvui'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, TextControl, ToggleControl } from '../../components/Playground'
 

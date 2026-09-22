@@ -22,7 +22,7 @@ import {
   Surface,
   TagInput,
   Text,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 
 const CURRENCIES = [

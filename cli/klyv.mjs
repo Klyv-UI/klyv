@@ -411,7 +411,7 @@ function listBlocks(args) {
 
 function help() {
   console.log(`
-${bold('klyv')} — copy components into your project, with what they need.
+${bold('klyvui')} — copy components into your project, with what they need.
 
   ${cyan('klyv add')} <name...> ${dim('[--dest src] [--dry] [--force]')}
       Copy a component and every file it imports. Names are flexible:
@@ -454,7 +454,7 @@ switch (command) {
     listBlocks(rest)
     break
   case 'mcp':
-    // Lets `npx -y klyv mcp` start the server without a second package.
+    // Lets `npx -y klyvui mcp` start the server without a second package.
     ;(await import('../mcp/server.mjs')).listen()
     break
   case undefined:

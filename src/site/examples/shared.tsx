@@ -1,4 +1,4 @@
-import { Badge, Surface, Text } from 'klyv'
+import { Badge, Surface, Text } from 'klyvui'
 import type { ExampleSection } from './types'
 
 /**

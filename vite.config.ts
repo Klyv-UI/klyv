@@ -11,7 +11,7 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
       // The docs site imports the library by its package name, exactly as a
       // consumer would - so every snippet on the site is copy-pasteable.
-      klyv: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
+      klyvui: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
     },
   },
   // The package owns dist/; the site builds beside it.

@@ -6,7 +6,7 @@ import {
   Text,
   TextReveal,
   Typewriter,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

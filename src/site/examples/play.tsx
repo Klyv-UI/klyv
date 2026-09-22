@@ -10,7 +10,7 @@ import {
   XPBar,
   type AchievementTier,
   type PollOption,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

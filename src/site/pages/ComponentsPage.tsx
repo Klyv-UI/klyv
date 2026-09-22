@@ -1,7 +1,7 @@
 import { useMemo, useState, type ReactNode } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { LayoutGrid, List, Map as MapIcon, Sparkles, X } from 'lucide-react'
-import { Button, SearchField, Surface, Text, cn } from 'klyv'
+import { Button, SearchField, Surface, Text, cn } from 'klyvui'
 import { PageIntro } from '../components/PageIntro'
 import { NEW_COMPONENTS, SHOWPIECE_COMPONENTS, catalog, componentCount, isNewComponent, isShowpiece, type CatalogEntry } from '../data/catalog'
 import { NewBadge } from '../components/NewBadge'

@@ -19,7 +19,7 @@ import {
   sniffDelimiter,
   type CsvImportColumn,
   type DataTableColumn,
-} from 'klyv'
+} from 'klyvui'
 import { LandingSection } from './primitives'
 
 /**
@@ -438,7 +438,7 @@ function snippet(
   const series = grouped.series
     .map((entry) => `  { id: '${entry.id}', label: '${entry.label}', values: [${entry.values.slice(0, cut).join(', ')}${more > 0 ? ', /* … */' : ''}] },`)
     .join('\n')
-  return `import { ${name} } from 'klyv'
+  return `import { ${name} } from 'klyvui'
 
 const categories = [${categories.map((value) => `'${value}'`).join(', ')}${more > 0 ? `, /* … ${more} more */` : ''}]
 

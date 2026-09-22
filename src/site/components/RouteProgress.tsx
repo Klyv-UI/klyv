@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigation } from 'react-router-dom'
-import { cn } from 'klyv'
+import { cn } from 'klyvui'
 
 type Phase = 'idle' | 'loading' | 'done'
 

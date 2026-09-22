@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Text, contrastRatio, deriveAccent, cn } from 'klyv'
+import { Text, contrastRatio, deriveAccent, cn } from 'klyvui'
 
 /**
  * What the chosen accent does to legibility, as numbers.

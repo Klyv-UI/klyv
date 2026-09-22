@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Tag, Text, type TagTone } from 'klyv'
+import { Tag, Text, type TagTone } from 'klyvui'
 import { CHANGE_CATEGORIES, releaseLabel, type Change, type ChangeCategory, type Release } from '../data/changelog'
 import { DocLink } from './Links'
 

@@ -22,7 +22,7 @@ import {
   Text,
   cn,
   type FuzzyFinderItem,
-} from 'klyv'
+} from 'klyvui'
 import { PageIntro } from '../components/PageIntro'
 import { Note, Section } from '../components/Doc'
 import { loadExamples } from '../examples'

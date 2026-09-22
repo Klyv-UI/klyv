@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { afterEach, describe, expect, it } from 'vitest'
 import { cleanup, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { SegmentedControl, Tabs, ToggleGroup } from 'klyv'
+import { SegmentedControl, Tabs, ToggleGroup } from 'klyvui'
 
 afterEach(cleanup)
 

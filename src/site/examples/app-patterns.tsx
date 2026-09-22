@@ -37,7 +37,7 @@ import {
   type NotificationEntry,
   type SpotlightMetric,
   type ViewStatus,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 
 /* ------------------------------------------------------------------ data */

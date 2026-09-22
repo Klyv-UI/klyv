@@ -55,7 +55,7 @@ export const mcpTools: McpTool[] = [
   },
   {
     "name": "get_component_source",
-    "description": "The real source of a component. With withDependencies, also returns every sibling component and shared module it imports, in the order they should be written — which is exactly what `klyv add` copies.",
+    "description": "The real source of a component. With withDependencies, also returns every sibling component and shared module it imports, in the order they should be written — which is exactly what `klyvui add` copies.",
     "args": [
       {
         "name": "name",

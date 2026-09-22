@@ -1,7 +1,7 @@
 import { Component, useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Crosshair, Maximize2, Minus, Plus, Search } from 'lucide-react'
-import { Badge, Input, SegmentedControl, Text, VisuallyHidden, cn } from 'klyv'
+import { Badge, Input, SegmentedControl, Text, VisuallyHidden, cn } from 'klyvui'
 import { loadExamples } from '../examples'
 import { componentCount, isNewComponent, isShowpiece } from '../data/catalog'
 import { TILE, atlas, tilesIn } from '../lib/atlas'

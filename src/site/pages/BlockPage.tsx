@@ -1,7 +1,7 @@
 import { Suspense, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ScanSearch } from 'lucide-react'
-import { Badge, Button, CodeBlock, Skeleton, Surface, Text } from 'klyv'
+import { Badge, Button, CodeBlock, Skeleton, Surface, Text } from 'klyvui'
 import { Preview, Section } from '../components/Doc'
 import { PageIntro } from '../components/PageIntro'
 import { SaveControls } from '../components/SaveControls'

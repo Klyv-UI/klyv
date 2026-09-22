@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Bell } from 'lucide-react'
-import { IconButton, StatusDot, Text, type StatusDotSize, type StatusDotTone } from 'klyv'
+import { IconButton, StatusDot, Text, type StatusDotSize, type StatusDotTone } from 'klyvui'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, SelectControl, ToggleControl } from '../../components/Playground'
 

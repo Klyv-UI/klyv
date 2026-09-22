@@ -1,5 +1,5 @@
 import { Link, useSearchParams } from 'react-router-dom'
-import { IntegrationCard, Surface, Text } from 'klyv'
+import { IntegrationCard, Surface, Text } from 'klyvui'
 import { Count, FilterChip } from '../components/FilterChip'
 import { PageIntro } from '../components/PageIntro'
 import {

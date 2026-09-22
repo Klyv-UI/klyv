@@ -9,7 +9,7 @@ import {
   SegmentedControl,
   Surface,
   Text,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct']

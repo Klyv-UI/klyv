@@ -32,7 +32,7 @@ import {
   Tag,
   Text,
   type RadialMenuDirection,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

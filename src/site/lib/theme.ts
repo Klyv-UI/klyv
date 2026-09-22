@@ -11,7 +11,7 @@ import {
   serializeTheme,
   applyTheme,
   type ThemeConfig,
-} from 'klyv'
+} from 'klyvui'
 
 /**
  * The site's side of the theme engine: one way to change the theme, and the

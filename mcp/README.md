@@ -15,7 +15,7 @@ The server ships with the package, so no separate install is needed.
 **Claude Code** — from a project that depends on `klyv`:
 
 ```bash
-claude mcp add klyv -- npx -y klyv mcp
+claude mcp add klyv -- npx -y klyvui mcp
 ```
 
 **Anything that reads `mcp.json`** (Claude Desktop, Cursor, Windsurf, VS Code):

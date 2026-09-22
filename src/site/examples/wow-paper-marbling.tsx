@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { Button, PaperMarbling, Text, type PaperMarblingHandle, type PaperMarblingPattern, type PaperMarblingStatus } from 'klyv'
+import { Button, PaperMarbling, Text, type PaperMarblingHandle, type PaperMarblingPattern, type PaperMarblingStatus } from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

@@ -35,7 +35,7 @@ import {
   type RadiusId,
   type StyleId,
   type ThemeConfig,
-} from 'klyv'
+} from 'klyvui'
 import { Code } from '../components/Doc'
 import { PageIntro } from '../components/PageIntro'
 import { ThemeToggle } from '../components/ThemeToggle'

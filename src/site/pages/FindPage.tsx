@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { Compass } from 'lucide-react'
-import { Button, Checkbox, EmptyState, Radio, Stepper, Surface, Tag, Text, cn } from 'klyv'
+import { Button, Checkbox, EmptyState, Radio, Stepper, Surface, Tag, Text, cn } from 'klyvui'
 import { ItemCard } from '../components/ItemCard'
 import { PageIntro } from '../components/PageIntro'
 import { ITEM_TYPES } from '../data/library'

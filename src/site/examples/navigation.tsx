@@ -11,7 +11,7 @@ import {
   TabBar,
   Tabs,
   Text,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 
 function TabsExample() {

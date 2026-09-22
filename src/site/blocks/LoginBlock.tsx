@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Lock, Mail } from 'lucide-react'
-import { Alert, Button, Checkbox, Field, Input, Label, PasswordInput, Surface, Text } from 'klyv'
+import { Alert, Button, Checkbox, Field, Input, Label, PasswordInput, Surface, Text } from 'klyvui'
 
 /**
  * A sign-in screen.

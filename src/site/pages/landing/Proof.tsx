@@ -1,4 +1,4 @@
-import { Text } from 'klyv'
+import { Text } from 'klyvui'
 import { blockCount } from '../../data/blocks'
 import { componentCount } from '../../data/catalog'
 import { integrations } from '../../data/integrations'

@@ -9,7 +9,7 @@ import {
   type IronFilingsHandle,
   type IronFilingsMagnet,
   type IronFilingsTone,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

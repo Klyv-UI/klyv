@@ -19,7 +19,7 @@ import {
   Surface,
   Tag,
   Text,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 
 /** A miniature of the app window, so shell demos have somewhere to live. */

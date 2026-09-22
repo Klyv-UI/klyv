@@ -36,7 +36,7 @@ import {
   type BaseFamily,
   type BaseTokens,
   type ThemeConfig,
-} from 'klyv'
+} from 'klyvui'
 
 /**
  * The theme engine: the contrast it promises for every base colour it can

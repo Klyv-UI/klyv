@@ -27,7 +27,7 @@ import {
   useRegisteredHotkeys,
   type KeyboardShortcutsDialogGroup,
   type ScrollSyncMode,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 

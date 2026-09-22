@@ -1,5 +1,5 @@
 import { Bot, Keyboard, Package, Palette } from 'lucide-react'
-import { Reveal, Surface, Text, cn, deriveAccent } from 'klyv'
+import { Reveal, Surface, Text, cn, deriveAccent } from 'klyvui'
 import { useAccent } from '../../components/useTheme'
 import { componentEvidence } from '../../data/evidence'
 import { mcpTools } from '../../data/mcp'

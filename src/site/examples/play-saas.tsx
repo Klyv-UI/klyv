@@ -19,7 +19,7 @@ import {
   type RoadmapBoardItem,
   type SpinWheelSegment,
   type UsagePricingCalculatorDimension,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 

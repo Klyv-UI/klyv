@@ -16,7 +16,7 @@ import {
   Text,
   ToastProvider,
   useToast,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 
 function ModalExample() {

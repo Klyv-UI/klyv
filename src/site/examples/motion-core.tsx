@@ -14,7 +14,7 @@ import {
   Surface,
   Text,
   Ticker,
-} from 'klyv'
+} from 'klyvui'
 import { Gamepad2, Music, Zap } from 'lucide-react'
 import type { ExampleModule } from './types'
 

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Meter, Progress, Surface, Text } from 'klyv'
+import { Meter, Progress, Surface, Text } from 'klyvui'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { NumberControl, Playground, SelectControl, ToggleControl } from '../../components/Playground'
 

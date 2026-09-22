@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Check, Copy, ExternalLink, ScanSearch } from 'lucide-react'
-import { Kbd, Text, VisuallyHidden, cn } from 'klyv'
+import { Kbd, Text, VisuallyHidden, cn } from 'klyvui'
 import { brand } from '../brand'
 import { catalog, findComponentByName } from '../data/catalog'
 import { chainAt, type XrayChain } from '../lib/xray'

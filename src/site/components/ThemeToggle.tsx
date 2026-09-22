@@ -1,5 +1,5 @@
 import { Monitor, Moon, Sun } from 'lucide-react'
-import { SegmentedControl, applyMode, cn, saveMode, type ThemeMode } from 'klyv'
+import { SegmentedControl, applyMode, cn, saveMode, type ThemeMode } from 'klyvui'
 import { useMode } from './useTheme'
 
 const OPTIONS: { value: ThemeMode; label: string; icon: typeof Sun }[] = [

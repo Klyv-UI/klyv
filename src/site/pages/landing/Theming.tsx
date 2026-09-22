@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { ACCENT_PRESETS, Button, CodeBlock, Reveal, Surface, Text, deriveAccent, systemMode } from 'klyv'
+import { ACCENT_PRESETS, Button, CodeBlock, Reveal, Surface, Text, deriveAccent, systemMode } from 'klyvui'
 import { chooseAccent } from '../../lib/theme'
 import { ContrastReadout } from '../../components/ContrastReadout'
 import { useAccent, useMode } from '../../components/useTheme'

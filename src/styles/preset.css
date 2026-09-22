@@ -1,6 +1,6 @@
 /* For consumers who already run Tailwind.
  *
- * Import this instead of `klyv/styles.css`: it adds the tokens, the base
+ * Import this instead of `klyvui/styles.css`: it adds the tokens, the base
  * layer and the library's keyframes, and points Tailwind's scanner at the
  * package so the utilities the components use end up in *your* build rather
  * than being shipped twice.

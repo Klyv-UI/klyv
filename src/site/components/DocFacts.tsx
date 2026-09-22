@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Surface, Text } from 'klyv'
+import { Surface, Text } from 'klyvui'
 import { sizeOf } from '../data/sizes'
 import { dependenciesOf } from '../data/dependencies'
 import { ariaRoles } from '../data/aria'

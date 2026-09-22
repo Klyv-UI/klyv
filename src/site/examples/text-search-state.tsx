@@ -37,7 +37,7 @@ import {
   type MessageFormatNode,
   type QueryBarParseResult,
   type QueryBarSchema,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 

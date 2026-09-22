@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Surface, Tag, Text } from 'klyv'
+import { Surface, Tag, Text } from 'klyvui'
 import { ChangeItem, formatReleaseDate } from '../components/Changes'
 import { Section } from '../components/Doc'
 import { Missing } from '../components/Links'

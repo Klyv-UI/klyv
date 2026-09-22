@@ -1,5 +1,5 @@
 import { useRef, type KeyboardEvent, type ReactNode } from 'react'
-import { cn } from 'klyv'
+import { cn } from 'klyvui'
 
 export interface Option<T extends string> {
   value: T

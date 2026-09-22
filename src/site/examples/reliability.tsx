@@ -10,7 +10,7 @@ import {
   Text,
   type QueuedChange,
   type SaveState,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

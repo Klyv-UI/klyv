@@ -22,7 +22,7 @@ import {
   type ResizableBoxSize,
   type TreeTableColumn,
   type TreeTableRow,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 
@@ -279,16 +279,16 @@ function LeaderboardExample() {
 /* --------------------------------------------------------------- code tabs */
 
 const INSTALL = [
-  { value: 'npm', label: 'npm', code: 'npm install klyv' },
-  { value: 'pnpm', label: 'pnpm', code: 'pnpm add klyv' },
-  { value: 'yarn', label: 'yarn', code: 'yarn add klyv' },
-  { value: 'bun', label: 'bun', code: 'bun add klyv' },
+  { value: 'npm', label: 'npm', code: 'npm install klyvui' },
+  { value: 'pnpm', label: 'pnpm', code: 'pnpm add klyvui' },
+  { value: 'yarn', label: 'yarn', code: 'yarn add klyvui' },
+  { value: 'bun', label: 'bun', code: 'bun add klyvui' },
 ]
 
 const RUN = [
-  { value: 'npm', label: 'npm', code: 'npx klyv init\nnpm run dev' },
-  { value: 'pnpm', label: 'pnpm', code: 'pnpm dlx klyv init\npnpm dev' },
-  { value: 'yarn', label: 'yarn', code: 'yarn dlx klyv init\nyarn dev' },
+  { value: 'npm', label: 'npm', code: 'npx klyvui init\nnpm run dev' },
+  { value: 'pnpm', label: 'pnpm', code: 'pnpm dlx klyvui init\npnpm dev' },
+  { value: 'yarn', label: 'yarn', code: 'yarn dlx klyvui init\nyarn dev' },
 ]
 
 const FILES = [
@@ -296,12 +296,12 @@ const FILES = [
     value: 'app',
     label: 'App.tsx',
     highlight: true,
-    code: "import { Button } from 'klyv'\nimport 'klyv/styles.css'\n\nexport function App() {\n  return <Button onClick={() => alert('Hi')}>Say hello</Button>\n}",
+    code: "import { Button } from 'klyvui'\nimport 'klyvui/styles.css'\n\nexport function App() {\n  return <Button onClick={() => alert('Hi')}>Say hello</Button>\n}",
   },
   {
     value: 'css',
     label: 'index.css',
-    code: "@import 'tailwindcss';\n@import 'klyv/preset.css';\n\n:root {\n  --color-accent: oklch(0.9 0.2 125);\n}",
+    code: "@import 'tailwindcss';\n@import 'klyvui/preset.css';\n\n:root {\n  --color-accent: oklch(0.9 0.2 125);\n}",
   },
 ]
 

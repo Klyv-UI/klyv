@@ -16,7 +16,7 @@ import {
   type ChladniPlateShape,
   type ChladniPlateTone,
   type ShatterDismissHandle,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

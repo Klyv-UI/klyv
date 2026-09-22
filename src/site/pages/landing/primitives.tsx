@@ -1,7 +1,7 @@
 import { useState, type CSSProperties, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Check, Copy } from 'lucide-react'
-import { Reveal, Text, VisuallyHidden, cn } from 'klyv'
+import { Reveal, Text, VisuallyHidden, cn } from 'klyvui'
 import { brand } from '../../brand'
 import { Eyebrow } from '../../components/Eyebrow'
 
@@ -128,7 +128,7 @@ export function LandingSection({
   )
 }
 
-/** `$ npm i klyv`, copyable, with the result announced. */
+/** `$ npm i klyvui`, copyable, with the result announced. */
 export function InstallCommand({ className }: { className?: string }) {
   const [copied, setCopied] = useState(false)
   const command = `npm i ${brand.pkg}`

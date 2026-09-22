@@ -1,4 +1,4 @@
-import { tokenGroups } from 'klyv'
+import { tokenGroups } from 'klyvui'
 import { groups } from '../data/groups'
 import { libraryItems, type LibraryItemType } from '../data/library'
 import { releaseLabel, releases } from '../data/changelog'

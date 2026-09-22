@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { Text } from 'klyv'
+import { Text } from 'klyvui'
 import { Eyebrow } from './Eyebrow'
 
 export interface PageStat {

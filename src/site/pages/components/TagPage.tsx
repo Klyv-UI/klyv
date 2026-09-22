@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Badge, Chip, Surface, Tag, Text } from 'klyv'
+import { Badge, Chip, Surface, Tag, Text } from 'klyvui'
 import { DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, SelectControl, TextControl } from '../../components/Playground'
 

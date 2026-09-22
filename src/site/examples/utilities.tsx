@@ -7,7 +7,7 @@ import {
   Portal,
   Surface,
   Text,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 
 function PortalExample() {

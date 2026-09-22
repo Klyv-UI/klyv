@@ -8,7 +8,7 @@ import {
   RelativeTime,
   Text,
   VirtualList,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 
 /* ------------------------------------------------------------- json viewer */

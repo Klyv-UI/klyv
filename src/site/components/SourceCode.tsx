@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { CodeBlock, Surface, Text, cn } from 'klyv'
+import { CodeBlock, Surface, Text, cn } from 'klyvui'
 import { brand } from '../brand'
 import { catalog } from '../data/catalog'
 import { dependenciesOf } from '../data/dependencies'
@@ -14,7 +14,7 @@ import { bundleSource, sourceFilesFor } from '../data/source'
  * at least one sibling, so "copy this" without the dependency set hands someone
  * a paste that does not build. The set comes from a graph generated off the
  * real imports, which is the same graph the CLI resolves — what is listed here
- * is exactly what `klyv add` writes.
+ * is exactly what `klyvui add` writes.
  */
 export function SourceCode({ component }: { component: string }) {
   const files = useMemo(() => sourceFilesFor(component), [component])

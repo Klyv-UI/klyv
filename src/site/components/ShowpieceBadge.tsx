@@ -1,5 +1,5 @@
 import { Sparkles } from 'lucide-react'
-import { cn } from 'klyv'
+import { cn } from 'klyvui'
 
 /**
  * The marker for showpieces. Deliberately unlike NewBadge: ink rather than

@@ -9,7 +9,7 @@ import {
   DescriptionList,
   Surface,
   Text,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 
 function CollapseExample() {

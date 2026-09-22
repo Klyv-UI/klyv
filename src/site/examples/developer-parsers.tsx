@@ -15,7 +15,7 @@ import {
   type AnsiOutputHandle,
   type CsvImportResult,
   type GeoCoordinateInputPoint,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 

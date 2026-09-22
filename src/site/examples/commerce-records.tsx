@@ -16,7 +16,7 @@ import {
   type FileListItem,
   type OrderTrackerStatus,
   type ReviewSummaryStars,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { rationale } from './shared'
 

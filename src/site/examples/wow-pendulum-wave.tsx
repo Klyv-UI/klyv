@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { Button, PendulumWave, SegmentedControl, Slider, Switch, Text, type PendulumWaveHandle } from 'klyv'
+import { Button, PendulumWave, SegmentedControl, Slider, Switch, Text, type PendulumWaveHandle } from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

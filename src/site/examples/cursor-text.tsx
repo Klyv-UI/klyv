@@ -7,7 +7,7 @@ import {
   SegmentedControl,
   Surface,
   Text,
-} from 'klyv'
+} from 'klyvui'
 import type { ExampleModule } from './types'
 import { motionNote, rationale } from './shared'
 

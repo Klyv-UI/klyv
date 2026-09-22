@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Button, CodeBlock, Surface, Text } from 'klyv'
+import { Button, CodeBlock, Surface, Text } from 'klyvui'
 import { Section } from '../components/Doc'
 import { ItemCard } from '../components/ItemCard'
 import { ComponentLinks, Missing } from '../components/Links'

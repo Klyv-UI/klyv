@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { Badge, Button, LazyMount, ReactionDiffusion, Reveal, Text } from 'klyv'
+import { Badge, Button, LazyMount, ReactionDiffusion, Reveal, Text } from 'klyvui'
 import { SHOWPIECE_COMPONENTS } from '../../data/catalog'
 
 /**

@@ -11,7 +11,7 @@ import {
   Text,
   cn,
   type ChatThreadMessage,
-} from 'klyv'
+} from 'klyvui'
 import { blocks } from '../../data/blocks'
 import { componentCount, findComponentByName } from '../../data/catalog'
 import { LandingSection, SectionLink, WindowDots } from './primitives'

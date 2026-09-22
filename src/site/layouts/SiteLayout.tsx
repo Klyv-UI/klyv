@@ -6,7 +6,7 @@ import { ArrowRight, ArrowUp, ChevronRight, Heart, Menu as MenuIcon, Paintbrush,
 import { createStore, sessionStorageAdapter, useStoreValue } from '../lib/store'
 import { AccentMenu } from '../components/AccentMenu'
 import { PlatformLinks } from '../components/PlatformLinks'
-import { Drawer, FitText, IconButton, SearchField, Text, cn } from 'klyv'
+import { Drawer, FitText, IconButton, SearchField, Text, cn } from 'klyvui'
 import { AccentPicker } from '../components/AccentPicker'
 import { SearchTrigger, loadSearchPalette, useSearchPalette } from '../components/SearchTrigger'
 import { ThemeToggle } from '../components/ThemeToggle'

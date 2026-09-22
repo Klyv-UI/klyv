@@ -116,7 +116,7 @@ test('a component resolves by name, by slug and case-insensitively', async () =>
   assert.equal(canonical.name, 'DataTable')
   assert.ok(canonical.props.length > 0, 'has props')
   assert.ok(canonical.props.every((p) => p.name && p.type), 'every prop has a name and a type')
-  assert.match(canonical.import, /import \{ DataTable \} from 'klyv'/)
+  assert.match(canonical.import, /import \{ DataTable \} from 'klyvui'/)
   assert.ok(canonical.size, 'carries its gzipped size')
 
   assert.deepEqual(payload(out.get(2)), canonical, 'slug resolves to the same component')
@@ -194,12 +194,12 @@ test('blocks are listed, found by slug or name, and come with their source', asy
 
   const all = payload(out.get(1))
   assert.ok(all.length >= 8, `expected every block, got ${all.length}`)
-  assert.ok(all.every((block) => block.cli.startsWith('npx klyv add block ')))
+  assert.ok(all.every((block) => block.cli.startsWith('npx klyvui add block ')))
 
   const dashboard = payload(out.get(2))
   assert.equal(dashboard.slug, 'dashboard')
   assert.ok(dashboard.components.includes('AppShell'), 'components are read off the imports')
-  assert.ok(dashboard.packages.includes('klyv'))
+  assert.ok(dashboard.packages.includes('klyvui'))
   assert.match(dashboard.source, /export default function DashboardBlock/, 'the real file comes back')
 
   assert.equal(payload(out.get(3)).slug, 'authentication', 'the display name resolves too')

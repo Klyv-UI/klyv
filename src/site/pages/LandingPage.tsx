@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { AnchorNav } from 'klyv'
+import { AnchorNav } from 'klyvui'
 import { Anatomy } from './landing/Anatomy'
 import { Assistant } from './landing/Assistant'
 import { BrandDrop } from './landing/BrandDrop'

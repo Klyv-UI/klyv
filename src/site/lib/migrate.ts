@@ -436,8 +436,8 @@ function rewriteImports(code: string, source: MigrateSource, used: string[], not
   if (removed > 0) notes.push({ kind: 'import', subject: 'imports', detail: `${removed} import${removed === 1 ? '' : 's'} from the old library removed` })
   if (used.length === 0) return kept.join('\n')
 
-  const line = `import { ${used.slice().sort().join(', ')} } from 'klyv'`
-  notes.push({ kind: 'import', subject: 'imports', detail: `${used.length} component${used.length === 1 ? '' : 's'} imported from klyv` })
+  const line = `import { ${used.slice().sort().join(', ')} } from 'klyvui'`
+  notes.push({ kind: 'import', subject: 'imports', detail: `${used.length} component${used.length === 1 ? '' : 's'} imported from klyvui` })
   const at = firstImport === -1 ? 0 : firstImport
   kept.splice(at, 0, line)
   return kept.join('\n')

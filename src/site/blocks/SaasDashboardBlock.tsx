@@ -16,7 +16,7 @@ import {
   UsageMeter,
   UserMenu,
   WorkspaceSwitcher,
-} from 'klyv'
+} from 'klyvui'
 
 /**
  * The signed-in home of a SaaS product.

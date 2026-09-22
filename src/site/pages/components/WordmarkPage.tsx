@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Layers } from 'lucide-react'
-import { Surface, Text, Wordmark } from 'klyv'
+import { Surface, Text, Wordmark } from 'klyvui'
 import { Code, DocPage, Note, Preview, Section, Specimen } from '../../components/Doc'
 import { Playground, SelectControl, TextControl, ToggleControl } from '../../components/Playground'
 

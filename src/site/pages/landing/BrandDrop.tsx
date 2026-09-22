@@ -13,7 +13,7 @@ import {
   VisuallyHidden,
   cn,
   type PaletteExtractorColor,
-} from 'klyv'
+} from 'klyvui'
 import { chooseAccent } from '../../lib/theme'
 import { useAccent } from '../../components/useTheme'
 import { Eyebrow } from '../../components/Eyebrow'
