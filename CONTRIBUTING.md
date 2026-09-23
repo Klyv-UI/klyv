@@ -129,3 +129,5 @@ ignores it) and run a production build:
 echo "VITE_SENTRY_DSN=<your dsn>" > .env.local
 npm run build && npm run preview
 ```
+
+Found a security problem? Do not open an issue — see [SECURITY.md](SECURITY.md).

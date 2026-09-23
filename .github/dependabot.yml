@@ -1,0 +1,47 @@
+# Dependency updates.
+#
+# Grouped and weekly on purpose. Twenty-five dev dependencies updating one PR
+# at a time is how people learn to ignore Dependabot; one PR a week, with CI
+# gating it, is one someone reads.
+#
+# Security fixes do not wait for this schedule: Dependabot security updates are
+# enabled on the repository and open their own PR when an advisory lands.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 3
+    groups:
+      # Everything that is not a new major, in one pull request.
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
+    ignore:
+      # React and its types are a peer dependency: the version here is what the
+      # docs site and the suites run against, and moving it is a deliberate
+      # decision about what the library supports, not a weekly chore.
+      - dependency-name: react
+      - dependency-name: react-dom
+      - dependency-name: '@types/react'
+      - dependency-name: '@types/react-dom'
+    commit-message:
+      prefix: chore
+      include: scope
+
+  # The workflows pin actions by major version, and a deprecation there fails a
+  # run without warning — the Node 20 removal was already one.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    groups:
+      actions:
+        patterns:
+          - '*'
+    commit-message:
+      prefix: ci
