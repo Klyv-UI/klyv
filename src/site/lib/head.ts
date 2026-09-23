@@ -80,12 +80,34 @@ export function headFor(pathname: string): { title: string; description: string 
   return { title: site, description: brand.pitch }
 }
 
+/**
+ * The path the router had nothing for.
+ *
+ * A single-page app answers an unknown URL with the same 200 the real pages
+ * get — a soft 404, which a search engine indexes as one more copy of the
+ * site. The page that renders for it says so instead.
+ *
+ * It is recorded during that page's render, which React runs before the
+ * layout's effect below, so the layout writes the head knowing about it rather
+ * than overwriting a tag the page had set.
+ */
+let notFound: string | undefined
+
+export function markNotFound(pathname: string) {
+  notFound = pathname
+}
+
 /** Writes the head for a path. Called on every navigation. */
 export function applyHead(pathname: string) {
   const { title, description } = headFor(pathname)
   const url = `${brand.url}${pathname === '/' ? '/' : pathname.replace(/\/$/, '')}`
 
-  document.title = title
+  const missing = notFound === pathname
+  const robots = document.head.querySelector('meta[name="robots"]')
+  if (missing) meta('robots', 'noindex, follow')
+  else robots?.remove()
+
+  document.title = missing ? `Page not found — ${brand.name}` : title
   meta('description', description)
   canonical(url)
   meta('og:title', title, 'property')
