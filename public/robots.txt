@@ -1,0 +1,10 @@
+# https://klyvui.xyz
+User-agent: *
+Allow: /
+
+# Nothing to index: a personal list kept in the browser, and a canvas that
+# renders from a query string.
+Disallow: /saved
+Disallow: /composer
+
+Sitemap: https://klyvui.xyz/sitemap.xml

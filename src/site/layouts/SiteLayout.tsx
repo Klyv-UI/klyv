@@ -17,6 +17,7 @@ import { NewBadge } from '../components/NewBadge'
 import { ShowpieceBadge } from '../components/ShowpieceBadge'
 import { groups } from '../data/groups'
 import { SITE_PAGES, SITE_SECTIONS, type SitePage } from '../data/pages'
+import { applyHead } from '../lib/head'
 import { rememberVisit } from '../lib/history'
 import { useSavedCount } from '../lib/saved'
 
@@ -64,6 +65,9 @@ export function SiteLayout() {
   useEffect(() => {
     setNavOpen(false)
     rememberVisit(pathname)
+    // The tab, the link preview and the canonical URL, which a single-page app
+    // otherwise keeps from the document it was served.
+    applyHead(pathname)
   }, [pathname])
 
   const openNav = useCallback(() => setNavOpen(true), [])

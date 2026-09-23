@@ -1,0 +1,51 @@
+# Klyv
+
+> An accent-led React component library: 614 accessible React
+> components and 11 finished screens, published on npm as `klyvui`.
+> Every component takes its colour from four CSS custom properties derived from
+> one accent, so changing one colour restyles the whole set without a rebuild.
+
+Install with `npm install klyvui`, then `import { Button } from 'klyvui'` and
+`import 'klyvui/styles.css'`. The stylesheet is prebuilt: Tailwind is optional.
+The only runtime dependencies are clsx and tailwind-merge; React 18.3 or 19 is a
+peer dependency. Components can also be copied into a project with
+`npx klyvui add <component>`, which brings everything that component imports.
+
+## Docs
+
+- [Getting started](https://klyvui.xyz/getting-started): install, the stylesheet, the theme API
+- [Components](https://klyvui.xyz/components): all 614, searchable by name or by job
+- [Blocks](https://klyvui.xyz/blocks): 11 finished screens assembled from the library
+- [Templates](https://klyvui.xyz/templates) and [Recipes](https://klyvui.xyz/recipes): products, and step-by-step guides
+- [Tokens](https://klyvui.xyz/tokens) and [Themes](https://klyvui.xyz/themes): every token, and the theme builder
+- [Foundations](https://klyvui.xyz/foundations): the rules the tokens follow
+- [Integrations](https://klyvui.xyz/integrations): React, Next.js, Vite, Tailwind, MCP and more
+- [Agents](https://klyvui.xyz/agents): the MCP server and the Agent Skill
+
+## Groups
+
+- Actions (23): AddToCalendar, Button, ButtonGroup, CopyButton, DictationButton, DownloadButton, FollowButton, HoldToConfirm, …
+- Canvas & Play (50): AsciiImage, AudioTrimmer, AudioVisualizer, BoidsFlock, BpmDetector, ChessBoard, ChladniPlate, ClothPanel, …
+- Charts (57): ActivityHeatmap, AreaChart, BarChart, BarList, BeeswarmChart, BoxPlot, BulletChart, CandlestickChart, …
+- Data Display (75): ActivityFeed, AgendaList, AnsiOutput, AudioPlayer, AuditTrail, Avatar, AvatarGroup, Badge, …
+- Feedback (37): AccessDeniedState, AchievementPop, Alert, Banner, Confetti, ConnectionBanner, Countdown, EmptyState, …
+- Forms & Inputs (80): AddressInput, AmountField, AvatarUpload, Calendar, CameraCapture, CaptionEditor, CascadeSelect, Checkbox, …
+- Foundations (25): Divider, ErrorBoundary, FitText, FocusTrap, Grid, HighlightMatch, Hotkeys, JustifiedText, …
+- Interaction (49): ApprovalChain, CallGrid, ChatThread, CollaborativeText, CommentAnchors, CommentThread, ConsentManager, DataFreshness, …
+- Layout (30): Accordion, AppShell, AspectRatio, BentoGrid, Card, CardDeck, Carousel, Collapse, …
+- Motion & Effects (53): AnimatedBeam, AnimatedGrid, AnimatedList, AnimatedNumber, AttentionShake, AuroraSurface, BlobMorph, BorderBeam, …
+- Navigation (33): AlphabetIndex, AnchorNav, ArticlePager, BackButton, BackToTop, Breadcrumb, CommandPalette, ContextMenu, …
+- Overlays (23): ActionSheet, AlertDialog, ChecklistPopover, CoachTour, ConfirmDialog, ConfirmPopover, Drawer, FeatureBeacon, …
+- SaaS (79): A11yInspector, AccessExplainer, AccessRequests, ApiKeyManager, AuthCard, BillingToggle, BrandingSettings, CancellationFlow, …
+
+## For agents
+
+An MCP server ships with the package — `npx -y klyvui mcp` — serving component
+search, props, source, blocks, tokens and the house rules. There is also an
+Agent Skill at `skills/klyv/SKILL.md` inside the package.
+
+## Optional
+
+- [Every component in detail](https://klyvui.xyz/llms-full.txt): each one's group, description and props
+- [Changelog](https://klyvui.xyz/changelog)
+- [Source](https://github.com/Klyv-UI/klyv)
