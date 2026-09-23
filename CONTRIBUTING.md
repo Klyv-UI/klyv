@@ -109,3 +109,23 @@ a useful dry run.
 Authentication is npm's trusted publishing, so there is no token in this
 repository, and every release carries provenance linking it to the commit and
 the workflow run it came from.
+
+## Error reporting
+
+The deployed docs site reports uncaught errors to Sentry. Nothing is reported
+unless a build is given `VITE_SENTRY_DSN`, so local runs, forks and PR builds
+report nothing and need no setup.
+
+`src/site/lib/report.ts` holds it. The SDK is a dynamic import, so it is a
+chunk of its own that only an actual error downloads — a visit that goes well
+never fetches it. Each page is wrapped in the library's own `ErrorBoundary`,
+which keeps a failing page from blanking the shell and clears itself on the
+next navigation.
+
+To try it against your own Sentry project, put the DSN in `.env.local` (git
+ignores it) and run a production build:
+
+```bash
+echo "VITE_SENTRY_DSN=<your dsn>" > .env.local
+npm run build && npm run preview
+```

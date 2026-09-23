@@ -6,7 +6,7 @@ import { ArrowRight, ArrowUp, ChevronRight, Heart, Menu as MenuIcon, Paintbrush,
 import { createStore, sessionStorageAdapter, useStoreValue } from '../lib/store'
 import { AccentMenu } from '../components/AccentMenu'
 import { PlatformLinks } from '../components/PlatformLinks'
-import { Drawer, FitText, IconButton, SearchField, Text, cn } from 'klyvui'
+import { Drawer, ErrorBoundary, FitText, IconButton, SearchField, Text, cn } from 'klyvui'
 import { AccentPicker } from '../components/AccentPicker'
 import { SearchTrigger, loadSearchPalette, useSearchPalette } from '../components/SearchTrigger'
 import { ThemeToggle } from '../components/ThemeToggle'
@@ -18,6 +18,7 @@ import { ShowpieceBadge } from '../components/ShowpieceBadge'
 import { groups } from '../data/groups'
 import { SITE_PAGES, SITE_SECTIONS, type SitePage } from '../data/pages'
 import { applyHead } from '../lib/head'
+import { report } from '../lib/report'
 import { rememberVisit } from '../lib/history'
 import { useSavedCount } from '../lib/saved'
 
@@ -95,13 +96,17 @@ export function SiteLayout() {
 
       {isLanding ? (
         <main id="main">
-          <Outlet />
+          <PageBoundary pathname={pathname}>
+            <Outlet />
+          </PageBoundary>
         </main>
       ) : fullBleed ? (
         <main id="main" tabIndex={-1} className="mx-auto w-full max-w-[1600px] px-3 py-4 sm:px-5 lg:px-6">
-          <Suspense fallback={<PageSkeleton />}>
-            <Outlet />
-          </Suspense>
+          <PageBoundary pathname={pathname}>
+            <Suspense fallback={<PageSkeleton />}>
+              <Outlet />
+            </Suspense>
+          </PageBoundary>
         </main>
       ) : (
         <div className="mx-auto flex w-full max-w-[1400px] px-5 lg:px-8">
@@ -115,9 +120,11 @@ export function SiteLayout() {
           </div>
 
           <main id="main" tabIndex={-1} className="min-w-0 flex-1 py-8 pb-24 lg:py-10 lg:pl-10">
-            <Suspense fallback={<PageSkeleton />}>
-              <Outlet />
-            </Suspense>
+            <PageBoundary pathname={pathname}>
+              <Suspense fallback={<PageSkeleton />}>
+                <Outlet />
+              </Suspense>
+            </PageBoundary>
           </main>
         </div>
       )}
@@ -134,6 +141,26 @@ export function SiteLayout() {
         </Suspense>
       )}
     </div>
+  )
+}
+
+/**
+ * One page's failure, kept to that page.
+ *
+ * Without this a component that throws unmounts the whole tree — the header,
+ * the sidebar and the way back out go with it, and the visitor is left with a
+ * blank document. The fallback keeps the shell, and `resetKeys` clears it on
+ * the next navigation, so leaving the broken page is enough.
+ */
+function PageBoundary({ pathname, children }: { pathname: string; children: ReactNode }) {
+  return (
+    <ErrorBoundary
+      resetKeys={[pathname]}
+      onError={(error, info) => report(error, { pathname, componentStack: info.componentStack })}
+      title="This page hit a problem"
+    >
+      {children}
+    </ErrorBoundary>
   )
 }
 

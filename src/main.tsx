@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { App } from './site/App'
+import { installReporting } from './site/lib/report'
 import { installThemePersistence } from './site/lib/theme'
 import { restoreMode, restoreTheme } from './theme'
 import './styles/index.css'
@@ -14,6 +15,9 @@ restoreMode()
 restoreTheme()
 // Links the theme's font and keeps the copy the boot script reads in step.
 installThemePersistence()
+// A throw outside React, and a promise nobody handled, both of which no error
+// boundary sees. Does nothing unless the build was given a DSN.
+installReporting()
 
 const container = document.getElementById('root')
 if (!container) throw new Error('Root element #root not found')

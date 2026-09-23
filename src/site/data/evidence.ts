@@ -4377,6 +4377,7 @@ export const siteComponents: string[] = [
   "Divider",
   "Drawer",
   "EmptyState",
+  "ErrorBoundary",
   "ErrorBudget",
   "EventHorizon",
   "Field",
