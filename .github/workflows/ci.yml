@@ -182,6 +182,13 @@ jobs:
         id: build
         run: npm run build
 
+      # Real HTML for the pages a crawler or a link preview arrives at. The
+      # site still renders in the browser; this is what is served before it does.
+      - run: npx playwright install --with-deps chromium
+      - name: Prerender the top pages
+        id: prerender
+        run: npm run prerender
+
       - name: Deploy
         id: deploy
         uses: cloudflare/wrangler-action@v4
@@ -198,4 +205,5 @@ jobs:
           SITE_URL: ${{ steps.deploy.outcome == 'success' && 'https://klyvui.xyz' || '' }}
           OUTCOMES: |
             Build the site=${{ steps.build.outcome }}
+            Prerender the top pages=${{ steps.prerender.outcome }}
             Deploy to Cloudflare=${{ steps.deploy.outcome }}

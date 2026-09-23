@@ -90,7 +90,8 @@
     "test:platform": "vitest run test/platform --reporter=dot",
     "test": "npm run check:preset && npm run test:interaction && npm run test:platform && npm run test:a11y && npm run test:mcp",
     "test:browser": "playwright test",
-    "test:browser:update": "playwright test --update-snapshots"
+    "test:browser:update": "playwright test --update-snapshots",
+    "prerender": "node scripts/prerender.mjs"
   },
   "peerDependencies": {
     "react": "^18.3.0 || ^19.0.0",
