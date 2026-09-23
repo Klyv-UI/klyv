@@ -20,14 +20,13 @@ export const brand = {
    */
   pitch: `${componentCountRounded} components that take their entire personality from a single colour. Pick a hue and the whole set repaints — buttons, charts, focus rings, the page behind them.`,
   /**
-   * Where the project lives elsewhere. PLACEHOLDERS — none of these accounts
-   * exist yet. Replace each href here when they do; the header and footer
-   * both read this list, so nothing else needs to change.
+   * Where the project lives elsewhere. The header and footer both read this
+   * list, so adding a place is one entry here — with an icon for its id in
+   * components/PlatformLinks. Only accounts that exist belong in it: a link
+   * to somewhere that is not there yet is worse than no link at all.
    */
   links: [
     { id: 'github', label: 'GitHub', href: 'https://github.com/Klyv-UI/klyv' },
     { id: 'npm', label: 'npm', href: 'https://www.npmjs.com/package/klyvui' },
-    { id: 'discord', label: 'Discord', href: 'https://discord.gg/your-invite' },
-    { id: 'x', label: 'X', href: 'https://x.com/your-handle' },
   ],
 } as const
