@@ -200,6 +200,16 @@ jobs:
         id: prerender
         run: npm run prerender
 
+      # Sentry already has the maps, and its own delete-after-upload silently
+      # matched nothing the first time — which put 4,654 of them, 4 MB each at
+      # the largest, on the CDN. Deleting them here is a step whose count is
+      # in the log, so the next silent miss is visible rather than shipped.
+      - name: Drop the source maps before shipping
+        run: |
+          maps=$(find dist-site -name '*.map' | wc -l)
+          find dist-site -name '*.map' -delete
+          echo "deleted $maps source maps; $(find dist-site -name '*.map' | wc -l) left"
+
       - name: Deploy
         id: deploy
         uses: cloudflare/wrangler-action@v4

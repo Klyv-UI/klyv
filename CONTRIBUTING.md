@@ -136,9 +136,14 @@ Found a security problem? Do not open an issue — see [SECURITY.md](SECURITY.md
 
 The deploy uploads the site's source maps to Sentry and deletes them again, so
 a stack trace names a file and a function rather than `index-Bk-PA1rn.js:14`.
-It needs `SENTRY_AUTH_TOKEN` (a repository secret) with `SENTRY_ORG`,
-`SENTRY_PROJECT` and `SENTRY_URL` (repository variables — the org is in the EU
-region, so the URL is `https://de.sentry.io`).
+It needs `SENTRY_AUTH_TOKEN` (a repository secret) with `SENTRY_ORG` and
+`SENTRY_PROJECT` (repository variables). The region comes from the token
+itself, so `SENTRY_URL` is only for a token that needs telling.
 
 With any of them missing the build makes no source maps at all and uploads
 nothing, which is every local build, every fork and every pull request.
+
+The deploy deletes the maps after the upload, in a step of its own that prints
+how many it removed. Sentry's own delete-after-upload runs first; it matched
+nothing the first time and shipped 4,654 maps to the CDN, which is why the
+count is now something the log states rather than something to assume.

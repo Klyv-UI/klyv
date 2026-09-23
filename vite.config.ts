@@ -31,15 +31,14 @@ export default defineConfig({
             authToken: sentryToken,
             org: process.env.SENTRY_ORG,
             project: process.env.SENTRY_PROJECT,
-            // The org is in the EU region, so the upload goes to de.sentry.io.
-            // Left to its default it would talk to the US host, where the org
-            // does not exist, and the build would fail for a reason that reads
-            // like a bad token.
+            // An auth token carries its own region, and the CLI uses that over
+            // anything set here — it said so, and ignored de.sentry.io. Left
+            // for a token that needs it; empty otherwise.
             url: process.env.SENTRY_URL,
             // The same release the site reports errors against (lib/report.ts),
             // so Sentry can pair a trace with the maps for that build.
             release: { name: process.env.VITE_RELEASE },
-            sourcemaps: { filesToDeleteAfterUpload: ['dist-site/**/*.map'] },
+            sourcemaps: { filesToDeleteAfterUpload: ['./dist-site/**/*.map'] },
             telemetry: false,
           }),
         ]
