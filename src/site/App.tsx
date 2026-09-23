@@ -1,11 +1,12 @@
 import { useEffect, type ComponentType } from 'react'
-import { Link, RouterProvider, createBrowserRouter, type RouteObject } from 'react-router-dom'
+import { Link, RouterProvider, createBrowserRouter, useLocation, type RouteObject } from 'react-router-dom'
 import { Surface, Text } from 'klyvui'
 import { BootScreen } from './components/BootScreen'
 import { SiteLayout, type RouteHandle } from './layouts/SiteLayout'
 import { findBlock } from './data/blocks'
 import { findComponent } from './data/catalog'
 import { preloadBlock } from './lib/blocks'
+import { markNotFound } from './lib/head'
 import { installPrefetch } from './lib/prefetch'
 
 /**
@@ -87,6 +88,9 @@ const router = createBrowserRouter([
 ])
 
 function NotFound() {
+  // Recorded in render, before the layout writes the head, so the page that a
+  // single-page app serves with a 200 is at least marked not to be indexed.
+  markNotFound(useLocation().pathname)
   return (
     <Surface variant="card" padding="lg" className="items-start gap-2">
       <Text size="subtitle">Nothing here</Text>
