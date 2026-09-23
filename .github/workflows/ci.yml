@@ -186,6 +186,12 @@ jobs:
           VITE_SENTRY_DSN: ${{ secrets.VITE_SENTRY_DSN }}
           # The commit this build came from, so an error names a diff.
           VITE_RELEASE: ${{ github.sha }}
+          # With all three, the build uploads source maps to Sentry and deletes
+          # them again, so a stack trace names a file rather than a bundle.
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ vars.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ vars.SENTRY_PROJECT }}
+          SENTRY_URL: ${{ vars.SENTRY_URL }}
 
       # Real HTML for the pages a crawler or a link preview arrives at. The
       # site still renders in the browser; this is what is served before it does.

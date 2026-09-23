@@ -131,3 +131,14 @@ npm run build && npm run preview
 ```
 
 Found a security problem? Do not open an issue — see [SECURITY.md](SECURITY.md).
+
+### Source maps
+
+The deploy uploads the site's source maps to Sentry and deletes them again, so
+a stack trace names a file and a function rather than `index-Bk-PA1rn.js:14`.
+It needs `SENTRY_AUTH_TOKEN` (a repository secret) with `SENTRY_ORG`,
+`SENTRY_PROJECT` and `SENTRY_URL` (repository variables — the org is in the EU
+region, so the URL is `https://de.sentry.io`).
+
+With any of them missing the build makes no source maps at all and uploads
+nothing, which is every local build, every fork and every pull request.
