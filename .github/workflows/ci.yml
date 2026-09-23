@@ -181,6 +181,11 @@ jobs:
       - name: Build the site
         id: build
         run: npm run build
+        env:
+          # Absent in a fork, which simply builds without error reporting.
+          VITE_SENTRY_DSN: ${{ secrets.VITE_SENTRY_DSN }}
+          # The commit this build came from, so an error names a diff.
+          VITE_RELEASE: ${{ github.sha }}
 
       # Real HTML for the pages a crawler or a link preview arrives at. The
       # site still renders in the browser; this is what is served before it does.
