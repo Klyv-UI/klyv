@@ -16,3 +16,8 @@ routes = [
 [assets]
 directory = "./dist-site"
 not_found_handling = "single-page-application"
+# The prerendered pages are written as <route>/index.html, and the default
+# handling answers /blocks with a 307 to /blocks/ — a redirect on every
+# prerendered page, at a URL the sitemap and the canonical link do not use.
+# Serve them at the path as written instead, and send /blocks/ to /blocks.
+html_handling = "drop-trailing-slash"
