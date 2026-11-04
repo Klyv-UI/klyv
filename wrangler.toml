@@ -1,23 +1,68 @@
-# Cloudflare Workers static assets: the docs site at klyvui.xyz.
-#
-# `npm run build` writes the site to dist-site/. Unknown paths fall back to
-# index.html, which is what the client-side router needs.
-#
-#   npm run build
-#   wrangler deploy
+# ============================================================
+# KlyvUI - Cloudflare Workers Static Assets
+# Website: https://klyvui.xyz
+# ============================================================
+
 name = "klyv"
 compatibility_date = "2026-09-21"
+
+# ============================================================
+# Custom Domains
+# ============================================================
 
 routes = [
   { pattern = "klyvui.xyz", custom_domain = true },
   { pattern = "www.klyvui.xyz", custom_domain = true },
 ]
 
+# ============================================================
+# Static Assets Configuration
+# ============================================================
+
 [assets]
 directory = "./dist-site"
+
+# Unknown paths fall back to index.html
 not_found_handling = "single-page-application"
-# The prerendered pages are written as <route>/index.html, and the default
-# handling answers /blocks with a 307 to /blocks/ — a redirect on every
-# prerendered page, at a URL the sitemap and the canonical link do not use.
-# Serve them at the path as written instead, and send /blocks/ to /blocks.
+
+# Avoid unnecessary trailing-slash redirects
 html_handling = "drop-trailing-slash"
+
+
+# ============================================================
+# Cloudflare Observability
+# ============================================================
+
+[observability]
+enabled = true
+
+# 100% sampling initially
+head_sampling_rate = 1
+
+
+# ============================================================
+# OpenTelemetry - Distributed Tracing
+# ============================================================
+
+[observability.traces]
+enabled = true
+
+# Must match the destination name in Cloudflare Dashboard
+destinations = ["grafana-traces"]
+
+# Capture 100% of traces initially
+head_sampling_rate = 1
+
+
+# ============================================================
+# OpenTelemetry - Logs
+# ============================================================
+
+[observability.logs]
+enabled = true
+
+# Must match the destination name in Cloudflare Dashboard
+destinations = ["grafana-logs"]
+
+# Capture 100% of logs initially
+head_sampling_rate = 1
